@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>主流AI风控机制探讨</title>
+  <meta name="description" content="三篇原创文章摘要，围绕 OpenAI、Claude 等主流 AI 平台的风控机制、账号安全、封禁链路和企业高可用治理展开技术探讨。">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="原创作者">
+  <link rel="canonical" href="https://ai.rdvcc.org/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="主流AI风控机制探讨">
+  <meta property="og:title" content="主流AI风控机制探讨">
+  <meta property="og:description" content="三篇原创文章摘要，围绕 OpenAI、Claude 等主流 AI 平台的风控机制、账号安全、封禁链路和企业高可用治理展开技术探讨。">
+  <meta property="og:url" content="https://ai.rdvcc.org/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="主流AI风控机制探讨">
+  <meta name="twitter:description" content="三篇原创文章摘要，围绕 OpenAI、Claude 等主流 AI 平台的风控机制、账号安全、封禁链路和企业高可用治理展开技术探讨。">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "主流AI风控机制探讨",
+  "inLanguage": "zh-CN",
+  "description": "三篇原创文章摘要，围绕 OpenAI、Claude 等主流 AI 平台的风控机制、账号安全、封禁链路和企业高可用治理展开技术探讨。",
+  "url": "https://ai.rdvcc.org/",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "OpenAI 风控阻断机制深度解析与企业级多租户合规高可用部署指南",
+        "url": "https://ai.rdvcc.org/articles/openai-risk.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Claude 账户安全机制解析与跨国团队合规高可用指南",
+        "url": "https://ai.rdvcc.org/articles/claude-account-safety.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claude 账户封禁机制底层逻辑深度剖析与全链路防封控实操指南",
+        "url": "https://ai.rdvcc.org/articles/claude-ban-mechanism.html"
+      }
+    ]
+  }
+}</script>
+</head>
+<body>
+  <div class="site" id="top">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="主流AI风控机制探讨首页">
+        <span>主流AI风控机制探讨</span>
+        <small>原创技术探讨</small>
+      </a>
+      <nav class="nav" aria-label="文章导航">
+        <a class="active" href="/">摘要首页</a>
+          <a href="/articles/openai-risk.html">OpenAI 风控阻断机制深度解析与企业级多租户合规高可用部署指南</a>
+          <a href="/articles/claude-account-safety.html">Claude 账户安全机制解析与跨国团队合规高可用指南</a>
+          <a href="/articles/claude-ban-mechanism.html">Claude 账户封禁机制底层逻辑深度剖析与全链路防封控实操指南</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <section class="hero">
+        <p class="kicker">摘要首页</p>
+        <h1>主流AI风控机制探讨</h1>
+        <p class="lede">本页对三篇原创技术讨论文章做摘要提炼，详情页保留对应原文内容。</p>
+      </section>
+
+      <section class="summary-grid" aria-label="文章摘要">
+      <article class="summary-card" id="openai-risk">
+        <h2>OpenAI 风控阻断机制深度解析与企业级多租户合规高可用部署指南</h2>
+        <p>本文围绕 OpenAI 账号与 API 的边界安全、应用层遥测、动态信誉评分和企业侧高可用架构展开。核心讨论包括边缘流量清洗、TLS/HTTP 指纹、Arkose 类人机验证、支付风控、内容安全、速率限制、429 重试行为，以及企业在网络、账单、API 网关和内容预检层面的治理思路。</p>
+        <ul>
+          <li>从边缘网络、浏览器环境、支付结算、内容合规和 API 调用模式五个维度组织风险链路。</li>
+          <li>重点分析误伤场景，例如注册订阅阶段阻断、运行期高并发导致账户影子降级等。</li>
+          <li>提出企业级前置网关、令牌桶限流、指数退避、预审计和网络一致性治理等工程化方向。</li>
+        </ul>
+        <div class="card-actions">
+          <a class="read-link" href="/articles/openai-risk.html">阅读详情</a>
+        </div>
+      </article>
+
+      <article class="summary-card" id="claude-safety">
+        <h2>Claude 账户安全机制解析与跨国团队合规高可用指南</h2>
+        <p>本文以 Anthropic / Claude 的账户安全和企业合规访问为主题，讨论从 Cloudflare WAF、应用层环境审计、Stripe Radar 到动态 Trust Score 的多层数据流。文章重点拆解网络拓扑、DNS 泄漏、WebRTC、设备指纹、支付地址验证、会话异常等因素如何叠加形成账号风险。</p>
+        <ul>
+          <li>用“边缘清洗层、应用逻辑层、清结算层”的结构梳理 Claude 风控数据流。</li>
+          <li>集中讨论跨国团队常见误伤来源，包括数据中心 IP、地理错位、VCC、设备指纹突变和 Session 异常。</li>
+          <li>给出面向企业稳定使用的网络出口、客户端环境、账单资产和支付环境一致性治理建议。</li>
+        </ul>
+        <div class="card-actions">
+          <a class="read-link" href="/articles/claude-account-safety.html">阅读详情</a>
+        </div>
+      </article>
+
+      <article class="summary-card" id="claude-ban">
+        <h2>Claude 账户封禁机制底层逻辑深度剖析与全链路防封控实操指南</h2>
+        <p>本文更聚焦 Claude 账号封禁链路，围绕静态环境指纹、动态行为审计、外部支付与身份风控、注册/KYC、交互内容和流量模式等维度展开。文章通过即时封禁与滞后封禁两类路径，推演账号从低信誉评分到被限制或停用的过程。</p>
+        <ul>
+          <li>拆解静态环境指纹、Canvas/WebGL、时区语言一致性、TLS 指纹和行为时序等识别维度。</li>
+          <li>总结网络基础设施、注册验证、支付结算、内容安全和反向 API 滥用等封禁原因矩阵。</li>
+          <li>以 Hard Ban 与 Shadow Ban 两条时间线展示风险累积和同步/异步阻断的差异。</li>
+        </ul>
+        <div class="card-actions">
+          <a class="read-link" href="/articles/claude-ban-mechanism.html">阅读详情</a>
+        </div>
+      </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

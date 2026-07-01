@@ -1,0 +1,235 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1b18;
+  --muted: #706b62;
+  --soft: #f6f3ed;
+  --paper: #fbfaf7;
+  --panel: #ffffff;
+  --line: #ded8cd;
+  --accent: #1f5f5b;
+  --accent-2: #8d5132;
+  --accent-soft: #e4f0ed;
+  --shadow: 0 18px 50px rgba(42, 35, 25, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.72;
+}
+a { color: inherit; }
+.site {
+  display: grid;
+  grid-template-columns: 304px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 28px 22px;
+  border-right: 1px solid var(--line);
+  background: rgba(251, 250, 247, 0.95);
+  backdrop-filter: blur(18px);
+  overflow-y: auto;
+}
+.brand {
+  display: block;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.brand span {
+  display: block;
+  font-size: 23px;
+  font-weight: 760;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.brand small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+}
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.nav a:hover,
+.nav a:focus,
+.nav a.active {
+  border-color: #bdd3ce;
+  background: var(--accent-soft);
+  outline: none;
+}
+.main {
+  min-width: 0;
+  padding: 42px min(5vw, 72px) 78px;
+}
+.hero,
+.article-shell {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.kicker {
+  margin: 0 0 10px;
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 700;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 56px);
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+.lede {
+  max-width: 780px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+.summary-grid {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin: 34px auto 0;
+}
+.summary-card {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.summary-card h2 {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+.summary-card p {
+  margin: 0;
+  color: #34302a;
+}
+.summary-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #34302a;
+}
+.summary-card li + li { margin-top: 6px; }
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 4px;
+}
+.read-link {
+  flex: 0 0 auto;
+  padding: 8px 13px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.read-link:hover,
+.read-link:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+}
+.article-head {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.article-head h1 {
+  max-width: 940px;
+  font-size: clamp(27px, 3.4vw, 44px);
+}
+.article-body {
+  margin: 26px 0 0;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  color: #24211c;
+  font: 16px/1.88 "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  letter-spacing: 0;
+}
+.article-body a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.article-body a:hover,
+.article-body a:focus {
+  color: var(--accent-2);
+  outline: none;
+}
+.back-row {
+  margin-top: 24px;
+}
+.back-row a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+@media (max-width: 880px) {
+  .site { display: block; }
+  .sidebar {
+    position: relative;
+    height: auto;
+    padding: 20px 18px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { padding-bottom: 16px; }
+  .nav { margin-top: 16px; }
+  .main { padding: 28px 14px 46px; }
+  .summary-card { padding: 20px 18px; }
+  .summary-card h2 { font-size: 20px; }
+  .card-actions {
+    display: grid;
+    justify-content: stretch;
+  }
+  .read-link { text-align: center; }
+  .article-body {
+    padding: 20px 18px 26px;
+    font-size: 15px;
+    line-height: 1.84;
+  }
+}
+
+.article-summary {
+  max-width: 820px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+}
