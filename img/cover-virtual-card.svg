@@ -1,0 +1,11 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="用虚拟信用卡开通海外 AI 订阅封面图">
+  <rect width="800" height="400" fill="#e6f1fb"/>
+  <circle cx="700" cy="80" r="150" fill="#185fa5" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#185fa5" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#185fa5" stroke-width="4"/>
+  <rect x="84" y="98" width="56" height="40" rx="7" fill="none" stroke="#185fa5" stroke-width="4" stroke-dasharray="8 6"/>
+  <rect x="92" y="108" width="16" height="12" rx="3" fill="#185fa5"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#0c3a63">虚拟卡</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#2f6ea5">VIRTUAL CARD · VCC</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#185fa5" opacity="0.72">海外AI订阅指南</text>
+</svg>
