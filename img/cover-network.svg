@@ -1,0 +1,12 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海外 AI 订阅网络环境自查指南封面图">
+  <rect width="800" height="400" fill="#faeeda"/>
+  <circle cx="700" cy="80" r="150" fill="#854f0b" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#854f0b" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#854f0b" stroke-width="4"/>
+  <path d="M92 128 a34 34 0 0 1 48 0" fill="none" stroke="#854f0b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M102 138 a20 20 0 0 1 28 0" fill="none" stroke="#854f0b" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="116" cy="148" r="5" fill="#854f0b"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#412402">网络环境</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#7a5410">NETWORK &amp; REGION CHECK</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#854f0b" opacity="0.72">海外AI订阅指南</text>
+</svg>
