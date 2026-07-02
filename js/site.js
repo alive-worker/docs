@@ -70,7 +70,7 @@
         if (i >= SIDEBAR_LIMIT && !a.classList.contains('active')) a.style.display = 'none';
       });
       var aside = nav.closest('.sidebar');
-      var heading = aside && aside.querySelector('h2');
+      var heading = aside && aside.querySelector('h2 .sidebar-heading-text');
       if (heading) heading.textContent = '近期文章';
       if (!onArchive) {
         var more = document.createElement('a');
