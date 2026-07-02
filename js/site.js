@@ -83,9 +83,9 @@
   }
 
   var pager = document.querySelector('.pager');
-  // --- Home: paginate the article cards (3 / page) ---
+  // --- Home: paginate the article cards (5 / page) ---
   var grid = document.querySelector('.summary-grid');
-  if (grid) paginate(grid, Array.prototype.slice.call(grid.querySelectorAll('.summary-card')), 3, pager);
+  if (grid) paginate(grid, Array.prototype.slice.call(grid.querySelectorAll('.summary-card')), 5, pager);
   // --- Archive page: paginate the titles list ---
   var archive = document.querySelector('.archive-list');
   if (archive) paginate(archive, Array.prototype.slice.call(archive.querySelectorAll('.archive-item')), 20, pager);

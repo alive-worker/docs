@@ -203,14 +203,24 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-item { border-top: 1px solid var(--line); }
 .archive-item:last-child { border-bottom: 1px solid var(--line); }
 .archive-item > a {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
-  padding: 15px 12px; text-decoration: none; color: var(--ink);
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 12px; text-decoration: none; color: var(--ink);
   transition: background-color .15s ease;
 }
 .archive-item > a:hover { background: var(--soft); }
-.archive-title { font-size: 15.5px; font-weight: 600; line-height: 1.5; }
+.archive-title { flex: 1 1 auto; min-width: 0; font-size: 15.5px; font-weight: 600; line-height: 1.5; }
 .archive-item > a:hover .archive-title { color: var(--accent); }
 .archive-date { flex: none; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.archive-tag {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 46px; padding: 4px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; white-space: nowrap;
+}
+.archive-tag--purple { background: #eeedfe; color: #3c3489; }
+.archive-tag--blue   { background: #e6f1fb; color: #0c447c; }
+.archive-tag--green  { background: #eaf3de; color: #27500a; }
+.archive-tag--coral  { background: #faece7; color: #712b13; }
+.archive-tag--teal   { background: #e4f0ed; color: #0f6e56; }
 
 /* --- home hero --- */
 .hero { padding: 54px 0 6px; }
@@ -325,8 +335,10 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .post-desc { -webkit-line-clamp: 2; }
   .summary-card { padding: 22px 20px; border-radius: 12px; }
   .summary-card h2 { font-size: 20px; }
-  .archive-item > a { padding: 13px 6px; gap: 10px; }
-  .archive-title { font-size: 15px; }
+  .archive-item > a { flex-wrap: wrap; padding: 13px 6px; gap: 6px 10px; }
+  .archive-title { order: 1; flex-basis: 100%; font-size: 15px; }
+  .archive-tag { order: 0; }
+  .archive-date { order: 2; }
   .article-body { font-size: 16px; line-height: 1.85; }
   .article-body h2 { font-size: 21px; }
   .article-body h3 { font-size: 18px; }
