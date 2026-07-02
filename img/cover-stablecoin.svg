@@ -1,0 +1,12 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="用稳定币支付海外 AI 订阅封面图">
+  <rect width="800" height="400" fill="#eeedfe"/>
+  <circle cx="700" cy="80" r="150" fill="#534ab7" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#534ab7" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#534ab7" stroke-width="4"/>
+  <circle cx="103" cy="118" r="18" fill="#eeedfe" stroke="#534ab7" stroke-width="4"/>
+  <circle cx="129" cy="118" r="18" fill="#ffffff" stroke="#534ab7" stroke-width="4"/>
+  <line x1="129" y1="108" x2="129" y2="128" stroke="#534ab7" stroke-width="4" stroke-linecap="round"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#26215c">稳定币</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#3c3489">STABLECOIN · CROSS-CHAIN</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#534ab7" opacity="0.72">海外AI订阅指南</text>
+</svg>
