@@ -59,7 +59,9 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px 24px; flex-wrap: wrap;
 }
-.brand { display: inline-flex; align-items: baseline; gap: 10px; padding: 12px 0; text-decoration: none; color: var(--ink); }
+.brand { display: inline-flex; align-items: center; gap: 10px; padding: 12px 0; text-decoration: none; color: var(--ink); }
+.brand-logo { flex: none; width: 34px; height: 34px; border-radius: 9px; display: block; }
+.brand-text { display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .brand-name { font-size: 19px; font-weight: 760; letter-spacing: .01em; }
 .brand-tag { font-size: 12.5px; color: var(--muted); font-weight: 500; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 2px; }
@@ -323,6 +325,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 @media (max-width: 720px) {
   .header-inner { padding: 6px 16px; min-height: 0; gap: 4px 16px; }
   .brand { padding: 6px 0; }
+  .brand-logo { width: 28px; height: 28px; border-radius: 7px; }
   .site-nav a { padding: 7px 10px; font-size: 14px; }
   .layout { padding: 0 16px; }
   .site-foot { padding-left: 16px; padding-right: 16px; }
