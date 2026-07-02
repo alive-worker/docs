@@ -230,6 +230,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--coral  { background: #faece7; color: #712b13; }
 .archive-tag--teal   { background: #e4f0ed; color: #0f6e56; }
 .archive-tag--amber  { background: #faeeda; color: #633806; }
+.archive-tag--red    { background: #fcebeb; color: #791f1f; }
 
 /* --- home hero --- */
 .hero { padding: 54px 0 6px; }
