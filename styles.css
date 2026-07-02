@@ -99,16 +99,29 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   margin: 0 0 14px; font-size: 12px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
 }
-.sidebar-nav { display: grid; gap: 3px; }
-.sidebar-nav a {
-  display: block; padding: 10px 12px; border-radius: 8px;
-  color: var(--muted-2); text-decoration: none;
-  font-size: 13.5px; line-height: 1.5;
-  transition: background-color .15s ease, color .15s ease;
+.sidebar-nav { display: flex; flex-direction: column; gap: 2px; }
+.side-item {
+  display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 11px; align-items: center;
+  padding: 9px 10px; border-radius: 9px;
+  color: inherit; text-decoration: none;
+  transition: background-color .15s ease;
 }
-.sidebar-nav a:hover { background: var(--accent-soft); color: var(--accent); }
-.sidebar-nav a.active, .sidebar-nav a[aria-current="page"] {
-  background: var(--accent-soft); color: var(--accent); font-weight: 700;
+.side-item:hover { background: var(--accent-soft); }
+.side-item.active, .side-item[aria-current="page"] { background: var(--accent-soft); }
+.side-thumb {
+  width: 46px; height: 46px; border-radius: 8px; display: block;
+  object-fit: cover; object-position: 16% 28%;
+  border: 1px solid var(--line); background: var(--soft);
+}
+.side-body { min-width: 0; }
+.side-title {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  font-size: 13px; line-height: 1.4; font-weight: 600; color: var(--muted-2);
+}
+.side-item:hover .side-title, .side-item.active .side-title, .side-item[aria-current="page"] .side-title { color: var(--accent); }
+.side-desc {
+  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+  margin-top: 2px; font-size: 12px; line-height: 1.4; color: var(--muted);
 }
 
 /* --- cover images --- */
@@ -262,7 +275,9 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
     border-top: 1px solid var(--line);
   }
   .sidebar h2 { font-size: 12.5px; }
-  .sidebar-nav a { padding: 12px 12px; font-size: 14.5px; }
+  .side-item { padding: 11px 10px; }
+  .side-title { font-size: 14px; }
+  .side-desc { font-size: 12.5px; }
 }
 @media (max-width: 720px) {
   .header-inner { padding: 6px 16px; min-height: 0; gap: 4px 16px; }
