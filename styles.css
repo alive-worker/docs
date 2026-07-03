@@ -379,12 +379,12 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 /* --- responsive --- */
 @media (max-width: 880px) {
   .layout { grid-template-columns: 1fr; gap: 0; }
-  .main { order: 1; }
+  .main { order: 2; }
   .sidebar {
-    order: 2;
+    order: 1;
     position: static; height: auto; max-height: none; overflow-y: visible;
-    margin-top: 40px; padding: 26px 0 4px;
-    border-top: 1px solid var(--line);
+    margin-top: 0; padding: 20px 0 4px;
+    border-top: none; border-bottom: 1px solid var(--line);
   }
   /* On mobile the sidebar is a normal block in the page's single scroll — a nested
      scroll region + sticky heading here just traps the heading mid-list as the page scrolls. */
@@ -393,11 +393,6 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .side-title { font-size: 14px; }
   .side-desc { font-size: 12.5px; }
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  /* While searching, pull the results list above the main content so results sit right under the search box. */
-  body.is-searching .sidebar {
-    order: 0; margin-top: 0; padding-top: 20px;
-    border-top: none; border-bottom: 1px solid var(--line);
-  }
 }
 @media (max-width: 720px) {
   .header-inner { padding: 6px 16px; min-height: 0; gap: 4px 16px; }

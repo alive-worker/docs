@@ -70,7 +70,14 @@
   };
 
   // --- Sidebar: add date labels, keep the recent N, link the rest to the archive page ---
-  var SIDEBAR_LIMIT = 10;
+  // Mobile shows the list right under the search box, so a shorter teaser (3) reads better
+  // than the desktop panel's 10 — the rest is always one tap away via "查看全部文章".
+  var SIDEBAR_LIMIT_DESKTOP = 10;
+  var SIDEBAR_LIMIT_MOBILE = 3;
+  var mobileMedia = window.matchMedia('(max-width: 880px)');
+  function currentSidebarLimit() {
+    return mobileMedia.matches ? SIDEBAR_LIMIT_MOBILE : SIDEBAR_LIMIT_DESKTOP;
+  }
   var onArchive = location.pathname === '/articles.html';
   var nav = document.querySelector('.sidebar-nav');
   var sidebarItems = [];
@@ -104,13 +111,15 @@
 
     var aside = nav.closest('.sidebar');
     sidebarHeading = aside && aside.querySelector('h2 .sidebar-heading-text');
-    sidebarCollapsed = sidebarItems.length > SIDEBAR_LIMIT;
 
     // Restores the default (non-search) sidebar state: recent N items + "view all" link if collapsed.
+    // Re-evaluates the limit each call so resizing across the mobile breakpoint updates it live.
     function showDefaultSidebar() {
+      var limit = currentSidebarLimit();
+      sidebarCollapsed = sidebarItems.length > limit;
       if (sidebarCollapsed) {
         sidebarItems.forEach(function (a, i) {
-          a.style.display = (i >= SIDEBAR_LIMIT && !a.classList.contains('active')) ? 'none' : '';
+          a.style.display = (i >= limit && !a.classList.contains('active')) ? 'none' : '';
         });
         if (sidebarHeading) sidebarHeading.textContent = '近期文章';
         if (!onArchive) {
@@ -126,9 +135,15 @@
       } else {
         sidebarItems.forEach(function (a) { a.style.display = ''; });
         if (sidebarHeading) sidebarHeading.textContent = '最新文章';
+        if (sidebarMoreLink) sidebarMoreLink.style.display = 'none';
       }
     }
     showDefaultSidebar();
+    mobileMedia.addEventListener('change', function () {
+      // Don't clobber an in-progress search — it'll pick up the new limit next time it's cleared.
+      var searchInput = document.querySelector('.sidebar-search-input');
+      if (!searchInput || !searchInput.value.trim()) showDefaultSidebar();
+    });
 
     // --- Sidebar search: filters the visible article list in place (reads titles/descriptions already in the DOM) ---
     var searchInput = document.querySelector('.sidebar-search-input');
@@ -144,7 +159,6 @@
       var applySearch = function () {
         var q = searchInput.value.trim().toLowerCase();
         searchWrap.classList.toggle('has-value', !!q);
-        document.body.classList.toggle('is-searching', !!q);
         if (!q) {
           showDefaultSidebar();
           emptyMsg.hidden = true;
