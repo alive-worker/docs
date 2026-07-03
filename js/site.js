@@ -65,12 +65,22 @@
     sidebarItems.forEach(function (a) {
       var d = DATES[a.getAttribute('href')];
       var body = a.querySelector('.side-body');
-      if (d && body && !body.querySelector('.side-date')) {
+      var descEl = a.querySelector('.side-desc');
+      if (d && body && descEl && !body.querySelector('.side-date')) {
+        // Wrap the description so the date badge sits beside it on the same row instead of its own line.
+        // The line-clamp box goes in its own flex child (descWrap) because -webkit-box ignores flex-shrink directly.
+        var metaWrap = document.createElement('span');
+        metaWrap.className = 'side-meta';
+        var descWrap = document.createElement('span');
+        descWrap.className = 'side-desc-wrap';
+        descEl.parentNode.insertBefore(metaWrap, descEl);
+        descWrap.appendChild(descEl);
+        metaWrap.appendChild(descWrap);
         var badge = document.createElement('span');
         badge.className = 'side-date';
         var iso = d.replace(' ', 'T') + '+08:00';
-        badge.innerHTML = '<svg class="side-cal" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span>发布于 <time datetime="' + iso + '">' + d + '</time></span>';
-        body.appendChild(badge);
+        badge.innerHTML = '<svg class="side-cal" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span class="sr-only">发布于 </span><time datetime="' + iso + '">' + d + '</time>';
+        metaWrap.appendChild(badge);
       }
     });
 
@@ -97,7 +107,7 @@
         }
       } else {
         sidebarItems.forEach(function (a) { a.style.display = ''; });
-        if (sidebarHeading) sidebarHeading.textContent = '全部文章';
+        if (sidebarHeading) sidebarHeading.textContent = '最新文章';
       }
     }
     showDefaultSidebar();
@@ -116,6 +126,7 @@
       var applySearch = function () {
         var q = searchInput.value.trim().toLowerCase();
         searchWrap.classList.toggle('has-value', !!q);
+        document.body.classList.toggle('is-searching', !!q);
         if (!q) {
           showDefaultSidebar();
           emptyMsg.hidden = true;
@@ -151,12 +162,60 @@
         }
       });
     }
+  } else {
+    // Archive page has no sidebar list — search filters the article list already shown in the main column instead.
+    var archiveList = document.querySelector('.archive-list');
+    var searchInput2 = document.querySelector('.sidebar-search-input');
+    var searchWrap2 = document.querySelector('.sidebar-search');
+    var searchClear2 = document.querySelector('.sidebar-search-clear');
+    if (archiveList && searchInput2 && searchWrap2) {
+      var archiveItems = Array.prototype.slice.call(archiveList.querySelectorAll('.archive-item'));
+      var emptyMsg2 = document.createElement('p');
+      emptyMsg2.className = 'sidebar-search-empty';
+      emptyMsg2.hidden = true;
+      emptyMsg2.textContent = '没有找到匹配的文章';
+      archiveList.parentNode.insertBefore(emptyMsg2, archiveList.nextSibling);
+
+      var applyArchiveSearch = function () {
+        var q = searchInput2.value.trim().toLowerCase();
+        searchWrap2.classList.toggle('has-value', !!q);
+        if (!q) {
+          archiveItems.forEach(function (li) { li.style.display = ''; });
+          emptyMsg2.hidden = true;
+          return;
+        }
+        var anyMatch = false;
+        archiveItems.forEach(function (li) {
+          var titleEl = li.querySelector('.archive-title');
+          var title = titleEl ? titleEl.textContent.toLowerCase() : '';
+          var match = title.indexOf(q) !== -1;
+          li.style.display = match ? '' : 'none';
+          if (match) anyMatch = true;
+        });
+        emptyMsg2.hidden = anyMatch;
+      };
+
+      searchInput2.addEventListener('input', applyArchiveSearch);
+      if (searchClear2) {
+        searchClear2.addEventListener('click', function () {
+          searchInput2.value = '';
+          applyArchiveSearch();
+          searchInput2.focus();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.activeElement === searchInput2 && searchInput2.value) {
+          searchInput2.value = '';
+          applyArchiveSearch();
+        }
+      });
+    }
   }
 
   var pager = document.querySelector('.pager');
-  // --- Home: paginate the article cards (5 / page) ---
-  var grid = document.querySelector('.summary-grid');
-  if (grid) paginate(grid, Array.prototype.slice.call(grid.querySelectorAll('.summary-card')), 5, pager);
+  // --- Home: paginate the article card grid (9 / page = 3 rows of 3) ---
+  var grid = document.querySelector('.card-grid');
+  if (grid) paginate(grid, Array.prototype.slice.call(grid.querySelectorAll('.post-card')), 9, pager);
   // --- Archive page: paginate the titles list ---
   var archive = document.querySelector('.archive-list');
   if (archive) paginate(archive, Array.prototype.slice.call(archive.querySelectorAll('.archive-item')), 20, pager);
