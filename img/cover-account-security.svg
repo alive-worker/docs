@@ -1,0 +1,11 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海外 AI 订阅账号安全指南封面图">
+  <rect width="800" height="400" fill="#fbeaf0"/>
+  <circle cx="700" cy="80" r="150" fill="#993556" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#993556" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#993556" stroke-width="4"/>
+  <path d="M112 92 l26 10 v22 c0 16 -11 26 -26 32 c-15 -6 -26 -16 -26 -32 v-22 z" fill="none" stroke="#993556" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M102 128 l7 7 l13 -15" fill="none" stroke="#993556" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#4b1528">账号安全</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#8a3f5c">ACCOUNT SECURITY</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#993556" opacity="0.72">海外AI订阅指南</text>
+</svg>

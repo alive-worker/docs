@@ -231,6 +231,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--teal   { background: #e4f0ed; color: #0f6e56; }
 .archive-tag--amber  { background: #faeeda; color: #633806; }
 .archive-tag--red    { background: #fcebeb; color: #791f1f; }
+.archive-tag--pink   { background: #fbeaf0; color: #72243e; }
 
 /* --- home hero --- */
 .hero { padding: 54px 0 6px; }
