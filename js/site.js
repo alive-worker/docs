@@ -1,6 +1,24 @@
 (function () {
   'use strict';
 
+  // Measure the real rendered height of header + search bar and publish it as a CSS var,
+  // so sticky offsets below never drift from a hardcoded guess (avoids a sub-pixel gap
+  // where scrolled content could peek through between the sticky layers).
+  function syncStickyOffset() {
+    var header = document.querySelector('.site-header');
+    var bar = document.querySelector('.search-bar');
+    if (!header) return;
+    var headerHeight = header.getBoundingClientRect().height;
+    var barHeight = bar ? bar.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--header-offset', Math.ceil(headerHeight) + 'px');
+    document.documentElement.style.setProperty('--sticky-offset', Math.ceil(headerHeight + barHeight) + 'px');
+  }
+  syncStickyOffset();
+  window.addEventListener('resize', syncStickyOffset);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncStickyOffset);
+  }
+
   // Reusable client-side paginator: shows `pageSize` items per page and builds controls in `pager`.
   function paginate(anchor, items, pageSize, pager) {
     if (!pager || items.length <= pageSize) return;
