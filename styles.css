@@ -233,6 +233,30 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--red    { background: #fcebeb; color: #791f1f; }
 .archive-tag--pink   { background: #fbeaf0; color: #72243e; }
 
+/* --- sidebar search (inline, always visible) --- */
+.sidebar-search { position: relative; margin: 0 0 16px; }
+.sidebar-search svg {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); pointer-events: none;
+}
+.sidebar-search-input {
+  width: 100%; padding: 9px 30px 9px 34px;
+  border: 1px solid var(--line); border-radius: 9px;
+  background: var(--panel); font-size: 13.5px; font-family: inherit; color: var(--ink);
+}
+.sidebar-search-input:focus {
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.sidebar-search-input::placeholder { color: var(--muted); }
+.sidebar-search-clear {
+  position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+  width: 24px; height: 24px; display: none; align-items: center; justify-content: center;
+  border: none; background: none; border-radius: 6px; color: var(--muted); cursor: pointer;
+}
+.sidebar-search-clear:hover { background: var(--soft); color: var(--ink); }
+.sidebar-search.has-value .sidebar-search-clear { display: inline-flex; }
+.sidebar-search-empty { margin: 4px 2px 0; padding: 0; font-size: 13px; color: var(--muted); }
+
 /* --- home hero --- */
 .hero { padding: 54px 0 6px; }
 .kicker {

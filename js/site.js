@@ -55,9 +55,14 @@
   var SIDEBAR_LIMIT = 10;
   var onArchive = location.pathname === '/articles.html';
   var nav = document.querySelector('.sidebar-nav');
+  var sidebarItems = [];
+  var sidebarHeading = null;
+  var sidebarMoreLink = null;
+  var sidebarCollapsed = false;
+
   if (nav) {
-    var items = Array.prototype.slice.call(nav.querySelectorAll('.side-item'));
-    items.forEach(function (a) {
+    sidebarItems = Array.prototype.slice.call(nav.querySelectorAll('.side-item'));
+    sidebarItems.forEach(function (a) {
       var d = DATES[a.getAttribute('href')];
       var body = a.querySelector('.side-body');
       if (d && body && !body.querySelector('.side-date')) {
@@ -68,20 +73,83 @@
         body.appendChild(badge);
       }
     });
-    if (items.length > SIDEBAR_LIMIT) {
-      items.forEach(function (a, i) {
-        if (i >= SIDEBAR_LIMIT && !a.classList.contains('active')) a.style.display = 'none';
-      });
-      var aside = nav.closest('.sidebar');
-      var heading = aside && aside.querySelector('h2 .sidebar-heading-text');
-      if (heading) heading.textContent = '近期文章';
-      if (!onArchive) {
-        var more = document.createElement('a');
-        more.className = 'side-more';
-        more.href = '/articles.html';
-        more.textContent = '查看全部文章 →';
-        nav.appendChild(more);
+
+    var aside = nav.closest('.sidebar');
+    sidebarHeading = aside && aside.querySelector('h2 .sidebar-heading-text');
+    sidebarCollapsed = sidebarItems.length > SIDEBAR_LIMIT;
+
+    // Restores the default (non-search) sidebar state: recent N items + "view all" link if collapsed.
+    function showDefaultSidebar() {
+      if (sidebarCollapsed) {
+        sidebarItems.forEach(function (a, i) {
+          a.style.display = (i >= SIDEBAR_LIMIT && !a.classList.contains('active')) ? 'none' : '';
+        });
+        if (sidebarHeading) sidebarHeading.textContent = '近期文章';
+        if (!onArchive) {
+          if (!sidebarMoreLink) {
+            sidebarMoreLink = document.createElement('a');
+            sidebarMoreLink.className = 'side-more';
+            sidebarMoreLink.href = '/articles.html';
+            sidebarMoreLink.textContent = '查看全部文章 →';
+            nav.appendChild(sidebarMoreLink);
+          }
+          sidebarMoreLink.style.display = '';
+        }
+      } else {
+        sidebarItems.forEach(function (a) { a.style.display = ''; });
+        if (sidebarHeading) sidebarHeading.textContent = '全部文章';
       }
+    }
+    showDefaultSidebar();
+
+    // --- Sidebar search: filters the visible article list in place (reads titles/descriptions already in the DOM) ---
+    var searchInput = document.querySelector('.sidebar-search-input');
+    var searchWrap = document.querySelector('.sidebar-search');
+    var searchClear = document.querySelector('.sidebar-search-clear');
+    if (searchInput && searchWrap) {
+      var emptyMsg = document.createElement('p');
+      emptyMsg.className = 'sidebar-search-empty';
+      emptyMsg.hidden = true;
+      emptyMsg.textContent = '没有找到匹配的文章';
+      nav.parentNode.insertBefore(emptyMsg, nav.nextSibling);
+
+      var applySearch = function () {
+        var q = searchInput.value.trim().toLowerCase();
+        searchWrap.classList.toggle('has-value', !!q);
+        if (!q) {
+          showDefaultSidebar();
+          emptyMsg.hidden = true;
+          return;
+        }
+        if (sidebarMoreLink) sidebarMoreLink.style.display = 'none';
+        var anyMatch = false;
+        sidebarItems.forEach(function (a) {
+          var titleEl = a.querySelector('.side-title');
+          var descEl = a.querySelector('.side-desc');
+          var title = titleEl ? titleEl.textContent.toLowerCase() : '';
+          var desc = descEl ? descEl.textContent.toLowerCase() : '';
+          var match = title.indexOf(q) !== -1 || desc.indexOf(q) !== -1;
+          a.style.display = match ? '' : 'none';
+          if (match) anyMatch = true;
+        });
+        emptyMsg.hidden = anyMatch;
+        if (sidebarHeading) sidebarHeading.textContent = '搜索结果';
+      };
+
+      searchInput.addEventListener('input', applySearch);
+      if (searchClear) {
+        searchClear.addEventListener('click', function () {
+          searchInput.value = '';
+          applySearch();
+          searchInput.focus();
+        });
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.activeElement === searchInput && searchInput.value) {
+          searchInput.value = '';
+          applySearch();
+        }
+      });
     }
   }
 
