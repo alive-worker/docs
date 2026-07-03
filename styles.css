@@ -382,11 +382,13 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .main { order: 1; }
   .sidebar {
     order: 2;
-    position: static; height: auto; max-height: 60vh; overflow-y: auto;
+    position: static; height: auto; max-height: none; overflow-y: visible;
     margin-top: 40px; padding: 26px 0 4px;
     border-top: 1px solid var(--line);
   }
-  .sidebar h2 { font-size: 12.5px; }
+  /* On mobile the sidebar is a normal block in the page's single scroll — a nested
+     scroll region + sticky heading here just traps the heading mid-list as the page scrolls. */
+  .sidebar h2 { position: static; font-size: 12.5px; }
   .side-item { padding: 11px 10px; }
   .side-title { font-size: 14px; }
   .side-desc { font-size: 12.5px; }
