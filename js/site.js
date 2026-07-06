@@ -7,12 +7,33 @@
   var STR = IS_EN ? {
     prev: 'Previous', next: 'Next',
     recentHeading: 'Recent Articles', allHeading: 'Latest Articles', searchHeading: 'Search Results',
-    viewAll: 'View all articles →', noMatch: 'No matching articles found', publishedOn: 'Published '
+    viewAll: 'View all articles →', noMatch: 'No matching articles found', publishedOn: 'Published ',
+    toDark: 'Switch to dark mode', toLight: 'Switch to light mode'
   } : {
     prev: '上一页', next: '下一页',
     recentHeading: '近期文章', allHeading: '最新文章', searchHeading: '搜索结果',
-    viewAll: '查看全部文章 →', noMatch: '没有找到匹配的文章', publishedOn: '发布于 '
+    viewAll: '查看全部文章 →', noMatch: '没有找到匹配的文章', publishedOn: '发布于 ',
+    toDark: '切换到深色模式', toLight: '切换到浅色模式'
   };
+
+  // --- Theme toggle: the <head> inline script already set data-theme before paint to
+  // avoid a flash of the wrong theme; this just wires up the button and persists choices. ---
+  var themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    var refreshThemeLabel = function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? STR.toLight : STR.toDark);
+    };
+    refreshThemeLabel();
+    themeToggle.addEventListener('click', function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) { document.documentElement.removeAttribute('data-theme'); }
+      else { document.documentElement.setAttribute('data-theme', 'dark'); }
+      try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
+      refreshThemeLabel();
+    });
+  }
 
   // Measure the real rendered height of header + search bar and publish it as a CSS var,
   // so sticky offsets below never drift from a hardcoded guess (avoids a sub-pixel gap
