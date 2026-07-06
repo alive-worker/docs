@@ -1,0 +1,13 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The real cost of paying for an AI subscription from abroad cover image">
+  <rect width="800" height="400" fill="#e1f3f5"/>
+  <circle cx="700" cy="80" r="150" fill="#0d5c66" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#0d5c66" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#0d5c66" stroke-width="4"/>
+  <path d="M92 100 a20 20 0 1 0 0.1 0" fill="none" stroke="#0d5c66" stroke-width="4"/>
+  <path d="M112 92 v16 M104 100 h16" stroke="#0d5c66" stroke-width="4" stroke-linecap="round"/>
+  <path d="M128 138 a20 20 0 1 0 0.1 0" fill="none" stroke="#0d5c66" stroke-width="4"/>
+  <path d="M128 130 l6 8 l10 -12" fill="none" stroke="#0d5c66" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="50" font-weight="700" fill="#082f36">FX &amp; Fees</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#146875">EXCHANGE RATE &amp; FEES</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#0d5c66" opacity="0.72">AI Access Guide</text>
+</svg>
