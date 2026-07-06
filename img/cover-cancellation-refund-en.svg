@@ -1,0 +1,12 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Canceling or getting a refund on an AI subscription cover image">
+  <rect width="800" height="400" fill="#e8ecfb"/>
+  <circle cx="700" cy="80" r="150" fill="#2a3789" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#2a3789" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#2a3789" stroke-width="4"/>
+  <path d="M88 100 h48 a8 8 0 0 1 8 8 v40 a8 8 0 0 1 -8 8 h-48 a8 8 0 0 1 -8 -8 v-40 a8 8 0 0 1 8 -8 z" fill="none" stroke="#2a3789" stroke-width="4"/>
+  <path d="M84 118 h64" stroke="#2a3789" stroke-width="4" stroke-linecap="round"/>
+  <path d="M104 140 l10 10 l18 -20" fill="none" stroke="#2a3789" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="56" font-weight="700" fill="#1c2557">Refunds</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#3d4a9e">CANCELLATION &amp; REFUNDS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#2a3789" opacity="0.72">AI Access Guide</text>
+</svg>

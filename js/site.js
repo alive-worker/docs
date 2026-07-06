@@ -72,6 +72,7 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-cancellation-refund.html': '2026-07-06 10:58:00',
     '/articles/overseas-ai-account-security.html': '2026-07-03 10:11:23',
     '/articles/overseas-ai-renewal-emergency.html': '2026-07-02 18:20:00',
     '/articles/overseas-ai-network-environment.html': '2026-07-02 15:45:00',
@@ -80,6 +81,7 @@
     '/articles/overseas-ai-subscription-team.html': '2026-07-01 17:33:12',
     '/articles/overseas-ai-payment-methods.html': '2026-07-01 16:25:22',
     '/articles/overseas-ai-subscription-guide.html': '2026-07-01 14:30:45',
+    '/en/articles/cancellation-refund-guide.html': '2026-07-06 10:58:00',
     '/en/articles/account-security-guide.html': '2026-07-03 10:11:23',
     '/en/articles/renewal-failure-guide.html': '2026-07-02 18:20:00',
     '/en/articles/network-region-check.html': '2026-07-02 15:45:00',
