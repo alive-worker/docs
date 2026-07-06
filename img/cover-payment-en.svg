@@ -1,0 +1,12 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription payment channels overview cover image">
+  <rect width="800" height="400" fill="#faece7"/>
+  <circle cx="700" cy="80" r="150" fill="#a3441f" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#a3441f" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#a3441f" stroke-width="4"/>
+  <rect x="84" y="100" width="56" height="38" rx="6" fill="none" stroke="#a3441f" stroke-width="5"/>
+  <rect x="84" y="108" width="56" height="9" fill="#a3441f"/>
+  <circle cx="140" cy="142" r="15" fill="#f0997b" stroke="#a3441f" stroke-width="4"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="56" font-weight="700" fill="#5a2a17">Payments</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#99502f">PAYMENT CHANNELS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#a3441f" opacity="0.72">AI Access Guide</text>
+</svg>

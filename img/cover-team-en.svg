@@ -1,0 +1,15 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Team and multi-account AI subscription management cover image">
+  <rect width="800" height="400" fill="#eaf3de"/>
+  <circle cx="700" cy="80" r="150" fill="#3b6d11" opacity="0.10"/>
+  <circle cx="772" cy="352" r="85" fill="#3b6d11" opacity="0.10"/>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#ffffff" stroke="#3b6d11" stroke-width="4"/>
+  <g fill="#3b6d11">
+    <circle cx="98" cy="106" r="10"/>
+    <circle cx="126" cy="106" r="10"/>
+    <path d="M82 140 a16 16 0 0 1 32 0 z"/>
+    <path d="M110 140 a16 16 0 0 1 32 0 z"/>
+  </g>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="62" font-weight="700" fill="#274d0c">Team</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#4a7a1e">TEAM &amp; BILLING</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#3b6d11" opacity="0.72">AI Access Guide</text>
+</svg>
