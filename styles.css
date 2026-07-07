@@ -460,8 +460,10 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .post-title { font-size: 15px; }
   .post-desc { -webkit-line-clamp: 2; }
   .card-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .archive-item > a { padding: 13px 6px; gap: 10px; }
+  .archive-item > a { display: block; padding: 13px 6px; }
   .archive-title { font-size: 15px; }
+  .archive-tag { margin-right: 8px; }
+  .archive-date { margin-left: 8px; }
   .article-body { font-size: 16px; line-height: 1.85; }
   .article-body h2 { font-size: 21px; }
   .article-body h3 { font-size: 18px; }
