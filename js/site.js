@@ -41,11 +41,28 @@
   function syncStickyOffset() {
     var header = document.querySelector('.site-header');
     var bar = document.querySelector('.search-bar');
+    var topics = document.querySelector('.hot-topics');
     if (!header) return;
     var headerHeight = header.getBoundingClientRect().height;
     var barHeight = bar ? bar.getBoundingClientRect().height : 0;
+    var topicsOffset = headerHeight + barHeight;
+    var topicsHeight = topics ? topics.getBoundingClientRect().height : 0;
     document.documentElement.style.setProperty('--header-offset', Math.ceil(headerHeight) + 'px');
-    document.documentElement.style.setProperty('--sticky-offset', Math.ceil(headerHeight + barHeight) + 'px');
+    document.documentElement.style.setProperty('--topics-offset', Math.ceil(topicsOffset) + 'px');
+    document.documentElement.style.setProperty('--sticky-offset', Math.ceil(topicsOffset + topicsHeight) + 'px');
+
+    // A sticky sidebar can only stay pinned while its containing block (.main, its grid
+    // sibling) still has room below it. When main's own content is shorter than the
+    // sidebar's, main runs out first and the sidebar starts sliding away well before the
+    // page actually ends. Padding main's bottom by the footer's height extends that
+    // containing block all the way to the page's true end, so the release (if any) only
+    // ever happens flush with the bottom of the page, not partway through it.
+    var main = document.querySelector('.main');
+    var footer = document.querySelector('.site-foot');
+    var sidebar = document.querySelector('.sidebar');
+    if (main && footer && sidebar) {
+      main.style.paddingBottom = Math.ceil(footer.getBoundingClientRect().height) + 'px';
+    }
   }
   syncStickyOffset();
   window.addEventListener('resize', syncStickyOffset);

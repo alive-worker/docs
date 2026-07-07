@@ -17,7 +17,8 @@
   --wrap: 760px;             /* reading column width */
   --wrap-wide: 1080px;       /* header width */
   --header-offset: 65px;     /* header height; refined by JS to the exact rendered value */
-  --sticky-offset: 132px;    /* header + search bar height; refined by JS to the exact rendered value */
+  --topics-offset: 132px;    /* header + search bar height; refined by JS to the exact rendered value */
+  --sticky-offset: 132px;    /* header + search bar (+ hot-topics, if present) height; refined by JS to the exact rendered value */
 }
 
 [data-theme="dark"] {
@@ -125,29 +126,35 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* --- left sidebar: all articles, newest first --- */
+/* The heading sits outside the scrolling area (a plain flex item) so it's always visible,
+   while only .sidebar-nav scrolls internally within the sticky box — this avoids the
+   heading getting dragged along with the list under a nested sticky-in-sticky setup. */
 .sidebar {
   align-self: start;
   position: sticky; top: var(--sticky-offset);
   max-height: calc(100vh - var(--sticky-offset));
-  overflow-y: auto;
+  display: flex; flex-direction: column;
   padding: 0 20px 24px 0;
-  border-right: 1px solid var(--line);
-  scrollbar-width: thin;
-  scrollbar-color: var(--line-strong) transparent;
   will-change: transform;
 }
-.sidebar::-webkit-scrollbar { width: 8px; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
 .sidebar h2 {
-  position: sticky; top: 0; z-index: 2;
+  flex: none;
   display: flex; align-items: center; gap: 6px;
   margin: 0 0 14px; padding: 16px 0 4px; background: var(--paper);
   font-size: 12px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
 }
 .sidebar-toggle-chevron { display: none; }
-.sidebar-nav { display: flex; flex-direction: column; gap: 2px; }
+.sidebar-nav {
+  display: flex; flex-direction: column; gap: 2px;
+  flex: 1 1 auto; min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.sidebar-nav::-webkit-scrollbar { width: 8px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
 .side-item {
   display: block;
   padding: 9px 10px; border-radius: 9px;
@@ -348,6 +355,19 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   gap: 26px;
   margin-top: 30px;
 }
+.hot-topics {
+  position: sticky; top: var(--topics-offset); z-index: 5;
+  background: var(--paper);
+  max-width: var(--wrap-wide);
+  margin: 0 auto;
+  padding: 18px 24px 24px;
+  text-align: center;
+}
+.hot-topics h2 { font-size: 16px; margin: 0 0 12px; color: var(--muted); }
+.hot-topics ul { margin: 0; padding: 0; list-style: none; }
+.hot-topics li { display: inline-block; margin: 0 9px 8px; }
+.hot-topics a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; }
+.hot-topics a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .post-card {
   display: flex; flex-direction: column;
   border: 1px solid var(--line); border-radius: 14px;
@@ -420,7 +440,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 .back-row a:hover { text-decoration: underline; }
 
 /* --- footer (full width, below layout) --- */
-.site-foot { max-width: var(--wrap-wide); margin: 60px auto 0; padding: 24px 24px 44px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.site-foot { max-width: var(--wrap-wide); margin: 60px auto 0; padding: 24px 24px 44px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); text-align: center; }
 .site-foot p { margin: 0 0 6px; }
 .site-foot a { color: var(--accent); text-decoration: none; }
 .site-foot a:hover { text-decoration: underline; }
@@ -431,13 +451,15 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .main { order: 2; }
   .sidebar {
     order: 1;
-    position: static; height: auto; max-height: none; overflow-y: visible;
+    position: static; height: auto; max-height: none;
+    display: block;
     margin-top: 0; padding: 20px 0 4px;
     border-top: none; border-right: none; border-bottom: 1px solid var(--line);
   }
   /* On mobile the sidebar is a normal block in the page's single scroll — a nested
      scroll region + sticky heading here just traps the heading mid-list as the page scrolls. */
   .sidebar h2 { position: static; font-size: 12.5px; cursor: pointer; }
+  .sidebar-nav { flex: none; min-height: auto; overflow-y: visible; }
   .sidebar-toggle-chevron { display: inline-flex; flex: none; margin-left: auto; transition: transform .15s ease; }
   .sidebar.is-collapsed .sidebar-toggle-chevron { transform: rotate(0deg); }
   .sidebar:not(.is-collapsed) .sidebar-toggle-chevron { transform: rotate(180deg); }
@@ -455,6 +477,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   .search-bar-inner { padding: 10px 16px; }
   .sidebar-search { max-width: none; }
   .layout { padding: 0 16px; }
+  .hot-topics { padding: 14px 16px 18px; }
   .site-foot { padding-left: 16px; padding-right: 16px; }
   .hero { padding: 34px 0 4px; }
   .lede { font-size: 16.5px; }
