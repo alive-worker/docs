@@ -91,6 +91,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ponr.org/articles/overseas-ai-cross-chain-recovery.html</loc>
+    <lastmod>2026-07-07T15:39:43+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ponr.org/articles/overseas-ai-virtual-card-troubleshooting.html</loc>
     <lastmod>2026-07-07T12:29:26+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -195,6 +201,12 @@
   <url>
     <loc>https://ponr.org/en/articles/family-plan-guide.html</loc>
     <lastmod>2026-07-07T11:26:04+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/cross-chain-recovery-guide.html</loc>
+    <lastmod>2026-07-07T15:39:43+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
