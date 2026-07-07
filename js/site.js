@@ -93,6 +93,7 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-fund-reserve.html': '2026-07-07 12:15:45',
     '/articles/overseas-ai-family-plan.html': '2026-07-07 11:26:04',
     '/articles/overseas-ai-invoice-reimbursement.html': '2026-07-07 10:30:00',
     '/articles/overseas-ai-student-discount.html': '2026-07-07 09:40:00',
@@ -106,6 +107,7 @@
     '/articles/overseas-ai-subscription-team.html': '2026-07-01 17:33:12',
     '/articles/overseas-ai-payment-methods.html': '2026-07-01 16:25:22',
     '/articles/overseas-ai-subscription-guide.html': '2026-07-01 14:30:45',
+    '/en/articles/fund-reserve-guide.html': '2026-07-07 12:15:45',
     '/en/articles/family-plan-guide.html': '2026-07-07 11:26:04',
     '/en/articles/invoice-reimbursement-guide.html': '2026-07-07 10:30:00',
     '/en/articles/student-discount-guide.html': '2026-07-07 09:40:00',

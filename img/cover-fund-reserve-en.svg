@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fund reserve and on-chain asset management guide for AI subscriptions cover image">
+  <defs>
+    <linearGradient id="bgGrad8" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#221c10"/>
+      <stop offset="1" stop-color="#332a15"/>
+    </linearGradient>
+    <radialGradient id="glow8" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e0b93f" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e0b93f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad8)"/>
+  <rect width="800" height="400" fill="url(#glow8)"/>
+  <g stroke="#7a6a35" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M760 60 h-70 v40 h-50 v60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+    <path d="M740 340 h-95 v-40 h-45"/>
+    <path d="M420 30 v35 h60 v40"/>
+  </g>
+  <g fill="#e6c667">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="760" cy="60" r="3.5"/>
+    <circle cx="690" cy="100" r="3.5"/>
+    <circle cx="640" cy="160" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+    <circle cx="740" cy="340" r="3.5"/>
+    <circle cx="645" cy="300" r="3.5"/>
+    <circle cx="420" cy="30" r="3.5"/>
+    <circle cx="480" cy="65" r="3.5"/>
+    <circle cx="480" cy="105" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#362c14" stroke="#e6c667" stroke-width="2.5"/>
+  <rect x="92" y="100" width="36" height="30" rx="4" fill="none" stroke="#f3e3ab" stroke-width="3"/>
+  <path d="M98 100 v-8 a14 14 0 0 1 28 0 v8" fill="none" stroke="#f3e3ab" stroke-width="3"/>
+  <circle cx="112" cy="115" r="4.5" fill="#e6c667"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="50" font-weight="700" fill="#f8f1da">Reserve</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#e6c667">FUND RESERVE &amp; ASSETS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#e6c667" opacity="0.85">AI Access Guide</text>
+</svg>
