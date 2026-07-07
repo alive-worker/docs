@@ -16,6 +16,8 @@
   --focus: #0b5c57;
   --wrap: 760px;             /* reading column width */
   --wrap-wide: 1080px;       /* header width */
+  --sidebar-track-width: 264px; /* fixed sidebar's width, and the space .main reserves for it */
+  --sidebar-gap: 44px;       /* gap between the fixed sidebar and .main */
   --header-offset: 65px;     /* header height; refined by JS to the exact rendered value */
   --topics-offset: 132px;    /* header + search bar height; refined by JS to the exact rendered value */
   --sticky-offset: 132px;    /* header + search bar (+ hot-topics, if present) height; refined by JS to the exact rendered value */
@@ -107,35 +109,43 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .site-nav a.active, .site-nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
 
 /* --- layout: left article sidebar + main --- */
+/* .sidebar is position:fixed (see below) and out of flow, so this is no longer a grid —
+   .main just reserves the 264px column + 44px gap the fixed sidebar occupies via margin-left. */
 .layout {
-  display: grid;
-  grid-template-columns: 264px minmax(0, 1fr);
-  gap: 44px;
   max-width: var(--wrap-wide);
   margin: 0 auto;
   padding: 0 24px;
 }
-.layout--single { grid-template-columns: minmax(0, 1fr); }
 .main { min-width: 0; padding-bottom: 8px; }
-.hero, .article-shell {
+.layout:not(.layout--single) .main { margin-left: calc(var(--sidebar-track-width) + var(--sidebar-gap)); }
+/* The hero/lede spans the full main column (matches the card-grid below it); the
+   article body itself stays narrower for readability on long-form text. */
+.hero { max-width: none; }
+.article-shell {
   max-width: var(--wrap); margin-left: auto; margin-right: auto;
 }
 /* Archive + about pages have no sidebar competing for space, so let their content use the full column width. */
-.layout--single .hero, .layout--single .article-shell, .layout--single .archive-list {
+.layout--single .article-shell, .layout--single .archive-list, .layout--single .article-summary {
   max-width: none;
 }
 
 /* --- left sidebar: all articles, newest first --- */
 /* The heading sits outside the scrolling area (a plain flex item) so it's always visible,
-   while only .sidebar-nav scrolls internally within the sticky box — this avoids the
-   heading getting dragged along with the list under a nested sticky-in-sticky setup. */
+   while only .sidebar-nav scrolls internally within the box.
+   Uses position:fixed (not sticky) so it never depends on how tall its grid sibling
+   (.main) happens to be — a sticky box shares its containing block with .main and can
+   run out of room and slide away before the page actually ends if main's content is
+   short; a fixed box is pinned to the viewport regardless of scroll position or which
+   column the scroll happens over. --sidebar-left is computed in site.js to match
+   where .layout's left edge (it's centered, so this shifts with viewport width). */
 .sidebar {
-  align-self: start;
-  position: sticky; top: var(--sticky-offset);
+  position: fixed;
+  top: var(--sticky-offset);
+  left: var(--sidebar-left, 24px);
+  width: var(--sidebar-track-width);
   max-height: calc(100vh - var(--sticky-offset));
   display: flex; flex-direction: column;
   padding: 0 20px 24px 0;
-  will-change: transform;
 }
 .sidebar h2 {
   flex: none;
@@ -346,7 +356,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .kicker-icon { flex: none; }
 .sidebar-heading-icon { flex: none; }
 h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spacing: -.01em; }
-.lede { max-width: 60ch; margin: 18px 0 0; color: var(--muted-2); font-size: 17.5px; }
+.lede { margin: 18px 0 0; color: var(--muted-2); font-size: 17.5px; }
 
 /* --- compact card grid: home page post list --- */
 .card-grid {
@@ -363,11 +373,11 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   padding: 18px 24px 24px;
   text-align: center;
 }
-.hot-topics h2 { font-size: 16px; margin: 0 0 12px; color: var(--muted); }
+.hot-topics h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; color: var(--muted); }
 .hot-topics ul { margin: 0; padding: 0; list-style: none; }
-.hot-topics li { display: inline-block; margin: 0 9px 8px; }
-.hot-topics a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; }
-.hot-topics a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.hot-topics li { display: inline-block; margin: 0 6px 8px; }
+.hot-topics a.archive-tag { text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+.hot-topics a.archive-tag:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
 .post-card {
   display: flex; flex-direction: column;
   border: 1px solid var(--line); border-radius: 14px;
@@ -447,11 +457,10 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 
 /* --- responsive --- */
 @media (max-width: 880px) {
-  .layout { grid-template-columns: 1fr; gap: 0; }
-  .main { order: 2; }
+  .layout:not(.layout--single) .main { margin-left: 0; }
   .sidebar {
-    order: 1;
     position: static; height: auto; max-height: none;
+    left: auto; width: auto;
     display: block;
     margin-top: 0; padding: 20px 0 4px;
     border-top: none; border-right: none; border-bottom: 1px solid var(--line);

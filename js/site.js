@@ -50,24 +50,31 @@
     document.documentElement.style.setProperty('--header-offset', Math.ceil(headerHeight) + 'px');
     document.documentElement.style.setProperty('--topics-offset', Math.ceil(topicsOffset) + 'px');
     document.documentElement.style.setProperty('--sticky-offset', Math.ceil(topicsOffset + topicsHeight) + 'px');
-
-    // A sticky sidebar can only stay pinned while its containing block (.main, its grid
-    // sibling) still has room below it. When main's own content is shorter than the
-    // sidebar's, main runs out first and the sidebar starts sliding away well before the
-    // page actually ends. Padding main's bottom by the footer's height extends that
-    // containing block all the way to the page's true end, so the release (if any) only
-    // ever happens flush with the bottom of the page, not partway through it.
-    var main = document.querySelector('.main');
-    var footer = document.querySelector('.site-foot');
-    var sidebar = document.querySelector('.sidebar');
-    if (main && footer && sidebar) {
-      main.style.paddingBottom = Math.ceil(footer.getBoundingClientRect().height) + 'px';
-    }
   }
   syncStickyOffset();
   window.addEventListener('resize', syncStickyOffset);
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(syncStickyOffset);
+  }
+
+  // The sidebar is position:fixed (viewport-pinned, immune to how tall its former grid
+  // sibling .main happens to be — a position:sticky sidebar shares .main's containing
+  // block and can run out of room and slide away before the page actually ends if main's
+  // content is short). Since .layout is centered and its left edge shifts with viewport
+  // width, the fixed sidebar's left offset has to be measured and reapplied by hand.
+  function syncSidebarPosition() {
+    var sidebar = document.querySelector('.sidebar');
+    var layout = document.querySelector('.layout');
+    if (!sidebar || !layout) return;
+    if (window.matchMedia('(max-width: 880px)').matches) return; // mobile resets position via CSS
+    var layoutRect = layout.getBoundingClientRect();
+    var layoutPaddingLeft = parseFloat(getComputedStyle(layout).paddingLeft) || 0;
+    document.documentElement.style.setProperty('--sidebar-left', Math.round(layoutRect.left + layoutPaddingLeft) + 'px');
+  }
+  syncSidebarPosition();
+  window.addEventListener('resize', syncSidebarPosition);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncSidebarPosition);
   }
 
   // Reusable client-side paginator: shows `pageSize` items per page and builds controls in `pager`.
