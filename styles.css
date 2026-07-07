@@ -276,6 +276,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--gold   { background: #f7f0dc; color: #7a5c00; }
 .archive-tag--maroon { background: #f7e4e6; color: #7c2230; }
 .archive-tag--violet { background: #f0e9fb; color: #4d2789; }
+.archive-tag--navy { background: #e4eaf6; color: #1c3563; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
