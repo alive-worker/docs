@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Family and shared plan guide for AI subscriptions cover image">
+  <defs>
+    <linearGradient id="bgGrad6" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#221a14"/>
+      <stop offset="1" stop-color="#33251a"/>
+    </linearGradient>
+    <radialGradient id="glow6" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d99a63" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#d99a63" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad6)"/>
+  <rect width="800" height="400" fill="url(#glow6)"/>
+  <g stroke="#7a5b3f" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M760 60 h-70 v40 h-50 v60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+    <path d="M740 340 h-95 v-40 h-45"/>
+    <path d="M420 30 v35 h60 v40"/>
+  </g>
+  <g fill="#e3b483">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="760" cy="60" r="3.5"/>
+    <circle cx="690" cy="100" r="3.5"/>
+    <circle cx="640" cy="160" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+    <circle cx="740" cy="340" r="3.5"/>
+    <circle cx="645" cy="300" r="3.5"/>
+    <circle cx="420" cy="30" r="3.5"/>
+    <circle cx="480" cy="65" r="3.5"/>
+    <circle cx="480" cy="105" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#3a2b1e" stroke="#e3b483" stroke-width="2.5"/>
+  <g fill="none" stroke="#f1d5b0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="100" cy="103" r="9"/>
+    <circle cx="126" cy="107" r="7"/>
+    <path d="M84 138 a16 16 0 0 1 32 0"/>
+    <path d="M118 140 a13 13 0 0 1 26 0"/>
+  </g>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="50" font-weight="700" fill="#f6ead9">Family</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#e3b483">FAMILY &amp; SHARED PLANS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#e3b483" opacity="0.85">AI Access Guide</text>
+</svg>
