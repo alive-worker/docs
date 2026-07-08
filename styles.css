@@ -450,6 +450,8 @@ body.is-searching .featured-article { display: none; }
 .featured-body .archive-tag { margin-right: 10px; vertical-align: middle; transform: translateY(-1px); }
 .featured-title { margin: 0; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.4; }
 .featured-desc { margin: 0 0 16px; color: var(--muted-2); font-size: 15.5px; line-height: 1.6; }
+.featured-meta { display: flex; align-items: center; gap: 14px; }
+.featured-meta time { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .featured-more { font-size: 14px; font-weight: 700; color: var(--accent); }
 
 .post-list { max-width: none; margin: 0 auto; }
