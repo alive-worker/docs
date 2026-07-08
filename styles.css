@@ -125,7 +125,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   max-width: var(--wrap); margin-left: auto; margin-right: auto;
 }
 /* Archive + about pages have no sidebar competing for space, so let their content use the full column width. */
-.layout--single .article-shell, .layout--single .archive-list, .layout--single .article-summary {
+.layout--single .article-shell, .layout--single .archive-list {
   max-width: none;
 }
 
@@ -501,7 +501,7 @@ body.is-searching .featured-article { display: none; }
 .article-shell { padding-top: 8px; }
 .article-head { padding: 10px 0 24px; border-bottom: 1px solid var(--line); }
 .article-head h1 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.22; }
-.article-summary { max-width: 62ch; margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
+.article-summary { margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
 .article-meta { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); }
 .article-meta time { color: var(--muted); }
 
