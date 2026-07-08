@@ -111,6 +111,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* .sidebar is position:fixed (see below) and out of flow, so this is no longer a grid —
    .main just reserves the 264px column + 44px gap the fixed sidebar occupies via margin-left. */
 .layout {
+  position: relative;
   max-width: var(--wrap-wide);
   margin: 0 auto;
   padding: 0 24px;
@@ -145,6 +146,17 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   max-height: calc(100vh - var(--sticky-offset));
   display: flex; flex-direction: column;
   padding: 0 20px 24px 0;
+}
+/* When the main column's content is shorter than the sidebar's own height, staying
+   position:fixed all the way down would draw the sidebar on top of the footer. Once
+   scrolling brings the bottom of .layout within the sidebar's height, site.js swaps it
+   to position:absolute pinned to .layout's own bottom edge — i.e. it stops exactly
+   where the footer begins instead of floating over it. */
+.sidebar.is-docked {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
 }
 .sidebar h2 {
   flex: none;
@@ -293,6 +305,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--maroon { background: #f7e4e6; color: #7c2230; }
 .archive-tag--violet { background: #f0e9fb; color: #4d2789; }
 .archive-tag--navy { background: #e4eaf6; color: #1c3563; }
+.archive-tag--lime { background: #eaf6dd; color: #3f6a19; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {

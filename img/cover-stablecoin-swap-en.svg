@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-chain stablecoin swap tool guide for AI subscriptions cover">
+  <defs>
+    <linearGradient id="bgGrad18e" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#122016"/>
+      <stop offset="1" stop-color="#1c3322"/>
+    </linearGradient>
+    <radialGradient id="glow18e" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8fd97a" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8fd97a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad18e)"/>
+  <rect width="800" height="400" fill="url(#glow18e)"/>
+  <g stroke="#3f6a4a" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M760 60 h-70 v40 h-50 v60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+    <path d="M740 340 h-95 v-40 h-45"/>
+    <path d="M420 30 v35 h60 v40"/>
+  </g>
+  <g fill="#bfe89f">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="760" cy="60" r="3.5"/>
+    <circle cx="690" cy="100" r="3.5"/>
+    <circle cx="640" cy="160" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+    <circle cx="740" cy="340" r="3.5"/>
+    <circle cx="645" cy="300" r="3.5"/>
+    <circle cx="420" cy="30" r="3.5"/>
+    <circle cx="480" cy="65" r="3.5"/>
+    <circle cx="480" cy="105" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#1f3826" stroke="#bfe89f" stroke-width="2.5"/>
+  <path d="M92 100 a20 20 0 0 1 34 -10 l0 -10 l12 14 l-12 14 l0 -10 a12 12 0 0 0 -20 6" fill="none" stroke="#eaf9e0" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 132 a20 20 0 0 1 -34 10 l0 10 l-12 -14 l12 -14 l0 10 a12 12 0 0 0 20 -6" fill="none" stroke="#bfe89f" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="248" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="44" font-weight="700" fill="#eefbe6">Swap Chains</text>
+  <text x="66" y="290" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#bfe89f">CHAIN SWAP TOOL GUIDE</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#bfe89f" opacity="0.85">AI Access Guide</text>
+</svg>

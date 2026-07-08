@@ -77,6 +77,31 @@
     document.fonts.ready.then(syncSidebarPosition);
   }
 
+  // Dock the fixed sidebar once the page's remaining content runs out, so it stops right
+  // above the footer instead of continuing to float over it (see .sidebar.is-docked in CSS).
+  function updateSidebarDock() {
+    var sidebar = document.querySelector('.sidebar');
+    var layout = document.querySelector('.layout');
+    if (!sidebar || !layout) return;
+    if (window.matchMedia('(max-width: 880px)').matches) { sidebar.classList.remove('is-docked'); return; }
+    var stickyOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sticky-offset')) || 0;
+    var layoutRect = layout.getBoundingClientRect();
+    var sidebarHeight = sidebar.getBoundingClientRect().height;
+    sidebar.classList.toggle('is-docked', layoutRect.bottom < stickyOffset + sidebarHeight);
+  }
+  var dockTicking = false;
+  function requestSidebarDockUpdate() {
+    if (dockTicking) return;
+    dockTicking = true;
+    requestAnimationFrame(function () { updateSidebarDock(); dockTicking = false; });
+  }
+  updateSidebarDock();
+  window.addEventListener('scroll', requestSidebarDockUpdate, { passive: true });
+  window.addEventListener('resize', updateSidebarDock);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateSidebarDock);
+  }
+
   // Reusable client-side paginator: shows `pageSize` items per page and builds controls in `pager`.
   function paginate(anchor, items, pageSize, pager) {
     if (!pager || items.length <= pageSize) return;
@@ -118,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-stablecoin-swap-tools.html': '2026-07-08 14:15:55',
+    '/en/articles/stablecoin-swap-tools-guide.html': '2026-07-08 14:15:55',
     '/articles/overseas-ai-tool-selection.html': '2026-07-07 16:00:49',
     '/en/articles/tool-selection-guide.html': '2026-07-07 16:00:49',
     '/articles/overseas-ai-cross-chain-recovery.html': '2026-07-07 15:39:43',
