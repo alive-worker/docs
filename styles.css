@@ -146,6 +146,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   max-height: calc(100vh - var(--sticky-offset));
   display: flex; flex-direction: column;
   padding: 0 20px 24px 0;
+  border-right: 1px solid var(--line);
 }
 /* When the main column's content is shorter than the sidebar's own height, staying
    position:fixed all the way down would draw the sidebar on top of the footer. Once
@@ -156,7 +157,10 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   position: absolute;
   top: auto;
   bottom: 0;
-  left: 0;
+  /* left:0 here would sit at .layout's padding box edge, i.e. 24px further left than
+     the fixed-mode --sidebar-left (which is measured past .layout's own 24px padding)
+     — matching that padding keeps the sidebar from jumping sideways when it docks. */
+  left: 24px;
 }
 .sidebar h2 {
   flex: none;
