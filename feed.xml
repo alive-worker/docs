@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 08 Jul 2026 15:01:37 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 09 Jul 2026 17:09:19 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[海外 AI 订阅稳定币资产归集指南]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</guid>
+    <pubDate>Thu, 09 Jul 2026 17:09:19 +0800</pubDate>
+    <category>稳定币</category>
+    <description><![CDATA[多次用稳定币付款后，各条链上常常散落着几笔零钱，续费时才发现凑不出一整份。整理归集思路：先盘点分布，再用跨链兑换工具批量汇总到一条主链，形成可直接续费的储备金。]]></description>
+  </item>
   <item>
     <title><![CDATA[海外 AI 订阅稳定币支付失败排查指南]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</link>

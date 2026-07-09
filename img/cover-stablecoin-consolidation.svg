@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海外AI订阅稳定币资产归集指南封面图">
+  <defs>
+    <linearGradient id="bgGrad20" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2229"/>
+      <stop offset="1" stop-color="#173640"/>
+    </linearGradient>
+    <radialGradient id="glow20" cx="680" cy="80" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4fc3d4" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#4fc3d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad20)"/>
+  <rect width="800" height="400" fill="url(#glow20)"/>
+  <g stroke="#2e5762" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#9fdbe4">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#173a44" stroke="#9fdbe4" stroke-width="2.5"/>
+  <g stroke="#eaf7f9" stroke-width="3" fill="none" stroke-linecap="round">
+    <line x1="92" y1="98" x2="112" y2="118"/>
+    <line x1="132" y1="98" x2="112" y2="118"/>
+    <line x1="112" y1="118" x2="112" y2="140"/>
+  </g>
+  <circle cx="92" cy="94" r="4.5" fill="#eaf7f9"/>
+  <circle cx="132" cy="94" r="4.5" fill="#eaf7f9"/>
+  <circle cx="112" cy="144" r="6" fill="#eaf7f9"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#eaf7f9">资产归集</text>
+  <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#9fdbe4">STABLECOIN CONSOLIDATION</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9fdbe4" opacity="0.85">海外AI订阅指南</text>
+</svg>

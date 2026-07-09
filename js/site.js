@@ -143,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-stablecoin-consolidation.html': '2026-07-09 17:09:19',
+    '/en/articles/stablecoin-consolidation-guide.html': '2026-07-09 17:09:19',
     '/articles/overseas-ai-stablecoin-troubleshooting.html': '2026-07-08 15:01:37',
     '/en/articles/stablecoin-payment-troubleshooting-guide.html': '2026-07-08 15:01:37',
     '/articles/overseas-ai-stablecoin-swap-tools.html': '2026-07-08 14:15:55',

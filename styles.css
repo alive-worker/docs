@@ -311,6 +311,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--navy { background: #e4eaf6; color: #1c3563; }
 .archive-tag--lime { background: #eaf6dd; color: #3f6a19; }
 .archive-tag--orange { background: #fdead9; color: #7a3a06; }
+.archive-tag--fuchsia { background: #fbe4f5; color: #8a1f6e; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
@@ -403,7 +404,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   margin: 56px auto 44px;
   text-align: center;
 }
-.hero-centered h1 { margin: 0 0 14px; font-size: clamp(28px, 4vw, 40px); line-height: 1.2; letter-spacing: -.01em; }
+.hero-centered h1 { margin: 0 0 14px; font-size: clamp(28px, 4vw, 40px); line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
 .hero-centered .lede { max-width: 560px; margin: 0 auto 28px; color: var(--muted-2); font-size: 17px; line-height: 1.7; }
 .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero-stats { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px auto 0; }
@@ -503,7 +504,7 @@ body.is-searching .featured-article { display: none; }
 /* --- article --- */
 .article-shell { padding-top: 8px; }
 .article-head { padding: 10px 0 20px; }
-.article-head h1 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.22; text-align: center; }
+.article-head h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; letter-spacing: -.01em; text-align: center; text-wrap: balance; }
 .article-summary { margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
 .article-meta { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); }
 .article-meta time { color: var(--muted); }
