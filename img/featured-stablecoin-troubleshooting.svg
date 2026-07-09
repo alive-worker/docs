@@ -1,0 +1,50 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海外 AI 订阅稳定币支付失败排查指南置顶封面图">
+  <defs>
+    <linearGradient id="fbgGrad19" x1="0" y1="0" x2="860" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#241809"/>
+      <stop offset="1" stop-color="#3d2814"/>
+    </linearGradient>
+    <radialGradient id="fglow19" cx="640" cy="205" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0a050" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#f0a050" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="860" height="420" fill="url(#fbgGrad19)"/>
+  <rect width="860" height="420" fill="url(#fglow19)"/>
+
+  <g fill="#f0c088" opacity="0.16">
+    <circle cx="90" cy="150" r="2"/><circle cx="150" cy="200" r="2"/><circle cx="230" cy="120" r="2"/>
+    <circle cx="480" cy="70" r="2"/><circle cx="540" cy="330" r="2"/><circle cx="620" cy="90" r="2"/>
+    <circle cx="790" cy="150" r="2"/><circle cx="810" cy="280" r="2"/><circle cx="380" cy="290" r="2"/>
+    <circle cx="700" cy="330" r="2"/><circle cx="260" cy="340" r="2"/><circle cx="440" cy="40" r="2"/>
+  </g>
+
+  <g>
+    <rect x="40" y="34" width="32" height="32" rx="9" fill="#f0a050"/>
+    <text x="56" y="55" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="800" fill="#241809">AI</text>
+    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" font-weight="600" fill="#d9b088">海外AI订阅指南编辑部</text>
+  </g>
+  <text x="40" y="102" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#f0c088">支付故障排查</text>
+
+  <g stroke="#f0c088" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M598 200 C 640 172, 680 172, 700 196" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <path d="M698 224 C 678 250, 638 250, 600 226" stroke-dasharray="1 7" stroke-linecap="round"/>
+  </g>
+  <path d="M700 196 l10 -4 l-2 11 z" fill="#f0c088"/>
+  <circle cx="649" cy="212" r="4.5" fill="#fbeee0"/>
+  <circle cx="649" cy="212" r="9" fill="none" stroke="#fbeee0" stroke-width="1.4" opacity="0.6"/>
+
+  <circle cx="565" cy="212" r="46" fill="#3f2a16" stroke="#f0c088" stroke-width="2.5"/>
+  <path d="M550 212 h30 M572 200 l10 12 l-10 12" fill="none" stroke="#fbeee0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="565" y="270" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#d9b088">我的钱包</text>
+
+  <circle cx="735" cy="212" r="46" fill="#3f2a16" stroke="#f0c088" stroke-width="2.5"/>
+  <rect x="716" y="198" width="38" height="28" rx="5" fill="none" stroke="#fbeee0" stroke-width="3"/>
+  <path d="M722 198 v-6 h26 v6" fill="none" stroke="#fbeee0" stroke-width="3" stroke-linecap="round"/>
+  <text x="735" y="270" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#d9b088">AI 订阅商户</text>
+
+  <text x="649" y="302" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12.5" font-weight="700" letter-spacing="1" fill="#f0c088">TX 待确认…</text>
+
+  <text x="40" y="358" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="46" font-weight="800" fill="#fbeee0">支付故障排查</text>
+  <text x="41" y="388" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="600" fill="#d9b088">稳定币到账延迟与交易失败诊断指南</text>
+</svg>
