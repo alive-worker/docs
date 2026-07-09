@@ -13,32 +13,40 @@
   <rect width="800" height="400" fill="url(#glow11)"/>
   <g stroke="#3d4a72" stroke-width="1.4" opacity="0.55" fill="none">
     <path d="M40 40 h90 v50 h60"/>
-    <path d="M760 60 h-70 v40 h-50 v60"/>
     <path d="M60 360 h80 v-45 h55"/>
-    <path d="M740 340 h-95 v-40 h-45"/>
-    <path d="M420 30 v35 h60 v40"/>
   </g>
   <g fill="#9fb4e8">
     <circle cx="40" cy="40" r="3.5"/>
     <circle cx="130" cy="40" r="3.5"/>
     <circle cx="190" cy="90" r="3.5"/>
-    <circle cx="760" cy="60" r="3.5"/>
-    <circle cx="690" cy="100" r="3.5"/>
-    <circle cx="640" cy="160" r="3.5"/>
     <circle cx="60" cy="360" r="3.5"/>
     <circle cx="140" cy="360" r="3.5"/>
     <circle cx="195" cy="315" r="3.5"/>
-    <circle cx="740" cy="340" r="3.5"/>
-    <circle cx="645" cy="300" r="3.5"/>
-    <circle cx="420" cy="30" r="3.5"/>
-    <circle cx="480" cy="65" r="3.5"/>
-    <circle cx="480" cy="105" r="3.5"/>
   </g>
   <rect x="64" y="70" width="96" height="96" rx="22" fill="#20294a" stroke="#9fb4e8" stroke-width="2.5"/>
   <circle cx="106" cy="108" r="17" fill="none" stroke="#e2e9fa" stroke-width="3.2"/>
   <line x1="118" y1="120" x2="134" y2="136" stroke="#9fb4e8" stroke-width="4" stroke-linecap="round"/>
   <path d="M99 108 l5 5 l9 -11" fill="none" stroke="#9fb4e8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#eaeffb">工具选型</text>
-  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#9fb4e8">TOOL EVALUATION GUIDE</text>
+  <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#9fb4e8">TOOL EVALUATION GUIDE</text>
   <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9fb4e8" opacity="0.85">海外AI订阅指南</text>
+
+  <rect x="480" y="158" width="260" height="142" rx="12" fill="#20294a" stroke="#3d4a72" stroke-width="1.5"/>
+  <path d="M480 170 a12 12 0 0 1 12 -12 h236 a12 12 0 0 1 12 12 v16 h-260 z" fill="#161d38"/>
+  <circle cx="496" cy="172" r="3.5" fill="#e0687a"/>
+  <circle cx="508" cy="172" r="3.5" fill="#e6c667"/>
+  <circle cx="520" cy="172" r="3.5" fill="#8fd97a"/>
+  <text x="534" y="176" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="10.5" fill="#9fb4e8">工具评分.app</text>
+
+  <text x="496" y="206" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#c7d3f5">支付通道</text>
+  <g fill="#6f96e8"><circle cx="662" cy="202" r="4"/><circle cx="676" cy="202" r="4"/><circle cx="690" cy="202" r="4"/><circle cx="704" cy="202" r="4"/></g>
+
+  <text x="496" y="232" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#c7d3f5">网络检测</text>
+  <g><circle cx="662" cy="228" r="4" fill="#6f96e8"/><circle cx="676" cy="228" r="4" fill="#6f96e8"/><circle cx="690" cy="228" r="4" fill="#6f96e8"/><circle cx="704" cy="228" r="4" fill="#3d4a72"/></g>
+
+  <text x="496" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" fill="#c7d3f5">账号安全</text>
+  <g fill="#6f96e8"><circle cx="662" cy="254" r="4"/><circle cx="676" cy="254" r="4"/><circle cx="690" cy="254" r="4"/><circle cx="704" cy="254" r="4"/></g>
+
+  <line x1="496" y1="270" x2="722" y2="270" stroke="#2c3660" stroke-width="1"/>
+  <text x="496" y="288" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#eaeffb">综合评分 4.7 / 5</text>
 </svg>

@@ -13,26 +13,15 @@
   <rect width="800" height="400" fill="url(#glow10)"/>
   <g stroke="#7a3d47" stroke-width="1.4" opacity="0.55" fill="none">
     <path d="M40 40 h90 v50 h60"/>
-    <path d="M760 60 h-70 v40 h-50 v60"/>
     <path d="M60 360 h80 v-45 h55"/>
-    <path d="M740 340 h-95 v-40 h-45"/>
-    <path d="M420 30 v35 h60 v40"/>
   </g>
   <g fill="#e69aa8">
     <circle cx="40" cy="40" r="3.5"/>
     <circle cx="130" cy="40" r="3.5"/>
     <circle cx="190" cy="90" r="3.5"/>
-    <circle cx="760" cy="60" r="3.5"/>
-    <circle cx="690" cy="100" r="3.5"/>
-    <circle cx="640" cy="160" r="3.5"/>
     <circle cx="60" cy="360" r="3.5"/>
     <circle cx="140" cy="360" r="3.5"/>
     <circle cx="195" cy="315" r="3.5"/>
-    <circle cx="740" cy="340" r="3.5"/>
-    <circle cx="645" cy="300" r="3.5"/>
-    <circle cx="420" cy="30" r="3.5"/>
-    <circle cx="480" cy="65" r="3.5"/>
-    <circle cx="480" cy="105" r="3.5"/>
   </g>
   <rect x="64" y="70" width="96" height="96" rx="22" fill="#3a1e24" stroke="#e69aa8" stroke-width="2.5"/>
   <rect x="90" y="102" width="40" height="28" rx="5" fill="none" stroke="#f5cdd4" stroke-width="3"/>
@@ -40,6 +29,19 @@
   <path d="M112 90 v-8 M112 138 v-8" stroke="#f5cdd4" stroke-width="3" stroke-linecap="round"/>
   <circle cx="112" cy="82" r="3" fill="#e69aa8"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="46" font-weight="700" fill="#f9e2e6">Declined?</text>
-  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#e69aa8">CARD DECLINE TROUBLESHOOTING</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="1" fill="#e69aa8">CARD DECLINE TROUBLESHOOTING</text>
   <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#e69aa8" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#3a1e24" stroke="#7a3d47" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#e0687a"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#f9e2e6">Decline Reason</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#4a2a30" stroke-width="1"/>
+
+  <text x="440" y="148" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f5cdd4">✕ AVS address mismatch</text>
+  <text x="440" y="178" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#e69aa8">○ 3DS not triggered</text>
+  <text x="440" y="208" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#e69aa8">○ BIN risk flag clear</text>
+
+  <rect x="440" y="228" width="290" height="52" rx="10" fill="#2c161b" stroke="#7a3d47" stroke-width="1"/>
+  <text x="454" y="252" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#f5cdd4">Fix: recheck billing address</text>
+  <text x="454" y="270" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#e69aa8">The most common decline cause</text>
 </svg>

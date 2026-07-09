@@ -2,266 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-account-security.html</loc>
     <lastmod>2026-07-03T10:11:23+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-renewal-emergency.html</loc>
     <lastmod>2026-07-02T18:20:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-network-environment.html</loc>
     <lastmod>2026-07-02T15:45:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-subscription-guide.html</loc>
     <lastmod>2026-07-01T14:30:45+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-payment-methods.html</loc>
     <lastmod>2026-07-01T16:25:22+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-stablecoin-payment.html</loc>
     <lastmod>2026-07-02T09:30:09+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-virtual-card-guide.html</loc>
     <lastmod>2026-07-01T22:34:44+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-subscription-team.html</loc>
     <lastmod>2026-07-01T17:33:12+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-cancellation-refund.html</loc>
     <lastmod>2026-07-06T10:58:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-exchange-rate-fees.html</loc>
     <lastmod>2026-07-06T13:35:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-student-discount.html</loc>
     <lastmod>2026-07-07T09:40:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-invoice-reimbursement.html</loc>
     <lastmod>2026-07-07T10:30:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-family-plan.html</loc>
     <lastmod>2026-07-07T11:26:04+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</loc>
     <lastmod>2026-07-08T15:01:37+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</loc>
     <lastmod>2026-07-08T14:15:55+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-tool-selection.html</loc>
     <lastmod>2026-07-07T16:00:49+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-cross-chain-recovery.html</loc>
     <lastmod>2026-07-07T15:39:43+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-virtual-card-troubleshooting.html</loc>
     <lastmod>2026-07-07T12:29:26+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-fund-reserve.html</loc>
     <lastmod>2026-07-07T12:15:45+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/account-security-guide.html</loc>
     <lastmod>2026-07-03T10:11:23+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/renewal-failure-guide.html</loc>
     <lastmod>2026-07-02T18:20:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/network-region-check.html</loc>
     <lastmod>2026-07-02T15:45:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/subscription-guide.html</loc>
     <lastmod>2026-07-01T14:30:45+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/payment-methods-guide.html</loc>
     <lastmod>2026-07-01T16:25:22+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/stablecoin-payment-guide.html</loc>
     <lastmod>2026-07-02T09:30:09+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/virtual-card-guide.html</loc>
     <lastmod>2026-07-01T22:34:44+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/team-subscription-management.html</loc>
     <lastmod>2026-07-01T17:33:12+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/cancellation-refund-guide.html</loc>
     <lastmod>2026-07-06T10:58:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/exchange-rate-fees-guide.html</loc>
     <lastmod>2026-07-06T13:35:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/student-discount-guide.html</loc>
     <lastmod>2026-07-07T09:40:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/invoice-reimbursement-guide.html</loc>
     <lastmod>2026-07-07T10:30:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/family-plan-guide.html</loc>
     <lastmod>2026-07-07T11:26:04+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/stablecoin-payment-troubleshooting-guide.html</loc>
     <lastmod>2026-07-08T15:01:37+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/stablecoin-swap-tools-guide.html</loc>
     <lastmod>2026-07-08T14:15:55+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/tool-selection-guide.html</loc>
     <lastmod>2026-07-07T16:00:49+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/cross-chain-recovery-guide.html</loc>
     <lastmod>2026-07-07T15:39:43+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/virtual-card-troubleshooting-guide.html</loc>
     <lastmod>2026-07-07T12:29:26+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/fund-reserve-guide.html</loc>
     <lastmod>2026-07-07T12:15:45+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponr.org/en/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-07-09</lastmod>
   </url>
 </urlset>

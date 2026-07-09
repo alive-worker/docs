@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 07 Jul 2026 16:00:49 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 08 Jul 2026 15:01:37 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[海外 AI 订阅稳定币支付失败排查指南]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</guid>
+    <pubDate>Wed, 08 Jul 2026 15:01:37 +0800</pubDate>
+    <category>稳定币</category>
+    <description><![CDATA[稳定币付款卡在待确认、商户显示未到账、或者直接失败，三种情况的处理方式完全不同。整理排查顺序：先看交易哈希和链上状态，再判断该等待、该找客服还是该换支付方式。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[海外AI订阅稳定币跨链兑换工具选择指南]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</guid>
+    <pubDate>Wed, 08 Jul 2026 14:15:55 +0800</pubDate>
+    <category>稳定币</category>
+    <description><![CDATA[稳定币不在需要的链上，是海外 AI 订阅最常见的“卡壳”原因之一。整理跨链兑换工具该看哪些指标——报价机制、手续费构成、到账速度、是否托管资产，并给出从选币到到账的实操流程。]]></description>
+  </item>
   <item>
     <title><![CDATA[海外 AI 订阅工具选型指南]]></title>
     <link>https://ponr.org/articles/overseas-ai-tool-selection.html</link>

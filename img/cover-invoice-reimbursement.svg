@@ -13,26 +13,15 @@
   <rect width="800" height="400" fill="url(#glow3)"/>
   <g stroke="#5c6b3a" stroke-width="1.4" opacity="0.55" fill="none">
     <path d="M40 40 h90 v50 h60"/>
-    <path d="M760 60 h-70 v40 h-50 v60"/>
     <path d="M60 360 h80 v-45 h55"/>
-    <path d="M740 340 h-95 v-40 h-45"/>
-    <path d="M420 30 v35 h60 v40"/>
   </g>
   <g fill="#c3d97e">
     <circle cx="40" cy="40" r="3.5"/>
     <circle cx="130" cy="40" r="3.5"/>
     <circle cx="190" cy="90" r="3.5"/>
-    <circle cx="760" cy="60" r="3.5"/>
-    <circle cx="690" cy="100" r="3.5"/>
-    <circle cx="640" cy="160" r="3.5"/>
     <circle cx="60" cy="360" r="3.5"/>
     <circle cx="140" cy="360" r="3.5"/>
     <circle cx="195" cy="315" r="3.5"/>
-    <circle cx="740" cy="340" r="3.5"/>
-    <circle cx="645" cy="300" r="3.5"/>
-    <circle cx="420" cy="30" r="3.5"/>
-    <circle cx="480" cy="65" r="3.5"/>
-    <circle cx="480" cy="105" r="3.5"/>
   </g>
   <rect x="64" y="70" width="96" height="96" rx="22" fill="#2a3320" stroke="#c3d97e" stroke-width="2.5"/>
   <rect x="96" y="94" width="32" height="42" rx="4" fill="none" stroke="#e8f0c8" stroke-width="3"/>
@@ -41,4 +30,22 @@
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="54" font-weight="700" fill="#f0f3e0">发票报销</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#b6cc72">INVOICES &amp; REIMBURSEMENT</text>
   <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6cc72" opacity="0.85">海外AI订阅指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#2a3320" stroke="#5c6b3a" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#a9c357"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#f0f3e0">报销明细 · 已核对</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#3a4526" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#e8f0c8">官方账单 PDF</text>
+  <text x="730" y="150" text-anchor="end" font-family="'SFMono-Regular', Consolas, monospace" font-size="13" fill="#c3d97e">$20.00</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#e8f0c8">虚拟卡交易记录</text>
+  <text x="730" y="180" text-anchor="end" font-family="'SFMono-Regular', Consolas, monospace" font-size="13" fill="#c3d97e">$20.00</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#3a4526" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#f0f3e0">合计</text>
+  <text x="730" y="220" text-anchor="end" font-family="'SFMono-Regular', Consolas, monospace" font-size="14" font-weight="700" fill="#e8f0c8">$40.00</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#233022" stroke="#5c6b3a" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#d3e6a8">✓ 凭证齐全，可提交</text>
 </svg>

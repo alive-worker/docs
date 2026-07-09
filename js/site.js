@@ -412,4 +412,44 @@
   // --- Archive page: paginate the titles list ---
   var archive = document.querySelector('.archive-list');
   if (archive) paginate(archive, Array.prototype.slice.call(archive.querySelectorAll('.archive-item')), 20, pager);
+
+  // --- Back-to-top: fades in once you've scrolled past ~one screen, not just near the bottom ---
+  var backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    var updateBackToTop = function () { backToTop.classList.toggle('is-visible', window.scrollY > 480); };
+    var backToTopTicking = false;
+    var requestBackToTopUpdate = function () {
+      if (backToTopTicking) return;
+      backToTopTicking = true;
+      requestAnimationFrame(function () { updateBackToTop(); backToTopTicking = false; });
+    };
+    updateBackToTop();
+    window.addEventListener('scroll', requestBackToTopUpdate, { passive: true });
+  }
+
+  // --- Article page: highlight the current section in the right-rail TOC while scrolling ---
+  var tocRail = document.querySelector('.article-columns .toc');
+  if (tocRail && 'IntersectionObserver' in window) {
+    var tocLinks = Array.prototype.slice.call(tocRail.querySelectorAll('a[href^="#"]'));
+    var sections = tocLinks
+      .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+      .filter(Boolean);
+    var setActive = function (id) {
+      tocLinks.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    };
+    var visible = new Set();
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) visible.add(entry.target.id);
+        else visible.delete(entry.target.id);
+      });
+      if (visible.size) {
+        var topMost = sections.find(function (s) { return visible.has(s.id); });
+        if (topMost) setActive(topMost.id);
+      }
+    }, { rootMargin: '-96px 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { observer.observe(s); });
+  }
 })();

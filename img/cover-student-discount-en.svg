@@ -13,26 +13,15 @@
   <rect width="800" height="400" fill="url(#glow2)"/>
   <g stroke="#4a5a9a" stroke-width="1.4" opacity="0.55" fill="none">
     <path d="M40 40 h90 v50 h60"/>
-    <path d="M760 60 h-70 v40 h-50 v60"/>
     <path d="M60 360 h80 v-45 h55"/>
-    <path d="M740 340 h-95 v-40 h-45"/>
-    <path d="M420 30 v35 h60 v40"/>
   </g>
   <g fill="#7d8bf0">
     <circle cx="40" cy="40" r="3.5"/>
     <circle cx="130" cy="40" r="3.5"/>
     <circle cx="190" cy="90" r="3.5"/>
-    <circle cx="760" cy="60" r="3.5"/>
-    <circle cx="690" cy="100" r="3.5"/>
-    <circle cx="640" cy="160" r="3.5"/>
     <circle cx="60" cy="360" r="3.5"/>
     <circle cx="140" cy="360" r="3.5"/>
     <circle cx="195" cy="315" r="3.5"/>
-    <circle cx="740" cy="340" r="3.5"/>
-    <circle cx="645" cy="300" r="3.5"/>
-    <circle cx="420" cy="30" r="3.5"/>
-    <circle cx="480" cy="65" r="3.5"/>
-    <circle cx="480" cy="105" r="3.5"/>
   </g>
   <rect x="64" y="70" width="96" height="96" rx="22" fill="#232d54" stroke="#7d8bf0" stroke-width="2.5"/>
   <g stroke="#a6b1f7" stroke-width="3" stroke-linecap="round">
@@ -43,4 +32,19 @@
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="50" font-weight="700" fill="#f2f3ff">Student</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#8d9af2">STUDENT &amp; EDU VERIFICATION</text>
   <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#8d9af2" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#232d54" stroke="#4a5a9a" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#5b6bf5"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#f2f3ff">Verification · In Progress</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#33407a" stroke-width="1"/>
+
+  <rect x="440" y="140" width="290" height="46" rx="10" fill="#1c2547" stroke="#4a5a9a" stroke-width="1"/>
+  <text x="454" y="163" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#c9d0fb">✓ Education email (.edu)</text>
+  <text x="454" y="180" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#8d9af2">Verified</text>
+
+  <rect x="440" y="196" width="290" height="46" rx="10" fill="#1c2547" stroke="#4a5a9a" stroke-width="1"/>
+  <text x="454" y="219" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#c9d0fb">⏳ Third-party review (SheerID)</text>
+  <text x="454" y="236" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#8d9af2">Usually done within 24h</text>
+
+  <text x="440" y="272" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="12" fill="#7d8bf0">Either path alone completes verification</text>
 </svg>
