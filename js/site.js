@@ -388,6 +388,14 @@
         if (pager) pager.style.display = 'none';
       };
 
+      // Makes the client-side search addressable by URL (?q=...) so a real "search results
+      // page" exists for the WebSite SearchAction structured data to point at.
+      var urlQuery = new URLSearchParams(location.search).get('q');
+      if (urlQuery) {
+        searchInput2.value = urlQuery;
+        applyArchiveSearch();
+      }
+
       searchInput2.addEventListener('input', applyArchiveSearch);
       if (searchClear2) {
         searchClear2.addEventListener('click', function () {

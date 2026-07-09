@@ -218,7 +218,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .article-cover {
   display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover;
   border-radius: 14px; border: 1px solid var(--line); background: var(--soft);
-  margin: 0 0 26px;
+  margin: 4px 0 26px;
 }
 
 /* --- home compact post list (paginated) --- */
@@ -502,7 +502,7 @@ body.is-searching .featured-article { display: none; }
 
 /* --- article --- */
 .article-shell { padding-top: 8px; }
-.article-head { padding: 10px 0 24px; border-bottom: 1px solid var(--line); }
+.article-head { padding: 10px 0 20px; }
 .article-head h1 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.22; }
 .article-summary { margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
 .article-meta { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); }

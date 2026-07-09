@@ -48,6 +48,17 @@
 
 只要碰了 `index.html`、`en/index.html`、`articles.html`、`en/articles.html`、`about.html`、`en/about.html` 中的任意一个，**顺手把 `sitemap.xml` 里对应 URL 的 `lastmod` 改成当天日期**——这几个页面改动频繁，`lastmod` 长期不更新会让搜索引擎误判「无新内容」而降低抓取优先级。
 
-## 6. 已知的、暂不处理的项
+## 6. 站点搜索的 SearchAction 结构化数据
 
-- CSS（`styles.css`）/JS（`js/site.js`）未压缩：环境里没有可靠的 minifier，且大概率被托管平台的 gzip/brotli 抵消了实际影响，暂不做，除非用户明确要求接入构建步骤。
+首页/关于页/文章列表页的 JSON-LD `WebSite` 节点带 `potentialAction`（`SearchAction`），指向 `articles.html?q={search_term_string}` / `en/articles.html?q={search_term_string}`。这依赖 `articles.html` 和 `en/articles.html` 的内联脚本在页面加载时读取 URL 的 `?q=` 参数、回填搜索框并触发一次过滤（逻辑在这两个文件 `</body>` 前的内联 `<script>` 里，不在 `site.js` 里，因为只有这两个页面需要）。改动这两个页面的搜索框结构时，注意同步检查这段回填逻辑还能不能找到 `.sidebar-search-input`。
+
+## 7. CSS / JS 压缩（必须同步重新构建）
+
+`styles.css` 与 `js/site.js` 是可读的源文件，**页面实际引用的是压缩后的 `styles.min.css` 与 `js/site.min.js`**（全站 46 个页面的 `<link>`/`<script>` 都指向压缩版）。修改 `styles.css` 或 `js/site.js` 后，必须重新生成压缩版，否则线上效果会和源文件不一致（压缩版没更新，等于改动没生效）：
+
+```bash
+npx --yes clean-css-cli@5 -o styles.min.css styles.css
+npx --yes terser js/site.js -c -m -o js/site.min.js
+```
+
+这两个工具通过 `npx` 临时拉取，不需要预装依赖，但需要环境有网络访问权限。改完 CSS/JS 后，务必在预览里冒烟测试一遍主题切换、搜索过滤等交互，确认压缩没有引入运行时错误（`clean-css`/`terser` 都很成熟，但压缩后的代码更难读，出问题也更难肉眼发现）。
