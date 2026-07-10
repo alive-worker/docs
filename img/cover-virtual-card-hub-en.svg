@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The complete virtual card guide for AI subscriptions cover image">
+  <defs>
+    <linearGradient id="bgGradHubEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#241708"/>
+      <stop offset="1" stop-color="#4a2c10"/>
+    </linearGradient>
+    <radialGradient id="glowHubEn" cx="180" cy="200" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e0975a" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#e0975a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradHubEn)"/>
+  <rect width="800" height="400" fill="url(#glowHubEn)"/>
+
+  <g stroke="#e0975a" stroke-width="1.6" opacity="0.8" fill="none">
+    <line x1="180" y1="200" x2="180" y2="90"/>
+    <line x1="180" y1="200" x2="278" y2="145"/>
+    <line x1="180" y1="200" x2="278" y2="255"/>
+    <line x1="180" y1="200" x2="180" y2="310"/>
+    <line x1="180" y1="200" x2="82" y2="255"/>
+    <line x1="180" y1="200" x2="82" y2="145"/>
+  </g>
+  <circle cx="180" cy="200" r="30" fill="#4a2c10" stroke="#fdeee0" stroke-width="3"/>
+  <text x="180" y="206" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="800" fill="#fdeee0">6-in-1</text>
+
+  <g font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="800" fill="#fdeee0">
+    <circle cx="180" cy="90" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="180" y="95" text-anchor="middle">1</text>
+    <circle cx="278" cy="145" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="278" y="150" text-anchor="middle">2</text>
+    <circle cx="278" cy="255" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="278" y="260" text-anchor="middle">3</text>
+    <circle cx="180" cy="310" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="180" y="315" text-anchor="middle">4</text>
+    <circle cx="82" cy="255" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="82" y="260" text-anchor="middle">5</text>
+    <circle cx="82" cy="145" r="19" fill="#5a3616" stroke="#e0975a" stroke-width="2"/>
+    <text x="82" y="150" text-anchor="middle">6</text>
+  </g>
+
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#f0c9a2" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="60" width="330" height="285" rx="16" fill="#4a2c10" stroke="#6b4321" stroke-width="1.5"/>
+  <text x="446" y="92" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="800" fill="#fdeee0">Virtual Card Guide Map</text>
+  <line x1="440" y1="106" x2="730" y2="106" stroke="#6b4321" stroke-width="1"/>
+
+  <text x="440" y="132" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">① Getting started with virtual cards</text>
+  <text x="440" y="160" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">② Provider: approval, success rate</text>
+  <text x="440" y="188" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">③ Type: one-time or recurring</text>
+  <text x="440" y="216" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">④ Allocation: shared or separate</text>
+  <text x="440" y="244" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">⑤ Limit: too low fails, too high isn't safe</text>
+  <text x="440" y="272" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0c9a2">⑥ Troubleshooting declined payments</text>
+
+  <rect x="440" y="292" width="290" height="38" rx="10" fill="#3a2109" stroke="#6b4321" stroke-width="1"/>
+  <text x="454" y="316" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#f6ddc4">&#10003; Look up by scenario, skip the reading</text>
+</svg>

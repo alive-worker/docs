@@ -318,6 +318,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--emerald { background: #dcf5e8; color: #0f6d43; }
 .archive-tag--plum { background: #f3e3f2; color: #6e2b63; }
 .archive-tag--steel { background: #e4ecf2; color: #23506e; }
+.archive-tag--copper { background: #f6e6d8; color: #7a3f14; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
@@ -558,6 +559,17 @@ body.is-searching .featured-article { display: none; }
 .article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(31, 95, 91, .45); }
 .article-body a:hover { color: var(--accent-2); text-decoration-color: currentColor; }
 [data-theme="dark"] .article-body a { text-decoration-color: rgba(95, 191, 179, .45); }
+
+.article-body .table-wrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--line); border-radius: 10px; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.article-body th, .article-body td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.article-body th { background: var(--soft); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.article-body td { color: var(--muted); }
+.article-body tr:last-child td { border-bottom: none; }
+.article-body td strong { color: var(--ink); }
+.article-body .faq-item { margin: 0 0 18px; padding: 14px 16px; background: var(--soft); border-radius: 10px; }
+.article-body .faq-item h3 { margin: 0 0 6px; font-size: 16px; }
+.article-body .faq-item p { margin: 0; }
 
 .related { margin: 46px 0 0; padding-top: 26px; border-top: 1px solid var(--line); max-width: 720px; }
 .related h2 { margin: 0 0 14px; font-size: 17px; }
