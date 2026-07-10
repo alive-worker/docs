@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅虚拟卡额度怎么设置太低会失败太高不安全封面图">
+  <defs>
+    <linearGradient id="bgGrad26" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2130"/>
+      <stop offset="1" stop-color="#1c3a4d"/>
+    </linearGradient>
+    <radialGradient id="glow26" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4fa3d1" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4fa3d1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad26)"/>
+  <rect width="800" height="400" fill="url(#glow26)"/>
+  <g stroke="#2f5164" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#a9d3ec">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#17303f" stroke="#a9d3ec" stroke-width="2.5"/>
+  <path d="M92 132 A28 28 0 0 1 148 132" fill="none" stroke="#2f5164" stroke-width="7" stroke-linecap="round"/>
+  <path d="M92 132 A28 28 0 0 1 138 108" fill="none" stroke="#4fa3d1" stroke-width="7" stroke-linecap="round"/>
+  <line x1="120" y1="132" x2="136" y2="114" stroke="#e8f4fc" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="120" cy="132" r="4" fill="#e8f4fc"/>
+  <text x="64" y="248" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="44" font-weight="700" fill="#e8f4fc">额度怎么设</text>
+  <text x="66" y="286" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#a9d3ec">CARD LIMIT</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#a9d3ec" opacity="0.85">AI订阅指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#17303f" stroke="#2f5164" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#4fa3d1"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#e8f4fc">额度区间</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#2a4a5c" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#cfe6f5">额度太低</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9d3ec">涨价即失败</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#cfe6f5">额度太高</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9d3ec">损失敞口大</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#2a4a5c" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#e8f4fc">安全区间</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9d3ec">留 20% 余量</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#122633" stroke="#2f5164" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#dcf0fa">✓ 按订阅金额动态调整</text>
+</svg>

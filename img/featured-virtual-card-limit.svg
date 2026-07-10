@@ -1,0 +1,40 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅虚拟卡额度怎么设置太低会失败太高不安全置顶封面图">
+  <defs>
+    <linearGradient id="fbgGrad26" x1="0" y1="0" x2="860" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1a25"/>
+      <stop offset="1" stop-color="#1c3a4d"/>
+    </linearGradient>
+    <radialGradient id="fglow26" cx="650" cy="210" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4fa3d1" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4fa3d1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="860" height="420" fill="url(#fbgGrad26)"/>
+  <rect width="860" height="420" fill="url(#fglow26)"/>
+
+  <g fill="#a9d3ec" opacity="0.16">
+    <circle cx="90" cy="150" r="2"/><circle cx="150" cy="200" r="2"/><circle cx="230" cy="120" r="2"/>
+    <circle cx="480" cy="60" r="2"/><circle cx="540" cy="330" r="2"/><circle cx="620" cy="70" r="2"/>
+    <circle cx="790" cy="140" r="2"/><circle cx="810" cy="280" r="2"/><circle cx="380" cy="290" r="2"/>
+    <circle cx="700" cy="330" r="2"/><circle cx="260" cy="340" r="2"/><circle cx="440" cy="40" r="2"/>
+  </g>
+
+  <g>
+    <rect x="40" y="34" width="32" height="32" rx="9" fill="#4fa3d1"/>
+    <text x="56" y="55" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="800" fill="#0b1a25">AI</text>
+    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" font-weight="600" fill="#a9d3ec">AI订阅指南编辑部</text>
+  </g>
+  <text x="40" y="102" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#a9d3ec">额度设置</text>
+
+  <g transform="translate(700,190)">
+    <path d="M -80 20 A 80 80 0 0 1 80 20" fill="none" stroke="#274357" stroke-width="14" stroke-linecap="round"/>
+    <path d="M -80 20 A 80 80 0 0 1 -20 -75" fill="none" stroke="#7a2e2e" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 20 -75 A 80 80 0 0 1 80 20" fill="none" stroke="#7a5a1f" stroke-width="14" stroke-linecap="round"/>
+    <path d="M -20 -75 A 80 80 0 0 1 20 -75" fill="none" stroke="#4fa3d1" stroke-width="14" stroke-linecap="round"/>
+    <line x1="0" y1="20" x2="34" y2="-58" stroke="#e8f4fc" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="20" r="7" fill="#e8f4fc"/>
+  </g>
+
+  <text x="40" y="352" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="800" fill="#e8f4fc">虚拟卡额度怎么设置</text>
+  <text x="41" y="388" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="600" fill="#a9d3ec">太低会失败，太高不安全</text>
+</svg>
