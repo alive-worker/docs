@@ -8,5 +8,5 @@
   <circle cx="116" cy="148" r="5" fill="#854f0b"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#412402">网络环境</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#7a5410">NETWORK &amp; REGION CHECK</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#854f0b" opacity="0.72">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#854f0b" opacity="0.72">AI订阅指南</text>
 </svg>

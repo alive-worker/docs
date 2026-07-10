@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="海外AI订阅虚拟卡服务商怎么选封面图">
+  <defs>
+    <linearGradient id="bgGrad22" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2420"/>
+      <stop offset="1" stop-color="#1a3a30"/>
+    </linearGradient>
+    <radialGradient id="glow22" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ecca3" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4ecca3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad22)"/>
+  <rect width="800" height="400" fill="url(#glow22)"/>
+  <g stroke="#2f6350" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#a8e6cf">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#1c4438" stroke="#a8e6cf" stroke-width="2.5"/>
+  <rect x="88" y="98" width="48" height="32" rx="5" fill="none" stroke="#eafbf5" stroke-width="3"/>
+  <line x1="88" y1="108" x2="136" y2="108" stroke="#eafbf5" stroke-width="3"/>
+  <circle cx="140" cy="138" r="14" fill="#1c4438" stroke="#4ecca3" stroke-width="3"/>
+  <path d="M134 138 l4 4 l8 -9" fill="none" stroke="#eafbf5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#eafbf5">服务商甄选</text>
+  <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#a8e6cf">VIRTUAL CARD PROVIDERS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#a8e6cf" opacity="0.85">AI订阅指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#1c4438" stroke="#2f6350" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#4ecca3"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#eafbf5">服务商 · 对比</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#2a4d40" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#d3f0e4">审核门槛</text>
+  <g fill="#4ecca3"><circle cx="690" cy="146" r="4"/><circle cx="702" cy="146" r="4"/><circle cx="714" cy="146" r="4"/></g><circle cx="726" cy="146" r="4" fill="none" stroke="#4ecca3" stroke-width="1.4"/>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#d3f0e4">支付成功率</text>
+  <g fill="#4ecca3"><circle cx="690" cy="176" r="4"/><circle cx="702" cy="176" r="4"/><circle cx="714" cy="176" r="4"/><circle cx="726" cy="176" r="4"/></g>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#2a4d40" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#eafbf5">长期稳定性</text>
+  <g fill="#4ecca3"><circle cx="690" cy="216" r="4"/><circle cx="702" cy="216" r="4"/><circle cx="714" cy="216" r="4"/></g><circle cx="726" cy="216" r="4" fill="none" stroke="#4ecca3" stroke-width="1.4"/>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#153229" stroke="#2f6350" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#c2ecdb">✓ 三项指标都过关再长期用</text>
+</svg>

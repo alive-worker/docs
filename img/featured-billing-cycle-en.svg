@@ -1,0 +1,51 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Featured cover image for the annual vs monthly AI subscription billing guide">
+  <defs>
+    <linearGradient id="fbgGrad22en" x1="0" y1="0" x2="860" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0c1729"/>
+      <stop offset="1" stop-color="#1c2c4a"/>
+    </linearGradient>
+    <radialGradient id="fglow22en" cx="650" cy="210" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5b8def" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5b8def" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="860" height="420" fill="url(#fbgGrad22en)"/>
+  <rect width="860" height="420" fill="url(#fglow22en)"/>
+
+  <g fill="#a8c4f0" opacity="0.16">
+    <circle cx="90" cy="150" r="2"/><circle cx="150" cy="200" r="2"/><circle cx="230" cy="120" r="2"/>
+    <circle cx="480" cy="60" r="2"/><circle cx="540" cy="330" r="2"/><circle cx="620" cy="70" r="2"/>
+    <circle cx="790" cy="140" r="2"/><circle cx="810" cy="280" r="2"/><circle cx="380" cy="290" r="2"/>
+    <circle cx="700" cy="330" r="2"/><circle cx="260" cy="340" r="2"/><circle cx="440" cy="40" r="2"/>
+  </g>
+
+  <g>
+    <rect x="40" y="34" width="32" height="32" rx="9" fill="#5b8def"/>
+    <text x="56" y="55" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="800" fill="#0c1729">AI</text>
+    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#a8c4f0">AI Access Guide Editorial Team</text>
+  </g>
+  <text x="40" y="102" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#a8c4f0">SUBSCRIPTION BILLING</text>
+
+  <g stroke="#a8c4f0" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M560 160 C 590 178, 610 190, 636 200" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <path d="M560 260 C 590 242, 610 220, 636 210" stroke-dasharray="1 7" stroke-linecap="round"/>
+  </g>
+
+  <circle cx="536" cy="150" r="30" fill="#20304f" stroke="#a8c4f0" stroke-width="2.2"/>
+  <rect x="524" y="140" width="24" height="20" rx="3" fill="none" stroke="#eef4ff" stroke-width="2.4"/>
+  <path d="M524 146 h24" stroke="#eef4ff" stroke-width="2.4"/>
+  <text x="536" y="196" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#dbe7fb">MONTHLY</text>
+
+  <circle cx="536" cy="270" r="30" fill="#20304f" stroke="#a8c4f0" stroke-width="2.2"/>
+  <rect x="522" y="258" width="28" height="24" rx="3" fill="none" stroke="#eef4ff" stroke-width="2.4"/>
+  <path d="M522 266 h28" stroke="#eef4ff" stroke-width="2.4"/>
+  <circle cx="536" cy="275" r="3" fill="#eef4ff"/>
+  <text x="536" y="316" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#dbe7fb">ANNUAL</text>
+
+  <circle cx="660" cy="210" r="46" fill="#20304f" stroke="#eef4ff" stroke-width="3"/>
+  <path d="M640 210 l12 12 l20 -24" fill="none" stroke="#eef4ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="660" y="278" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#eef4ff">DECIDE</text>
+
+  <text x="40" y="352" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="38" font-weight="800" fill="#eef4ff">Annual vs Monthly</text>
+  <text x="41" y="388" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#a8c4f0">Weighing discounts, flexibility, and refund terms</text>
+</svg>

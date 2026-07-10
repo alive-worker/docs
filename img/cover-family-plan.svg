@@ -32,7 +32,7 @@
   </g>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="54" font-weight="700" fill="#f6ead9">家庭共享</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#e3b483">FAMILY &amp; SHARED PLANS</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e3b483" opacity="0.85">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e3b483" opacity="0.85">AI订阅指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#3a2b1e" stroke="#7a5b3f" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#d99a63"/>

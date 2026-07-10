@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>海外AI订阅指南</title>
+  <title>AI订阅指南</title>
   <link>https://ponr.org/</link>
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 09 Jul 2026 17:09:19 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 10:35:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[海外 AI 订阅虚拟卡服务商怎么选]]></title>
+    <link>https://ponr.org/articles/overseas-ai-virtual-card-provider.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-provider.html</guid>
+    <pubDate>Fri, 10 Jul 2026 10:35:25 +0800</pubDate>
+    <category>虚拟卡</category>
+    <description><![CDATA[虚拟卡不是随便开一张就行，服务商的审核门槛、支付成功率与长期稳定性差异很大。整理挑选服务商时该看的几项关键指标，以及选错后的排查与补救思路。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[海外 AI 订阅包年与包月怎么选]]></title>
+    <link>https://ponr.org/articles/overseas-ai-billing-cycle.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-billing-cycle.html</guid>
+    <pubDate>Fri, 10 Jul 2026 10:09:17 +0800</pubDate>
+    <category>订阅管理</category>
+    <description><![CDATA[包年更省钱还是包月更灵活？拆解各平台常见的折扣区间、退款条款差异与实际需求变化频率，帮你判断该直接锁定年付，还是先按月观察一段时间再决定。]]></description>
+  </item>
   <item>
     <title><![CDATA[海外 AI 订阅稳定币资产归集指南]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</link>

@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 09 Jul 2026 17:09:19 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 10:35:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Choosing a Virtual Card Provider for AI Subscriptions]]></title>
+    <link>https://ponr.org/en/articles/virtual-card-provider-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-provider-guide.html</guid>
+    <pubDate>Fri, 10 Jul 2026 10:35:25 +0800</pubDate>
+    <category>Virtual Card</category>
+    <description><![CDATA[Not all virtual card providers are equal — approval requirements, success rates, and long-term stability vary widely. What to check before picking one.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Annual vs Monthly AI Subscriptions: Which to Pick]]></title>
+    <link>https://ponr.org/en/articles/annual-vs-monthly-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/annual-vs-monthly-guide.html</guid>
+    <pubDate>Fri, 10 Jul 2026 10:09:17 +0800</pubDate>
+    <category>Billing</category>
+    <description><![CDATA[Annual billing saves money but locks you in; monthly costs more but stays flexible. Discount, refund terms, and how often needs change should decide which fits.]]></description>
+  </item>
   <item>
     <title><![CDATA[Consolidating Scattered Stablecoins for AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/stablecoin-consolidation-guide.html</link>

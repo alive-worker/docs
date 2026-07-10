@@ -34,5 +34,5 @@
   <circle cx="112" cy="144" r="6" fill="#eaf7f9"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#eaf7f9">资产归集</text>
   <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#9fdbe4">STABLECOIN CONSOLIDATION</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9fdbe4" opacity="0.85">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9fdbe4" opacity="0.85">AI订阅指南</text>
 </svg>

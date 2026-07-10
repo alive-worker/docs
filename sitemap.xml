@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-account-security.html</loc>
@@ -61,6 +61,14 @@
     <lastmod>2026-07-07T11:26:04+08:00</lastmod>
   </url>
   <url>
+    <loc>https://ponr.org/articles/overseas-ai-virtual-card-provider.html</loc>
+    <lastmod>2026-07-10T10:35:25+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-billing-cycle.html</loc>
+    <lastmod>2026-07-10T10:09:17+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</loc>
     <lastmod>2026-07-09T17:09:19+08:00</lastmod>
   </url>
@@ -94,11 +102,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/account-security-guide.html</loc>
@@ -151,6 +159,14 @@
   <url>
     <loc>https://ponr.org/en/articles/family-plan-guide.html</loc>
     <lastmod>2026-07-07T11:26:04+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/virtual-card-provider-guide.html</loc>
+    <lastmod>2026-07-10T10:35:25+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/annual-vs-monthly-guide.html</loc>
+    <lastmod>2026-07-10T10:09:17+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/stablecoin-consolidation-guide.html</loc>

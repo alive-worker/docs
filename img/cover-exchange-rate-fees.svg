@@ -9,5 +9,5 @@
   <path d="M128 130 l6 8 l10 -12" fill="none" stroke="#0d5c66" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="56" font-weight="700" fill="#082f36">汇率费用</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#146875">EXCHANGE RATE &amp; FEES</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#0d5c66" opacity="0.72">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#0d5c66" opacity="0.72">AI订阅指南</text>
 </svg>

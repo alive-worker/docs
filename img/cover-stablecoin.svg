@@ -8,5 +8,5 @@
   <line x1="129" y1="108" x2="129" y2="128" stroke="#534ab7" stroke-width="4" stroke-linecap="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="62" font-weight="700" fill="#26215c">稳定币</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#3c3489">STABLECOIN · CROSS-CHAIN</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#534ab7" opacity="0.72">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#534ab7" opacity="0.72">AI订阅指南</text>
 </svg>

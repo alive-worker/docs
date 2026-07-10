@@ -28,7 +28,7 @@
   <path d="M132 132 a20 20 0 0 1 -34 10 l0 10 l-12 -14 l12 -14 l0 10 a12 12 0 0 0 20 -6" fill="none" stroke="#c8b0f5" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#f1e9fc">链上纠错</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#c8b0f5">CROSS-CHAIN RECOVERY GUIDE</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#c8b0f5" opacity="0.85">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#c8b0f5" opacity="0.85">AI订阅指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#241c3d" stroke="#5c4a86" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#a07af0"/>

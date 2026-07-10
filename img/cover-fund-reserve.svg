@@ -36,5 +36,5 @@
   <text x="64" y="252" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="54" font-weight="700" fill="#f8f1da">资金储备</text>
   <text x="66" y="290" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="2" fill="#e6c667">FUND RESERVE &amp; ASSETS</text>
   <text x="64" y="322" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="600" fill="#c7dba0">✓ 满足下次续费所需</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e6c667" opacity="0.85">海外AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e6c667" opacity="0.85">AI订阅指南</text>
 </svg>
