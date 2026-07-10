@@ -62,3 +62,23 @@ npx --yes terser js/site.js -c -m -o js/site.min.js
 ```
 
 这两个工具通过 `npx` 临时拉取，不需要预装依赖，但需要环境有网络访问权限。改完 CSS/JS 后，务必在预览里冒烟测试一遍主题切换、搜索过滤等交互，确认压缩没有引入运行时错误（`clean-css`/`terser` 都很成熟，但压缩后的代码更难读，出问题也更难肉眼发现）。
+
+## 8. CSS / JS 缓存清除（改完必须同步更新版本号，否则线上看到的是旧版）
+
+`nginx` 给 `styles.min.css` / `js/site.min.js` 设置了 `Cache-Control: public, max-age=604800`（7 天），Cloudflare 会按这个头在边缘缓存这两个文件整整 7 天，且**源站文件更新后不会自动通知 Cloudflare 刷新缓存**。如果只改了源文件、重新压缩、部署上线，用户看到的可能还是 7 天缓存窗口内第一次被缓存下来的旧版本（表现为：新加的 CSS 规则/JS 逻辑在线上不生效，但源码和压缩产物本身都是对的）。
+
+为此站点给这两个文件的引用加了内容哈希版本号（`?v=xxxx`），全站 60+ 个页面的 `<link>`/`<script>` 都要保持一致。**每次重新压缩 `styles.min.css` 或 `js/site.min.js` 之后，必须重新计算哈希并批量更新所有页面的引用**，否则版本号不变 = URL 不变 = Cloudflare 照样返回旧缓存，压缩这一步等于白做：
+
+```bash
+node -e "
+const fs = require('fs');
+const crypto = require('crypto');
+function hash(file) {
+  return crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
+}
+console.log('CSS_HASH=' + hash('styles.min.css'));
+console.log('JS_HASH=' + hash('js/site.min.js'));
+"
+```
+
+拿到新哈希后，把所有页面里的 `href="/styles.min.css?v=旧哈希"` 和 `src="/js/site.min.js?v=旧哈希"` 批量替换成新哈希（可以写一个一次性 Node 脚本遍历全部 `.html` 文件做字符串替换，模式参考本仓库历史提交）。改完用 `curl https://ponr.org/styles.min.css?v=新哈希 | grep 关键规则` 确认线上确实拿到了新内容，而不是只在本地验证。
