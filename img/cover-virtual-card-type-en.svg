@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Single-use vs recurring virtual cards for AI subscriptions cover image">
+  <defs>
+    <linearGradient id="bgGrad24en" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2b22"/>
+      <stop offset="1" stop-color="#1c3d30"/>
+    </linearGradient>
+    <radialGradient id="glow24en" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34c78e" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#34c78e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad24en)"/>
+  <rect width="800" height="400" fill="url(#glow24en)"/>
+  <g stroke="#2f5f4c" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#a8ecce">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#173a2e" stroke="#a8ecce" stroke-width="2.5"/>
+  <rect x="86" y="98" width="52" height="36" rx="6" fill="none" stroke="#e8fdf3" stroke-width="3"/>
+  <line x1="86" y1="110" x2="138" y2="110" stroke="#e8fdf3" stroke-width="3"/>
+  <circle cx="146" cy="92" r="12" fill="#34c78e"/>
+  <text x="146" y="96" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="800" fill="#0f2b22">1×</text>
+  <g transform="translate(78,140)" stroke="#e8fdf3" stroke-width="2.6" fill="none" stroke-linecap="round">
+    <path d="M0 6 a9 9 0 1 1 3 12"/>
+    <path d="M0 2 v8 h8" />
+  </g>
+  <text x="64" y="240" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#e8fdf3">One-Time or</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#e8fdf3">Recurring?</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#a8ecce">VIRTUAL CARD TYPE</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#a8ecce" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#173a2e" stroke="#2f5f4c" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#34c78e"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#e8fdf3">One-Time vs Recurring</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#2c5445" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#cdf3e2">Trials / short-term</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#a8ecce">One-time is simpler</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#cdf3e2">Steady long-term renewals</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#a8ecce">Recurring is easier</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#2c5445" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#e8fdf3">Switching providers</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#a8ecce">One-time is flexible</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#122e25" stroke="#2f5f4c" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#d9f7e8">&#10003; Match card type to billing cycle</text>
+</svg>

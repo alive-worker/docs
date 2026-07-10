@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 10 Jul 2026 10:48:37 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 11:30:56 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[一次性虚拟卡还是长期虚拟卡：AI 订阅该怎么选]]></title>
+    <link>https://ponr.org/articles/overseas-ai-virtual-card-type.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-type.html</guid>
+    <pubDate>Fri, 10 Jul 2026 11:30:56 +0800</pubDate>
+    <category>虚拟卡</category>
+    <description><![CDATA[一次性虚拟卡开一次用一次、到期即弃；长期虚拟卡适合稳定续费、省去反复开卡的麻烦。拆解两种卡型各自的适用场景和优缺点，以及混合使用的实操思路。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 订阅稳定币储备：要不要都归集到一条链上]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</link>

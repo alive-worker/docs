@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 10 Jul 2026 10:48:37 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 11:30:56 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Single-Use vs Recurring Virtual Cards for AI Subscriptions]]></title>
+    <link>https://ponr.org/en/articles/virtual-card-type-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-type-guide.html</guid>
+    <pubDate>Fri, 10 Jul 2026 11:30:56 +0800</pubDate>
+    <category>Virtual Card</category>
+    <description><![CDATA[One-time virtual cards suit a single trial payment and disappear after use; recurring cards suit steady renewals. How to choose between them for AI subscribers.]]></description>
+  </item>
   <item>
     <title><![CDATA[Should You Consolidate Your AI Subscription Stablecoins?]]></title>
     <link>https://ponr.org/en/articles/stablecoin-diversification-guide.html</link>
