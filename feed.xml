@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 10 Jul 2026 10:35:25 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 10:48:37 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 订阅稳定币储备：要不要都归集到一条链上]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</guid>
+    <pubDate>Fri, 10 Jul 2026 10:48:37 +0800</pubDate>
+    <category>稳定币</category>
+    <description><![CDATA[多条链上都留了稳定币储备，续费时该集中到一条链省手续费，还是分散放着更抗风险？拆解集中与分散两种策略的成本、风险与各自适用的订阅规模和支付场景。]]></description>
+  </item>
   <item>
     <title><![CDATA[海外 AI 订阅虚拟卡服务商怎么选]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-provider.html</link>

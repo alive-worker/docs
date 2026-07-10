@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅稳定币储备要不要都归集到一条链上封面图">
+  <defs>
+    <linearGradient id="bgGrad23" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a121c"/>
+      <stop offset="1" stop-color="#3d1b2c"/>
+    </linearGradient>
+    <radialGradient id="glow23" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e0537d" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e0537d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad23)"/>
+  <rect width="800" height="400" fill="url(#glow23)"/>
+  <g stroke="#6b3448" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#f5b8cd">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#40202f" stroke="#f5b8cd" stroke-width="2.5"/>
+  <circle cx="112" cy="106" r="9" fill="none" stroke="#fdeef3" stroke-width="3"/>
+  <path d="M112 115 v10 M112 125 l-16 14 M112 125 l16 14" fill="none" stroke="#fdeef3" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="96" cy="143" r="5" fill="#fdeef3"/>
+  <circle cx="128" cy="143" r="5" fill="#fdeef3"/>
+  <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#fdeef3">分散储备</text>
+  <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#f5b8cd">CHAIN DIVERSIFICATION</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#f5b8cd" opacity="0.85">AI订阅指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#40202f" stroke="#6b3448" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#e0537d"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#fdeef3">集中 · 分散</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#5c2c3f" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#f6d6e1">单链风险敞口</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#f5b8cd">集中更高</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#f6d6e1">兑换手续费</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#f5b8cd">分散更高</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#5c2c3f" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#fdeef3">应急灵活性</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#f5b8cd">分散更高</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#341824" stroke="#6b3448" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#f2c6d5">✓ 按需求灵活再平衡</text>
+</svg>
