@@ -449,6 +449,14 @@
     };
     updateBackToTop();
     window.addEventListener('scroll', requestBackToTopUpdate, { passive: true });
+    // #top targets the sticky header, and native fragment-scroll treats a
+    // position:sticky element as already "in view" (its box stays pinned to
+    // the viewport top once stuck), so the browser skips scrolling. Scroll
+    // explicitly instead of relying on anchor navigation.
+    backToTop.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // --- Article page: highlight the current section in the right-rail TOC while scrolling ---
