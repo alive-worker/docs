@@ -1,0 +1,21 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger redeploy on server
+        # The deploy key's authorized_keys entry has a forced command
+        # (command="/root/deploy-docs.sh"), so whatever runs here is
+        # ignored server-side and the redeploy script always runs instead.
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: root
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: exit 0

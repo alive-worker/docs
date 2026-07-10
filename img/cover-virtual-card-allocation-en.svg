@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One virtual card for all AI subscriptions or one each cover image">
+  <defs>
+    <linearGradient id="bgGrad25en" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a1330"/>
+      <stop offset="1" stop-color="#3d1e42"/>
+    </linearGradient>
+    <radialGradient id="glow25en" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c25fb0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#c25fb0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad25en)"/>
+  <rect width="800" height="400" fill="url(#glow25en)"/>
+  <g stroke="#5c3260" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#e6b6dd">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#3d1e42" stroke="#e6b6dd" stroke-width="2.5"/>
+  <rect x="86" y="106" width="52" height="36" rx="6" fill="none" stroke="#fdeef9" stroke-width="3"/>
+  <line x1="86" y1="118" x2="138" y2="118" stroke="#fdeef9" stroke-width="3"/>
+  <circle cx="98" cy="88" r="7" fill="#c25fb0"/>
+  <circle cx="118" cy="82" r="7" fill="#e6b6dd"/>
+  <circle cx="136" cy="90" r="7" fill="#fdeef9"/>
+  <line x1="98" y1="88" x2="112" y2="106" stroke="#e6b6dd" stroke-width="1.6" stroke-dasharray="1 4"/>
+  <line x1="118" y1="82" x2="112" y2="106" stroke="#e6b6dd" stroke-width="1.6" stroke-dasharray="1 4"/>
+  <line x1="136" y1="90" x2="126" y2="106" stroke="#e6b6dd" stroke-width="1.6" stroke-dasharray="1 4"/>
+  <text x="64" y="240" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#fdeef9">Shared or</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="36" font-weight="800" fill="#fdeef9">Separate Cards?</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#e6b6dd">CARD ALLOCATION</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#e6b6dd" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#3d1e42" stroke="#5c3260" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#c25fb0"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#fdeef9">Shared vs Separate</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#553258" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0d3ea">Reconciliation ease</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#e6b6dd">Shared is simpler</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#f0d3ea">Failure blast radius</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#e6b6dd">Separate is safer</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#553258" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#fdeef9">Management overhead</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#e6b6dd">Separate is more</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#331a37" stroke="#5c3260" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#f6ddf0">&#10003; Group cards by priority</text>
+</svg>

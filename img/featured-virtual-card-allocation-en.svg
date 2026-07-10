@@ -1,0 +1,44 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Featured cover image for one virtual card for all AI subscriptions or one each guide">
+  <defs>
+    <linearGradient id="fbgGrad25en" x1="0" y1="0" x2="860" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#210f26"/>
+      <stop offset="1" stop-color="#3d1e42"/>
+    </linearGradient>
+    <radialGradient id="fglow25en" cx="650" cy="210" r="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c25fb0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#c25fb0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="860" height="420" fill="url(#fbgGrad25en)"/>
+  <rect width="860" height="420" fill="url(#fglow25en)"/>
+
+  <g fill="#e6b6dd" opacity="0.16">
+    <circle cx="90" cy="150" r="2"/><circle cx="150" cy="200" r="2"/><circle cx="230" cy="120" r="2"/>
+    <circle cx="480" cy="60" r="2"/><circle cx="540" cy="330" r="2"/><circle cx="620" cy="70" r="2"/>
+    <circle cx="790" cy="140" r="2"/><circle cx="810" cy="280" r="2"/><circle cx="380" cy="290" r="2"/>
+    <circle cx="700" cy="330" r="2"/><circle cx="260" cy="340" r="2"/><circle cx="440" cy="40" r="2"/>
+  </g>
+
+  <g>
+    <rect x="40" y="34" width="32" height="32" rx="9" fill="#c25fb0"/>
+    <text x="56" y="55" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="800" fill="#210f26">AI</text>
+    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="600" fill="#e6b6dd">AI Access Guide Editorial Team</text>
+  </g>
+  <text x="40" y="102" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#e6b6dd">CARD ALLOCATION</text>
+
+  <g stroke="#e6b6dd" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M660 190 C 610 175, 580 150, 555 120" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <path d="M660 190 C 700 170, 725 150, 735 118" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <path d="M660 190 C 690 210, 715 225, 740 235" stroke-dasharray="1 7" stroke-linecap="round"/>
+  </g>
+
+  <rect x="632" y="180" width="56" height="40" rx="9" fill="#3d1e42" stroke="#fdeef9" stroke-width="3"/>
+  <line x1="632" y1="194" x2="688" y2="194" stroke="#fdeef9" stroke-width="2.6"/>
+
+  <circle cx="548" cy="106" r="22" fill="#3d1e42" stroke="#c25fb0" stroke-width="2.2"/>
+  <circle cx="742" cy="104" r="22" fill="#3d1e42" stroke="#e6b6dd" stroke-width="2.2"/>
+  <circle cx="758" cy="244" r="22" fill="#3d1e42" stroke="#fdeef9" stroke-width="2.2"/>
+
+  <text x="40" y="352" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="800" fill="#fdeef9">Shared or Separate Cards?</text>
+  <text x="41" y="388" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#e6b6dd">Card allocation strategy for multiple AI subscriptions</text>
+</svg>

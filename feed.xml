@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 10 Jul 2026 11:30:56 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 10 Jul 2026 15:02:17 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[多个 AI 订阅共用一张虚拟卡，还是分开办卡更好]]></title>
+    <link>https://ponr.org/articles/overseas-ai-virtual-card-allocation.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-allocation.html</guid>
+    <pubDate>Fri, 10 Jul 2026 15:02:17 +0800</pubDate>
+    <category>虚拟卡</category>
+    <description><![CDATA[同时订阅 ChatGPT、Claude、Gemini 时，用一张虚拟卡管所有订阅省心，还是每个订阅单独开卡更安全？拆解两种分配方式的利弊与折中思路。]]></description>
+  </item>
   <item>
     <title><![CDATA[一次性虚拟卡还是长期虚拟卡：AI 订阅该怎么选]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-type.html</link>
