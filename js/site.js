@@ -442,6 +442,17 @@
         });
       });
 
+      // Makes the topic filter addressable by URL (?topic=...) so footer/nav links can land
+      // straight on a pre-filtered archive view instead of requiring a manual tag click.
+      var urlTopic = new URLSearchParams(location.search).get('topic');
+      if (urlTopic) {
+        var urlTopicBtn = topicButtons.filter(function (b) { return b.getAttribute('data-topic') === urlTopic; })[0];
+        if (urlTopicBtn) {
+          activeTopic = urlTopic;
+          topicButtons.forEach(function (b) { b.classList.toggle('is-active', b === urlTopicBtn); });
+        }
+      }
+
       // Makes the client-side search addressable by URL (?q=...) so a real "search results
       // page" exists for the WebSite SearchAction structured data to point at.
       var urlQuery = new URLSearchParams(location.search).get('q');
