@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI服务指南首页分享图">
+  <rect width="1200" height="630" fill="#0d0d0d"/>
+  <rect x="88" y="130" width="1024" height="370" rx="4" fill="#f7f4ee"/>
+  <rect x="88" y="130" width="1024" height="8" fill="#1f5f5b"/>
+  <text x="128" y="200" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700" fill="#1f5f5b">AI服务指南</text>
+  <text x="128" y="266" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="46" font-weight="800" fill="#161616">ChatGPT、Claude、Gemini 与</text>
+  <text x="128" y="326" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="46" font-weight="800" fill="#161616">DeepSeek、豆包、Kimi</text>
+  <text x="128" y="386" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="46" font-weight="800" fill="#161616">AI 服务全解析</text>
+  <text x="128" y="460" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#5a5a5a">ponr.org &#183; 海外与国内 AI 服务实用指南</text>
+</svg>
