@@ -373,7 +373,7 @@
     var pager = document.querySelector('.pager');
     // Topic-tag row atop the archive page (articles.html only) — clicking a tag filters
     // the list below by each item's data-topic and re-paginates just the matching subset.
-    var topicButtons = archiveList ? Array.prototype.slice.call(document.querySelectorAll('.topic-tag-btn')) : [];
+    var topicButtons = archiveList ? Array.prototype.slice.call(document.querySelectorAll('.topic-tag-btn[data-topic]')) : [];
     var activeTopic = null;
 
     if (listEl && searchInput2 && searchWrap2) {

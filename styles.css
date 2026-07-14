@@ -531,9 +531,10 @@ body.is-searching .featured-article { display: none; }
 .post-card-meta time { flex-shrink: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .post-card-meta .read-link { flex-shrink: 0; font-size: 12px; white-space: nowrap; }
 
-/* --- topic tags: compact monochrome-accent filter chips, sitting right under the archive hero --- */
-.topic-paths { max-width: none; margin: 0 0 28px; }
-.topic-tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+/* --- topic tags: compact monochrome-accent filter chips, nested inside .hero so the
+   whole archive header (kicker + title + subtitle + tags) stays pinned together while
+   scrolling, instead of just the kicker/lede alone. --- */
+.topic-tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; margin-top: 16px; }
 .topic-tag-btn {
   font: inherit; cursor: pointer;
   display: inline-flex; align-items: center; gap: 5px;
@@ -735,7 +736,6 @@ body.is-searching .featured-article { display: none; }
   .post-title { font-size: 15px; }
   .post-desc { -webkit-line-clamp: 2; }
   .card-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .topic-paths { margin: 4px auto 26px; padding: 22px 0 0; }
   .topic-tag-row { gap: 6px; }
   .topic-tag-btn { padding: 5px 10px; font-size: 12.5px; }
   .archive-item > a { display: block; padding: 13px 6px; }
