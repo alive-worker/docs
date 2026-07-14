@@ -43,6 +43,7 @@
 7. 首页（`index.html` + `en/index.html`）卡片网格、`articles.html` + `en/articles.html` 归档列表、所有相关旧文章侧边栏「相关阅读」都要插入新文章条目。
 8. JSON-LD `ItemList`（首页/归档页）里的 position 需要整体重新编号。
 9. 从 2–3 篇最相关的已有文章里加一条指向新文章的内链（反向也可以考虑）。
+10. 新文章置顶为首页精选（featured）时，同步把 `index.html` / `en/index.html` `<head>` 里的 `<link rel="preload" as="image" fetchpriority="high">` 指向新文章的封面图（LCP 优化，2026-07 从 docs-coin 项目同步过来的写法）——这个 preload 链接必须和当前精选卡片的封面图保持一致，忘记改就是白做，浏览器还是优先加载旧图。
 
 ## 5. 改动首页/列表页/关于页时
 

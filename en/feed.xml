@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 10 Jul 2026 16:10:40 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 13 Jul 2026 17:43:43 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI Subscription Virtual Card Expiry: How Long Is Safe?]]></title>
+    <link>https://ponr.org/en/articles/virtual-card-validity-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-validity-guide.html</guid>
+    <pubDate>Mon, 13 Jul 2026 17:43:43 +0800</pubDate>
+    <category>Virtual Card</category>
+    <description><![CDATA[Set a card's expiry too short and it lapses before renewal, causing failed charges; too long, and idle cards stay exposed longer. Here's how to size it right.]]></description>
+  </item>
   <item>
     <title><![CDATA[The Complete Virtual Card Guide for AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/virtual-card-hub-guide.html</link>
