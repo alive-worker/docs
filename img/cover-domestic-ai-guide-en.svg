@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Domestic Chinese AI subscription guide cover image">
+  <defs>
+    <linearGradient id="bgGrad28en" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#150f2b"/>
+      <stop offset="1" stop-color="#2a1f4d"/>
+    </linearGradient>
+    <radialGradient id="glow28en" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8f6fe0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8f6fe0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad28en)"/>
+  <rect width="800" height="400" fill="url(#glow28en)"/>
+  <g stroke="#4a3d75" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#bea8f0">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#211640" stroke="#bea8f0" stroke-width="2.5"/>
+  <path d="M86 100 h56 a10 10 0 0 1 10 10 v22 a10 10 0 0 1 -10 10 h-30 l-14 14 v-14 h-12 a10 10 0 0 1 -10 -10 v-22 a10 10 0 0 1 10 -10 Z" fill="none" stroke="#8f6fe0" stroke-width="4"/>
+  <circle cx="100" cy="125" r="3" fill="#e8e2fc"/>
+  <circle cx="112" cy="125" r="3" fill="#e8e2fc"/>
+  <circle cx="124" cy="125" r="3" fill="#e8e2fc"/>
+  <text x="64" y="240" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="800" fill="#e8e2fc">Subscribing to</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="800" fill="#e8e2fc">Domestic AI</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#bea8f0">CHINA AI TOOLS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#bea8f0" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#211640" stroke="#4a3d75" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#bea8f0"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#e8e2fc">Two Subscription Paths</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#382d5c" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#d8cef5">Overseas AI</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#bea8f0">Needs a virtual card</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" fill="#d8cef5">Domestic AI</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#bea8f0">Pay directly, no card</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#382d5c" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#e8e2fc">In common</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#bea8f0">Mix as needed</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#150f2b" stroke="#4a3d75" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="600" fill="#e8def8">&#10003; No cross-border payment barrier</text>
+</svg>

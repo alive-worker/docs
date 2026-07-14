@@ -143,6 +143,10 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-virtual-card-solution.html': '2026-07-14 14:19:48',
+    '/en/articles/virtual-card-solution-guide.html': '2026-07-14 14:19:48',
+    '/articles/domestic-ai-subscription-guide.html': '2026-07-14 11:07:41',
+    '/en/articles/domestic-ai-subscription-guide.html': '2026-07-14 11:07:41',
     '/articles/overseas-ai-virtual-card-validity.html': '2026-07-13 17:43:43',
     '/en/articles/virtual-card-validity-guide.html': '2026-07-13 17:43:43',
     '/articles/overseas-ai-virtual-card-hub.html': '2026-07-10 16:10:40',

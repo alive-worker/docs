@@ -320,6 +320,8 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--steel { background: #e4ecf2; color: #23506e; }
 .archive-tag--copper { background: #f6e6d8; color: #7a3f14; }
 .archive-tag--sage { background: #e6efe0; color: #3c5c34; }
+.archive-tag--lavender { background: #efebfa; color: #543894; }
+.archive-tag--azure { background: #e0f0fb; color: #0d6ba8; }
 
 [data-theme="dark"] .archive-tag--purple { background: #29255a; color: #c7bffb; }
 [data-theme="dark"] .archive-tag--blue   { background: #123350; color: #9bcdf7; }
@@ -349,6 +351,8 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 [data-theme="dark"] .archive-tag--steel  { background: #162c3b; color: #a8d3f0; }
 [data-theme="dark"] .archive-tag--copper { background: #3b2616; color: #f0c6a8; }
 [data-theme="dark"] .archive-tag--sage   { background: #1e2b1a; color: #a8c9a0; }
+[data-theme="dark"] .archive-tag--lavender { background: #21163b; color: #bea8f0; }
+[data-theme="dark"] .archive-tag--azure { background: #0f2c3d; color: #8ed0f5; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
