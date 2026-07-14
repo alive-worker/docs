@@ -6,7 +6,7 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 14 Jul 2026 14:19:48 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 14 Jul 2026 15:15:47 +0800</lastBuildDate>
   <item>
     <title><![CDATA[虚拟信用卡：海外 AI 订阅的支付方案]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-solution.html</link>
@@ -16,12 +16,12 @@
     <description><![CDATA[独立虚拟卡是订阅海外 AI 服务最省心的支付方案：为什么要单独开卡、稳定币怎么充值到卡内、选服务商要核对哪些硬指标，以及常见踩坑一次讲清楚。]]></description>
   </item>
   <item>
-    <title><![CDATA[国内AI大模型订阅指南：文心一言、通义千问、Kimi、豆包怎么开通]]></title>
+    <title><![CDATA[国内AI大模型订阅指南：DeepSeek、豆包、Kimi怎么开通]]></title>
     <link>https://ponr.org/articles/domestic-ai-subscription-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-subscription-guide.html</guid>
     <pubDate>Tue, 14 Jul 2026 11:07:41 +0800</pubDate>
     <category>国内AI</category>
-    <description><![CDATA[文心一言、通义千问、Kimi、豆包等国内AI工具，用支付宝或微信直接付费就能开通，不需要虚拟卡也不用跨境支付。拆解怎么选、怎么开通，以及什么时候还需要搭配海外AI。]]></description>
+    <description><![CDATA[DeepSeek、豆包、Kimi等国内AI工具，用支付宝或微信直接付费就能开通，不需要虚拟卡也不用跨境支付。拆解怎么选、怎么开通，以及什么时候还需要搭配海外AI。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 订阅虚拟卡有效期怎么设置：太短续订失败，太长风险大]]></title>
