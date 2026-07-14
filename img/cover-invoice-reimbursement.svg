@@ -29,7 +29,7 @@
   <path d="M100 143 l6 6 l12 -14" fill="none" stroke="#a9c357" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="54" font-weight="700" fill="#f0f3e0">发票报销</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#b6cc72">INVOICES &amp; REIMBURSEMENT</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6cc72" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6cc72" opacity="0.85">AI服务指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#2a3320" stroke="#5c6b3a" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#a9c357"/>

@@ -38,7 +38,7 @@
     <text x="82" y="150" text-anchor="middle">6</text>
   </g>
 
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#f0c9a2" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#f0c9a2" opacity="0.85">AI服务指南</text>
 
   <rect x="420" y="60" width="330" height="285" rx="16" fill="#4a2c10" stroke="#6b4321" stroke-width="1.5"/>
   <text x="446" y="92" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="800" fill="#fdeee0">虚拟卡决策指南</text>

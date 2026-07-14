@@ -28,7 +28,7 @@
   <path d="M112 104 v16 l12 8" fill="none" stroke="#fbe6cc" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#fbeee0">支付故障</text>
   <text x="66" y="296" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#f0c088">PAYMENT TROUBLESHOOTING</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#f0c088" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#f0c088" opacity="0.85">AI服务指南</text>
 
   <!-- corner alert badge, offset from the panel below it -->
   <path d="M742 44 l24 42 h-48 z" fill="#3f2a16" stroke="#f0a050" stroke-width="2.5" stroke-linejoin="round"/>

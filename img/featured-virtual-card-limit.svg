@@ -22,7 +22,7 @@
   <g>
     <rect x="40" y="34" width="32" height="32" rx="9" fill="#4fa3d1"/>
     <text x="56" y="55" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="800" fill="#0b1a25">AI</text>
-    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" font-weight="600" fill="#a9d3ec">AI订阅指南编辑部</text>
+    <text x="82" y="55" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13.5" font-weight="600" fill="#a9d3ec">AI服务指南编辑部</text>
   </g>
   <text x="40" y="102" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#a9d3ec">额度设置</text>
 

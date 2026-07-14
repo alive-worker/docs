@@ -30,7 +30,7 @@
   <circle cx="112" cy="82" r="3" fill="#e69aa8"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="50" font-weight="700" fill="#f9e2e6">支付排查</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="600" letter-spacing="1" fill="#e69aa8">CARD DECLINE TROUBLESHOOTING</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e69aa8" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#e69aa8" opacity="0.85">AI服务指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#3a1e24" stroke="#7a3d47" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#e0687a"/>

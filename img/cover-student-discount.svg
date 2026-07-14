@@ -31,7 +31,7 @@
   <circle cx="112" cy="120" r="7" fill="#7d8bf0"/>
   <text x="64" y="258" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="54" font-weight="700" fill="#f2f3ff">学生优惠</text>
   <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="600" letter-spacing="3" fill="#8d9af2">STUDENT &amp; EDU VERIFICATION</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8d9af2" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8d9af2" opacity="0.85">AI服务指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#232d54" stroke="#4a5a9a" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#5b6bf5"/>

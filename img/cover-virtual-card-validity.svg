@@ -30,7 +30,7 @@
   <circle cx="112" cy="118" r="4" fill="#e8fcec"/>
   <text x="64" y="248" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="44" font-weight="700" fill="#e8fcec">有效期怎么设</text>
   <text x="66" y="286" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#8fcf9c">CARD VALIDITY</text>
-  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8fcf9c" opacity="0.85">AI订阅指南</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8fcf9c" opacity="0.85">AI服务指南</text>
 
   <rect x="420" y="70" width="330" height="230" rx="16" fill="#132a1c" stroke="#3f6a4c" stroke-width="1.5"/>
   <circle cx="446" cy="100" r="6" fill="#8fcf9c"/>
