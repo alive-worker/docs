@@ -367,6 +367,15 @@
     var searchInput2 = document.querySelector('.sidebar-search-input');
     var searchWrap2 = document.querySelector('.sidebar-search');
     var searchClear2 = document.querySelector('.sidebar-search-clear');
+    // Home: the teaser grid under "最新文章" is a fixed 6-card preview (no pagination) —
+    // "查看全部" links out to the full archive instead. gridPaginator stays null here on
+    // purpose, so the search-clear handler below just un-hides all 6 cards.
+    var pager = document.querySelector('.pager');
+    // Topic-tag row atop the archive page (articles.html only) — clicking a tag filters
+    // the list below by each item's data-topic and re-paginates just the matching subset.
+    var topicButtons = archiveList ? Array.prototype.slice.call(document.querySelectorAll('.topic-tag-btn')) : [];
+    var activeTopic = null;
+
     if (listEl && searchInput2 && searchWrap2) {
       var itemSelector = archiveList ? '.archive-item' : '.post-card';
       var titleSelector = archiveList ? '.archive-title' : '.post-card-title';
@@ -384,27 +393,50 @@
         // Homepage only: collapse the hero/featured sections while searching so the
         // filtered "最新文章" grid sits right under the search box instead of way down the page.
         document.body.classList.toggle('is-searching', !!q && !!cardGrid);
-        if (!q) {
-          if (gridPaginator) { gridPaginator.render(); } else { archiveItems.forEach(function (li) { li.style.display = ''; }); }
+
+        if (!q && !activeTopic) {
+          if (gridPaginator) { gridPaginator.render(); }
+          else if (archiveList) { if (pager) pager.innerHTML = ''; archiveItems.forEach(function (li) { li.style.display = ''; }); paginate(archiveList, archiveItems, 20, pager); }
+          else { archiveItems.forEach(function (li) { li.style.display = ''; }); }
           emptyMsg2.hidden = true;
-          if (pager) pager.style.display = '';
+          if (pager && !archiveList) pager.style.display = '';
           return;
         }
+
         var anyMatch = false;
+        var matching = [];
         archiveItems.forEach(function (li) {
+          var topicOk = !activeTopic || li.getAttribute('data-topic') === activeTopic;
+          if (!topicOk) { li.style.display = 'none'; return; }
           var titleEl = li.querySelector(titleSelector);
           var descEl = descSelector ? li.querySelector(descSelector) : null;
           var title = titleEl ? titleEl.textContent.toLowerCase() : '';
           var desc = descEl ? descEl.textContent.toLowerCase() : '';
-          var match = title.indexOf(q) !== -1 || desc.indexOf(q) !== -1;
-          li.style.display = match ? '' : 'none';
-          if (match) anyMatch = true;
+          var match = !q || title.indexOf(q) !== -1 || desc.indexOf(q) !== -1;
+          if (match) { anyMatch = true; matching.push(li); } else { li.style.display = 'none'; }
         });
         emptyMsg2.hidden = anyMatch;
-        // A search match may fall outside the current page's slice — show every match
-        // instead of leaving pagination's per-page display:none in charge while searching.
-        if (pager) pager.style.display = 'none';
+        if (archiveList) {
+          // Archive list supports real pagination even while filtered by topic and/or
+          // text — re-run paginate() on just the matching subset so a category with
+          // more than one page's worth of articles still pages correctly.
+          matching.forEach(function (li) { li.style.display = ''; });
+          if (pager) pager.innerHTML = '';
+          paginate(archiveList, matching, 20, pager);
+        } else if (pager) {
+          // Homepage teaser grid: no pagination while searching, just show every match.
+          pager.style.display = 'none';
+        }
       };
+
+      topicButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var topic = btn.getAttribute('data-topic');
+          activeTopic = activeTopic === topic ? null : topic;
+          topicButtons.forEach(function (b) { b.classList.toggle('is-active', b === btn && activeTopic !== null); });
+          applyArchiveSearch();
+        });
+      });
 
       // Makes the client-side search addressable by URL (?q=...) so a real "search results
       // page" exists for the WebSite SearchAction structured data to point at.
@@ -412,6 +444,8 @@
       if (urlQuery) {
         searchInput2.value = urlQuery;
         applyArchiveSearch();
+      } else if (archiveList) {
+        applyArchiveSearch(); // sets up the initial full pagination
       }
 
       searchInput2.addEventListener('input', applyArchiveSearch);
@@ -430,14 +464,6 @@
       });
     }
   }
-
-  var pager = document.querySelector('.pager');
-  // Home: the teaser grid under "最新文章" is a fixed 6-card preview (no pagination) —
-  // "查看全部" links out to the full archive instead. gridPaginator stays null here on
-  // purpose, so the search-clear handler below just un-hides all 6 cards.
-  // --- Archive page: paginate the titles list ---
-  var archive = document.querySelector('.archive-list');
-  if (archive) paginate(archive, Array.prototype.slice.call(archive.querySelectorAll('.archive-item')), 20, pager);
 
   // --- Back-to-top: fades in once you've scrolled past ~one screen, not just near the bottom ---
   var backToTop = document.querySelector('.back-to-top');

@@ -44,6 +44,7 @@
 8. JSON-LD `ItemList`（首页/归档页）里的 position 需要整体重新编号。
 9. 从 2–3 篇最相关的已有文章里加一条指向新文章的内链（反向也可以考虑）。
 10. 新文章置顶为首页精选（featured）时，同步把 `index.html` / `en/index.html` `<head>` 里的 `<link rel="preload" as="image" fetchpriority="high">` 指向新文章的封面图（LCP 优化，2026-07 从 docs-coin 项目同步过来的写法）——这个 preload 链接必须和当前精选卡片的封面图保持一致，忘记改就是白做，浏览器还是优先加载旧图。
+11. `articles.html` / `en/articles.html` 顶部「按主题分类阅读」的标签筛选（`.topic-tag-btn`）：新文章要归到入门与基础/虚拟卡专题/稳定币支付专题/特殊场景与账户管理这四类之一，同时给对应 `<li class="archive-item">` 加 `data-topic="basics|virtual-card|stablecoin|special"` 属性，并把该标签按钮里 `.topic-tag-count` 的计数 +1（这个数字是手工维护的静态计数，不是自动统计，改了文章分类却忘记同步这个数字，标签上显示的篇数就会跟点开后的实际结果对不上）。
 
 ## 5. 改动首页/列表页/关于页时
 
