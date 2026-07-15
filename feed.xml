@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 14 Jul 2026 15:15:47 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 15 Jul 2026 17:53:35 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 服务不止聊天机器人：编程、绘图、视频工具怎么订阅]]></title>
+    <link>https://ponr.org/articles/overseas-ai-service-categories.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-service-categories.html</guid>
+    <pubDate>Wed, 15 Jul 2026 17:53:35 +0800</pubDate>
+    <category>入门与基础</category>
+    <description><![CDATA[GitHub Copilot、Midjourney、Runway 等编程、绘图、视频类 AI 工具，订阅逻辑和 ChatGPT 类似，稳定币也能统一支付，拆解怎么选、怎么开通。]]></description>
+  </item>
   <item>
     <title><![CDATA[虚拟信用卡支付方案：一张卡搞定海外AI账单]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-solution.html</link>
