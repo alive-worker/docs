@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-coding-assistant-guide.html</loc>
+    <lastmod>2026-07-16T09:58:03+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-service-categories.html</loc>
@@ -138,11 +142,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-16</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/coding-assistant-billing-guide.html</loc>
+    <lastmod>2026-07-16T09:58:03+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-service-types-guide.html</loc>

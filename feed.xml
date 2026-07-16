@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 15 Jul 2026 17:53:35 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 16 Jul 2026 09:58:03 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Copilot 还是 Cursor：AI 编程订阅怎么挑]]></title>
+    <link>https://ponr.org/articles/overseas-ai-coding-assistant-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-coding-assistant-guide.html</guid>
+    <pubDate>Thu, 16 Jul 2026 09:58:03 +0800</pubDate>
+    <category>入门与基础</category>
+    <description><![CDATA[GitHub Copilot 按席位收费，Cursor 按订阅加用量计费，个人开发者和团队该怎么选，怎样用稳定币或虚拟卡统一支付这两类订阅费用。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 服务不止聊天机器人：编程、绘图、视频工具怎么订阅]]></title>
     <link>https://ponr.org/articles/overseas-ai-service-categories.html</link>

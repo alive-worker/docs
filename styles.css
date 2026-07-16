@@ -323,6 +323,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--lavender { background: #efebfa; color: #543894; }
 .archive-tag--azure { background: #e0f0fb; color: #0d6ba8; }
 .archive-tag--mint { background: #dcf5ec; color: #0f6e56; }
+.archive-tag--sky { background: #e0f2fe; color: #075985; }
 
 [data-theme="dark"] .archive-tag--purple { background: #29255a; color: #c7bffb; }
 [data-theme="dark"] .archive-tag--blue   { background: #123350; color: #9bcdf7; }
@@ -355,6 +356,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 [data-theme="dark"] .archive-tag--lavender { background: #21163b; color: #bea8f0; }
 [data-theme="dark"] .archive-tag--azure { background: #0f2c3d; color: #8ed0f5; }
 [data-theme="dark"] .archive-tag--mint { background: #123a2c; color: #7fe0bb; }
+[data-theme="dark"] .archive-tag--sky { background: #0c2d42; color: #7dd3fc; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
