@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 16 Jul 2026 09:58:03 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 10:07:43 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Midjourney 订阅档位怎么选：算力时长怎么算]]></title>
+    <link>https://ponr.org/articles/overseas-ai-image-gen-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-image-gen-billing-guide.html</guid>
+    <pubDate>Mon, 20 Jul 2026 10:07:43 +0800</pubDate>
+    <category>入门与基础</category>
+    <description><![CDATA[Midjourney 分 Basic、Standard、Pro、Mega 四档，Fast 和 Relax 模式算力扣费方式也不同，拆解怎么选档位、怎么用稳定币或虚拟卡付款。]]></description>
+  </item>
   <item>
     <title><![CDATA[Copilot 还是 Cursor：AI 编程订阅怎么挑]]></title>
     <link>https://ponr.org/articles/overseas-ai-coding-assistant-guide.html</link>

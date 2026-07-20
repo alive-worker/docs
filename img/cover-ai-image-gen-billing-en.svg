@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Picking a Midjourney plan how GPU time billing works cover image">
+  <defs>
+    <linearGradient id="bgGradAigbEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#26091f"/>
+      <stop offset="1" stop-color="#4a1442"/>
+    </linearGradient>
+    <radialGradient id="glowAigbEn" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e879c9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e879c9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradAigbEn)"/>
+  <rect width="800" height="400" fill="url(#glowAigbEn)"/>
+  <g stroke="#5c2050" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#f3a8e0">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#3a1132" stroke="#f3a8e0" stroke-width="2.5"/>
+  <rect x="82" y="98" width="60" height="42" rx="6" fill="none" stroke="#f6c9ea" stroke-width="3"/>
+  <circle cx="96" cy="112" r="5" fill="#f6c9ea"/>
+  <path d="M84 136 l16-18 12 12 10-14 18 20" fill="none" stroke="#e879c9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M138 88 l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#f6c9ea"/>
+
+  <text x="64" y="230" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="40" font-weight="700" fill="#fbe8f7">Midjourney</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="40" font-weight="700" fill="#fbe8f7">Plans</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#f3a8e0">PLANS &#183; FAST &#183; RELAX</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#f3a8e0" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#3a1132" stroke="#5c2050" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#f3a8e0"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#fbe8f7">Plan Comparison</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#5c2050" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#eec9e6">Basic</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#f3a8e0">3.3 Fast hrs/month</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#eec9e6">Standard/Pro</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#f3a8e0">More Fast + unlimited Relax</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#5c2050" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#fbe8f7">In common</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="#f3a8e0">Card or stablecoin works</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#26091f" stroke="#5c2050" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#fbe4f5">&#10003; Relax mode is unlimited, just slower</text>
+</svg>

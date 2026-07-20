@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 16 Jul 2026 09:58:03 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 20 Jul 2026 10:07:43 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Picking a Midjourney Plan: How GPU Time Billing Works]]></title>
+    <link>https://ponr.org/en/articles/midjourney-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/midjourney-billing-guide.html</guid>
+    <pubDate>Mon, 20 Jul 2026 10:07:43 +0800</pubDate>
+    <category>Getting Started</category>
+    <description><![CDATA[Midjourney splits into four tiers with different Fast and Relax GPU-time limits. Compare plans, dodge overage surprises, pay with stablecoin or a virtual card.]]></description>
+  </item>
   <item>
     <title><![CDATA[Copilot vs Cursor: Which AI Coding Plan to Pick]]></title>
     <link>https://ponr.org/en/articles/coding-assistant-billing-guide.html</link>
