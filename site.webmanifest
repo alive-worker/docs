@@ -1,7 +1,7 @@
 {
-  "name": "海外AI订阅指南",
-  "short_name": "AI订阅指南",
-  "description": "围绕 ChatGPT、Claude、Gemini、Perplexity 等海外 AI 服务的订阅开通与支付通道的中文实用指南。",
+  "name": "AI服务指南",
+  "short_name": "AI服务指南",
+  "description": "围绕 ChatGPT、Claude、Gemini 等海外 AI 与 DeepSeek、豆包、Kimi 等国内 AI 服务的订阅开通、支付通道与日常使用的中文实用指南。",
   "lang": "zh-CN",
   "start_url": "/",
   "display": "standalone",

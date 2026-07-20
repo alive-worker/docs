@@ -669,7 +669,7 @@ body.is-searching .featured-article { display: none; }
 .site-foot-brand img { width: 32px; height: 32px; border-radius: 8px; flex: none; }
 .site-foot-brand-name { display: block; font-size: 15px; font-weight: 800; color: var(--ink); }
 .site-foot-desc { margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: var(--muted); max-width: 40ch; }
-.site-foot-col h3 { margin: 0 0 12px; font-size: 13px; font-weight: 700; color: var(--ink); }
+.site-foot-col h2 { margin: 0 0 12px; font-size: 13px; font-weight: 700; color: var(--ink); }
 .site-foot-col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .site-foot-col a { font-size: 13.5px; color: var(--muted); text-decoration: none; }
 .site-foot-col a:hover { color: var(--accent); text-decoration: underline; }
