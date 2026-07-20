@@ -661,7 +661,7 @@ body.is-searching .featured-article { display: none; }
   max-width: var(--wrap-wide);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
   gap: 32px;
   padding-bottom: 36px;
 }
