@@ -143,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-voice-music-billing-guide.html': '2026-07-23 18:01:04',
+    '/en/articles/voice-music-billing-guide.html': '2026-07-23 18:01:04',
     '/articles/overseas-ai-video-gen-billing-guide.html': '2026-07-23 13:34:38',
     '/en/articles/video-gen-billing-guide.html': '2026-07-23 13:34:38',
     '/articles/overseas-ai-image-gen-billing-guide.html': '2026-07-20 10:07:43',

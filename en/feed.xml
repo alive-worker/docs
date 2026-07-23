@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 23 Jul 2026 13:34:38 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 18:01:04 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[ElevenLabs vs Suno: AI Voice and Music Subscription Costs]]></title>
+    <link>https://ponr.org/en/articles/voice-music-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/voice-music-billing-guide.html</guid>
+    <pubDate>Thu, 23 Jul 2026 18:01:04 +0800</pubDate>
+    <category>Getting Started</category>
+    <description><![CDATA[ElevenLabs bills by character count, Suno by subscription plus generations. Compare tiers, avoid pitfalls, and pay for both with the same stablecoin setup.]]></description>
+  </item>
   <item>
     <title><![CDATA[What AI Video Generation Costs: Runway vs Luma AI]]></title>
     <link>https://ponr.org/en/articles/video-gen-billing-guide.html</link>
