@@ -325,6 +325,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .archive-tag--mint { background: #dcf5ec; color: #0f6e56; }
 .archive-tag--sky { background: #e0f2fe; color: #075985; }
 .archive-tag--magenta { background: #fce4f6; color: #a3186b; }
+.archive-tag--crimson { background: #fde2e2; color: #b3131f; }
 
 [data-theme="dark"] .archive-tag--purple { background: #29255a; color: #c7bffb; }
 [data-theme="dark"] .archive-tag--blue   { background: #123350; color: #9bcdf7; }
@@ -359,6 +360,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 [data-theme="dark"] .archive-tag--mint { background: #123a2c; color: #7fe0bb; }
 [data-theme="dark"] .archive-tag--sky { background: #0c2d42; color: #7dd3fc; }
 [data-theme="dark"] .archive-tag--magenta { background: #3d1030; color: #f5a8dd; }
+[data-theme="dark"] .archive-tag--crimson { background: #3d1013; color: #f5a3a3; }
 
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 20 Jul 2026 10:07:43 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 13:34:38 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 视频生成要花多少钱：Runway 与 Luma AI 计费对比]]></title>
+    <link>https://ponr.org/articles/overseas-ai-video-gen-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-video-gen-billing-guide.html</guid>
+    <pubDate>Thu, 23 Jul 2026 13:34:38 +0800</pubDate>
+    <category>入门与基础</category>
+    <description><![CDATA[Runway 和 Luma AI 都按算力积分计费，但计费单位和套餐结构不一样，拆解两款 AI 视频生成工具怎么选档位、怎么估算实际花费，以及怎么用稳定币统一付款。]]></description>
+  </item>
   <item>
     <title><![CDATA[Midjourney 订阅档位怎么选：算力时长怎么算]]></title>
     <link>https://ponr.org/articles/overseas-ai-image-gen-billing-guide.html</link>
