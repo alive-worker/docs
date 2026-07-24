@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI API 按 token 怎么计费：输入输出价差与用量估算</title>
+  <meta name="description" content="调用 AI 大模型 API 按 token 用量计费，输入和输出单价不同。拆解 token 怎么算、上下文越长为什么越贵、如何估算月成本，以及怎么用稳定币充值。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-token-billing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-token-billing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/token-billing-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-token-billing.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="AI API 按 token 怎么计费：输入输出价差与用量估算">
+  <meta property="og:description" content="调用 AI 大模型 API 按 token 用量计费，输入和输出单价不同。拆解 token 怎么算、上下文越长为什么越贵、如何估算月成本，以及怎么用稳定币充值。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-token-billing.html">
+  <meta property="article:published_time" content="2026-07-24T02:39:52+08:00">
+  <meta property="article:modified_time" content="2026-07-24T02:39:52+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI API 按 token 怎么计费：输入输出价差与用量估算">
+  <meta name="twitter:description" content="调用 AI 大模型 API 按 token 用量计费，输入和输出单价不同。拆解 token 怎么算、上下文越长为什么越贵、如何估算月成本，以及怎么用稳定币充值。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-ai-token-billing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="AI API按token怎么计费输入输出价差与用量估算封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-ai-token-billing.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=a7dd12933d">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#primaryimage", "url": "https://ponr.org/img/cover-ai-token-billing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#webpage", "url": "https://ponr.org/articles/overseas-ai-token-billing.html", "name": "AI API 按 token 怎么计费：输入输出价差与用量估算", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "AI API 按 token 怎么计费：输入输出价差与用量估算", "item": "https://ponr.org/articles/overseas-ai-token-billing.html" }
+    ] },
+    { "@type": "Article", "headline": "AI API 按 token 怎么计费：输入输出价差与用量估算", "description": "调用 AI 大模型 API 按 token 用量计费，输入和输出单价不同。拆解 token 怎么算、上下文越长为什么越贵、如何估算月成本，以及怎么用稳定币充值。", "image": "https://ponr.org/img/cover-ai-token-billing.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-24T02:39:52+08:00", "dateModified": "2026-07-24T02:39:52+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["AI API 计费", "token 计费", "输入输出单价", "上下文成本", "稳定币充值"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-token-billing.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/token-billing-guide.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>AI API 按 token 怎么计费：输入输出价差与用量估算</h1>
+          <p class="article-summary">前面几篇拆解的都是订阅制 AI 工具——编程助手、绘图、视频、配音音乐，共同点是"按月付固定费用，额度封顶"。这一篇换一种完全不同的计费模型：直接调用大模型 API（OpenAI、Anthropic、Google 这些平台的接口）不是包月，而是按 token 用量计费，用多少算多少，没有封顶。它更灵活，但也更容易在不知不觉中花超。拆解 token 到底怎么算、输入和输出为什么单价不同、上下文越长为什么每次调用越贵，怎么估算月度成本，以及充值这一环怎么用稳定币或虚拟卡搞定。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-24T02:39:52+08:00">2026-07-24 02:39:52</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-ai-token-billing.svg" width="800" height="400" alt="AI API按token怎么计费输入输出价差与用量估算封面图" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. 订阅制和 API 计费，是两种完全不同的付费逻辑</h2>
+          <p>大多数人接触 AI 是从网页版订阅开始的：每月付一笔固定费用（比如 ChatGPT Plus），用量在套餐范围内基本不用操心花多少钱。但当你开始用 API——也就是在自己的程序、脚本或第三方工具里直接调用大模型——计费逻辑就变了：不再是包月封顶，而是按实际处理的 token 数量逐次扣费，调用一次算一次的钱，没有月度上限。这带来两个直接后果：一是成本完全跟着用量走，用得少就便宜，用得多可能比订阅贵得多；二是没有"套餐用完自动停"的保护，一段写错的循环代码可能在几分钟内烧掉几十美元。搞清楚 token 怎么计费，是用好 API 的前提。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. token 到底是什么，怎么换算成文字</h2>
+          <p>token 是大模型处理文本的最小单位，但它既不是"字"也不是"单词"。模型会把文本切成一个个 token，一个 token 可能是一个完整的英文单词、一个词的一部分，或者一个标点。粗略的经验值：英文大约 1 个 token 对应 4 个字符、或 0.75 个单词；中文因为字形信息密度高，通常 1 个汉字要消耗 1 到 2 个 token，比英文更"费"token。这意味着同样一段话，中文的 token 消耗往往高于英文。真正要精确估算时，不能靠肉眼数字数，各家平台都提供了 token 计数工具（tokenizer），把实际文本贴进去就能算出准确的 token 数——批量任务上线前，用真实样本跑一遍计数，比拍脑袋估算靠谱得多。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 输入和输出，为什么单价不一样</h2>
+          <p>API 计费最容易被忽略的一点：输入 token 和输出 token 是分开计价的，而且输出通常明显更贵——同一个模型，输出单价可能是输入的三到五倍。原因在于成本结构：输入 token 是模型"读"你发过去的内容（提示词、上下文、历史对话），可以高度并行处理；输出 token 是模型逐个"生成"的，每生成一个都要跑一次完整的前向计算，计算成本更高，于是单价也更高。这条规律对成本优化有直接启发：想省钱，控制输出长度往往比压缩输入更有效——让模型"少说废话、直接给结论"，比费力删减提示词更能立竿见影地降本。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 上下文越长，为什么每次调用越贵</h2>
+          <p>很多人第一次用 API 会困惑：为什么对话进行到后面，每一轮的花费越来越高？关键在于大模型是"无状态"的——它不会记住上一轮说了什么，每次调用你都得把完整的历史对话重新发一遍作为上下文。也就是说，对话越长，每一轮要重新发送的输入 token 就越多，成本随对话轮次累积上涨。同理，做长文档分析、代码库问答这类任务时，把整篇文档塞进上下文，输入 token 会非常可观。应对办法有几种：只保留最近几轮对话、把长文档先摘要再提问、或用检索的方式只把相关片段送进上下文，而不是每次都发全文。部分平台还提供上下文缓存（prompt caching），对重复发送的相同前缀按更低价计费，长上下文重复调用时值得开启。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 怎么估算一个月的 API 成本</h2>
+          <p>API 没有月度封顶，成本要靠自己估。一个可操作的算法：先用真实样本量出单次调用的平均输入 token 和输出 token，分别乘以该模型的输入、输出单价，得到单次成本；再乘以预计的月调用次数，就是月度成本的量级。举例来说，一个每天处理 200 次请求、每次输入约 800 token、输出约 400 token 的应用，一个月就是约 6000 次调用、480 万输入 token、240 万输出 token——把这两个数字分别套进平台价目表，就能得到相对靠谱的预算，而不是等账单出来才发现花超。上线前先按这个方法算一遍，再给自己留 20% 到 30% 的余量应对波动，是比较稳妥的做法。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 控制 API 成本的几个实用技巧</h2>
+          <p>在不牺牲效果的前提下，有几条降本手段值得常备：一是按任务选模型，简单的分类、抽取用小模型就够了，别所有请求都调最贵的旗舰模型；二是控制输出长度，用参数限制最大生成 token 数，避免模型长篇大论；三是精简上下文，长对话只保留必要的历史、长文档先摘要或用检索片段代替全文；四是开启上下文缓存，对重复发送的相同前缀能显著降价；五是加一层用量监控和预算告警，很多平台支持设置用量上限或消费告警，把"写错循环烧掉几十美元"这类事故挡在早期。这些技巧叠加起来，往往能把实际账单压到最初估算的一半以下。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. API 充值这一环，怎么用稳定币或虚拟卡搞定</h2>
+          <p>调用海外大模型 API 的付费方式和订阅制类似，通常需要绑定一张境外信用卡预充值或按月结算。如果你已经在用虚拟卡或稳定币支付 ChatGPT、Midjourney 这些订阅，同一套支付方式可以直接用于 API 平台的充值，不需要单独准备新的支付渠道。稳定币不在对应链上时，可以提前用跨链兑换聚合器换好——<a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 无需注册、非托管，选好源链和目标链资产、比价后即可完成兑换，适合在余额告警前把资金准备到位。API 是预充值模式的平台尤其要留意余额，避免用量高峰时因余额不足导致服务中断。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 小结</h2>
+          <p>API 按 token 计费是一套和订阅制完全不同的付费逻辑：用多少算多少、没有封顶，输入和输出分开计价且输出更贵，上下文越长每次调用越贵。想控制成本，先用真实样本估算月度预算，再通过选对模型、限制输出、精简上下文、开启缓存和设置用量告警这几条手段综合降本。支付这一环依然可以复用虚拟卡或稳定币这套通用方案。这是本站计费主题连载的最新一篇，后续会继续覆盖更多 AI 服务的计费细节。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 订阅制和 API 计费，是两种完全不同的付费逻辑</a></li>
+          <li><a href="#sec-2">2. token 到底是什么，怎么换算成文字</a></li>
+          <li><a href="#sec-3">3. 输入和输出，为什么单价不一样</a></li>
+          <li><a href="#sec-4">4. 上下文越长，为什么每次调用越贵</a></li>
+          <li><a href="#sec-5">5. 怎么估算一个月的 API 成本</a></li>
+          <li><a href="#sec-6">6. 控制 API 成本的几个实用技巧</a></li>
+          <li><a href="#sec-7">7. API 充值这一环，怎么用稳定币或虚拟卡搞定</a></li>
+          <li><a href="#sec-8">8. 小结</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-voice-music-billing-guide.html">ElevenLabs 和 Suno 订阅怎么选：AI 配音与音乐生成计费拆解</a></li>
+          <li><a href="/articles/overseas-ai-video-gen-billing-guide.html">AI 视频生成要花多少钱：Runway 与 Luma AI 计费对比</a></li>
+          <li><a href="/articles/overseas-ai-coding-assistant-guide.html">AI 编程助手怎么计费：Copilot、Cursor 订阅拆解</a></li>
+          <li><a href="/articles/overseas-ai-payment-methods.html">实体卡、虚拟卡、稳定币：海外AI三条支付路径对比</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap 跨链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC 虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI学习笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">读懂 AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI前沿资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ce1b208bbe"></script>
+</body>
+</html>

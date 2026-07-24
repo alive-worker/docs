@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-token-billing.html</loc>
+    <lastmod>2026-07-24T02:39:52+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-voice-music-billing-guide.html</loc>
@@ -154,11 +158,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/token-billing-guide.html</loc>
+    <lastmod>2026-07-24T02:39:52+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/voice-music-billing-guide.html</loc>
