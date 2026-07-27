@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'REPLACE-ME-zh-slug',   // e.g. 'overseas-ai-virtual-card-validity' (no .html, no dir)
-  enSlug: 'REPLACE-ME-en-slug',   // e.g. 'virtual-card-validity-guide'
-  publishedISO: '2026-01-01T00:00:00+08:00',
-  tagColor: 'REPLACE-ME',          // must already exist as .archive-tag--<color> in styles.css
+  zhSlug: 'overseas-ai-stablecoin-reserve-transparency',
+  enSlug: 'stablecoin-reserve-transparency-guide',
+  publishedISO: '2026-07-27T15:53:05+08:00',
+  tagColor: 'azure',
 
   zh: {
-    h1: 'REPLACE ME',
-    tagLabel: 'REPLACE ME',        // short archive-tag/sidebar label, e.g. "有效期设置"
-    cardDesc: 'REPLACE ME',        // short one-liner used in featured-desc / grid post-card-desc
+    h1: 'USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解',
+    tagLabel: '储备透明度',
+    cardDesc: 'USDT、USDC 宣称 1:1 锚定美元，拆解储备资产构成、储备证明与审计的区别，以及普通人怎么用链上数据自行核验。',
   },
   en: {
-    h1: 'REPLACE ME',
-    tagLabel: 'REPLACE ME',
-    cardDesc: 'REPLACE ME',
+    h1: "What Actually Backs USDT and USDC's Dollar Peg",
+    tagLabel: 'Reserve Transparency',
+    cardDesc: 'USDT and USDC claim a 1:1 dollar peg. A breakdown of reserve composition, attestation vs audit, and how to self-verify on-chain.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: [],
+  crossLinkSlugs: ['overseas-ai-stablecoin-payment', 'overseas-ai-fund-reserve', 'overseas-ai-stablecoin-diversification'],
 };
 // ---------------------------------------------------------------------------
 

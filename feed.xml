@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 24 Jul 2026 02:39:52 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 27 Jul 2026 15:53:05 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html</guid>
+    <pubDate>Mon, 27 Jul 2026 15:53:05 +0800</pubDate>
+    <category>储备透明度</category>
+    <description><![CDATA[USDT、USDC 宣称 1:1 锚定美元，拆解储备资产构成、储备证明与审计的区别，以及普通人怎么用链上数据自行核验。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI API 按 token 怎么计费：输入输出价差与用量估算]]></title>
     <link>https://ponr.org/articles/overseas-ai-token-billing.html</link>
@@ -76,7 +84,7 @@
     <link>https://ponr.org/articles/overseas-ai-virtual-card-validity.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-validity.html</guid>
     <pubDate>Mon, 13 Jul 2026 17:43:43 +0800</pubDate>
-    <category>虚拟卡</category>
+    <category>有效期设置</category>
     <description><![CDATA[虚拟卡有效期设太短，订阅还没到期卡就先失效，续费直接被拒；设太长，闲置卡片被盗用的时间窗口也更大。拆解怎么按订阅周期估算合适的有效期区间，附实操建议。]]></description>
   </item>
   <item>
@@ -84,15 +92,15 @@
     <link>https://ponr.org/articles/overseas-ai-virtual-card-hub.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-hub.html</guid>
     <pubDate>Fri, 10 Jul 2026 16:10:40 +0800</pubDate>
-    <category>虚拟卡</category>
-    <description><![CDATA[同时要决定卡型、服务商、额度和分配方式，四个问题分开看容易顾此失彼。这篇把 6 篇虚拟卡专题的结论汇总成一张决策表，按场景直接给出配置建议。]]></description>
+    <category>决策指南</category>
+    <description><![CDATA[同时要决定卡型、服务商、额度和分配方式，四个问题分开看容易顾此失彼。这篇把 7 篇虚拟卡专题的结论汇总成一张决策表，按场景直接给出配置建议。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡额度设多少合适：太低会失败，太高不安全]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-limit.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-limit.html</guid>
     <pubDate>Fri, 10 Jul 2026 15:33:23 +0800</pubDate>
-    <category>虚拟卡</category>
+    <category>额度设置</category>
     <description><![CDATA[虚拟卡额度设太低，订阅续费金额一上涨就容易被拒付；设太高，一旦被盗刷或误扣的损失也更大。拆解怎么估算出既不容易失败、风险也可控的额度区间，附实操建议。]]></description>
   </item>
   <item>
@@ -100,7 +108,7 @@
     <link>https://ponr.org/articles/overseas-ai-virtual-card-allocation.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-allocation.html</guid>
     <pubDate>Fri, 10 Jul 2026 15:02:17 +0800</pubDate>
-    <category>虚拟卡</category>
+    <category>卡片分配</category>
     <description><![CDATA[同时订阅 ChatGPT、Claude、Gemini 时，用一张虚拟卡管所有订阅省心，还是每个订阅单独开卡更安全？拆解两种分配方式的利弊与折中思路。]]></description>
   </item>
   <item>
@@ -108,7 +116,7 @@
     <link>https://ponr.org/articles/overseas-ai-virtual-card-type.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-type.html</guid>
     <pubDate>Fri, 10 Jul 2026 11:30:56 +0800</pubDate>
-    <category>虚拟卡</category>
+    <category>卡型选择</category>
     <description><![CDATA[一次性虚拟卡开一次用一次、到期即弃；长期虚拟卡适合稳定续费、省去反复开卡的麻烦。拆解两种卡型各自的适用场景和优缺点，以及混合使用的实操思路。]]></description>
   </item>
   <item>
@@ -116,7 +124,7 @@
     <link>https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:48:37 +0800</pubDate>
-    <category>稳定币</category>
+    <category>分散策略</category>
     <description><![CDATA[多条链上都留了稳定币储备，续费时该集中到一条链省手续费，还是分散放着更抗风险？拆解集中与分散两种策略的成本、风险与各自适用的订阅规模和支付场景。]]></description>
   </item>
   <item>
@@ -124,7 +132,7 @@
     <link>https://ponr.org/articles/overseas-ai-virtual-card-provider.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-provider.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:35:25 +0800</pubDate>
-    <category>虚拟卡</category>
+    <category>服务商选择</category>
     <description><![CDATA[虚拟卡不是随便开一张就行，服务商的审核门槛、支付成功率与长期稳定性差异很大。整理挑选服务商时该看的几项关键指标，以及选错后的排查与补救思路。]]></description>
   </item>
   <item>
@@ -140,7 +148,7 @@
     <link>https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</guid>
     <pubDate>Thu, 09 Jul 2026 17:09:19 +0800</pubDate>
-    <category>稳定币</category>
+    <category>资产归集</category>
     <description><![CDATA[多次用稳定币付款后，各条链上常常散落着几笔零钱，续费时才发现凑不出一整份。整理归集思路：先盘点分布，再用跨链兑换工具批量汇总到一条主链，形成可直接续费的储备金。]]></description>
   </item>
   <item>
@@ -148,7 +156,7 @@
     <link>https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</guid>
     <pubDate>Wed, 08 Jul 2026 15:01:37 +0800</pubDate>
-    <category>稳定币</category>
+    <category>支付故障</category>
     <description><![CDATA[稳定币付款卡在待确认、商户显示未到账、或者直接失败，三种情况的处理方式完全不同。整理排查顺序：先看交易哈希和链上状态，再判断该等待、该找客服还是该换支付方式。]]></description>
   </item>
   <item>
@@ -156,7 +164,7 @@
     <link>https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</guid>
     <pubDate>Wed, 08 Jul 2026 14:15:55 +0800</pubDate>
-    <category>稳定币</category>
+    <category>跨链兑换</category>
     <description><![CDATA[稳定币不在需要的链上，是海外 AI 订阅最常见的“卡壳”原因之一。整理跨链兑换工具该看哪些指标——报价机制、手续费构成、到账速度、是否托管资产，并给出从选币到到账的实操流程。]]></description>
   </item>
   <item>
@@ -181,7 +189,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-troubleshooting.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:29:26 +0800</pubDate>
     <category>支付排查</category>
-    <description><![CDATA[用虚拟卡订阅 ChatGPT、Claude 却被拒付？拆解 AVS 地址验证不匹配、3DS 验证失败、卡段（BIN）被风控、额度与卡片状态四类常见原因，以及遇到拒付后的排查顺序和怎么选通过率更高的服务商。]]></description>
+    <description><![CDATA[用虚拟卡订阅 ChatGPT、Claude 却被拒付？拆解 AVS、3DS 验证失败、BIN 风控、额度状态四类常见原因，以及拒付后的排查顺序和选服务商的思路。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币留多少才够用：海外AI资金储备规划]]></title>
@@ -213,7 +221,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-student-discount.html</guid>
     <pubDate>Tue, 07 Jul 2026 09:40:00 +0800</pubDate>
     <category>学生优惠</category>
-    <description><![CDATA[ChatGPT Plus、Gemini、Perplexity 等海外 AI 服务的学生/教育优惠怎么申请？拆解教育邮箱与第三方身份验证服务两种验证方式，没有教育邮箱时的合规思路，以及验证失败、优惠到期后自动转正价的常见问题。]]></description>
+    <description><![CDATA[ChatGPT Plus、Gemini 等海外 AI 服务的学生优惠怎么申请？拆解教育邮箱与第三方验证两种方式，没有教育邮箱时的思路，以及验证失败、到期转正价的常见问题。]]></description>
   </item>
   <item>
     <title><![CDATA[海外AI到底多贵：汇率加点与手续费全拆解]]></title>
@@ -229,7 +237,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-cancellation-refund.html</guid>
     <pubDate>Mon, 06 Jul 2026 10:58:00 +0800</pubDate>
     <category>取消退款</category>
-    <description><![CDATA[ChatGPT、Claude、Gemini 等海外 AI 订阅想取消、降级或申请退款该怎么操作？拆解官方取消入口、退款政策与时间窗口，信用卡/虚拟卡/稳定币三种支付方式下的退款差异，以及误扣费后的补救办法。]]></description>
+    <description><![CDATA[ChatGPT、Claude、Gemini 等海外 AI 订阅想取消、降级或退款该怎么操作？拆解官方入口、退款政策与三种支付方式下的退款差异，以及误扣费后的补救办法。]]></description>
   </item>
   <item>
     <title><![CDATA[两步验证、异常登录、账号找回：海外AI账号安全实操]]></title>
@@ -277,7 +285,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-subscription-team.html</guid>
     <pubDate>Wed, 01 Jul 2026 17:33:12 +0800</pubDate>
     <category>团队</category>
-    <description><![CDATA[面向团队与多账号场景，讨论海外 AI 订阅的席位规划、续费稳定性、汇率与资金管理、对账合规，构建可持续的海外 AI 订阅治理方案。]]></description>
+    <description><![CDATA[面向团队与多账号场景，讨论海外 AI 订阅的席位规划、续费稳定性、汇率与资金管理、对账合规与权限边界划分，帮助团队构建一套可长期沿用的订阅治理方案。]]></description>
   </item>
   <item>
     <title><![CDATA[实体卡、虚拟卡、稳定币：海外AI三条支付路径对比]]></title>
@@ -285,7 +293,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-payment-methods.html</guid>
     <pubDate>Wed, 01 Jul 2026 16:25:22 +0800</pubDate>
     <category>支付</category>
-    <description><![CDATA[对比海外 AI 订阅的信用卡、虚拟卡与加密货币稳定币三类支付通道，分析成本、成功率、资料一致性与换币准备，帮助你选择稳定的付款方式。]]></description>
+    <description><![CDATA[对比海外 AI 订阅的信用卡、虚拟卡与加密货币稳定币三类支付通道，分析开通门槛、成本、成功率、资料一致性与换币准备，附三类通道的适用场景建议，帮助你选择长期稳定的付款方式。]]></description>
   </item>
   <item>
     <title><![CDATA[ChatGPT、Claude、Gemini怎么开通：海外AI订阅全景图]]></title>

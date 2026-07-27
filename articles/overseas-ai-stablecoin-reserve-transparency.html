@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</title>
+  <meta name="description" content="USDT、USDC 宣称 1:1 锚定美元，靠的是什么资产储备、谁来验证、脱锚又是怎么发生的。拆解储备构成、审计与链上验证工具，及对稳定币支付的实际影响。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/stablecoin-reserve-transparency-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解">
+  <meta property="og:description" content="USDT、USDC 宣称 1:1 锚定美元，靠的是什么资产储备、谁来验证、脱锚又是怎么发生的。拆解储备构成、审计与链上验证工具，及对稳定币支付的实际影响。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html">
+  <meta property="article:published_time" content="2026-07-27T15:53:05+08:00">
+  <meta property="article:modified_time" content="2026-07-27T15:53:05+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="稳定币支付">
+  <meta property="article:tag" content="稳定币">
+  <meta property="article:tag" content="USDT">
+  <meta property="article:tag" content="USDC">
+  <meta property="article:tag" content="储备证明">
+  <meta property="article:tag" content="加密货币研究">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解">
+  <meta name="twitter:description" content="USDT、USDC 宣称 1:1 锚定美元，靠的是什么资产储备、谁来验证、脱锚又是怎么发生的。拆解储备构成、审计与链上验证工具，及对稳定币支付的实际影响。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-stablecoin-reserve-transparency.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="USDT USDC凭什么锚定1美元储备构成与验证方式拆解封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-stablecoin-reserve-transparency.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#primaryimage", "url": "https://ponr.org/img/cover-stablecoin-reserve-transparency.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#webpage", "url": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html", "name": "USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解", "item": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html" }
+    ] },
+    { "@type": "Article", "headline": "USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解", "description": "USDT、USDC 宣称 1:1 锚定美元，靠的是什么资产储备、谁来验证、脱锚又是怎么发生的。拆解储备构成、审计与链上验证工具，及对稳定币支付的实际影响。", "image": "https://ponr.org/img/cover-stablecoin-reserve-transparency.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-27T15:53:05+08:00", "dateModified": "2026-07-27T15:53:05+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["稳定币", "USDT", "USDC", "储备证明", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/stablecoin-reserve-transparency-guide.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</h1>
+          <p class="article-summary">本站此前的稳定币文章都在讲"怎么用"——选链、跨链兑换、资产归集、支付排查。这一篇往回退一步，研究"为什么能用"：USDT、USDC 宣称的 1 美元锚定，背后到底有没有真实资产支撑，谁在核实这件事，储备证明和审计的区别在哪，普通人能不能自己查。这些问题看似离日常支付很远，但一旦真的发生脱锚，受影响的正是把资金停留在稳定币里等着付款的人。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-27T15:53:05+08:00">2026-07-27 15:53:05</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-stablecoin-reserve-transparency.svg" width="800" height="400" alt="USDT USDC凭什么锚定1美元储备构成与验证方式拆解封面图" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. 为什么要关心"1 美元锚定"背后的储备问题</h2>
+          <p>对大多数人来说，稳定币的价值就在于"不用操心"——转账时按 1 美元记账，收款方按 1 美元结算，价格几乎不会像比特币那样上下窜动。但这份"不用操心"本身建立在一个假设上：发行方手里真的有足够的资产，能在你想把稳定币换回美元时如约兑付。这个假设平时很难被察觉，因为绝大多数持有者从头到尾只是把稳定币当"链上美元"转来转去，从不真正去赎回。可一旦市场情绪转向、出现集中挤兑，储备是否真实、是否足额、是否能快速变现，就会在极短时间内决定这枚"稳定"币到底稳不稳。研究这个问题，不是为了制造恐慌，而是为了看懂自己长期依赖的这层资金"中转层"到底建立在什么基础上。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三种锚定机制：法币抵押、加密资产超额抵押与算法稳定</h2>
+          <p>稳定币维持价格锚定的方式并不只有一种。市面上主流的做法大致分三类：一是法币抵押型，发行方对外募集美元或美元等价物，每发行一枚稳定币就对应存入一份储备资产，USDT 和 USDC 都属于这一类；二是加密资产超额抵押型，用价值更高的加密资产（比如 ETH）作抵押品铸造稳定币，通过超额抵押消化加密资产本身的波动，DAI 是典型代表；三是算法稳定型，不依赖足额资产储备，而是靠算法调节供需来维持价格，2022 年崩盘的 UST（TerraUSD）就是这类机制失败的著名案例——它的教训恰恰说明，脱离真实资产支撑、单纯靠算法和市场信心维持的锚定，在极端行情下有多脆弱。本文聚焦的 USDT 与 USDC 属于第一类，即法币抵押型，它们的稳定性直接取决于储备资产的真实性与流动性。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. USDT 的储备构成与信息披露历史</h2>
+          <p>Tether（USDT 发行方）早期长期因储备信息不透明而备受质疑：相当长一段时间里，市场只能拿到笼统的"我们有足够资产"的表态，没有细分的资产构成，也没有第三方核验。这种不透明在 2018 年前后引发过大规模争议，随后美国纽约总检察长办公室的调查也确认 Tether 曾在储备不足的情况下继续维持锚定表态。此后 Tether 逐步开始发布季度储备报告，披露储备资产的大类构成——目前对外披露的储备主要以现金及现金等价物（包括美国国债、隔夜回购协议等高流动性资产）为主，同时包含一定比例的担保贷款、其他投资（含比特币等资产）。相比早期，透明度已经明显提升，但 Tether 至今仍未接受严格意义上的完整年度审计，市场对其披露的完整性和独立性仍持续保有关注。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. USDC 的储备构成：Circle Reserve Fund 与货币市场基金</h2>
+          <p>USDC 的发行方 Circle 走了一条透明度更高的路线。USDC 的储备主要通过 Circle Reserve Fund（一个在美国证监会注册、由贝莱德管理的货币市场基金）持有，构成以短期美国国债与隔夜回购协议为主，另有一部分现金存放在受监管的银行机构。Circle 按月发布由独立会计事务所出具的储备证明报告，披露储备总额、构成明细与对应的 USDC 流通量，报告频率与颗粒度总体高于 Tether。这种结构性的优势，也是 USDC 长期被认为透明度更高、机构接受度更好的重要原因之一——不过"透明度更高"不等于"零风险"，2023 年硅谷银行事件里 USDC 短暂脱锚的教训（详见第 7 节），恰恰发生在这套相对透明的体系之内，说明储备透明本身也不能完全消除银行对手方风险。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. "储备证明"（attestation）不等于"审计"（audit）</h2>
+          <p>这是理解稳定币储备时最容易被混淆、也最关键的一点：市面上流传的多数 Tether、Circle 储备报告，严格来说是"储备证明"（attestation），而不是完整意义上的"审计"（audit）。储备证明通常由会计事务所在某个特定时间点，核对发行方提供的账户余额、持仓凭证是否与其对外披露的数字一致，本质是"某一时刻的快照式核对"；而完整审计的范围要大得多，需要审查内部控制流程、资金进出的完整链路、关联方交易等更全面的财务细节，通常耗时更长、标准更严格。这个区别直接影响了市场对储备可信度的评估：储备证明能确认"某一天账上确实有这些钱"，但无法完全排除快照前后资金被临时调动、或储备资产被重复质押等更复杂的问题。理解这层差异，才能对"已经有第三方报告了"这句话保持恰当的谨慎，而不是把储备证明直接等同于经过审计的财务可信度。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 普通用户怎么自己核验：链上供给量与第三方追踪工具</h2>
+          <p>不依赖发行方单方面的披露，普通用户也有几种可行的自我核验方式。第一，链上数据是公开且不可篡改的：USDT、USDC 的总供给量、各条公链上的分布、大额铸造与销毁记录，都可以直接在对应公链的区块浏览器（如 Etherscan、Tronscan）上查询，供给量的异常暴增或暴减往往是值得留意的信号。第二，可以关注独立的第三方追踪平台，它们会持续汇总链上数据与发行方披露的储备报告，做交叉比对并标注差异。第三，直接查阅发行方官网公开的季度或月度储备报告原文，重点看报告日期是否足够新、资产构成是否细分到具体类别，而不是只看一句笼统的"资产充足"结论。把这三种方式结合起来，能比只看新闻标题更准确地判断某一时刻的储备状况，但要清楚这仍是"事后可查"而非"实时保证"，链上数据与储备报告之间总会存在一定的时间差。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 脱锚复盘：2023 年硅谷银行事件与 USDC 的短暂脱锚</h2>
+          <p>2023 年 3 月硅谷银行（SVB）被美国监管机构接管，是稳定币储备风险最直观的一次实战案例。Circle 披露其约 33 亿美元的 USDC 储备资金存放在硅谷银行，消息传出后市场担忧储备资金无法及时取出，USDC 在几十小时内一度跌至约 0.87 美元，跌幅接近 13%，多个交易平台与去中心化协议因此出现连锁反应。随后美国联邦存款保险公司宣布全额保障硅谷银行储户资金，Circle 确认储备资金安全，USDC 价格在此后一到两天内逐步回升并重新贴近 1 美元。这次事件的关键教训是：储备资产即使构成清晰、报告透明，如果高度集中存放在单一银行机构，仍会暴露在传统银行体系的对手方风险之下——储备透明能让你看清风险敞口在哪里，但不能替代对手方本身的稳健性。这也是此后 Circle 调整储备结构、进一步分散银行存放渠道的直接背景。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 对稳定币支付海外 AI 订阅意味着什么</h2>
+          <p>把这些研究结论落回本站读者最常见的场景——用 USDT/USDC 给虚拟卡充值或直接支付海外 AI 订阅——有几点值得纳入日常习惯，而不只是停留在知识层面。第一，尽量减少稳定币在钱包里"闲置等待"的时长：资金准备好之后尽快完成充值或支付，而不是长期把大额资产停留在稳定币形态里，脱锚窗口通常很短，缩短停留时间就是缩短暴露时间。第二，单一稳定币或单一银行对手方的集中度风险值得留意，如果长期持有较大金额，分散在 USDT 与 USDC 之间、或结合本站此前的<a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币分链存放策略</a>，能在个别事件发生时降低影响范围。第三，跨链兑换或资产归集时，优先选择透明度可查、失败可原路退回的非托管工具——例如 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 这类无需注册、非托管的跨链兑换聚合器，能减少额外引入的资金停留环节。需要强调的是：本文是信息与技术层面的研究整理，不构成任何投资建议，稳定币仍存在价格波动、发行方信用与链上操作风险，请结合自身情况谨慎决策。</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. 小结</h2>
+          <p>USDT 与 USDC 的 1 美元锚定并非天然稳固，而是建立在储备资产是否真实、是否足额、是否透明可查这几个前提之上。USDT 经历过储备不透明的争议期，如今已改善为季度披露；USDC 走的是透明度更高的道路，但 2023 年硅谷银行事件证明储备透明也无法完全消除银行对手方风险。理解"储备证明"与"审计"的本质区别、学会用链上数据和第三方工具自我核验，能帮助长期使用稳定币的人更清醒地评估自己承担的风险，而不是把"锚定 1 美元"当成一个无需追问的既定事实。这是本站稳定币专题里偏研究向的一篇，后续会继续跟进储备透明度与链上验证工具的最新进展。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 为什么要关心"1 美元锚定"背后的储备问题</a></li>
+          <li><a href="#sec-2">2. 三种锚定机制：法币抵押、加密资产超额抵押与算法稳定</a></li>
+          <li><a href="#sec-3">3. USDT 的储备构成与信息披露历史</a></li>
+          <li><a href="#sec-4">4. USDC 的储备构成：Circle Reserve Fund 与货币市场基金</a></li>
+          <li><a href="#sec-5">5. "储备证明"（attestation）不等于"审计"（audit）</a></li>
+          <li><a href="#sec-6">6. 普通用户怎么自己核验：链上供给量与第三方追踪工具</a></li>
+          <li><a href="#sec-7">7. 脱锚复盘：2023 年硅谷银行事件与 USDC 的短暂脱锚</a></li>
+          <li><a href="#sec-8">8. 对稳定币支付海外 AI 订阅意味着什么</a></li>
+          <li><a href="#sec-9">9. 小结</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-stablecoin-payment.html">用USDT/USDC付海外AI：选链与到账实操</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-troubleshooting.html">稳定币扣款失败怎么办：海外AI支付故障排查手册</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币要不要都放一条链：海外AI资金分散策略</a></li>
+          <li><a href="/articles/overseas-ai-cross-chain-recovery.html">USDT转错链别慌：海外AI付款资产找回实操</a></li>
+          <li><a href="/articles/overseas-ai-fund-reserve.html">稳定币留多少才够用：海外AI资金储备规划</a></li>
+          <li><a href="/articles/overseas-ai-token-billing.html">AI API 按 token 怎么计费：输入输出价差与用量估算</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap 跨链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC 虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI学习笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">读懂 AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI前沿资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=eb14811615"></script>
+</body>
+</html>
