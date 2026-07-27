@@ -488,8 +488,8 @@ body.is-searching .featured-article { display: none; }
    search can still surface it. When searching, the JS filter shows matches by clearing
    their inline display:none, so this rule must yield to a match. Non-matches keep their
    JS-set inline display:none (inline beats the stylesheet), so they stay hidden. */
-.post-card--overflow { display: none; }
-body.is-searching .post-card--overflow { display: flex; }
+.card-grid .post-card--overflow { display: none; }
+body.is-searching .card-grid .post-card--overflow { display: flex; }
 .featured-label {
   display: block; margin: 0 0 10px;
   font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
