@@ -483,6 +483,13 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
    filtered results grid sits right under the search box. */
 body.is-searching .hero-centered,
 body.is-searching .featured-article { display: none; }
+/* Homepage teaser grid keeps a tidy 3×3 (9 cards): any overflow card past the grid
+   is hidden by default so nothing sticks out on its own row, but stays in the DOM so
+   search can still surface it. When searching, the JS filter shows matches by clearing
+   their inline display:none, so this rule must yield to a match. Non-matches keep their
+   JS-set inline display:none (inline beats the stylesheet), so they stay hidden. */
+.post-card--overflow { display: none; }
+body.is-searching .post-card--overflow { display: flex; }
 .featured-label {
   display: block; margin: 0 0 10px;
   font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
