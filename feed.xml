@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 27 Jul 2026 15:53:05 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 28 Jul 2026 14:05:15 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训]]></title>
+    <link>https://ponr.org/articles/overseas-ai-bridge-security.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-bridge-security.html</guid>
+    <pubDate>Tue, 28 Jul 2026 14:05:15 +0800</pubDate>
+    <category>跨链桥安全</category>
+    <description><![CDATA[跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。]]></description>
+  </item>
   <item>
     <title><![CDATA[USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html</link>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训</title>
+  <meta name="description" content="跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/bridge-security-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训">
+  <meta property="og:description" content="跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <meta property="article:published_time" content="2026-07-28T14:05:15+08:00">
+  <meta property="article:modified_time" content="2026-07-28T14:05:15+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="稳定币支付">
+  <meta property="article:tag" content="跨链桥">
+  <meta property="article:tag" content="加密货币安全">
+  <meta property="article:tag" content="Ronin">
+  <meta property="article:tag" content="Wormhole">
+  <meta property="article:tag" content="加密货币研究">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训">
+  <meta name="twitter:description" content="跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-bridge-security.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="跨链桥托管模式拆解从Ronin到Wormhole的安全教训封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-bridge-security.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#primaryimage", "url": "https://ponr.org/img/cover-bridge-security.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#webpage", "url": "https://ponr.org/articles/overseas-ai-bridge-security.html", "name": "跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训", "item": "https://ponr.org/articles/overseas-ai-bridge-security.html" }
+    ] },
+    { "@type": "Article", "headline": "跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训", "description": "跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。", "image": "https://ponr.org/img/cover-bridge-security.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-28T14:05:15+08:00", "dateModified": "2026-07-28T14:05:15+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["跨链桥", "加密货币安全", "Ronin", "Wormhole", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-bridge-security.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/bridge-security-guide.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训</h1>
+          <p class="article-summary">上一篇研究了稳定币"1 美元锚定"背后的储备真实性，这一篇往加密货币安全的另一个高风险环节走：跨链桥。只要资产要从一条公链搬到另一条公链——包括把 USDT/USDC 从某条链跨到另一条链再用于支付——就绕不开跨链桥，而跨链桥恰恰是过去几年加密货币行业损失最惨重的攻击目标。这篇拆解三种主流托管模式各自的弱点，复盘 Ronin、Wormhole、Poly Network 三起大额事件的共同根因，并给出跨链前的自查清单。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-28T14:05:15+08:00">2026-07-28 14:05:15</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-bridge-security.svg" width="800" height="400" alt="跨链桥托管模式拆解从Ronin到Wormhole的安全教训封面图" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. 跨链桥在做什么：一句话讲清楚"跨链"到底跨了什么</h2>
+          <p>跨链桥要解决的问题很直接：不同公链之间原生并不互通，A 链上的资产没办法直接在 B 链上使用。跨链桥的常见做法是"锁定 + 铸造"：用户把资产存入 A 链上的一个合约或托管账户（锁定），桥的系统在 B 链上铸造一份等值的映射资产给用户（铸造），要跨回去时反向销毁映射资产、解锁原始资产。听起来是纯技术流程，但这套流程的安全性完全取决于"锁定的资产"和"铸造的映射资产"之间的对应关系有没有被篡改的空间——这正是几乎所有跨链桥重大安全事件的攻击面所在：黑客的目标从来不是"偷走已经锁定的币"这么直白，而是想办法让桥的系统"误以为"有资产被锁定，从而在目标链上铸造出本不该存在的资产。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三种托管模式：多签托管、轻客户端验证与预言机验证</h2>
+          <p>跨链桥验证"锁定"是否真实发生的方式大致分三类，安全假设完全不同。第一类是多签托管型，由一组事先指定的验证者（可能是几个到几十个地址）共同签名确认锁定事件，达到签名门槛后放行铸造，Ronin 桥属于这一类；这类模式的安全性直接取决于私钥数量足够多、足够分散，一旦攻破的私钥数量超过签名门槛，就能伪造任意铸造指令。第二类是轻客户端验证型，桥的合约在目标链上运行一个简化版的源链验证逻辑，直接核对区块头和交易证明，理论上不依赖任何中心化验证者，但实现复杂、开发难度高，市面上真正做到完全去信任化的桥并不多。第三类是预言机/消息层验证型，由独立的消息传递网络（如 Wormhole 的守护者网络）跨链传递并验证事件消息，本质上和多签托管类似，只是把"验证者"包装成了一层通用消息协议，安全边界仍然落在这组验证节点身上。理解这三类的核心区别，才能明白"这个桥安不安全"这个问题背后真正该问的是"谁在验证、验证门槛多高、私钥怎么保管"。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Ronin 桥事件复盘：5 个私钥，6.25 亿美元</h2>
+          <p>2022 年 3 月，为《Axie Infinity》游戏提供跨链服务的 Ronin 桥被盗走约 6.25 亿美元，是迄今为止加密货币历史上损失最大的单次安全事件之一。Ronin 桥当时采用 9 个验证节点、5 个签名即可放行的多签方案，攻击者通过一次针对性的社会工程攻击（伪造的招聘 offer，诱导员工下载携带后门的文件）拿到了其中 4 个由 Sky Mavis（Ronin 母公司）直接控制的私钥，又利用此前一个未撤销的临时授权拿到了第 5 个由 Axie DAO 控制的验证节点签名权限，凑够门槛后伪造了两笔巨额提款。这起事件的关键教训不是"多签本身不安全"，而是验证者数量和门槛设置成了"看起来分散、实际高度集中"的假分散——9 个节点里有 4 个直接掌握在同一家公司手里，一次针对性社工攻击就能拿下将近一半的验证权。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Wormhole 事件复盘：一处签名验证漏洞，3.25 亿美元</h2>
+          <p>2022 年 2 月，连接 Solana 与以太坊等多条公链的 Wormhole 桥被利用一处智能合约漏洞盗走约 3.25 亿美元。与 Ronin 不同，这次攻击的根因不是私钥泄露，而是代码层面的签名验证缺陷：Wormhole 在 Solana 端的合约本应严格校验守护者网络（guardian）对锁定事件的签名，但攻击者发现了一种能绕过完整签名验证、伪造一份"看起来合法"的验证数据的方式，成功让系统误以为有 12 万枚 ETH 被合法锁定，进而在以太坊端铸造出等值的 wETH 并提现。这起事件说明即便验证者私钥保管得再好，如果验证逻辑本身存在代码漏洞，攻击者根本不需要拿到任何私钥就能伪造整个验证流程——这类风险只能靠严格的代码审计和形式化验证来降低，且历史上多次证明，单次审计通过不代表长期无漏洞，Wormhole 此前其实经过审计。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Poly Network 事件复盘：跨链合约权限管理失守，6.11 亿美元</h2>
+          <p>2021 年 8 月，支持多条公链互通的 Poly Network 被盗走约 6.11 亿美元，事件性质与前两起又不一样：攻击者利用了跨链合约里一个权限校验的逻辑漏洞，伪造了一笔具备"管理员权限"的跨链消息，让目标链上的合约误以为收到了来自受信任的"keeper"角色的合法指令，进而直接篡改了合约里记录的公钥，为后续任意铸造铺平了路。这起事件后来出现了罕见的转折——攻击者在与项目方及安全社区多轮沟通后，最终把几乎全部被盗资金原路退还，这在跨链桥安全事件里是极少数的例外，不能作为可以依赖的"善意黑客"预期。三起事件放在一起看，攻击路径分别是社会工程、代码签名漏洞、权限校验漏洞，看似不同，但共同指向同一个结构性问题：跨链桥把"信任"从公链本身的共识机制转移到了一小群验证者、一段验证代码或一套权限体系身上，这层转移出来的信任，恰恰是整个系统里最薄弱的环节。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 为什么跨链桥比公链本身更容易出事：信任模型的结构性弱点</h2>
+          <p>以太坊、Solana 这类公链本身的共识机制经过多年、大规模资金的实战检验，要攻破需要控制全网极高比例的算力或权益，成本极其高昂。但跨链桥的安全边界通常窄得多：多签托管型只需要攻破少数几个私钥；预言机验证型只需要攻破验证节点网络或找到消息协议的代码漏洞；即便是理论上最去信任化的轻客户端验证型，实现复杂度也远高于单链共识，留给漏洞的攻击面反而更大。更关键的是，跨链桥锁定的资产往往是"一次性的大额资金池"——所有用户跨链锁定的资产集中存放在同一个合约或同一组地址下，一旦验证层被攻破，攻击者能拿到的不是某个用户的资产，而是整个资金池，这也是为什么跨链桥事件的单次损失金额往往远超其他类型的加密货币安全事件。理解这一点的实际意义是：把资产放在跨链桥的"锁定"状态里等待处理的这段时间，本质上是把自己的资产托管给了这个桥的验证层，安全性不取决于自己操作是否规范，而完全取决于对方的验证机制有没有被攻破。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 跨链前的自查清单：怎么判断一个跨链桥值不值得信任</h2>
+          <p>普通用户没办法去审计一个跨链桥的代码，但可以通过几个可操作的信号做初步筛选。第一，看托管模式和验证者分布：官方文档通常会披露验证者数量、签名门槛、验证者是否由多家独立机构分别控制，验证者集中在同一实体手里的桥风险更高。第二，看是否经过第三方安全审计，以及审计报告是否公开、审计机构是否有可查的行业记录——审计不能保证零风险（Wormhole 就是反例），但完全没有公开审计记录的桥风险明显更高。第三，看历史运行时长和资金规模：新上线不久、突然吸引大量资金流入的桥，往往还没经过时间和真实攻击的检验。第四，优先选择非托管、锁仓时间短的跨链方式：资产在桥的合约或托管账户里"停留"的时间越长，暴露给验证层风险的窗口就越长，比起把大额资产长期存放等待手动跨链，更稳妥的做法是使用能快速完成、失败可原路退回的兑换聚合工具，例如 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 这类无需注册、非托管的跨链兑换聚合器，能把资产停留在单一验证层里等待的时间压到最短。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 对用稳定币支付海外 AI 订阅意味着什么</h2>
+          <p>把这些结论落回本站读者的实际场景：如果你持有的 USDT/USDC 在一条链上，而想用的支付渠道或虚拟卡充值入口只接受另一条链上的资产，跨链就成了绕不开的一步。几点建议可以直接用起来。第一，单次跨链金额没必要贪多，按近期实际要用的支付额度来跨，而不是把大额资金一次性搬过去"以后再说"——金额越大、停留越久，暴露给桥安全风险的敞口就越大。第二，跨链前花两分钟查一下这个桥的托管模式和审计记录，尤其是官方文档里有没有说清楚验证者是谁、门槛是多少，说不清楚或语焉不详的桥要提高警惕。第三，如果本站此前提到的<a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币分链存放策略</a>让你的资产分布在多条链上，跨链频率本身就会更高，更需要养成每次跨链前快速自查的习惯，而不是图省事固定用同一个不了解底层机制的桥。需要强调的是：本文是技术与安全层面的研究整理，不构成任何投资建议，跨链操作存在资产损失风险，请结合自身情况谨慎决策。</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. 小结</h2>
+          <p>跨链桥的安全性不取决于用户自己操作是否规范，而取决于桥背后的验证层——是几个私钥、一段代码，还是一套权限体系——有没有被攻破。Ronin 输在验证者"看起来分散、实际集中"，Wormhole 输在签名验证的代码漏洞，Poly Network 输在权限校验逻辑的疏漏，三起事件路径不同，但都指向同一个结构性问题：跨链桥把信任从公链共识转移到了更窄、更容易被攻破的环节。普通用户能做的不是消灭风险，而是通过托管模式、审计记录、运行时长这几个信号做初步筛选，并尽量缩短资产在桥里停留的时间。这是本站稳定币支付专题里第二篇偏研究向的内容，后续会继续跟进跨链桥安全事件与行业防护机制的最新进展。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 跨链桥在做什么：一句话讲清楚"跨链"到底跨了什么</a></li>
+          <li><a href="#sec-2">2. 三种托管模式：多签托管、轻客户端验证与预言机验证</a></li>
+          <li><a href="#sec-3">3. Ronin 桥事件复盘：5 个私钥，6.25 亿美元</a></li>
+          <li><a href="#sec-4">4. Wormhole 事件复盘：一处签名验证漏洞，3.25 亿美元</a></li>
+          <li><a href="#sec-5">5. Poly Network 事件复盘：跨链合约权限管理失守，6.11 亿美元</a></li>
+          <li><a href="#sec-6">6. 为什么跨链桥比公链本身更容易出事：信任模型的结构性弱点</a></li>
+          <li><a href="#sec-7">7. 跨链前的自查清单：怎么判断一个跨链桥值不值得信任</a></li>
+          <li><a href="#sec-8">8. 对用稳定币支付海外 AI 订阅意味着什么</a></li>
+          <li><a href="#sec-9">9. 小结</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-stablecoin-reserve-transparency.html">USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</a></li>
+          <li><a href="/articles/overseas-ai-cross-chain-recovery.html">USDT转错链别慌：海外AI付款资产找回实操</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-swap-tools.html">跨链兑换工具怎么挑：海外AI稳定币兑换避坑</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币要不要都放一条链：海外AI资金分散策略</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-payment.html">用USDT/USDC付海外AI：选链与到账实操</a></li>
+          <li><a href="/articles/overseas-ai-fund-reserve.html">稳定币留多少才够用：海外AI资金储备规划</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap 跨链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC 虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI学习笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">读懂 AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI前沿资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2320a72fc5"></script>
+</body>
+</html>

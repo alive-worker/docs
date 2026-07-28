@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 27 Jul 2026 15:53:05 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 28 Jul 2026 14:05:15 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[What Actually Broke: A History of Cross-Chain Bridge Hacks]]></title>
+    <link>https://ponr.org/en/articles/bridge-security-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/bridge-security-guide.html</guid>
+    <pubDate>Tue, 28 Jul 2026 14:05:15 +0800</pubDate>
+    <category>Bridge Security</category>
+    <description><![CDATA[Cross-chain bridges have lost billions to hacks: Ronin, Wormhole, Poly Network. A breakdown of custody models, what failed, and how to check risk pre-bridge.]]></description>
+  </item>
   <item>
     <title><![CDATA[What Actually Backs USDT and USDC's Dollar Peg]]></title>
     <link>https://ponr.org/en/articles/stablecoin-reserve-transparency-guide.html</link>

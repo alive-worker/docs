@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Actually Broke: A History of Cross-Chain Bridge Hacks</title>
+  <meta name="description" content="Cross-chain bridges have lost billions to hacks: Ronin, Wormhole, Poly Network. A breakdown of custody models, what failed, and how to check risk pre-bridge.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/bridge-security-guide.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/bridge-security-guide.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-bridge-security.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="What Actually Broke: A History of Cross-Chain Bridge Hacks">
+  <meta property="og:description" content="Cross-chain bridges have lost billions to hacks: Ronin, Wormhole, Poly Network. A breakdown of custody models, what failed, and how to check risk pre-bridge.">
+  <meta property="og:url" content="https://ponr.org/en/articles/bridge-security-guide.html">
+  <meta property="article:published_time" content="2026-07-28T14:05:15+08:00">
+  <meta property="article:modified_time" content="2026-07-28T14:05:15+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Stablecoin Payments">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Actually Broke: A History of Cross-Chain Bridge Hacks">
+  <meta name="twitter:description" content="Cross-chain bridges have lost billions to hacks: Ronin, Wormhole, Poly Network. A breakdown of custody models, what failed, and how to check risk pre-bridge.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-bridge-security-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="What actually broke a history of cross-chain bridge hacks cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-bridge-security-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/bridge-security-guide.html#primaryimage", "url": "https://ponr.org/img/cover-bridge-security-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/bridge-security-guide.html#webpage", "url": "https://ponr.org/en/articles/bridge-security-guide.html", "name": "What Actually Broke: A History of Cross-Chain Bridge Hacks", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/bridge-security-guide.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/bridge-security-guide.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/bridge-security-guide.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "What Actually Broke: A History of Cross-Chain Bridge Hacks", "item": "https://ponr.org/en/articles/bridge-security-guide.html" }
+    ] },
+    { "@type": "Article", "headline": "What Actually Broke: A History of Cross-Chain Bridge Hacks", "description": "Cross-chain bridges have lost billions to hacks: Ronin, Wormhole, Poly Network. A breakdown of custody models, what failed, and how to check risk pre-bridge.", "image": "https://ponr.org/img/cover-bridge-security-en.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-07-28T14:05:15+08:00", "dateModified": "2026-07-28T14:05:15+08:00", "inLanguage": "en", "articleSection": "Stablecoin Payments", "keywords": ["cross-chain bridge security", "Ronin hack", "Wormhole hack", "Poly Network", "crypto research"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/bridge-security-guide.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-bridge-security.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>What Actually Broke: A History of Cross-Chain Bridge Hacks</h1>
+          <p class="article-summary">The last piece in this series looked at what actually backs USDT and USDC's dollar peg. This one moves to a different high-risk layer of crypto infrastructure: cross-chain bridges. Any time an asset moves from one chain to another — including moving USDT/USDC across chains before using it to pay for something — a bridge is involved, and bridges have been the single costliest attack target in crypto history. This piece breaks down the three main custody models bridges use, walks through what actually went wrong in the Ronin, Wormhole, and Poly Network hacks, and lays out a practical pre-bridge risk checklist.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-07-28T14:05:15+08:00">2026-07-28 14:05:15</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-bridge-security-en.svg" width="800" height="400" alt="What actually broke a history of cross-chain bridge hacks cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. What a bridge actually does: the one thing "cross-chain" really means</h2>
+          <p>The problem a bridge solves is simple to state: blockchains don't talk to each other natively, so an asset native to chain A can't just show up usable on chain B. The common pattern is lock-and-mint: a user deposits an asset into a contract or custody address on chain A (locked), the bridge's system then mints an equivalent wrapped asset on chain B (minted), and moving back reverses the process — burn the wrapped asset, unlock the original. That sounds purely mechanical, but the whole security model rests on one thing: how tightly the "locked" event on chain A maps to the "mint" instruction on chain B, and whether that mapping can be tampered with. That mapping is exactly where nearly every major bridge hack has struck — attackers rarely go after already-locked funds directly; instead they trick the bridge's verification system into believing a lock event happened when it didn't, and mint against nothing.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Three custody models: multisig custody, light-client verification, and oracle/messaging verification</h2>
+          <p>Bridges verify that a "lock" really happened in roughly three ways, each with a different trust assumption. Multisig custody has a fixed set of validators (anywhere from a handful to several dozen addresses) jointly sign off on a lock event, and once enough signatures clear a threshold, minting proceeds — this was the model behind the Ronin bridge. Its security hinges entirely on the number of keys, how widely they're distributed, and what happens once an attacker compromises more keys than the signing threshold requires. Light-client verification runs a simplified version of the source chain's validation logic directly on the destination chain, checking block headers and transaction proofs without relying on any designated validator set — theoretically the most trust-minimized approach, but genuinely hard to implement correctly, and few bridges achieve it in full. Oracle or messaging-layer verification relies on an independent message-passing network (like Wormhole's guardian network) to relay and verify cross-chain events — functionally similar to multisig custody, just wrapped in general-purpose messaging infrastructure, with the trust boundary still resting on that set of validating nodes. Understanding these three categories is what turns "is this bridge safe" from a vague question into a concrete one: who verifies, what's the threshold, and how are the keys held.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Ronin bridge post-mortem: five keys, $625 million</h2>
+          <p>In March 2022, the Ronin bridge serving the game Axie Infinity was drained of roughly $625 million, one of the largest single security incidents in crypto history to date. Ronin ran a 9-validator, 5-of-9 multisig scheme. Attackers used a targeted social-engineering campaign — a fake job offer laced with backdoored files — to compromise four validator keys directly controlled by Sky Mavis, Ronin's parent company, then used a previously granted, never-revoked emergency access permission to obtain a fifth signature from a validator node controlled by the Axie DAO. With five signatures in hand, they forged two large withdrawal transactions. The real lesson here isn't that multisig is inherently unsafe — it's that the validator set looked more decentralized than it actually was: four of nine nodes sat under the control of a single company, and one targeted social-engineering attack was enough to seize nearly half the signing power.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Wormhole post-mortem: a signature-verification flaw, $325 million</h2>
+          <p>In February 2022, Wormhole, a bridge connecting Solana to Ethereum and other chains, lost roughly $325 million to a smart contract exploit. Unlike Ronin, the root cause here wasn't leaked private keys — it was a code-level flaw in signature verification. Wormhole's Solana-side contract was supposed to strictly validate the guardian network's signatures on lock events, but attackers found a way to bypass full signature verification and forge validation data that appeared legitimate, tricking the system into believing 120,000 ETH had been legitimately locked, then minting an equivalent amount of wETH on Ethereum and withdrawing it. This incident shows that even flawless key custody doesn't help if the verification logic itself has a code flaw — attackers here needed zero private keys to forge the entire validation flow. Risk of this kind can only be reduced through rigorous code audits and formal verification, and history has repeatedly shown that passing one audit doesn't guarantee no future vulnerabilities; Wormhole had, in fact, been audited before this incident.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Poly Network post-mortem: a broken permission check, $611 million</h2>
+          <p>In August 2021, Poly Network, a bridge connecting multiple chains, lost roughly $611 million in an incident with a different character from the other two: attackers exploited a logic flaw in the cross-chain contract's permission check, forging a cross-chain message that carried apparent "admin" authority. The destination-chain contract mistakenly treated it as a legitimate instruction from a trusted "keeper" role and let it overwrite the public key the contract used for validation, opening the door to minting arbitrary amounts afterward. This incident took an unusual turn — after extended back-and-forth with the project team and the security community, the attacker eventually returned nearly all of the stolen funds, a rare exception in bridge-hack history that should not be treated as a pattern anyone can count on. Looking at all three together, the attack vectors were different — social engineering, a signature-verification bug, a permission-check bug — but they point to the same structural issue: bridges move trust away from a blockchain's own consensus mechanism and concentrate it in a small set of validators, a piece of verification code, or a permission system, and that relocated trust is consistently the weakest link in the entire setup.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Why bridges get hit harder than the chains they connect: a structural weakness in the trust model</h2>
+          <p>The consensus mechanisms behind chains like Ethereum and Solana have been stress-tested over years with enormous amounts of capital at stake; breaking them requires controlling an extremely high share of the network's computing power or stake, which is prohibitively expensive. Bridges typically offer a much narrower security boundary: multisig custody needs only a handful of compromised keys; oracle-based verification needs only a compromised validator set or a code flaw in the messaging protocol; and even the theoretically most trust-minimized light-client model carries far higher implementation complexity than single-chain consensus, which in practice widens the attack surface for bugs. More importantly, bridges typically hold locked assets as one large, shared pool rather than per-user custody — everyone's locked funds sit under the same contract or the same set of addresses, so once the verification layer is breached, an attacker doesn't get one user's funds, they get the whole pool. That's a big part of why single bridge incidents tend to dwarf the losses from most other categories of crypto security incidents. The practical takeaway: while an asset sits "locked," waiting on the bridge to process it, you've effectively handed custody to that bridge's verification layer — your own careful behavior doesn't change the risk; only the soundness of their verification does.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. A pre-bridge checklist: how to judge whether a bridge is worth trusting</h2>
+          <p>Ordinary users can't audit a bridge's code, but a few practical signals help with a rough first pass. First, check the custody model and validator distribution: official documentation usually discloses validator count, signing thresholds, and whether validators are independently controlled by separate entities — a validator set concentrated under one organization is a bigger risk. Second, check whether the bridge has undergone third-party security audits, and whether the audit reports are public and the auditing firm has a verifiable track record — an audit doesn't guarantee zero risk (Wormhole is proof of that), but a complete absence of any public audit record is a clear red flag. Third, look at how long the bridge has actually run and how much capital it handles: a bridge that just launched and suddenly attracts a large inflow of funds hasn't yet been tested by time or a real attack attempt. Fourth, favor non-custodial routes with short lock-up windows: the longer an asset sits in a bridge's contract or custody account, the longer the exposure window to that verification layer's risk. Rather than parking a large balance waiting for a manual bridge transaction, a faster swap aggregator with automatic refunds on failure — such as <a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a>, a non-custodial aggregator that requires no signup — keeps the time an asset sits exposed to any single verification layer to a minimum.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. What this means for paying overseas AI subscriptions with stablecoins</h2>
+          <p>Bringing this back to a scenario readers of this site actually run into: if your USDT/USDC sits on one chain but the payment channel or virtual-card top-up you want only accepts assets on a different chain, bridging becomes an unavoidable step. A few habits are worth adopting directly. First, size each bridge transaction to what you actually need soon, rather than moving a large lump sum across "to have it ready" — the bigger the amount and the longer it sits, the bigger the exposure to bridge-layer risk. Second, spend two minutes before bridging checking the target bridge's custody model and audit history, especially whether official documentation is specific about who the validators are and what the signing threshold is; vague or missing answers are a reason to be cautious. Third, if you've spread assets across multiple chains following the <a href="/en/articles/stablecoin-diversification-guide.html">chain-diversification approach</a> covered earlier on this site, you'll naturally bridge more often, which makes a quick pre-bridge check even more worth turning into a habit, rather than defaulting to whichever bridge is convenient without understanding how it works underneath. To be clear: this is technical and security research, not investment advice — bridging carries real risk of asset loss, so weigh your own circumstances before deciding anything.</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. Summary</h2>
+          <p>A bridge's security doesn't depend on how carefully a user behaves — it depends on whether the verification layer behind it, whether that's a handful of private keys, a piece of code, or a permission system, has been compromised. Ronin failed because its validator set looked decentralized but wasn't; Wormhole failed on a signature-verification code bug; Poly Network failed on a broken permission check. Three different attack paths, one shared structural problem: bridges move trust away from blockchain consensus into a narrower, more attackable layer. The best an ordinary user can do isn't eliminating the risk, but doing a rough first-pass filter on custody model, audit history, and track record, while minimizing how long funds sit exposed inside any single bridge. This is the second, more research-oriented entry in our stablecoin-payments series; we'll keep following bridge security incidents and the industry's evolving defenses.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. What a bridge actually does: the one thing "cross-chain" really means</a></li>
+          <li><a href="#sec-2">2. Three custody models: multisig custody, light-client verification, and oracle/messaging verification</a></li>
+          <li><a href="#sec-3">3. Ronin bridge post-mortem: five keys, $625 million</a></li>
+          <li><a href="#sec-4">4. Wormhole post-mortem: a signature-verification flaw, $325 million</a></li>
+          <li><a href="#sec-5">5. Poly Network post-mortem: a broken permission check, $611 million</a></li>
+          <li><a href="#sec-6">6. Why bridges get hit harder than the chains they connect: a structural weakness in the trust model</a></li>
+          <li><a href="#sec-7">7. A pre-bridge checklist: how to judge whether a bridge is worth trusting</a></li>
+          <li><a href="#sec-8">8. What this means for paying overseas AI subscriptions with stablecoins</a></li>
+          <li><a href="#sec-9">9. Summary</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related articles</h2>
+          <ul>
+          <li><a href="/en/articles/stablecoin-reserve-transparency-guide.html">What Actually Backs USDT and USDC's Dollar Peg</a></li>
+          <li><a href="/en/articles/cross-chain-recovery-guide.html">Sent USDT to the Wrong Chain: Recovery Steps</a></li>
+          <li><a href="/en/articles/stablecoin-swap-tools-guide.html">Choosing a Cross-Chain Swap Tool: What to Avoid</a></li>
+          <li><a href="/en/articles/stablecoin-diversification-guide.html">Should You Keep Stablecoins on One Chain</a></li>
+          <li><a href="/en/articles/stablecoin-payment-guide.html">Paying Overseas AI with USDT/USDC: Chains and Settlement</a></li>
+          <li><a href="/en/articles/fund-reserve-guide.html">How Much Stablecoin Reserve Is Enough</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment channels, virtual cards, and account security — for anyone doing the same.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; pricing, regional availability, and policies are set by each AI platform and payment provider.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2320a72fc5"></script>
+</body>
+</html>
