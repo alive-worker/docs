@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandwich Attacks Explained: How MEV Bots Eat Your Slippage</title>
+  <meta name="description" content="MEV bots pull hundreds of millions a year via front-running and sandwich attacks. How they work, who runs them, and how to protect your trades from slippage.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/mev-sandwich-guide.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/mev-sandwich-guide.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Sandwich Attacks Explained: How MEV Bots Eat Your Slippage">
+  <meta property="og:description" content="MEV bots pull hundreds of millions a year via front-running and sandwich attacks. How they work, who runs them, and how to protect your trades from slippage.">
+  <meta property="og:url" content="https://ponr.org/en/articles/mev-sandwich-guide.html">
+  <meta property="article:published_time" content="2026-07-29T14:24:25+08:00">
+  <meta property="article:modified_time" content="2026-07-29T14:24:25+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Stablecoin Payments">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sandwich Attacks Explained: How MEV Bots Eat Your Slippage">
+  <meta name="twitter:description" content="MEV bots pull hundreds of millions a year via front-running and sandwich attacks. How they work, who runs them, and how to protect your trades from slippage.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-mev-sandwich-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Sandwich attacks explained how MEV bots eat your slippage cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-mev-sandwich-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#primaryimage", "url": "https://ponr.org/img/cover-mev-sandwich-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#webpage", "url": "https://ponr.org/en/articles/mev-sandwich-guide.html", "name": "Sandwich Attacks Explained: How MEV Bots Eat Your Slippage", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Sandwich Attacks Explained: How MEV Bots Eat Your Slippage", "item": "https://ponr.org/en/articles/mev-sandwich-guide.html" }
+    ] },
+    { "@type": "Article", "headline": "Sandwich Attacks Explained: How MEV Bots Eat Your Slippage", "description": "MEV bots pull hundreds of millions a year via front-running and sandwich attacks. How they work, who runs them, and how to protect your trades from slippage.", "image": "https://ponr.org/img/cover-mev-sandwich-en.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-07-29T14:24:25+08:00", "dateModified": "2026-07-29T14:24:25+08:00", "inLanguage": "en", "articleSection": "Stablecoin Payments", "keywords": ["MEV", "sandwich attack", "crypto security", "slippage", "crypto research"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/mev-sandwich-guide.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-mev-sandwich.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Sandwich Attacks Explained: How MEV Bots Eat Your Slippage</h1>
+          <p class="article-summary">The last piece in this series covered bridge custody risk. This one turns to a cost nearly every on-chain trader pays without noticing: MEV. The slippage tolerance you set on a DEX swap often isn't consumed by normal market movement — it's extracted, deliberately and precisely, by bots running sandwich attacks. This piece breaks down exactly how a sandwich attack works, who's actually getting paid along the MEV supply chain, and what concrete steps ordinary traders can take to protect themselves.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-07-29T14:24:25+08:00">2026-07-29 14:24:25</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-mev-sandwich-en.svg" width="800" height="400" alt="Sandwich attacks explained how MEV bots eat your slippage cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. What MEV actually is: the money hiding in block ordering</h2>
+          <p>MEV (Maximal Extractable Value) refers to the extra profit a block producer or transaction sequencer can capture by controlling the order transactions get packed into a block — inserting their own transactions, reordering others, or excluding some entirely. This is possible because on most chains, a transaction sits briefly in a public "mempool" of pending transactions before it gets included in a block, and anyone watching that mempool can see what a transaction intends to do and how much fee it's willing to pay, then decide whether to jump in front of it, wedge something in the middle, or follow right after. That combination — ordering is manipulable, and the manipulable window is publicly visible — is the technical precondition behind nearly every MEV strategy, sandwich attacks included.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. The three steps of a sandwich attack: front-run, victim fill, back-run</h2>
+          <p>Sandwich attacks specifically target large swaps on decentralized exchanges, and the mechanics break into three steps. First, an attacker's bot spots a large pending buy order sitting in the mempool and calculates that it will meaningfully move the target token's price, then jumps ahead of it by submitting its own buy order with a higher fee (front-running), pushing the price up first. Second, the victim's original order fills at that already-inflated price — the trader gets fewer tokens than expected, and the effective price paid is worse than the quote they saw; this gap is a major source of what shows up as slippage loss. Third, the attacker's bot immediately submits a sell order, unloading the tokens it bought in step one at the now-inflated price (back-running), locking in the price-spread profit. The victim's trade sits sandwiched between the front-run and back-run legs — hence the name. The whole sequence takes only a small amount of capital and a couple of blocks, and carries almost zero risk, because the attacker has already simulated the exact outcome before submitting anything.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Who's actually doing this: searchers, builders, and validators</h2>
+          <p>Sandwich attacks aren't run by someone manually watching a screen — there's an entire supply chain behind them with a clear division of labor. Searchers write automated programs that continuously scan the mempool, identify profitable opportunities, and construct the front-run/back-run transaction bundle. Because mainstream chains like Ethereum now run mechanisms like MEV-Boost, searchers typically don't broadcast bundles to the public mempool anymore (doing so would just let a competing bot steal the opportunity) — instead they send the whole bundle to a builder as a block proposal. Builders aggregate bundles from many searchers, pick the combination that maximizes total payout to the validator, and submit that to a validator for inclusion. Validators ultimately choose which builder's proposal to accept and take a cut of the resulting MEV as extra reward on top of the standard block reward. Every link in this chain has a financial incentive for sandwich attacks to keep happening — searchers earn the price spread, builders and validators earn a cut — and the only party consistently footing the bill is the ordinary trader caught in the middle.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Why large swaps and thin-liquidity pools are the prime targets</h2>
+          <p>A sandwich attack's profitability comes down to a simple ratio: how little capital it takes to move the price, how wide the victim's slippage tolerance is, and how thin the target pool's liquidity is. That makes a few kinds of trades disproportionately risky: swap sizes that are large relative to a pool's typical daily volume, slippage tolerance set too loose (bumped up to 5% or higher "just to be safe" that a trade goes through), and newly launched pools that haven't built up much liquidity yet. By contrast, normal-sized trades in deep, established pools — major stablecoin pairs, ETH/USDC, and similar — usually aren't worth targeting, because the capital required to move price there exceeds what an attacker could extract. This is part of why we've repeatedly recommended routing stablecoin swaps through deep pools and breaking up large amounts into smaller batches.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Private transaction routes: keeping your trade out of the public mempool</h2>
+          <p>Since a sandwich attack depends on an attacker being able to see a transaction's contents in the mempool ahead of time, the most direct defense is simply not letting that transaction show up there. That's exactly what private transaction routes (private RPC endpoints) solve: services like Flashbots Protect let a user send a transaction directly to a cooperating builder, skipping the public mempool broadcast step entirely, so a searcher's bot never gets the chance to see it and jump the queue. Many mainstream wallets and DEX front-ends now offer this as a built-in toggle, sometimes labeled "MEV protection" or "private mode" — worth turning on if you're willing to accept a slightly higher fee in exchange for not broadcasting publicly. It's worth noting private routing significantly cuts front-running risk but isn't an absolute guarantee — some builders themselves participate in MEV revenue-sharing, so favoring providers with a public no-extraction policy is the safer choice.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. How to actually set slippage tolerance: wider isn't safer</h2>
+          <p>Many traders set slippage tolerance loose to avoid a failed transaction when the price moves slightly — but that convenience is exactly the room a sandwich attack needs to operate in. The wider the tolerance, the higher an attacker can push the price before your trade still executes, and the bigger the gap they can extract. A better default is setting tolerance just wide enough to cover normal market movement — 0.5% to 1% is usually enough for major tokens in reasonably liquid pools — rather than defaulting to 3% or 5% out of convenience. If a trade fails because the tolerance was set too tight, resubmitting costs a little extra fee and one more block; that's far cheaper than the loss from a successful sandwich attack on an overly loose setting. Some DEX aggregators and cross-chain swap tools (like <a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a>, covered previously on this site) calculate expected slippage upfront and default to tighter tolerances than manually operating a native DEX interface, narrowing the attack window further.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. A practical checklist for ordinary traders</h2>
+          <p>Turning the above into a few concrete habits: first, for larger swaps, prefer a wallet or front-end that supports private transaction routing or has built-in MEV protection, especially once the amount is clearly above routine small-scale trading. Second, set slippage tolerance to what the trade actually needs rather than bumping it up out of convenience, particularly in thinner-liquidity pools. Third, split large swaps into smaller batches — the bigger a single trade's price impact, the more attractive a target it becomes. Fourth, if you're unsure about a pool's depth, check its TVL and 24-hour volume before trading, and be extra cautious when depth looks thin. None of this eliminates the risk entirely, but it compresses both the exposure window and the potential loss to a manageable range.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. What this means for paying overseas AI subscriptions with stablecoins</h2>
+          <p>The on-chain step readers of this site most often run into is swapping one asset for another, or moving across chains, to top up a virtual card or pay for a subscription directly. These amounts are usually modest, but a habit of loose slippage tolerance combined with an unlucky choice of a thin pool can still trigger a sandwich attack. A few things worth adopting directly: set one consistent, reasonably tight slippage cap for routine small swaps instead of bumping it up out of habit; if the <a href="/en/articles/stablecoin-swap-tools-guide.html">cross-chain swap tools</a> covered earlier already include built-in slippage protection or private routing, use those defaults rather than the native interface's; and there's no need for excessive worry over every $20–$100 swap — the economics of sandwich attacks mean attackers usually skip amounts that small, and the trades that actually warrant caution are the noticeably large ones or those in clearly illiquid pools. To be clear: this is technical and security research, not investment advice.</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. Summary</h2>
+          <p>Sandwich attacks exist because transactions sit briefly and publicly exposed in the mempool before being packed into a block, giving every layer of the MEV supply chain — searchers, builders, validators — a chance to place a bet ahead of time. Front-run to push the price up, let the victim fill at a worse rate, back-run to lock in the spread: the mechanics are simple but remarkably effective, extracting hundreds of millions of dollars a year from ordinary traders in aggregate slippage. What an ordinary trader can realistically do isn't eliminate the risk entirely, but make themselves a poor economic target through private transaction routing, tighter slippage tolerance, batching large trades, and a basic read on pool depth. This is the third, more research-oriented entry in our stablecoin-payments series; we'll keep following developments in MEV and on-chain trading security.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. What MEV actually is: the money hiding in block ordering</a></li>
+          <li><a href="#sec-2">2. The three steps of a sandwich attack: front-run, victim fill, back-run</a></li>
+          <li><a href="#sec-3">3. Who's actually doing this: searchers, builders, and validators</a></li>
+          <li><a href="#sec-4">4. Why large swaps and thin-liquidity pools are the prime targets</a></li>
+          <li><a href="#sec-5">5. Private transaction routes: keeping your trade out of the public mempool</a></li>
+          <li><a href="#sec-6">6. How to actually set slippage tolerance: wider isn't safer</a></li>
+          <li><a href="#sec-7">7. A practical checklist for ordinary traders</a></li>
+          <li><a href="#sec-8">8. What this means for paying overseas AI subscriptions with stablecoins</a></li>
+          <li><a href="#sec-9">9. Summary</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related articles</h2>
+          <ul>
+          <li><a href="/en/articles/bridge-security-guide.html">What Actually Broke: A History of Cross-Chain Bridge Hacks</a></li>
+          <li><a href="/en/articles/stablecoin-swap-tools-guide.html">Choosing a Cross-Chain Swap Tool: What to Avoid</a></li>
+          <li><a href="/en/articles/stablecoin-reserve-transparency-guide.html">What Actually Backs USDT and USDC's Dollar Peg</a></li>
+          <li><a href="/en/articles/cross-chain-recovery-guide.html">Sent USDT to the Wrong Chain: Recovery Steps</a></li>
+          <li><a href="/en/articles/stablecoin-diversification-guide.html">Should You Keep Stablecoins on One Chain</a></li>
+          <li><a href="/en/articles/stablecoin-payment-guide.html">Paying Overseas AI with USDT/USDC: Chains and Settlement</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment channels, virtual cards, and account security — for anyone doing the same.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; pricing, regional availability, and policies are set by each AI platform and payment provider.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=caed4ed34e"></script>
+</body>
+</html>

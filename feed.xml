@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 28 Jul 2026 14:05:15 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 29 Jul 2026 14:24:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的]]></title>
+    <link>https://ponr.org/articles/overseas-ai-mev-sandwich.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-mev-sandwich.html</guid>
+    <pubDate>Wed, 29 Jul 2026 14:24:25 +0800</pubDate>
+    <category>稳定币支付</category>
+    <description><![CDATA[MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。]]></description>
+  </item>
   <item>
     <title><![CDATA[跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训]]></title>
     <link>https://ponr.org/articles/overseas-ai-bridge-security.html</link>

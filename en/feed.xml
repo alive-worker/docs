@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 28 Jul 2026 14:05:15 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 29 Jul 2026 14:24:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Sandwich Attacks Explained: How MEV Bots Eat Your Slippage]]></title>
+    <link>https://ponr.org/en/articles/mev-sandwich-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/mev-sandwich-guide.html</guid>
+    <pubDate>Wed, 29 Jul 2026 14:24:25 +0800</pubDate>
+    <category>Stablecoin Payments</category>
+    <description><![CDATA[MEV bots pull hundreds of millions a year via front-running and sandwich attacks. How they work, who runs them, and how to protect your trades from slippage.]]></description>
+  </item>
   <item>
     <title><![CDATA[What Actually Broke: A History of Cross-Chain Bridge Hacks]]></title>
     <link>https://ponr.org/en/articles/bridge-security-guide.html</link>

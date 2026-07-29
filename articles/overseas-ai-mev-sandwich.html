@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的</title>
+  <meta name="description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/mev-sandwich-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的">
+  <meta property="og:description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
+  <meta property="article:published_time" content="2026-07-29T14:24:25+08:00">
+  <meta property="article:modified_time" content="2026-07-29T14:24:25+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="稳定币支付">
+  <meta property="article:tag" content="MEV">
+  <meta property="article:tag" content="三明治攻击">
+  <meta property="article:tag" content="加密货币安全">
+  <meta property="article:tag" content="滑点">
+  <meta property="article:tag" content="加密货币研究">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的">
+  <meta name="twitter:description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-mev-sandwich.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="三明治攻击拆解滑点是怎么被MEV机器人吃掉的封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-mev-sandwich.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#primaryimage", "url": "https://ponr.org/img/cover-mev-sandwich.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage", "url": "https://ponr.org/articles/overseas-ai-mev-sandwich.html", "name": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "item": "https://ponr.org/articles/overseas-ai-mev-sandwich.html" }
+    ] },
+    { "@type": "Article", "headline": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "description": "MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。", "image": "https://ponr.org/img/cover-mev-sandwich.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-29T14:24:25+08:00", "dateModified": "2026-07-29T14:24:25+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["MEV", "三明治攻击", "加密货币安全", "滑点", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/mev-sandwich-guide.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的</h1>
+          <p class="article-summary">上一篇拆解了跨链桥的托管安全问题，这一篇转向另一个几乎每个链上交易者都在无形中承担的成本：MEV。你在 DEX 上换币时设置的滑点容差，很多时候不是被市场正常波动吃掉的，而是被专门的机器人用三明治攻击精确地吃掉的。这篇讲清楚三明治攻击到底怎么做到的，MEV 供应链上都有谁在分一杯羹，以及普通用户能采取的几个具体自保措施。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-29T14:24:25+08:00">2026-07-29 14:24:25</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-mev-sandwich.svg" width="800" height="400" alt="三明治攻击拆解滑点是怎么被MEV机器人吃掉的封面图" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. MEV 是什么：区块打包顺序里藏着的钱</h2>
+          <p>MEV（Maximal Extractable Value，最大可提取价值）指的是区块生产者或交易排序方，通过决定一批交易在区块里的打包顺序、插入自己的交易、甚至剔除某些交易，从中额外获利的能力。这件事之所以可能，根源在于绝大多数公链的交易在被打包进区块之前，会短暂地停留在一个所有人都能看到的"待处理交易池"（mempool）里——任何人都可以监听这个池子，看到某笔交易打算做什么、愿意付多少手续费，然后决定要不要抢在它前面、插在它中间，或者跟在它后面下单。这层"打包顺序可以被操纵、且操纵前是公开可见的"的机制，是包括三明治攻击在内几乎所有 MEV 策略共同的技术前提。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三明治攻击的三步走：抢跑、成交、反向卖出</h2>
+          <p>三明治攻击专门针对在去中心化交易所（DEX）上进行的大额兑换交易，操作分三步。第一步，攻击者的机器人监听到 mempool 里一笔即将成交的大额买单，判断这笔买单会明显推高目标代币的价格，于是抢在这笔买单之前，用更高的手续费插队提交一笔同方向的买单（抢跑，front-run），先把价格推高一截。第二步，原本那笔用户的买单按照已经被推高的价格成交，用户拿到的代币数量比预期少，实际支付的价格比看到的报价更差——这个差额就是滑点损失的主要来源之一。第三步，攻击者的机器人紧跟着提交一笔卖单，把第一步买入的代币按抬高后的价格卖出（反向卖出，back-run），锁定价差利润，整套流程从抢跑单到反向卖单把用户的这笔交易"夹"在中间，因此得名三明治攻击。全程只需要极小的资金占用和几个区块的时间，风险几乎为零，因为交易能不能被打包、什么价格成交，攻击者在提交前就已经通过模拟计算得出确定结果。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 谁在做这件事：搜索者、构建者与验证者的分工</h2>
+          <p>三明治攻击不是某个人手动盯盘操作的，背后是一条分工明确的 MEV 供应链。搜索者（searcher）负责写自动化程序持续监听 mempool，识别有利可图的机会并构造出抢跑+反向卖出的交易组合；由于以太坊等主流公链引入了 MEV-Boost 之类的机制，搜索者通常不会直接把交易广播到公开 mempool（那样反而会被别的机器人抢走机会），而是把整套交易组合打包成一个"区块提案"发给构建者（builder）；构建者负责把多个搜索者提交的方案汇总、挑出对验证者（validator）总收益最高的组合，再提交给验证者出块；验证者最终决定采用哪个构建者的方案，并从中分得一部分 MEV 收益作为额外奖励。这条链条上的每一环都有经济激励去让三明治攻击持续存在——搜索者赚价差，构建者和验证者赚小费，唯一持续买单的是被夹在中间的普通交易者。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 为什么大额兑换、低流动性代币池是重点目标</h2>
+          <p>三明治攻击对交易的"性价比"要求很直接：抬高价格所需的资金越少、被攻击的这笔交易滑点容差留得越宽、目标代币池的流动性越薄，攻击的利润空间就越大。这意味着几类交易天然是高风险目标：兑换金额远超代币池日常交易量的大额单，滑点容差设置得过于宽松（比如为了"保证一定能成交"设成 5% 甚至更高）的交易，以及新上线、流动性还很浅的代币池。反过来，成熟大池子（比如主流稳定币之间、ETH/USDC 这类深度池）里的正常大小交易，因为需要攻击者投入的资金量远超能抢到的价差，通常不值得被专门针对，这也是为什么本站反复建议稳定币兑换尽量走深度池、大额分批进行的原因之一。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 私有交易通道：把交易从公开 mempool 里"藏起来"</h2>
+          <p>既然三明治攻击的前提是攻击者能在 mempool 里提前看到交易内容，那么最直接的防御思路就是不让交易在公开 mempool 里曝光。这正是私有交易通道（private transaction / private RPC）要解决的问题：像 Flashbots Protect 这样的服务允许用户把交易直接发给合作的构建者，跳过公开 mempool 的传播环节，攻击者的搜索者程序就没有机会提前看到并插队。目前不少主流钱包和 DEX 前端已经内置了类似选项（有时叫"MEV 保护"或"private mode"），愿意多付一点手续费换取交易不被公开广播的用户可以直接勾选。需要注意的是私有通道能大幅降低被抢跑的概率，但不是绝对零风险——部分构建者本身也可能参与 MEV 分润，选择有公开声明"不提取用户交易 MEV"政策的服务商会更稳妥。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 滑点容差怎么设：不是越宽松越好</h2>
+          <p>很多用户把滑点容差设得很宽，是为了避免因为价格波动导致交易失败要重新提交，但这个便利恰恰是留给三明治攻击的操作空间——容差越宽，攻击者能抬高价格的上限越高，能吃掉的差额也越大。更合理的做法是把滑点容差设置得刚好覆盖正常市场波动（多数主流代币在流动性尚可的池子里，0.5%–1% 通常就足够），而不是图省事直接拉到 3%、5%。如果交易因为容差太紧而失败，重新提交一次的成本（多付一点手续费、多等一个区块）远低于容差过宽被攻击一次的损失。部分 DEX 聚合器和跨链兑换工具（例如本站此前介绍过的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a>）会在报价阶段就把预期滑点算清楚并给出更紧的默认容差，比手动在原生 DEX 界面上操作留出的攻击窗口更小。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 普通用户的自保清单</h2>
+          <p>把前面几节的结论落成几条可以直接照做的建议。第一，涉及大额兑换时优先选择支持私有交易通道或内置 MEV 保护的钱包/前端，尤其是金额明显超过日常小额操作的场景。第二，滑点容差按实际需要设置，不要为了"图省事"一次性拉到很高，尤其是在流动性偏薄的代币池里操作时。第三，把大额兑换拆成几笔分批完成，单笔金额越大对价格的冲击越明显，也越容易触发被针对性抢跑的门槛。第四，如果对某个代币池的深度没有把握，交易前先查一下这个池子的锁仓量（TVL）和 24 小时交易量，深度明显偏薄时格外谨慎。这几条不能百分之百杜绝被抢跑，但能把暴露的窗口和吃掉的差额都压到很小的范围内。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 对用稳定币支付海外 AI 订阅意味着什么</h2>
+          <p>本站读者最常涉及的链上操作，往往是把某条链上的资产换成另一种代币或跨到另一条链，用于给虚拟卡充值或直接支付订阅。这类操作金额通常不算特别大，但如果习惯性把滑点容差设得很宽、又恰好选中了一个流动性偏薄的兑换池，同样会遇到三明治攻击。几点可以直接用上：一是给日常小额兑换设一个统一的、不过分宽松的滑点上限，不要每次图快就随手拉高；二是如果本站此前提到的<a href="/articles/overseas-ai-stablecoin-swap-tools.html">跨链兑换工具</a>本身已经内置了滑点保护或私有通道选项，优先用工具自带的默认设置而不是手动在原生界面操作；三是不必对每一笔几十上百美元的小额兑换过度紧张——三明治攻击的经济性决定了金额太小时攻击者往往懒得动手，真正需要提高警惕的是明显偏大额、或者代币池明显冷门的交易。需要强调的是：本文是技术与安全层面的研究整理，不构成任何投资建议。</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. 小结</h2>
+          <p>三明治攻击能够存在，根源是交易在打包前会短暂公开曝光在 mempool 里，给了搜索者、构建者、验证者这条 MEV 供应链上的每一环提前下注的机会。抢跑推高价格、用户按坏价格成交、反向卖出锁定利润，三步走的套路简单但极其有效，每年从普通交易者身上吃掉的滑点损失以数亿美元计。普通用户能做的不是奢望彻底杜绝，而是通过私有交易通道、更紧的滑点容差、分批操作和对代币池深度的基本判断，把自己变成一个"性价比不高"的攻击目标。这是本站稳定币支付专题里第三篇偏研究向的内容，后续会继续跟进 MEV 与链上交易安全领域的新进展。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. MEV 是什么：区块打包顺序里藏着的钱</a></li>
+          <li><a href="#sec-2">2. 三明治攻击的三步走：抢跑、成交、反向卖出</a></li>
+          <li><a href="#sec-3">3. 谁在做这件事：搜索者、构建者与验证者的分工</a></li>
+          <li><a href="#sec-4">4. 为什么大额兑换、低流动性代币池是重点目标</a></li>
+          <li><a href="#sec-5">5. 私有交易通道：把交易从公开 mempool 里"藏起来"</a></li>
+          <li><a href="#sec-6">6. 滑点容差怎么设：不是越宽松越好</a></li>
+          <li><a href="#sec-7">7. 普通用户的自保清单</a></li>
+          <li><a href="#sec-8">8. 对用稳定币支付海外 AI 订阅意味着什么</a></li>
+          <li><a href="#sec-9">9. 小结</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-bridge-security.html">跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-swap-tools.html">跨链兑换工具怎么挑：海外AI稳定币兑换避坑</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-reserve-transparency.html">USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</a></li>
+          <li><a href="/articles/overseas-ai-cross-chain-recovery.html">USDT转错链别慌：海外AI付款资产找回实操</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币要不要都放一条链：海外AI资金分散策略</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-payment.html">用USDT/USDC付海外AI：选链与到账实操</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap 跨链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC 虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI学习笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">读懂 AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI前沿资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=caed4ed34e"></script>
+</body>
+</html>
