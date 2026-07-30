@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>闪电贷攻击拆解：一笔交易内怎么掏空一个协议</title>
+  <meta name="description" content="闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/flash-loan-attack-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="闪电贷攻击拆解：一笔交易内怎么掏空一个协议">
+  <meta property="og:description" content="闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <meta property="article:published_time" content="2026-07-30T14:20:00+08:00">
+  <meta property="article:modified_time" content="2026-07-30T14:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="稳定币支付">
+  <meta property="article:tag" content="闪电贷">
+  <meta property="article:tag" content="闪电贷攻击">
+  <meta property="article:tag" content="加密货币安全">
+  <meta property="article:tag" content="DeFi安全">
+  <meta property="article:tag" content="加密货币研究">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="闪电贷攻击拆解：一笔交易内怎么掏空一个协议">
+  <meta name="twitter:description" content="闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-flash-loan-attack.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="闪电贷攻击拆解一笔交易内怎么掏空一个协议封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-flash-loan-attack.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#primaryimage", "url": "https://ponr.org/img/cover-flash-loan-attack.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#webpage", "url": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html", "name": "闪电贷攻击拆解：一笔交易内怎么掏空一个协议", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "闪电贷攻击拆解：一笔交易内怎么掏空一个协议", "item": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html" }
+    ] },
+    { "@type": "Article", "headline": "闪电贷攻击拆解：一笔交易内怎么掏空一个协议", "description": "闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。", "image": "https://ponr.org/img/cover-flash-loan-attack.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-30T14:20:00+08:00", "dateModified": "2026-07-30T14:20:00+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["闪电贷", "闪电贷攻击", "加密货币安全", "DeFi安全", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-flash-loan-attack.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/flash-loan-attack-guide.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>闪电贷攻击拆解：一笔交易内怎么掏空一个协议</h1>
+          <p class="article-summary">本文是 AI服务指南 DeFi 安全系列的一篇。上一篇拆解了 MEV 三明治攻击，这一篇转向另一种规模更大、后果更直接的链上攻击手法：闪电贷攻击。闪电贷本身是一种中性工具，让任何人在无需抵押的情况下借入数百万甚至上千万美元资产——前提是必须在同一笔交易结束前还清。但这种原子性的"免费杠杆"一旦遇上价格预言机设计缺陷、重入漏洞或治理机制漏洞，就会变成攻击者近乎零成本的提款机。这篇拆解闪电贷的工作原理、几起代表性攻击事件的技术细节，以及协议侧目前的主流防御方案。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-30T14:20:00+08:00">2026-07-30 14:20:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-flash-loan-attack.svg" width="800" height="400" alt="闪电贷攻击拆解一笔交易内怎么掏空一个协议封面图" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. 闪电贷是什么：没有抵押，没有风险，只要同一笔交易还清</h2>
+          <p>闪电贷（Flash Loan）是 DeFi 借贷协议特有的一种借款方式，AAVE 在 2020 年 1 月正式上线闪电贷功能后成为这一模式的代表性协议，dYdX 也在同期提供了类似能力。与传统借贷不同，闪电贷完全不需要抵押物——借款人可以在没有任何资产背书的情况下，借出协议资金池里数百万甚至上千万美元的资产。这在传统金融里是不可想象的，但在以太坊这类支持原子交易的链上却完全可行，原因在于借款、操作、还款被打包在同一笔交易里，构成一个不可分割的整体。</p>
+          <p>这种"不可分割"正是闪电贷安全性的核心机制：整笔交易在同一个区块内执行，如果在交易结束前借款没有连本带息归还，整笔交易会被以太坊虚拟机（EVM）完全回滚，就像什么都没发生过一样。协议资金池不会有任何损失，借款人也不会留下坏账。换句话说，闪电贷不是"先借钱、后还钱"的两步操作，而是"借钱和还钱必须同时成立，否则借钱这件事本身就不存在"。这也是为什么闪电贷能够把借款规模做到极大——协议不需要评估借款人的信用，因为不存在还不上的可能性。</p>
+          <p>原子性（Atomicity）这个概念借用自数据库理论，指一组操作要么全部成功、要么全部失败，不存在中间状态。闪电贷的整个生命周期——借入资产、用这笔资产做任意操作（比如套利、清算、置换抵押品）、归还本金加手续费——被压缩进一笔交易的执行栈里。任何一步失败，比如最后资金不够还款，整个调用栈都会 revert（回滚），链上状态回到交易发起前的样子。这个设计初衷是让套利者、清算人等能够无本金参与市场，提升 DeFi 生态的资本效率和价格发现效率。</p>
+          <p>但正是这种"零成本获得巨额临时资金"的能力，也让闪电贷天然具备了武器化的潜力：只要攻击者能在这一笔交易的生命周期内完成价格操纵、治理投票或触发某个逻辑漏洞并从中获利，归还借款之后依然能净赚一笔，且几乎不需要动用自己的资本，也不会留下可追责的持续负债。这也是本文后续几节要拆解的核心逻辑。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 从理论到武器：攻击者怎么把闪电贷变成杠杆</h2>
+          <p>闪电贷本身不是漏洞，它只是放大器。真正的漏洞通常存在于其他协议的逻辑设计里，比如价格预言机依赖单一流动性池、清算逻辑没有做健康度检查、治理合约没有设置执行延迟。闪电贷的作用是让攻击者不需要准备启动资金——正常情况下，操纵一个流动性池的价格可能需要数百万美元的自有资金，普通攻击者根本负担不起；但借助闪电贷，攻击者可以在一笔交易里借入 1000 万美元甚至更多的资产，用完就还，边际成本只有借款手续费（通常是 0.05%–0.3%）和 Gas 费。</p>
+          <p>DeFi 生态经常被称为"货币乐高"（Money Lego），因为各个协议之间高度可组合：一个协议的存款凭证可以作为另一个协议的抵押品，一个 DEX 的报价可以被另一个协议直接引用为价格预言机。这种可组合性是 DeFi 创新效率的来源，但也意味着攻击面会随着协议之间的依赖关系呈指数级增长——你的协议本身代码可能没有问题，但只要它信任了一个可以被闪电贷临时操纵的外部数据源，攻击者就能通过操纵那个外部环节来攻击你。</p>
+          <p>一个典型的通用攻击框架大致是：第一步，从 AAVE 或 dYdX 闪电贷借入 1000 万 USDC；第二步，用这笔资金在某个流动性较浅的 DEX 池子里进行大额单向交易，把某个代币的报价推高或砸低，制造出脱离真实市场的极端价格；第三步，利用另一个协议（往往是借贷协议或衍生品协议）以这个被操纵后的价格作为预言机报价，执行清算、开仓或铸造操作，从价格偏差中套利；第四步，把资金换回 USDC，归还闪电贷本金和手续费，剩余利润留在攻击者钱包里。这四步全部发生在一笔交易内，外部观察者只会看到一笔巨大的、结构复杂的交易在某个区块被打包，等资金损失被发现时，攻击已经完成且不可逆。</p>
+          <p>这种攻击的隐蔽性还体现在：它不需要黑客拿到任何私钥、不需要突破任何权限系统，全部操作都是对公开合约函数的正常调用，只是利用了这些函数组合在一起时产生的逻辑漏洞。这也是为什么很多闪电贷攻击在传统意义上"完全合法"——攻击者调用的每一个函数都是协议允许任何人调用的公开接口，问题出在协议设计者没有预见到这些接口被以这种顺序和规模组合调用时会产生的后果。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. bZx 攻击复盘：价格预言机被当提款机用的第一次教训（2020-02）</h2>
+          <p>2020 年 2 月，借贷协议 bZx 在短短几天内连续遭受两次闪电贷攻击，分别造成约 35 万美元和 60 万美元损失，这是业界普遍认为的第一批被广泛报道的闪电贷攻击案例，也第一次让整个行业意识到闪电贷可以被用作攻击杠杆。第一次攻击发生在 2 月 15 日，攻击者从 dYdX 闪电贷借出约 5500 枚 ETH，随后将其中一部分存入 Compound 作为抵押借出 WBTC，再用另一部分 ETH 在 bZx 旗下的 Fulcrum 平台开出一个 5 倍杠杆的 ETH 空单。</p>
+          <p>这个空单的开仓过程会触发 Fulcrum 通过 Kyber Network 上的一个流动性较浅的池子进行 ETH 换 WBTC 的操作，攻击者刻意选择了这个薄流动性池子，导致换汇过程中价格被自己的大额交易大幅推高，使得空单的开仓价格被严重扭曲。同时，攻击者手里还有从 Compound 借出的 WBTC，可以在被推高的价格下以更有利的条件卖出，从两边的价格差中获利，最终净赚约 35 万美元，随后归还闪电贷本金，全程只用了一笔交易完成。</p>
+          <p>几天之后的第二次攻击手法略有不同，攻击者利用 Uniswap 上 sUSD/ETH 池子流动性单薄的问题，通过闪电贷资金在 Uniswap 上大幅拉高 sUSD 价格，再利用 bZx 依赖 Uniswap 现货报价作为清算依据的漏洞，借出远超正常抵押率的资产，造成约 60 万美元损失。两次攻击的共同教训是一致的：如果一个协议把某个 DEX 的即时现货价格直接当作预言机使用，而这个 DEX 池子的流动性又足够浅，那么任何拿得到闪电贷的人都可以在一笔交易内把这个价格暂时推到任意水平，再让协议基于这个被操纵的价格做出错误决策。</p>
+          <p>bZx 事件之后，"不要用单一 DEX 现货价格作为预言机"成为了 DeFi 行业早期最重要的安全共识之一，但后续几年里仍然反复有协议因为同样的疏忽被攻破，说明这个教训在协议设计实践中并没有被真正系统性地吸收，更多是停留在"知道有这个风险"而没有落实到每一次新协议上线前的强制审计项。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Cream Finance、Alpha Homora：协议组合越复杂，攻击面越大</h2>
+          <p>2021 年 2 月 13 日，借贷协议 Cream Finance 与收益聚合协议 Alpha Homora 之间的组合式攻击造成约 3750 万美元损失，这起事件因为同时牵涉两个协议且损失规模巨大而被业界视为"协议组合攻击"的教科书案例。Alpha Homora 允许用户把资金存入 Cream Finance 获取杠杆收益，两者的合约逻辑高度耦合：Alpha Homora 的策略合约可以直接调用 Cream 的借贷接口开设杠杆仓位。</p>
+          <p>攻击者利用闪电贷借入大量 ETH 和 sUSD，通过反复调用 Alpha Homora 的杠杆开仓功能，同时触发了 Cream Finance 合约里一个重入（Re-entrancy）漏洞——即在同一笔外部调用尚未结束、状态还没有被完全更新之前，合约又被递归调用了一次，导致攻击者能够以远低于正常成本的方式反复借出资产，累计套出的资金规模远超其实际抵押物价值。重入漏洞本身在智能合约安全领域并不新鲜（2016 年的 The DAO 事件就是重入攻击的经典案例），但闪电贷让攻击者可以把重入漏洞的每一次触发都放大到数百万美元规模，而不需要拥有那么多本金去反复循环。</p>
+          <p>这起事件揭示的核心问题是：单个协议做安全审计时，往往只审计自己代码内部的逻辑一致性，很难覆盖到"我的合约被另一个协议以非预期方式调用会发生什么"这类跨协议交互场景。Cream Finance 的借贷逻辑单独看可能没有明显问题，但当 Alpha Homora 以一种特定的、高频的方式调用它时，两者组合产生的漏洞就暴露出来了。这也是"货币乐高"可组合性的代价：每接入一个新协议、每允许一个新的外部合约调用自己的接口，理论上的攻击面都会随之扩大，而这种扩大往往不会体现在任何一个协议单独的审计报告里。</p>
+          <p>Cream Finance 后续在 2021 年又多次遭受不同形式的闪电贷及重入组合攻击（8 月的一次损失约 1890 万美元，10 月的一次损失约 1.3 亿美元），反映出协议一旦形成复杂的跨协议依赖关系，单次修复往往难以覆盖所有潜在的组合路径，这也是为什么行业里逐渐形成了"越复杂的协议乐高越应该在每次新增集成后重新做一轮针对性审计"的共识。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Euler Finance：史上损失最大的闪电贷攻击（1.97 亿美元，2023-03）</h2>
+          <p>2023 年 3 月 13 日，借贷协议 Euler Finance 遭受了迄今为止规模最大的闪电贷攻击，单次损失约 1.97 亿美元，超过此前所有同类事件。攻击的核心漏洞出在 Euler 的清算逻辑上：协议提供了一个名为 <code>donateToReserves</code> 的函数，允许用户将自己的存款捐赠给协议储备金，本意是给生态里想要补贴协议的用户提供一个善意通道，但这个函数在设计时缺少了对调用者账户健康度（health check）的检查。</p>
+          <p>攻击者利用闪电贷借入大量 DAI，通过 Euler 的存款和借款功能构造出一个刻意制造的负债仓位，随后调用 <code>donateToReserves</code> 把自己的抵押资产"捐"出去，使得账户的抵押物余额骤降、负债骤增，但由于这个捐赠操作没有触发正常清算流程该有的健康度校验，攻击者的账户在事实上已经严重资不抵债的情况下依然被系统判定为"健康"，从而规避了本该发生的清算。随后攻击者通过另一个账户对这个已经资不抵债但未被标记的仓位发起清算，以远低于市场价格拿到大量抵押资产，反复执行这套流程放大收益，最终净赚约 1.97 亿美元等值资产。</p>
+          <p>这起事件的技术根源可以归纳为一句话：一个本意良好的"捐赠"功能，因为漏做了一次本该有的负债与抵押比健康检查，被攻击者当作绕过清算保护机制的后门。Euler 的合约代码此前已经过审计，但审计并没有覆盖到这个捐赠函数与清算逻辑组合后产生的边界情况，说明即便经过专业审计的协议依然可能存在未被覆盖的组合漏洞。</p>
+          <p>这起事件后续也出现了业内罕见的转折：Euler 团队通过链上留言和场外沟通与攻击者展开谈判，最终攻击者在 3 月底前分批归还了约 1.75 亿美元资产，并公开发布声明为攻击行为道歉。这种"黑客归还大部分资金"的结局在 DeFi 历史上并非孤例，但 Euler 事件因为涉及金额巨大而格外引人注目，也让"该不该与黑客谈判、如何谈判"成为了行业危机应对流程里被重新讨论的议题。Euler 随后重新设计了协议并推出新版本，在清算与健康检查逻辑上做了大幅重构。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 治理攻击：用闪电贷买到一票否决权</h2>
+          <p>2022 年 4 月 17 日，算法稳定币项目 Beanstalk Farms 遭受了一次性质完全不同的闪电贷攻击，损失约 1.82 亿美元，这起事件的特殊之处在于攻击目标不是价格预言机或清算逻辑，而是链上治理机制本身。Beanstalk 采用完全去中心化的链上治理：持有其治理代币 Stalk 的用户可以对协议提案进行投票，只要提案获得足够票数（Beanstalk 设定的通过门槛是三分之二多数）就可以立即执行。</p>
+          <p>攻击者通过闪电贷借入约 10 亿美元等值的 DAI、USDC、USDT 等稳定币，将其存入 Beanstalk 协议换取大量治理代币，凭借这笔临时获得的巨额投票权，一次性把自己此前已经提前部署好的一个恶意提案推过三分之二多数门槛并立即执行。这个恶意提案的代码逻辑是把协议金库里的资产转移到攻击者自己控制的地址，整个"借款—换治理代币—投票通过恶意提案—执行转账—归还闪电贷"的流程在同一个区块、同一笔交易内完成，协议方和社区完全没有反应时间。</p>
+          <p>这起事件暴露的根本问题是：Beanstalk 的治理设计里，提案一旦达到票数门槛就可以立即执行，中间没有设置任何强制等待期（timelock）。绝大多数成熟的链上治理系统会设置至少 2 到 5 天的执行延迟，让社区在提案通过投票之后、正式执行之前有时间发现异常并做出反应（例如紧急暂停合约或组织反制投票）。但 Beanstalk 为了追求"完全去中心化、执行效率高"，把这个安全垫直接去掉了，这就给了闪电贷治理攻击可乘之机——只要临时的投票权足够买到通过门槛，攻击者根本不需要长期持有代币，也不需要经历任何等待期，一步到位地把提案变成既成事实。</p>
+          <p>Beanstalk 事件之后，"链上治理必须搭配 timelock"成为行业内几乎所有新兴 DeFi 治理系统设计的默认前提，Compound、Uniswap 等主流协议本身就采用了带有强制执行延迟的治理框架，这类框架即便遭遇同样规模的投票权闪电贷攻击，也能在延迟期内被社区或多签守护者叫停。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 协议侧的防御手段：现在都有哪些主流方案</h2>
+          <p>针对预言机操纵类攻击，行业内已经形成的主流做法是彻底放弃把单一 DEX 的即时现货价格当作预言机，转而使用去中心化预言机网络（如 Chainlink）聚合多个独立数据源的报价，或者使用时间加权平均价格（TWAP）机制。以 Uniswap V3 为例，其内置的 TWAP 预言机会把价格计算窗口拉长到数十分钟甚至更久，攻击者如果想在这么长的时间窗口内持续操纵价格，需要付出的资金和 Gas 成本会呈数量级上升，一笔闪电贷的原子性优势也就随之失效——因为闪电贷本身只能在一个区块内存在，无法跨越足够长的时间窗口去影响 TWAP。</p>
+          <p>针对重入类漏洞，OpenZeppelin 提供的 <code>ReentrancyGuard</code> 修饰符已经成为几乎所有新部署合约的标准配置，它通过一个简单的锁定状态变量，确保同一个函数在外部调用尚未返回之前不能被再次进入，从根本上堵住了 Cream Finance、The DAO 这类攻击依赖的技术路径。同时，遵循"检查-生效-交互"（Checks-Effects-Interactions）模式编写合约——先完成所有状态校验和状态更新，最后才进行外部调用——也是社区公认的重入防御最佳实践。</p>
+          <p>针对治理攻击，主流方案是为所有治理提案设置强制执行延迟（Timelock），通常是 2 到 5 天，让社区有时间在提案通过和正式执行之间发现异常并组织应对；一些协议还会要求投票权必须持有一定时长才能生效（例如基于历史快照而非实时余额计票），这样闪电贷临时借来的代币在投票那一刻的权重就会被认定为零，从根本上让"借钱买票"这条路失效。</p>
+          <p>此外，越来越多协议开始对闪电贷本身设置限制，例如设定单笔借款规模上限、提高手续费比例、或者在关键操作（如大额清算、预言机报价更新）前后加入时间锁和熔断机制（Circuit Breaker），一旦检测到单笔交易内价格波动或借贷规模超出预设阈值，协议会自动暂停相关功能等待人工介入复核。多签守护者（Pause Guardian）机制也被广泛采用：一组受信任的多签地址拥有在紧急情况下暂停协议关键功能的权限，为社区争取反应时间，代价是牺牲一部分"完全去中心化、无需信任第三方"的理念。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 对普通用户意味着什么：存款安全性与协议选择</h2>
+          <p>对普通用户来说，闪电贷攻击本身通常不会直接针对你在 DEX 上的一笔交易——闪电贷攻击的对象是协议合约的逻辑漏洞，而不是个体交易者的滑点（那属于 MEV 三明治攻击的范畴，本系列另一篇文章有详细拆解）。真正的风险在于：如果你把资产存放在一个存在闪电贷漏洞的协议里，一旦攻击发生，协议资金池被掏空，你的存款可能连本金都拿不回来，Euler、Cream Finance、Beanstalk 事件里大量普通存款用户都是间接受害者。</p>
+          <p>评估一个协议是否值得信任，可以关注几个具体信号：审计次数和审计机构的资质——只经过一次审计、且审计机构名气不大的协议风险明显更高，经过知名安全机构多次审计、且审计报告公开可查的协议相对更可靠；漏洞赏金计划（Bug Bounty）的存在与规模，可以在 immunefi.com 上查询一个协议是否设有漏洞赏金、赏金上限有多高，这也从侧面反映了协议方对安全的投入程度；协议上线后的 TVL（锁仓总值）历史与运行时长，一个已经在主网稳定运行两三年且历经多轮市场波动都没出过问题的协议，比一个刚上线几周、TVL 快速飙升的新协议要经得起时间考验。</p>
+          <p>另一个值得关注的正面信号是合约的可升级性设计：完全不可变（immutable）的合约意味着即便发现漏洞也无法紧急修复，但同时也意味着不存在管理员作恶或被黑客劫持升级权限的风险；采用透明代理（Transparent Proxy）模式并搭配 timelock 的协议，则是在可修复性和去中心化安全之间取一个折中——升级需要经过一段强制等待期，社区有时间审查升级内容是否合理。两种模式各有取舍，没有绝对的优劣，但如果一个协议既没有经过审计、又采用了可以被单一地址随时任意升级的代理模式，这种组合的风险是最高的。</p>
+          <p>总体而言，闪电贷攻击提醒普通用户：DeFi 里的"高收益"往往伴随着"高组合复杂度"，一个协议接入的外部协议、预言机、跨链桥越多，潜在攻击面就越大。存款前花十分钟查一下审计报告和历史事件记录，比事后追讨损失要划算得多。需要强调的是：本文是技术与安全层面的研究整理，不构成任何投资建议。</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. 小结</h2>
+          <p>闪电贷从设计初衷来看是一种中性的金融工具，它降低了套利、清算等正向市场行为的资本门槛，提升了 DeFi 生态的整体效率。但当它被组合进价格预言机缺陷、重入漏洞、治理机制漏洞等既有安全问题时，就变成了几乎零成本的攻击杠杆——本文梳理的 bZx、Cream Finance/Alpha Homora、Euler Finance、Beanstalk Farms 几起代表性事件，仅这几例披露损失金额加总就超过 7 亿美元，足见这一攻击类型对 DeFi 生态造成的实际冲击。</p>
+          <p>行业对此的应对也在持续演进：去中心化预言机、TWAP 机制、重入锁、治理 timelock、闪电贷额度限制和熔断机制，都是过去几年里从一次次真实损失中总结出来的具体防御手段，并已逐步成为新协议上线前的标准检查项。但正如 Euler 事件所展示的那样，即便经过审计的协议依然可能存在未被覆盖的组合漏洞，这也是为什么持续的第三方审计、漏洞赏金和链上监控依然不可或缺。这是本站稳定币支付专题里又一篇偏研究向的内容，后续会继续跟进链上安全领域的新进展。</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 闪电贷是什么：没有抵押，没有风险，只要同一笔交易还清</a></li>
+          <li><a href="#sec-2">2. 从理论到武器：攻击者怎么把闪电贷变成杠杆</a></li>
+          <li><a href="#sec-3">3. bZx 攻击复盘：价格预言机被当提款机用的第一次教训（2020-02）</a></li>
+          <li><a href="#sec-4">4. Cream Finance、Alpha Homora：协议组合越复杂，攻击面越大</a></li>
+          <li><a href="#sec-5">5. Euler Finance：史上损失最大的闪电贷攻击（1.97 亿美元，2023-03）</a></li>
+          <li><a href="#sec-6">6. 治理攻击：用闪电贷买到一票否决权</a></li>
+          <li><a href="#sec-7">7. 协议侧的防御手段：现在都有哪些主流方案</a></li>
+          <li><a href="#sec-8">8. 对普通用户意味着什么：存款安全性与协议选择</a></li>
+          <li><a href="#sec-9">9. 小结</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-mev-sandwich.html">三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的</a></li>
+          <li><a href="/articles/overseas-ai-bridge-security.html">跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-reserve-transparency.html">USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap 跨链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC 虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI学习笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">读懂 AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI前沿资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2687189705"></script>
+
+
+
+
+</body>
+</html>

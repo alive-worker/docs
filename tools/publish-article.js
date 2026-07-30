@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'overseas-ai-stablecoin-reserve-transparency',
-  enSlug: 'stablecoin-reserve-transparency-guide',
-  publishedISO: '2026-07-27T15:53:05+08:00',
-  tagColor: 'azure',
+  zhSlug: 'overseas-ai-flash-loan-attack',
+  enSlug: 'flash-loan-attack-guide',
+  publishedISO: '2026-07-30T14:20:00+08:00',
+  tagColor: 'crimson',
 
   zh: {
-    h1: 'USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解',
-    tagLabel: '储备透明度',
-    cardDesc: 'USDT、USDC 宣称 1:1 锚定美元，拆解储备资产构成、储备证明与审计的区别，以及普通人怎么用链上数据自行核验。',
+    h1: '闪电贷攻击拆解：一笔交易内怎么掏空一个协议',
+    tagLabel: '闪电贷攻击',
+    cardDesc: '闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。',
   },
   en: {
-    h1: "What Actually Backs USDT and USDC's Dollar Peg",
-    tagLabel: 'Reserve Transparency',
-    cardDesc: 'USDT and USDC claim a 1:1 dollar peg. A breakdown of reserve composition, attestation vs audit, and how to self-verify on-chain.',
+    h1: 'Flash Loan Attacks: Draining a Protocol in One Transaction',
+    tagLabel: 'Flash Loans',
+    cardDesc: 'Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-stablecoin-payment', 'overseas-ai-fund-reserve', 'overseas-ai-stablecoin-diversification'],
+  crossLinkSlugs: ['overseas-ai-mev-sandwich', 'overseas-ai-bridge-security', 'overseas-ai-stablecoin-reserve-transparency'],
 };
 // ---------------------------------------------------------------------------
 

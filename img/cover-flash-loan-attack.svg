@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="闪电贷攻击拆解一笔交易内怎么掏空一个协议封面图">
+  <defs>
+    <linearGradient id="bgGradFlash" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#150a12"/>
+      <stop offset="1" stop-color="#3a1024"/>
+    </linearGradient>
+    <radialGradient id="glowFlash" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff5d8f" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff5d8f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradFlash)"/>
+  <rect width="800" height="400" fill="url(#glowFlash)"/>
+  <g stroke="#8a2e5a" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#ffb0c8">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <g transform="translate(64,72)">
+    <rect width="78" height="86" rx="10" fill="#2a0e1e" stroke="#ff5d8f" stroke-width="2.5"/>
+    <path d="M45 16 L26 52 h14 l-6 26 24 -40 h-15 z" fill="#ffcf3f" stroke="#ffcf3f" stroke-width="1"/>
+  </g>
+  <text x="103" y="52" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#ff5d8f">flash loan</text>
+
+  <text x="64" y="230" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="38" font-weight="700" fill="#fce0ec">闪电贷攻击</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="38" font-weight="700" fill="#fce0ec">一笔交易掏空协议</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#ffb0c8">FLASH LOAN &#183; ORACLE &#183; DEFI</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#ffb0c8" opacity="0.85">AI服务指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#2a0e1e" stroke="#8a2e5a" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#ffb0c8"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#fce0ec">历史损失</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#8a2e5a" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#f0c3d3">bZx &#183; 2020</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#ffb0c8">$0.95M</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#f0c3d3">Cream+Alpha &#183; 2021</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#ffb0c8">$37.5M</text>
+
+  <text x="440" y="210" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#f0c3d3">Beanstalk &#183; 2022</text>
+  <text x="730" y="210" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#ffb0c8">$182M</text>
+
+  <line x1="440" y1="228" x2="730" y2="228" stroke="#8a2e5a" stroke-width="1"/>
+  <text x="440" y="250" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#fce0ec">Euler Finance &#183; 2023</text>
+  <text x="730" y="250" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#ffcf3f">$197M</text>
+
+  <rect x="440" y="264" width="290" height="30" rx="10" fill="#150a12" stroke="#8a2e5a" stroke-width="1"/>
+  <text x="454" y="284" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="600" fill="#fce0ec">&#10003; 去中心化预言机 + 治理时间锁</text>
+</svg>

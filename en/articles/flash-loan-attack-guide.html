@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flash Loan Attacks: Draining a Protocol in One Transaction</title>
+  <meta name="description" content="Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/flash-loan-attack-guide.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/flash-loan-attack-guide.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-flash-loan-attack.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Flash Loan Attacks: Draining a Protocol in One Transaction">
+  <meta property="og:description" content="Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.">
+  <meta property="og:url" content="https://ponr.org/en/articles/flash-loan-attack-guide.html">
+  <meta property="article:published_time" content="2026-07-30T14:20:00+08:00">
+  <meta property="article:modified_time" content="2026-07-30T14:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Stablecoin Payments">
+  <meta property="article:tag" content="Flash Loans">
+  <meta property="article:tag" content="Flash Loan Attack">
+  <meta property="article:tag" content="DeFi Security">
+  <meta property="article:tag" content="Crypto Security">
+  <meta property="article:tag" content="Crypto Research">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flash Loan Attacks: Draining a Protocol in One Transaction">
+  <meta name="twitter:description" content="Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-flash-loan-attack-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Flash loan attacks draining a protocol in one transaction cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-flash-loan-attack-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#primaryimage", "url": "https://ponr.org/img/cover-flash-loan-attack-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#webpage", "url": "https://ponr.org/en/articles/flash-loan-attack-guide.html", "name": "Flash Loan Attacks: Draining a Protocol in One Transaction", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Flash Loan Attacks: Draining a Protocol in One Transaction", "item": "https://ponr.org/en/articles/flash-loan-attack-guide.html" }
+    ] },
+    { "@type": "Article", "headline": "Flash Loan Attacks: Draining a Protocol in One Transaction", "description": "Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.", "image": "https://ponr.org/img/cover-flash-loan-attack-en.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-07-30T14:20:00+08:00", "dateModified": "2026-07-30T14:20:00+08:00", "inLanguage": "en", "articleSection": "Stablecoin Payments", "keywords": ["Flash Loans", "Flash Loan Attack", "DeFi Security", "Crypto Security", "Crypto Research"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/flash-loan-attack-guide.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-flash-loan-attack.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Flash Loan Attacks: Draining a Protocol in One Transaction</h1>
+          <p class="article-summary">This is part 4 of the AI Access Guide crypto research series. The previous article broke down MEV sandwich attacks; this one turns to a larger-scale, more direct form of on-chain attack: flash loan attacks. Flash loans let anyone borrow millions with zero collateral — as long as the debt is repaid within the same transaction. That atomic "free leverage" becomes a near-zero-cost extraction machine the moment it meets a price oracle flaw, a reentrancy bug, or a governance mechanism with no timelock. This piece breaks down how flash loans work, the technical details of several landmark attacks, and the protocol-side defenses the industry has developed in response.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-07-30T14:20:00+08:00">2026-07-30 14:20:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-flash-loan-attack-en.svg" width="800" height="400" alt="Flash loan attacks draining a protocol in one transaction cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. What Are Flash Loans: No Collateral, No Risk — If You Repay in One Transaction</h2>
+          <p>Flash loans are a borrowing mechanism unique to DeFi lending protocols. AAVE launched flash loans in January 2020 and became the model most associated with this pattern, and dYdX offered a similar capability around the same time. Unlike traditional lending, flash loans require no collateral at all — a borrower can access millions in a protocol's liquidity pool with zero asset backing. That would be unthinkable in traditional finance, but it's entirely possible on a chain like Ethereum that supports atomic transactions, because borrowing, operating on the funds, and repaying are all packaged into a single indivisible transaction.</p>
+          <p>The "atomic" guarantee is the core safety mechanism: the entire transaction executes within a single block, and if the loan isn't repaid with interest before the transaction ends, the Ethereum Virtual Machine (EVM) rolls the whole transaction back as if nothing happened. The protocol pool loses nothing, and no bad debt accumulates. In other words, flash loans aren't a two-step "borrow now, repay later" — they're "repayment and borrowing must simultaneously succeed, or the borrowing never happened at all." This is also why flash loans can scale to enormous sizes: the protocol never needs to assess a borrower's creditworthiness, because there's no possibility of default.</p>
+          <p>Atomicity as a concept is borrowed from database theory: a group of operations either all succeed or all fail, with no intermediate state. A flash loan's full lifecycle — borrow assets, perform arbitrary operations with them (arbitrage, liquidation, collateral swapping), then repay principal plus fee — is compressed into a single transaction's execution stack. Any failure, such as insufficient funds to repay at the end, causes the entire call stack to revert, and the on-chain state returns to exactly what it was before the transaction was submitted. The original design intent was to let arbitrageurs and liquidators participate in the market without capital, improving DeFi's overall capital efficiency and price discovery.</p>
+          <p>But this exact capability — zero-cost access to massive temporary capital — is inherently weaponizable: as long as an attacker can complete price manipulation, governance voting, or trigger some logic flaw and profit from it within a single transaction's lifetime, they can pocket the gain after repaying the loan, with almost no capital of their own at risk and no lasting liability left behind. This is the core logic the rest of this piece unpacks.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. From Tool to Weapon: How Attackers Turn Flash Loans into Leverage</h2>
+          <p>Flash loans themselves are not the vulnerability — they're the amplifier. The actual vulnerabilities usually live in other protocols' logic: a price oracle that relies on a single liquidity pool, liquidation logic missing a health check, a governance contract with no execution delay. What flash loans do is remove the need for attackers to raise startup capital. Normally, manipulating a liquidity pool's price might require millions of dollars of personal capital — unaffordable for most attackers. With a flash loan, an attacker can borrow $10 million or more within a single transaction, use it, and return it, with the marginal cost limited to the borrowing fee (typically 0.05%–0.3%) plus gas.</p>
+          <p>DeFi is often called "Money Lego" because protocols are highly composable with one another: one protocol's deposit certificate can serve as another's collateral, and one DEX's quote can be cited directly as a price oracle by another protocol. This composability is the source of DeFi's innovation efficiency, but it also means the attack surface grows exponentially with cross-protocol dependencies — your protocol's own code may have no bugs, but if it trusts an external data source that can be temporarily manipulated via a flash loan, an attacker can exploit that external link to attack you.</p>
+          <p>A typical generic attack framework looks roughly like this. Step one: borrow $10 million in USDC via a flash loan from AAVE or dYdX. Step two: use those funds to execute a large, one-directional trade in a shallow-liquidity DEX pool, pushing a token's price far above or below its real market level and creating an extreme, artificial price. Step three: exploit another protocol — usually a lending or derivatives protocol — that uses this manipulated price as its oracle reading, triggering liquidations, opening positions, or minting tokens to extract profit from the price deviation. Step four: convert the funds back to USDC, repay the flash loan principal and fee, and keep whatever profit remains. All four steps occur inside one transaction — outside observers only see a large, structurally complex transaction packed into some block, and by the time the loss is discovered, the attack is already complete and irreversible.</p>
+          <p>Part of the stealth of this attack pattern: it requires no stolen private keys and breaks no permission system. Every operation is a normal call to a public contract function — the attack simply exploits the logical vulnerability that emerges when those functions are combined in a specific order and at a specific scale. That's why many flash loan attacks are, in a narrow technical sense, "fully legal": every function the attacker calls is a public interface the protocol lets anyone call. The problem is that the protocol's designers never anticipated what happens when those interfaces get combined in exactly this order and at exactly this scale.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. bZx Attack Post-Mortem: The First Lesson in Oracle Manipulation (Feb 2020)</h2>
+          <p>In February 2020, lending protocol bZx suffered two flash loan attacks within days of each other, causing losses of roughly $350,000 and $600,000 respectively. These are widely considered the first broadly-reported flash loan attacks, and the first time the industry as a whole recognized that flash loans could be weaponized as attack leverage. The first attack occurred on February 15: the attacker borrowed roughly 5,500 ETH via a flash loan from dYdX, deposited part of it into Compound as collateral to borrow WBTC, and used the remaining ETH on bZx's Fulcrum platform to open a 5x leveraged ETH short position.</p>
+          <p>Opening that short triggered Fulcrum to route an ETH-to-WBTC swap through a shallow-liquidity pool on Kyber Network. The attacker had deliberately chosen this thin pool, so their own large trade drove the swap price sharply higher, badly distorting the short position's execution price. Meanwhile, the attacker was also holding WBTC borrowed from Compound, letting them sell it under the now-inflated price conditions, capturing profit on both sides of the price gap. Net profit landed around $350,000, and the whole sequence — including repaying the flash loan — completed within a single transaction.</p>
+          <p>The second attack, a few days later, used a slightly different approach: the attacker exploited thin liquidity in Uniswap's sUSD/ETH pool, using flash loan funds to aggressively push up sUSD's price on Uniswap, then leveraged the fact that bZx used Uniswap's spot price directly as its liquidation oracle to borrow far more than the collateral should have permitted, causing roughly $600,000 in losses. Both attacks share the same underlying lesson: if a protocol uses a single DEX's real-time spot price as an oracle, and that DEX pool has shallow liquidity, anyone with access to a flash loan can push that price to virtually any level within a single transaction, then let the protocol make a wrong decision based on that manipulated reading.</p>
+          <p>After bZx, "don't use a single DEX's spot price as a price oracle" became one of the most important early security consensus points in DeFi — but in the years that followed, protocols kept getting compromised by the exact same oversight, suggesting the lesson was acknowledged in principle without ever being systematically absorbed into new protocol design and pre-launch audit requirements.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Cream Finance and Alpha Homora: The More Complex the Composition, the Larger the Attack Surface (Feb 2021)</h2>
+          <p>On February 13, 2021, a composite attack targeting lending protocol Cream Finance and yield aggregation protocol Alpha Homora caused roughly $37.5 million in combined losses. The incident became a textbook example of "protocol composition attacks" because it compromised two protocols simultaneously. Alpha Homora let users deposit funds into Cream Finance to earn leveraged yield — the two protocols' contracts were tightly coupled, with Alpha Homora's strategy contracts able to call Cream's lending interfaces directly to open leveraged positions.</p>
+          <p>The attacker used flash loans to borrow large amounts of ETH and sUSD, then repeatedly called Alpha Homora's leverage-opening function, which in turn triggered a reentrancy vulnerability in Cream Finance's contract — a condition where an external call hadn't finished, and state hadn't been fully updated, before the contract was recursively called again, letting the attacker borrow assets far below their actual collateral value. Reentrancy bugs aren't new in smart contract security (the 2016 DAO hack is the classic case), but flash loans let attackers amplify each reentrancy trigger to millions of dollars without needing to own that capital in advance.</p>
+          <p>This incident exposed a core problem: when a single protocol undergoes a security audit, auditors typically only check the internal consistency of that protocol's own code. It's very difficult to cover "what happens if my contract gets called by another protocol in an unexpected way." Cream Finance's lending logic may have shown no obvious flaw in isolation, but when Alpha Homora called it in a specific, high-frequency pattern, the combination produced a vulnerability. That's the price of "Money Lego" composability: every new protocol integrated, every new external contract allowed to call your interfaces, theoretically expands the attack surface — and that expansion rarely shows up in any single protocol's individual audit report.</p>
+          <p>Cream Finance was subsequently hit by different combinations of flash loan and reentrancy attacks multiple more times in 2021 (roughly $18.9 million in August, roughly $130 million in October), reflecting that once a protocol forms complex cross-protocol dependencies, single patches often can't cover every potential combination path. This is why the industry gradually formed the consensus that the more complex a DeFi lego stack becomes, the more each new integration warrants a fresh, targeted audit.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Euler Finance: The Largest Flash Loan Attack in History ($197M, March 2023)</h2>
+          <p>On March 13, 2023, lending protocol Euler Finance suffered what remains the largest flash loan attack to date, losing approximately $197 million in a single incident and surpassing all previous events. The core vulnerability sat in Euler's liquidation logic: the protocol offered a function called <code>donateToReserves</code> that let users donate their deposits to the protocol's reserves, intended as a benevolent channel for users who wanted to subsidize the protocol. But this function was designed without a health check on the caller's account.</p>
+          <p>The attacker used a flash loan to borrow large amounts of DAI, then used Euler's deposit and borrow functions to deliberately construct a bad debt position, then called <code>donateToReserves</code> to "donate away" their collateral, causing the account's collateral balance to plummet while liabilities spiked — but because this donation didn't trigger the health check a normal liquidation should include, the attacker's account was still considered "healthy" by the system even while severely underwater, avoiding the liquidation that should have occurred. The attacker then used a second account to initiate liquidation against this already-insolvent-but-unmarked position, acquiring large amounts of collateral at a steep discount, and repeated this loop to amplify profits, ultimately netting roughly $197 million in equivalent assets.</p>
+          <p>The technical root of this incident can be summarized in one sentence: a well-intentioned "donate" function, missing one required debt-to-collateral health check, was used by an attacker as a backdoor to bypass the liquidation protection mechanism. Euler's contracts had already been audited before this attack, but the audit hadn't covered the edge case produced by the combination of the donation function and the liquidation logic — demonstrating that even professionally audited protocols can contain uncovered combination vulnerabilities.</p>
+          <p>This incident had a rare aftermath: Euler's team communicated with the attacker via on-chain messages and off-chain negotiation. By the end of March, the attacker had returned approximately $175 million in assets in batches and publicly issued a statement apologizing for the attack. "Hacker returns most funds" is not unprecedented in DeFi history, but Euler's case attracted exceptional attention given the scale involved, and it also made "whether to negotiate with hackers, and how" a topic re-examined in industry crisis response protocols. Euler subsequently redesigned the protocol and launched a new version with major reconstruction of the liquidation and health check logic.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Governance Attacks: Buying a Veto with a Flash Loan</h2>
+          <p>On April 17, 2022, algorithmic stablecoin project Beanstalk Farms suffered a flash loan attack of a fundamentally different nature, losing approximately $182 million. What made this incident unique was that the target wasn't a price oracle or liquidation logic — it was the on-chain governance mechanism itself. Beanstalk used fully decentralized on-chain governance: holders of its governance token (Stalk) could vote on protocol proposals, and any proposal that reached sufficient votes (Beanstalk's passing threshold was a two-thirds supermajority) could be executed immediately.</p>
+          <p>The attacker used flash loans to borrow approximately $1 billion equivalent in DAI, USDC, USDT, and other stablecoins, deposited them into the Beanstalk protocol in exchange for large amounts of governance tokens, and used this temporarily acquired massive voting power to push a malicious proposal — which the attacker had pre-deployed — past the two-thirds threshold and execute it immediately. The malicious proposal's code logic transferred the protocol treasury's assets to the attacker's controlled address. The entire "borrow → exchange for governance tokens → vote the malicious proposal through → execute transfer → repay flash loan" sequence completed in a single block within a single transaction. The protocol and community had zero reaction time.</p>
+          <p>This incident exposed a fundamental problem: Beanstalk's governance design had no forced waiting period (timelock) between a proposal reaching its vote threshold and actual execution. Most mature on-chain governance systems impose at least a 2-to-5-day execution delay, giving the community time to detect anomalies between a proposal passing and formally executing (for example, emergency contract pause or organizing counter-votes). But Beanstalk, in pursuit of "fully decentralized, high execution efficiency," had removed this safety buffer entirely — giving flash loan governance attacks a window of opportunity. As long as the temporary voting power could buy the passing threshold, attackers didn't need to hold tokens long-term or wait through any delay: they could turn a proposal into a fait accompli in one step.</p>
+          <p>After Beanstalk, "on-chain governance must be paired with a timelock" became almost a universal default in the design of new DeFi governance systems. Compound, Uniswap, and other mainstream protocols already use governance frameworks with mandatory execution delays — even if subjected to the same scale of voting-power flash loan attack, the community or multisig guardians can halt it during the delay window.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Protocol-Side Defenses: What the Industry Does Now</h2>
+          <p>Against oracle manipulation attacks, the industry mainstream has moved entirely away from using a single DEX's real-time spot price as an oracle. Decentralized oracle networks like Chainlink aggregate quotes from multiple independent sources; Uniswap V3's built-in TWAP oracle stretches the price calculation window to tens of minutes or longer. If an attacker wants to sustain price manipulation over such a long window, the capital and gas cost grows by orders of magnitude, eliminating the atomic advantage of a flash loan — because a flash loan only exists within a single block, and cannot span a long enough time window to influence a properly configured TWAP.</p>
+          <p>Against reentrancy vulnerabilities, OpenZeppelin's <code>ReentrancyGuard</code> modifier has become standard equipment for nearly all newly deployed contracts. It uses a simple lock state variable to ensure the same function cannot be re-entered before an external call returns, fundamentally closing the technical path that Cream Finance and The DAO attacks relied on. Simultaneously, following the Checks-Effects-Interactions pattern — completing all state validations and state updates first, then making external calls last — is community-recognized best practice for reentrancy defense.</p>
+          <p>Against governance attacks, the mainstream solution is mandatory execution delay (timelock) for all governance proposals — typically 2 to 5 days — giving the community time to detect anomalies and organize responses between a proposal passing and formally executing. Some protocols also require voting power to be held for a certain duration before it takes effect (for example, using historical snapshots rather than real-time balances for vote tallying) — so governance tokens temporarily borrowed via flash loan have zero weight at the moment of voting, fundamentally making "borrow tokens to buy votes" a non-viable path.</p>
+          <p>Additionally, more and more protocols are starting to impose restrictions on flash loans themselves — setting single-borrow size caps, raising fee percentages, or adding timelocks and circuit breakers around critical operations (large liquidations, oracle price updates). If a single transaction detects price movement or borrow scale exceeding preset thresholds, the protocol automatically pauses relevant functions pending manual review. The Pause Guardian multisig role is also widely adopted: a group of trusted multisig addresses holds the authority to pause protocol critical functions in an emergency, buying the community reaction time — at the cost of sacrificing some "fully decentralized, trustless" ideals.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. What This Means for Regular Users: Deposit Safety and Protocol Selection</h2>
+          <p>For ordinary users, flash loan attacks don't usually directly target your individual DEX trade — flash loan attacks target logical vulnerabilities in protocol contracts, not individual traders' slippage (that's the domain of MEV sandwich attacks, covered in detail in another article in this series). The real risk is: if you've deposited assets into a protocol that has a flash loan vulnerability, and an attack occurs, the protocol's liquidity pool gets drained and you may not recover even your principal. Large numbers of ordinary depositors in the Euler, Cream Finance, and Beanstalk incidents were all indirect victims of exactly this.</p>
+          <p>Evaluating whether a protocol is worth trusting: look at audit count and auditor reputation — protocols with only one audit from an obscure firm carry substantially higher risk, while protocols that have undergone multiple audits from reputable security firms with publicly accessible audit reports are comparatively safer. Look at whether a bug bounty program exists and its scale — you can check on immunefi.com whether a protocol has a bounty and what the maximum payout is, which also reflects the protocol team's investment in security from a side angle. Look at the protocol's TVL history and runtime since mainnet launch: a protocol that has been stably running on mainnet for two or three years through multiple market cycles without incident is more battle-tested than one that launched a few weeks ago with rapidly spiking TVL.</p>
+          <p>Another meaningful positive signal is the contract's upgradeability design: fully immutable contracts mean even discovered vulnerabilities can't be emergency-patched, but also mean there's no risk of admin keys being compromised or hijacked to push malicious upgrades; protocols using a Transparent Proxy pattern with a timelock strike a balance between fixability and decentralized security — upgrades require a mandatory waiting period, giving the community time to review whether the upgrade content is reasonable. Both models have tradeoffs with no absolute winner — but if a protocol has neither been audited nor uses an admin-arbitrarily-upgradeable proxy with no timelock, that combination carries the highest risk.</p>
+          <p>Overall, flash loan attacks remind ordinary users: "high yield" in DeFi often comes with "high composability complexity." The more external protocols, oracles, and cross-chain bridges a protocol integrates, the larger the potential attack surface. Spending ten minutes checking an audit report and incident history before depositing is far cheaper than chasing losses after the fact. It's worth emphasizing: this article is technical and security-level research, and does not constitute any investment advice.</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. Summary</h2>
+          <p>Flash loans by design are neutral financial tools that lower the capital barrier for arbitrage, liquidation, and other market-positive activities, improving DeFi's overall efficiency. But when combined with pre-existing security issues — price oracle flaws, reentrancy vulnerabilities, governance mechanism gaps — they become near-zero-cost attack leverage. The bZx, Cream Finance/Alpha Homora, Euler Finance, and Beanstalk Farms incidents covered in this piece total over $700 million in disclosed losses alone, illustrating the real impact this attack type has had on the DeFi ecosystem.</p>
+          <p>The industry's responses continue to evolve: decentralized oracles, TWAP mechanisms, reentrancy guards, governance timelocks, flash loan size limits, and circuit breakers are all concrete defenses drawn from real losses over the past several years, and have progressively become standard pre-launch checklist items for new protocols. But as the Euler incident demonstrated, even audited protocols can still contain uncovered combination vulnerabilities — which is why continuous third-party audits, bug bounties, and on-chain monitoring remain indispensable. This is another research-oriented piece in the Stablecoin Payments series; we'll continue following new developments in on-chain security.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. What Are Flash Loans: No Collateral, No Risk — If You Repay in One Transaction</a></li>
+          <li><a href="#sec-2">2. From Tool to Weapon: How Attackers Turn Flash Loans into Leverage</a></li>
+          <li><a href="#sec-3">3. bZx Attack Post-Mortem: The First Lesson in Oracle Manipulation (Feb 2020)</a></li>
+          <li><a href="#sec-4">4. Cream Finance and Alpha Homora: The More Complex the Composition, the Larger the Attack Surface (Feb 2021)</a></li>
+          <li><a href="#sec-5">5. Euler Finance: The Largest Flash Loan Attack in History ($197M, March 2023)</a></li>
+          <li><a href="#sec-6">6. Governance Attacks: Buying a Veto with a Flash Loan</a></li>
+          <li><a href="#sec-7">7. Protocol-Side Defenses: What the Industry Does Now</a></li>
+          <li><a href="#sec-8">8. What This Means for Regular Users: Deposit Safety and Protocol Selection</a></li>
+          <li><a href="#sec-9">9. Summary</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related articles</h2>
+          <ul>
+          <li><a href="/en/articles/mev-sandwich-guide.html">Sandwich Attacks Explained: How MEV Bots Eat Your Slippage</a></li>
+          <li><a href="/en/articles/bridge-security-guide.html">Cross-Chain Bridge Security: Lessons from Ronin and Wormhole</a></li>
+          <li><a href="/en/articles/stablecoin-reserve-transparency.html">Why USDT and USDC Hold Their Peg: Reserves and Verification Explained</a></li>
+          <li><a href="/en/articles/stablecoin-swap-tools.html">Cross-Chain Swap Tools: Avoiding Pitfalls for AI Subscription Payments</a></li>
+          <li><a href="/en/articles/stablecoin-payment-guide.html">Paying for Overseas AI with USDT/USDC: Chain Selection and Settlement</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment channels, virtual cards, and account security — for anyone doing the same.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; pricing, regional availability, and policies are set by each AI platform and payment provider.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2687189705"></script>
+</body>
+</html>
