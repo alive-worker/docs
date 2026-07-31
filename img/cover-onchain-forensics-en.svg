@@ -1,0 +1,71 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-chain forensics how investigators trace crypto funds cover image">
+  <defs>
+    <linearGradient id="bgGradForensicsEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0e1f"/>
+      <stop offset="1" stop-color="#1a1f4a"/>
+    </linearGradient>
+    <radialGradient id="glowForensicsEn" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c8ef5" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#7c8ef5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradForensicsEn)"/>
+  <rect width="800" height="400" fill="url(#glowForensicsEn)"/>
+  <g stroke="#3a4590" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#a9b4ff">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <g transform="translate(64,72)">
+    <rect width="78" height="86" rx="10" fill="#141a3a" stroke="#7c8ef5" stroke-width="2.5"/>
+    <g transform="translate(39,43)" stroke="#8b9dff" stroke-width="1.6" fill="none" opacity="0.9">
+      <line x1="-14" y1="-6" x2="6" y2="10"/>
+      <line x1="-14" y1="10" x2="6" y2="-6"/>
+      <line x1="-14" y1="-6" x2="-14" y2="10"/>
+      <line x1="6" y1="-6" x2="6" y2="10"/>
+      <circle cx="-14" cy="-6" r="1.8" fill="#8b9dff"/>
+      <circle cx="-14" cy="10" r="1.8" fill="#8b9dff"/>
+      <circle cx="6" cy="-6" r="1.8" fill="#8b9dff"/>
+      <circle cx="6" cy="10" r="1.8" fill="#8b9dff"/>
+    </g>
+    <g transform="translate(41,41)">
+      <circle cx="0" cy="0" r="11" fill="#141a3a" stroke="#ffcf3f" stroke-width="2.8"/>
+      <line x1="8" y1="8" x2="19" y2="19" stroke="#ffcf3f" stroke-width="3.2" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="103" y="52" text-anchor="middle" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#8b9dff">on-chain</text>
+
+  <text x="64" y="222" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#e3e7ff">On-Chain Forensics</text>
+  <text x="64" y="264" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="34" font-weight="700" fill="#e3e7ff">Tracing Crypto Funds</text>
+  <text x="66" y="300" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#a9b4ff">ON-CHAIN FORENSICS &#183; CLUSTERING &#183; AML</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#a9b4ff" opacity="0.85">AI Access Guide</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#141a3a" stroke="#3a4590" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#a9b4ff"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#e3e7ff">Traced Cases</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#3a4590" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#c3caf5">Bitfinex &#183; 2016</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9b4ff">120,000 BTC</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#c3caf5">Ronin Bridge &#183; 2022</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9b4ff">$625M</text>
+
+  <text x="440" y="210" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#c3caf5">Bitfinex Recovery &#183; 2022</text>
+  <text x="730" y="210" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#a9b4ff">94,000 BTC</text>
+
+  <line x1="440" y1="228" x2="730" y2="228" stroke="#3a4590" stroke-width="1"/>
+  <text x="440" y="250" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#e3e7ff">DOJ Recovery</text>
+  <text x="730" y="250" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#ffcf3f">$3.6B</text>
+
+  <rect x="440" y="264" width="290" height="30" rx="10" fill="#0a0e1f" stroke="#3a4590" stroke-width="1"/>
+  <text x="454" y="284" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="600" fill="#e3e7ff">&#10003; Address Clustering + Fund-Flow Graph Analysis</text>
+</svg>

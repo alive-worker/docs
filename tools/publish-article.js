@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'overseas-ai-flash-loan-attack',
-  enSlug: 'flash-loan-attack-guide',
-  publishedISO: '2026-07-30T14:20:00+08:00',
-  tagColor: 'crimson',
+  zhSlug: 'overseas-ai-onchain-forensics',
+  enSlug: 'onchain-forensics-guide',
+  publishedISO: '2026-07-31T10:30:00+08:00',
+  tagColor: 'indigo',
 
   zh: {
-    h1: '闪电贷攻击拆解：一笔交易内怎么掏空一个协议',
-    tagLabel: '闪电贷攻击',
-    cardDesc: '闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。',
+    h1: '链上侦查拆解：可疑资金流是怎么被追踪到的',
+    tagLabel: '链上侦查',
+    cardDesc: '区块链账本公开透明，每一笔转账都永久留痕。拆解链上取证机构怎么用地址聚类、资金流图谱定位可疑转账，交易所反洗钱协作机制，以及普通用户该留意的隐私边界。',
   },
   en: {
-    h1: 'Flash Loan Attacks: Draining a Protocol in One Transaction',
-    tagLabel: 'Flash Loans',
-    cardDesc: 'Flash loans need no collateral if repaid within one transaction. From bZx to Euler Finance, how attackers manipulate prices, hijack votes, and drain millions.',
+    h1: 'On-Chain Forensics: How Investigators Trace Crypto Funds',
+    tagLabel: 'On-Chain Forensics',
+    cardDesc: 'Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-mev-sandwich', 'overseas-ai-bridge-security', 'overseas-ai-stablecoin-reserve-transparency'],
+  crossLinkSlugs: ['overseas-ai-flash-loan-attack', 'overseas-ai-mev-sandwich', 'overseas-ai-cross-chain-recovery', 'overseas-ai-account-security'],
 };
 // ---------------------------------------------------------------------------
 

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On-Chain Forensics: How Investigators Trace Crypto Funds</title>
+  <meta name="description" content="Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/onchain-forensics-guide.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/onchain-forensics-guide.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-onchain-forensics.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-onchain-forensics.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="On-Chain Forensics: How Investigators Trace Crypto Funds">
+  <meta property="og:description" content="Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.">
+  <meta property="og:url" content="https://ponr.org/en/articles/onchain-forensics-guide.html">
+  <meta property="article:published_time" content="2026-07-31T10:30:00+08:00">
+  <meta property="article:modified_time" content="2026-07-31T10:30:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Stablecoin Payments">
+  <meta property="article:tag" content="On-Chain Forensics">
+  <meta property="article:tag" content="Blockchain Forensics">
+  <meta property="article:tag" content="Crypto Security">
+  <meta property="article:tag" content="Anti-Money Laundering">
+  <meta property="article:tag" content="Crypto Research">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="On-Chain Forensics: How Investigators Trace Crypto Funds">
+  <meta name="twitter:description" content="Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-onchain-forensics-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="On-chain forensics investigators tracing crypto funds cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-onchain-forensics-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#primaryimage", "url": "https://ponr.org/img/cover-onchain-forensics-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#webpage", "url": "https://ponr.org/en/articles/onchain-forensics-guide.html", "name": "On-Chain Forensics: How Investigators Trace Crypto Funds", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "On-Chain Forensics: How Investigators Trace Crypto Funds", "item": "https://ponr.org/en/articles/onchain-forensics-guide.html" }
+    ] },
+    { "@type": "Article", "headline": "On-Chain Forensics: How Investigators Trace Crypto Funds", "description": "Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.", "image": "https://ponr.org/img/cover-onchain-forensics-en.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-07-31T10:30:00+08:00", "dateModified": "2026-07-31T10:30:00+08:00", "inLanguage": "en", "articleSection": "Stablecoin Payments", "keywords": ["On-Chain Forensics", "Blockchain Forensics", "Crypto Security", "Anti-Money Laundering", "Crypto Research"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/onchain-forensics-guide.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-onchain-forensics.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>On-Chain Forensics: How Investigators Trace Crypto Funds</h1>
+          <p class="article-summary">This is part 5 of the AI Access Guide crypto research series. The previous article broke down how flash loan attacks can drain a protocol within a single transaction; this piece turns to a different, more fundamental question: where does the money actually go once it moves on-chain. Many people assume crypto equals anonymity, but the opposite is true — a public ledger means every transfer leaves a permanent trace. Blockchain forensics firms use address clustering, fund-flow graphs, and exchange KYC data to reconstruct complete money trails, even for funds that moved years ago through dozens of hops. This article breaks down the core techniques behind on-chain forensics, a few landmark cases, and what all of this actually means for everyday users.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-07-31T10:30:00+08:00">2026-07-31 10:30:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-onchain-forensics-en.svg" width="800" height="400" alt="On-chain forensics investigators tracing crypto funds cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. Pseudonymous, Not Anonymous: Nothing Stays Hidden on a Public Ledger</h2>
+          <p>People new to crypto often equate it with anonymity — no name attached to a transfer, no ID required, so surely nothing can be traced. That assumption is wrong. The accurate term for chains like Bitcoin and Ethereum is "pseudonymous": the chain doesn't display your name, national ID number, or phone number directly. What it shows is a string of letters and numbers — an address, something like <code>0x7a2c...e91f</code> on Ethereum. But every transaction tied to that address — how much moved, to whom, and when — is permanently recorded on a public ledger anyone can inspect, and once written to the chain, that record is essentially impossible to delete or alter.</p>
+          <p>This is a completely different order of magnitude from cash anonymity. Hand someone a hundred-dollar bill for a purchase, and beyond the people present at the time, essentially no traceable record survives. Send USDT from the same wallet address, though, and the amount, timestamp, sender address, and recipient address are permanently written into a block. Anyone can open a block explorer — Etherscan for the Ethereum ecosystem, or Blockchain.com and Mempool.space for Bitcoin — enter that address or transaction hash, and instantly see the complete transaction history, including every prior and subsequent transfer tied to that address. This public, permanent, searchable quality is actually one of the core selling points of blockchain design: a trustless, transparent ledger that anyone can independently verify, with no dependence on a centralized institution's word.</p>
+          <p>The catch is that the same transparency designed for "verifiability" doubles as the natural infrastructure for tracing fund flows. Once an address can be tied to a real identity — even just once, say you withdrew from or deposited to a KYC-required exchange using that address — a forensics firm can, in principle, link every past and future transaction on that address back to you. And that link doesn't decay with time: a transfer from five years ago sits on the chain today exactly as complete as it was then, ready to be pulled and re-analyzed at any moment. That's also why, as the following sections cover, some funds get successfully re-traced even after moving through dozens of hops over multiple years.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Address Clustering: Grouping Thousands of Addresses Under One Owner</h2>
+          <p>Looking at a single isolated address's transaction history only reveals so much. The real power of on-chain forensics comes from "address clustering" — grouping hundreds or thousands of seemingly unrelated addresses under a single real-world owner based on behavioral patterns, reconstructing that person's or organization's complete financial footprint. This is one of the core techniques behind blockchain analytics companies like Chainalysis, Elliptic, and TRM Labs.</p>
+          <p>The classic clustering method is the "common-input-ownership heuristic," originally developed for Bitcoin's UTXO (unspent transaction output) model. A defining feature of Bitcoin transactions is this: if a single transaction spends funds from multiple different addresses as inputs simultaneously, those input addresses can almost certainly be attributed to the same wallet — because spending funds from an address requires the corresponding private key, and ordinary users don't share their private keys to pool funds together for a joint purchase. So if address A and address B are observed being used as inputs in the same transaction, an analysis tool can conclude with high confidence that A and B are controlled by the same person, folding both into the same cluster. As a wallet repeatedly consolidates scattered funds for spending — a common habit in normal money management — hundreds of previously independent-looking addresses gradually get stitched into a single map: how much this person actually controls, and who they've been transacting with.</p>
+          <p>Beyond this basic input heuristic, real-world clustering algorithms also cross-reference "change address detection" (identifying which output in a transaction is change, and attributing it back to the sender), timing correlations between address creation, gas-fee payment habits, and interaction frequency with known exchange hot wallets — combining multiple dimensions into a confidence score. On account-based chains like Ethereum (rather than UTXO-based chains), the common-input heuristic doesn't fully apply, but analytics firms instead rely on fund-flow graphs, smart contract call patterns, and cross-referencing with off-chain intelligence — for instance, an address publicly mentioned on social media, a forum, or a dark-web marketplace — to achieve comparable clustering results. Commercial forensics software like Chainalysis Reactor and Elliptic Investigator essentially package these heuristic rules and machine learning models into visual investigation interfaces used by law enforcement, exchange compliance teams, and audit firms.</p>
+          <p>The output of a good clustering pass isn't just "these addresses belong to the same wallet" — it's a labeled entity: a known exchange, a known darknet market, a known ransomware operator, a known mixing service. Analytics firms maintain enormous proprietary databases mapping specific addresses and clusters to real-world entities, built up over years from voluntary exchange disclosures, court records, leaked data, and their own investigative work. Once a new transaction touches a labeled cluster, the entire downstream investigation accelerates dramatically, because investigators no longer need to de-anonymize an address from scratch — they just need to trace how funds moved relative to an already-identified node.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Fund-Flow Graphs: Tracing Stolen Funds to an Exit Point</h2>
+          <p>With address clustering as a foundation, the next step is mapping out the complete flow of funds across multiple addresses and protocols — this is "fund-flow graph" analysis, often referred to in the industry as "taint analysis" or "fund tracing." The most common application is tracing where funds from exchange hacks, ransomware payouts, or scam proceeds ultimately end up.</p>
+          <p>The basic logic of taint analysis: starting from a transaction already confirmed as "dirty money" — say, the exact moment a hacker moved funds out of an exchange's hot wallet — that fund is marked as "tainted," and every subsequent address it passes through, along with every split and merge, gets tracked. Funds moving on-chain are frequently broken into many pieces and spread across dozens or even hundreds of intermediate addresses in an attempt to dilute and obscure their origin — a process known as "layering." Forensics tools keep tracking every split-off piece of funds; as long as the money hasn't genuinely disappeared into an untraceable black box (cashing out in physical currency, for instance), the taint marker stays attached no matter how many hops it goes through.</p>
+          <p>A typical tracing path looks roughly like this: an exchange gets hacked → stolen funds first move into several relay addresses for initial dispersal → part of the funds cross a bridge to another chain, attempting to break the tracing chain on a single chain → the funds enter a decentralized exchange (DEX) and get swapped into a different token, further obscuring the asset type → and finally, the funds need to become something spendable in the real world, and that step almost always requires passing through a KYC-required centralized exchange (CEX). It's precisely this final "exit bottleneck" that gives the entire tracing chain practical teeth — even if every intermediate address in the preceding dozens of hops is anonymous, cross-chain, and obfuscated, the moment the funds land in a regulated exchange account, investigators can use legal process to compel the exchange to hand over that account's identity information, tying the entire on-chain path back to a real-world identity.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. The Role of Exchanges: Where KYC/AML Meets On-Chain Forensics</h2>
+          <p>The "exit bottleneck" described in the previous section isn't an accident — it's a deliberate outcome of the global anti-money-laundering regulatory framework. The vast majority of licensed centralized exchanges (CEXs) are required to fulfill "Know Your Customer" (KYC) and "Anti-Money Laundering/Countering the Financing of Terrorism" (AML/CFT) obligations. Users opening accounts must submit identification documents and proof of address, and some platforms require facial verification. This means that once funds enter this exchange's account system, that account is tied to a verified real identity — the chain's pseudonymity gets fully broken at this step.</p>
+          <p>The key international body driving this framework is the Financial Action Task Force (FATF), which in 2019 published guidance for virtual asset service providers (VASPs) known as the "Travel Rule." It requires exchanges processing transfers above a certain threshold to transmit sender and recipient identity information to the counterparty platform, much like traditional wire transfers. This rule has been progressively translated into local regulation by major jurisdictions including the US, EU, Japan, Singapore, and Hong Kong, driving the buildout of compliance infrastructure for information exchange between exchanges (services like Notabene and Sygna specialize in Travel Rule compliance transmission).</p>
+          <p>On the enforcement cooperation side, once forensics firms trace suspicious funds to an exchange account, law enforcement can use legal process — subpoenas, search warrants, or cross-border mutual legal assistance requests — to compel the exchange to hand over account-opening information and transaction records, and to request an asset freeze. Major exchanges generally maintain dedicated compliance and law-enforcement liaison teams to handle asset-freeze requests from law enforcement worldwide. That's why, in many crypto crime cases, funds that circled through dozens of hops on-chain still end up frozen once they land at a major exchange — the exchange's KYC database combined with law enforcement's legal authority is the piece that actually turns on-chain forensics into an arrest.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Mixers and Privacy Coins: The Limits of Anti-Tracing Technology</h2>
+          <p>Facing increasingly sophisticated on-chain forensics, some fund holders turn to tools purpose-built to break the tracing chain, most notably "mixers" (or tumblers). Tornado Cash, the best-known example in the Ethereum ecosystem, works by pooling funds from many different users into a single smart contract, letting a user who deposited an asset later withdraw an equivalent amount to a new address with no direct on-chain link to the deposit record — mathematically breaking the direct correspondence between deposit and withdrawal addresses. This category of tool was sanctioned by the US Treasury's Office of Foreign Assets Control (OFAC) in August 2022, on the grounds that it had repeatedly been used by North Korea-linked hacking groups such as Lazarus Group to launder stolen funds — the first time in crypto history that a smart contract itself, rather than a person or company, was placed on a sanctions list, sparking an ongoing industry debate over whether code itself should be sanctionable.</p>
+          <p>But mixers don't provide absolute anonymity. Forensics firms have developed specialized analysis techniques targeting mixers, such as "timing correlation analysis" — if a deposit and a withdrawal closely match in amount and fall within a statistically suspicious time window, even if the pool itself completely scrambles the direct correspondence internally, that statistical correlation can still be used to reconstruct a high-confidence inferred link. On top of that, operational mistakes during deposits or withdrawals — such as paying gas fees for the mixer contract from a still-unlaundered address, or a withdrawal amount that carries an identifiable fingerprint pattern — often become the actual break-in point. Overall, mixers raise the cost and difficulty of tracing but rarely achieve total anonymity that holds up under sustained long-term analysis.</p>
+          <p>Unlike mixers, "privacy coins" such as Monero and Zcash build anonymity into the protocol design itself. Monero encrypts and obscures the sender, recipient, and amount of every transaction by default (built on ring signatures and stealth address technology), while Zcash offers optional shielded transactions based on zero-knowledge proofs. This protocol-level privacy design is, in principle, more thorough than "breaking the link after the fact with a mixer" — which is exactly why these protocols remain a persistent focus of forensics firms and regulators, who have repeatedly pushed for their delisting from exchanges. Several mainstream exchanges have already stopped supporting Monero trading pairs due to compliance pressure.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. The Bitfinex Case: How 2016's Stolen Bitcoin Was Recovered in 2022</h2>
+          <p>In August 2016, the Hong Kong-based exchange Bitfinex was hacked, and approximately 119,754 bitcoin were stolen — worth roughly $72 million at the time, making it one of the largest exchange hacks in crypto history. The stolen funds were subsequently split across thousands of intermediate addresses; some sat dormant for years while others were moved repeatedly in small amounts to try to dilute tracing attention.</p>
+          <p>The turning point came in February 2022, when the US Department of Justice (DOJ) announced the arrest of a couple accused of laundering these 2016 stolen funds, and simultaneously seized approximately 94,000 bitcoin — worth roughly $3.6 billion at the time of seizure, the largest financial seizure in DOJ history. Investigation documents show that law enforcement and blockchain analysis teams spent years continuously tracking how these funds moved on-chain. Even though the funds had been split, held dormant, and moved multiple times, the permanent transaction record preserved on the public blockchain still let investigators reconstruct the complete flow history, ultimately tracing the funds into wallets controlled by the defendants and completing the actual asset seizure through traditional law enforcement tools — search warrants and account monitoring.</p>
+          <p>The significance of this case goes beyond the sheer dollar amount — it's a clear demonstration that time is not a shield for on-chain funds. Cash-based crimes often become harder to solve as evidence degrades over time, but evidence on a public blockchain doesn't disappear or degrade with the passage of time. As long as funds remain on a public chain, they're theoretically always subject to being re-analyzed and re-traced. That's also why letting illicit funds "sleep" for years doesn't equal safety — on-chain forensics technology itself keeps advancing, and patterns that couldn't be cracked in the past may well be solvable with more advanced tools in the future.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Does This Affect Regular Users? Address Reuse and Privacy Risk</h2>
+          <p>At this point, some readers might worry: I'm not a hacker, I just use crypto to pay for a subscription or send a transfer now and then — does on-chain forensics affect me? For the vast majority of ordinary users, on-chain forensics technology targets suspicious fund-flow analysis, and everyday normal transactions don't draw "focused investigation." That doesn't mean regular users have zero privacy considerations, though — the most directly relevant one is the information exposure that comes from "address reuse."</p>
+          <p>If you repeatedly use the same wallet address to receive payments, send payments, and interact with various platforms over a long period, anyone who can look up that address — and this doesn't require law enforcement, anyone with a free block explorer can do it — can see that address's complete balance history, transaction frequency, and which other addresses it's transacted with. In certain scenarios this creates real privacy and security risk: for example, if you once publicly published an address for receiving donations or tips, and later used that same address for other transfers or purchases, anyone in principle could link those identity clues together and infer your asset scale, spending habits, or even your social network — a variant of what's known in security circles as "doxing" risk, applied to the blockchain.</p>
+          <p>Reasonably safer practices include: avoid using the same address simultaneously as a "receiving address tied to a public identity" and a "day-to-day spending address"; if your wallet software supports it, generate separate receiving addresses for different purposes (topping up different platforms, sending money to different people) to limit how much information accumulates on any single address; and for addresses that genuinely need to stay public and tied to a real identity long-term (a public fundraising address, for example), recognize consciously that every on-chain activity on that address from then on is, in principle, publicly searchable — don't use it for fund flows you'd rather not have linked to you.</p>
+          <p>Many modern wallets already make this easier than it sounds: HD (hierarchical deterministic) wallets can derive a practically unlimited number of receiving addresses from a single seed phrase, so generating a fresh address per counterparty costs nothing extra in setup or backup effort. The habit that actually matters is behavioral, not technical — most privacy leaks trace back to convenience, reusing one address everywhere because it's easier to remember or share, rather than any limitation of the underlying wallet software.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. Practical Takeaways for Readers Paying for AI Subscriptions with Stablecoins</h2>
+          <p>Back to the most common real-world scenario for this site's readers: paying for overseas AI subscriptions with USDT or USDC. One thing needs to be clear up front: a normal AI subscription payment is not, in any sense, a "suspicious fund flow." What forensics firms and exchange compliance systems focus on is large abnormal transfers, interaction with known blacklisted addresses, and money-laundering pattern signatures — a routine subscription payment of a few tens to a few hundred dollars won't trigger any form of investigative attention. It's a completely legal, ordinary consumer transaction.</p>
+          <p>That said, understanding how on-chain forensics works can still help you build better asset-management habits. For example, if you're used to withdrawing from an exchange to your own wallet and then using that same wallet to pay several different AI service platforms, anyone who obtains that wallet address — say, a payment platform you subscribed to — can, in principle, see through a block explorer where you withdrew from and how much. That fact alone isn't a risk. But if you'd rather different service providers not be able to cross-reference your spending scale and asset holdings, using separate relay addresses is the more cautious approach. It's also worth being clear on one fact: once funds have passed through a KYC exchange account, an on-chain traceable link exists between those funds and your verified identity — this is simply how exchanges operate under the global AML regulatory framework, not a "loophole" to be worked around, and there's no need to work around it. Preserving that traceability for normal spending is actually part of what makes crypto acceptable in mainstream payment contexts in the first place.</p>
+          <p>Worth emphasizing: this article is an explainer and research summary of on-chain forensics techniques, meant to help readers understand the practical implications of blockchain transparency. It is not a guide for evading normal financial oversight or concealing suspicious transactions — such conduct can constitute money laundering or aiding money laundering in nearly every jurisdiction. This article also does not constitute investment advice or legal advice; consult a qualified professional for specific compliance or legal questions.</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. Summary</h2>
+          <p>Blockchain's public transparency is a deliberate design trade-off, not a flaw waiting to be fixed: it's precisely because the ledger is publicly verifiable that crypto can function without relying on a centralized trusted institution's backing. The direct consequence of that transparency is that as long as funds stay on-chain, their movement is, in principle, always subject to being re-analyzed. Address clustering, fund-flow graphs, and timing correlation analysis against mixers — these on-chain forensics techniques have matured enough over the past several years to crack cases that happened years earlier. The large-scale recovery of Bitfinex's 2016 stolen funds in 2022 is the clearest proof of that.</p>
+          <p>For ordinary users, understanding how on-chain forensics works isn't about evasion — it's about setting reasonable privacy expectations: normal spending and transfers won't draw focused scrutiny, but address reuse and unnecessary links to a public identity are still worth paying attention to. This is the fifth, research-oriented installment in this site's stablecoin payments series; we'll continue following new developments in crypto security and compliance.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. Pseudonymous, Not Anonymous: Nothing Stays Hidden on a Public Ledger</a></li>
+          <li><a href="#sec-2">2. Address Clustering: Grouping Thousands of Addresses Under One Owner</a></li>
+          <li><a href="#sec-3">3. Fund-Flow Graphs: Tracing Stolen Funds to an Exit Point</a></li>
+          <li><a href="#sec-4">4. The Role of Exchanges: Where KYC/AML Meets On-Chain Forensics</a></li>
+          <li><a href="#sec-5">5. Mixers and Privacy Coins: The Limits of Anti-Tracing Technology</a></li>
+          <li><a href="#sec-6">6. The Bitfinex Case: How 2016's Stolen Bitcoin Was Recovered in 2022</a></li>
+          <li><a href="#sec-7">7. Does This Affect Regular Users? Address Reuse and Privacy Risk</a></li>
+          <li><a href="#sec-8">8. Practical Takeaways for Readers Paying for AI Subscriptions with Stablecoins</a></li>
+          <li><a href="#sec-9">9. Summary</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related articles</h2>
+          <ul>
+          <li><a href="/en/articles/flash-loan-attack-guide.html">Flash Loan Attacks: Draining a Protocol in One Transaction</a></li>
+          <li><a href="/en/articles/mev-sandwich-guide.html">Sandwich Attacks Explained: How MEV Bots Eat Your Slippage</a></li>
+          <li><a href="/en/articles/cross-chain-recovery-guide.html">Sent Stablecoins to the Wrong Chain? Recovery Guide</a></li>
+          <li><a href="/en/articles/account-security-guide.html">AI Subscription Account Security &amp; Recovery Guide</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment channels, virtual cards, and account security — for anyone doing the same.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; pricing, regional availability, and policies are set by each AI platform and payment provider.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f4682f9759"></script>
+</body>
+</html>

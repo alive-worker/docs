@@ -143,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-onchain-forensics.html': '2026-07-31 10:30:00',
+    '/en/articles/onchain-forensics-guide.html': '2026-07-31 10:30:00',
     '/articles/overseas-ai-flash-loan-attack.html': '2026-07-30 14:20:00',
     '/en/articles/flash-loan-attack-guide.html': '2026-07-30 14:20:00',
     '/articles/overseas-ai-mev-sandwich.html': '2026-07-29 14:24:25',

@@ -6,21 +6,29 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 30 Jul 2026 14:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 31 Jul 2026 10:30:00 +0800</lastBuildDate>
   <item>
-    <title><![CDATA[闪电贷攻击拆解：一笔交易内怎么掏空一个协议]]></title>
-    <link>https://ponr.org/articles/overseas-ai-flash-loan-attack.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-flash-loan-attack.html</guid>
-    <pubDate>Thu, 30 Jul 2026 14:20:00 +0800</pubDate>
-    <category>闪电贷攻击</category>
-    <description><![CDATA[闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。]]></description>
+    <title><![CDATA[链上侦查拆解：可疑资金流是怎么被追踪到的]]></title>
+    <link>https://ponr.org/articles/overseas-ai-onchain-forensics.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-onchain-forensics.html</guid>
+    <pubDate>Fri, 31 Jul 2026 10:30:00 +0800</pubDate>
+    <category>链上侦查</category>
+    <description><![CDATA[区块链账本公开透明，每一笔转账都永久留痕。拆解链上取证机构怎么用地址聚类、资金流图谱定位可疑转账，交易所反洗钱协作机制，以及普通用户该留意的隐私边界。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[链上侦查拆解：可疑资金流是怎么被追踪到的]]></title>
+    <link>https://ponr.org/articles/overseas-ai-onchain-forensics.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-onchain-forensics.html</guid>
+    <pubDate>Fri, 31 Jul 2026 10:30:00 +0800</pubDate>
+    <category></category>
+    <description><![CDATA[区块链账本公开透明，每一笔转账都永久留痕。拆解链上取证机构怎么用地址聚类、资金流图谱定位可疑转账，交易所反洗钱协作机制，以及普通用户该留意的隐私边界。]]></description>
   </item>
   <item>
     <title><![CDATA[闪电贷攻击拆解：一笔交易内怎么掏空一个协议]]></title>
     <link>https://ponr.org/articles/overseas-ai-flash-loan-attack.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-flash-loan-attack.html</guid>
     <pubDate>Thu, 30 Jul 2026 14:20:00 +0800</pubDate>
-    <category></category>
+    <category>闪电贷攻击</category>
     <description><![CDATA[闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。]]></description>
   </item>
   <item>
