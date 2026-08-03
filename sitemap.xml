@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-03</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-search-engine-billing-guide.html</loc>
+    <lastmod>2026-08-03T15:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-onchain-forensics.html</loc>
@@ -178,11 +182,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-03</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-03</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-search-engine-billing-guide.html</loc>
+    <lastmod>2026-08-03T15:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/onchain-forensics-guide.html</loc>

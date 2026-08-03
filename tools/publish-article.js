@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'overseas-ai-onchain-forensics',
-  enSlug: 'onchain-forensics-guide',
-  publishedISO: '2026-07-31T10:30:00+08:00',
-  tagColor: 'indigo',
+  zhSlug: 'overseas-ai-search-engine-billing-guide',
+  enSlug: 'ai-search-engine-billing-guide',
+  publishedISO: '2026-08-03T15:20:00+08:00',
+  tagColor: 'cyan',
 
   zh: {
-    h1: '链上侦查拆解：可疑资金流是怎么被追踪到的',
-    tagLabel: '链上侦查',
-    cardDesc: '区块链账本公开透明，每一笔转账都永久留痕。拆解链上取证机构怎么用地址聚类、资金流图谱定位可疑转账，交易所反洗钱协作机制，以及普通用户该留意的隐私边界。',
+    h1: 'AI 搜索问答工具怎么订阅：Perplexity 与 You.com 计费对比',
+    tagLabel: 'AI 搜索引擎',
+    cardDesc: 'Perplexity 和 You.com 都是订阅制 AI 搜索问答工具，但档位划分和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。',
   },
   en: {
-    h1: 'On-Chain Forensics: How Investigators Trace Crypto Funds',
-    tagLabel: 'On-Chain Forensics',
-    cardDesc: 'Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.',
+    h1: 'Perplexity vs You.com: Comparing AI Search Billing',
+    tagLabel: 'AI Search Engines',
+    cardDesc: 'Perplexity and You.com sell AI search with different credit and query caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-flash-loan-attack', 'overseas-ai-mev-sandwich', 'overseas-ai-cross-chain-recovery', 'overseas-ai-account-security'],
+  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-video-gen-billing-guide', 'overseas-ai-payment-methods'],
 };
 // ---------------------------------------------------------------------------
 

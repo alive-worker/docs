@@ -6,21 +6,21 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 31 Jul 2026 10:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 03 Aug 2026 15:20:00 +0800</lastBuildDate>
   <item>
-    <title><![CDATA[On-Chain Forensics: How Investigators Trace Crypto Funds]]></title>
-    <link>https://ponr.org/en/articles/onchain-forensics-guide.html</link>
-    <guid isPermaLink="true">https://ponr.org/en/articles/onchain-forensics-guide.html</guid>
-    <pubDate>Fri, 31 Jul 2026 10:30:00 +0800</pubDate>
-    <category>On-Chain Forensics</category>
-    <description><![CDATA[Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.]]></description>
+    <title><![CDATA[Perplexity vs You.com: Comparing AI Search Billing]]></title>
+    <link>https://ponr.org/en/articles/ai-search-engine-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-search-engine-billing-guide.html</guid>
+    <pubDate>Mon, 03 Aug 2026 15:20:00 +0800</pubDate>
+    <category>AI Search Engines</category>
+    <description><![CDATA[Perplexity and You.com sell AI search with different credit and query caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.]]></description>
   </item>
   <item>
     <title><![CDATA[On-Chain Forensics: How Investigators Trace Crypto Funds]]></title>
     <link>https://ponr.org/en/articles/onchain-forensics-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/onchain-forensics-guide.html</guid>
     <pubDate>Fri, 31 Jul 2026 10:30:00 +0800</pubDate>
-    <category></category>
+    <category>链上侦查</category>
     <description><![CDATA[Crypto transfers leave a permanent trace. Forensics firms trace illicit funds via address clustering and fund-flow graphs — what that means for your privacy.]]></description>
   </item>
   <item>

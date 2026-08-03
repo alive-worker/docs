@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI搜索引擎怎么计费Perplexity与You.com计费对比封面图">
+  <defs>
+    <linearGradient id="bgGradSearchZh" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a2226"/>
+      <stop offset="1" stop-color="#0f3a45"/>
+    </linearGradient>
+    <radialGradient id="glowSearchZh" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradSearchZh)"/>
+  <rect width="800" height="400" fill="url(#glowSearchZh)"/>
+  <g stroke="#1c4a52" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#9fe8f5">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#123a42" stroke="#9fe8f5" stroke-width="2.5"/>
+  <circle cx="102" cy="108" r="20" fill="none" stroke="#d8f7ff" stroke-width="4"/>
+  <line x1="117" y1="123" x2="136" y2="142" stroke="#d8f7ff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M132 96 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#22d3ee"/>
+
+  <text x="64" y="230" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="700" fill="#e6fbff">AI 搜索引擎</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="700" fill="#e6fbff">怎么计费</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#9fe8f5">PERPLEXITY &#183; YOU.COM &#183; CREDITS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9fe8f5" opacity="0.85">AI服务指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#123a42" stroke="#1c4a52" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#9fe8f5"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#e6fbff">计费方式对比</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#1c4a52" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#bdeef7">Perplexity</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#9fe8f5">订阅+Pro搜索次数</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#bdeef7">You.com</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#9fe8f5">订阅+模型访问额度</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#1c4a52" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#e6fbff">共同点</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#9fe8f5">虚拟卡/稳定币均可付</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#0a2226" stroke="#1c4a52" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#d8f7ff">&#10003; 按需订阅，虚拟卡/稳定币均可付</text>
+</svg>
