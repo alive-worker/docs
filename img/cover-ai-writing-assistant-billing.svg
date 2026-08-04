@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jasper与Copy.ai计费对比AI写作助手订阅怎么选封面图">
+  <defs>
+    <linearGradient id="bgGradWritingZh" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1e1033"/>
+      <stop offset="1" stop-color="#2d1b4e"/>
+    </linearGradient>
+    <radialGradient id="glowWritingZh" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradWritingZh)"/>
+  <rect width="800" height="400" fill="url(#glowWritingZh)"/>
+  <g stroke="#4a2f73" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#d8c8fb">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <rect x="64" y="70" width="96" height="96" rx="22" fill="#33205a" stroke="#d8c8fb" stroke-width="2.5"/>
+  <path d="M92 148 l6 -34 34 -34 12 12 -34 34 -34 6 z" fill="none" stroke="#f0e8ff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <line x1="126" y1="88" x2="138" y2="100" stroke="#f0e8ff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M132 96 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 z" fill="#a78bfa"/>
+
+  <text x="64" y="230" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="700" fill="#f3ecff">Jasper vs Copy.ai</text>
+  <text x="64" y="278" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="700" fill="#f3ecff">AI写作订阅怎么选</text>
+  <text x="66" y="308" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#d8c8fb">JASPER &#183; COPY.AI &#183; 词数额度</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#d8c8fb" opacity="0.85">AI服务指南</text>
+
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#33205a" stroke="#4a2f73" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#d8c8fb"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#f3ecff">计费方式对比</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#4a2f73" stroke-width="1"/>
+
+  <text x="440" y="150" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#cbb8f5">Jasper</text>
+  <text x="730" y="150" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#d8c8fb">订阅+字数额度</text>
+
+  <text x="440" y="180" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#cbb8f5">Copy.ai</text>
+  <text x="730" y="180" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#d8c8fb">订阅+积分额度</text>
+
+  <line x1="440" y1="198" x2="730" y2="198" stroke="#4a2f73" stroke-width="1"/>
+  <text x="440" y="220" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#f3ecff">共同点</text>
+  <text x="730" y="220" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="700" fill="#d8c8fb">虚拟卡/稳定币均可付</text>
+
+  <rect x="440" y="238" width="290" height="44" rx="10" fill="#1e1033" stroke="#4a2f73" stroke-width="1"/>
+  <text x="454" y="265" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="600" fill="#f0e8ff">&#10003; 按需订阅，虚拟卡/稳定币均可付</text>
+</svg>

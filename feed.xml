@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 03 Aug 2026 15:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 04 Aug 2026 11:00:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Jasper 还是 Copy.ai：AI 写作助手订阅怎么选]]></title>
+    <link>https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</guid>
+    <pubDate>Tue, 04 Aug 2026 11:00:00 +0800</pubDate>
+    <category>AI 写作助手</category>
+    <description><![CDATA[Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费单位和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 搜索问答工具怎么订阅：Perplexity 与 You.com 计费对比]]></title>
     <link>https://ponr.org/articles/overseas-ai-search-engine-billing-guide.html</link>

@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</loc>
+    <lastmod>2026-08-04T11:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-search-engine-billing-guide.html</loc>
@@ -182,11 +186,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-writing-assistant-billing-guide.html</loc>
+    <lastmod>2026-08-04T11:00:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-search-engine-billing-guide.html</loc>

@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'overseas-ai-search-engine-billing-guide',
-  enSlug: 'ai-search-engine-billing-guide',
-  publishedISO: '2026-08-03T15:20:00+08:00',
-  tagColor: 'cyan',
+  zhSlug: 'overseas-ai-writing-assistant-billing-guide',
+  enSlug: 'ai-writing-assistant-billing-guide',
+  publishedISO: '2026-08-04T11:00:00+08:00',
+  tagColor: 'violet',
 
   zh: {
-    h1: 'AI 搜索问答工具怎么订阅：Perplexity 与 You.com 计费对比',
-    tagLabel: 'AI 搜索引擎',
-    cardDesc: 'Perplexity 和 You.com 都是订阅制 AI 搜索问答工具，但档位划分和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。',
+    h1: 'Jasper 还是 Copy.ai：AI 写作助手订阅怎么选',
+    tagLabel: 'AI 写作助手',
+    cardDesc: 'Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费单位和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。',
   },
   en: {
-    h1: 'Perplexity vs You.com: Comparing AI Search Billing',
-    tagLabel: 'AI Search Engines',
-    cardDesc: 'Perplexity and You.com sell AI search with different credit and query caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.',
+    h1: 'Jasper vs Copy.ai: Comparing AI Writing Assistant Plans',
+    tagLabel: 'AI Writing Assistants',
+    cardDesc: 'Jasper and Copy.ai sell AI writing help with different word-credit and generation-credit caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-video-gen-billing-guide', 'overseas-ai-payment-methods'],
+  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-video-gen-billing-guide', 'overseas-ai-search-engine-billing-guide'],
 };
 // ---------------------------------------------------------------------------
 

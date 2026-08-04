@@ -6,13 +6,21 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 03 Aug 2026 15:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 04 Aug 2026 11:00:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Jasper vs Copy.ai: Comparing AI Writing Assistant Plans]]></title>
+    <link>https://ponr.org/en/articles/ai-writing-assistant-billing-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-writing-assistant-billing-guide.html</guid>
+    <pubDate>Tue, 04 Aug 2026 11:00:00 +0800</pubDate>
+    <category>AI Writing Assistants</category>
+    <description><![CDATA[Jasper and Copy.ai sell AI writing help with different word-credit and generation-credit caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.]]></description>
+  </item>
   <item>
     <title><![CDATA[Perplexity vs You.com: Comparing AI Search Billing]]></title>
     <link>https://ponr.org/en/articles/ai-search-engine-billing-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-search-engine-billing-guide.html</guid>
     <pubDate>Mon, 03 Aug 2026 15:20:00 +0800</pubDate>
-    <category>AI Search Engines</category>
+    <category>AI 搜索引擎</category>
     <description><![CDATA[Perplexity and You.com sell AI search with different credit and query caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.]]></description>
   </item>
   <item>
