@@ -13,7 +13,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</guid>
     <pubDate>Tue, 04 Aug 2026 11:00:00 +0800</pubDate>
     <category>AI 写作助手</category>
-    <description><![CDATA[Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费单位和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。]]></description>
+    <description><![CDATA[Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费按词数或积分拆解方式不同，本文对比档位差异、怎么估算月成本，以及怎么用虚拟卡或稳定币付款。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 搜索问答工具怎么订阅：Perplexity 与 You.com 计费对比]]></title>
@@ -37,7 +37,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-flash-loan-attack.html</guid>
     <pubDate>Thu, 30 Jul 2026 14:20:00 +0800</pubDate>
     <category>闪电贷攻击</category>
-    <description><![CDATA[闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段。]]></description>
+    <description><![CDATA[闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段和普通用户应注意的风险信号。]]></description>
   </item>
   <item>
     <title><![CDATA[三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的]]></title>
@@ -189,7 +189,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-billing-cycle.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:09:17 +0800</pubDate>
     <category>订阅管理</category>
-    <description><![CDATA[包年更省钱还是包月更灵活？拆解各平台常见的折扣区间、退款条款差异与实际需求变化频率，帮你判断该直接锁定年付，还是先按月观察一段时间再决定。]]></description>
+    <description><![CDATA[包年更省钱还是包月更灵活？拆解各平台常见的折扣区间、退款条款差异与实际需求变化频率，帮你判断该直接锁定年付，还是先按月观察一段时间再决定，并附上换算对比的实用思路。]]></description>
   </item>
   <item>
     <title><![CDATA[USDT/USDC散落多条链：海外AI资产归集实操]]></title>
