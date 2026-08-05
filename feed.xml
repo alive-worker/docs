@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 04 Aug 2026 11:00:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 05 Aug 2026 15:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 服务人类，究竟落地在哪些真实场景]]></title>
+    <link>https://ponr.org/articles/ai-serving-humanity.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-serving-humanity.html</guid>
+    <pubDate>Wed, 05 Aug 2026 15:30:00 +0800</pubDate>
+    <category>AI 向善</category>
+    <description><![CDATA[从辅助诊断、实时字幕无障碍到洪水野火预警系统，AI 已经在医疗、教育与灾害响应等多个真实场景中落地，本文梳理具体案例、带来的价值与仍需正视的边界。]]></description>
+  </item>
   <item>
     <title><![CDATA[Jasper 还是 Copy.ai：AI 写作助手订阅怎么选]]></title>
     <link>https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</link>

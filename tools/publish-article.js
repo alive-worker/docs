@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'overseas-ai-writing-assistant-billing-guide',
-  enSlug: 'ai-writing-assistant-billing-guide',
-  publishedISO: '2026-08-04T11:00:00+08:00',
-  tagColor: 'violet',
+  zhSlug: 'ai-serving-humanity',
+  enSlug: 'ai-serving-humanity',
+  publishedISO: '2026-08-05T15:30:00+08:00',
+  tagColor: 'azure',
 
   zh: {
-    h1: 'Jasper 还是 Copy.ai：AI 写作助手订阅怎么选',
-    tagLabel: 'AI 写作助手',
-    cardDesc: 'Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费单位和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。',
+    h1: 'AI 服务人类，究竟落地在哪些真实场景',
+    tagLabel: 'AI 向善',
+    cardDesc: '从辅助诊断、实时字幕无障碍到洪水野火预警系统，AI 已经在医疗、教育与灾害响应等多个真实场景中落地，本文梳理具体案例、带来的价值与仍需正视的边界。',
   },
   en: {
-    h1: 'Jasper vs Copy.ai: Comparing AI Writing Assistant Plans',
-    tagLabel: 'AI Writing Assistants',
-    cardDesc: 'Jasper and Copy.ai sell AI writing help with different word-credit and generation-credit caps. Compare plans, estimate real cost, and pay both with a virtual card or stablecoins.',
+    h1: 'Where AI Actually Serves Humanity Today',
+    tagLabel: 'AI for Good',
+    cardDesc: 'Beyond productivity hype, AI already helps doctors catch disease earlier, captions speech for deaf users, and powers flood and wildfire warning systems.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -82,9 +82,9 @@ const CONFIG = {
   promoteToFeatured: true,
 
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
-  // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article —
+  // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article --
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-video-gen-billing-guide', 'overseas-ai-search-engine-billing-guide'],
+  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-tool-selection', 'domestic-ai-subscription-guide'],
 };
 // ---------------------------------------------------------------------------
 

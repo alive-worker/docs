@@ -6,13 +6,21 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 04 Aug 2026 11:00:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 05 Aug 2026 15:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Where AI Actually Serves Humanity Today]]></title>
+    <link>https://ponr.org/en/articles/ai-serving-humanity.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-serving-humanity.html</guid>
+    <pubDate>Wed, 05 Aug 2026 15:30:00 +0800</pubDate>
+    <category>AI for Good</category>
+    <description><![CDATA[Beyond productivity hype, AI already helps doctors catch disease earlier, captions speech for deaf users, and powers flood and wildfire warning systems.]]></description>
+  </item>
   <item>
     <title><![CDATA[Jasper vs Copy.ai: Comparing AI Writing Assistant Plans]]></title>
     <link>https://ponr.org/en/articles/ai-writing-assistant-billing-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-writing-assistant-billing-guide.html</guid>
     <pubDate>Tue, 04 Aug 2026 11:00:00 +0800</pubDate>
-    <category>AI Writing Assistants</category>
+    <category>AI 写作助手</category>
     <description><![CDATA[Jasper AI and Copy.ai bill AI writing through different word and generation credit systems. Compare plans, estimate cost, and pay both with a virtual card.]]></description>
   </item>
   <item>
