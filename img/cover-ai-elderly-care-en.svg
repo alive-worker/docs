@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a3d38;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f5c56;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.07" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.02" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)" />
+  <g stroke="#2dd4bf" stroke-width="0.8" opacity="0.18">
+    <line x1="0" y1="80" x2="120" y2="80" /><line x1="120" y1="80" x2="140" y2="100" />
+    <line x1="140" y1="100" x2="200" y2="100" /><circle cx="200" cy="100" r="3" fill="#2dd4bf" />
+    <line x1="0" y1="320" x2="80" y2="320" /><line x1="80" y1="320" x2="110" y2="290" />
+    <line x1="110" y1="290" x2="180" y2="290" /><circle cx="180" cy="290" r="3" fill="#2dd4bf" />
+    <line x1="700" y1="60" x2="800" y2="60" /><line x1="690" y1="340" x2="800" y2="340" />
+    <line x1="660" y1="150" x2="800" y2="150" /><circle cx="660" cy="150" r="3" fill="#2dd4bf" />
+  </g>
+  <circle cx="120" cy="200" r="68" fill="#ffffff" fill-opacity="0.06" />
+  <circle cx="120" cy="200" r="52" fill="#ffffff" fill-opacity="0.08" />
+  <path d="M120 228 C90 208 88 188 105 180 C112 177 120 183 120 183 C120 183 128 177 135 180 C152 188 150 208 120 228Z" fill="none" stroke="#2dd4bf" stroke-width="2.5" />
+  <polyline points="94,200 102,200 107,188 112,214 118,196 122,204 128,200 146,200" fill="none" stroke="#5eead4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="480" y="60" width="280" height="280" rx="12" fill="url(#panel)" />
+  <text x="510" y="104" font-family="Arial,sans-serif" font-size="13" fill="#5eead4" opacity="0.85">Three Real Scenarios</text>
+  <line x1="510" y1="112" x2="738" y2="112" stroke="#2dd4bf" stroke-width="0.6" opacity="0.4" />
+  <text x="518" y="142" font-family="Arial,sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">Fall Detection</text>
+  <text x="518" y="160" font-family="Arial,sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">Seconds to detect a fall, alerts emergency contacts</text>
+  <line x1="510" y1="172" x2="738" y2="172" stroke="#2dd4bf" stroke-width="0.4" opacity="0.25" />
+  <text x="518" y="200" font-family="Arial,sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">Companion Robots</text>
+  <text x="518" y="218" font-family="Arial,sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">Proactive conversation, eases isolation</text>
+  <line x1="510" y1="230" x2="738" y2="230" stroke="#2dd4bf" stroke-width="0.4" opacity="0.25" />
+  <text x="518" y="258" font-family="Arial,sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">Remote Health Monitoring</text>
+  <text x="518" y="276" font-family="Arial,sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">Flags heart failure days before a crisis</text>
+  <rect x="480" y="300" width="280" height="32" rx="6" fill="#2dd4bf" fill-opacity="0.15" />
+  <text x="510" y="321" font-family="Arial,sans-serif" font-size="11.5" fill="#5eead4">&#x2713; Real deployment data, not concept demos</text>
+  <text x="220" y="176" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#ffffff">Can AI Care for</text>
+  <text x="220" y="218" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#5eead4">Elderly Alone?</text>
+  <text x="220" y="256" font-family="Arial,sans-serif" font-size="14" fill="#99f6e4" opacity="0.8">Fall · Companion · Health Monitoring</text>
+</svg>

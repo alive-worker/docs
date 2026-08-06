@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 06 Aug 2026 14:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 16:45:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 真能照顾独居老人吗：跌倒监测、认知陪伴与远程健康监测三个场景]]></title>
+    <link>https://ponr.org/articles/ai-elderly-care.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-elderly-care.html</guid>
+    <pubDate>Thu, 06 Aug 2026 16:45:00 +0800</pubDate>
+    <category>AI 养老场景</category>
+    <description><![CDATA[AI 真能照顾独居老人吗？从几秒内分辨摔倒的智能监测，到像家人一样陪聊天的认知陪伴机器人，再到提前预警心衰恶化的远程健康监测，本文用真实产品和数据说清 AI 养老能做到什么，又有哪些地方还做不到。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 到底能不能救命：心理援助、智能假肢与灾后搜救三个真实场景]]></title>
     <link>https://ponr.org/articles/ai-saves-lives.html</link>

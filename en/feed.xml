@@ -6,14 +6,22 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 06 Aug 2026 14:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 16:45:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Can AI Care for Elderly People Living Alone?]]></title>
+    <link>https://ponr.org/en/articles/ai-elderly-care.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-elderly-care.html</guid>
+    <pubDate>Thu, 06 Aug 2026 16:45:00 +0800</pubDate>
+    <category>AI Eldercare</category>
+    <description><![CDATA[Can AI care for elderly people living alone? Fall sensors, companion robots and health monitors show real progress, and where eldercare AI still falls short.]]></description>
+  </item>
   <item>
     <title><![CDATA[Can AI Save Lives? Mental Health, Prosthetics, Drones]]></title>
     <link>https://ponr.org/en/articles/ai-saves-lives.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-saves-lives.html</guid>
     <pubDate>Thu, 06 Aug 2026 14:30:00 +0800</pubDate>
-    <category>AI Saving Lives</category>
-    <description><![CDATA[Can AI actually save lives? From FDA-recognized mental health chatbots to smart prosthetics restoring grip and drone swarms speeding up disaster rescue, here is what the real evidence shows and what it still cannot do.]]></description>
+    <category>AI 救命场景</category>
+    <description><![CDATA[Can AI save lives? FDA-backed mental health bots, grip-restoring prosthetics, and rescue drones show real evidence AI helps, plus where it still falls short.]]></description>
   </item>
   <item>
     <title><![CDATA[Where AI Actually Serves Humanity Today]]></title>

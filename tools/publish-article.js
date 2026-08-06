@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'ai-saves-lives',
-  enSlug: 'ai-saves-lives',
-  publishedISO: '2026-08-06T14:30:00+08:00',
-  tagColor: 'crimson',
+  zhSlug: 'ai-elderly-care',
+  enSlug: 'ai-elderly-care',
+  publishedISO: '2026-08-06T16:45:00+08:00',
+  tagColor: 'teal',
 
   zh: {
-    h1: 'AI 到底能不能救命：心理援助、智能假肢与灾后搜救三个真实场景',
-    tagLabel: 'AI 救命场景',
-    cardDesc: 'AI 到底能不能救命？从获 FDA 认定的心理援助聊天机器人，到让截肢者重新抓握的智能假肢，再到提升灾后搜救效率的无人机集群，本文用真实证据回答这个问题，也说清它做不到的地方。',
+    h1: 'AI 真能照顾独居老人吗：跌倒监测、认知陪伴与远程健康监测三个场景',
+    tagLabel: 'AI 养老场景',
+    cardDesc: 'AI 真能照顾独居老人吗？从几秒内分辨摔倒的智能监测，到像家人一样陪聊天的认知陪伴机器人，再到提前预警心衰恶化的远程健康监测，本文用真实产品和数据说清 AI 养老能做到什么，又有哪些地方还做不到。',
   },
   en: {
-    h1: 'Can AI Save Lives? Mental Health, Prosthetics and Rescue Drones',
-    tagLabel: 'AI Saving Lives',
-    cardDesc: 'Can AI actually save lives? From FDA-recognized mental health chatbots to smart prosthetics restoring grip and drone swarms speeding up disaster rescue, here is what the real evidence shows and what it still cannot do.',
+    h1: 'Can AI Care for Elderly People Living Alone?',
+    tagLabel: 'AI Eldercare',
+    cardDesc: 'Can AI care for elderly people living alone? Fall sensors, companion robots and health monitors show real progress, and where eldercare AI still falls short.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article --
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['ai-serving-humanity', 'overseas-ai-service-categories', 'overseas-ai-coding-assistant-guide'],
+  crossLinkSlugs: ['ai-saves-lives', 'ai-serving-humanity', 'overseas-ai-service-categories'],
 };
 // ---------------------------------------------------------------------------
 
