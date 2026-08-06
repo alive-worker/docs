@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 05 Aug 2026 15:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 14:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 到底能不能救命：心理援助、智能假肢与灾后搜救三个真实场景]]></title>
+    <link>https://ponr.org/articles/ai-saves-lives.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-saves-lives.html</guid>
+    <pubDate>Thu, 06 Aug 2026 14:30:00 +0800</pubDate>
+    <category>AI 救命场景</category>
+    <description><![CDATA[AI 到底能不能救命？从获 FDA 认定的心理援助聊天机器人，到让截肢者重新抓握的智能假肢，再到提升灾后搜救效率的无人机集群，本文用真实证据回答这个问题，也说清它做不到的地方。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 服务人类，究竟落地在哪些真实场景]]></title>
     <link>https://ponr.org/articles/ai-serving-humanity.html</link>

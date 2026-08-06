@@ -60,20 +60,20 @@ const root = path.resolve(__dirname, '..');
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  zhSlug: 'ai-serving-humanity',
-  enSlug: 'ai-serving-humanity',
-  publishedISO: '2026-08-05T15:30:00+08:00',
-  tagColor: 'azure',
+  zhSlug: 'ai-saves-lives',
+  enSlug: 'ai-saves-lives',
+  publishedISO: '2026-08-06T14:30:00+08:00',
+  tagColor: 'crimson',
 
   zh: {
-    h1: 'AI 服务人类，究竟落地在哪些真实场景',
-    tagLabel: 'AI 向善',
-    cardDesc: '从辅助诊断、实时字幕无障碍到洪水野火预警系统，AI 已经在医疗、教育与灾害响应等多个真实场景中落地，本文梳理具体案例、带来的价值与仍需正视的边界。',
+    h1: 'AI 到底能不能救命：心理援助、智能假肢与灾后搜救三个真实场景',
+    tagLabel: 'AI 救命场景',
+    cardDesc: 'AI 到底能不能救命？从获 FDA 认定的心理援助聊天机器人，到让截肢者重新抓握的智能假肢，再到提升灾后搜救效率的无人机集群，本文用真实证据回答这个问题，也说清它做不到的地方。',
   },
   en: {
-    h1: 'Where AI Actually Serves Humanity Today',
-    tagLabel: 'AI for Good',
-    cardDesc: 'Beyond productivity hype, AI already helps doctors catch disease earlier, captions speech for deaf users, and powers flood and wildfire warning systems.',
+    h1: 'Can AI Save Lives? Mental Health, Prosthetics and Rescue Drones',
+    tagLabel: 'AI Saving Lives',
+    cardDesc: 'Can AI actually save lives? From FDA-recognized mental health chatbots to smart prosthetics restoring grip and drone swarms speeding up disaster rescue, here is what the real evidence shows and what it still cannot do.',
   },
 
   // Feature the new article on the homepage and demote the current featured
@@ -84,7 +84,7 @@ const CONFIG = {
   // Zh slugs of the 2-3 most relevant EXISTING articles to add a cross-link into
   // (CLAUDE.md section 4, item 9). Deliberately NOT auto-applied to every article --
   // pick these by hand. Leave empty to skip this step entirely.
-  crossLinkSlugs: ['overseas-ai-service-categories', 'overseas-ai-tool-selection', 'domestic-ai-subscription-guide'],
+  crossLinkSlugs: ['ai-serving-humanity', 'overseas-ai-service-categories', 'overseas-ai-coding-assistant-guide'],
 };
 // ---------------------------------------------------------------------------
 
