@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的</title>
-  <meta name="description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <title>稳定币充值滑点怎么回事？MEV 与三明治攻击解析</title>
+  <meta name="description" content="给虚拟卡充USDT为什么会少到账？拆解MEV机器人怎么用三明治攻击吃掉你的滑点，以及充值时怎么减少滑点损失。">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="ipfsWeb">
   <link rel="canonical" href="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
@@ -15,8 +15,8 @@
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="AI服务指南">
-  <meta property="og:title" content="三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的">
-  <meta property="og:description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <meta property="og:title" content="稳定币充值滑点怎么回事？MEV 与三明治攻击解析">
+  <meta property="og:description" content="给虚拟卡充USDT为什么会少到账？拆解MEV机器人怎么用三明治攻击吃掉你的滑点，以及充值时怎么减少滑点损失。">
   <meta property="og:url" content="https://ponr.org/articles/overseas-ai-mev-sandwich.html">
   <meta property="article:published_time" content="2026-07-29T14:24:25+08:00">
   <meta property="article:modified_time" content="2026-07-29T14:24:25+08:00">
@@ -28,8 +28,8 @@
   <meta property="article:tag" content="滑点">
   <meta property="article:tag" content="加密货币研究">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的">
-  <meta name="twitter:description" content="MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。">
+  <meta name="twitter:title" content="稳定币充值滑点怎么回事？MEV 与三明治攻击解析">
+  <meta name="twitter:description" content="给虚拟卡充USDT为什么会少到账？拆解MEV机器人怎么用三明治攻击吃掉你的滑点，以及充值时怎么减少滑点损失。">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -41,7 +41,7 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="800">
   <meta property="og:image:height" content="400">
-  <meta property="og:image:alt" content="三明治攻击拆解滑点是怎么被MEV机器人吃掉的封面图">
+  <meta property="og:image:alt" content="稳定币充值滑点怎么回事MEV与三明治攻击解析封面图">
   <meta name="twitter:image" content="https://ponr.org/img/cover-mev-sandwich.png">
   <link rel="dns-prefetch" href="https://allswap.io">
   <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
@@ -52,12 +52,12 @@
     { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
     { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
     { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#primaryimage", "url": "https://ponr.org/img/cover-mev-sandwich.png", "width": 800, "height": 400 },
-    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage", "url": "https://ponr.org/articles/overseas-ai-mev-sandwich.html", "name": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage", "url": "https://ponr.org/articles/overseas-ai-mev-sandwich.html", "name": "稳定币充值滑点怎么回事？MEV 与三明治攻击解析", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#breadcrumb" }, "inLanguage": "zh-CN" },
     { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#breadcrumb", "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
-        { "@type": "ListItem", "position": 2, "name": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "item": "https://ponr.org/articles/overseas-ai-mev-sandwich.html" }
+        { "@type": "ListItem", "position": 2, "name": "稳定币充值滑点怎么回事？MEV 与三明治攻击解析", "item": "https://ponr.org/articles/overseas-ai-mev-sandwich.html" }
     ] },
-    { "@type": "Article", "headline": "三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的", "description": "MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。", "image": "https://ponr.org/img/cover-mev-sandwich.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-29T14:24:25+08:00", "dateModified": "2026-07-29T14:24:25+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["MEV", "三明治攻击", "加密货币安全", "滑点", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+    { "@type": "Article", "headline": "稳定币充值滑点怎么回事？MEV 与三明治攻击解析", "description": "给虚拟卡充USDT为什么会少到账？拆解MEV机器人怎么用三明治攻击吃掉你的滑点，以及充值时怎么减少滑点损失。", "image": "https://ponr.org/img/cover-mev-sandwich.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-29T14:24:25+08:00", "dateModified": "2026-07-29T14:24:25+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["MEV", "三明治攻击", "加密货币安全", "滑点", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-mev-sandwich.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
   ]
 }</script>
 </head>
@@ -87,15 +87,16 @@
     <main class="main" id="main" tabindex="-1">
       <article class="article-shell">
         <header class="article-head">
-          <h1>三明治攻击拆解：滑点是怎么被 MEV 机器人吃掉的</h1>
+          <h1>稳定币充值滑点怎么回事？MEV 与三明治攻击解析</h1>
           <p class="article-summary">上一篇拆解了跨链桥的托管安全问题，这一篇转向另一个几乎每个链上交易者都在无形中承担的成本：MEV。你在 DEX 上换币时设置的滑点容差，很多时候不是被市场正常波动吃掉的，而是被专门的机器人用三明治攻击精确地吃掉的。这篇讲清楚三明治攻击到底怎么做到的，MEV 供应链上都有谁在分一杯羹，以及普通用户能采取的几个具体自保措施。</p>
           <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-07-29T14:24:25+08:00">2026-07-29 14:24:25</time></p>
         </header>
-        <img class="article-cover" src="/img/cover-mev-sandwich.svg" width="800" height="400" alt="三明治攻击拆解滑点是怎么被MEV机器人吃掉的封面图" fetchpriority="high">
+        <img class="article-cover" src="/img/cover-mev-sandwich.svg" width="800" height="400" alt="稳定币充值滑点怎么回事MEV与三明治攻击解析封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
         <section id="sec-1">
           <h2>1. MEV 是什么：区块打包顺序里藏着的钱</h2>
+          <p>给虚拟卡充 USDT 的时候，你有没有遇到过这种情况：明明转了 100 USDT，到账却少了几块钱？这就是滑点。滑点的产生不只是因为市场波动，还有一种叫"三明治攻击"的 MEV 机器人在背后悄悄"吃"你的交易差价。本文拆解 MEV 和三明治攻击的原理，以及充值虚拟卡时怎么减少滑点损失。</p>
           <p>MEV（Maximal Extractable Value，最大可提取价值）指的是区块生产者或交易排序方，通过决定一批交易在区块里的打包顺序、插入自己的交易、甚至剔除某些交易，从中额外获利的能力。这件事之所以可能，根源在于绝大多数公链的交易在被打包进区块之前，会短暂地停留在一个所有人都能看到的"待处理交易池"（mempool）里——任何人都可以监听这个池子，看到某笔交易打算做什么、愿意付多少手续费，然后决定要不要抢在它前面、插在它中间，或者跟在它后面下单。这层"打包顺序可以被操纵、且操纵前是公开可见的"的机制，是包括三明治攻击在内几乎所有 MEV 策略共同的技术前提。</p>
         </section>
         <section id="sec-2">
@@ -149,13 +150,13 @@
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>
           <ul>
-          <li><a href="/articles/overseas-ai-bridge-security.html">跨链桥托管模式拆解：从 Ronin 到 Wormhole 的安全教训</a></li>
+          <li><a href="/articles/overseas-ai-bridge-security.html">跨链充值虚拟卡安全吗？跨链桥风险与避坑指南</a></li>
           <li><a href="/articles/overseas-ai-stablecoin-swap-tools.html">跨链兑换工具怎么挑：海外AI稳定币兑换避坑</a></li>
-          <li><a href="/articles/overseas-ai-stablecoin-reserve-transparency.html">USDT、USDC 凭什么锚定 1 美元：储备构成与验证方式拆解</a></li>
+          <li><a href="/articles/overseas-ai-stablecoin-reserve-transparency.html">虚拟卡充值用 USDT 还是 USDC？稳定性与安全性对比</a></li>
           <li><a href="/articles/overseas-ai-cross-chain-recovery.html">USDT转错链别慌：海外AI付款资产找回实操</a></li>
           <li><a href="/articles/overseas-ai-stablecoin-diversification.html">稳定币要不要都放一条链：海外AI资金分散策略</a></li>
           <li><a href="/articles/overseas-ai-stablecoin-payment.html">用USDT/USDC付海外AI：选链与到账实操</a></li>
-          <li><a href="/articles/overseas-ai-flash-loan-attack.html">闪电贷攻击拆解：一笔交易内怎么掏空一个协议</a></li>          <li><a href="/articles/overseas-ai-onchain-forensics.html">链上侦查拆解：可疑资金流是怎么被追踪到的</a></li>
+          <li><a href="/articles/overseas-ai-flash-loan-attack.html">稳定币支付安全吗？闪电贷攻击原理与风险防范</a></li>          <li><a href="/articles/overseas-ai-onchain-forensics.html">用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析</a></li>
 
 
           </ul>
