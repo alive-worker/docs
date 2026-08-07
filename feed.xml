@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 07 Aug 2026 11:17:02 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 07 Aug 2026 14:20:29 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 家教到底填不填补教育鸿沟：可汗学院真实数据拆解]]></title>
+    <link>https://ponr.org/articles/ai-education-equity.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-education-equity.html</guid>
+    <pubDate>Fri, 07 Aug 2026 14:20:29 +0800</pubDate>
+    <category>AI 与社会</category>
+    <description><![CDATA[AI 家教真能缩小教育鸿沟吗？从可汗学院 Khanmigo 数百万学生实测数据、教师工作量变化到偏远地区网络与设备门槛，本文拆解 AI 教育普惠的真实进展与局限。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 陪伴机器人算服务人类吗：孤独经济与信任边界拆解]]></title>
     <link>https://ponr.org/articles/ai-companionship-trust.html</link>

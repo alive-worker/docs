@@ -143,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-education-equity.html': '2026-08-07 14:20:29',
+    '/en/articles/ai-education-equity.html': '2026-08-07 14:20:29',
     '/articles/ai-companionship-trust.html': '2026-08-07 11:17:02',
     '/en/articles/ai-companionship-trust.html': '2026-08-07 11:17:02',
     '/articles/ai-elderly-care.html': '2026-08-06 16:45:00',

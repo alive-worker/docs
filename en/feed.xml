@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 07 Aug 2026 11:17:02 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 07 Aug 2026 14:20:29 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Can AI Tutors Actually Close the Education Gap?]]></title>
+    <link>https://ponr.org/en/articles/ai-education-equity.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-education-equity.html</guid>
+    <pubDate>Fri, 07 Aug 2026 14:20:29 +0800</pubDate>
+    <category>AI &amp; Society</category>
+    <description><![CDATA[Khan Academy's Khanmigo reaches millions of students. This piece examines the real data on AI tutoring outcomes, and where access barriers still block equity.]]></description>
+  </item>
   <item>
     <title><![CDATA[Does AI Companionship Actually Serve Humanity?]]></title>
     <link>https://ponr.org/en/articles/ai-companionship-trust.html</link>
