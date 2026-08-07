@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 06 Aug 2026 16:45:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 07 Aug 2026 11:17:02 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 陪伴机器人算服务人类吗：孤独经济与信任边界拆解]]></title>
+    <link>https://ponr.org/articles/ai-companionship-trust.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-companionship-trust.html</guid>
+    <pubDate>Fri, 07 Aug 2026 11:17:02 +0800</pubDate>
+    <category>AI 与社会</category>
+    <description><![CDATA[AI 陪伴机器人真的能缓解孤独吗？从数千万活跃用户规模、情感依赖争议到未成年人安全事件，本文拆解陪伴类 AI 提供的真实价值，以及信任与安全边界该怎么划。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 真能照顾独居老人吗：跌倒监测、认知陪伴与远程健康监测三个场景]]></title>
     <link>https://ponr.org/articles/ai-elderly-care.html</link>
