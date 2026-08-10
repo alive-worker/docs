@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 07 Aug 2026 14:20:29 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 10 Aug 2026 12:33:19 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[ChatGPT、Claude 还是 Midjourney：AI 工具对比后怎么统一付款]]></title>
+    <link>https://ponr.org/articles/ai-tool-subscription-compare.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-subscription-compare.html</guid>
+    <pubDate>Mon, 10 Aug 2026 12:33:19 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[手里同时订阅几个 AI 工具，账单却越来越乱？拆解怎么按场景对比选出真正需要的工具，再用一张虚拟卡把所有扣款并到一处，账单一眼看懂，续费也更少失败。]]></description>
+  </item>
   <item>
     <title><![CDATA[Khanmigo 怎么样？效果、费用与订阅方式全解析]]></title>
     <link>https://ponr.org/articles/ai-education-equity.html</link>

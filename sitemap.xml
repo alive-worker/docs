@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-tool-subscription-compare.html</loc>
+    <lastmod>2026-08-10T12:33:19+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-education-equity.html</loc>
@@ -206,11 +210,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-tool-subscription-compare-guide.html</loc>
+    <lastmod>2026-08-10T12:33:19+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-education-equity.html</loc>
