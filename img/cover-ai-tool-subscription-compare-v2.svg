@@ -1,0 +1,83 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI tools comparison and unified virtual card payment cover image">
+  <defs>
+    <linearGradient id="bgGradAtsc" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#123a56"/>
+    </linearGradient>
+    <radialGradient id="glowAtsc" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrAtsc" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradAtsc)"/>
+  <rect width="800" height="400" fill="url(#glowAtsc)"/>
+  <g stroke="#1e4f6b" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 300 h70 v40 h50"/>
+    <path d="M60 360 h60 v-30 h45"/>
+  </g>
+  <g fill="#7dd3fc" opacity="0.7">
+    <circle cx="40" cy="300" r="3"/>
+    <circle cx="110" cy="340" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+    <circle cx="120" cy="330" r="3"/>
+  </g>
+
+  <!-- title text (top band, above card) -->
+  <text x="748" y="52" text-anchor="end" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f0f9ff">AI 工具对比后</text>
+  <text x="748" y="92" text-anchor="end" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#38bdf8">怎么统一付款</text>
+  <rect x="690" y="104" width="58" height="4" rx="2" fill="#7dd3fc"/>
+  <text x="748" y="128" text-anchor="end" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">一张虚拟卡 · 统一账单 · 少踩坑</text>
+
+  <!-- three separate AI tool tiles -->
+  <g>
+    <rect x="60" y="70" width="100" height="72" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <circle cx="88" cy="98" r="10" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <path d="M84 98 h8 M88 94 v8" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="76" y="118" width="68" height="7" rx="3.5" fill="#38bdf8" opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="60" y="160" width="100" height="72" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <path d="M110 178 l16 14 -16 14 M100 220 l-16 -14 16 -14" stroke="#7dd3fc" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="76" y="208" width="68" height="7" rx="3.5" fill="#38bdf8" opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="60" y="250" width="100" height="72" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="82" y="270" width="36" height="26" rx="4" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <circle cx="100" cy="283" r="5" fill="#7dd3fc"/>
+    <rect x="76" y="298" width="68" height="7" rx="3.5" fill="#38bdf8" opacity="0.5"/>
+  </g>
+
+  <!-- tile labels -->
+  <text x="110" y="158" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#9fd8f0">聊天写作</text>
+  <text x="110" y="248" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#9fd8f0">编程助手</text>
+  <text x="110" y="338" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#9fd8f0">绘图视频</text>
+  <text x="460" y="320" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#e0f7ff">虚拟卡统一扣款</text>
+
+  <!-- arrows converging -->
+  <path d="M170 106 L330 190" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrAtsc)"/>
+  <path d="M170 196 L330 200" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrAtsc)"/>
+  <path d="M170 286 L330 212" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrAtsc)"/>
+
+  <!-- unified virtual card -->
+  <g>
+    <rect x="345" y="150" width="230" height="140" rx="18" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2.5"/>
+    <rect x="367" y="178" width="46" height="32" rx="6" fill="#1e4f6b" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="374" y="188" width="30" height="5" rx="2.5" fill="#e0f7ff"/>
+    <rect x="374" y="198" width="18" height="5" rx="2.5" fill="#38bdf8" opacity="0.6"/>
+    <rect x="367" y="228" width="180" height="8" rx="4" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="367" y="248" width="110" height="7" rx="3.5" fill="#7dd3fc" opacity="0.6"/>
+    <circle cx="536" cy="200" r="18" fill="#38bdf8" opacity="0.25"/>
+    <circle cx="522" cy="200" r="18" fill="#7dd3fc" opacity="0.35"/>
+  </g>
+
+  <rect x="600" y="150" width="150" height="140" rx="16" fill="#0a1826" stroke="#1e4f6b" stroke-width="1.5"/>
+  <line x1="620" y1="180" x2="730" y2="180" stroke="#1e4f6b" stroke-width="1"/>
+  <rect x="620" y="192" width="90" height="7" rx="3.5" fill="#7dd3fc" opacity="0.7"/>
+  <rect x="620" y="210" width="70" height="7" rx="3.5" fill="#7dd3fc" opacity="0.5"/>
+  <rect x="620" y="228" width="100" height="7" rx="3.5" fill="#7dd3fc" opacity="0.5"/>
+  <rect x="620" y="246" width="60" height="7" rx="3.5" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="612" cy="166" r="5" fill="#7dd3fc"/>
+</svg>
