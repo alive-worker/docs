@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 10 Aug 2026 12:33:19 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 11 Aug 2026 12:50:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[2026年AI应用场景全览：写作/编程/绘图/视频/搜索/语音工具费用与支付实操]]></title>
+    <link>https://ponr.org/articles/ai-application-scenarios-guide.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-application-scenarios-guide.html</guid>
+    <pubDate>Tue, 11 Aug 2026 12:50:25 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[从写作、编程、绘图到视频、搜索、语音，梳理2026年六大主流AI应用场景的代表工具、真实费用结构与虚拟卡统一支付方式。]]></description>
+  </item>
   <item>
     <title><![CDATA[ChatGPT、Claude 还是 Midjourney：AI 工具对比后怎么统一付款]]></title>
     <link>https://ponr.org/articles/ai-tool-subscription-compare.html</link>
