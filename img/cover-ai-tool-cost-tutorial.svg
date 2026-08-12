@@ -1,0 +1,73 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 工具费用与虚拟卡开卡充值教程封面图">
+  <defs>
+    <linearGradient id="bgGradActc" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#123a56"/>
+    </linearGradient>
+    <radialGradient id="glowActc" cx="120" cy="70" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrActc" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradActc)"/>
+  <rect width="800" height="400" fill="url(#glowActc)"/>
+
+  <!-- title text -->
+  <text x="52" y="150" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#f0f9ff">AI 工具费用</text>
+  <text x="52" y="196" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#38bdf8">虚拟卡教程</text>
+  <rect x="52" y="210" width="150" height="4" rx="2" fill="#7dd3fc"/>
+  <text x="52" y="248" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">算清月费 · 开卡充值 · 绑定订阅</text>
+
+  <!-- calculator -->
+  <g>
+    <rect x="60" y="288" width="86" height="86" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="72" y="300" width="62" height="18" rx="3" fill="#123a56" stroke="#38bdf8" stroke-width="1.2"/>
+    <rect x="78" y="305" width="34" height="6" rx="3" fill="#7dd3fc" opacity="0.8"/>
+    <g fill="#38bdf8" opacity="0.65">
+      <rect x="72" y="326" width="14" height="12" rx="2"/>
+      <rect x="96" y="326" width="14" height="12" rx="2"/>
+      <rect x="120" y="326" width="14" height="12" rx="2"/>
+      <rect x="72" y="344" width="14" height="12" rx="2"/>
+      <rect x="96" y="344" width="14" height="12" rx="2"/>
+      <rect x="120" y="344" width="14" height="12" rx="2"/>
+    </g>
+  </g>
+  <text x="103" y="392" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#9fd8f0">估算月费</text>
+
+  <!-- dollar step -->
+  <circle cx="240" cy="330" r="40" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+  <text x="240" y="345" text-anchor="middle" font-family="'PingFang SC',sans-serif" font-size="42" font-weight="700" fill="#38bdf8">$</text>
+  <text x="240" y="392" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#9fd8f0">充值入账</text>
+
+  <path d="M150 330 L196 330" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrActc)"/>
+  <path d="M284 330 L336 330" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrActc)"/>
+
+  <!-- virtual card -->
+  <g>
+    <rect x="345" y="288" width="200" height="86" rx="14" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2.5"/>
+    <rect x="363" y="306" width="40" height="28" rx="5" fill="#1e4f6b" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="369" y="315" width="26" height="4" rx="2" fill="#e0f7ff"/>
+    <rect x="363" y="346" width="150" height="7" rx="3.5" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="363" y="360" width="90" height="6" rx="3" fill="#7dd3fc" opacity="0.6"/>
+    <circle cx="512" cy="322" r="14" fill="#38bdf8" opacity="0.3"/>
+    <circle cx="500" cy="322" r="14" fill="#7dd3fc" opacity="0.4"/>
+  </g>
+  <text x="445" y="392" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#9fd8f0">绑定订阅</text>
+
+  <!-- AI subscription tiles being paid -->
+  <path d="M545 330 L600 330" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrActc)"/>
+  <g>
+    <rect x="612" y="286" width="130" height="26" rx="6" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="1.4"/>
+    <rect x="622" y="296" width="70" height="6" rx="3" fill="#7dd3fc" opacity="0.7"/>
+    <circle cx="730" cy="299" r="5" fill="#38bdf8"/>
+    <rect x="612" y="318" width="130" height="26" rx="6" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="1.4"/>
+    <rect x="622" y="328" width="86" height="6" rx="3" fill="#7dd3fc" opacity="0.6"/>
+    <circle cx="730" cy="331" r="5" fill="#38bdf8"/>
+    <rect x="612" y="350" width="130" height="26" rx="6" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="1.4"/>
+    <rect x="622" y="360" width="54" height="6" rx="3" fill="#7dd3fc" opacity="0.5"/>
+    <circle cx="730" cy="363" r="5" fill="#38bdf8"/>
+  </g>
+</svg>

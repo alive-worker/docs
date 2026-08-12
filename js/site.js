@@ -143,8 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
-    '/articles/defi-security-self-checklist.html': '2026-08-12 11:52:19',
-    '/en/articles/defi-security-self-checklist.html': '2026-08-12 11:52:19',
+    '/articles/ai-tool-cost-virtual-card-tutorial.html': '2026-08-12 12:39:53',
+    '/en/articles/ai-tool-cost-virtual-card-tutorial.html': '2026-08-12 12:39:53',
     '/articles/ai-application-scenarios-guide.html': '2026-08-11 12:50:25',
     '/en/articles/ai-application-scenarios-guide.html': '2026-08-11 12:50:25',
     '/articles/ai-tool-subscription-compare.html': '2026-08-10 12:33:19',
