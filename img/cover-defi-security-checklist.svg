@@ -1,0 +1,84 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DeFi security self-checklist cover image">
+  <defs>
+    <linearGradient id="bgGradDsc" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#1a3a4a"/>
+    </linearGradient>
+    <radialGradient id="glowDsc" cx="650" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradDsc)"/>
+  <rect width="800" height="400" fill="url(#glowDsc)"/>
+
+  <!-- title text -->
+  <text x="60" y="58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#e0f2f1">DeFi 链上安全</text>
+  <text x="60" y="100" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="600" fill="#10b981">自查避坑清单</text>
+  <rect x="60" y="110" width="180" height="4" rx="2" fill="#34d399"/>
+
+  <!-- shield icon (left side) -->
+  <g transform="translate(100, 180)">
+    <path d="M0 0 L40 -20 L80 0 L80 50 Q80 90 40 110 Q0 90 0 50 Z" fill="none" stroke="#10b981" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M25 40 L35 50 L60 20" fill="none" stroke="#34d399" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="40" cy="35" r="32" fill="none" stroke="#059669" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- wallet icon -->
+  <g transform="translate(260, 200)">
+    <rect x="0" y="0" width="70" height="50" rx="8" fill="#0f2c3d" stroke="#10b981" stroke-width="2.5"/>
+    <rect x="0" y="10" width="70" height="12" fill="#059669" opacity="0.4"/>
+    <circle cx="55" cy="30" r="5" fill="#34d399"/>
+    <path d="M10 32 L20 32 M10 38 L30 38" stroke="#10b981" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+  </g>
+
+  <!-- checklist items (right side) -->
+  <g transform="translate(420, 160)">
+    <rect x="0" y="0" width="320" height="200" rx="12" fill="#0f2c3d" stroke="#059669" stroke-width="2" opacity="0.9"/>
+
+    <!-- item 1 -->
+    <g transform="translate(20, 30)">
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+      <path d="M4 10 L9 15 L16 6" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#d1fae5">助记词离线保存</text>
+    </g>
+
+    <!-- item 2 -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+      <path d="M4 10 L9 15 L16 6" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#d1fae5">定期清理合约授权</text>
+    </g>
+
+    <!-- item 3 -->
+    <g transform="translate(20, 110)">
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+      <path d="M4 10 L9 15 L16 6" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#d1fae5">识别假币与钓鱼网站</text>
+    </g>
+
+    <!-- item 4 -->
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="20" height="20" rx="4" fill="none" stroke="#10b981" stroke-width="2"/>
+      <path d="M4 10 L9 15 L16 6" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#d1fae5">交易所出金安全检查</text>
+    </g>
+  </g>
+
+  <!-- chain links -->
+  <g opacity="0.3" stroke="#059669" stroke-width="2" fill="none">
+    <circle cx="80" cy="320" r="8"/>
+    <circle cx="110" cy="320" r="8"/>
+    <rect x="88" y="316" width="14" height="8"/>
+    <circle cx="140" cy="320" r="8"/>
+    <circle cx="170" cy="320" r="8"/>
+    <rect x="148" y="316" width="14" height="8"/>
+  </g>
+
+  <!-- lock icon -->
+  <g transform="translate(680, 300)">
+    <rect x="0" y="15" width="35" height="30" rx="4" fill="#0f2c3d" stroke="#10b981" stroke-width="2"/>
+    <path d="M8 15 L8 10 Q8 0 17.5 0 Q27 0 27 10 L27 15" fill="none" stroke="#10b981" stroke-width="2"/>
+    <circle cx="17.5" cy="28" r="4" fill="#34d399"/>
+  </g>
+</svg>

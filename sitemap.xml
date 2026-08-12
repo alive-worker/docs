@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/defi-security-self-checklist.html</loc>
+    <lastmod>2026-08-12T11:52:19+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/defi-security-self-checklist.html</loc>
+    <lastmod>2026-08-12T11:52:19+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-application-scenarios-guide.html</loc>
@@ -214,11 +222,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-guide.html</loc>

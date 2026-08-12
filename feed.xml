@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 11 Aug 2026 12:50:25 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 12 Aug 2026 11:52:19 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[DeFi 链上安全自查清单：钱包、合约、出金避坑实操]]></title>
+    <link>https://ponr.org/articles/defi-security-self-checklist.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/defi-security-self-checklist.html</guid>
+    <pubDate>Wed, 12 Aug 2026 11:52:19 +0800</pubDate>
+    <category>DeFi链上安全</category>
+    <description><![CDATA[参与 DeFi 挖矿、跨链兑换稳定币时，总担心钱包被盗、合约有后门，不知道怎么自查风险。本文从钱包助记词保管、合约授权清理、假币识别到交易所出金安全，给出完整避坑检查清单。]]></description>
+  </item>
   <item>
     <title><![CDATA[2026年AI应用场景全览：写作/编程/绘图/视频/搜索/语音工具费用与支付实操]]></title>
     <link>https://ponr.org/articles/ai-application-scenarios-guide.html</link>

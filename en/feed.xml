@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 11 Aug 2026 12:50:25 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 12 Aug 2026 11:52:19 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[DeFi Security Checklist: Wallet, Contract, Withdrawal Safety]]></title>
+    <link>https://ponr.org/en/articles/defi-security-self-checklist.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/defi-security-self-checklist.html</guid>
+    <pubDate>Wed, 12 Aug 2026 11:52:19 +0800</pubDate>
+    <category>DeFi Security</category>
+    <description><![CDATA[Worried about wallet theft, malicious contracts, or phishing in DeFi? A hands-on checklist: seed phrase storage, approval cleanup, fake tokens, safe payouts.]]></description>
+  </item>
   <item>
     <title><![CDATA[AI Use Cases in 2026: Tools, Real Costs & How to Pay]]></title>
     <link>https://ponr.org/en/articles/ai-application-scenarios-guide.html</link>

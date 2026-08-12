@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeFi Security Checklist: Wallet, Contract, Withdrawal Safety</title>
+  <meta name="description" content="Worried about wallet theft, malicious contracts, or phishing in DeFi? A hands-on checklist: seed phrase storage, approval cleanup, fake tokens, safe payouts.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/defi-security-self-checklist.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/defi-security-self-checklist.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/defi-security-self-checklist.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/defi-security-self-checklist.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="DeFi Security Checklist: Wallet, Contract, Withdrawal Safety">
+  <meta property="og:description" content="Worried about wallet theft, malicious contracts, or phishing in DeFi? A hands-on checklist: seed phrase storage, approval cleanup, fake tokens, safe payouts.">
+  <meta property="og:url" content="https://ponr.org/en/articles/defi-security-self-checklist.html">
+  <meta property="article:published_time" content="2026-08-12T11:52:19+08:00">
+  <meta property="article:modified_time" content="2026-08-12T11:52:19+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="DeFi Security">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DeFi Security Checklist: Wallet, Contract, Withdrawal Safety">
+  <meta name="twitter:description" content="Worried about wallet theft, malicious contracts, or phishing in DeFi? A hands-on checklist: seed phrase storage, approval cleanup, fake tokens, safe payouts.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#1f5f5b">
+  <meta property="og:image" content="https://ponr.org/img/cover-defi-security-checklist.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="DeFi security self-checklist cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-defi-security-checklist.png">
+  <link rel="dns-prefetch" href="https://rdvcc.com">
+  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI service subscription", "cross-border payment", "virtual credit card", "stablecoin payment"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focusing on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#primaryimage", "url": "https://ponr.org/img/cover-defi-security-checklist.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#webpage", "url": "https://ponr.org/en/articles/defi-security-self-checklist.html", "name": "DeFi Security Checklist: Wallet, Contract, Withdrawal Safety", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "DeFi Security Checklist: Wallet, Contract, Withdrawal Safety", "item": "https://ponr.org/en/articles/defi-security-self-checklist.html" }
+    ] },
+    { "@type": "Article", "headline": "DeFi Security Checklist: Wallet, Contract, Withdrawal Safety", "description": "Worried about wallet theft, malicious contracts, or phishing in DeFi? A hands-on checklist: seed phrase storage, approval cleanup, fake tokens, safe payouts.", "image": "https://ponr.org/img/cover-defi-security-checklist.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-12T11:52:19+08:00", "dateModified": "2026-08-12T11:52:19+08:00", "inLanguage": "en", "articleSection": "DeFi Security", "keywords": ["DeFi security", "on-chain security", "wallet safety", "contract approval", "stablecoin", "virtual card"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/defi-security-self-checklist.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide Home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">Articles</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/defi-security-self-checklist.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>DeFi Security Checklist: Wallet, Contract, Withdrawal Safety</h1>
+          <p class="article-summary">When participating in DeFi yield farming, using cross-chain tools to swap stablecoins, or withdrawing from exchanges to virtual card platforms, most people worry about wallet theft, malicious contracts, and phishing attacks but don't know how to proactively check for risks. This guide provides a complete DeFi on-chain security checklist, covering seed phrase storage, regular contract approval cleanup, fake token and phishing site identification, and exchange withdrawal safety checks—step-by-step instructions to protect your on-chain assets.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published on <time datetime="2026-08-12T11:52:19+08:00">August 12, 2026</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-defi-security-checklist.svg" width="800" height="400" alt="DeFi security self-checklist cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+        <section id="sec-1">
+          <h2>1. DeFi On-Chain Security: Risk Points Users Often Overlook</h2>
+          <p>When participating in DeFi yield farming, using cross-chain tools to swap stablecoins, or withdrawing USDT from exchanges to virtual card platforms, most people only focus on transaction fees and arrival times, rarely checking wallet security, contract permissions, or phishing risks in advance. Only after wallets are drained or contracts maliciously authorized do they realize they never performed basic DeFi security checks. This guide breaks down how regular users can check core risk points with minimal time investment to avoid common pitfalls.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Seed Phrase Storage: Offline Is the Only Safe Option</h2>
+          <p>Once your seed phrase is compromised, all assets in your wallet can be transferred away, and on-chain transactions are irreversible. The most common mistake is saving seed phrases as phone screenshots, storing them in cloud notes, or sending them to personal WeChat favorites—all these locations are online, exposing seed phrases if devices get infected with malware or cloud services are breached. The correct approach is to write them on paper or use a hardware wallet, storing them in offline physical media, never storing or transmitting through any internet-connected device.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Regular Contract Approval Cleanup: Check Permissions with revoke.cash</h2>
+          <p>When participating in DeFi yield farming or swapping tokens on DEXs, your wallet grants contracts permission to operate your tokens. If not manually revoked, these contracts retain permission to transfer your coins indefinitely. Many people never clean up approvals after using DeFi protocols, potentially leaving dozens of contract permissions in their wallets—any one that develops vulnerabilities or turns malicious could drain your assets. We recommend using <a href="https://revoke.cash/" target="_blank" rel="noopener">revoke.cash</a> or similar tools monthly to check and revoke all unused protocol approvals, keeping only those currently in use.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Identifying Fake Tokens and Phishing Sites: Verify Contract Addresses Character by Character</h2>
+          <p>Fake tokens frequently appear on-chain with contract addresses differing from genuine tokens by just a few characters, while icons and names are perfectly mimicked—easy for newcomers to mistake. Even more insidious are phishing websites with domains differing from official sites by one letter, with identical interfaces—once you connect your wallet and authorize, contracts can drain your wallet. Practical advice: Find contract addresses and official website links from exchanges, cross-chain tools, DeFi protocols' official Twitter accounts, or third-party aggregators like CoinGecko and CoinMarketCap. After copying, verify character by character—don't just click the first search engine result, as ad slots are often bought by phishing sites.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Gas Fee Phishing: Check Actual Deduction Amounts Before Transactions</h2>
+          <p>Some phishing contracts disguise themselves as normal DEX trades or airdrop claims, showing only a few dollars in gas fees on the interface, but the actual contract function called is transferFrom or approve. Once you confirm the transaction, all coins in your wallet get transferred. Prevention method: Before transacting, carefully check the contract function name and parameters in the wallet popup. If it's just a normal transfer or swap, there should be no approve for unlimited authorization or transferFrom for large transfers—reject immediately if you see these.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Withdrawing from Exchanges to Virtual Card Platforms: Chain and Address Format Must Match</h2>
+          <p>When withdrawing USDT from exchanges to virtual card issuing platforms, the most common error is selecting the wrong withdrawal chain. For example, if the platform only supports Polygon USDT but you withdraw TRC20 USDT, the coins won't arrive and recovery is troublesome. Our article "<a href="/en/articles/cross-chain-recovery-guide.html">Don't Panic If You Sent USDT to Wrong Chain: Asset Recovery Guide</a>" details how to self-recover, but verifying in advance saves much hassle. Practical steps: Before depositing, check which chains the platform supports, copy the deposit address, then use a blockchain explorer (Etherscan, Polygonscan, etc.) to verify this address exists on the corresponding chain before withdrawing. When using cross-chain swap aggregators like <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a>, also verify the target chain and receiving address format match.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Virtual Card Top-Up and DeFi Security: Complete Chain from Exchange to Issuing Platform</h2>
+          <p>When using stablecoins to top up virtual credit cards for AI tool subscriptions, the segment from exchange withdrawal to virtual card platform also requires DeFi security checks. Specifically: Before withdrawing, check exchange withdrawal address whitelist settings (prevents unauthorized withdrawals after account compromise), after withdrawal confirm transaction status on blockchain explorer (long pending times may indicate low gas fees or network congestion), after arrival verify top-up amount on virtual card platform (calculate cross-chain slippage and fee deductions clearly). When choosing platforms like <a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC virtual credit card</a> that support multi-chain deposits, also confirm their supported chains match the chain of your stablecoins to avoid secondary cross-chain transfers increasing costs and risks.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. What If a DeFi Protocol Gets Hacked: Diversify Storage in Advance to Reduce Losses</h2>
+          <p>DeFi protocol hacks and cross-chain bridge vulnerabilities occur every year. Our articles "<a href="/en/articles/bridge-security-guide.html">Is Cross-Chain Virtual Card Top-Up Safe? Bridge Risks and Avoidance Guide</a>" and "<a href="/en/articles/flash-loan-attack-guide.html">Is Stablecoin Payment Safe? Flash Loan Attack Principles and Risk Prevention</a>" break down attack mechanisms, but regular users can't predict which protocols will have problems. Practical advice: Don't keep all stablecoins on one chain, don't store large amounts in DeFi protocols for extended yield farming (withdraw after use), don't use new protocols without full audit reports or just launched. If a protocol does get hacked, diversified storage at least limits losses to a portion rather than total wipeout.</p>
+        </section>
+        <section id="sec-9">
+          <h2>9. Summary: DeFi On-Chain Security Self-Checklist</h2>
+          <p>When participating in DeFi, using stablecoin cross-chain swaps, or withdrawing from exchanges to virtual card platforms, the core is establishing these checkpoint routines: "store seed phrases offline, regularly clean contract approvals, verify fake tokens and phishing sites character by character, match withdrawal chains and address formats, diversify fund storage." Running through this checklist before each operation avoids most pitfalls. DeFi on-chain security isn't about luck—it's about process-driven self-checks that intercept risks before operations.</p>
+        </section>
+        </div>
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. DeFi On-Chain Security: Risk Points Users Often Overlook</a></li>
+          <li><a href="#sec-2">2. Seed Phrase Storage: Offline Is the Only Safe Option</a></li>
+          <li><a href="#sec-3">3. Regular Contract Approval Cleanup: Check Permissions with revoke.cash</a></li>
+          <li><a href="#sec-4">4. Identifying Fake Tokens and Phishing Sites: Verify Contract Addresses Character by Character</a></li>
+          <li><a href="#sec-5">5. Gas Fee Phishing: Check Actual Deduction Amounts Before Transactions</a></li>
+          <li><a href="#sec-6">6. Withdrawing from Exchanges to Virtual Card Platforms: Chain and Address Format Must Match</a></li>
+          <li><a href="#sec-7">7. Virtual Card Top-Up and DeFi Security: Complete Chain from Exchange to Issuing Platform</a></li>
+          <li><a href="#sec-8">8. What If a DeFi Protocol Gets Hacked: Diversify Storage in Advance to Reduce Losses</a></li>
+          <li><a href="#sec-9">9. Summary: DeFi On-Chain Security Self-Checklist</a></li>
+          </ol>
+        </nav>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/stablecoin-payment-guide.html">Pay for AI with USDT/USDC: Chain Selection & Arrival Guide</a></li>
+          <li><a href="/en/articles/bridge-security-guide.html">Is Cross-Chain Virtual Card Top-Up Safe? Bridge Risks and Avoidance Guide</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Credit Card Payment Solution: One Card for All AI Subscriptions</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical guides on AI service subscription, payment channels, virtual cards, and account security. Sharing hands-on experience to help fellow AI service users.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Topics</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap Cross-Chain</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC Virtual Card</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Overseas Navigation</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI Learning Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>This site provides information for reference only. Prices, regional availability, and policies are subject to official information from AI platforms and payment services.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=e9cab476f3"></script>
+</body>
+</html>
