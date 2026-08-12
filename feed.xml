@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 12 Aug 2026 12:39:53 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 12 Aug 2026 14:04:28 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 工具订阅支付藏着哪些坑：跨境订阅经济的夹层痛点]]></title>
+    <link>https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</guid>
+    <pubDate>Tue, 12 Aug 2026 14:04:28 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[为什么 AI 工具订阅支付越来越折腾？从卡种限制、换汇损耗、余额困境到监管摩擦，拆解跨境订阅经济里的多重夹层，再看虚拟卡与稳定币怎么破局。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 工具费用怎么算？手把手用一张虚拟卡从零付清所有订阅]]></title>
     <link>https://ponr.org/articles/ai-tool-cost-virtual-card-tutorial.html</link>

@@ -1,0 +1,71 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 工具订阅支付跨境变局封面图">
+  <defs>
+    <linearGradient id="bgGradAsp" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#123a56"/>
+    </linearGradient>
+    <radialGradient id="glowAsp" cx="130" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrAsp" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradAsp)"/>
+  <rect width="800" height="400" fill="url(#glowAsp)"/>
+
+  <!-- title text -->
+  <text x="52" y="90" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#f0f9ff">AI 工具订阅支付</text>
+  <text x="52" y="134" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#38bdf8">藏着哪些坑</text>
+  <rect x="52" y="148" width="196" height="4" rx="2" fill="#7dd3fc"/>
+  <text x="52" y="180" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">跨境订阅经济 · 支付变局 · 一张卡收拢账单</text>
+
+  <!-- multiple subscription bills converging -->
+  <g>
+    <rect x="60" y="230" width="90" height="64" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="76" y="248" width="42" height="6" rx="3" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="76" y="262" width="58" height="6" rx="3" fill="#38bdf8" opacity="0.5"/>
+    <text x="105" y="286" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#9fd8f0">$20/月</text>
+  </g>
+  <g>
+    <rect x="165" y="300" width="90" height="64" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="181" y="318" width="42" height="6" rx="3" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="181" y="332" width="58" height="6" rx="3" fill="#38bdf8" opacity="0.5"/>
+    <text x="210" y="356" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#9fd8f0">按量计费</text>
+  </g>
+  <g>
+    <rect x="60" y="310" width="90" height="54" rx="12" fill="#0f2c3d" stroke="#1e4f6b" stroke-width="1.6" opacity="0.8"/>
+    <rect x="76" y="326" width="42" height="6" rx="3" fill="#7dd3fc" opacity="0.6"/>
+    <rect x="76" y="340" width="58" height="6" rx="3" fill="#7dd3fc" opacity="0.4"/>
+  </g>
+
+  <!-- arrows converging to card -->
+  <path d="M255 262 L360 232" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrAsp)"/>
+  <path d="M255 330 L360 262" stroke="#7dd3fc" stroke-width="2" opacity="0.7" marker-end="url(#arrAsp)"/>
+
+  <!-- unified virtual card -->
+  <g>
+    <rect x="375" y="185" width="250" height="150" rx="18" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2.5"/>
+    <rect x="399" y="215" width="48" height="34" rx="6" fill="#1e4f6b" stroke="#7dd3fc" stroke-width="1.5"/>
+    <rect x="407" y="226" width="32" height="5" rx="2.5" fill="#e0f7ff"/>
+    <rect x="407" y="237" width="18" height="5" rx="2.5" fill="#38bdf8" opacity="0.6"/>
+    <rect x="399" y="268" width="196" height="8" rx="4" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="399" y="290" width="120" height="7" rx="3.5" fill="#7dd3fc" opacity="0.6"/>
+    <circle cx="582" cy="238" r="18" fill="#38bdf8" opacity="0.25"/>
+    <circle cx="566" cy="238" r="18" fill="#7dd3fc" opacity="0.35"/>
+    <text x="500" y="322" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#e0f7ff">虚拟卡统一扣款</text>
+  </g>
+
+  <!-- fx / fragmentation glyphs, top right -->
+  <g stroke="#7dd3fc" stroke-width="2" fill="none" opacity="0.75">
+    <circle cx="660" cy="90" r="26"/>
+    <path d="M652 90 h16 M660 82 v16" stroke-linecap="round"/>
+  </g>
+  <text x="660" y="140" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#9fd8f0">汇率加点 · 手续费</text>
+  <g fill="#7dd3fc" opacity="0.6">
+    <circle cx="712" cy="60" r="3"/>
+    <circle cx="730" cy="110" r="3"/>
+    <circle cx="700" cy="130" r="3"/>
+  </g>
+</svg>
