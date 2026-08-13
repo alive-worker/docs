@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 应用场景从尝鲜到日常工作流封面图">
+  <defs>
+    <linearGradient id="bgGradAas" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#123a56"/>
+    </linearGradient>
+    <radialGradient id="glowAas" cx="130" cy="90" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrAas" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradAas)"/>
+  <rect width="800" height="400" fill="url(#glowAas)"/>
+
+  <!-- title text -->
+  <text x="52" y="150" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#f0f9ff">AI 应用场景</text>
+  <text x="52" y="196" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#38bdf8">从尝鲜到日常</text>
+  <rect x="52" y="210" width="150" height="4" rx="2" fill="#7dd3fc"/>
+  <text x="52" y="250" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">工作流重组 · 场景落地 · 少踩坑</text>
+
+  <!-- workflow nodes / connections -->
+  <g stroke="#7dd3fc" stroke-width="2" opacity="0.75" fill="none">
+    <path d="M556 96 L636 130" marker-end="url(#arrAas)"/>
+    <path d="M556 176 L636 176" marker-end="url(#arrAas)"/>
+    <path d="M556 256 L636 220" marker-end="url(#arrAas)"/>
+  </g>
+
+  <!-- scenario tiles -->
+  <g>
+    <rect x="456" y="70" width="100" height="66" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <path d="M478 92 h44 M478 104 h30 M478 116 h38" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="456" y="150" width="100" height="66" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <path d="M496 168 l14 15 -14 15 M486 210 l-14 -13 14 -14" stroke="#7dd3fc" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <rect x="456" y="230" width="100" height="66" rx="14" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="478" y="248" width="34" height="24" rx="4" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <circle cx="495" cy="260" r="5" fill="#7dd3fc"/>
+  </g>
+
+  <!-- workflow hub -->
+  <g>
+    <rect x="636" y="130" width="120" height="140" rx="18" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2.5"/>
+    <circle cx="696" cy="176" r="20" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <circle cx="696" cy="176" r="6" fill="#38bdf8"/>
+    <rect x="656" y="216" width="80" height="8" rx="4" fill="#e0f7ff" opacity="0.85"/>
+    <rect x="656" y="234" width="54" height="7" rx="3.5" fill="#7dd3fc" opacity="0.6"/>
+  </g>
+  <text x="696" y="298" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#9fd8f0">日常工作流</text>
+
+  <!-- decorative node network bottom-left -->
+  <g stroke="#1e4f6b" stroke-width="1.4" opacity="0.5" fill="none">
+    <path d="M60 320 h60 v34 h44"/>
+    <path d="M78 366 h54 v-26 h40"/>
+  </g>
+  <g fill="#7dd3fc" opacity="0.7">
+    <circle cx="60" cy="320" r="3"/>
+    <circle cx="120" cy="354" r="3"/>
+    <circle cx="78" cy="366" r="3"/>
+    <circle cx="132" cy="340" r="3"/>
+  </g>
+</svg>

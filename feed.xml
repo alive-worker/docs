@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 12 Aug 2026 14:04:28 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 13 Aug 2026 13:16:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[为什么大多数人的 AI 工具对比都比错了方向]]></title>
+    <link>https://ponr.org/articles/ai-tool-comparison-deep-dive.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-comparison-deep-dive.html</guid>
+    <pubDate>Wed, 13 Aug 2026 13:16:25 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[做 AI 工具对比时总盯着功能清单和跑分，结果越比越乱？换个角度看，真正该比的不是参数，而是工具能不能嵌进你的工作方式，以及对比之后绕不开的订阅支付。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AI 应用场景正在悄悄换挡：从尝鲜工具走向嵌入日常工作流]]></title>
+    <link>https://ponr.org/articles/ai-application-scenarios-deep-dive.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-application-scenarios-deep-dive.html</guid>
+    <pubDate>Wed, 13 Aug 2026 11:07:02 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[真正改变生产力的从不是某个爆款工具，而是 AI 应用场景与工作流的重组。这篇聊聊个人和团队的场景差异、哪些跑通了哪些还是噱头，以及落地绕不开的支付门槛。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 工具订阅支付藏着哪些坑：跨境订阅经济的夹层痛点]]></title>
     <link>https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</link>

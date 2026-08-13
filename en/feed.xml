@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 12 Aug 2026 14:04:28 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 13 Aug 2026 13:16:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why Most AI Tool Comparisons Miss What Really Matters]]></title>
+    <link>https://ponr.org/en/articles/ai-tool-comparison-deep-dive.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-tool-comparison-deep-dive.html</guid>
+    <pubDate>Wed, 13 Aug 2026 13:16:25 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Most AI tool comparisons obsess over feature checklists and benchmark scores. The real test is whether a tool fits how you work, and how you pay for it.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[How AI Use Cases Shift From Novelty to Daily Workflow]]></title>
+    <link>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</guid>
+    <pubDate>Wed, 13 Aug 2026 11:07:02 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[What really moves productivity is not one hit app but the rebuild of AI use cases and workflows: solo vs team scenarios, real wins, hype, and payment hurdles.]]></description>
+  </item>
   <item>
     <title><![CDATA[AI Tool Subscription Payment: A Cross-Border Squeeze]]></title>
     <link>https://ponr.org/en/articles/ai-tool-subscription-payment-deep-dive.html</link>

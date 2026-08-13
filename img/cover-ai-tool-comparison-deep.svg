@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 工具对比别比错了方向封面图">
+  <defs>
+    <linearGradient id="bgGradAtcd" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#123a56"/>
+    </linearGradient>
+    <radialGradient id="glowAtcd" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradAtcd)"/>
+  <rect width="800" height="400" fill="url(#glowAtcd)"/>
+  <g stroke="#1e4f6b" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#7dd3fc" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+
+  <!-- title text -->
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#f0f9ff">AI 工具对比</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="32" font-weight="700" fill="#38bdf8">别比错了方向</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#7dd3fc"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">比的不是功能清单 · 而是能不能嵌进你的工作方式</text>
+
+  <!-- balance scale -->
+  <g stroke="#7dd3fc" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <line x1="600" y1="120" x2="600" y2="300"/>
+    <line x1="500" y1="150" x2="700" y2="150"/>
+    <line x1="600" y1="300" x2="560" y2="330"/>
+    <line x1="600" y1="300" x2="640" y2="330"/>
+    <line x1="540" y1="330" x2="660" y2="330"/>
+  </g>
+  <circle cx="600" cy="120" r="7" fill="#38bdf8"/>
+  <!-- left pan (feature list, tilted down) -->
+  <g>
+    <line x1="500" y1="150" x2="475" y2="210" stroke="#7dd3fc" stroke-width="1.5"/>
+    <line x1="500" y1="150" x2="525" y2="210" stroke="#7dd3fc" stroke-width="1.5"/>
+    <path d="M470 210 a30 16 0 0 0 60 0 Z" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="486" y="192" width="28" height="5" rx="2.5" fill="#e0f7ff" opacity="0.8"/>
+    <rect x="486" y="200" width="20" height="5" rx="2.5" fill="#38bdf8" opacity="0.6"/>
+  </g>
+  <!-- right pan (workflow fit, tilted up) -->
+  <g>
+    <line x1="700" y1="150" x2="678" y2="196" stroke="#7dd3fc" stroke-width="1.5"/>
+    <line x1="700" y1="150" x2="722" y2="196" stroke="#7dd3fc" stroke-width="1.5"/>
+    <path d="M672 196 a28 15 0 0 0 56 0 Z" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="700" cy="182" r="10" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <path d="M696 182 l3 3 6 -7" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- multiple tool tiles -->
+  <g>
+    <rect x="300" y="250" width="70" height="60" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <circle cx="335" cy="275" r="9" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <rect x="312" y="290" width="46" height="6" rx="3" fill="#38bdf8" opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="385" y="250" width="70" height="60" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <path d="M415 268 l12 10 -12 10 M425 300 l-12 -10 12 -10" stroke="#7dd3fc" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="397" y="290" width="46" height="6" rx="3" fill="#38bdf8" opacity="0.5"/>
+  </g>
+  <g>
+    <rect x="470" y="250" width="70" height="60" rx="12" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
+    <rect x="490" y="266" width="30" height="22" rx="4" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
+    <circle cx="505" cy="277" r="4" fill="#7dd3fc"/>
+    <rect x="482" y="290" width="46" height="6" rx="3" fill="#38bdf8" opacity="0.5"/>
+  </g>
+  <text x="420" y="340" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#9fd8f0">哪个真正嵌得进你的工作流？</text>
+</svg>

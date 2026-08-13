@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-13</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-13</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-tool-comparison-deep-dive.html</loc>
+    <lastmod>2026-08-13T13:16:25+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-tool-comparison-deep-dive.html</loc>
+    <lastmod>2026-08-13T13:16:25+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-application-scenarios-deep-dive.html</loc>
+    <lastmod>2026-08-13T11:07:02+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</loc>
@@ -222,11 +234,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-13</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-13</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
+    <lastmod>2026-08-13T11:07:02+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-tool-subscription-payment-deep-dive.html</loc>
