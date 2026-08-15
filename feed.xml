@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 15 Aug 2026 15:55:46 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 15 Aug 2026 16:45:59 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[用了三个月再对比：AI 工具对比其实是场"保留赛"]]></title>
+    <link>https://ponr.org/articles/ai-tool-comparison-retention-review.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-comparison-retention-review.html</guid>
+    <pubDate>Sat, 15 Aug 2026 16:45:59 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[用了三个月再做 AI 工具对比，其实是一场保留赛：沉没成本、账号迁移、订阅剪枝轮番劝退。聊聊怎么按季度回顾工具，再用一张虚拟卡集中收管留下来的订阅。]]></description>
+  </item>
   <item>
     <title><![CDATA[该为 AI 工具订阅支付准备几个账户？一份写给多平台订阅者的账户策略笔记]]></title>
     <link>https://ponr.org/articles/ai-subscription-payment-accounts-strategy.html</link>

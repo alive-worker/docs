@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="AI 工具对比 用完再评估">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1b2a"/>
+      <stop offset="1" stop-color="#1f3a5f"/>
+    </linearGradient>
+    <linearGradient id="funnel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4fd1c5" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4fd1c5" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- subtle grid -->
+  <g stroke="#274060" stroke-width="0.5" opacity="0.5">
+    <path d="M0 100H800M0 200H800M0 300H800"/>
+    <path d="M200 0V400M400 0V400M600 0V400"/>
+  </g>
+
+  <!-- Title text (Chinese) -->
+  <g font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" fill="#e6f2ff">
+    <text x="48" y="88" font-size="32" font-weight="700" letter-spacing="2">AI 工具对比</text>
+    <text x="48" y="130" font-size="28" font-weight="500" letter-spacing="1" fill="#a0e8df">用完再评估 · 一场保留赛</text>
+    <rect x="48" y="98" width="200" height="3" fill="#4fd1c5"/>
+  </g>
+
+  <!-- Top row: 6 AI tool tiles feeding into funnel -->
+  <g font-family="'Inter','PingFang SC',sans-serif" font-size="13" fill="#cfe8ff" text-anchor="middle">
+    <g>
+      <rect x="70" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="105" y="196">ChatGPT</text>
+    </g>
+    <g>
+      <rect x="160" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="195" y="196">Claude</text>
+    </g>
+    <g>
+      <rect x="250" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="285" y="196">Gemini</text>
+    </g>
+    <g>
+      <rect x="340" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="375" y="196">Midjourney</text>
+    </g>
+    <g>
+      <rect x="430" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="465" y="196">Perplexity</text>
+    </g>
+    <g>
+      <rect x="520" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="555" y="196">Cursor</text>
+    </g>
+    <g>
+      <rect x="610" y="170" width="70" height="42" rx="7" fill="#2b4a6f" stroke="#5aa8c8" stroke-width="1.2"/>
+      <text x="645" y="196">Runway</text>
+    </g>
+  </g>
+
+  <!-- arrows down into funnel -->
+  <g stroke="#6fb3d2" stroke-width="1.4" fill="none" opacity="0.7">
+    <path d="M105 215 L360 240"/>
+    <path d="M195 215 L380 240"/>
+    <path d="M285 215 L395 240"/>
+    <path d="M375 215 L410 240"/>
+    <path d="M465 215 L425 240"/>
+    <path d="M555 215 L440 240"/>
+    <path d="M645 215 L455 240"/>
+  </g>
+
+  <!-- Funnel -->
+  <g>
+    <polygon points="300,240 520,240 460,320 360,320" fill="url(#funnel)" stroke="#4fd1c5" stroke-width="1.8"/>
+    <text x="410" y="278" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#052a2a" text-anchor="middle" font-weight="700">季度回顾筛选</text>
+    <text x="410" y="300" font-family="'Inter',sans-serif" font-size="11" fill="#083539" text-anchor="middle" letter-spacing="2">RETENTION REVIEW</text>
+  </g>
+
+  <!-- Below: 3 kept tools with checkmarks + 2 dropped with X -->
+  <g font-family="'PingFang SC','Inter',sans-serif" font-size="12">
+    <g>
+      <rect x="230" y="342" width="88" height="36" rx="8" fill="#0f5132" stroke="#4ade80" stroke-width="1.6"/>
+      <text x="252" y="365" fill="#c8f8d4" font-weight="600">✓ 保留</text>
+    </g>
+    <g>
+      <rect x="356" y="342" width="88" height="36" rx="8" fill="#0f5132" stroke="#4ade80" stroke-width="1.6"/>
+      <text x="378" y="365" fill="#c8f8d4" font-weight="600">✓ 保留</text>
+    </g>
+    <g>
+      <rect x="482" y="342" width="88" height="36" rx="8" fill="#0f5132" stroke="#4ade80" stroke-width="1.6"/>
+      <text x="504" y="365" fill="#c8f8d4" font-weight="600">✓ 保留</text>
+    </g>
+    <g opacity="0.6">
+      <rect x="110" y="342" width="80" height="36" rx="8" fill="#3a1414" stroke="#ef4444" stroke-width="1.4"/>
+      <text x="132" y="365" fill="#fecaca">✕ 剪掉</text>
+    </g>
+    <g opacity="0.6">
+      <rect x="608" y="342" width="80" height="36" rx="8" fill="#3a1414" stroke="#ef4444" stroke-width="1.4"/>
+      <text x="630" y="365" fill="#fecaca">✕ 剪掉</text>
+    </g>
+  </g>
+
+  <!-- Right-side quarter tick badges -->
+  <g font-family="'Inter',sans-serif" font-size="10" fill="#a0e8df" text-anchor="end">
+    <text x="760" y="60">Q1</text>
+    <text x="760" y="90">Q2</text>
+    <text x="760" y="120">Q3 ●</text>
+    <circle cx="770" cy="86" r="3" fill="#4fd1c5" filter="url(#glow)"/>
+  </g>
+</svg>
