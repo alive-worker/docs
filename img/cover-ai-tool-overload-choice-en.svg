@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Are we losing the ability to choose as AI tools multiply cover image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2b3d"/>
+      <stop offset="1" stop-color="#1f5f5b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0" stop-color="#5fe3c7" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5fe3c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ff0d8"/>
+      <stop offset="1" stop-color="#39b8a5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <rect width="800" height="400" fill="url(#glow)"/>
+  <g stroke="#63d9c4" stroke-opacity="0.32" stroke-width="1.4">
+    <line x1="400" y1="200" x2="180" y2="96"/>
+    <line x1="400" y1="200" x2="150" y2="220"/>
+    <line x1="400" y1="200" x2="210" y2="320"/>
+    <line x1="400" y1="200" x2="620" y2="104"/>
+    <line x1="400" y1="200" x2="660" y2="210"/>
+    <line x1="400" y1="200" x2="600" y2="318"/>
+    <line x1="400" y1="200" x2="360" y2="70"/>
+    <line x1="400" y1="200" x2="440" y2="336"/>
+    <line x1="180" y1="96" x2="360" y2="70"/>
+    <line x1="620" y1="104" x2="360" y2="70"/>
+    <line x1="150" y1="220" x2="210" y2="320"/>
+    <line x1="660" y1="210" x2="600" y2="318"/>
+  </g>
+  <g fill="url(#node)">
+    <circle cx="180" cy="96" r="12"/>
+    <circle cx="150" cy="220" r="10"/>
+    <circle cx="210" cy="320" r="11"/>
+    <circle cx="620" cy="104" r="11"/>
+    <circle cx="660" cy="210" r="9"/>
+    <circle cx="600" cy="318" r="12"/>
+    <circle cx="360" cy="70" r="9"/>
+    <circle cx="440" cy="336" r="10"/>
+  </g>
+  <circle cx="400" cy="200" r="30" fill="#0f2b3d" stroke="#7ff0d8" stroke-width="3"/>
+  <circle cx="400" cy="200" r="30" fill="url(#node)" fill-opacity="0.22"/>
+  <text x="400" y="209" font-family="'Segoe UI',system-ui,sans-serif" font-size="26" font-weight="700" fill="#eafff9" text-anchor="middle">AI</text>
+  <text x="56" y="360" font-family="'Segoe UI',system-ui,sans-serif" font-size="28" font-weight="700" fill="#eafff9">Too many AI tools, too little choice</text>
+</svg>

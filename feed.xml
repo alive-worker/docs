@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 15 Aug 2026 16:45:59 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 16 Aug 2026 14:23:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[工具太多，我们反而不会选了？一场关于 AI 工具对比的冷思考]]></title>
+    <link>https://ponr.org/articles/ai-tool-choice-overload.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-choice-overload.html</guid>
+    <pubDate>Sun, 16 Aug 2026 14:23:25 +0800</pubDate>
+    <category>AI 与社会</category>
+    <description><![CDATA[AI 工具一夜之间多到选不过来，我们的选择能力却在退化。这篇聊聊为什么工具越多越焦虑、AI 工具对比该怎么做减法，以及怎么用一张虚拟卡收拢订阅。]]></description>
+  </item>
   <item>
     <title><![CDATA[用了三个月再对比：AI 工具对比其实是场"保留赛"]]></title>
     <link>https://ponr.org/articles/ai-tool-comparison-retention-review.html</link>

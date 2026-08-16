@@ -2,15 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-tool-choice-overload.html</loc>
+    <lastmod>2026-08-16T14:23:25+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-tool-comparison-retention-review.html</loc>
     <lastmod>2026-08-15T16:45:59+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-tool-choice-overload.html</loc>
+    <lastmod>2026-08-16T14:23:25+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-tool-comparison-retention-review.html</loc>
@@ -250,11 +258,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-16</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
