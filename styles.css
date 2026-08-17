@@ -8,14 +8,14 @@
   --panel: #0e0f19;
   --line: #23243a;
   --line-strong: #33344e;
-  --accent: #9161f2;
-  --accent-light: #b794f6;
+  --accent: #1f9e90;
+  --accent-light: #4dd0c0;
   --accent-2: #e0a55c;
-  --accent-soft: #221a3d;
+  --accent-soft: #113330;
   --shadow: 0 14px 38px rgba(0, 0, 0, .55);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, .4);
-  --focus: #a98bf5;
-  --bg-glow: radial-gradient(1200px 640px at 82% -8%, rgba(145, 97, 242, .16), transparent 60%),
+  --focus: #3ecdb8;
+  --bg-glow: radial-gradient(1200px 640px at 82% -8%, rgba(31, 158, 144, .18), transparent 60%),
              radial-gradient(900px 480px at -8% 18%, rgba(224, 165, 92, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
   --wrap: 760px;             /* reading column width */
@@ -37,18 +37,18 @@
   --panel: #ffffff;
   --line: #e6e1d7;
   --line-strong: #d8d2c6;
-  --accent: #6d28d9;
-  --accent-light: #8b5cf6;
+  --accent: #157b6f;
+  --accent-light: #1f9e90;
   --accent-2: #8d5132;
-  --accent-soft: #ece4fb;
+  --accent-soft: #e0f3f0;
   --shadow: 0 14px 38px rgba(42, 35, 25, 0.09);
   --shadow-sm: 0 2px 10px rgba(42, 35, 25, 0.05);
-  --focus: #6d28d9;
+  --focus: #157b6f;
   /* Light theme reads "dirty" much faster than dark with a tinted overlay — a second
-     warm tone stacked under the purple one showed up as a visible muddy two-tone band
-     across the header. One faint purple hint, low enough to be nearly subliminal. */
-  --bg-glow: radial-gradient(1100px 600px at 84% -6%, rgba(109, 40, 217, .035), transparent 60%);
-  --panel-gradient: linear-gradient(160deg, #ffffff, var(--panel) 70%);
+     warm tone stacked under the teal one showed up as a visible muddy two-tone band
+     across the header. One faint teal hint, low enough to be nearly subliminal. */
+  --bg-glow: radial-gradient(1100px 600px at 84% -6%, rgba(21, 123, 111, .07), transparent 60%);
+  --panel-gradient: linear-gradient(160deg, #ffffff, color-mix(in srgb, var(--accent) 4%, #ffffff) 70%);
 }
 
 * { box-sizing: border-box; }
@@ -398,7 +398,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background: var(--panel); font-size: 13.5px; font-family: inherit; color: var(--ink);
 }
 .sidebar-search-input:focus {
-  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
+  outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), 0 0 14px -4px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .sidebar-search-input::placeholder { color: var(--muted); }
 .sidebar-search-clear {
@@ -616,12 +616,17 @@ body.is-searching .hero-duo { display: none; }
 .post-card {
   display: flex; flex-direction: column;
   border: 1px solid var(--line); border-radius: 14px;
-  background: var(--panel);
+  background: var(--panel-gradient);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.post-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--line-strong); }
+/* Tech-glow hover: a soft accent-tinted halo instead of just a darker border. */
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 8px 28px -8px color-mix(in srgb, var(--accent) 45%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line-strong));
+}
 .post-card-cover-link { display: block; line-height: 0; }
 .post-card-cover { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; background: var(--soft); }
 .post-card-body { display: flex; flex-direction: column; gap: 9px; padding: 16px 18px 18px; flex: 1; }
@@ -654,7 +659,7 @@ body.is-searching .hero-duo { display: none; }
 }
 .topic-tag-btn .topic-tag-count { font-weight: 800; color: var(--accent); font-size: 12px; }
 .topic-tag-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
-.topic-tag-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.topic-tag-btn.is-active { background: linear-gradient(135deg, var(--accent-light), var(--accent)); border-color: var(--accent); color: #fff; }
 .topic-tag-btn.is-active .topic-tag-count { color: #fff; }
 .read-link {
   display: inline-flex; align-items: center; gap: 6px;
@@ -712,7 +717,7 @@ body.is-searching .hero-duo { display: none; }
 .article-body p { margin: 0 0 16px; }
 .article-body ul { margin: 0 0 16px; padding-left: 22px; }
 .article-body li { margin: 7px 0; }
-.article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(145, 97, 242, .45); }
+.article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(31, 158, 144, .45); }
 .article-body a:hover { color: var(--accent-2); text-decoration-color: currentColor; }
 [data-theme="light"] .article-body a { text-decoration-color: rgba(109, 40, 217, .4); }
 
