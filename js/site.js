@@ -21,15 +21,15 @@
   var themeToggle = document.querySelector('.theme-toggle');
   if (themeToggle) {
     var refreshThemeLabel = function () {
-      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
       themeToggle.setAttribute('aria-pressed', String(isDark));
       themeToggle.setAttribute('aria-label', isDark ? STR.toLight : STR.toDark);
     };
     refreshThemeLabel();
     themeToggle.addEventListener('click', function () {
-      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) { document.documentElement.removeAttribute('data-theme'); }
-      else { document.documentElement.setAttribute('data-theme', 'dark'); }
+      var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      if (isDark) { document.documentElement.setAttribute('data-theme', 'light'); }
+      else { document.documentElement.removeAttribute('data-theme'); }
       try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch (e) {}
       refreshThemeLabel();
     });
@@ -574,5 +574,51 @@
       }
     }, { rootMargin: '-96px 0px -70% 0px', threshold: 0 });
     sections.forEach(function (s) { observer.observe(s); });
+  }
+
+  // --- Homepage hero carousel: left image carousel with prev/next arrows + dot indicators ---
+  var carousel = document.querySelector('.carousel');
+  if (carousel) {
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
+    var infos = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide-info'));
+    var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
+    var idx = slides.findIndex(function (s) { return s.classList.contains('is-active'); });
+    if (idx < 0) idx = 0;
+    var show = function (i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === idx); });
+      infos.forEach(function (info, n) { info.hidden = n !== idx; });
+      dots.forEach(function (d, n) { d.classList.toggle('is-active', n === idx); });
+    };
+    var prevBtn = carousel.querySelector('.carousel-arrow--prev');
+    var nextBtn = carousel.querySelector('.carousel-arrow--next');
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var AUTOPLAY_MS = 6000;
+    var timer = null;
+    var stopAutoplay = function () { if (timer) { clearInterval(timer); timer = null; } };
+    var startAutoplay = function () {
+      if (reduceMotion || slides.length < 2) return;
+      stopAutoplay();
+      timer = setInterval(function () { show(idx + 1); }, AUTOPLAY_MS);
+    };
+    // Any manual interaction restarts the autoplay clock instead of just pausing forever,
+    // so the carousel keeps advancing on its own after the user lets go.
+    var goTo = function (i) { show(i); startAutoplay(); };
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(idx - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(idx + 1); });
+    dots.forEach(function (d, n) { d.addEventListener('click', function () { goTo(n); }); });
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', startAutoplay);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopAutoplay(); else startAutoplay();
+    });
+
+    show(idx);
+    startAutoplay();
   }
 })();

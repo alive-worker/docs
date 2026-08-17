@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="google-site-verification" content="_fYlYEkYo3yjD206PeFnNVWLhg06AMDE25rY7hN-FOM" />
-  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI服务指南｜ChatGPT/Claude/Gemini 与 DeepSeek/豆包/Kimi 使用指南</title>
   <meta name="description" content="围绕 ChatGPT、Claude、Gemini 等海外 AI 与 DeepSeek、豆包、Kimi 等国内 AI 服务，整理订阅开通、支付通道与日常使用的实用原创中文指南。">
@@ -36,7 +36,7 @@
   <meta property="og:image:alt" content="AI服务指南">
   <meta name="twitter:image" content="https://ponr.org/og/og-home.png">
   <link rel="preload" as="image" href="/img/cover-ai-tool-evaluation-framework.svg" fetchpriority="high">
-  <link rel="stylesheet" href="/styles.min.css?v=6c4970c6e1">
+  <link rel="stylesheet" href="/styles.min.css?v=5c069281bc">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -150,24 +150,109 @@
         </div>
       </section>
 
-      <section class="featured-article" aria-label="精选文章">
-        <a class="featured-card" href="/articles/ai-tool-evaluation-framework.html">
-          <span class="featured-cover-wrap">
-            <img class="featured-cover" src="/img/cover-ai-tool-evaluation-framework.svg" width="800" height="400" alt="AI 工具评估框架：嵌入成本、选择过载与三个月留存复盘封面图" fetchpriority="high">
-          </span>
-          <span class="featured-body">
-            <span class="featured-label">— 置顶阅读</span>
-            <span class="featured-title-row">
-              <span class="archive-tag archive-tag--teal">工具对比</span>
-              <span class="featured-title">选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法</span>
-            </span>
-            <span class="featured-desc">功能清单、跑分榜单都比不出真答案。这篇拆解为什么该比嵌入成本而非参数、选择过多时怎么做减法，以及三个月后的留存复盘怎么做，附虚拟卡收拢订阅实操。</span>
-            <span class="featured-meta">
-              <time datetime="2026-08-17T11:26:58+08:00">2026-08-17 11:26:58</time>
-              <span class="featured-more">阅读详情 →</span>
-            </span>
-          </span>
-        </a>
+      <section class="hero-duo" aria-label="精选文章与热门精选">
+        <div class="carousel" aria-roledescription="carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide is-active">
+              <img src="/img/cover-ai-tool-evaluation-framework.svg" width="800" height="400" alt="AI 工具评估框架：嵌入成本、选择过载与三个月留存复盘封面图" fetchpriority="high">
+            </div>
+            <div class="carousel-slide">
+              <img src="/img/cover-ai-subscription-payment-economics.svg" width="800" height="400" alt="AI 订阅支付经济学：账户结构、汇率与虚拟卡封面图" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="/img/cover-ai-application-scenarios-deep.svg" width="800" height="400" alt="AI 应用场景从尝鲜工具走向日常工作流封面图" loading="lazy">
+            </div>
+            <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="上一张">&#8592;</button>
+            <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="下一张">&#8594;</button>
+          </div>
+          <div class="carousel-body">
+            <div class="carousel-slide-info" data-index="0" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--teal">工具对比</span></span>
+              <h2 class="carousel-title"><a href="/articles/ai-tool-evaluation-framework.html">选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法</a></h2>
+              <p class="carousel-desc">功能清单、跑分榜单都比不出真答案。这篇拆解为什么该比嵌入成本而非参数、选择过多时怎么做减法，以及三个月后的留存复盘怎么做，附虚拟卡收拢订阅实操。</p>
+              <span class="carousel-meta"><time datetime="2026-08-17T11:26:58+08:00">2026-08-17 11:26:58</time><a class="carousel-more" href="/articles/ai-tool-evaluation-framework.html">阅读全文 →</a></span>
+            </div>
+            <div class="carousel-slide-info" data-index="1" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--azure">支付方案</span></span>
+              <h2 class="carousel-title"><a href="/articles/ai-subscription-payment-economics.html">AI 订阅的钱是怎么花没的：账户结构、汇率与虚拟卡实战账本</a></h2>
+              <p class="carousel-desc">一份 AI 订阅支付的账户经济学笔记：从订阅制怎么重塑用 AI 的方式，到账户该开几个、汇率手续费藏在哪、扣款失败怎么防，最后用虚拟卡与稳定币收拢账单。</p>
+              <span class="carousel-meta"><time datetime="2026-08-16T00:00:00+08:00">2026-08-16</time><a class="carousel-more" href="/articles/ai-subscription-payment-economics.html">阅读全文 →</a></span>
+            </div>
+            <div class="carousel-slide-info" data-index="2" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--azure">应用场景</span></span>
+              <h2 class="carousel-title"><a href="/articles/ai-application-scenarios-deep-dive.html">AI 应用场景正在悄悄换挡：从尝鲜工具走向嵌入日常工作流</a></h2>
+              <p class="carousel-desc">真正改变生产力的从不是某个爆款工具，而是 AI 应用场景与工作流的重组。这篇聊聊个人和团队的场景差异、哪些跑通了哪些还是噱头，以及落地绕不开的支付门槛。</p>
+              <span class="carousel-meta"><time datetime="2026-08-15T00:00:00+08:00">2026-08-15</time><a class="carousel-more" href="/articles/ai-application-scenarios-deep-dive.html">阅读全文 →</a></span>
+            </div>
+          </div>
+          <div class="carousel-dots">
+            <button type="button" class="carousel-dot is-active" aria-label="第 1 张"></button>
+            <button type="button" class="carousel-dot" aria-label="第 2 张"></button>
+            <button type="button" class="carousel-dot" aria-label="第 3 张"></button>
+          </div>
+        </div>
+
+        <aside class="hotpicks" aria-label="热门精选">
+          <p class="hotpicks-title">🔥 热门精选</p>
+          <ol class="hotpicks-list">
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">1</span>
+              <div class="hotpicks-body">
+                <a href="/articles/ai-tool-evaluation-framework.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">功能清单、跑分榜单都比不出真答案，拆解嵌入成本与三个月留存复盘法。</span>
+                      <span class="hotpicks-item-date">2026-08-17</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">2</span>
+              <div class="hotpicks-body">
+                <a href="/articles/ai-application-scenarios-guide.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">2026年AI应用场景全览：写作/编程/绘图/视频/搜索/语音工具费用与支付实操</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">横向梳理六大主流 AI 应用场景的代表工具、真实费用结构与统一支付方案。</span>
+                      <span class="hotpicks-item-date">2026-08-11</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">3</span>
+              <div class="hotpicks-body">
+                <a href="/articles/domestic-ai-subscription-guide.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">国内主流 AI 大模型的开通、订阅与支付方式入门，覆盖常见坑点。</span>
+                      <span class="hotpicks-item-date">2026-07-14</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">4</span>
+              <div class="hotpicks-body">
+                <a href="/articles/overseas-ai-virtual-card-solution.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">虚拟信用卡支付方案：一张卡搞定海外AI账单</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">独立虚拟卡是订阅海外 AI 服务最省心的支付方案，怎么开卡、充值、选服务商一次讲清楚。</span>
+                      <span class="hotpicks-item-date">2026-07-14</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+          </ol>
+        </aside>
       </section>
 
       <section class="post-list" aria-label="最新文章">
@@ -567,6 +652,6 @@
     <a class="back-to-top" href="#top" aria-label="返回顶部">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </a>
-  <script src="/js/site.min.js?v=99359c3899"></script>
+  <script src="/js/site.min.js?v=538de08703"></script>
 </body>
 </html>
