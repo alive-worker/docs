@@ -700,9 +700,12 @@ body.is-searching .hero-duo { display: none; }
 .toc a:hover { text-decoration: underline; }
 
 /* --- article layout: sticky right-rail TOC (replaces the left "recent articles" reservation) --- */
+/* Keep the page at the site's full wide shell — the body column fills whatever room that
+   leaves next to the fixed 240px TOC rail (no fixed cap), so text runs edge-to-edge up to
+   the TOC divider instead of stopping short and leaving a blank strip in front of it. */
 .layout--article .article-shell { max-width: var(--wrap-wide); }
 .article-columns { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 48px; align-items: start; }
-.article-columns .article-body { max-width: 720px; margin-top: 0; }
+.article-columns .article-body { max-width: none; margin-top: 0; }
 .article-columns .toc {
   position: sticky; top: calc(var(--sticky-offset) + 16px);
   max-height: calc(100vh - var(--sticky-offset) - 40px);
