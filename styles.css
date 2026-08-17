@@ -733,6 +733,8 @@ body.is-searching .hero-duo { display: none; }
 .article-body h2:first-child, .article-body section:first-child h2 { margin-top: 6px; }
 .article-body h3 { margin: 28px 0 8px; font-size: 19px; line-height: 1.4; scroll-margin-top: 84px; }
 .article-body p { margin: 0 0 16px; }
+/* Chinese-style first-line paragraph indent (两个字符) — EN pages keep flush-left, which is the norm there. */
+html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .article-body ul { margin: 0 0 16px; padding-left: 22px; }
 .article-body li { margin: 7px 0; }
 .article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(31, 158, 144, .45); }
