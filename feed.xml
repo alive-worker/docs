@@ -6,54 +6,22 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 16 Aug 2026 14:23:25 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 17 Aug 2026 11:26:58 +0800</lastBuildDate>
   <item>
-    <title><![CDATA[工具太多，我们反而不会选了？一场关于 AI 工具对比的冷思考]]></title>
-    <link>https://ponr.org/articles/ai-tool-choice-overload.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-choice-overload.html</guid>
-    <pubDate>Sun, 16 Aug 2026 14:23:25 +0800</pubDate>
-    <category>AI 与社会</category>
-    <description><![CDATA[AI 工具一夜之间多到选不过来，我们的选择能力却在退化。这篇聊聊为什么工具越多越焦虑、AI 工具对比该怎么做减法，以及怎么用一张虚拟卡收拢订阅。]]></description>
+    <title><![CDATA[选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法]]></title>
+    <link>https://ponr.org/articles/ai-tool-evaluation-framework.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-evaluation-framework.html</guid>
+    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[功能清单、跑分榜单都比不出真答案。这篇拆解为什么该比嵌入成本而非参数、选择过多时怎么做减法，以及三个月后的留存复盘怎么做，附虚拟卡收拢订阅实操。]]></description>
   </item>
   <item>
-    <title><![CDATA[用了三个月再对比：AI 工具对比其实是场"保留赛"]]></title>
-    <link>https://ponr.org/articles/ai-tool-comparison-retention-review.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-comparison-retention-review.html</guid>
-    <pubDate>Sat, 15 Aug 2026 16:45:59 +0800</pubDate>
+    <title><![CDATA[AI 订阅的钱是怎么花没的：账户结构、汇率与虚拟卡实战账本]]></title>
+    <link>https://ponr.org/articles/ai-subscription-payment-economics.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-payment-economics.html</guid>
+    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
     <category>海外AI订阅</category>
-    <description><![CDATA[用了三个月再做 AI 工具对比，其实是一场保留赛：沉没成本、账号迁移、订阅剪枝轮番劝退。聊聊怎么按季度回顾工具，再用一张虚拟卡集中收管留下来的订阅。]]></description>
-  </item>
-  <item>
-    <title><![CDATA[该为 AI 工具订阅支付准备几个账户？一份写给多平台订阅者的账户策略笔记]]></title>
-    <link>https://ponr.org/articles/ai-subscription-payment-accounts-strategy.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-payment-accounts-strategy.html</guid>
-    <pubDate>Sat, 15 Aug 2026 15:55:46 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[一份 AI 工具订阅支付的账户策略笔记：从多平台账号布局、绑卡与风控博弈，到家庭共享的边界、订阅取消后残留扣款、退款与拒付通道，最后落到用哪张虚拟卡承接更合理。]]></description>
-  </item>
-  <item>
-    <title><![CDATA[为什么大多数人的 AI 工具对比都比错了方向]]></title>
-    <link>https://ponr.org/articles/ai-tool-comparison-deep-dive.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-comparison-deep-dive.html</guid>
-    <pubDate>Wed, 13 Aug 2026 13:16:25 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[做 AI 工具对比时总盯着功能清单和跑分，结果越比越乱？换个角度看，真正该比的不是参数，而是工具能不能嵌进你的工作方式，以及对比之后绕不开的订阅支付。]]></description>
-  </item>
-  <item>
-    <title><![CDATA[AI 应用场景正在悄悄换挡：从尝鲜工具走向嵌入日常工作流]]></title>
-    <link>https://ponr.org/articles/ai-application-scenarios-deep-dive.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-application-scenarios-deep-dive.html</guid>
-    <pubDate>Wed, 13 Aug 2026 11:07:02 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[真正改变生产力的从不是某个爆款工具，而是 AI 应用场景与工作流的重组。这篇聊聊个人和团队的场景差异、哪些跑通了哪些还是噱头，以及落地绕不开的支付门槛。]]></description>
-  </item>
-  <item>
-    <title><![CDATA[AI 工具订阅支付藏着哪些坑：跨境订阅经济的夹层痛点]]></title>
-    <link>https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-subscription-payment-deep-dive.html</guid>
-    <pubDate>Tue, 12 Aug 2026 14:04:28 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[为什么 AI 工具订阅支付越来越折腾？从卡种限制、换汇损耗、余额困境到监管摩擦，拆解跨境订阅经济里的多重夹层，再看虚拟卡与稳定币怎么破局。]]></description>
+    <description><![CDATA[一份 AI 订阅支付的账户经济学笔记：从订阅制怎么重塑用 AI 的方式，到账户该开几个、汇率手续费藏在哪、扣款失败怎么防，最后用虚拟卡与稳定币收拢账单。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 工具费用怎么算？手把手用一张虚拟卡从零付清所有订阅]]></title>

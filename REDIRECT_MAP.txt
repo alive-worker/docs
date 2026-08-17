@@ -1,0 +1,10 @@
+/articles/ai-tool-choice-overload.html -> /articles/ai-tool-evaluation-framework.html
+/articles/ai-tool-comparison-retention-review.html -> /articles/ai-tool-evaluation-framework.html
+/articles/ai-tool-comparison-deep-dive.html -> /articles/ai-tool-evaluation-framework.html
+/articles/ai-subscription-payment-accounts-strategy.html -> /articles/ai-subscription-payment-economics.html
+/articles/ai-tool-subscription-payment-deep-dive.html -> /articles/ai-subscription-payment-economics.html
+/en/articles/ai-tool-choice-overload.html -> /en/articles/ai-tool-evaluation-framework.html
+/en/articles/ai-tool-comparison-retention-review.html -> /en/articles/ai-tool-evaluation-framework.html
+/en/articles/ai-tool-comparison-deep-dive.html -> /en/articles/ai-tool-evaluation-framework.html
+/en/articles/ai-subscription-payment-accounts-strategy.html -> /en/articles/ai-subscription-payment-economics.html
+/en/articles/ai-tool-subscription-payment-deep-dive.html -> /en/articles/ai-subscription-payment-economics.html

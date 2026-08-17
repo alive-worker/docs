@@ -143,18 +143,12 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
-    '/articles/ai-tool-choice-overload.html': '2026-08-16 14:23:25',
-    '/en/articles/ai-tool-choice-overload.html': '2026-08-16 14:23:25',
-    '/articles/ai-tool-comparison-retention-review.html': '2026-08-15 16:45:59',
-    '/en/articles/ai-tool-comparison-retention-review.html': '2026-08-15 16:45:59',
-    '/articles/ai-tool-comparison-deep-dive.html': '2026-08-13 13:16:25',
-    '/en/articles/ai-tool-comparison-deep-dive.html': '2026-08-13 13:16:25',
+    '/articles/ai-tool-evaluation-framework.html': '2026-08-17 11:26:58',
+    '/en/articles/ai-tool-evaluation-framework.html': '2026-08-17 11:26:58',
+    '/articles/ai-subscription-payment-economics.html': '2026-08-17 11:26:58',
+    '/en/articles/ai-subscription-payment-economics.html': '2026-08-17 11:26:58',
     '/articles/ai-application-scenarios-deep-dive.html': '2026-08-13 11:07:02',
     '/en/articles/ai-application-scenarios-deep-dive.html': '2026-08-13 11:07:02',
-    '/articles/ai-tool-subscription-payment-deep-dive.html': '2026-08-12 14:04:28',
-    '/en/articles/ai-tool-subscription-payment-deep-dive.html': '2026-08-12 14:04:28',
-    '/articles/ai-subscription-payment-accounts-strategy.html': '2026-08-15 15:55:46',
-    '/en/articles/ai-subscription-payment-accounts-strategy.html': '2026-08-15 15:55:46',
     '/articles/ai-tool-cost-virtual-card-tutorial.html': '2026-08-12 12:39:53',
     '/en/articles/ai-tool-cost-virtual-card-tutorial.html': '2026-08-12 12:39:53',
     '/articles/ai-application-scenarios-guide.html': '2026-08-11 12:50:25',
@@ -425,9 +419,9 @@
     var searchInput2 = document.querySelector('.sidebar-search-input');
     var searchWrap2 = document.querySelector('.sidebar-search');
     var searchClear2 = document.querySelector('.sidebar-search-clear');
-    // Home: the teaser grid under "最新文章" is a fixed 6-card preview (no pagination) —
+    // Home: the teaser grid under "最新文章" is a fixed 9-card preview (no pagination) —
     // "查看全部" links out to the full archive instead. gridPaginator stays null here on
-    // purpose, so the search-clear handler below just un-hides all 6 cards.
+    // purpose, so the search-clear handler below just un-hides all 9 cards.
     var pager = document.querySelector('.pager');
     // Topic-tag row atop the archive page (articles.html only) — clicking a tag filters
     // the list below by each item's data-topic and re-paginates just the matching subset.
