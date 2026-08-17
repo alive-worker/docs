@@ -815,6 +815,11 @@ body.is-searching .hero-duo { display: none; }
   /* On mobile, only the header stays pinned — the search bar scrolls away with the
      page instead of also being sticky, so fixed chrome doesn't eat ~1/5 of the viewport. */
   .search-bar { position: static; box-shadow: none; }
+  /* Same reasoning for .hero: on archive/list pages its kicker+h1+lede+topic-tag-row
+     stack can run 250px+ tall on narrow screens. Sticky-pinning something that tall
+     visually reads as it "overlapping" the list scrolling beneath it, so it scrolls
+     away normally on mobile instead. */
+  .hero { position: static; box-shadow: none; }
   .layout { padding: 0 16px; }
   .hot-topics { padding: 24px 16px 28px; }
   .site-foot { padding-left: 16px; padding-right: 16px; }
