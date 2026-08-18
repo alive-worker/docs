@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 创业公司关站：订阅费退款与数据导出封面图">
+  <defs>
+    <linearGradient id="bgGradSsd" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08201d"/>
+      <stop offset="1" stop-color="#0e3a34"/>
+    </linearGradient>
+    <radialGradient id="glowSsd" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradSsd)"/>
+  <rect width="800" height="400" fill="url(#glowSsd)"/>
+  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#5eead4" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ecfdf5">公司说关就关</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2dd4bf">钱和数据还在吗</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">关站预警 · 退款路径 · 数据导出窗口</text>
+
+  <!-- building with closed sign -->
+  <g transform="translate(610,175)">
+    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-36" y="-30" width="72" height="66" rx="4" fill="#123832" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="-24" y="-14" width="16" height="16" fill="#2dd4bf" opacity="0.5"/>
+    <rect x="8" y="-14" width="16" height="16" fill="#2dd4bf" opacity="0.5"/>
+    <rect x="-24" y="14" width="16" height="16" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="8" y="14" width="16" height="16" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="-46" y="40" width="92" height="8" rx="2" fill="#1e5b50"/>
+    <g transform="translate(0,-52)">
+      <rect x="-34" y="-12" width="68" height="24" rx="4" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#f87171">关站</text>
+    </g>
+    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">停止服务通知</text>
+  </g>
+
+  <!-- export/download data row -->
+  <g>
+    <rect x="300" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <path d="M345 288 v20 M336 300 l9 9 9-9" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="420" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.5"/>
+    <rect x="432" y="288" width="24" height="16" rx="3" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="432" y="310" width="50" height="6" rx="3" fill="#2dd4bf" opacity="0.3"/>
+  </g>
+</svg>

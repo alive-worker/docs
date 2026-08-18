@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 18 Aug 2026 11:26:56 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 14:00:06 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[When AI Subscriptions Raise Prices Without Telling You]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-price-hike-notice.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-price-hike-notice.html</guid>
+    <pubDate>Tue, 18 Aug 2026 14:00:06 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[AI subscriptions rarely announce a price hike; the new rate appears on the next charge. Here's how to catch it early with a virtual card and stablecoin funding.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[When an AI Startup Shuts Down: What Happens to Your Money]]></title>
+    <link>https://ponr.org/en/articles/ai-startup-shutdown-data-refund.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-startup-shutdown-data-refund.html</guid>
+    <pubDate>Tue, 18 Aug 2026 13:57:44 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Small AI startups shut down or get acquired often. Learn the warning signs, what refund rights you have, and how a virtual card limits the fallout.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why AI Free Trials Quietly Turn Into Paid Subscriptions]]></title>
     <link>https://ponr.org/en/articles/free-trial-auto-renewal-trap.html</link>

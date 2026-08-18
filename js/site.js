@@ -143,6 +143,10 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-subscription-price-hike-notice.html': '2026-08-18 14:00:06',
+    '/en/articles/ai-subscription-price-hike-notice.html': '2026-08-18 14:00:06',
+    '/articles/ai-startup-shutdown-data-refund.html': '2026-08-18 13:57:44',
+    '/en/articles/ai-startup-shutdown-data-refund.html': '2026-08-18 13:57:44',
     '/articles/free-trial-auto-renewal-trap.html': '2026-08-18 11:26:56',
     '/en/articles/free-trial-auto-renewal-trap.html': '2026-08-18 11:26:56',
     '/articles/ai-tool-evaluation-framework.html': '2026-08-17 11:26:58',

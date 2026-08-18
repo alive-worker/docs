@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 订阅涨价不提前通知：账单变贵排查封面图">
+  <defs>
+    <linearGradient id="bgGradPhn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08201d"/>
+      <stop offset="1" stop-color="#0e3a34"/>
+    </linearGradient>
+    <radialGradient id="glowPhn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradPhn)"/>
+  <rect width="800" height="400" fill="url(#glowPhn)"/>
+  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#5eead4" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ecfdf5">订阅涨价了</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2dd4bf">你收到通知了吗</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">涨价套路拆解 · 账单对比 · 虚拟卡额度预警</text>
+
+  <!-- price tag with upward trend -->
+  <g transform="translate(610,175)">
+    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
+    <polyline points="-46,30 -18,4 6,20 46,-32" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="20,-32 46,-32 46,-6" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">悄悄涨了多少</text>
+  </g>
+
+  <!-- bill comparison row -->
+  <g>
+    <rect x="300" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.6"/>
+    <text x="345" y="307" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="700" fill="#5eead4" opacity="0.8">$20</text>
+    <path d="M398 301 h18" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
+    <path d="M410 294 l8 7 -8 7" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="420" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="465" y="307" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="700" fill="#f59e0b">$24</text>
+  </g>
+</svg>
