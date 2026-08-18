@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 17 Aug 2026 11:26:58 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 11:26:56 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why AI Free Trials Quietly Turn Into Paid Subscriptions]]></title>
+    <link>https://ponr.org/en/articles/free-trial-auto-renewal-trap.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/free-trial-auto-renewal-trap.html</guid>
+    <pubDate>Tue, 18 Aug 2026 11:26:56 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Free AI trials default to auto-renewal, not cancellation. This piece covers trial dark patterns, why renewal dates slip, and how a virtual card caps the risk.]]></description>
+  </item>
   <item>
     <title><![CDATA[AI Tool Comparisons: Judge by Retention, Not Spec Sheets]]></title>
     <link>https://ponr.org/en/articles/ai-tool-evaluation-framework.html</link>

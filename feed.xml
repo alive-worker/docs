@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 17 Aug 2026 11:26:58 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 11:26:56 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[免费试用到期就自动扣款？AI 订阅续费陷阱怎么防]]></title>
+    <link>https://ponr.org/articles/free-trial-auto-renewal-trap.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/free-trial-auto-renewal-trap.html</guid>
+    <pubDate>Tue, 18 Aug 2026 11:26:56 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[AI 工具免费试用为什么总在你没留意时变成整月扣款？拆解暗模式设计、试用到期日怎么追踪，以及怎么用虚拟卡锁定额度、稳定币按需充值把续费风险控制住。]]></description>
+  </item>
   <item>
     <title><![CDATA[选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法]]></title>
     <link>https://ponr.org/articles/ai-tool-evaluation-framework.html</link>

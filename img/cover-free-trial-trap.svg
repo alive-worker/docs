@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="免费试用到自动续费陷阱：AI 订阅续费防坑封面图">
+  <defs>
+    <linearGradient id="bgGradFtt" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08201d"/>
+      <stop offset="1" stop-color="#0e3a34"/>
+    </linearGradient>
+    <radialGradient id="glowFtt" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradFtt)"/>
+  <rect width="800" height="400" fill="url(#glowFtt)"/>
+  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#5eead4" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ecfdf5">试用到期</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2dd4bf">别被偷偷扣款</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">暗模式识别 · 到期提醒 · 虚拟卡额度锁定</text>
+
+  <!-- countdown clock with warning tick -->
+  <g transform="translate(610,175)">
+    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
+    <path d="M0 -88 A88 88 0 1 1 -71 51" fill="none" stroke="#f59e0b" stroke-width="9" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="-58" stroke="#ecfdf5" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="38" y2="20" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+    <circle r="6" fill="#ecfdf5"/>
+    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">试用倒计时</text>
+  </g>
+
+  <!-- blocked card row -->
+  <g>
+    <rect x="300" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="312" y="288" width="24" height="16" rx="3" fill="#2dd4bf" opacity="0.5"/>
+    <rect x="312" y="310" width="50" height="6" rx="3" fill="#2dd4bf" opacity="0.5"/>
+    <g transform="translate(345,301)">
+      <circle r="20" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
+      <line x1="-9" y1="-9" x2="9" y2="9" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+      <line x1="9" y1="-9" x2="-9" y2="9" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <rect x="420" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.5"/>
+    <rect x="432" y="288" width="24" height="16" rx="3" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="432" y="310" width="50" height="6" rx="3" fill="#2dd4bf" opacity="0.3"/>
+  </g>
+</svg>
