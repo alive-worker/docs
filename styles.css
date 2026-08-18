@@ -8,14 +8,14 @@
   --panel: #0e0f19;
   --line: #23243a;
   --line-strong: #33344e;
-  --accent: #1f9e90;
-  --accent-light: #4dd0c0;
+  --accent: #33c9b0;
+  --accent-light: #7be0cd;
   --accent-2: #e0a55c;
   --accent-soft: #113330;
   --shadow: 0 14px 38px rgba(0, 0, 0, .55);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, .4);
-  --focus: #3ecdb8;
-  --bg-glow: linear-gradient(180deg, rgba(31, 158, 144, .16), transparent 55%),
+  --focus: #7be0cd;
+  --bg-glow: linear-gradient(180deg, rgba(51, 201, 176, .16), transparent 55%),
              radial-gradient(900px 480px at -8% 18%, rgba(224, 165, 92, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
   --wrap: 760px;             /* reading column width */
