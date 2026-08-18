@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ponr.org/sitemap.xml
+IndexNow: https://ponr.org/492c18170d39924679d2b2975e4e81f5.txt
