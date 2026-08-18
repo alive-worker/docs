@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 18 Aug 2026 14:00:06 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 17:48:18 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 订阅扣款申诉拒付前，这三步不能跳过]]></title>
+    <link>https://ponr.org/articles/ai-subscription-chargeback-dispute.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-chargeback-dispute.html</guid>
+    <pubDate>Tue, 18 Aug 2026 17:48:18 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[对 AI 订阅扣款有异议想直接拒付？银行流程走错顺序，账号可能先被封、退款却迟迟拿不到，这篇拆解拒付前该先做的三件事，以及虚拟卡怎么把纠纷限制在一张卡里。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 订阅涨价从不提前通知？账单变贵先查这三个地方]]></title>
     <link>https://ponr.org/articles/ai-subscription-price-hike-notice.html</link>
