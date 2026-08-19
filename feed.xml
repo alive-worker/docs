@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 19 Aug 2026 10:42:27 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 19 Aug 2026 14:24:25 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[明明点了取消，AI订阅账单为什么还在扣钱]]></title>
+    <link>https://ponr.org/articles/ai-subscription-zombie-charge.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-zombie-charge.html</guid>
+    <pubDate>Wed, 19 Aug 2026 14:24:25 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[明明已经点了取消，AI订阅账单下个月还是照常扣款？拆解第三方计费平台和应用商店订阅状态脱节导致的僵尸扣款，教你怎么核实取消是否真生效，用虚拟卡从源头掐断扣款。]]></description>
+  </item>
   <item>
     <title><![CDATA[账单写的是美元，卡里却按欧元扣款：AI订阅里的货币陷阱]]></title>
     <link>https://ponr.org/articles/ai-subscription-currency-mismatch.html</link>
