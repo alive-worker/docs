@@ -109,7 +109,9 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background-attachment: fixed;
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
-  border-bottom: 1px solid var(--line);
+  /* No border-bottom here anymore — header/search-bar/hero are meant to read as one continuous
+     glowing surface now, and a flat --line divider is the one hard edge that would stand out
+     against an otherwise seamless gradient. */
   will-change: transform;
 }
 .header-inner {
