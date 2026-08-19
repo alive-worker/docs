@@ -15,7 +15,8 @@
   --shadow: 0 14px 38px rgba(0, 0, 0, .55);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, .4);
   --focus: #7be0cd;
-  --bg-glow: linear-gradient(180deg, rgba(51, 201, 176, .16), transparent 55%),
+  --bg-glow: radial-gradient(760px 460px at 88% -6%, rgba(51, 201, 176, .14), transparent 60%),
+             linear-gradient(180deg, rgba(51, 201, 176, .12), transparent 55%),
              radial-gradient(900px 480px at -8% 18%, rgba(224, 165, 92, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
   --wrap: 760px;             /* reading column width */
@@ -47,7 +48,8 @@
   /* Light theme reads "dirty" much faster than dark with a tinted overlay — a second
      warm tone stacked under the teal one showed up as a visible muddy two-tone band
      across the header. One faint teal hint, low enough to be nearly subliminal. */
-  --bg-glow: linear-gradient(180deg, rgba(21, 123, 111, .06), transparent 55%);
+  --bg-glow: radial-gradient(700px 440px at 88% -6%, rgba(21, 123, 111, .05), transparent 60%),
+             linear-gradient(180deg, rgba(21, 123, 111, .045), transparent 55%);
   --panel-gradient: linear-gradient(160deg, #ffffff, color-mix(in srgb, var(--accent) 4%, #ffffff) 70%);
 }
 
