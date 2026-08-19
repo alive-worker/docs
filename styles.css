@@ -23,14 +23,13 @@
   --bg-glow: linear-gradient(180deg, rgba(51, 201, 176, .16), transparent 55%),
              radial-gradient(900px 480px at -8% 18%, rgba(224, 165, 92, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
-  /* Flat, deliberately NOT trying to match --bg-glow pixel-for-pixel: sticky chrome (header,
-     search bar, hero, sidebar heading) needs to stay opaque so scrolled content can't show
-     through underneath it, but a gradient's own background-position resolves against the
-     painting element's box, not the viewport, even with attachment:fixed — every attempt to
-     duplicate --bg-glow on a second element came out visibly offset from the real thing and
-     read as a seam or a mismatched block. One flat, lightly accent-tinted surface used
-     consistently everywhere sidesteps the alignment problem entirely instead of chasing it. */
-  --chrome-surface: color-mix(in srgb, var(--paper) 96%, var(--accent) 4%);
+  /* Exactly --paper, no tint at all: sticky chrome (header, search bar, hero, sidebar heading)
+     needs to stay opaque so scrolled content can't show through underneath it. Anything other
+     than plain --paper here — a duplicated gradient, an accent tint — read as a visibly
+     different block against the page, since it never lines up with body's own glow (which is
+     already transparent/faded by the time you're this far into the page anyway). Identical to
+     the base color is the only version that can never look like a mismatched rectangle. */
+  --chrome-surface: var(--paper);
   --wrap: 760px;             /* reading column width */
   --wrap-wide: 1440px;       /* header width */
   --sidebar-track-width: 264px; /* fixed sidebar's width, and the space .main reserves for it */
@@ -65,7 +64,7 @@
      the tall body/hero (see the dark-theme comment above for the full explanation). */
   --bg-glow: linear-gradient(180deg, rgba(21, 123, 111, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, #ffffff, color-mix(in srgb, var(--accent) 4%, #ffffff) 70%);
-  --chrome-surface: color-mix(in srgb, var(--paper) 96%, var(--accent) 4%);
+  --chrome-surface: var(--paper);
 }
 
 * { box-sizing: border-box; }
