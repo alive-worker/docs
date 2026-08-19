@@ -57,6 +57,41 @@
     document.fonts.ready.then(syncStickyOffset);
   }
 
+  // Homepage-only inline search box (see .search-bar--inline): normally a plain static block
+  // inside the hero, but once scrolled out of view it would just disappear — pin it back to a
+  // top bar (.is-pinned, styled to match the original sticky search-bar) so it's still reachable
+  // no matter how far down the page you are. A spacer keeps the layout from jumping when the
+  // box leaves normal flow for position:fixed.
+  (function () {
+    var bar = document.querySelector('.search-bar--inline');
+    if (!bar) return;
+    var spacer = document.createElement('div');
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.display = 'none';
+    bar.parentNode.insertBefore(spacer, bar.nextSibling);
+    // Plain in-flow sibling right before the bar, not a positioned child inside it — setting
+    // position on `bar` itself via inline style would out-specificity the .is-pinned class
+    // rule's own `position: fixed` and the pin would silently never actually apply.
+    var sentinel = document.createElement('div');
+    sentinel.style.cssText = 'width:1px;height:1px;pointer-events:none;';
+    bar.parentNode.insertBefore(sentinel, bar);
+
+    var observer = new IntersectionObserver(function (entries) {
+      var entry = entries[0];
+      var pin = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      if (pin === bar.classList.contains('is-pinned')) return;
+      if (pin) {
+        spacer.style.height = bar.getBoundingClientRect().height + 'px';
+        spacer.style.display = 'block';
+        bar.classList.add('is-pinned');
+      } else {
+        bar.classList.remove('is-pinned');
+        spacer.style.display = 'none';
+      }
+    }, { threshold: 0 });
+    observer.observe(sentinel);
+  })();
+
   // The sidebar is position:fixed (viewport-pinned, immune to how tall its former grid
   // sibling .main happens to be — a position:sticky sidebar shares .main's containing
   // block and can run out of room and slide away before the page actually ends if main's
