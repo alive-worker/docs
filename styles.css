@@ -83,18 +83,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.75;
 }
-/* Single shared backdrop for the whole page's ambient glow, painted exactly once and anchored
-   to the real viewport. Sticky chrome (header/search-bar/hero/sidebar heading) sits in front of
-   it and stays fully opaque — see --chrome-surface below for why they don't try to blend into
-   this gradient directly. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: var(--bg-glow);
-  pointer-events: none;
-}
+/* The page-wide ambient glow (--bg-glow) has been retired: it always sat behind opaque sticky
+   chrome (header/search-bar/hero/sidebar heading), which had to stay opaque to block scrolled
+   content from showing through underneath it — so there was always a visible boundary between
+   "opaque box hiding the glow" and "transparent area right next to it revealing the glow",
+   regardless of what color the opaque box used. That's a structural conflict, not a color one;
+   flat --paper everywhere (chrome and page alike) is the only version with no seam by
+   construction. --bg-glow is kept as a token for now in case a redesign wants it back, just
+   unused here. */
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
 
