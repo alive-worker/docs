@@ -143,6 +143,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-subscription-currency-mismatch.html': '2026-08-19 10:42:27',
+    '/en/articles/ai-subscription-currency-mismatch.html': '2026-08-19 10:42:27',
     '/articles/ai-subscription-chargeback-dispute.html': '2026-08-18 17:48:18',
     '/en/articles/ai-subscription-chargeback-dispute.html': '2026-08-18 17:48:18',
     '/articles/ai-subscription-price-hike-notice.html': '2026-08-18 14:00:06',
