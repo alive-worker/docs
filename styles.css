@@ -413,12 +413,15 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
   position: sticky; top: var(--header-offset); z-index: 90;
+  /* No seam-hiding box-shadow band here anymore — now that background-size locks this to the
+     same viewport-sized canvas as body/header/hero (see the comment on body), the gradient is
+     already pixel-identical across all of them, so a flat --paper hairline here would be the
+     ONE thing that doesn't match the surrounding gradient and shows up as a visible seam. */
   background: var(--bg-glow), var(--paper);
   background-attachment: fixed;
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   will-change: transform;
-  box-shadow: 0 -2px 0 0 var(--paper), 0 2px 0 0 var(--paper);
 }
 .search-bar-inner { max-width: var(--wrap-wide); margin: 0 auto; padding: 14px 24px; }
 .sidebar-search { position: relative; max-width: 420px; margin: 0 0 0 auto; }
@@ -466,9 +469,6 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background-repeat: no-repeat;
   padding: 16px 0 16px;
   will-change: transform;
-  /* Extra opaque bands above/below the box guard against a sub-pixel seam where scrolled
-     content behind a sticky element can peek through during compositing. */
-  box-shadow: 0 -2px 0 0 var(--paper), 0 2px 0 0 var(--paper);
 }
 .kicker {
   display: flex; align-items: center; gap: 6px;
