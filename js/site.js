@@ -82,12 +82,28 @@
   function updateSidebarDock() {
     var sidebar = document.querySelector('.sidebar');
     var layout = document.querySelector('.layout');
-    if (!sidebar || !layout) return;
-    if (window.matchMedia('(max-width: 880px)').matches) { sidebar.classList.remove('is-docked'); return; }
+    var main = document.querySelector('.main');
+    if (!sidebar || !layout || !main) return;
+    if (window.matchMedia('(max-width: 880px)').matches) { sidebar.classList.remove('is-docked'); sidebar.style.maxHeight = ''; return; }
     var stickyOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sticky-offset')) || 0;
     var layoutRect = layout.getBoundingClientRect();
+    // .layout itself now stretches to fill short pages (flex:1 0 auto, so the footer docks to
+    // the viewport bottom instead of leaving a gap) — its own bottom no longer reflects where
+    // the real content ends, so it can't tell us when the sidebar is about to run past it.
+    // .main isn't stretched, only its parent .layout is, so .main's bottom still tracks the
+    // actual content height and is what we want to compare against.
+    var mainRect = main.getBoundingClientRect();
     var sidebarHeight = sidebar.getBoundingClientRect().height;
-    sidebar.classList.toggle('is-docked', layoutRect.bottom < stickyOffset + sidebarHeight);
+    var docked = mainRect.bottom < stickyOffset + sidebarHeight;
+    sidebar.classList.toggle('is-docked', docked);
+    // Fixed mode caps height against the viewport (100vh - sticky offset), but the docked
+    // area is .layout's own box, which can be much shorter — e.g. .layout now stretches to
+    // fill a short page (see the body/.layout flex rule) so its height no longer matches the
+    // sidebar's real content height. Without an explicit cap here the box renders at full
+    // content height and bottom-anchors, pushing the top items above the viewport with no way
+    // to scroll to them. Clamp it to the actual docked space and let .sidebar-nav's own
+    // overflow-y:auto handle the rest.
+    sidebar.style.maxHeight = docked ? Math.max(160, layoutRect.height) + 'px' : '';
   }
   var dockTicking = false;
   function requestSidebarDockUpdate() {
