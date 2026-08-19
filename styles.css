@@ -23,6 +23,14 @@
   --bg-glow: linear-gradient(180deg, rgba(51, 201, 176, .16), transparent 55%),
              radial-gradient(900px 480px at -8% 18%, rgba(224, 165, 92, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
+  /* Flat, deliberately NOT trying to match --bg-glow pixel-for-pixel: sticky chrome (header,
+     search bar, hero, sidebar heading) needs to stay opaque so scrolled content can't show
+     through underneath it, but a gradient's own background-position resolves against the
+     painting element's box, not the viewport, even with attachment:fixed — every attempt to
+     duplicate --bg-glow on a second element came out visibly offset from the real thing and
+     read as a seam or a mismatched block. One flat, lightly accent-tinted surface used
+     consistently everywhere sidesteps the alignment problem entirely instead of chasing it. */
+  --chrome-surface: color-mix(in srgb, var(--paper) 96%, var(--accent) 4%);
   --wrap: 760px;             /* reading column width */
   --wrap-wide: 1440px;       /* header width */
   --sidebar-track-width: 264px; /* fixed sidebar's width, and the space .main reserves for it */
@@ -57,6 +65,7 @@
      the tall body/hero (see the dark-theme comment above for the full explanation). */
   --bg-glow: linear-gradient(180deg, rgba(21, 123, 111, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, #ffffff, color-mix(in srgb, var(--accent) 4%, #ffffff) 70%);
+  --chrome-surface: color-mix(in srgb, var(--paper) 96%, var(--accent) 4%);
 }
 
 * { box-sizing: border-box; }
@@ -70,18 +79,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  /* Gradient stops/positions always resolve against the painting element's OWN box, even with
-     attachment:fixed — so header/search-bar/hero independently repainting this same formula each
-     restart the fade at their own top, producing visible seams between them. Locking the image
-     size to the viewport (and turning off tiling) makes every element reference one identical,
-     truly viewport-anchored canvas instead. */
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--paper);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   line-height: 1.75;
+}
+/* Single shared backdrop for the whole page's ambient glow, painted exactly once and anchored
+   to the real viewport. Sticky chrome (header/search-bar/hero/sidebar heading) sits in front of
+   it and stays fully opaque — see --chrome-surface below for why they don't try to blend into
+   this gradient directly. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg-glow);
+  pointer-events: none;
 }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
@@ -109,13 +122,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- top navigation bar --- */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  /* Same fixed, viewport-sized gradient as body (see the background-size comment on body) so
-     this lines up pixel-for-pixel with the page behind it instead of restarting the fade at
-     its own top and showing as a visibly different band from the glow above/below it. */
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--chrome-surface);
   border-bottom: 1px solid var(--line);
   will-change: transform;
 }
@@ -207,12 +214,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   flex: none;
   display: flex; align-items: center; gap: 6px;
   margin: 0 0 14px; padding: 16px 0 4px;
-  /* Same viewport-locked gradient as body/header (see the comment on body) instead of flat
-     --paper, so this doesn't read as a solid black strip against the tinted page around it. */
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--chrome-surface);
   font-size: 12px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
 }
@@ -428,14 +430,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- search bar: standalone full-width row between header and main layout --- */
 .search-bar {
   position: sticky; top: var(--header-offset); z-index: 90;
-  /* No seam-hiding box-shadow band here anymore — now that background-size locks this to the
-     same viewport-sized canvas as body/header/hero (see the comment on body), the gradient is
-     already pixel-identical across all of them, so a flat --paper hairline here would be the
-     ONE thing that doesn't match the surrounding gradient and shows up as a visible seam. */
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--chrome-surface);
   will-change: transform;
 }
 .search-bar-inner { max-width: var(--wrap-wide); margin: 0 auto; padding: 14px 24px; }
@@ -458,10 +453,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   position: fixed;
   top: var(--header-offset); left: 0; right: 0; z-index: 90;
   margin-top: 0;
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--chrome-surface);
   will-change: transform;
 }
 .search-bar--inline.is-pinned .search-bar-inner { max-width: var(--wrap-wide); padding: 14px 24px; }
@@ -507,14 +499,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- home hero: sticky so the section label + intro stay visible while the cards below scroll --- */
 .hero {
   position: sticky; top: var(--sticky-offset); z-index: 2;
-  /* Same viewport-locked gradient as body/header/search-bar (background-size:100vw 100vh,
-     see the comment on body) — flat --paper here read as a mismatched black box against the
-     tinted page around it; this way it shows the exact same tint as whatever's at this
-     position, opaque enough to still block scrolled content from showing through while stuck. */
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  background: var(--chrome-surface);
   padding: 16px 0 16px;
   will-change: transform;
 }
