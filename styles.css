@@ -63,6 +63,13 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
+  /* Short pages (404, thin archive views) used to leave the footer sitting right after the
+     content with a big empty gap below it. min-height + flex column, with .layout taking
+     the leftover space (see .layout rule below), pins the footer to the viewport bottom
+     without affecting normal long pages where content already exceeds one screen. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-glow), var(--paper);
   background-attachment: fixed;
   /* Gradient stops/positions always resolve against the painting element's OWN box, even with
@@ -147,6 +154,8 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   max-width: var(--wrap-wide);
   margin: 0 auto;
   padding: 0 24px;
+  flex: 1 0 auto;
+  width: 100%;
 }
 .main { min-width: 0; padding-bottom: 8px; }
 .layout:not(.layout--single):not(.layout--article) .main { margin-left: calc(var(--sidebar-track-width) + var(--sidebar-gap)); }
@@ -424,23 +433,38 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   will-change: transform;
 }
 .search-bar-inner { max-width: var(--wrap-wide); margin: 0 auto; padding: 14px 24px; }
-.sidebar-search { position: relative; max-width: 420px; margin: 0 0 0 auto; }
+/* Homepage-only: the search bar lives inside the hero instead of the top sticky stack, so it
+   needs to fall back to a normal, non-sticky block with no special background of its own. */
+.search-bar--inline {
+  position: static;
+  background: none;
+  background-attachment: initial;
+  background-size: auto;
+  background-repeat: repeat;
+  will-change: auto;
+  margin-top: 28px;
+}
+.search-bar--inline .search-bar-inner { max-width: none; padding: 0; }
+.sidebar-search { position: relative; max-width: 640px; margin: 0 auto; }
 .sidebar-search svg {
-  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
   color: var(--muted); pointer-events: none;
 }
 .sidebar-search-input {
-  width: 100%; padding: 9px 30px 9px 34px;
-  border: 1px solid var(--line); border-radius: 9px;
-  background: var(--panel); font-size: 13.5px; font-family: inherit; color: var(--ink);
+  width: 100%; padding: 13px 42px 13px 46px;
+  border: 1px solid var(--line-strong); border-radius: 12px;
+  /* Same soft gradient surface as cards/panels elsewhere, not a flat solid box — reads as
+     part of the page instead of a mismatched dark rectangle against the glow background. */
+  background: var(--panel-gradient); box-shadow: var(--shadow-sm);
+  font-size: 15.5px; font-family: inherit; color: var(--ink);
 }
 .sidebar-search-input:focus {
   outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft), 0 0 14px -4px color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .sidebar-search-input::placeholder { color: var(--muted); }
 .sidebar-search-clear {
-  position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
-  width: 24px; height: 24px; display: none; align-items: center; justify-content: center;
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 26px; display: none; align-items: center; justify-content: center;
   border: none; background: none; border-radius: 6px; color: var(--muted); cursor: pointer;
 }
 .sidebar-search-clear:hover { background: var(--soft); color: var(--ink); }
@@ -463,10 +487,12 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- home hero: sticky so the section label + intro stay visible while the cards below scroll --- */
 .hero {
   position: sticky; top: var(--sticky-offset); z-index: 2;
-  background: var(--bg-glow), var(--paper);
-  background-attachment: fixed;
-  background-size: 100vw 100vh;
-  background-repeat: no-repeat;
+  /* Flat --paper, not the gradient glow: this box is only as tall as its own title/lede
+     content, sitting inside the narrower .main column (offset from the sidebar) — painting
+     the glow just here (and not on the flat page around/below it) read as an oddly inserted
+     tinted card rather than part of the page. Still needs to be opaque (not transparent) so
+     scrolling content doesn't show through while it's stuck. */
+  background: var(--paper);
   padding: 16px 0 16px;
   will-change: transform;
 }

@@ -40,7 +40,7 @@
   // where scrolled content could peek through between the sticky layers).
   function syncStickyOffset() {
     var header = document.querySelector('.site-header');
-    var bar = document.querySelector('.search-bar');
+    var bar = document.querySelector('.search-bar:not(.search-bar--inline)');
     var topics = document.querySelector('.hot-topics');
     if (!header) return;
     var headerHeight = header.getBoundingClientRect().height;
