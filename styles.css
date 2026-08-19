@@ -206,7 +206,13 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .sidebar h2 {
   flex: none;
   display: flex; align-items: center; gap: 6px;
-  margin: 0 0 14px; padding: 16px 0 4px; background: var(--paper);
+  margin: 0 0 14px; padding: 16px 0 4px;
+  /* Same viewport-locked gradient as body/header (see the comment on body) instead of flat
+     --paper, so this doesn't read as a solid black strip against the tinted page around it. */
+  background: var(--bg-glow), var(--paper);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
   font-size: 12px; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase; color: var(--accent);
 }
@@ -487,12 +493,14 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- home hero: sticky so the section label + intro stay visible while the cards below scroll --- */
 .hero {
   position: sticky; top: var(--sticky-offset); z-index: 2;
-  /* Flat --paper, not the gradient glow: this box is only as tall as its own title/lede
-     content, sitting inside the narrower .main column (offset from the sidebar) — painting
-     the glow just here (and not on the flat page around/below it) read as an oddly inserted
-     tinted card rather than part of the page. Still needs to be opaque (not transparent) so
-     scrolling content doesn't show through while it's stuck. */
-  background: var(--paper);
+  /* Same viewport-locked gradient as body/header/search-bar (background-size:100vw 100vh,
+     see the comment on body) — flat --paper here read as a mismatched black box against the
+     tinted page around it; this way it shows the exact same tint as whatever's at this
+     position, opaque enough to still block scrolled content from showing through while stuck. */
+  background: var(--bg-glow), var(--paper);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
   padding: 16px 0 16px;
   will-change: transform;
 }
