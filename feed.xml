@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 20 Aug 2026 14:17:08 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 20 Aug 2026 16:43:49 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[合租的AI订阅，为什么房主一张卡失效全员就掉线]]></title>
+    <link>https://ponr.org/articles/ai-subscription-shared-plan-payment-failure.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-shared-plan-payment-failure.html</guid>
+    <pubDate>Thu, 20 Aug 2026 16:43:49 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[合租、家庭或团队AI订阅往往只绑定房主一张卡，房主的卡过期、被风控冻结或换卡没同步更新，会让所有成员在同一天一起掉线，这几处提前排查能省下不少来回折腾的时间。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI工具被另一家公司收购后，账单商户名突然变了是怎么回事]]></title>
     <link>https://ponr.org/articles/ai-subscription-company-acquisition.html</link>

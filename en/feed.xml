@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 20 Aug 2026 14:17:08 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 20 Aug 2026 16:43:49 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[When the Plan Owner's Card Fails, Everyone Gets Locked Out]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-shared-plan-payment-failure.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-shared-plan-payment-failure.html</guid>
+    <pubDate>Thu, 20 Aug 2026 16:43:49 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[In a shared or family AI plan, only the owner's card is on file. When it fails and no one updates it, every member loses access the same day.]]></description>
+  </item>
   <item>
     <title><![CDATA[Your AI Tool Got Acquired: What Happens to Your Bill]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-company-acquisition.html</link>
