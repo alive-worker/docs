@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅Downgrade to Free后数据保留期限封面图">
+  <defs>
+    <linearGradient id="bgGradDdl" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08201d"/>
+      <stop offset="1" stop-color="#0e3a34"/>
+    </linearGradient>
+    <radialGradient id="glowDdl" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradDdl)"/>
+  <rect width="800" height="400" fill="url(#glowDdl)"/>
+  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#5eead4" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#ecfdf5">Downgrade to Free</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#2dd4bf">Data Gets Purged</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">Storage Shrinks · Export Revoked · Back Up First</text>
+
+  <!-- folder with countdown -->
+  <g transform="translate(610,175)">
+    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
+    <path d="M-38 -18 h30 l8 10 h38 v34 a4 4 0 0 1 -4 4 h-68 a4 4 0 0 1 -4 -4 v-40 a4 4 0 0 1 4 -4 z" fill="#123832" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="18" cy="20" r="16" fill="#0f2c26" stroke="#f87171" stroke-width="2"/>
+    <path d="M18 12 v10 l7 5" stroke="#f87171" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">Retention Countdown</text>
+  </g>
+
+  <!-- shrinking bar icon -->
+  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-weight="700">
+    <rect x="306" y="288" width="120" height="24" rx="6" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="306" y="288" width="40" height="24" rx="6" fill="#2dd4bf" opacity="0.55"/>
+    <path d="M436 300 h30" stroke="#5eead4" stroke-width="2" marker-end="url(#arrowDdl)"/>
+    <circle cx="490" cy="300" r="24" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
+    <text x="490" y="308" text-anchor="middle" font-size="18" fill="#f87171">✕</text>
+  </g>
+  <defs>
+    <marker id="arrowDdl" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#5eead4"/>
+    </marker>
+  </defs>
+</svg>

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 19 Aug 2026 14:24:25 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 20 Aug 2026 10:09:14 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[把AI订阅从Pro降级到免费档，历史数据还留得住吗]]></title>
+    <link>https://ponr.org/articles/ai-subscription-downgrade-data-loss.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-downgrade-data-loss.html</guid>
+    <pubDate>Thu, 20 Aug 2026 10:09:14 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[把付费AI订阅从高级档降级到免费档看似省钱，但聊天记录、项目文件和导出权限常常藏着隐藏的保留期限，过期就直接清空找不回，降级前这几点必须先弄清楚。]]></description>
+  </item>
   <item>
     <title><![CDATA[明明点了取消，AI订阅账单为什么还在扣钱]]></title>
     <link>https://ponr.org/articles/ai-subscription-zombie-charge.html</link>
