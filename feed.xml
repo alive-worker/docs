@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 20 Aug 2026 11:39:31 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 20 Aug 2026 14:32:10 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI工具被另一家公司收购后，账单商户名突然变了是怎么回事]]></title>
+    <link>https://ponr.org/articles/ai-subscription-company-acquisition.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-company-acquisition.html</guid>
+    <pubDate>Thu, 20 Aug 2026 14:32:10 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[AI工具被另一家公司收购后，账单商户名、计费货币甚至订阅条款都可能悄悄改变，虚拟卡自动扣款容易被风控系统误判为欺诈而拒付，这几处续订前必须重新核对清楚。]]></description>
+  </item>
   <item>
     <title><![CDATA[续费账单突然变长，AI订阅里的插件费是怎么加进来的]]></title>
     <link>https://ponr.org/articles/ai-subscription-addon-bundle-upsell.html</link>
