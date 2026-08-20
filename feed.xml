@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 20 Aug 2026 10:09:14 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 20 Aug 2026 11:39:31 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[续费账单突然变长，AI订阅里的插件费是怎么加进来的]]></title>
+    <link>https://ponr.org/articles/ai-subscription-addon-bundle-upsell.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-addon-bundle-upsell.html</guid>
+    <pubDate>Thu, 20 Aug 2026 11:39:31 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[AI订阅续费时，云存储、优先客服、算力额度这类插件常被默认勾选顺带加购，账单没人提醒就悄悄变长，续费前这几处明细必须逐一核对清楚，别等到月底才发现多扣了钱。]]></description>
+  </item>
   <item>
     <title><![CDATA[把AI订阅从Pro降级到免费档，历史数据还留得住吗]]></title>
     <link>https://ponr.org/articles/ai-subscription-downgrade-data-loss.html</link>
