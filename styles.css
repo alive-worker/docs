@@ -841,6 +841,23 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .references a:hover { text-decoration: underline; }
 .ref-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
 
+/* "相关文章" — previously just a bare <aside><ul><li><a>, styled entirely by the
+   browser default, sitting oddly plain between the designed article body and footer.
+   Reuses the site's existing card + sliding-arrow-link language (see .read-link). */
+.related { margin: 40px 0 8px; padding-top: 28px; border-top: 1px solid var(--line); }
+.related h2 { margin: 0 0 14px; font-size: 16px; }
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.related a {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); color: var(--ink); text-decoration: none;
+  font-size: 14.5px; line-height: 1.5;
+  transition: border-color .15s ease, background .15s ease;
+}
+.related a::after { content: "\2192"; flex-shrink: 0; color: var(--accent); transition: transform .15s ease; }
+.related a:hover { border-color: var(--accent); background: var(--soft); }
+.related a:hover::after { transform: translateX(3px); }
+
 .back-row { margin-top: 32px; }
 .back-row a { color: var(--accent); font-weight: 700; text-decoration: none; }
 .back-row a:hover { text-decoration: underline; }
@@ -958,7 +975,7 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .post-card, .read-link::after { transition: none; }
+  .post-card, .read-link::after, .related a::after { transition: none; }
   .back-to-top { transition: none; }
   .hero-meta-pulse { animation: none; }
 }
