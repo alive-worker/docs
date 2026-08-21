@@ -1,45 +1,45 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅Monthly Plan被静默换成年付方案封面图">
   <defs>
     <linearGradient id="bgGradCycle" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0d1610"/>
-      <stop offset="1" stop-color="#163825"/>
+      <stop offset="0" stop-color="#05242a"/>
+      <stop offset="1" stop-color="#0a3c44"/>
     </linearGradient>
     <radialGradient id="glowCycle" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2f9e64" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2f9e64" stop-opacity="0"/>
+      <stop offset="0" stop-color="#14606c" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#14606c" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradCycle)"/>
   <rect width="800" height="400" fill="url(#glowCycle)"/>
-  <g stroke="#2d5c40" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#052026" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5fc98c" opacity="0.7">
+  <g fill="#22d3ee" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#eaf7ee">月付续费时</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2f9e64">Switches to Annual</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5fc98c"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5fc98c" opacity="0.85">Default checkbox · Renewal · Billing cycle change</text>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#67e8f9">月付续费时</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#14606c">Switches to Annual</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#22d3ee"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#22d3ee" opacity="0.85">Default checkbox · Renewal · Billing cycle change</text>
 
   <!-- calendar with monthly cell crossed and switched to annual ring -->
   <g transform="translate(600,140)">
-    <rect x="-70" y="-55" width="140" height="120" rx="10" fill="#1b3a28" stroke="#5fc98c" stroke-width="2"/>
-    <rect x="-70" y="-55" width="140" height="28" rx="10" fill="#2d5c40"/>
-    <text x="0" y="-35" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#eaf7ee" font-weight="700">Monthly</text>
+    <rect x="-70" y="-55" width="140" height="120" rx="10" fill="#0a3c44" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="-70" y="-55" width="140" height="28" rx="10" fill="#052026"/>
+    <text x="0" y="-35" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#67e8f9" font-weight="700">Monthly</text>
     <line x1="-45" y1="-2" x2="45" y2="55" stroke="#f87171" stroke-width="3"/>
     <line x1="45" y1="-2" x2="-45" y2="55" stroke="#f87171" stroke-width="3"/>
   </g>
-  <g transform="translate(600,140)" stroke="#5fc98c" stroke-width="2.5" fill="none">
+  <g transform="translate(600,140)" stroke="#22d3ee" stroke-width="2.5" fill="none">
     <path d="M-95 20 a95 95 0 1 0 20 -70" stroke-dasharray="6 5"/>
-    <path d="M-80 -52 l5 -20 l16 12 z" fill="#5fc98c"/>
+    <path d="M-80 -52 l5 -20 l16 12 z" fill="#22d3ee"/>
   </g>
   <g transform="translate(600,290)">
-    <rect x="-60" y="-24" width="120" height="48" rx="8" fill="#1b3a28" stroke="#2f9e64" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#2f9e64" font-weight="700">Annual</text>
+    <rect x="-60" y="-24" width="120" height="48" rx="8" fill="#0a3c44" stroke="#14606c" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#14606c" font-weight="700">Annual</text>
   </g>
-  <text x="600" y="345" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5fc98c" opacity="0.85">Full year charged at once</text>
+  <text x="600" y="345" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#22d3ee" opacity="0.85">Full year charged at once</text>
 </svg>

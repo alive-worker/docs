@@ -1,38 +1,38 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="免费试用到自动续费陷阱：AI 订阅续费防坑封面图">
   <defs>
     <linearGradient id="bgGradFtt" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0d1610"/>
-      <stop offset="1" stop-color="#163825"/>
+      <stop offset="0" stop-color="#2a0a0a"/>
+      <stop offset="1" stop-color="#4a1414"/>
     </linearGradient>
     <radialGradient id="glowFtt" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2f9e64" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2f9e64" stop-opacity="0"/>
+      <stop offset="0" stop-color="#7a2626" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#7a2626" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradFtt)"/>
   <rect width="800" height="400" fill="url(#glowFtt)"/>
-  <g stroke="#2d5c40" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#260a0a" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5fc98c" opacity="0.7">
+  <g fill="#ef6b5c" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#eaf7ee">试用到期</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2f9e64">别被偷偷扣款</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5fc98c"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5fc98c" opacity="0.85">暗模式识别 · 到期提醒 · 虚拟卡额度锁定</text>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#fca5a5">试用到期</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#7a2626">别被偷偷扣款</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#ef6b5c"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#ef6b5c" opacity="0.85">暗模式识别 · 到期提醒 · 虚拟卡额度锁定</text>
 
   <!-- trial countdown clock ticking into an automatic paid charge -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#1b3a28" stroke="#2d5c40" stroke-width="2"/>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#4a1414" stroke="#260a0a" stroke-width="2"/>
     <circle cx="-48" cy="0" r="42" fill="#0f1f16" stroke="#f59e0b" stroke-width="6"/>
     <path d="M-48 0 A42 42 0 0 1 -6 -30" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-    <line x1="-48" y1="0" x2="-48" y2="-26" stroke="#eaf7ee" stroke-width="3" stroke-linecap="round"/>
-    <line x1="-48" y1="0" x2="-28" y2="10" stroke="#5fc98c" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="-48" cy="0" r="4" fill="#eaf7ee"/>
+    <line x1="-48" y1="0" x2="-48" y2="-26" stroke="#fca5a5" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-48" y1="0" x2="-28" y2="10" stroke="#ef6b5c" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="-48" cy="0" r="4" fill="#fca5a5"/>
     <path d="M8 -4 h22" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrowTrial)"/>
     <rect x="36" y="-28" width="60" height="52" rx="8" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
     <text x="66" y="4" text-anchor="middle" font-size="22" font-weight="700" fill="#f87171">$</text>
@@ -43,13 +43,13 @@
       <path d="M0 0 L8 4 L0 8 Z" fill="#f87171"/>
     </marker>
   </defs>
-  <g stroke="#5fc98c" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#ef6b5c" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#1b3a28" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#4a1414" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">试用转付费</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5fc98c" opacity="0.85">到期自动续费 · 无二次确认</text>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#ef6b5c" opacity="0.85">到期自动续费 · 无二次确认</text>
 </svg>
