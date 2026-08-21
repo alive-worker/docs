@@ -546,7 +546,12 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   border: 1px solid var(--line); border-radius: 16px;
   background: var(--panel);
 }
-.hero-stat-num { font-size: 22px; font-weight: 800; color: var(--accent); }
+.hero-stat-num { font-size: 22px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hero-stat-num.is-infinity { display: inline-block; animation: hero-stat-pulse 2.6s ease-in-out infinite; }
+@keyframes hero-stat-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: .72; }
+}
 .hero-stat-label { font-size: 12.5px; color: var(--muted); }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -934,6 +939,7 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
   html { scroll-behavior: auto; }
   .post-card, .read-link::after { transition: none; }
   .back-to-top { transition: none; }
+  .hero-stat-num.is-infinity { animation: none; }
 }
 
 /* --- back-to-top: fixed floating button, fades in once you've scrolled a bit --- */

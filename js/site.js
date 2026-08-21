@@ -697,3 +697,42 @@
     startAutoplay();
   }
 })();
+
+// Count up the hero stat numbers (articles / topics) from 0 once they scroll into view.
+(function () {
+  var nums = document.querySelectorAll('.hero-stat-num[data-count]');
+  if (!nums.length) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  var animate = function (el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (!target && target !== 0) return;
+    var duration = 900;
+    var start = null;
+    var from = 0;
+    var step = function (ts) {
+      if (start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(from + (target - from) * eased);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    nums.forEach(animate);
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  nums.forEach(function (el) { observer.observe(el); });
+})();
