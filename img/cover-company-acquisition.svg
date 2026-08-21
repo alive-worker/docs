@@ -29,9 +29,9 @@
   <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">并购整合 · 商户变更 · 续订前核对条款</text>
 
   <!-- two buildings merging with arrow -->
-  <g transform="translate(610,170)">
-    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
-    <g transform="translate(-38,-10)">
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <g transform="translate(-28,-2)">
       <rect x="-16" y="-38" width="32" height="76" rx="4" fill="#123832" stroke="#5eead4" stroke-width="2"/>
       <rect x="-9" y="-28" width="7" height="7" fill="#5eead4" opacity="0.6"/>
       <rect x="2" y="-28" width="7" height="7" fill="#5eead4" opacity="0.6"/>
@@ -40,8 +40,8 @@
       <rect x="-9" y="0" width="7" height="7" fill="#5eead4" opacity="0.6"/>
       <rect x="2" y="0" width="7" height="7" fill="#5eead4" opacity="0.6"/>
     </g>
-    <path d="M-10 -10 h26" stroke="#2dd4bf" stroke-width="2.5" marker-end="url(#arrowAcq)"/>
-    <g transform="translate(40,-10)">
+    <path d="M0 -2 h26" stroke="#2dd4bf" stroke-width="2.5" marker-end="url(#arrowAcq)"/>
+    <g transform="translate(50,-2)">
       <rect x="-18" y="-46" width="38" height="84" rx="4" fill="#123832" stroke="#f87171" stroke-width="2"/>
       <rect x="-10" y="-34" width="8" height="8" fill="#f87171" opacity="0.7"/>
       <rect x="4" y="-34" width="8" height="8" fill="#f87171" opacity="0.7"/>
@@ -50,16 +50,15 @@
       <rect x="-10" y="-2" width="8" height="8" fill="#f87171" opacity="0.7"/>
       <rect x="4" y="-2" width="8" height="8" fill="#f87171" opacity="0.7"/>
     </g>
-    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">收购整合</text>
+    <text x="0" y="52" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#5eead4">收购整合</text>
   </g>
-
-  <!-- receipt with changed merchant name -->
-  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-weight="700" transform="translate(300,270)">
-    <rect x="0" y="0" width="150" height="90" rx="6" fill="#123832" stroke="#2dd4bf" stroke-width="2" opacity="0.9"/>
-    <rect x="16" y="16" width="90" height="8" rx="2" fill="#5eead4" opacity="0.5"/>
-    <rect x="16" y="34" width="118" height="6" rx="2" fill="#f87171" opacity="0.85"/>
-    <rect x="16" y="48" width="70" height="6" rx="2" fill="#5eead4" opacity="0.4"/>
-    <rect x="16" y="62" width="90" height="6" rx="2" fill="#5eead4" opacity="0.4"/>
-    <text x="16" y="10" font-size="11" fill="#f87171">NEW MERCHANT</text>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
+  <g transform="translate(600,296)">
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">商户名变更</text>
+  </g>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">条款 · 币种或同步生变</text>
 </svg>

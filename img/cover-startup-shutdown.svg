@@ -25,28 +25,35 @@
   <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
   <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">关站预警 · 退款路径 · 数据导出窗口</text>
 
-  <!-- building with closed sign -->
-  <g transform="translate(610,175)">
-    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
-    <rect x="-36" y="-30" width="72" height="66" rx="4" fill="#123832" stroke="#2dd4bf" stroke-width="2"/>
-    <rect x="-24" y="-14" width="16" height="16" fill="#2dd4bf" opacity="0.5"/>
-    <rect x="8" y="-14" width="16" height="16" fill="#2dd4bf" opacity="0.5"/>
-    <rect x="-24" y="14" width="16" height="16" fill="#2dd4bf" opacity="0.3"/>
-    <rect x="8" y="14" width="16" height="16" fill="#2dd4bf" opacity="0.3"/>
-    <rect x="-46" y="40" width="92" height="8" rx="2" fill="#1e5b50"/>
-    <g transform="translate(0,-52)">
-      <rect x="-34" y="-12" width="68" height="24" rx="4" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
-      <text x="0" y="5" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#f87171">关站</text>
+  <!-- shutdown notice building next to a closing data-export countdown window -->
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-84" y="-30" width="60" height="56" rx="4" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="-74" y="-16" width="14" height="14" fill="#2dd4bf" opacity="0.5"/>
+    <rect x="-50" y="-16" width="14" height="14" fill="#2dd4bf" opacity="0.5"/>
+    <rect x="-74" y="6" width="14" height="14" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="-50" y="6" width="14" height="14" fill="#2dd4bf" opacity="0.3"/>
+    <g transform="translate(-54,-44)">
+      <rect x="-30" y="-11" width="60" height="20" rx="4" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
+      <text x="0" y="4" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#f87171">关站</text>
     </g>
-    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">停止服务通知</text>
+    <path d="M-4 -2 h20" stroke="#5eead4" stroke-width="2.5" marker-end="url(#arrowExport)"/>
+    <rect x="22" y="-30" width="74" height="56" rx="8" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <path d="M59 -18 v20 M50 -6 l9 9 9-9" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="59" y="20" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10" fill="#5eead4" opacity="0.85">数据导出</text>
   </g>
-
-  <!-- export/download data row -->
-  <g>
-    <rect x="300" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
-    <path d="M345 288 v20 M336 300 l9 9 9-9" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="420" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.5"/>
-    <rect x="432" y="288" width="24" height="16" rx="3" fill="#2dd4bf" opacity="0.3"/>
-    <rect x="432" y="310" width="50" height="6" rx="3" fill="#2dd4bf" opacity="0.3"/>
+  <defs>
+    <marker id="arrowExport" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#5eead4"/>
+    </marker>
+  </defs>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
+  <g transform="translate(600,296)">
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">停止服务通知</text>
+  </g>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">退款路径 · 导出窗口有限</text>
 </svg>

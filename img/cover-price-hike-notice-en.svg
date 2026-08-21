@@ -25,21 +25,25 @@
   <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
   <text x="52" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#5eead4" opacity="0.85">Repricing tactics · bill audit · virtual card alerts</text>
 
-  <!-- price tag with upward trend -->
-  <g transform="translate(610,175)">
-    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
-    <polyline points="-46,30 -18,4 6,20 46,-32" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <polyline points="20,-32 46,-32 46,-6" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="0" y="118" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#5eead4">Silent hike?</text>
+  <!-- bill silently rises, buried notice in the fine print of a renewal email -->
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-84" y="-40" width="72" height="52" rx="8" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.7"/>
+    <text x="-48" y="-8" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="700" fill="#5eead4" opacity="0.8">$20</text>
+    <path d="M-6 -14 h20" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M6 -21 l8 7 -8 7" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="24" y="-40" width="72" height="52" rx="8" fill="#0f2c26" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="60" y="-8" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="700" fill="#f59e0b">$24</text>
+    <rect x="-84" y="18" width="168" height="12" rx="3" fill="#0f2c26" stroke="#1e5b50" stroke-width="1.2"/>
+    <rect x="-78" y="21" width="60" height="4" rx="2" fill="#5eead4" opacity="0.4"/>
   </g>
-
-  <!-- bill comparison row -->
-  <g>
-    <rect x="300" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.6"/>
-    <text x="345" y="307" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="700" fill="#5eead4" opacity="0.8">$20</text>
-    <path d="M398 301 h18" stroke="#5eead4" stroke-width="3" stroke-linecap="round"/>
-    <path d="M410 294 l8 7 -8 7" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="420" y="272" width="90" height="58" rx="12" fill="#0f2c26" stroke="#f59e0b" stroke-width="2.5"/>
-    <text x="465" y="307" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="18" font-weight="700" fill="#f59e0b">$24</text>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
+  <g transform="translate(600,296)">
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f59e0b" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#f59e0b" font-weight="700">Up 20%, quietly</text>
+  </g>
+  <text x="600" y="350" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#5eead4" opacity="0.85">Notice buried in fine print</text>
 </svg>

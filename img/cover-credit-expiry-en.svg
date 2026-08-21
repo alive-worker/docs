@@ -25,15 +25,28 @@
   <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
   <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">API tokens · Generations · Prepaid balance</text>
 
-  <!-- circular gauge dropping to zero -->
-  <g transform="translate(600,150)">
-    <circle r="72" fill="#123832" stroke="#1e5b50" stroke-width="14"/>
-    <circle r="72" fill="none" stroke="#5eead4" stroke-width="14" stroke-dasharray="22 430" stroke-linecap="round" transform="rotate(-90)"/>
-    <text x="0" y="10" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="700" fill="#2dd4bf">0</text>
+  <!-- unused credit balance wiped by the billing-cycle reset -->
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-84" y="-46" width="76" height="92" rx="8" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="-46" cy="-20" r="12" fill="#5eead4" opacity="0.85"/>
+    <circle cx="-46" cy="4" r="12" fill="#5eead4" opacity="0.6"/>
+    <circle cx="-46" cy="28" r="12" fill="#5eead4" opacity="0.35"/>
+    <text x="-46" y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#5eead4" opacity="0.85">Balance</text>
+    <path d="M8 -6 h30" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrowCredit)"/>
+    <rect x="8" y="-46" width="76" height="92" rx="8" fill="#0f2c26" stroke="#f87171" stroke-width="2"/>
+    <path d="M46 -26 v14 l10 6" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <circle cx="46" cy="-14" r="18" fill="none" stroke="#f87171" stroke-width="2.5"/>
+    <text x="46" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="700" fill="#f87171">0</text>
   </g>
+  <defs>
+    <marker id="arrowCredit" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#f87171"/>
+    </marker>
+  </defs>
   <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 232 v34" stroke-dasharray="4 4"/>
-    <path d="M592 258 l8 10 l8 -10" fill="none"/>
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,300)">
     <rect x="-64" y="-24" width="128" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>

@@ -25,26 +25,31 @@
   <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
   <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">Storage Shrinks · Export Revoked · Back Up First</text>
 
-  <!-- folder with countdown -->
-  <g transform="translate(610,175)">
-    <circle r="88" fill="#0f2c26" stroke="#1e5b50" stroke-width="2"/>
-    <path d="M-38 -18 h30 l8 10 h38 v34 a4 4 0 0 1 -4 4 h-68 a4 4 0 0 1 -4 -4 v-40 a4 4 0 0 1 4 -4 z" fill="#123832" stroke="#2dd4bf" stroke-width="2"/>
-    <circle cx="18" cy="20" r="16" fill="#0f2c26" stroke="#f87171" stroke-width="2"/>
-    <path d="M18 12 v10 l7 5" stroke="#f87171" stroke-width="2" stroke-linecap="round" fill="none"/>
-    <text x="0" y="118" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#5eead4">Retention Countdown</text>
-  </g>
-
-  <!-- shrinking bar icon -->
-  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-weight="700">
-    <rect x="306" y="288" width="120" height="24" rx="6" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
-    <rect x="306" y="288" width="40" height="24" rx="6" fill="#2dd4bf" opacity="0.55"/>
-    <path d="M436 300 h30" stroke="#5eead4" stroke-width="2" marker-end="url(#arrowDdl)"/>
-    <circle cx="490" cy="300" r="24" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
-    <text x="490" y="308" text-anchor="middle" font-size="18" fill="#f87171">✕</text>
-  </g>
+  <!-- folder with retention countdown, then storage bar getting revoked -->
   <defs>
     <marker id="arrowDdl" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
       <path d="M0 0 L8 4 L0 8 Z" fill="#5eead4"/>
     </marker>
   </defs>
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <path d="M-80 -30 h30 l8 10 h38 v34 a4 4 0 0 1 -4 4 h-68 a4 4 0 0 1 -4 -4 v-40 a4 4 0 0 1 4 -4 z" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <circle cx="-44" cy="8" r="16" fill="#123832" stroke="#f87171" stroke-width="2"/>
+    <path d="M-44 0 v10 l7 5" stroke="#f87171" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M-6 -6 h20" stroke="#5eead4" stroke-width="2" marker-end="url(#arrowDdl)"/>
+    <rect x="20" y="-24" width="76" height="20" rx="5" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
+    <rect x="20" y="-24" width="24" height="20" rx="5" fill="#2dd4bf" opacity="0.55"/>
+    <circle cx="58" cy="24" r="22" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
+    <text x="58" y="32" text-anchor="middle" font-size="18" fill="#f87171">✕</text>
+    <text x="0" y="52" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#5eead4">Countdown</text>
+  </g>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
+  </g>
+  <g transform="translate(600,296)">
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">Data Purged</text>
+  </g>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">Storage shrinks · export revoked</text>
 </svg>
