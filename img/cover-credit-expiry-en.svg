@@ -1,40 +1,40 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription usage credit expiry cover image">
   <defs>
     <linearGradient id="bgGradCredit" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#08201d"/>
-      <stop offset="1" stop-color="#0e3a34"/>
+      <stop offset="0" stop-color="#241708"/>
+      <stop offset="1" stop-color="#4a2c10"/>
     </linearGradient>
     <radialGradient id="glowCredit" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradCredit)"/>
   <rect width="800" height="400" fill="url(#glowCredit)"/>
-  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5eead4" opacity="0.7">
+  <g fill="#f2b06a" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700" fill="#ecfdf5">Unused Credits</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700" fill="#2dd4bf">Expire at Reset</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">API tokens · Generations · Prepaid balance</text>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700" fill="#fdeee0">Unused Credits</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700" fill="#e0913f">Expire at Reset</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f2b06a"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#f2b06a" opacity="0.85">API tokens · Generations · Prepaid balance</text>
 
   <!-- unused credit balance wiped by the billing-cycle reset -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
-    <rect x="-84" y="-46" width="76" height="92" rx="8" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
-    <circle cx="-46" cy="-20" r="12" fill="#5eead4" opacity="0.85"/>
-    <circle cx="-46" cy="4" r="12" fill="#5eead4" opacity="0.6"/>
-    <circle cx="-46" cy="28" r="12" fill="#5eead4" opacity="0.35"/>
-    <text x="-46" y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#5eead4" opacity="0.85">Balance</text>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
+    <rect x="-84" y="-46" width="76" height="92" rx="8" fill="#3a2109" stroke="#e0913f" stroke-width="2"/>
+    <circle cx="-46" cy="-20" r="12" fill="#f2b06a" opacity="0.85"/>
+    <circle cx="-46" cy="4" r="12" fill="#f2b06a" opacity="0.6"/>
+    <circle cx="-46" cy="28" r="12" fill="#f2b06a" opacity="0.35"/>
+    <text x="-46" y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f2b06a" opacity="0.85">Balance</text>
     <path d="M8 -6 h30" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrowCredit)"/>
-    <rect x="8" y="-46" width="76" height="92" rx="8" fill="#0f2c26" stroke="#f87171" stroke-width="2"/>
+    <rect x="8" y="-46" width="76" height="92" rx="8" fill="#3a2109" stroke="#f87171" stroke-width="2"/>
     <path d="M46 -26 v14 l10 6" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" fill="none"/>
     <circle cx="46" cy="-14" r="18" fill="none" stroke="#f87171" stroke-width="2.5"/>
     <text x="46" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="700" fill="#f87171">0</text>
@@ -44,13 +44,13 @@
       <path d="M0 0 L8 4 L0 8 Z" fill="#f87171"/>
     </marker>
   </defs>
-  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,300)">
-    <rect x="-64" y="-24" width="128" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-64" y="-24" width="128" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#f87171" font-weight="700">Expired</text>
   </g>
-  <text x="600" y="355" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">No rollover · No cash value</text>
+  <text x="600" y="355" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">No rollover · No cash value</text>
 </svg>

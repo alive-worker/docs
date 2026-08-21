@@ -868,13 +868,24 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .back-row a:hover { text-decoration: underline; }
 
 /* --- footer (full width, below layout) --- */
-.site-foot { max-width: var(--wrap-wide); margin: 60px auto 0; padding: 24px 24px 44px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); text-align: center; }
+/* .site-foot itself spans the full viewport (it's a sibling of .layout, not inside its
+   padded/capped container) and carries a background tint so it reads as its own zone —
+   only the CONTENT inside (.site-foot-grid / .site-foot-bottom) caps at --wrap-wide and
+   centers. Previously .site-foot itself was capped+centered with no background, so on
+   any viewport wider than 1440px it looked like a narrow floating island with plain page
+   background on both sides instead of a full-width footer band. */
+.site-foot {
+  margin-top: 60px; padding: 24px 24px 44px;
+  border-top: 1px solid var(--line);
+  background: var(--soft);
+  font-size: 13px; color: var(--muted);
+}
 .site-foot p { margin: 0 0 6px; }
 .site-foot a { color: var(--accent); text-decoration: none; }
 .site-foot a:hover { text-decoration: underline; }
 
 /* --- rich 3-column footer (homepage only, ibve.org-style) --- */
-.site-foot--rich { border-top: 1px solid var(--line); padding: 48px 24px 0; text-align: left; }
+.site-foot--rich { padding: 48px 24px 0; text-align: left; }
 .site-foot-grid {
   max-width: var(--wrap-wide);
   margin: 0 auto;

@@ -1,52 +1,52 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 订阅扣款拒付纠纷处理顺序封面图">
   <defs>
     <linearGradient id="bgGradCbd" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#08201d"/>
-      <stop offset="1" stop-color="#0e3a34"/>
+      <stop offset="0" stop-color="#241708"/>
+      <stop offset="1" stop-color="#4a2c10"/>
     </linearGradient>
     <radialGradient id="glowCbd" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradCbd)"/>
   <rect width="800" height="400" fill="url(#glowCbd)"/>
-  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5eead4" opacity="0.7">
+  <g fill="#f2b06a" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ecfdf5">扣款有异议</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2dd4bf">拒付先看顺序</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">客服申诉 · 证据留存 · 拒付流程</text>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#fdeee0">扣款有异议</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#e0913f">拒付先看顺序</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f2b06a"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#f2b06a" opacity="0.85">客服申诉 · 证据留存 · 拒付流程</text>
 
   <!-- the correct order: contact support first, evidence second, chargeback last resort -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
-    <circle cx="-62" cy="-8" r="22" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2.5"/>
-    <text x="-62" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#2dd4bf">1</text>
-    <path d="M-36 -8 h30" stroke="#1e5b50" stroke-width="2"/>
-    <circle cx="2" cy="-8" r="22" fill="#0f2c26" stroke="#1e5b50" stroke-width="2" opacity="0.8"/>
-    <text x="2" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#5eead4" opacity="0.8">2</text>
-    <path d="M28 -8 h30" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
+    <circle cx="-62" cy="-8" r="22" fill="#3a2109" stroke="#e0913f" stroke-width="2.5"/>
+    <text x="-62" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#e0913f">1</text>
+    <path d="M-36 -8 h30" stroke="#6b4321" stroke-width="2"/>
+    <circle cx="2" cy="-8" r="22" fill="#3a2109" stroke="#6b4321" stroke-width="2" opacity="0.8"/>
+    <text x="2" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#f2b06a" opacity="0.8">2</text>
+    <path d="M28 -8 h30" stroke="#6b4321" stroke-width="2"/>
     <circle cx="66" cy="-8" r="22" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
     <text x="66" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#f87171">3</text>
-    <text x="-62" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#5eead4" opacity="0.85">客服申诉</text>
-    <text x="2" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#5eead4" opacity="0.7">留存证据</text>
+    <text x="-62" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f2b06a" opacity="0.85">客服申诉</text>
+    <text x="2" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f2b06a" opacity="0.7">留存证据</text>
     <text x="66" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f87171">发起拒付</text>
   </g>
-  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">拒付争议</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">先申诉 · 后拒付 · 别跳步</text>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">先申诉 · 后拒付 · 别跳步</text>
 </svg>

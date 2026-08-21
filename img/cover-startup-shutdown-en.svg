@@ -1,59 +1,59 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI startup shutdown: subscription refunds and data export cover image">
   <defs>
     <linearGradient id="bgGradSsdEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#08201d"/>
-      <stop offset="1" stop-color="#0e3a34"/>
+      <stop offset="0" stop-color="#241708"/>
+      <stop offset="1" stop-color="#4a2c10"/>
     </linearGradient>
     <radialGradient id="glowSsdEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradSsdEn)"/>
   <rect width="800" height="400" fill="url(#glowSsdEn)"/>
-  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5eead4" opacity="0.7">
+  <g fill="#f2b06a" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#ecfdf5">When a startup</text>
-  <text x="52" y="156" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#2dd4bf">shuts down</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
-  <text x="52" y="200" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#5eead4" opacity="0.85">Warning signs &#183; Refund paths &#183; Data export window</text>
+  <text x="52" y="112" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#fdeee0">When a startup</text>
+  <text x="52" y="156" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#e0913f">shuts down</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f2b06a"/>
+  <text x="52" y="200" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#f2b06a" opacity="0.85">Warning signs &#183; Refund paths &#183; Data export window</text>
 
   <!-- shutdown notice building next to a closing data-export countdown window -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
-    <rect x="-84" y="-30" width="60" height="56" rx="4" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
-    <rect x="-74" y="-16" width="14" height="14" fill="#2dd4bf" opacity="0.5"/>
-    <rect x="-50" y="-16" width="14" height="14" fill="#2dd4bf" opacity="0.5"/>
-    <rect x="-74" y="6" width="14" height="14" fill="#2dd4bf" opacity="0.3"/>
-    <rect x="-50" y="6" width="14" height="14" fill="#2dd4bf" opacity="0.3"/>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
+    <rect x="-84" y="-30" width="60" height="56" rx="4" fill="#3a2109" stroke="#e0913f" stroke-width="2"/>
+    <rect x="-74" y="-16" width="14" height="14" fill="#e0913f" opacity="0.5"/>
+    <rect x="-50" y="-16" width="14" height="14" fill="#e0913f" opacity="0.5"/>
+    <rect x="-74" y="6" width="14" height="14" fill="#e0913f" opacity="0.3"/>
+    <rect x="-50" y="6" width="14" height="14" fill="#e0913f" opacity="0.3"/>
     <g transform="translate(-54,-44)">
       <rect x="-34" y="-11" width="68" height="20" rx="4" fill="#3a1414" stroke="#f87171" stroke-width="2"/>
       <text x="0" y="4" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" fill="#f87171">CLOSED</text>
     </g>
-    <path d="M-4 -2 h20" stroke="#5eead4" stroke-width="2.5" marker-end="url(#arrowExport)"/>
-    <rect x="22" y="-30" width="74" height="56" rx="8" fill="#0f2c26" stroke="#2dd4bf" stroke-width="2"/>
-    <path d="M59 -18 v20 M50 -6 l9 9 9-9" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="59" y="20" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9.5" fill="#5eead4" opacity="0.85">Data export</text>
+    <path d="M-4 -2 h20" stroke="#f2b06a" stroke-width="2.5" marker-end="url(#arrowExport)"/>
+    <rect x="22" y="-30" width="74" height="56" rx="8" fill="#3a2109" stroke="#e0913f" stroke-width="2"/>
+    <path d="M59 -18 v20 M50 -6 l9 9 9-9" stroke="#e0913f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="59" y="20" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9.5" fill="#f2b06a" opacity="0.85">Data export</text>
   </g>
   <defs>
     <marker id="arrowExport" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0 0 L8 4 L0 8 Z" fill="#5eead4"/>
+      <path d="M0 0 L8 4 L0 8 Z" fill="#f2b06a"/>
     </marker>
   </defs>
-  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#f87171" font-weight="700">Shutdown notice</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#5eead4" opacity="0.85">Refund path · limited export window</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">Refund path · limited export window</text>
 </svg>

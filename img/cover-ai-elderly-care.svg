@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a3d38;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f5c56;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#4a2c10;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b4321;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.07" />
@@ -12,42 +12,42 @@
   <!-- background -->
   <rect width="800" height="400" fill="url(#bg)" />
   <!-- circuit decoration lines -->
-  <g stroke="#2dd4bf" stroke-width="0.8" opacity="0.18">
+  <g stroke="#e0913f" stroke-width="0.8" opacity="0.18">
     <line x1="0" y1="80" x2="120" y2="80" /><line x1="120" y1="80" x2="140" y2="100" />
-    <line x1="140" y1="100" x2="200" y2="100" /><circle cx="200" cy="100" r="3" fill="#2dd4bf" />
+    <line x1="140" y1="100" x2="200" y2="100" /><circle cx="200" cy="100" r="3" fill="#e0913f" />
     <line x1="0" y1="320" x2="80" y2="320" /><line x1="80" y1="320" x2="110" y2="290" />
-    <line x1="110" y1="290" x2="180" y2="290" /><circle cx="180" cy="290" r="3" fill="#2dd4bf" />
+    <line x1="110" y1="290" x2="180" y2="290" /><circle cx="180" cy="290" r="3" fill="#e0913f" />
     <line x1="700" y1="60" x2="800" y2="60" /><line x1="690" y1="340" x2="800" y2="340" />
-    <line x1="660" y1="150" x2="800" y2="150" /><circle cx="660" cy="150" r="3" fill="#2dd4bf" />
+    <line x1="660" y1="150" x2="800" y2="150" /><circle cx="660" cy="150" r="3" fill="#e0913f" />
   </g>
   <!-- badge circle -->
   <circle cx="120" cy="200" r="68" fill="#ffffff" fill-opacity="0.06" />
   <circle cx="120" cy="200" r="52" fill="#ffffff" fill-opacity="0.08" />
   <!-- heart + pulse icon -->
-  <path d="M120 228 C90 208 88 188 105 180 C112 177 120 183 120 183 C120 183 128 177 135 180 C152 188 150 208 120 228Z" fill="none" stroke="#2dd4bf" stroke-width="2.5" />
-  <polyline points="94,200 102,200 107,188 112,214 118,196 122,204 128,200 146,200" fill="none" stroke="#5eead4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M120 228 C90 208 88 188 105 180 C112 177 120 183 120 183 C120 183 128 177 135 180 C152 188 150 208 120 228Z" fill="none" stroke="#e0913f" stroke-width="2.5" />
+  <polyline points="94,200 102,200 107,188 112,214 118,196 122,204 128,200 146,200" fill="none" stroke="#f2b06a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
   <!-- right info panel -->
   <rect x="480" y="60" width="280" height="280" rx="12" fill="url(#panel)" />
   <!-- panel title -->
-  <text x="510" y="104" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">三个真实场景</text>
-  <line x1="510" y1="112" x2="738" y2="112" stroke="#2dd4bf" stroke-width="0.6" opacity="0.4" />
+  <text x="510" y="104" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">三个真实场景</text>
+  <line x1="510" y1="112" x2="738" y2="112" stroke="#e0913f" stroke-width="0.6" opacity="0.4" />
   <!-- scene 1 -->
   <text x="518" y="142" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">跌倒监测</text>
-  <text x="518" y="160" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">几秒内分辨摔倒，自动通知紧急联系人</text>
-  <line x1="510" y1="172" x2="738" y2="172" stroke="#2dd4bf" stroke-width="0.4" opacity="0.25" />
+  <text x="518" y="160" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#f6ddc4" opacity="0.7">几秒内分辨摔倒，自动通知紧急联系人</text>
+  <line x1="510" y1="172" x2="738" y2="172" stroke="#e0913f" stroke-width="0.4" opacity="0.25" />
   <!-- scene 2 -->
   <text x="518" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">认知陪伴机器人</text>
-  <text x="518" y="218" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">主动发起对话，缓解独居孤独感</text>
-  <line x1="510" y1="230" x2="738" y2="230" stroke="#2dd4bf" stroke-width="0.4" opacity="0.25" />
+  <text x="518" y="218" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#f6ddc4" opacity="0.7">主动发起对话，缓解独居孤独感</text>
+  <line x1="510" y1="230" x2="738" y2="230" stroke="#e0913f" stroke-width="0.4" opacity="0.25" />
   <!-- scene 3 -->
   <text x="518" y="258" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#ffffff" opacity="0.9">远程健康监测</text>
-  <text x="518" y="276" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#99f6e4" opacity="0.7">提前数天预警心衰恶化趋势</text>
+  <text x="518" y="276" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#f6ddc4" opacity="0.7">提前数天预警心衰恶化趋势</text>
   <!-- callout bar -->
-  <rect x="480" y="300" width="280" height="32" rx="6" fill="#2dd4bf" fill-opacity="0.15" />
-  <text x="510" y="321" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11.5" fill="#5eead4">✓ 真实产品数据 · 非概念验证</text>
+  <rect x="480" y="300" width="280" height="32" rx="6" fill="#e0913f" fill-opacity="0.15" />
+  <text x="510" y="321" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11.5" fill="#f2b06a">✓ 真实产品数据 · 非概念验证</text>
   <!-- main title -->
   <text x="220" y="176" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ffffff">AI 真能照顾</text>
-  <text x="220" y="218" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#5eead4">独居老人吗？</text>
+  <text x="220" y="218" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f2b06a">独居老人吗？</text>
   <!-- subtitle -->
-  <text x="220" y="256" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#99f6e4" opacity="0.8">跌倒监测 · 认知陪伴 · 远程健康监测</text>
+  <text x="220" y="256" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f6ddc4" opacity="0.8">跌倒监测 · 认知陪伴 · 远程健康监测</text>
 </svg>

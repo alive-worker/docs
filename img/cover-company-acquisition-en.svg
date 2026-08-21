@@ -1,48 +1,48 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription billing change after company acquisition cover image">
   <defs>
     <linearGradient id="bgGradAcq" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#08201d"/>
-      <stop offset="1" stop-color="#0e3a34"/>
+      <stop offset="0" stop-color="#241708"/>
+      <stop offset="1" stop-color="#4a2c10"/>
     </linearGradient>
     <radialGradient id="glowAcq" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
     </radialGradient>
     <marker id="arrowAcq" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0 0 L8 4 L0 8 Z" fill="#5eead4"/>
+      <path d="M0 0 L8 4 L0 8 Z" fill="#f2b06a"/>
     </marker>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradAcq)"/>
   <rect width="800" height="400" fill="url(#glowAcq)"/>
-  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#5eead4" opacity="0.7">
+  <g fill="#f2b06a" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#ecfdf5">AI Tool Acquired</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#2dd4bf">Billing Merchant Quietly Changes</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5eead4"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#5eead4" opacity="0.85">Merger · Merchant Change · Check Before Renewal</text>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#fdeee0">AI Tool Acquired</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#e0913f">Billing Merchant Quietly Changes</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f2b06a"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#f2b06a" opacity="0.85">Merger · Merchant Change · Check Before Renewal</text>
 
   <!-- two buildings merging with arrow -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#123832" stroke="#1e5b50" stroke-width="2"/>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
     <g transform="translate(-28,-2)">
-      <rect x="-16" y="-38" width="32" height="76" rx="4" fill="#123832" stroke="#5eead4" stroke-width="2"/>
-      <rect x="-9" y="-28" width="7" height="7" fill="#5eead4" opacity="0.6"/>
-      <rect x="2" y="-28" width="7" height="7" fill="#5eead4" opacity="0.6"/>
-      <rect x="-9" y="-14" width="7" height="7" fill="#5eead4" opacity="0.6"/>
-      <rect x="2" y="-14" width="7" height="7" fill="#5eead4" opacity="0.6"/>
-      <rect x="-9" y="0" width="7" height="7" fill="#5eead4" opacity="0.6"/>
-      <rect x="2" y="0" width="7" height="7" fill="#5eead4" opacity="0.6"/>
+      <rect x="-16" y="-38" width="32" height="76" rx="4" fill="#5a3616" stroke="#f2b06a" stroke-width="2"/>
+      <rect x="-9" y="-28" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
+      <rect x="2" y="-28" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
+      <rect x="-9" y="-14" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
+      <rect x="2" y="-14" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
+      <rect x="-9" y="0" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
+      <rect x="2" y="0" width="7" height="7" fill="#f2b06a" opacity="0.6"/>
     </g>
-    <path d="M0 -2 h26" stroke="#2dd4bf" stroke-width="2.5" marker-end="url(#arrowAcq)"/>
+    <path d="M0 -2 h26" stroke="#e0913f" stroke-width="2.5" marker-end="url(#arrowAcq)"/>
     <g transform="translate(50,-2)">
-      <rect x="-18" y="-46" width="38" height="84" rx="4" fill="#123832" stroke="#f87171" stroke-width="2"/>
+      <rect x="-18" y="-46" width="38" height="84" rx="4" fill="#5a3616" stroke="#f87171" stroke-width="2"/>
       <rect x="-10" y="-34" width="8" height="8" fill="#f87171" opacity="0.7"/>
       <rect x="4" y="-34" width="8" height="8" fill="#f87171" opacity="0.7"/>
       <rect x="-10" y="-18" width="8" height="8" fill="#f87171" opacity="0.7"/>
@@ -50,15 +50,15 @@
       <rect x="-10" y="-2" width="8" height="8" fill="#f87171" opacity="0.7"/>
       <rect x="4" y="-2" width="8" height="8" fill="#f87171" opacity="0.7"/>
     </g>
-    <text x="0" y="52" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#5eead4">Merger</text>
+    <text x="0" y="52" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#f2b06a">Merger</text>
   </g>
-  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f87171" font-weight="700">New Merchant</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#5eead4" opacity="0.85">Terms · Currency · Sync may change</text>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">Terms · Currency · Sync may change</text>
 </svg>
