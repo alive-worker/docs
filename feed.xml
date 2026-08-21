@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 21 Aug 2026 11:14:41 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 13:38:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[家人的卡明明没被冻结，AI订阅续费却总被风控拦下]]></title>
+    <link>https://ponr.org/articles/ai-subscription-fraud-flag.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-fraud-flag.html</guid>
+    <pubDate>Fri, 21 Aug 2026 13:38:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[持卡人姓名、账单地址与登录地和账户注册信息不一致，最容易触发AI平台自己的风控引擎误判为盗刷而自动拦截续费，这篇拆解风控评分逻辑与申诉复核的实操路径。]]></description>
+  </item>
   <item>
     <title><![CDATA[用不完的AI生成额度，为什么一到期就清零]]></title>
     <link>https://ponr.org/articles/ai-subscription-credit-expiry.html</link>

@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription account fraud flag cover image">
+  <defs>
+    <linearGradient id="bgGradFraudEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08201d"/>
+      <stop offset="1" stop-color="#0e3a34"/>
+    </linearGradient>
+    <radialGradient id="glowFraudEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradFraudEn)"/>
+  <rect width="800" height="400" fill="url(#glowFraudEn)"/>
+  <g stroke="#1e5b50" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#5eead4" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="102" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#ecfdf5">Family Card, Real Owner</text>
+  <text x="52" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#2dd4bf">Still Fraud-Flagged</text>
+  <rect x="52" y="154" width="120" height="4" rx="2" fill="#5eead4"/>
+  <text x="52" y="184" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#5eead4" opacity="0.85">name mismatch · address · login drift</text>
+
+  <g transform="translate(600,150)">
+    <circle r="72" fill="#123832" stroke="#1e5b50" stroke-width="14"/>
+    <path d="M0 -40 L34 -24 V10 C34 34 18 50 0 58 C-18 50 -34 34 -34 10 V-24 Z" fill="none" stroke="#5eead4" stroke-width="6" stroke-linejoin="round"/>
+    <line x1="0" y1="-14" x2="0" y2="12" stroke="#f87171" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="0" cy="28" r="4" fill="#f87171"/>
+  </g>
+  <g stroke="#5eead4" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 232 v34" stroke-dasharray="4 4"/>
+    <path d="M592 258 l8 10 l8 -10" fill="none"/>
+  </g>
+  <g transform="translate(600,300)">
+    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#123832" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="15" fill="#f87171" font-weight="700">Blocked</text>
+  </g>
+  <text x="600" y="355" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#5eead4" opacity="0.85">scoring model · auto-decline</text>
+</svg>

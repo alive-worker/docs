@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 21 Aug 2026 11:14:41 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 13:38:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why a Family Member's Card Keeps Getting Fraud-Flagged]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-fraud-flag.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-fraud-flag.html</guid>
+    <pubDate>Fri, 21 Aug 2026 13:38:00 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[A mismatched name, address, or login location can trip an AI platform's fraud engine into blocking a real renewal — the scoring logic and how to appeal it.]]></description>
+  </item>
   <item>
     <title><![CDATA[Unused AI Usage Credits Expire — Where Did the Money Go]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-credit-expiry.html</link>
