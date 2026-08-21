@@ -6,12 +6,12 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 21 Aug 2026 10:25:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 10:06:22 +0800</lastBuildDate>
   <item>
     <title><![CDATA[月付AI订阅续费时，为什么会被换成年付方案]]></title>
     <link>https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</guid>
-    <pubDate>Fri, 21 Aug 2026 10:25:00 +0800</pubDate>
+    <pubDate>Fri, 21 Aug 2026 10:06:22 +0800</pubDate>
     <category>海外AI订阅</category>
     <description><![CDATA[续费提醒里一个默认勾选的“升级到年付更划算”选项，或者试用期结束时的自动转档，都可能在你没留意的情况下把月付订阅换成年付，这篇拆解几种常见触发场景与补救方法。]]></description>
   </item>
