@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 21 Aug 2026 10:06:22 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 11:14:41 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[用不完的AI生成额度，为什么一到期就清零]]></title>
+    <link>https://ponr.org/articles/ai-subscription-credit-expiry.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-credit-expiry.html</guid>
+    <pubDate>Fri, 21 Aug 2026 11:14:41 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[API token、生成次数这类用量额度按账单周期清零、账户注销后的预付余额不退，本质是平台把“未来服务承诺”包装成了看似能攒的余额，这篇拆解背后的计费逻辑与能做的事。]]></description>
+  </item>
   <item>
     <title><![CDATA[月付AI订阅续费时，为什么会被换成年付方案]]></title>
     <link>https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</link>

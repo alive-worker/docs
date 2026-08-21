@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-subscription-credit-expiry.html': '2026-08-21 11:14:41',
+    '/en/articles/ai-subscription-credit-expiry.html': '2026-08-21 11:14:41',
     '/articles/ai-subscription-billing-cycle-switch.html': '2026-08-21 10:06:22',
     '/en/articles/ai-subscription-billing-cycle-switch.html': '2026-08-21 10:06:22',
     '/articles/ai-subscription-shared-plan-payment-failure.html': '2026-08-20 16:43:49',
