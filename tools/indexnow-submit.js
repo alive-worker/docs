@@ -15,7 +15,11 @@ const https = require('https');
 const HOST = 'ponr.org';
 const KEY = '492c18170d39924679d2b2975e4e81f5';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const ENDPOINT = 'api.indexnow.org';
+// Submit to both the shared aggregator (fans out to Yandex/Seznam/Naver/etc.) AND Bing's own
+// dedicated endpoint directly — Bing Webmaster Tools' own "IndexNow" dashboard/recommendation
+// only reliably reflects submissions it received on its own endpoint, not ones that arrived via
+// the shared aggregator's fanout (that hop isn't guaranteed to register in Bing's UI promptly).
+const ENDPOINTS = ['api.indexnow.org', 'www.bing.com'];
 
 function urlsFromSitemap() {
   const sitemapPath = path.join(__dirname, '..', 'sitemap.xml');
@@ -23,45 +27,52 @@ function urlsFromSitemap() {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 }
 
-function submit(urlList) {
-  const body = JSON.stringify({
-    host: HOST,
-    key: KEY,
-    keyLocation: KEY_LOCATION,
-    urlList,
-  });
+function submitToEndpoint(endpoint, urlList) {
+  return new Promise((resolve) => {
+    const body = JSON.stringify({
+      host: HOST,
+      key: KEY,
+      keyLocation: KEY_LOCATION,
+      urlList,
+    });
 
-  const req = https.request(
-    {
-      hostname: ENDPOINT,
-      path: '/indexnow',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': Buffer.byteLength(body),
+    const req = https.request(
+      {
+        hostname: endpoint,
+        path: '/indexnow',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Content-Length': Buffer.byteLength(body),
+        },
       },
-    },
-    (res) => {
-      let data = '';
-      res.on('data', (chunk) => (data += chunk));
-      res.on('end', () => {
-        console.log(`IndexNow response: ${res.statusCode} ${res.statusMessage}`);
-        if (data) console.log(data);
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          console.log(`Submitted ${urlList.length} URL(s).`);
-        } else {
-          console.error('Submission was not accepted — check host/key/keyLocation match the live site.');
-          process.exitCode = 1;
-        }
-      });
-    }
-  );
-  req.on('error', (err) => {
-    console.error('IndexNow request failed:', err.message);
-    process.exitCode = 1;
+      (res) => {
+        let data = '';
+        res.on('data', (chunk) => (data += chunk));
+        res.on('end', () => {
+          const ok = res.statusCode >= 200 && res.statusCode < 300;
+          console.log(`[${endpoint}] ${res.statusCode} ${res.statusMessage}${data ? ' — ' + data : ''}`);
+          resolve(ok);
+        });
+      }
+    );
+    req.on('error', (err) => {
+      console.error(`[${endpoint}] request failed:`, err.message);
+      resolve(false);
+    });
+    req.write(body);
+    req.end();
   });
-  req.write(body);
-  req.end();
+}
+
+async function submit(urlList) {
+  const results = await Promise.all(ENDPOINTS.map((ep) => submitToEndpoint(ep, urlList)));
+  if (results.every(Boolean)) {
+    console.log(`Submitted ${urlList.length} URL(s) to all endpoints.`);
+  } else {
+    console.error('One or more endpoints rejected the submission — check host/key/keyLocation match the live site.');
+    process.exitCode = 1;
+  }
 }
 
 const args = process.argv.slice(2);
