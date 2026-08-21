@@ -438,7 +438,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background-size: auto;
   background-repeat: repeat;
   will-change: auto;
-  margin-top: 22px;
+  margin-top: 28px;
 }
 .search-bar--inline .search-bar-inner { max-width: none; padding: 0; }
 /* Once the inline box scrolls out of view, site.js adds .is-pinned so it's still reachable —
@@ -533,7 +533,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 /* --- ibve.org-style homepage: centered hero, single featured article, vertical list --- */
 .hero-centered {
   max-width: 640px;
-  margin: 28px auto 26px;
+  margin: 28px auto 28px;
   text-align: center;
 }
 .hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; }
