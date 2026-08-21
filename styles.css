@@ -911,8 +911,9 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
   .site-foot-desc { max-width: none; }
   .hero { padding: 34px 0 4px; }
   .lede { font-size: 16.5px; }
-  .hero-centered { margin: 36px auto 32px; padding: 0 16px; }
+  .hero-centered { margin: 36px auto 18px; padding: 0 16px; }
   .hero-centered .lede { font-size: 16px; }
+  .search-bar--inline { margin-top: 32px; }
   .featured-article, .post-list { padding: 0 16px; }
   .featured-body { padding: 20px; }
   .post-list-item a { gap: 14px; padding: 14px 4px; }
