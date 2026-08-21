@@ -702,7 +702,7 @@
 
 // Count up the hero stat numbers (articles / topics) from 0 once they scroll into view.
 (function () {
-  var nums = document.querySelectorAll('.hero-stat-num[data-count]');
+  var nums = document.querySelectorAll('.hero-meta-num[data-count]');
   if (!nums.length) return;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) return;

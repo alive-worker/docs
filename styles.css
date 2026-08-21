@@ -539,20 +539,25 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 .hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; }
 .hero-centered .lede { max-width: 640px; margin: 0 auto 30px; color: var(--muted-2); font-size: 18px; line-height: 1.75; }
 .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.hero-stats { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px auto 0; }
-.hero-stat {
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  min-width: 108px; padding: 14px 20px;
-  border: 1px solid var(--line); border-radius: 16px;
-  background: var(--panel);
+/* A single credibility line instead of a dashboard-style stat-card cluster — the
+   card-with-big-number-and-label pattern is a templated default regardless of subject;
+   this reads as a plain, honest sentence instead. */
+.hero-meta {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 9px; margin: 28px auto 0;
+  font-size: 14px; color: var(--muted);
 }
-.hero-stat-num { font-size: 22px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
-.hero-stat-num.is-infinity { display: inline-block; animation: hero-stat-pulse 2.6s ease-in-out infinite; }
-@keyframes hero-stat-pulse {
+.hero-meta-num { font-size: 17px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hero-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--line-strong); }
+.hero-meta-live { display: inline-flex; align-items: center; gap: 6px; }
+.hero-meta-pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  animation: hero-meta-pulse 2.6s ease-in-out infinite;
+}
+@keyframes hero-meta-pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.18); opacity: .72; }
+  50% { transform: scale(1.7); opacity: .35; }
 }
-.hero-stat-label { font-size: 12.5px; color: var(--muted); }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 11px 24px; border-radius: 999px;
@@ -940,7 +945,7 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
   html { scroll-behavior: auto; }
   .post-card, .read-link::after { transition: none; }
   .back-to-top { transition: none; }
-  .hero-stat-num.is-infinity { animation: none; }
+  .hero-meta-pulse { animation: none; }
 }
 
 /* --- back-to-top: fixed floating button, fades in once you've scrolled a bit --- */
