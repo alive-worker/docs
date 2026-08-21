@@ -1,49 +1,49 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription account fraud flag cover image">
   <defs>
     <linearGradient id="bgGradFraudEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#241708"/>
-      <stop offset="1" stop-color="#4a2c10"/>
+      <stop offset="0" stop-color="#0d1610"/>
+      <stop offset="1" stop-color="#163825"/>
     </linearGradient>
     <radialGradient id="glowFraudEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
+      <stop offset="0" stop-color="#2f9e64" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2f9e64" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradFraudEn)"/>
   <rect width="800" height="400" fill="url(#glowFraudEn)"/>
-  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#2d5c40" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#f2b06a" opacity="0.7">
+  <g fill="#5fc98c" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="102" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#fdeee0">Family Card, Real Owner</text>
-  <text x="52" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#e0913f">Still Fraud-Flagged</text>
-  <rect x="52" y="154" width="120" height="4" rx="2" fill="#f2b06a"/>
-  <text x="52" y="184" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#f2b06a" opacity="0.85">name mismatch · address · login drift</text>
+  <text x="52" y="102" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#eaf7ee">Family Card, Real Owner</text>
+  <text x="52" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="26" font-weight="700" fill="#2f9e64">Still Fraud-Flagged</text>
+  <rect x="52" y="154" width="120" height="4" rx="2" fill="#5fc98c"/>
+  <text x="52" y="184" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#5fc98c" opacity="0.85">name mismatch · address · login drift</text>
 
   <!-- the actual mechanism: a card whose printed name doesn't match the billing profile name -->
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="120" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
-    <rect x="-96" y="-64" width="192" height="34" rx="16" fill="#3a2109"/>
-    <rect x="-96" y="-47" width="192" height="17" fill="#3a2109"/>
-    <circle cx="-68" cy="-47" r="10" fill="#f2b06a" opacity=".55"/>
-    <circle cx="-44" cy="-47" r="10" fill="#f2b06a" opacity=".3"/>
-    <text x="-78" y="-2" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#f2b06a" opacity="0.9">CARD: JOHN SMITH</text>
+    <rect x="-96" y="-64" width="192" height="120" rx="16" fill="#1b3a28" stroke="#2d5c40" stroke-width="2"/>
+    <rect x="-96" y="-64" width="192" height="34" rx="16" fill="#0f1f16"/>
+    <rect x="-96" y="-47" width="192" height="17" fill="#0f1f16"/>
+    <circle cx="-68" cy="-47" r="10" fill="#5fc98c" opacity=".55"/>
+    <circle cx="-44" cy="-47" r="10" fill="#5fc98c" opacity=".3"/>
+    <text x="-78" y="-2" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#5fc98c" opacity="0.9">CARD: JOHN SMITH</text>
     <text x="-78" y="24" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#f87171" font-weight="700">BILLING: J. SMITH</text>
     <path d="M62 11 q16 0 16 -12" stroke="#f87171" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <text x="80" y="6" font-family="'Segoe UI',Arial,sans-serif" font-size="16" fill="#f87171" font-weight="700">✕</text>
   </g>
-  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#5fc98c" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 220 v34" stroke-dasharray="4 4"/>
     <path d="M592 246 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,300)">
-    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#1b3a28" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="15" fill="#f87171" font-weight="700">Blocked</text>
   </g>
-  <text x="600" y="355" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">scoring model · auto-decline</text>
+  <text x="600" y="355" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#5fc98c" opacity="0.85">scoring model · auto-decline</text>
 </svg>

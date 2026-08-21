@@ -11,33 +11,35 @@
 }
 :root {
   color-scheme: dark;
-  /* Warm ink/paper instead of the cool blue-black + neon-mint pairing this started with —
-     that combo (near-black background, one bright acid accent) is one of the handful of
-     palettes AI-generated design defaults to regardless of subject. A warm charcoal base
-     with a copper/amber accent reads as a deliberate choice for a billing/subscription
-     topic (currency, receipts) rather than a generic dark-mode SaaS template. */
-  --ink: #f1ece2;
-  --muted: #a89a82;
-  --muted-2: #cabfa9;
-  --soft: #171310;
-  --paper: #0c0906;
-  --panel: #1a1510;
-  --line: #2c2419;
-  --line-strong: #3e3323;
-  --accent: #e0913f;
-  --accent-light: #f2b06a;
-  --accent-2: #3f9e93;
-  --accent-soft: #2e2013;
+  /* Green, deliberately not the mint/spearmint this started with — pure mint-on-near-black
+     is the single most recognizable "AI-generated dark mode" cliché. Shifted hue toward a
+     deeper, less cyan-leaning emerald, and warmed the neutral scale with a faint green
+     undertone (instead of pure gray/blue-black) so accent and background read as one
+     considered palette rather than a bright accent dropped onto a generic dark shell.
+     Amber stays on as the secondary accent — green+amber is a deliberately less-common
+     pairing than green+mint, and still nods at "money/receipts" for this site's subject. */
+  --ink: #ecf1ea;
+  --muted: #93a99b;
+  --muted-2: #b9cdbd;
+  --soft: #121712;
+  --paper: #090c09;
+  --panel: #161d17;
+  --line: #25312a;
+  --line-strong: #364a3d;
+  --accent: #2f9e64;
+  --accent-light: #5fc98c;
+  --accent-2: #e0913f;
+  --accent-soft: #163825;
   --shadow: 0 14px 38px rgba(0, 0, 0, .55);
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, .4);
-  --focus: #f2b06a;
+  --focus: #5fc98c;
   /* Position percentages in a radial-gradient resolve against each element's OWN box, not the
      viewport, even with background-attachment:fixed — so a corner radial glows intensely inside
      the short header/search-bar but is diluted almost to nothing across the tall body/hero,
      producing a visible seam between them. A plain top-to-bottom linear fade doesn't have that
      per-box-size sensitivity, so it composites seamlessly across differently-sized fixed elements. */
-  --bg-glow: linear-gradient(180deg, rgba(224, 145, 63, .16), transparent 55%),
-             radial-gradient(900px 480px at -8% 18%, rgba(63, 158, 147, .07), transparent 55%);
+  --bg-glow: linear-gradient(180deg, rgba(47, 158, 100, .16), transparent 55%),
+             radial-gradient(900px 480px at -8% 18%, rgba(224, 145, 63, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, color-mix(in srgb, var(--panel) 100%, white 3%), var(--panel) 70%);
   /* Exactly --paper, no tint at all: sticky chrome (header, search bar, hero, sidebar heading)
      needs to stay opaque so scrolled content can't show through underneath it. Anything other
@@ -57,28 +59,28 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --ink: #241a0f;
-  --muted: #7d6a52;          /* darkened for WCAG AA on small text */
-  --muted-2: #5c4b34;
-  --soft: #f7f0e3;
-  --paper: #fbf7ee;
+  --ink: #16211a;
+  --muted: #5f7268;          /* darkened for WCAG AA on small text */
+  --muted-2: #46564c;
+  --soft: #eef3ec;
+  --paper: #f8fbf6;
   --panel: #ffffff;
-  --line: #e9ddc7;
-  --line-strong: #dbc9a6;
-  --accent: #b35e1f;
-  --accent-light: #d97a3f;
-  --accent-2: #1f7d72;
-  --accent-soft: #f7e6d3;
-  --shadow: 0 14px 38px rgba(42, 35, 25, 0.09);
-  --shadow-sm: 0 2px 10px rgba(42, 35, 25, 0.05);
-  --focus: #b35e1f;
+  --line: #dde7dd;
+  --line-strong: #c8d8c9;
+  --accent: #1f7d50;
+  --accent-light: #2f9e64;
+  --accent-2: #b35e1f;
+  --accent-soft: #e2f2e6;
+  --shadow: 0 14px 38px rgba(20, 35, 25, 0.09);
+  --shadow-sm: 0 2px 10px rgba(20, 35, 25, 0.05);
+  --focus: #1f7d50;
   /* Light theme reads "dirty" much faster than dark with a tinted overlay — a second
      warm tone stacked under the accent one showed up as a visible muddy two-tone band
      across the header. One faint accent hint, low enough to be nearly subliminal.
      Plain linear fade only — a corner radial's position resolves per-element-box even with
      background-attachment:fixed, which seams badly between the short header/search-bar and
      the tall body/hero (see the dark-theme comment above for the full explanation). */
-  --bg-glow: linear-gradient(180deg, rgba(179, 94, 31, .07), transparent 55%);
+  --bg-glow: linear-gradient(180deg, rgba(31, 125, 80, .07), transparent 55%);
   --panel-gradient: linear-gradient(160deg, #ffffff, color-mix(in srgb, var(--accent) 4%, #ffffff) 70%);
   --chrome-surface: var(--paper);
 }

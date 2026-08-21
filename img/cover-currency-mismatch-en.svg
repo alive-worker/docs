@@ -1,53 +1,53 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription currency mismatch DCC trap cover image">
   <defs>
     <linearGradient id="bgGradCurEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#241708"/>
-      <stop offset="1" stop-color="#4a2c10"/>
+      <stop offset="0" stop-color="#0d1610"/>
+      <stop offset="1" stop-color="#163825"/>
     </linearGradient>
     <radialGradient id="glowCurEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#e0913f" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#e0913f" stop-opacity="0"/>
+      <stop offset="0" stop-color="#2f9e64" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2f9e64" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="400" fill="url(#bgGradCurEn)"/>
   <rect width="800" height="400" fill="url(#glowCurEn)"/>
-  <g stroke="#6b4321" stroke-width="1.4" opacity="0.4" fill="none">
+  <g stroke="#2d5c40" stroke-width="1.4" opacity="0.4" fill="none">
     <path d="M40 320 h60 v30 h50"/>
     <path d="M60 360 h50 v-26 h40"/>
   </g>
-  <g fill="#f2b06a" opacity="0.7">
+  <g fill="#5fc98c" opacity="0.7">
     <circle cx="40" cy="320" r="3"/>
     <circle cx="100" cy="350" r="3"/>
     <circle cx="60" cy="360" r="3"/>
   </g>
-  <text x="52" y="112" font-family="'Segoe UI',Arial,sans-serif" font-size="28" font-weight="700" fill="#fdeee0">Billed in USD</text>
-  <text x="52" y="156" font-family="'Segoe UI',Arial,sans-serif" font-size="28" font-weight="700" fill="#e0913f">Charged in EUR</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f2b06a"/>
-  <text x="52" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#f2b06a" opacity="0.85">Dynamic Currency Conversion · Hidden Markup</text>
+  <text x="52" y="112" font-family="'Segoe UI',Arial,sans-serif" font-size="28" font-weight="700" fill="#eaf7ee">Billed in USD</text>
+  <text x="52" y="156" font-family="'Segoe UI',Arial,sans-serif" font-size="28" font-weight="700" fill="#2f9e64">Charged in EUR</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5fc98c"/>
+  <text x="52" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#5fc98c" opacity="0.85">Dynamic Currency Conversion · Hidden Markup</text>
 
   <!-- invoice priced in USD, card statement shows a EUR charge via DCC -->
   <defs>
     <marker id="arrowCurEn" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0 0 L8 4 L0 8 Z" fill="#f2b06a"/>
+      <path d="M0 0 L8 4 L0 8 Z" fill="#5fc98c"/>
     </marker>
   </defs>
   <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#6b4321" stroke-width="2"/>
-    <rect x="-84" y="-40" width="72" height="60" rx="8" fill="#3a2109" stroke="#e0913f" stroke-width="2"/>
-    <text x="-48" y="-4" text-anchor="middle" font-size="24" font-weight="700" fill="#e0913f">$</text>
-    <text x="-48" y="14" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#f2b06a" opacity="0.85">Invoiced</text>
-    <path d="M-4 -10 h20" stroke="#f2b06a" stroke-width="2.5" marker-end="url(#arrowCurEn)"/>
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#1b3a28" stroke="#2d5c40" stroke-width="2"/>
+    <rect x="-84" y="-40" width="72" height="60" rx="8" fill="#0f1f16" stroke="#2f9e64" stroke-width="2"/>
+    <text x="-48" y="-4" text-anchor="middle" font-size="24" font-weight="700" fill="#2f9e64">$</text>
+    <text x="-48" y="14" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#5fc98c" opacity="0.85">Invoiced</text>
+    <path d="M-4 -10 h20" stroke="#5fc98c" stroke-width="2.5" marker-end="url(#arrowCurEn)"/>
     <rect x="24" y="-40" width="72" height="60" rx="8" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
     <text x="60" y="-4" text-anchor="middle" font-size="24" font-weight="700" fill="#f87171">€</text>
     <text x="60" y="14" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#f87171">Charged</text>
   </g>
-  <g stroke="#f2b06a" stroke-width="2.5" fill="none" opacity="0.85">
+  <g stroke="#5fc98c" stroke-width="2.5" fill="none" opacity="0.85">
     <path d="M600 210 v34" stroke-dasharray="4 4"/>
     <path d="M592 236 l8 10 l8 -10" fill="none"/>
   </g>
   <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
+    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#1b3a28" stroke="#f87171" stroke-width="2.5"/>
     <text x="0" y="6" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#f87171" font-weight="700">Currency Mismatch</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#f2b06a" opacity="0.85">Dynamic currency conversion markup</text>
+  <text x="600" y="350" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#5fc98c" opacity="0.85">Dynamic currency conversion markup</text>
 </svg>
