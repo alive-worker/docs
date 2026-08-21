@@ -438,7 +438,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background-size: auto;
   background-repeat: repeat;
   will-change: auto;
-  margin-top: 28px;
+  margin-top: 14px;
 }
 .search-bar--inline .search-bar-inner { max-width: none; padding: 0; }
 /* Once the inline box scrolls out of view, site.js adds .is-pinned so it's still reachable —
