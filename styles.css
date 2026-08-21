@@ -1,3 +1,14 @@
+/* Display face for headings and standalone numerals — Latin/numeral glyphs only, so on
+   Chinese pages it only touches the odd Latin word or digit inside CJK copy; browsers fall
+   back to the system CJK stack automatically for characters this face doesn't cover. Self-hosted
+   (not a Google Fonts CDN link) so there's no third-party runtime dependency. */
+@font-face {
+  font-family: 'Fraunces Display';
+  src: url('/fonts/fraunces-var.woff2') format('woff2-variations'), url('/fonts/fraunces-var.woff2') format('woff2');
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   color-scheme: dark;
   --ink: #ece9f3;
@@ -505,7 +516,11 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 }
 .kicker-icon { flex: none; }
 .sidebar-heading-icon { flex: none; }
-h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spacing: -.01em; }
+h1 {
+  margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spacing: -.01em;
+  font-family: 'Fraunces Display', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 600;
+}
 .lede { margin: 18px 0 0; color: var(--muted-2); font-size: 17.5px; }
 
 /* --- compact card grid: home page "latest articles" teaser (fixed 6 cards, 3 per row) --- */
@@ -536,7 +551,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   margin: 28px auto 28px;
   text-align: center;
 }
-.hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; }
+.hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; font-weight: 560; }
 .hero-centered .lede { max-width: 640px; margin: 0 auto 30px; color: var(--muted-2); font-size: 18px; line-height: 1.75; }
 .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 /* A single credibility line instead of a dashboard-style stat-card cluster — the
@@ -547,7 +562,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
   gap: 9px; margin: 28px auto 0;
   font-size: 14px; color: var(--muted);
 }
-.hero-meta-num { font-size: 17px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hero-meta-num { font-family: 'Fraunces Display', inherit; font-size: 18px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .hero-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--line-strong); }
 .hero-meta-live { display: inline-flex; align-items: center; gap: 6px; }
 .hero-meta-pulse {
