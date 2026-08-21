@@ -4,8 +4,8 @@
     {
       "name": "docs-static",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "-l", "8099", "."],
-      "port": 8099
+      "runtimeArgs": ["--yes", "serve", "."],
+      "autoPort": true
     }
   ]
 }

@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</loc>
+    <lastmod>2026-08-21T10:25:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-subscription-billing-cycle-switch.html</loc>
+    <lastmod>2026-08-21T10:25:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-subscription-shared-plan-payment-failure.html</loc>
@@ -318,11 +326,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
