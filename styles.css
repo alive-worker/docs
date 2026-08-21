@@ -533,7 +533,7 @@ h1 { margin: 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.18; letter-spa
 /* --- ibve.org-style homepage: centered hero, single featured article, vertical list --- */
 .hero-centered {
   max-width: 640px;
-  margin: 28px auto 44px;
+  margin: 28px auto 18px;
   text-align: center;
 }
 .hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; }
