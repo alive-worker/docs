@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 21 Aug 2026 13:38:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 16:01:22 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[昨天还能问50次，今天变成20次：AI免费额度为什么说降就降]]></title>
+    <link>https://ponr.org/articles/ai-subscription-free-tier-throttle.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-free-tier-throttle.html</guid>
+    <pubDate>Fri, 21 Aug 2026 16:01:22 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[免费档用量上限不是写死的固定值，而是平台按实时算力成本、并发压力动态调整的柔性阈值，这篇拆解限流引擎背后的运作逻辑，以及额度缩水后该怎么判断原因、该怎么应对。]]></description>
+  </item>
   <item>
     <title><![CDATA[家人的卡明明没被冻结，AI订阅续费却总被风控拦下]]></title>
     <link>https://ponr.org/articles/ai-subscription-fraud-flag.html</link>

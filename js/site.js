@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-subscription-free-tier-throttle.html': '2026-08-21 16:01:22',
+    '/en/articles/ai-subscription-free-tier-throttle.html': '2026-08-21 16:01:22',
     '/articles/ai-subscription-fraud-flag.html': '2026-08-21 13:38:00',
     '/en/articles/ai-subscription-fraud-flag.html': '2026-08-21 13:38:00',
     '/articles/ai-subscription-credit-expiry.html': '2026-08-21 11:14:41',
