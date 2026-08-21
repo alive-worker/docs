@@ -5,7 +5,7 @@
   <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析</title>
-  <meta name="description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？拆解交易所与分析公司常用的地址聚类、资金流图谱等链上取证手段，以及普通用户能做到的隐私边界与应对方法。">
+  <meta name="description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？区块链是“伪匿名”而非匿名，哪怕只在交易所KYC过一次，五年前的转账记录也能被完整关联回溯，拆解地址聚类等链上取证手段与隐私应对方法。">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="ipfsWeb">
   <link rel="canonical" href="https://ponr.org/articles/overseas-ai-onchain-forensics.html">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="AI服务指南">
   <meta property="og:title" content="用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析">
-  <meta property="og:description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？拆解交易所与分析公司常用的地址聚类、资金流图谱等链上取证手段，以及普通用户能做到的隐私边界与应对方法。">
+  <meta property="og:description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？区块链是“伪匿名”而非匿名，哪怕只在交易所KYC过一次，五年前的转账记录也能被完整关联回溯，拆解地址聚类等链上取证手段与隐私应对方法。">
   <meta property="og:url" content="https://ponr.org/articles/overseas-ai-onchain-forensics.html">
   <meta property="article:published_time" content="2026-07-31T10:30:00+08:00">
   <meta property="article:modified_time" content="2026-07-31T10:30:00+08:00">
@@ -29,7 +29,7 @@
   <meta property="article:tag" content="加密货币研究">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析">
-  <meta name="twitter:description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？拆解交易所与分析公司常用的地址聚类、资金流图谱等链上取证手段，以及普通用户能做到的隐私边界与应对方法。">
+  <meta name="twitter:description" content="用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？区块链是“伪匿名”而非匿名，哪怕只在交易所KYC过一次，五年前的转账记录也能被完整关联回溯，拆解地址聚类等链上取证手段与隐私应对方法。">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -57,7 +57,7 @@
         { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
         { "@type": "ListItem", "position": 2, "name": "用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析", "item": "https://ponr.org/articles/overseas-ai-onchain-forensics.html" }
     ] },
-    { "@type": "Article", "headline": "用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析", "description": "用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？拆解交易所与分析公司常用的地址聚类、资金流图谱等链上取证手段，以及普通用户能做到的隐私边界与应对方法。", "image": "https://ponr.org/img/cover-onchain-forensics.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-31T10:30:00+08:00", "dateModified": "2026-07-31T10:30:00+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["链上侦查", "区块链取证", "加密货币安全", "反洗钱", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-onchain-forensics.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+    { "@type": "Article", "headline": "用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析", "description": "用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？区块链是“伪匿名”而非匿名，哪怕只在交易所KYC过一次，五年前的转账记录也能被完整关联回溯，拆解地址聚类等链上取证手段与隐私应对方法。", "image": "https://ponr.org/img/cover-onchain-forensics.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-07-31T10:30:00+08:00", "dateModified": "2026-07-31T10:30:00+08:00", "inLanguage": "zh-CN", "articleSection": "稳定币支付", "keywords": ["链上侦查", "区块链取证", "加密货币安全", "反洗钱", "加密货币研究"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-onchain-forensics.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
   ]
 }</script>
 </head>
