@@ -768,6 +768,7 @@ body.is-searching .hero-duo { display: none; }
   transition: background .15s ease, border-color .15s ease;
 }
 .topic-hub-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
+.topic-hub-arrow { display: inline-flex; align-items: center; color: var(--muted); font-size: 13px; }
 .read-link {
   display: inline-flex; align-items: center; gap: 6px;
   color: var(--accent); font-size: 14.5px; font-weight: 700; text-decoration: none;
