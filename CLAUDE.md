@@ -47,6 +47,8 @@
 9. 从 2–3 篇最相关的已有文章里加一条指向新文章的内链（反向也可以考虑）。
 10. 新文章置顶为首页精选（featured）时，同步把 `index.html` / `en/index.html` `<head>` 里的 `<link rel="preload" as="image" fetchpriority="high">` 指向新文章的封面图（LCP 优化，2026-07 从 docs-coin 项目同步过来的写法）——这个 preload 链接必须和当前精选卡片的封面图保持一致，忘记改就是白做，浏览器还是优先加载旧图。
 11. `articles.html` / `en/articles.html` 顶部「按主题分类阅读」的标签筛选（`.topic-tag-btn`）：新文章要归到入门与基础/虚拟卡专题/稳定币支付专题/特殊场景与账户管理这四类之一，同时给对应 `<li class="archive-item">` 加 `data-topic="basics|virtual-card|stablecoin|special"` 属性，并把该标签按钮里 `.topic-tag-count` 的计数 +1（这个数字是手工维护的静态计数，不是自动统计，改了文章分类却忘记同步这个数字，标签上显示的篇数就会跟点开后的实际结果对不上）。
+12. 新文章按 `data-topic` 归类后，同步检查 `/topics/{basics|virtual-card|stablecoin|billing-account}/`（含 `en/topics/...`）对应的专题聚合页——这些页面（2026-08-22 新增）是手工维护的分组文章列表，不会跟着 `articles.html` 自动更新，漏加会导致专题页比归档页少收录文章。
+13. 首页「热门精选」（hotpicks，4条）**不能跟轮播（carousel，最新3篇）重复**——这是 2026-08-21 用户明确纠正过的标准（早期版本允许两者重叠，已废弃）。发新文章后用脚本核对 `index.html`/`en/index.html` 的 carousel 文章 slug 与 hotpicks 文章 slug 交集必须为空。
 
 ## 5. 改动首页/列表页/关于页时
 
@@ -86,3 +88,15 @@ console.log('JS_HASH=' + hash('js/site.min.js'));
 ```
 
 拿到新哈希后，把所有页面里的 `href="/styles.min.css?v=旧哈希"` 和 `src="/js/site.min.js?v=旧哈希"` 批量替换成新哈希（可以写一个一次性 Node 脚本遍历全部 `.html` 文件做字符串替换，模式参考本仓库历史提交）。改完用 `curl https://ponr.org/styles.min.css?v=新哈希 | grep 关键规则` 确认线上确实拿到了新内容，而不是只在本地验证。
+
+## 9. 内容新鲜度：别写会过期的具体数字/型号
+
+2026-08-22 的一次审计发现 `ai-application-scenarios-guide.html` 里 Perplexity Pro 宣称的模型（GPT-4o、Claude 3.7）和 ElevenLabs 价格（$5/月）都已经是过期数据，而文章的"发布时间"却是近期——这种"发布时间新但内容旧"的落差比不写具体数字更伤可信度。
+
+- **能不写具体价格/型号就不写**：正文只在真的需要横向对比费用时才引用具体数字，且优先用"具体价格以官方页面为准，会随时间调整"这类不过期的表述；Cursor/Perplexity 这类会频繁更新可选模型的产品，不要点名具体型号。
+- **一定要写具体数字时**：发布前用 WebFetch/WebSearch 核对官方定价页，不能凭记忆或训练数据写；并在文章 `article-meta`（发布时间那一行）里加一句「价格与模型信息最后核验于 YYYY-MM-DD」，跟发布时间分开标注，方便以后追踪是否过期。
+- 全站目前只有个别文章真的引用了会过期的硬数字（多数文章本来就有意回避具体价格/型号），不需要为此在每篇文章套统一模板，按实际内容判断即可。
+
+## 10. 全站统计类数字不手工维护
+
+首页"N 篇实测文章"这类数字曾经是手工填的常量，2026-08-22 审计发现它跟归档页真实篇数（69）对不上（首页显示 65）。已经改成运行时从 `js/site.js` 里的 `DATES` 映射表按语言前缀（`/articles/` vs `/en/articles/`）自动统计（见 `js/site.js` 里 `data-count-source="articles"` 那段），`DATES` 表本来就在每次发文时更新（见第 4 节第 5 条），不需要再单独维护这个数字。以后如果要在页面上展示新的"全站统计"类数字，优先挂在已有的数据源（`DATES` 表、`articles.html` 的 `data-topic` 计数等）上自动算，不要新增一个手工常量。
