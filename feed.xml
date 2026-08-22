@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 21 Aug 2026 16:01:22 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 22 Aug 2026 16:11:41 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[团队里退了一个人，AI订阅账单为什么本月还是没变]]></title>
+    <link>https://ponr.org/articles/ai-subscription-seat-removal-lag.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-seat-removal-lag.html</guid>
+    <pubDate>Sat, 22 Aug 2026 16:11:41 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[团队AI订阅移除一个席位，不少平台并不会当场退还这个席位当月的费用，而是把它锁在系统里，等到下一个账单周期开始才会真正生效并减少扣款，这篇拆解席位计费锁定窗口的具体规则与查账方法。]]></description>
+  </item>
   <item>
     <title><![CDATA[昨天还能问50次，今天变成20次：AI免费额度为什么说降就降]]></title>
     <link>https://ponr.org/articles/ai-subscription-free-tier-throttle.html</link>

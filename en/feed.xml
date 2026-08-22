@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 21 Aug 2026 16:01:22 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 22 Aug 2026 16:11:41 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[You Removed a Seat, So Why Is the Bill Still the Same?]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-seat-removal-lag.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-seat-removal-lag.html</guid>
+    <pubDate>Sat, 22 Aug 2026 16:11:41 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Removing a seat from a team AI plan rarely lowers the bill right away. Most platforms lock the seat count until the next cycle starts, billing an unused spot.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why Your AI Free Tier's Usage Cap Keeps Shrinking]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-free-tier-throttle.html</link>
