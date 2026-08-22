@@ -761,7 +761,7 @@ body.is-searching .hero-duo { display: none; }
    dedicated CSS, so links only inherited plain body-text color with no hover feedback at all. */
 .topic-hub-links {
   margin: 10px 0 0; padding: 10px 14px;
-  border: 1px solid var(--line); border-radius: 10px; background: var(--soft);
+  border-radius: 10px; background: var(--soft);
   font-size: 13px; color: var(--muted);
 }
 .topic-hub-links a { color: var(--accent); font-weight: 600; text-decoration: none; }
