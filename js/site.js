@@ -334,6 +334,25 @@
     '/en/articles/subscription-guide.html': '2026-07-01 14:30:45'
   };
 
+  // The homepage "N 篇实测文章" stat used to be a hand-edited number and regularly drifted
+  // out of sync with the real article count after a publish (caught in a 2026-08-22 SEO
+  // audit: homepage said 65, the archive page's own count said 69). DATES already gets a
+  // fresh entry per article per language on every publish, so derive the true count from it
+  // instead of trusting a second hardcoded number that nobody remembers to update.
+  (function () {
+    var el = document.querySelector('.hero-meta-num[data-count-source="articles"]');
+    if (!el) return;
+    var prefix = IS_EN ? '/en/articles/' : '/articles/';
+    var count = 0;
+    for (var key in DATES) {
+      if (Object.prototype.hasOwnProperty.call(DATES, key) && key.indexOf(prefix) === 0) count++;
+    }
+    if (count > 0) {
+      el.setAttribute('data-count', String(count));
+      el.textContent = String(count);
+    }
+  })();
+
   // --- Sidebar: add date labels, keep the recent N, link the rest to the archive page ---
   // Mobile shows the list right under the search box, so a shorter teaser (3) reads better
   // than the desktop panel's 10 — the rest is always one tap away via "查看全部文章".
