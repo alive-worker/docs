@@ -760,8 +760,7 @@ body.is-searching .hero-duo { display: none; }
 /* Row of links to the static /topics/ hub pages just below the filter buttons — had zero
    dedicated CSS, so links only inherited plain body-text color with no hover feedback at all. */
 .topic-hub-links {
-  margin: 10px 0 0; padding: 10px 14px;
-  border-radius: 10px; background: var(--soft);
+  margin: 10px 0 0;
   font-size: 13px; color: var(--muted);
 }
 .topic-hub-links a { color: var(--accent); font-weight: 600; text-decoration: none; }
