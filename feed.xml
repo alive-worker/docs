@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 22 Aug 2026 16:11:41 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 22 Aug 2026 19:19:39 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[把AI账户删了，为什么订阅还在扣钱]]></title>
+    <link>https://ponr.org/articles/ai-subscription-delete-not-cancel.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-delete-not-cancel.html</guid>
+    <pubDate>Sat, 22 Aug 2026 19:19:39 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[多数AI平台把删除账户和取消订阅设计成两个互不联动的独立按钮，删号只清空登录和数据，真正管扣款的计费系统需要单独关闭，这篇拆解背后原因与删号前必须先做的核对步骤。]]></description>
+  </item>
   <item>
     <title><![CDATA[团队里退了一个人，AI订阅账单为什么本月还是没变]]></title>
     <link>https://ponr.org/articles/ai-subscription-seat-removal-lag.html</link>

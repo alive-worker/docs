@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-subscription-delete-not-cancel.html': '2026-08-22 19:19:39',
+    '/en/articles/ai-subscription-delete-not-cancel.html': '2026-08-22 19:19:39',
     '/articles/ai-subscription-seat-removal-lag.html': '2026-08-22 16:11:41',
     '/en/articles/ai-subscription-seat-removal-lag.html': '2026-08-22 16:11:41',
     '/articles/ai-subscription-free-tier-throttle.html': '2026-08-21 16:01:22',

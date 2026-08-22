@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription still billing after account deletion cover image">
+  <defs>
+    <linearGradient id="bgGradDel" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2e1a05"/>
+      <stop offset="1" stop-color="#5c3814"/>
+    </linearGradient>
+    <radialGradient id="glowDel" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradDel)"/>
+  <rect width="800" height="400" fill="url(#glowDel)"/>
+  <g stroke="#8a5a1e" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#fcd34d" opacity="0.6">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#fef3c7">Account Deleted</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f87171">Bill Still Hits</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#fcd34d"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#fcd34d" opacity="0.85">Deletion ≠ Cancellation · Two Separate Systems</text>
+
+  <!-- account deleted (trash bin) on the left, billing engine on the right still keeps a live subscription record -->
+  <defs>
+    <marker id="arrowDel" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#fcd34d"/>
+    </marker>
+  </defs>
+  <g transform="translate(600,146)">
+    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#3a2408" stroke="#8a5a1e" stroke-width="2"/>
+    <g transform="translate(-58,-16)">
+      <path d="M-16 -14 h32 M-12 -14 v-6 h24 v6 M-13 -14 l3 30 h20 l3 -30" fill="none" stroke="#fcd34d" stroke-width="2.5" opacity="0.55" stroke-linejoin="round"/>
+      <line x1="-6" y1="-6" x2="-4" y2="14" stroke="#fcd34d" stroke-width="2" opacity="0.5"/>
+      <line x1="6" y1="-6" x2="4" y2="14" stroke="#fcd34d" stroke-width="2" opacity="0.5"/>
+    </g>
+    <text x="-49" y="24" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#fcd34d" opacity="0.7">Account deleted</text>
+    <path d="M-2 -2 h24" stroke="#fcd34d" stroke-width="2.5" marker-end="url(#arrowDel)"/>
+    <rect x="26" y="-30" width="70" height="56" rx="8" fill="#3a2408" stroke="#f87171" stroke-width="2.5"/>
+    <text x="61" y="4" text-anchor="middle" font-size="24" font-weight="700" fill="#f87171">$</text>
+    <text x="61" y="18" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f87171">Still charged</text>
+  </g>
+  <g stroke="#fcd34d" stroke-width="2.5" fill="none" opacity="0.85">
+    <path d="M600 210 v34" stroke-dasharray="4 4"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none"/>
+  </g>
+  <g transform="translate(600,296)">
+    <rect x="-90" y="-24" width="180" height="48" rx="8" fill="#3a2408" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">Billing runs independently</text>
+  </g>
+  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#fcd34d" opacity="0.85">Deletion only clears identity data</text>
+</svg>
