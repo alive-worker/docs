@@ -757,6 +757,15 @@ body.is-searching .hero-duo { display: none; }
 .topic-tag-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
 .topic-tag-btn.is-active { background: linear-gradient(135deg, var(--accent-light), var(--accent)); border-color: var(--accent); color: #fff; }
 .topic-tag-btn.is-active .topic-tag-count { color: #fff; }
+/* Row of links to the static /topics/ hub pages just below the filter buttons — had zero
+   dedicated CSS, so links only inherited plain body-text color with no hover feedback at all. */
+.topic-hub-links {
+  margin: 10px 0 0; padding: 10px 14px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--soft);
+  font-size: 13px; color: var(--muted);
+}
+.topic-hub-links a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.topic-hub-links a:hover { text-decoration: underline; color: var(--accent-light); }
 .read-link {
   display: inline-flex; align-items: center; gap: 6px;
   color: var(--accent); font-size: 14.5px; font-weight: 700; text-decoration: none;
