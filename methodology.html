@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>方法论：信源分级、核验标准与纠错机制 - AI服务指南</title>
+  <meta name="description" content="本站方法论说明如何整理与核实关于 AI 订阅、跨境支付通道、虚拟信用卡与稳定币支付的内容：涉及价格与政策的信息优先以 AI 平台与支付服务商的官方页面为准，核验清单只收录可独立执行、能直接照做核对的具体步骤，赞助内容与正文的独立结论严格分开披露，勘误更新会保留修改时间而不是静默替换正文，方便你判断内容可信边界。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/methodology.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/methodology.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/methodology.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/methodology.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="方法论：信源分级、核验标准与纠错机制 - AI服务指南">
+  <meta property="og:description" content="本站方法论说明如何整理与核实关于 AI 订阅、跨境支付通道、虚拟信用卡与稳定币支付的内容：涉及价格与政策的信息优先以 AI 平台与支付服务商的官方页面为准，核验清单只收录可独立执行、能直接照做核对的具体步骤，赞助内容与正文的独立结论严格分开披露，勘误更新会保留修改时间而不是静默替换正文，方便你判断内容可信边界。">
+  <meta property="og:url" content="https://ponr.org/methodology.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="方法论：信源分级、核验标准与纠错机制 - AI服务指南">
+  <meta name="twitter:description" content="本站方法论说明如何整理与核实关于 AI 订阅、跨境支付通道、虚拟信用卡与稳定币支付的内容：涉及价格与政策的信息优先以 AI 平台与支付服务商的官方页面为准，核验清单只收录可独立执行、能直接照做核对的具体步骤，赞助内容与正文的独立结论严格分开披露，勘误更新会保留修改时间而不是静默替换正文，方便你判断内容可信边界。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/og/og-about.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="方法论：信源分级、核验标准与纠错机制">
+  <meta name="twitter:image" content="https://ponr.org/og/og-about.png">
+  <link rel="stylesheet" href="/styles.min.css?v=302e742fcd">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "WebPage", "@id": "https://ponr.org/methodology.html#webpage", "url": "https://ponr.org/methodology.html", "name": "方法论：信源分级、核验标准与纠错机制", "isPartOf": { "@id": "https://ponr.org/#website" }, "breadcrumb": { "@id": "https://ponr.org/methodology.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/methodology.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "方法论", "item": "https://ponr.org/methodology.html" }
+    ] }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/about.html">关于</a>
+        <a class="active" aria-current="page" href="/methodology.html">方法论</a>
+        <a class="lang-switch" href="/en/methodology.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--single">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>方法论：信源分级、核验标准与纠错机制</h1>
+          <p class="article-summary">本站涉及订阅价格、支付通道、虚拟卡与稳定币操作的文章，背后遵循同一套写作方法：先明确哪些信息必须对照官方来源核实，再说明用什么标准判断一条"核验步骤"是否合格，最后诚实标注哪些内容是平台自述、哪些是可独立复核的事实。这套方法不是营销话术，而是实际的编辑流程本身——本页说明具体规则，方便你判断内容可信度的边界，也方便我们自己保持一致。</p>
+        </header>
+        <div class="article-body">
+
+        <section id="method-1">
+          <h2>1. 信源分级</h2>
+          <p>本站内容按来源可信度分层，写作与核验时优先使用上层来源，下层来源仅作参考或需要额外标注：</p>
+          <ul>
+            <li><strong>第一层——平台官方页面</strong>：AI 服务商与支付服务商自己的定价页、服务条款、帮助中心文章，以及 App Store / Google Play 应用详情页里公开的订阅档位说明。这类来源可独立复核，是涉及价格、区域限制、退款政策等核验类内容的主要依据。</li>
+            <li><strong>第二层——卡组织与支付网络的公开文档</strong>：涉及虚拟卡文章时，会参考 Visa、Mastercard 等卡组织公开的商户类别码（MCC）说明、3DS 验证与 AVS 地址核验的公开规范。这类来源用于解释"为什么会被拒付/风控拦截"这类机制性问题，不代表某张具体虚拟卡的实际表现。</li>
+            <li><strong>第三层——平台自述信息</strong>：某个服务自己在官网或客服口径中给出的描述，例如自称"支持多少地区"或"开卡成功率多少"。这类信息只会标注为"该平台自述"，并提示读者以自己的实际测试和平台最新公告为准，不会被本站当作既定事实直接转述。</li>
+          </ul>
+        </section>
+
+        <section id="method-2">
+          <h2>2. 核验清单标准</h2>
+          <p>部分操作类文章会在正文中给出核对步骤，能不能算作一条合格的核验步骤，标准是：读者看完这一句描述后，能不能不看文章其余部分，直接照做去核对。例如"对照信用卡账单里显示的商户名和平台公告的扣款商户名是否一致"是合格的核验步骤，因为它指向一个具体、可独立执行的动作；而"注意资金安全"这种提法不算，因为它没有给出任何可执行的下一步。我们在写涉及支付失败排查、账单异常识别、虚拟卡开卡流程等内容时，会尽量把每一步都落到这个标准上，而不是停留在笼统的提醒。</p>
+        </section>
+
+        <section id="method-3">
+          <h2>3. 时效性与失效声明</h2>
+          <p>AI 服务的定价、可选模型与支付政策调整频繁，本站的做法是：文章如果引用了具体价格或模型型号这类容易过期的数字，会在发布前对照对应平台的官方页面重新核对，不凭历史印象或旧截图直接引用；这类信息集中的文章，会在发布时间旁边额外标注"价格与模型信息最后核验于"具体日期，跟发布时间分开显示，方便你判断这条信息是否可能已经过期。更常见的做法是，多数文章会主动避免引用容易失效的具体数字，优先采用"具体金额以官方页面为准，请以实际结算为准"这类不会过期的表述——这不是回避细节，而是承认这类数字变化太快，写死在文章里反而会误导读者。</p>
+        </section>
+
+        <section id="method-4">
+          <h2>4. 赞助内容披露规则</h2>
+          <p>本站部分文章会提及第三方工具，例如融达虚拟信用卡 RDVCC、AllSwap 跨链兑换聚合器与 chdh.me 出海导航，这类链接一律使用 <code>rel="noopener nofollow sponsored"</code> 标注。具体规则如下：</p>
+          <ul>
+            <li>赞助方的功能描述一律标注为"该平台自述"，不由本站验证或背书，读者使用前应自行核实其合规性与适用性。</li>
+            <li>赞助内容只作为文章某一小节里的一个示例出现，不会成为整篇文章存在的理由——文章的核验方法与结论，不依赖于文中是否提到某个赞助方。</li>
+            <li>不会把赞助方的产品描述与本站独立整理的操作步骤混写在一起，两者在正文里会有清晰的段落边界。</li>
+          </ul>
+        </section>
+
+        <section id="method-5">
+          <h2>5. 纠错机制</h2>
+          <p>如果你发现某篇文章的价格、政策描述或操作步骤已经过期或存在错误，欢迎通过下方邮箱反馈，我们会优先核实并更新，尤其是可能影响资金安全、账号安全或合规判断的问题。更新时会保留 <code>article:modified_time</code>（更新时间）的变化，让"更新时间"晚于"发布时间"这一变化本身留下痕迹，而不是静默替换正文内容、让读者以为文章从发布起就没变过。</p>
+        </section>
+
+        <section id="method-6">
+          <h2>6. 联系方式</h2>
+          <p>方法论相关的疑问、内容纠错或合作咨询，欢迎通过邮箱 <a href="mailto:llf.worker@gmail.com">llf.worker@gmail.com</a> 联系。也可以参见<a href="/about.html">关于本站与免责声明</a>，了解站点定位、编辑团队与推荐链接披露的完整说明。</p>
+        </section>
+
+        </div>
+        <div class="back-row"><a href="/about.html">关于本站与免责声明</a> · <a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=70f5f03743"></script>
+</body>
+</html>

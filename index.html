@@ -132,6 +132,7 @@
         <a class="active" aria-current="page" href="/">首页</a>
         <a href="/articles.html">全部文章</a>
         <a href="/about.html">关于</a>
+        <a href="/methodology.html">方法论</a>
         <a class="lang-switch" href="/en/" hreflang="en" lang="en">EN</a>
         <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
           <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
@@ -179,6 +180,12 @@
             <div class="carousel-slide">
               <img src="/img/cover-delete-not-cancel.svg" width="800" height="400" alt="删除AI账户后订阅仍在扣款封面图" loading="lazy">
             </div>
+            <div class="carousel-slide">
+              <img src="/img/cover-seat-removal-lag.svg" width="800" height="400" alt="团队订阅移除席位账单本月不变封面图" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="/img/cover-free-tier-throttle.svg" width="800" height="400" alt="AI免费额度动态限流缩水封面图" loading="lazy">
+            </div>
             <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="上一张">&#8592;</button>
             <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="下一张">&#8594;</button>
           </div>
@@ -201,11 +208,25 @@
               <p class="carousel-desc">多数AI平台把删除账户和取消订阅设计成两个互不联动的独立按钮，删号只清空登录和数据，真正管扣款的计费系统需要单独关闭。</p>
               <span class="carousel-meta"><time datetime="2026-08-22T19:19:39+08:00">2026-08-22 19:19:39</time><a class="carousel-more" href="/articles/ai-subscription-delete-not-cancel.html">阅读全文 →</a></span>
             </div>
+            <div class="carousel-slide-info" data-index="3" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--teal">席位锁定</span></span>
+              <h2 class="carousel-title"><a href="/articles/ai-subscription-seat-removal-lag.html">团队里退了一个人，AI订阅账单为什么本月还是没变</a></h2>
+              <p class="carousel-desc">团队AI订阅移除一个席位，很多平台并不会当场退还这个席位的费用，而是把它锁到下一个账单周期才真正生效，这篇拆解席位计费背后的快照锁定机制与查账方法。</p>
+              <span class="carousel-meta"><time datetime="2026-08-22T16:11:41+08:00">2026-08-22 16:11:41</time><a class="carousel-more" href="/articles/ai-subscription-seat-removal-lag.html">阅读全文 →</a></span>
+            </div>
+            <div class="carousel-slide-info" data-index="4" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--teal">额度限流</span></span>
+              <h2 class="carousel-title"><a href="/articles/ai-subscription-free-tier-throttle.html">昨天还能问50次，今天变成20次：AI免费额度为什么说降就降</a></h2>
+              <p class="carousel-desc">免费档用量上限不是写死的固定值，而是平台按实时算力成本、并发压力动态调整的柔性阈值，这篇拆解限流引擎背后的运作逻辑，以及额度缩水后该怎么判断原因、该怎么应对。</p>
+              <span class="carousel-meta"><time datetime="2026-08-21T16:01:22+08:00">2026-08-21 16:01:22</time><a class="carousel-more" href="/articles/ai-subscription-free-tier-throttle.html">阅读全文 →</a></span>
+            </div>
           </div>
           <div class="carousel-dots">
             <button type="button" class="carousel-dot is-active" aria-label="第 1 张"></button>
             <button type="button" class="carousel-dot" aria-label="第 2 张"></button>
             <button type="button" class="carousel-dot" aria-label="第 3 张"></button>
+            <button type="button" class="carousel-dot" aria-label="第 4 张"></button>
+            <button type="button" class="carousel-dot" aria-label="第 5 张"></button>
           </div>
         </div>
 
@@ -214,6 +235,34 @@
           <ol class="hotpicks-list">
             <li class="hotpicks-item">
               <span class="hotpicks-num">1</span>
+              <div class="hotpicks-body">
+                <a href="/articles/ai-subscription-fraud-flag.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">家人的卡明明没被冻结，AI订阅续费却总被风控拦下</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">持卡人姓名、账单地址与登录地不一致，最容易触发风控引擎误判为盗刷而自动拦截续费。</span>
+                      <span class="hotpicks-item-date">2026-08-21 13:38:00</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">2</span>
+              <div class="hotpicks-body">
+                <a href="/articles/ai-subscription-credit-expiry.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">用不完的AI生成额度，为什么一到期就清零</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">API token、生成次数按账单周期清零、账户注销后预付余额不退，本质是把服务承诺包装成余额。</span>
+                      <span class="hotpicks-item-date">2026-08-21 11:14:41</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">3</span>
               <div class="hotpicks-body">
                 <a href="/articles/ai-subscription-billing-cycle-switch.html">
                   <span class="hotpicks-item-text">
@@ -227,7 +276,7 @@
               </div>
             </li>
             <li class="hotpicks-item">
-              <span class="hotpicks-num">2</span>
+              <span class="hotpicks-num">4</span>
               <div class="hotpicks-body">
                 <a href="/articles/ai-subscription-shared-plan-payment-failure.html">
                   <span class="hotpicks-item-text">
@@ -235,34 +284,6 @@
                     <span class="hotpicks-item-meta">
                       <span class="hotpicks-item-desc">合租、家庭或团队AI订阅往往只绑定房主一张卡，卡一出问题所有成员同一天掉线。</span>
                       <span class="hotpicks-item-date">2026-08-20 16:43:49</span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </li>
-            <li class="hotpicks-item">
-              <span class="hotpicks-num">3</span>
-              <div class="hotpicks-body">
-                <a href="/articles/ai-subscription-company-acquisition.html">
-                  <span class="hotpicks-item-text">
-                    <span class="hotpicks-item-title">AI工具被另一家公司收购后，账单商户名突然变了是怎么回事</span>
-                    <span class="hotpicks-item-meta">
-                      <span class="hotpicks-item-desc">商户名、计费货币和条款可能悄悄改变，虚拟卡容易被风控误判拒付，续订前重新核对。</span>
-                      <span class="hotpicks-item-date">2026-08-20 14:17:08</span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </li>
-            <li class="hotpicks-item">
-              <span class="hotpicks-num">4</span>
-              <div class="hotpicks-body">
-                <a href="/articles/ai-subscription-addon-bundle-upsell.html">
-                  <span class="hotpicks-item-text">
-                    <span class="hotpicks-item-title">续费账单突然变长，AI订阅里的插件费是怎么加进来的</span>
-                    <span class="hotpicks-item-meta">
-                      <span class="hotpicks-item-desc">云存储、优先客服、算力额度这类插件常被默认勾选顺带加购，续费前这几处明细必须逐一核对。</span>
-                      <span class="hotpicks-item-date">2026-08-20 11:39:31</span>
                     </span>
                   </span>
                 </a>
@@ -836,6 +857,7 @@
         <ul>
           <li><a href="/articles.html">全部文章</a></li>
           <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
           <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
           <li><a href="/feed.xml">RSS 订阅</a></li>
         </ul>
