@@ -855,27 +855,13 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .references a:hover { text-decoration: underline; }
 .ref-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
 
-/* "相关文章" — quiet divider-list style matching .hotpicks-item (no static boxed
-   cards; a hairline divider between rows, background highlight + nudge only on
-   hover, arrow fades in on hover instead of sitting there permanently). */
-.related { margin: 40px 0 8px; padding-top: 28px; border-top: 1px solid var(--line); }
-.related h2 { margin: 0 0 14px; font-size: 16px; }
-.related ul { list-style: none; margin: 0; padding: 0; }
-.related li + li { border-top: 1px solid var(--line); }
-.related a {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 13px 10px; margin: 0 -10px; border-radius: 10px;
-  color: var(--ink); text-decoration: none;
-  font-size: 14.5px; line-height: 1.5;
-  transition: background-color .15s ease, transform .15s ease;
-}
-.related a::after {
-  content: "\2192"; flex-shrink: 0; color: var(--accent);
-  opacity: 0; transform: translateX(-4px);
-  transition: opacity .15s ease, transform .15s ease;
-}
-.related a:hover { background: var(--accent-soft); color: var(--accent); transform: translateX(2px); }
-.related a:hover::after { opacity: 1; transform: translateX(0); }
+/* "相关文章" — matches docs-coin's own .related exactly: plain accent-colored
+   text links, no boxes, no dividers, no arrow icon. */
+.related { margin: 46px 0 0; padding-top: 26px; border-top: 1px solid var(--line); max-width: 720px; }
+.related h2 { margin: 0 0 14px; font-size: 17px; }
+.related ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.related a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.related a:hover { text-decoration: underline; }
 
 .back-row { margin-top: 32px; }
 .back-row a { color: var(--accent); font-weight: 700; text-decoration: none; }
