@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅平台未收到银行换卡通知导致账号锁定封面图">
+  <defs>
+    <linearGradient id="bgGradReissue" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a0a2e"/>
+      <stop offset="1" stop-color="#3d1140"/>
+    </linearGradient>
+    <radialGradient id="glowReissue" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c026d3" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#c026d3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradReissue)"/>
+  <rect width="800" height="400" fill="url(#glowReissue)"/>
+  <g stroke="#12061f" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#e879f9" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f0abfc">银行悄悄换了卡号</text>
+  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#a21caf">AI账号为什么被锁</text>
+  <rect x="52" y="170" width="120" height="4" rx="2" fill="#d946ef"/>
+  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#d946ef" opacity="0.85">批量重发 · 更新器盲区 · 静默失败</text>
+
+  <!-- mechanism: old card token stays on file while the issuer already swapped the number -->
+  <g transform="translate(600,140)">
+    <rect x="-96" y="-58" width="192" height="112" rx="16" fill="#3d1140" stroke="#12061f" stroke-width="2"/>
+    <rect x="-96" y="-58" width="192" height="32" rx="16" fill="#1a0a2e"/>
+    <rect x="-96" y="-42" width="192" height="16" fill="#1a0a2e"/>
+    <circle cx="-68" cy="-42" r="9" fill="#d946ef" opacity=".55"/>
+    <circle cx="-44" cy="-42" r="9" fill="#d946ef" opacity=".3"/>
+    <text x="-78" y="0" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#d946ef" opacity="0.9">存量令牌 •••• 4471</text>
+    <text x="-78" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#f87171" font-weight="700">发卡行已替换 •••• 8820</text>
+    <path d="M60 6 q16 0 16 -12" stroke="#f87171" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="78" y="1" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#f87171" font-weight="700">✕</text>
+  </g>
+  <g stroke="#d946ef" stroke-width="2.5" fill="none" opacity="0.85" stroke-dasharray="4 4">
+    <path d="M600 210 v34"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none" stroke-dasharray="0"/>
+  </g>
+  <g transform="translate(600,296)">
+    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#3d1140" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#f87171" font-weight="700">账号锁定</text>
+  </g>
+  <text x="600" y="352" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#d946ef" opacity="0.85">令牌未同步 · 静默失败</text>
+</svg>

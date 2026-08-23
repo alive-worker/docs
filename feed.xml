@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 23 Aug 2026 11:07:52 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 23 Aug 2026 13:37:55 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[银行悄悄换了卡号，AI订阅账号为什么会被锁]]></title>
+    <link>https://ponr.org/articles/ai-subscription-card-reissue-lockout.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-card-reissue-lockout.html</guid>
+    <pubDate>Sun, 23 Aug 2026 13:37:55 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[发卡行批量重发、BIN迁移换了新卡号，账户更新器没覆盖到的AI订阅平台还在用旧令牌扣款，返回的是静默失败而非拒付提示，宽限期一过触发的是账户安全锁定而不是降级，这篇拆解背后的覆盖盲区与解锁路径。]]></description>
+  </item>
   <item>
     <title><![CDATA[优惠码到期那个月，AI订阅账单为什么突然变贵一截]]></title>
     <link>https://ponr.org/articles/ai-subscription-promo-price-revert.html</link>

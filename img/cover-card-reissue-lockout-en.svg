@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription platform missing bank card reissue notice cover image">
+  <defs>
+    <linearGradient id="bgGradReissueEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a0a2e"/>
+      <stop offset="1" stop-color="#3d1140"/>
+    </linearGradient>
+    <radialGradient id="glowReissueEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c026d3" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#c026d3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradReissueEn)"/>
+  <rect width="800" height="400" fill="url(#glowReissueEn)"/>
+  <g stroke="#12061f" stroke-width="1.4" opacity="0.4" fill="none">
+    <path d="M40 320 h60 v30 h50"/>
+    <path d="M60 360 h50 v-26 h40"/>
+  </g>
+  <g fill="#e879f9" opacity="0.7">
+    <circle cx="40" cy="320" r="3"/>
+    <circle cx="100" cy="350" r="3"/>
+    <circle cx="60" cy="360" r="3"/>
+  </g>
+  <text x="52" y="112" font-family="'Segoe UI',Arial,sans-serif" font-size="27" font-weight="700" fill="#f0abfc">Card reissued.</text>
+  <text x="52" y="152" font-family="'Segoe UI',Arial,sans-serif" font-size="27" font-weight="700" fill="#a21caf">Account locked.</text>
+  <rect x="52" y="166" width="120" height="4" rx="2" fill="#d946ef"/>
+  <text x="52" y="196" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="400" fill="#d946ef" opacity="0.85">bulk reissue · updater gap · silent failure</text>
+
+  <!-- mechanism: old card token stays on file while the issuer already swapped the number -->
+  <g transform="translate(600,140)">
+    <rect x="-96" y="-58" width="192" height="112" rx="16" fill="#3d1140" stroke="#12061f" stroke-width="2"/>
+    <rect x="-96" y="-58" width="192" height="32" rx="16" fill="#1a0a2e"/>
+    <rect x="-96" y="-42" width="192" height="16" fill="#1a0a2e"/>
+    <circle cx="-68" cy="-42" r="9" fill="#d946ef" opacity=".55"/>
+    <circle cx="-44" cy="-42" r="9" fill="#d946ef" opacity=".3"/>
+    <text x="-78" y="0" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#d946ef" opacity="0.9">Stored token •••• 4471</text>
+    <text x="-78" y="24" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#f87171" font-weight="700">Issuer now •••• 8820</text>
+    <path d="M60 6 q16 0 16 -12" stroke="#f87171" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="78" y="1" font-family="'Segoe UI',Arial,sans-serif" font-size="16" fill="#f87171" font-weight="700">✕</text>
+  </g>
+  <g stroke="#d946ef" stroke-width="2.5" fill="none" opacity="0.85" stroke-dasharray="4 4">
+    <path d="M600 210 v34"/>
+    <path d="M592 236 l8 10 l8 -10" fill="none" stroke-dasharray="0"/>
+  </g>
+  <g transform="translate(600,296)">
+    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#3d1140" stroke="#f87171" stroke-width="2.5"/>
+    <text x="0" y="6" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#f87171" font-weight="700">Account locked</text>
+  </g>
+  <text x="600" y="352" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#d946ef" opacity="0.85">token never synced · silent fail</text>
+</svg>
