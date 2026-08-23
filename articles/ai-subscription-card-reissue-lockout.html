@@ -39,7 +39,7 @@
   <meta property="og:image:alt" content="AI订阅平台未收到银行换卡通知导致账号锁定封面图">
   <meta name="twitter:image" content="https://ponr.org/img/cover-card-reissue-lockout.png">
   <link rel="dns-prefetch" href="https://chdh.me">
-  <link rel="stylesheet" href="/styles.min.css?v=b54311c515">
+  <link rel="stylesheet" href="/styles.min.css?v=2e63c7a316">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -134,6 +134,7 @@
           <p>银行批量换卡导致AI订阅账号被锁，本质是卡组织设计的"自动同步补丁"没有覆盖到这个具体的商户和支付通道，物理卡片本身完好无损，用户也没有做错任何事，问题出在系统与系统之间那道没打通的更新链路上。看懂账户更新器的覆盖逻辑、养成主动确认换卡通知的习惯，再配合用独立虚拟卡分散绑定风险，能在下一次银行悄悄换卡时，不至于等到账号被锁才第一次发现。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -147,6 +148,15 @@
           <li><a href="#sec-8">8. 小结：卡片没丢也没过期，问题出在商户存的支付令牌没跟上</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developer.visa.com/capabilities/vau" target="_blank" rel="noopener nofollow">Visa Account Updater 官方说明</a>：卡组织层面的自动换卡同步服务是如何运作、以及覆盖范围如何界定的</li>
+            <li><a href="https://developer.mastercard.com/product/automatic-billing-updater-abu/" target="_blank" rel="noopener nofollow">Mastercard Automatic Billing Updater 官方说明</a>：同类服务在万事达卡体系下的接入与同步机制</li>
+          </ul>
+          <p class="ref-note">文中提及的服务条款与接入范围可能随时间变化，请以卡组织及发卡行官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

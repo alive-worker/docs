@@ -39,7 +39,7 @@
   <meta property="og:image:alt" content="AI subscription platform missing bank card reissue notice cover image">
   <meta name="twitter:image" content="https://ponr.org/img/cover-card-reissue-lockout-en.png">
   <link rel="dns-prefetch" href="https://chdh.me">
-  <link rel="stylesheet" href="/styles.min.css?v=b54311c515">
+  <link rel="stylesheet" href="/styles.min.css?v=2e63c7a316">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -134,6 +134,7 @@
           <p>An AI subscription lockout triggered by a bank-side bulk card reissue comes down to a sync path between systems that never got wired up for this specific merchant and payment rail — the physical card is fine, and the user didn't do anything wrong. Understanding how account updater coverage actually works, building the habit of opening reissue notices instead of ignoring them, and spreading subscriptions across independent virtual cards are what keep the next bulk reissue from being something you only discover once the account is already locked.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -147,6 +148,15 @@
           <li><a href="#sec-8">8. Takeaway: the card isn't lost or expired — the merchant's stored token just never caught up</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://developer.visa.com/capabilities/vau" target="_blank" rel="noopener nofollow">Visa Account Updater — official overview</a>: how the network-level card-refresh sync service works and what its coverage boundaries are</li>
+            <li><a href="https://developer.mastercard.com/product/automatic-billing-updater-abu/" target="_blank" rel="noopener nofollow">Mastercard Automatic Billing Updater — official overview</a>: the equivalent sync mechanism on the Mastercard network</li>
+          </ul>
+          <p class="ref-note">Program terms and coverage can change over time — check with your card network or issuer for the current details. This article is for informational purposes only and isn't financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>
