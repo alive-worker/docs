@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 22 Aug 2026 19:19:39 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 23 Aug 2026 11:07:52 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[优惠码到期那个月，AI订阅账单为什么突然变贵一截]]></title>
+    <link>https://ponr.org/articles/ai-subscription-promo-price-revert.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-promo-price-revert.html</guid>
+    <pubDate>Sun, 23 Aug 2026 11:07:52 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[优惠码续费给出的低价通常只绑定固定期数，到期后系统按普通续费流程自动恢复原价，不会单独发一封改价提醒邮件，这篇拆解优惠码生效逻辑与被按原价扣款后怎么申诉补差价。]]></description>
+  </item>
   <item>
     <title><![CDATA[把AI账户删了，为什么订阅还在扣钱]]></title>
     <link>https://ponr.org/articles/ai-subscription-delete-not-cancel.html</link>

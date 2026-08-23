@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a2410"/>
+      <stop offset="1" stop-color="#37461c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="60%">
+      <stop offset="0" stop-color="#a3e635" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a3e635" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <rect width="800" height="400" fill="url(#glow)"/>
+  <circle cx="60" cy="50" r="3" fill="#a3e635" opacity="0.5"/>
+  <circle cx="90" cy="70" r="2" fill="#a3e635" opacity="0.4"/>
+  <circle cx="740" cy="340" r="3" fill="#a3e635" opacity="0.5"/>
+  <line x1="40" y1="360" x2="130" y2="360" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+  <line x1="670" y1="40" x2="760" y2="40" stroke="#a3e635" stroke-width="1.5" opacity="0.3"/>
+
+  <text x="60" y="80" font-family="Arial, sans-serif" font-size="15" fill="#a3e635" opacity="0.8" letter-spacing="2">AI 订阅</text>
+  <text x="60" y="150" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#f4fce0">优惠到期</text>
+  <text x="60" y="196" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#f4fce0">悄悄恢复原价</text>
+
+  <!-- central icon: price tag with discount fading into full price -->
+  <g transform="translate(560,150)">
+    <g transform="rotate(-18)">
+      <path d="M0 40 L0 0 L45 0 L85 40 L45 80 Z" fill="none" stroke="#a3e635" stroke-width="3"/>
+      <circle cx="18" cy="20" r="6" fill="#a3e635"/>
+    </g>
+    <text x="-6" y="52" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#a3e635" text-decoration="line-through">8折</text>
+    <line x1="70" y1="46" x2="110" y2="46" stroke-dasharray="4 4" stroke="#a3e635" stroke-width="2"/>
+    <text x="116" y="54" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#f87171">原价</text>
+  </g>
+
+  <rect x="60" y="230" width="150" height="30" rx="15" fill="none" stroke="#f87171" stroke-width="1.5"/>
+  <text x="80" y="250" font-family="Arial, sans-serif" font-size="14" fill="#f87171">静默续费 · 无提醒</text>
+
+  <text x="60" y="330" font-family="Arial, sans-serif" font-size="14" fill="#d9f99d" opacity="0.85">优惠码只绑定固定期数，到期后按普通续费流程恢复原价</text>
+</svg>

@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-subscription-promo-price-revert.html</loc>
+    <lastmod>2026-08-23T11:07:52+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-subscription-promo-price-revert.html</loc>
+    <lastmod>2026-08-23T11:07:52+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-subscription-delete-not-cancel.html</loc>
@@ -366,11 +374,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -598,7 +606,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -614,6 +622,6 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
 </urlset>
