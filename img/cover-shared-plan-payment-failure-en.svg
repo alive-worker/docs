@@ -1,53 +1,45 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shared AI plan owner card failure locks out all members cover image">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Shared AI subscription plan payment failure taking down all members">
   <defs>
-    <linearGradient id="bgGradShareEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0a1830"/>
-      <stop offset="1" stop-color="#132c54"/>
+    <linearGradient id="bgSpfe" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a0a20"/>
+      <stop offset="1" stop-color="#40123a"/>
     </linearGradient>
-    <radialGradient id="glowShareEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#25497a" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#25497a" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradShareEn)"/>
-  <rect width="800" height="400" fill="url(#glowShareEn)"/>
-  <g stroke="#081222" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#5b8def" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#a3c2fb">One card fails,</text>
-  <text x="52" y="156" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#25497a">everyone gets locked out</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#5b8def"/>
-  <text x="52" y="200" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#5b8def" opacity="0.85">Family plans · Team seats · Single point of failure</text>
+  <rect width="800" height="400" fill="url(#bgSpfe)"/>
 
-  <g transform="translate(600,150)">
-    <rect x="-45" y="-30" width="90" height="60" rx="8" fill="#132c54" stroke="#f87171" stroke-width="2.5"/>
-    <rect x="-45" y="-12" width="90" height="10" fill="#f87171" opacity="0.5"/>
-    <rect x="-32" y="8" width="36" height="6" rx="2" fill="#5b8def" opacity="0.6"/>
-    <text x="0" y="-40" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#f87171" font-weight="700">CARD FAILED</text>
+  <text x="400" y="46" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#fce7f3">One Failed Charge Takes Everyone Down</text>
+  <text x="400" y="72" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#f9a8d4" opacity="0.9">The single point of failure in shared plans</text>
+
+  <g transform="translate(400,240)">
+    <line x1="0" y1="0" x2="-150" y2="-70" stroke="#ec4899" stroke-width="2.5" opacity="0.7"/>
+    <line x1="0" y1="0" x2="150" y2="-70" stroke="#ec4899" stroke-width="2.5" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-150" y2="70" stroke="#ec4899" stroke-width="2.5" opacity="0.7"/>
+    <line x1="0" y1="0" x2="150" y2="70" stroke="#ec4899" stroke-width="2.5" opacity="0.7"/>
+
+    <circle r="34" fill="#40123a" stroke="#f472b6" stroke-width="3"/>
+    <path d="M-10 -14 l6 10 l-6 4 l10 14" stroke="#fbcfe8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(-150,-70)">
+      <circle r="24" fill="#3a0d15" stroke="#f87171" stroke-width="2.5"/>
+      <circle cy="-6" r="8" fill="#fca5a5"/>
+      <path d="M-12 14 a12 10 0 0 1 24 0" fill="#fca5a5"/>
+    </g>
+    <g transform="translate(150,-70)">
+      <circle r="24" fill="#3a0d15" stroke="#f87171" stroke-width="2.5"/>
+      <circle cy="-6" r="8" fill="#fca5a5"/>
+      <path d="M-12 14 a12 10 0 0 1 24 0" fill="#fca5a5"/>
+    </g>
+    <g transform="translate(-150,70)">
+      <circle r="24" fill="#3a0d15" stroke="#f87171" stroke-width="2.5"/>
+      <circle cy="-6" r="8" fill="#fca5a5"/>
+      <path d="M-12 14 a12 10 0 0 1 24 0" fill="#fca5a5"/>
+    </g>
+    <g transform="translate(150,70)">
+      <circle r="24" fill="#3a0d15" stroke="#f87171" stroke-width="2.5"/>
+      <circle cy="-6" r="8" fill="#fca5a5"/>
+      <path d="M-12 14 a12 10 0 0 1 24 0" fill="#fca5a5"/>
+    </g>
   </g>
-  <g stroke="#081222" stroke-width="2" fill="none" opacity="0.7">
-    <path d="M555 150 L470 230"/>
-    <path d="M600 180 L600 260"/>
-    <path d="M645 150 L730 230"/>
-  </g>
-  <g fill="#132c54" stroke="#5b8def" stroke-width="2">
-    <circle cx="460" cy="248" r="26"/>
-    <circle cx="600" cy="278" r="26"/>
-    <circle cx="740" cy="248" r="26"/>
-  </g>
-  <g fill="#5b8def">
-    <circle cx="460" cy="240" r="8"/>
-    <path d="M446 262 q14 -16 28 0 z"/>
-    <circle cx="600" cy="270" r="8"/>
-    <path d="M586 292 q14 -16 28 0 z"/>
-    <circle cx="740" cy="240" r="8"/>
-    <path d="M726 262 q14 -16 28 0 z"/>
-  </g>
-  <text x="600" y="330" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#5b8def">All members lose access together</text>
+
+  <text x="400" y="374" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12.5" fill="#f9a8d4" opacity="0.85">One payer's card fails, and the whole group loses access</text>
 </svg>

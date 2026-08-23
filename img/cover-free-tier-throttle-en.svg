@@ -1,50 +1,30 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI free tier dynamic throttling cover image">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Free-tier AI usage getting throttled unexpectedly">
   <defs>
-    <linearGradient id="bgGradThrottleEn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1c0f2e"/>
-      <stop offset="1" stop-color="#33184f"/>
+    <linearGradient id="bgFte" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#062226"/>
+      <stop offset="1" stop-color="#0a3a40"/>
     </linearGradient>
-    <radialGradient id="glowThrottleEn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#522c7a" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#522c7a" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradThrottleEn)"/>
-  <rect width="800" height="400" fill="url(#glowThrottleEn)"/>
-  <g stroke="#180c26" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#c084fc" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="102" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#d8b4fe">Your free quota</text>
-  <text x="52" y="140" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" fill="#522c7a">keeps shrinking</text>
-  <rect x="52" y="154" width="120" height="4" rx="2" fill="#c084fc"/>
-  <text x="52" y="184" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#c084fc" opacity="0.85">Dynamic throttling · compute scheduling · no notice</text>
+  <rect width="800" height="400" fill="url(#bgFte)"/>
 
-  <!-- the actual mechanism: a bar meter of daily quota shrinking bar by bar, with a live-load dial -->
-  <g transform="translate(600,140)">
-    <rect x="-104" y="-70" width="208" height="140" rx="16" fill="#33184f" stroke="#180c26" stroke-width="2"/>
-    <text x="-84" y="-42" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#c084fc" opacity="0.85">Today's remaining quota</text>
-    <g>
-      <rect x="-84" y="-24" width="20" height="60" rx="3" fill="#c084fc" opacity="0.85"/>
-      <rect x="-52" y="-8" width="20" height="44" rx="3" fill="#c084fc" opacity="0.6"/>
-      <rect x="-20" y="10" width="20" height="26" rx="3" fill="#f87171" opacity="0.85"/>
-      <rect x="12" y="20" width="20" height="16" rx="3" fill="#f87171" opacity="0.6"/>
-      <rect x="44" y="26" width="20" height="10" rx="3" fill="#f87171" opacity="0.4"/>
+  <g transform="translate(400,190)">
+    <path d="M-140 20 A140 140 0 0 1 140 20" fill="none" stroke="#0e4b52" stroke-width="22"/>
+    <path d="M-140 20 A140 140 0 0 1 -40 -128" fill="none" stroke="#22d3ee" stroke-width="22"/>
+    <path d="M-40 -128 A140 140 0 0 1 60 -122" fill="none" stroke="#fbbf24" stroke-width="22"/>
+    <path d="M60 -122 A140 140 0 0 1 140 20" fill="none" stroke="#f87171" stroke-width="22"/>
+    <g transform="rotate(70)">
+      <line x1="0" y1="0" x2="0" y2="-118" stroke="#ecfeff" stroke-width="5" stroke-linecap="round"/>
     </g>
-    <path d="M-88 -30 L70 32" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4" opacity="0.8"/>
+    <circle r="12" fill="#ecfeff"/>
+    <text x="0" y="70" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#67e8f9">Current rate</text>
   </g>
-  <g stroke="#c084fc" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 220 v34" stroke-dasharray="4 4"/>
-    <path d="M592 246 l8 10 l8 -10" fill="none"/>
+
+  <text x="60" y="68" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#ecfeff">Your Free Tier Just Slowed Down</text>
+  <text x="60" y="98" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#67e8f9" opacity="0.9">Rate limits · hidden thresholds · peak-hour throttling</text>
+
+  <g font-family="Arial,Helvetica,sans-serif">
+    <text x="80" y="330" font-size="14" fill="#f87171" font-weight="700">Throttled</text>
+    <text x="720" y="330" text-anchor="end" font-size="14" fill="#22d3ee" font-weight="700">Normal rate</text>
   </g>
-  <g transform="translate(600,300)">
-    <rect x="-92" y="-24" width="184" height="48" rx="8" fill="#33184f" stroke="#f87171" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#f87171" font-weight="700">Daily limit reached</text>
-  </g>
-  <text x="600" y="355" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#c084fc" opacity="0.85">Quota engine · recalculated live</text>
+  <text x="400" y="370" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12.5" fill="#67e8f9" opacity="0.85">"Free" often hides an invisible usage ceiling</text>
 </svg>

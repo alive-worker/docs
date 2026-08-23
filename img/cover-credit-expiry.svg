@@ -1,56 +1,40 @@
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅用量额度到期清零封面图">
   <defs>
-    <linearGradient id="bgGradCredit" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#10142e"/>
-      <stop offset="1" stop-color="#1c2352"/>
+    <linearGradient id="bgCe" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141033"/>
+      <stop offset="1" stop-color="#241a5c"/>
     </linearGradient>
-    <radialGradient id="glowCredit" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#303a7a" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#303a7a" stop-opacity="0"/>
+    <radialGradient id="glowCe" cx="400" cy="180" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradCredit)"/>
-  <rect width="800" height="400" fill="url(#glowCredit)"/>
-  <g stroke="#0f1330" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#818cf8" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#a5b4fc">用不完的额度</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#303a7a">一到期就清零</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#818cf8"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#818cf8" opacity="0.85">token余量 · 生成次数 · 预付余额</text>
+  <rect width="800" height="400" fill="url(#bgCe)"/>
+  <rect width="800" height="400" fill="url(#glowCe)"/>
 
-  <!-- unused credit balance wiped by the billing-cycle reset -->
-  <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#1c2352" stroke="#0f1330" stroke-width="2"/>
-    <rect x="-84" y="-46" width="76" height="92" rx="8" fill="#0f1f16" stroke="#303a7a" stroke-width="2"/>
-    <circle cx="-46" cy="-20" r="12" fill="#818cf8" opacity="0.85"/>
-    <circle cx="-46" cy="4" r="12" fill="#818cf8" opacity="0.6"/>
-    <circle cx="-46" cy="28" r="12" fill="#818cf8" opacity="0.35"/>
-    <text x="-46" y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#818cf8" opacity="0.85">剩余额度</text>
-    <path d="M8 -6 h30" stroke="#f87171" stroke-width="2.5" marker-end="url(#arrowCredit)"/>
-    <rect x="8" y="-46" width="76" height="92" rx="8" fill="#0f1f16" stroke="#f87171" stroke-width="2"/>
-    <path d="M46 -26 v14 l10 6" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <circle cx="46" cy="-14" r="18" fill="none" stroke="#f87171" stroke-width="2.5"/>
-    <text x="46" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="700" fill="#f87171">0</text>
+  <text x="60" y="56" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="700" fill="#e0e7ff">用不完的额度</text>
+  <text x="60" y="84" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#a5b4fc" opacity="0.9">token余量 · 生成次数 · 预付余额</text>
+
+  <!-- large centered hourglass draining credits -->
+  <g transform="translate(400,220)">
+    <path d="M-70 -110 h140 M-70 110 h140" stroke="#a5b4fc" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-70 -110 L70 -110 L10 0 L70 110 L-70 110 L-10 0 Z" fill="none" stroke="#818cf8" stroke-width="3.5"/>
+    <clipPath id="topBulb"><path d="M-64 -104 L64 -104 L10 -4 L-10 -4 Z"/></clipPath>
+    <g clip-path="url(#topBulb)">
+      <rect x="-64" y="-104" width="128" height="34" fill="#c7d2fe"/>
+    </g>
+    <clipPath id="botBulb"><path d="M-10 4 L10 4 L64 104 L-64 104 Z"/></clipPath>
+    <g clip-path="url(#botBulb)">
+      <rect x="-64" y="72" width="128" height="32" fill="#4f46e5"/>
+    </g>
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#fde68a" stroke-width="3"/>
+    <text x="0" y="150" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22" font-weight="700" fill="#f87171">0</text>
+    <text x="0" y="-130" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#c7d2fe" opacity="0.85">周期结束</text>
   </g>
-  <defs>
-    <marker id="arrowCredit" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0 0 L8 4 L0 8 Z" fill="#f87171"/>
-    </marker>
-  </defs>
-  <g stroke="#818cf8" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 210 v34" stroke-dasharray="4 4"/>
-    <path d="M592 236 l8 10 l8 -10" fill="none"/>
+
+  <g transform="translate(140,260)" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+    <rect x="-16" y="-20" width="150" height="40" rx="20" fill="#241a5c" stroke="#f87171" stroke-width="2"/>
+    <text x="59" y="6" text-anchor="middle" font-size="14" fill="#f87171" font-weight="700">不结转 · 不折现</text>
   </g>
-  <g transform="translate(600,300)">
-    <rect x="-64" y="-24" width="128" height="48" rx="8" fill="#1c2352" stroke="#f87171" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#f87171" font-weight="700">已作废</text>
-  </g>
-  <text x="600" y="355" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#818cf8" opacity="0.85">不结转 · 不折现</text>
+  <text x="400" y="368" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#a5b4fc" opacity="0.85">用量额度会随周期结束清零</text>
 </svg>

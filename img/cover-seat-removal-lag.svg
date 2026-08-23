@@ -1,53 +1,50 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="团队订阅移除席位账单本月不变封面图">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="团队席位移除后账单未同步更新封面图">
   <defs>
-    <linearGradient id="bgGradSeat" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#160c30"/>
-      <stop offset="1" stop-color="#33195c"/>
+    <linearGradient id="bgSrl" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#062318"/>
+      <stop offset="1" stop-color="#0b3d27"/>
     </linearGradient>
-    <radialGradient id="glowSeat" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7c4dd9" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#7c4dd9" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradSeat)"/>
-  <rect width="800" height="400" fill="url(#glowSeat)"/>
-  <g stroke="#0d0620" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#a78bfa" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#c4b0fa">退了一个席位</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#8b5cf6">账单本月却没变</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#a78bfa"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#a78bfa" opacity="0.85">团队订阅 · 席位快照 · 计费锁定窗口</text>
+  <rect width="800" height="400" fill="url(#bgSrl)"/>
 
-  <!-- seat row: one seat marked removed (red X), locked badge below, others active -->
-  <g transform="translate(600,140)">
-    <g transform="translate(-90,0)">
-      <circle r="26" fill="#241246" stroke="#f87171" stroke-width="2.5" stroke-dasharray="4 3"/>
-      <path d="M-9 -9 L9 9 M9 -9 L-9 9" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+  <text x="60" y="60" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#dcfce7">移除了席位</text>
+  <text x="60" y="88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#4ade80">账单却没变</text>
+
+  <!-- row of 5 seat icons across the middle, one removed with ghost trail -->
+  <g transform="translate(0,220)">
+    <g transform="translate(120,0)">
+      <circle r="26" fill="#0b3d27" stroke="#4ade80" stroke-width="2.5"/>
+      <circle cy="-8" r="9" fill="#86efac"/>
+      <path d="M-14 16 a14 12 0 0 1 28 0" fill="#86efac"/>
     </g>
-    <g transform="translate(0,0)">
-      <circle r="26" fill="#241246" stroke="#a78bfa" stroke-width="2"/>
-      <circle cy="-8" r="8" fill="#a78bfa"/>
-      <path d="M-14 22 q14 -16 28 0 z" fill="#a78bfa"/>
+    <g transform="translate(250,0)">
+      <circle r="26" fill="#0b3d27" stroke="#4ade80" stroke-width="2.5"/>
+      <circle cy="-8" r="9" fill="#86efac"/>
+      <path d="M-14 16 a14 12 0 0 1 28 0" fill="#86efac"/>
     </g>
-    <g transform="translate(90,0)">
-      <circle r="26" fill="#241246" stroke="#a78bfa" stroke-width="2"/>
-      <circle cy="-8" r="8" fill="#a78bfa"/>
-      <path d="M-14 22 q14 -16 28 0 z" fill="#a78bfa"/>
+    <g transform="translate(400,0)" opacity="0.9">
+      <circle r="30" fill="none" stroke="#f87171" stroke-width="3" stroke-dasharray="5 5"/>
+      <circle cy="-8" r="9" fill="none" stroke="#fca5a5" stroke-width="2"/>
+      <path d="M-14 16 a14 12 0 0 1 28 0" fill="none" stroke="#fca5a5" stroke-width="2"/>
+      <path d="M-12 -12 l24 24 M12 -12 l-24 24" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(0,58)" opacity="0.85">
+        <circle r="12" fill="none" stroke="#fca5a5" stroke-width="2"/>
+        <path d="M0 -12 v12 l8 6" stroke="#fca5a5" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <text x="24" y="5" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#fca5a5">延迟生效</text>
+      </g>
+    </g>
+    <g transform="translate(550,0)">
+      <circle r="26" fill="#0b3d27" stroke="#4ade80" stroke-width="2.5"/>
+      <circle cy="-8" r="9" fill="#86efac"/>
+      <path d="M-14 16 a14 12 0 0 1 28 0" fill="#86efac"/>
+    </g>
+    <g transform="translate(680,0)">
+      <circle r="26" fill="#0b3d27" stroke="#4ade80" stroke-width="2.5"/>
+      <circle cy="-8" r="9" fill="#86efac"/>
+      <path d="M-14 16 a14 12 0 0 1 28 0" fill="#86efac"/>
     </g>
   </g>
-  <g stroke="#0d0620" stroke-width="2" fill="none" opacity="0.7" stroke-dasharray="5 4">
-    <path d="M510 140 L510 250"/>
-  </g>
-  <g transform="translate(510,278)">
-    <rect x="-64" y="-20" width="128" height="40" rx="8" fill="#241246" stroke="#f87171" stroke-width="2"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">本周期照常扣款</text>
-  </g>
-  <text x="510" y="340" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#a78bfa">下一周期起才生效</text>
+
+  <rect x="290" y="330" width="220" height="42" rx="21" fill="#0b3d27" stroke="#f87171" stroke-width="2"/>
+  <text x="400" y="356" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#fca5a5" font-weight="700">该席位仍在计费</text>
 </svg>

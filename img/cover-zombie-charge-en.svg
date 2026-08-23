@@ -1,55 +1,39 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI subscription zombie charges after cancellation cover image">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zombie charge still billed after cancelling an AI subscription">
   <defs>
-    <linearGradient id="bgGradZom" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1a0f0f"/>
-      <stop offset="1" stop-color="#3a1414"/>
+    <linearGradient id="bgZom2e" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14161c"/>
+      <stop offset="1" stop-color="#20242e"/>
     </linearGradient>
-    <radialGradient id="glowZom" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f87171" stop-opacity="0.30"/>
-      <stop offset="1" stop-color="#f87171" stop-opacity="0"/>
+    <radialGradient id="glowZom2e" cx="400" cy="140" r="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#94a3b8" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#94a3b8" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradZom)"/>
-  <rect width="800" height="400" fill="url(#glowZom)"/>
-  <g stroke="#6b2b2b" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#fca5a5" opacity="0.6">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#fef2f2">Cancelled the plan</text>
-  <text x="52" y="156" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#f87171">Still got billed</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#fca5a5"/>
-  <text x="52" y="200" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#fca5a5" opacity="0.85">Zombie charges · Sync failure · Virtual card hard stop</text>
+  <rect width="800" height="400" fill="url(#bgZom2e)"/>
+  <rect width="800" height="400" fill="url(#glowZom2e)"/>
 
-  <!-- cancelled on the AI platform, but a third-party billing processor keeps firing charges -->
-  <defs>
-    <marker id="arrowZom" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-      <path d="M0 0 L8 4 L0 8 Z" fill="#fca5a5"/>
-    </marker>
-  </defs>
-  <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#2a1010" stroke="#6b2b2b" stroke-width="2"/>
-    <rect x="-84" y="-30" width="70" height="56" rx="8" fill="#3a1414" stroke="#fca5a5" stroke-width="2" opacity="0.4"/>
-    <circle cx="-58" cy="-16" r="18" fill="none" stroke="#fca5a5" stroke-width="2.5" opacity="0.5"/>
-    <line x1="-70" y1="-28" x2="-46" y2="-4" stroke="#fca5a5" stroke-width="2.5" opacity="0.5"/>
-    <line x1="-46" y1="-28" x2="-70" y2="-4" stroke="#fca5a5" stroke-width="2.5" opacity="0.5"/>
-    <text x="-49" y="18" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#fca5a5" opacity="0.7">Cancelled</text>
-    <path d="M-2 -2 h24" stroke="#fca5a5" stroke-width="2.5" marker-end="url(#arrowZom)"/>
-    <rect x="26" y="-30" width="70" height="56" rx="8" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
-    <text x="61" y="4" text-anchor="middle" font-size="24" font-weight="700" fill="#f87171">$</text>
-    <text x="61" y="18" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9.5" fill="#f87171">still billed</text>
+  <g transform="translate(360,180)">
+    <path d="M-70 30 V-30 a70 70 0 0 1 140 0 V30 l-18 -16 l-18 16 l-18 -16 l-18 16 l-18 -16 z" fill="#334155" stroke="#94a3b8" stroke-width="2.5" opacity="0.92"/>
+    <circle cx="-24" cy="-14" r="7" fill="#e2e8f0"/>
+    <circle cx="24" cy="-14" r="7" fill="#e2e8f0"/>
+    <path d="M-16 12 q16 14 32 0" stroke="#e2e8f0" stroke-width="3" fill="none" stroke-linecap="round"/>
   </g>
-  <g stroke="#fca5a5" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 210 v34" stroke-dasharray="4 4"/>
-    <path d="M592 236 l8 10 l8 -10" fill="none"/>
+
+  <g transform="translate(478,150)">
+    <rect x="-30" y="-40" width="60" height="80" rx="6" fill="#1a1c22" stroke="#f87171" stroke-width="2.5"/>
+    <line x1="-18" y1="-24" x2="18" y2="-24" stroke="#fca5a5" stroke-width="2"/>
+    <line x1="-18" y1="-10" x2="18" y2="-10" stroke="#fca5a5" stroke-width="2" opacity="0.7"/>
+    <line x1="-18" y1="4" x2="18" y2="4" stroke="#fca5a5" stroke-width="2" opacity="0.5"/>
+    <text x="0" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#f87171">$</text>
   </g>
-  <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#2a1010" stroke="#f87171" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#f87171" font-weight="700">Zombie charge</text>
+
+  <g transform="translate(300,60)" font-family="Arial,Helvetica,sans-serif">
+    <circle r="18" fill="#0f2417" stroke="#4ade80" stroke-width="2.5"/>
+    <path d="M-7 0 l5 6 l10 -12" stroke="#4ade80" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="28" y="6" font-size="13" fill="#4ade80">Cancelled on the platform</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#fca5a5" opacity="0.85">Third-party billing platform out of sync</text>
+
+  <rect x="130" y="316" width="540" height="56" rx="12" fill="#1a1c22" stroke="#94a3b8" stroke-width="2"/>
+  <text x="400" y="342" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#e2e8f0">Cancelled, But Still Getting Charged</text>
+  <text x="400" y="362" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#f87171">Zombie charges from an out-of-sync billing processor</text>
 </svg>

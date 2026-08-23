@@ -1,49 +1,31 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅账号被风控误判盗刷封面图">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="家人的卡被误判为欺诈交易封面图">
   <defs>
-    <linearGradient id="bgGradFraud" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#06202e"/>
-      <stop offset="1" stop-color="#0e3a52"/>
-    </linearGradient>
-    <radialGradient id="glowFraud" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1c5a7a" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#1c5a7a" stop-opacity="0"/>
+    <radialGradient id="bgFf" cx="400" cy="150" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3f1220"/>
+      <stop offset="1" stop-color="#1a0a10"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradFraud)"/>
-  <rect width="800" height="400" fill="url(#glowFraud)"/>
-  <g stroke="#061826" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#0ea5e9" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#7dd3fc">家人的卡没问题</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#1c5a7a">却总被风控拦下</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#0ea5e9"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#0ea5e9" opacity="0.85">姓名不符 · 地址不符 · 登录地漂移</text>
+  <rect width="800" height="400" fill="url(#bgFf)"/>
 
-  <!-- the actual mechanism: a card whose printed name doesn't match the billing profile name -->
-  <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="120" rx="16" fill="#0e3a52" stroke="#061826" stroke-width="2"/>
-    <rect x="-96" y="-64" width="192" height="34" rx="16" fill="#0f1f16"/>
-    <rect x="-96" y="-47" width="192" height="17" fill="#0f1f16"/>
-    <circle cx="-68" cy="-47" r="10" fill="#0ea5e9" opacity=".55"/>
-    <circle cx="-44" cy="-47" r="10" fill="#0ea5e9" opacity=".3"/>
-    <text x="-78" y="-2" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#0ea5e9" opacity="0.9">持卡人 ZHANG WEI</text>
-    <text x="-78" y="24" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#f87171" font-weight="700">账户资料 ZHANG W.</text>
-    <path d="M62 11 q16 0 16 -12" stroke="#f87171" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <text x="80" y="6" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#f87171" font-weight="700">✕</text>
+  <!-- large centered card with shield/warning -->
+  <g transform="translate(400,168)">
+    <rect x="-140" y="-70" width="280" height="140" rx="18" fill="#2a0f16" stroke="#fb7185" stroke-width="3"/>
+    <rect x="-114" y="-38" width="46" height="32" rx="5" fill="#fda4af" opacity="0.85"/>
+    <text x="-114" y="42" font-size="19" fill="#fecdd3" font-family="'PingFang SC','Microsoft YaHei',sans-serif" letter-spacing="2">•••• 5521</text>
+    <line x1="-114" y1="52" x2="90" y2="52" stroke="#fb7185" stroke-width="1.5" opacity="0.5"/>
+
+    <g transform="translate(96,-6)">
+      <path d="M0 -46 L38 -30 V4 C38 30 20 46 0 54 C-20 46 -38 30 -38 4 V-30 Z" fill="#450a0a" stroke="#fb7185" stroke-width="3"/>
+      <path d="M0 -18 v22 M0 12 v2" stroke="#fef2f2" stroke-width="5" stroke-linecap="round"/>
+    </g>
   </g>
-  <g stroke="#0ea5e9" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 220 v34" stroke-dasharray="4 4"/>
-    <path d="M592 246 l8 10 l8 -10" fill="none"/>
+
+  <g transform="translate(560,90)">
+    <circle r="26" fill="#450a0a" stroke="#f87171" stroke-width="2.5"/>
+    <path d="M-8 -6 l16 12 M8 -6 l-16 12" stroke="#f87171" stroke-width="3" stroke-linecap="round"/>
   </g>
-  <g transform="translate(600,300)">
-    <rect x="-72" y="-24" width="144" height="48" rx="8" fill="#0e3a52" stroke="#f87171" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" fill="#f87171" font-weight="700">风控拦截</text>
-  </g>
-  <text x="600" y="355" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#0ea5e9" opacity="0.85">评分模型 · 自动拒绝</text>
+
+  <rect x="150" y="300" width="500" height="60" rx="12" fill="#2a0f16" stroke="#fb7185" stroke-width="2"/>
+  <text x="400" y="326" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="700" fill="#fecdd3">家人的卡，被误判成了欺诈</text>
+  <text x="400" y="348" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#fda4af" opacity="0.9">异地代付 · 风控误伤 · 如何解冻</text>
 </svg>
