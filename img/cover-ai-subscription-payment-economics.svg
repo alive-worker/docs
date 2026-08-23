@@ -1,49 +1,68 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 订阅支付经济学：账户结构、汇率与虚拟卡封面图">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅支付经济学全景概览封面图">
   <defs>
-    <linearGradient id="bgGradAspe" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0a1826"/>
-      <stop offset="1" stop-color="#123a56"/>
+    <linearGradient id="bgPE" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1a2e"/>
+      <stop offset="1" stop-color="#0f2748"/>
     </linearGradient>
-    <radialGradient id="glowAspe" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
-    </radialGradient>
+    <pattern id="gridPE" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0 H0 V28" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.5"/>
+    </pattern>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradAspe)"/>
-  <rect width="800" height="400" fill="url(#glowAspe)"/>
-  <g stroke="#1e4f6b" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#7dd3fc" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f0f9ff">订阅的钱</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#38bdf8">是怎么花没的</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#7dd3fc"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" opacity="0.85">账户结构 · 汇率手续费 · 虚拟卡收拢</text>
+  <rect width="800" height="400" fill="url(#bgPE)"/>
+  <rect width="800" height="400" fill="url(#gridPE)"/>
+  <rect x="0" y="0" width="800" height="84" fill="#132b4d"/>
+  <rect x="0" y="80" width="800" height="4" fill="#3b82f6"/>
+  <text x="40" y="38" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700" fill="#eaf2ff">AI订阅支付经济学</text>
+  <text x="40" y="64" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14.5" fill="#93c5fd" opacity="0.9">账户 · 卡片 · 货币 · 退款 · 稳定币全景速览</text>
 
-  <!-- virtual card -->
-  <g transform="translate(560,150)">
-    <rect x="0" y="0" width="180" height="112" rx="16" fill="#0f2c3d" stroke="#38bdf8" stroke-width="2.5"/>
-    <rect x="18" y="24" width="40" height="26" rx="5" fill="#7dd3fc" opacity="0.85"/>
-    <rect x="18" y="66" width="90" height="8" rx="4" fill="#38bdf8" opacity="0.6"/>
-    <rect x="18" y="82" width="60" height="8" rx="4" fill="#38bdf8" opacity="0.4"/>
-    <circle cx="148" cy="34" r="14" fill="none" stroke="#7dd3fc" stroke-width="2.5"/>
-    <circle cx="160" cy="34" r="14" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.8"/>
+  <!-- 2x3 dashboard grid of mini stat cards -->
+  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+    <g transform="translate(40,116)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="30" cy="28" r="14" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+      <rect x="24" y="22" width="12" height="9" rx="2" fill="#60a5fa"/>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">账户体系</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">主账号/家庭组</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">如何搭建</text>
+    </g>
+    <g transform="translate(290,116)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <rect x="18" y="16" width="26" height="18" rx="3" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+      <line x1="18" y1="24" x2="44" y2="24" stroke="#60a5fa" stroke-width="2"/>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">卡片工具</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">虚拟卡/限额</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">如何选用</text>
+    </g>
+    <g transform="translate(540,116)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="30" y="30" font-size="20" fill="#60a5fa" font-weight="700" text-anchor="middle">¥$</text>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">货币汇率</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">动态转换损耗</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">如何避坑</text>
+    </g>
+    <g transform="translate(40,206)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <path d="M20 26 a10 10 0 1 0 20 0 a10 10 0 1 0 -20 0" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+      <path d="M30 20 v12 M24 26 h12" stroke="#60a5fa" stroke-width="2"/>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">退款争议</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">拒付/申诉流程</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">如何维权</text>
+    </g>
+    <g transform="translate(290,206)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="30" cy="26" r="13" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+      <text x="30" y="31" font-size="13" fill="#60a5fa" text-anchor="middle" font-weight="700">₮</text>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">稳定币支付</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">链上结算通道</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">如何入门</text>
+    </g>
+    <g transform="translate(540,206)">
+      <rect width="220" height="76" rx="10" fill="#132b4d" stroke="#3b82f6" stroke-width="1.5"/>
+      <path d="M18 34 l10 -16 l8 10 l10 -18" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="54" y="24" font-size="13" fill="#eaf2ff" font-weight="700">全景速览</text>
+      <text x="54" y="42" font-size="11" fill="#93c5fd" opacity="0.85">六大主题一次看懂</text>
+      <text x="16" y="64" font-size="11" fill="#60a5fa">本文导航</text>
+    </g>
   </g>
-
-  <!-- account nodes flowing into card -->
-  <g stroke="#7dd3fc" stroke-width="2" fill="none" opacity="0.7">
-    <path d="M330 260 C400 260 420 220 470 200"/>
-    <path d="M330 300 C400 300 420 240 470 210"/>
-    <path d="M330 340 C400 340 420 260 470 220"/>
-  </g>
-  <g>
-    <circle cx="320" cy="260" r="20" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
-    <circle cx="320" cy="300" r="20" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
-    <circle cx="320" cy="340" r="20" fill="#0f2c3d" stroke="#7dd3fc" stroke-width="2"/>
-  </g>
+  <text x="400" y="368" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#93c5fd" opacity="0.85">一篇讲清 AI 订阅支付的全部关键环节</text>
 </svg>

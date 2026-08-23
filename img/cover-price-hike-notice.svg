@@ -1,49 +1,26 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 订阅涨价不提前通知：账单变贵排查封面图">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅涨价未提前通知去哪里查封面图">
   <defs>
-    <linearGradient id="bgGradPhn" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#241005"/>
-      <stop offset="1" stop-color="#4a2408"/>
-    </linearGradient>
-    <radialGradient id="glowPhn" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6b3d14" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#6b3d14" stop-opacity="0"/>
+    <radialGradient id="bgGradPh" cx="400" cy="200" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3a0d12"/>
+      <stop offset="1" stop-color="#160305"/>
     </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradPhn)"/>
-  <rect width="800" height="400" fill="url(#glowPhn)"/>
-  <g stroke="#2a1305" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#f97316" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#fdba74">订阅涨价了</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#6b3d14">你收到通知了吗</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f97316"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#f97316" opacity="0.85">涨价套路拆解 · 账单对比 · 虚拟卡额度预警</text>
+  <rect width="800" height="400" fill="url(#bgGradPh)"/>
 
-  <!-- bill silently rises, buried notice in the fine print of a renewal email -->
-  <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#4a2408" stroke="#2a1305" stroke-width="2"/>
-    <rect x="-84" y="-40" width="72" height="52" rx="8" fill="#0f1f16" stroke="#2a1305" stroke-width="2" opacity="0.7"/>
-    <text x="-48" y="-8" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="700" fill="#f97316" opacity="0.8">$20</text>
-    <path d="M-6 -14 h20" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
-    <path d="M6 -21 l8 7 -8 7" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="24" y="-40" width="72" height="52" rx="8" fill="#0f1f16" stroke="#f59e0b" stroke-width="2.5"/>
-    <text x="60" y="-8" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="17" font-weight="700" fill="#f59e0b">$24</text>
-    <rect x="-84" y="18" width="168" height="12" rx="3" fill="#0f1f16" stroke="#2a1305" stroke-width="1.2"/>
-    <rect x="-78" y="21" width="60" height="4" rx="2" fill="#f97316" opacity="0.4"/>
+  <text x="400" y="54" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" letter-spacing="2" fill="#fca5a5" opacity="0.9">悄悄涨价 · 没提前通知 · 去哪里查</text>
+
+  <!-- giant struck-through old price next to bigger new price -->
+  <g transform="translate(400,220)">
+    <text x="-190" y="0" text-anchor="middle" font-size="88" font-weight="700" fill="#7a2530" opacity="0.75">$19</text>
+    <line x1="-260" y1="-24" x2="-120" y2="-40" stroke="#f87171" stroke-width="6"/>
+
+    <path d="M-70 -20 l40 20 l-40 20" fill="none" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="150" y="10" text-anchor="middle" font-size="120" font-weight="700" fill="#ef4444">$29</text>
   </g>
-  <g stroke="#f97316" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 210 v34" stroke-dasharray="4 4"/>
-    <path d="M592 236 l8 10 l8 -10" fill="none"/>
-  </g>
-  <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#4a2408" stroke="#f59e0b" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f59e0b" font-weight="700">悄悄涨了20%</text>
-  </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f97316" opacity="0.85">通知藏在邮件小字里</text>
+
+  <rect x="300" y="290" width="200" height="40" rx="20" fill="#3a0d12" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="400" y="316" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#fca5a5">+52.6%</text>
+
+  <text x="400" y="368" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" opacity="0.85">账单邮件 · 官网条款页 · 客服工单三处交叉核对</text>
 </svg>

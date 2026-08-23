@@ -818,7 +818,7 @@ body.is-searching .hero-duo { display: none; }
 .article-columns .toc li { margin: 0; }
 .article-columns .toc a {
   display: block; padding: 5px 10px; border-radius: 8px;
-  color: var(--muted-2); text-decoration: none;
+  color: var(--muted-2); text-decoration: none; font-size: 13px; line-height: 1.5;
   transition: background-color .15s ease, color .15s ease;
 }
 .article-columns .toc a:hover { background: var(--soft); color: var(--ink); }
@@ -848,15 +848,6 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .article-body .faq-item { margin: 0 0 18px; padding: 14px 16px; background: var(--soft); border-radius: 10px; }
 .article-body .faq-item h3 { margin: 0 0 6px; font-size: 16px; }
 .article-body .faq-item p { margin: 0; }
-
-/* --- references / further reading: citing outside authoritative sources --- */
-.references { margin: 46px 0 0; padding-top: 26px; border-top: 1px solid var(--line); max-width: 720px; }
-.references h2 { margin: 0 0 12px; font-size: 17px; }
-.references ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
-.references li { color: var(--muted-2); font-size: 14.5px; line-height: 1.6; }
-.references a { color: var(--accent); font-weight: 600; text-decoration: none; }
-.references a:hover { text-decoration: underline; }
-.ref-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
 
 /* "相关文章" — matches docs-coin's own .related exactly: plain accent-colored
    text links, no boxes, no dividers, no arrow icon. */

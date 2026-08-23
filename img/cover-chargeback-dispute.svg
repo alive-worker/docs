@@ -1,52 +1,42 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI 订阅扣款拒付纠纷处理顺序封面图">
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="申请拒付前的三步正确顺序封面图">
   <defs>
-    <linearGradient id="bgGradCbd" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#241708"/>
-      <stop offset="1" stop-color="#4a2c10"/>
+    <linearGradient id="bgGradCb" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#052018"/>
+      <stop offset="1" stop-color="#0a3d2c"/>
     </linearGradient>
-    <radialGradient id="glowCbd" cx="140" cy="80" r="280" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#6b4321" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#6b4321" stop-opacity="0"/>
-    </radialGradient>
   </defs>
-  <rect width="800" height="400" fill="url(#bgGradCbd)"/>
-  <rect width="800" height="400" fill="url(#glowCbd)"/>
-  <g stroke="#3a2109" stroke-width="1.4" opacity="0.4" fill="none">
-    <path d="M40 320 h60 v30 h50"/>
-    <path d="M60 360 h50 v-26 h40"/>
-  </g>
-  <g fill="#f0a848" opacity="0.7">
-    <circle cx="40" cy="320" r="3"/>
-    <circle cx="100" cy="350" r="3"/>
-    <circle cx="60" cy="360" r="3"/>
-  </g>
-  <text x="52" y="112" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#f7c26e">扣款有异议</text>
-  <text x="52" y="156" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#6b4321">拒付先看顺序</text>
-  <rect x="52" y="170" width="120" height="4" rx="2" fill="#f0a848"/>
-  <text x="52" y="200" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="400" fill="#f0a848" opacity="0.85">客服申诉 · 证据留存 · 拒付流程</text>
+  <rect width="800" height="400" fill="url(#bgGradCb)"/>
 
-  <!-- the correct order: contact support first, evidence second, chargeback last resort -->
-  <g transform="translate(600,146)">
-    <rect x="-96" y="-64" width="192" height="128" rx="16" fill="#5a3616" stroke="#3a2109" stroke-width="2"/>
-    <circle cx="-62" cy="-8" r="22" fill="#0f1f16" stroke="#6b4321" stroke-width="2.5"/>
-    <text x="-62" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#6b4321">1</text>
-    <path d="M-36 -8 h30" stroke="#3a2109" stroke-width="2"/>
-    <circle cx="2" cy="-8" r="22" fill="#0f1f16" stroke="#3a2109" stroke-width="2" opacity="0.8"/>
-    <text x="2" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#f0a848" opacity="0.8">2</text>
-    <path d="M28 -8 h30" stroke="#3a2109" stroke-width="2"/>
-    <circle cx="66" cy="-8" r="22" fill="#3a1414" stroke="#f87171" stroke-width="2.5"/>
-    <text x="66" y="-1" text-anchor="middle" font-size="18" font-weight="700" fill="#f87171">3</text>
-    <text x="-62" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f0a848" opacity="0.85">客服申诉</text>
-    <text x="2" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f0a848" opacity="0.7">留存证据</text>
-    <text x="66" y="34" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="10.5" fill="#f87171">发起拒付</text>
+  <text x="52" y="70" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#6ee7b7">申请拒付前</text>
+  <text x="52" y="106" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700" fill="#34d399">先按顺序走完这三步</text>
+
+  <rect x="640" y="40" width="120" height="34" rx="6" fill="#0a3d2c" stroke="#34d399" stroke-width="2"/>
+  <text x="700" y="62" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">正确顺序</text>
+
+  <!-- horizontal 3-step timeline -->
+  <line x1="120" y1="260" x2="680" y2="260" stroke="#0f5c40" stroke-width="4"/>
+
+  <g transform="translate(160,260)">
+    <circle r="34" fill="#0a3d2c" stroke="#34d399" stroke-width="3"/>
+    <text y="10" text-anchor="middle" font-size="26" font-weight="700" fill="#6ee7b7">1</text>
+    <text y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#a7f3d0">先联系商家</text>
+    <text y="84" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#6ee7b7">要求退款或说明</text>
   </g>
-  <g stroke="#f0a848" stroke-width="2.5" fill="none" opacity="0.85">
-    <path d="M600 210 v34" stroke-dasharray="4 4"/>
-    <path d="M592 236 l8 10 l8 -10" fill="none"/>
+
+  <g transform="translate(400,260)">
+    <circle r="34" fill="#0a3d2c" stroke="#34d399" stroke-width="3"/>
+    <text y="10" text-anchor="middle" font-size="26" font-weight="700" fill="#6ee7b7">2</text>
+    <text y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#a7f3d0">保留沟通证据</text>
+    <text y="84" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#6ee7b7">截图/邮件/工单号</text>
   </g>
-  <g transform="translate(600,296)">
-    <rect x="-78" y="-24" width="156" height="48" rx="8" fill="#5a3616" stroke="#f87171" stroke-width="2.5"/>
-    <text x="0" y="6" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="14" fill="#f87171" font-weight="700">拒付争议</text>
+
+  <g transform="translate(640,260)">
+    <circle r="34" fill="#0a3d2c" stroke="#f59e0b" stroke-width="3.5"/>
+    <text y="10" text-anchor="middle" font-size="26" font-weight="700" fill="#fcd34d">3</text>
+    <text y="60" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#fde68a">再向发卡行申请拒付</text>
+    <text y="84" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#fcd34d">最后手段</text>
   </g>
-  <text x="600" y="350" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#f0a848" opacity="0.85">先申诉 · 后拒付 · 别跳步</text>
+
+  <path d="M194 260 h172" stroke="#34d399" stroke-width="0" />
+  <text x="400" y="360" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#34d399" opacity="0.85">顺序错了容易被判恶意拒付 · 影响账户信誉</text>
 </svg>
