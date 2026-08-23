@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-zombie-charge.svg" width="800" height="400" alt="AI 订阅取消后仍被扣款的僵尸扣款封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>取消订阅后，去银行或虚拟卡的原始交易明细里核实下一个计费日是否真的没有出现同金额扣款，而不是只看网页"已取消"提示</li>
+            <li><span class="article-verify-check">✓</span>如果是通过 App 使用的订阅，分别打开 iOS 设置里的 Apple ID 订阅管理页面或 Google Play 的"付款与订阅"，确认那条独立记录也显示已取消</li>
+            <li><span class="article-verify-check">✓</span>联系客服时，要求对方明确说出这笔扣款对应的具体计费周期，而不是含糊地说"再等一个周期"</li>
+            <li><span class="article-verify-check">✓</span>如果用虚拟卡承接订阅，确认取消动作发生的同时卡片额度是否已经归零或冻结</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 先搞清楚：僵尸扣款到底是什么</h2>
           <p>僵尸扣款指的是你已经完成了平台认为"有效"的取消操作，账户页面也确实显示订阅状态变成了"已取消"或"不再续费"，但下一个计费周期照样有一笔钱被扣走，而且往往会持续扣好几个月，直到你主动发现并再次交涉才停下来。它和普通的"忘记取消"完全不是一回事——忘记取消是你自己没操作，责任在自己；僵尸扣款是你确确实实操作了取消，系统前端也确认了，但这个"已取消"的状态没有真正传导到负责发起扣款的那一环，两边的数据不同步，你以为订阅已经死了，它却在你看不见的地方继续活着。</p>
@@ -127,6 +138,7 @@
           <p>僵尸扣款的根源是取消这个动作依赖平台内部多个系统之间的同步，而这个同步过程你完全看不见也管不了，唯一能验证的只有结果——扣没扣款。与其反复确认页面上那三个字"已取消"，不如把终止扣款的权力放在支付这一端：按订阅单独开虚拟卡、取消时同步限额或冻结、用稳定币按需充值不留冗余余额，这样无论平台后台的取消请求有没有真正生效，扣款这件事本身都发不起来。这是这个系列的第五篇，后面会继续拆解 AI 订阅支付里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：把"取消"这件事从信任平台变成掌握在自己手里</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-us/118428" target="_blank" rel="noopener nofollow">Apple 官方支持：取消 Apple 订阅</a>：说明如何在 iOS 订阅管理页面核实一笔订阅是否已经真正取消，而不是只看第三方平台自己的网页状态，对应文中"多入口订阅"与"怎么核实取消"两节</li>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/webhooks" target="_blank" rel="noopener nofollow">Stripe 官方文档：Webhook 与订阅事件</a>：说明取消订阅依赖 customer.subscription.deleted 等 webhook 事件的可靠投递，解释了前端状态和背后计费引擎为何可能不同步</li>
+          </ul>
+          <p class="ref-note">文中提及的具体系统实现与平台客服处理方式可能因产品架构不同而有差异，请以官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

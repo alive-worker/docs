@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-token-billing-en.svg" width="800" height="400" alt="How AI API token billing works input vs output costs cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Paste real text into the platform's official tokenizer tool and count it directly, rather than relying on rule-of-thumb ratios for estimating token counts</li>
+            <li><span class="article-verify-check">✓</span>Check the platform's price list for the model's current input and output rates, and confirm output is actually notably higher than input rather than assuming a fixed multiplier</li>
+            <li><span class="article-verify-check">✓</span>Check your billing details for a separate "cached input" line item, and confirm repeated prefixes are actually hitting the lower cache rate rather than being billed as full input</li>
+            <li><span class="article-verify-check">✓</span>Before shipping a batch job, run the monthly-budget calculation from this article against real samples, and confirm a usage cap or spend alert is actually configured</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Subscriptions and API billing are two different payment models</h2>
           <p>Most people first meet AI through a web subscription: pay a fixed fee each month (ChatGPT Plus, say), and as long as usage stays within the plan you barely think about cost. But once you start using the API — calling a large model directly from your own program, script, or a third-party tool — the billing logic changes. It's no longer a capped monthly fee; you're charged per call for the exact number of tokens processed, with no monthly ceiling. That has two direct consequences. First, cost tracks usage completely: use little and it's cheap, use a lot and it can far exceed a subscription. Second, there's no "plan runs out and stops" safety net — one buggy loop can burn tens of dollars in minutes. Understanding how tokens are billed is the prerequisite for using an API well.</p>
@@ -123,6 +134,7 @@
           <p>Per-token API billing is a completely different payment model from subscriptions: pay for what you use, no cap, input and output priced separately with output more expensive, and every call getting pricier as context grows. To control cost, estimate a monthly budget from real samples first, then combine picking the right model, limiting output, trimming context, enabling caching, and setting usage alerts. Payment still comes down to the same virtual card or stablecoin setup. This is the latest in our ongoing billing series; more AI service billing details will follow.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -136,6 +148,15 @@
           <li><a href="#sec-8">8. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API — official pricing page</a>: the source data behind this article's point about the input/output price gap and the lower cached-input rate</li>
+            <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener nofollow">Anthropic official docs: Prompt Caching</a>: how the "enable context caching to lower the cost of repeated prefixes" technique mentioned in this article actually works</li>
+          </ul>
+          <p class="ref-note">The specific rates, model names, and cache discount percentages mentioned here change over time — check each platform's current official pricing page for the latest figures. This article is for informational purposes only and isn't financial or technical advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

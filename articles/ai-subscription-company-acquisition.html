@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-company-acquisition.svg" width="800" height="400" alt="AI工具被收购后账单商户变更封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>账单上出现的陌生商户名，是否能在近期邮件里找到对应的收购公告，而不是直接当盗刷申诉拒付</li>
+            <li><span class="article-verify-check">✓</span>虚拟卡是否设置了商户白名单，续订失败时是否先查商户信息是否变更，而不是直接重试扣款</li>
+            <li><span class="article-verify-check">✓</span>新条款里的计费货币、退款政策是否与原来一致，企业订阅的发票抬头信息是否需要重新登记</li>
+            <li><span class="article-verify-check">✓</span>收购公告里是否提到"价格保护期至某日"，这个日期是否已经记下</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 收购和"关站"完全是两回事，但对账单的冲击一点不小</h2>
           <p>之前聊过的"创业公司说关就关"，产品和数据是真的要消失；而收购是另一种情况——产品往往被保留下来，界面可能照常打开，功能甚至还在继续更新，用户第一眼几乎感觉不到变化。但从财务角度看，收购通常意味着签约主体换了：原来和用户签订服务协议、开具账单的那家公司，法律意义上已经被另一家公司吸收或控股，后续的计费、发票、客服支持全部转移到新主体名下。产品"活着"不代表账单结构没变，这正是这类收购最容易让人放松警惕的地方。</p>
@@ -126,6 +137,7 @@
           <p>相比"公司倒闭"这种明确的坏消息，"公司被收购"给人的第一印象往往是好事——产品活下来了，甚至可能获得更多资源。但从订阅和支付的角度看，收购意味着计费主体、商户信息、条款细则都有可能重新洗一遍牌，这些变化很少会用显眼的方式提醒用户，反而容易被当成"没什么大不了的邮件"划过去。收到收购公告时花几分钟看一眼新主体信息和价格保护期限，比事后对着一张陌生商户名的扣款账单发愣要省心得多。这是这个系列的第八篇，后面还会继续拆解 AI 订阅支付与账号管理里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：产品没消失不代表账单没变，收购公告值得认真看一眼</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.authorize.net/knowledgebase/Knowledgearticle/?code=000001463" target="_blank" rel="noopener nofollow">Authorize.net 官方商户描述符变更说明</a>：解释账单上显示的商户描述符由谁控制、如何变更，对应本文商户名在收购后被替换的机制</li>
+            <li><a href="https://support.stripe.com/questions/why-do-customers-see-statement-descriptors-that-don-t-match-what-i-ve-set-in-stripe" target="_blank" rel="noopener nofollow">Stripe 官方说明：账单商户名为何与商户设置不一致</a>：解释发卡行会用自己的"友好商户名"映射系统覆盖原始描述符，可能导致收购后账单名称与预期不同</li>
+          </ul>
+          <p class="ref-note">具体的商户描述符变更规则因收单机构、卡组织与发卡行而异，请以实际收到的官方通知为准。本文仅供学习与参考，不构成任何金融或法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

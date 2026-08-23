@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-credit-expiry.svg" width="800" height="400" alt="AI订阅用量额度到期清零封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>账单细节页是否有单独的"用量记录"或"API 日志"，能否核实清零前的实际消耗数字</li>
+            <li><span class="article-verify-check">✓</span>手头的额度到底是订阅周期赠送的使用权，还是主动预付充值的余额，两者退款权利不同</li>
+            <li><span class="article-verify-check">✓</span>月初记录一次"总额度"和"付费额度"两个数字，用掉一部分后能否看出消耗顺序是否对自己不利</li>
+            <li><span class="article-verify-check">✓</span>注销账户前，是否已经把余额消耗到接近零、或联系客服确认能否转出</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 额度清零不是技术限制，是收入确认时点的会计安排</h2>
           <p>订阅制 SaaS 的收入确认原则要求：只有用户实际消耗了服务，平台才能把这笔预收款计为已实现收入；没消耗的部分，理论上应该留在“递延收入”科目里，属于对用户的负债。但如果额度可以无限期结转，这笔负债会在账上越滚越大，审计时需要逐月核对每个账户的剩余额度，现金流预测也会失真。多数平台的解法是给额度设一个明确的失效期限——账单周期结束、或最长不超过几个月，到期直接把这笔“负债”转成“已确认收入”。这是财务报表干净的代价，转嫁给了没用完额度的用户。</p>
@@ -126,6 +137,7 @@
           <p>没用完的额度清零、注销账户时的余额不退，背后不是系统故障或客服疏忽，而是一套让平台财务报表更干净、现金流更可控的既定设计。看懂这层结构，才知道该在哪个时间点用完额度、注销前要先做什么、遇到纠纷该引用哪条权益，而不是把这笔钱的消失当成理所当然。这是这个系列的第十一篇，后面还会继续拆解 AI 订阅支付里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：额度是平台的负债，过期是它变成利润的那一刻</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.figma.com/hc/en-us/articles/33459875669015-How-AI-credits-work" target="_blank" rel="noopener nofollow">Figma 官方"AI 额度如何计算"说明</a>：官方确认 AI 额度按月重置且不结转，可作为"额度周期性清零"这一行业普遍做法的具体案例</li>
+            <li><a href="https://help.napkin.ai/en/articles/12114823-do-unused-ai-credits-carry-over-to-the-next-month" target="_blank" rel="noopener nofollow">Napkin AI 官方"未用完的额度是否结转"说明</a>：官方明确未用完的月度额度不结转到下月，进一步印证不同平台在这一点上的默认设计一致</li>
+          </ul>
+          <p class="ref-note">各平台具体的额度重置周期、退款政策可能随时间调整，请以对应平台官方说明为准。本文仅供学习与参考，不构成任何金融或法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-billing-cycle-switch-en.svg" width="800" height="400" alt="AI subscription monthly plan silently switched to annual cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>On the charge where the amount jumped, does the billing detail page show "Plan: Annual" and what is its effective date</li>
+            <li><span class="article-verify-check">✓</span>Does that effective date line up with a login session, a marketing banner click, or a support conversation</li>
+            <li><span class="article-verify-check">✓</span>On the trial-to-paid confirmation screen, is annual the pre-selected/highlighted option, with "keep monthly" tucked away</li>
+            <li><span class="article-verify-check">✓</span>When requesting a revert to monthly, is the refund prorated to unused months rather than the full annual charge</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. A cycle switch is not the same problem as a price hike</h2>
           <p>When the charge amount suddenly jumps, the first assumption is usually "they raised prices again," but a billing-cycle switch is a different failure mode entirely: the per-month rate may not have changed at all — what changed is that a small recurring charge became one lump sum covering a full year. This kind of change rarely shows up in a "price change notice," because from the platform's point of view nothing was raised; the customer simply "chose a different plan," even if that choice was never consciously made.</p>
@@ -126,6 +137,7 @@
           <p>A billing cycle rarely changes from monthly to annual because someone made a deliberate, informed choice — more often it's the cumulative effect of a pre-selected default, a one-click marketing banner, or one offhand line in a support chat. Getting into the habit of checking the currently displayed plan on every renewal email and confirmation screen, plus putting a capped virtual card behind the subscription as a backstop, cuts down significantly on discovering a plan change only after the charge has already gone through. This is the tenth entry in this series — more overlooked details in AI subscription payments to come.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Takeaway: a default option is not the same as a decision you made</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://developer.apple.com/app-store/subscriptions/" target="_blank" rel="noopener nofollow">Apple's official subscription upgrade/downgrade guide</a>: explains the official rule that upgrades take effect immediately with a prorated refund while downgrades defer to the next renewal — useful for checking whether a cycle switch followed normal handling</li>
+            <li><a href="https://support.google.com/googleplay/answer/7018481?hl=en" target="_blank" rel="noopener nofollow">Google Play's official "change your subscription" guide</a>: explains that switching billing periods requires an active in-app selection and may involve a price difference, useful for judging whether a switch happened through a clear action</li>
+          </ul>
+          <p class="ref-note">Exact upgrade/downgrade and refund rules vary by platform and can change over time — check the relevant app store or AI platform's official policy for current details. This article is for informational purposes only and isn't legal or financial advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

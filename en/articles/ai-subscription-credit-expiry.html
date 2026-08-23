@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-credit-expiry-en.svg" width="800" height="400" alt="AI subscription usage credit expiry cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the billing detail page show a usage log or API log you can use to verify the exact balance before expiry</li>
+            <li><span class="article-verify-check">✓</span>Is your balance a subscription-cycle entitlement or a lump-sum prepaid purchase — the two have different refund rights</li>
+            <li><span class="article-verify-check">✓</span>Have you recorded the total balance and paid-only balance at the start of a cycle to see whether the burn order favors the platform</li>
+            <li><span class="article-verify-check">✓</span>Before closing an account, have you burned the balance down to near zero or confirmed with support whether it can be transferred</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Credit expiry is not a technical limit, it is a revenue-recognition decision</h2>
           <p>Subscription accounting requires that a platform only recognize revenue once a customer has actually consumed the service; unconsumed usage should, in theory, sit in a deferred-revenue liability account. If credits could roll over indefinitely, that liability balance would keep growing month over month, forcing auditors to reconcile leftover balances account by account and making cash-flow forecasts less reliable. The common fix is a hard expiry date — end of billing cycle, or a capped rollover window — that converts the liability into recognized revenue on a fixed schedule. That is what keeps the books clean; the cost of that cleanliness is paid by whoever did not finish using their credit.</p>
@@ -126,6 +137,7 @@
           <p>Credit that resets to zero and balances forfeited on account closure aren't glitches or support oversights — they're a deliberate design that keeps a platform's financials cleaner and its cash flow more predictable. Understanding that structure is what tells you when to burn down a balance, what to do before closing an account, and which right to cite when disputing a loss, instead of just accepting that the money is gone. This is the eleventh entry in this series — more overlooked details in AI subscription payments to come.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Takeaway: credit is a liability on the platform's books, and expiry is the moment it becomes profit</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://help.figma.com/hc/en-us/articles/33459875669015-How-AI-credits-work" target="_blank" rel="noopener nofollow">Figma's official "How AI credits work" guide</a>: confirms AI credits reset monthly and don't roll over, a concrete example of the cyclical-expiry design discussed in this article</li>
+            <li><a href="https://help.napkin.ai/en/articles/12114823-do-unused-ai-credits-carry-over-to-the-next-month" target="_blank" rel="noopener nofollow">Napkin AI's official "Do unused AI credits carry over" article</a>: confirms unused monthly credit does not carry over, reinforcing that this default behavior is consistent across platforms</li>
+          </ul>
+          <p class="ref-note">Exact credit-reset cycles and refund policies vary by platform and can change over time — check the relevant platform's current terms for details. This article is for informational purposes only and isn't financial or legal advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

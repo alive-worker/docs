@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the billing address, card number, expiry, and CVV entered at checkout exactly match what the virtual card provider's dashboard shows — not your own real address?</li>
+            <li><span class="article-verify-check">✓</span>Have you confirmed the card explicitly supports 3DS, and that the verification code/push notification actually arrives?</li>
+            <li><span class="article-verify-check">✓</span>Does the per-transaction or daily limit cover the subscription amount, not just the overall balance?</li>
+            <li><span class="article-verify-check">✓</span>After a decline, did you work through the order (billing info → limit/status → 3DS → BIN risk flag) instead of just trying a different card?</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why virtual card declines deserve their own guide</h2>
           <p>Our <a href="/en/articles/virtual-card-guide.html">Using Virtual Cards for AI Subscriptions</a> guide covers choosing a provider, funding the card, and keeping renewals stable — but the first real snag most people hit is simpler and more frustrating: the card is fine, the balance is there, and the payment still gets declined at checkout. The reasons behind a virtual card decline aren't quite the same as a physical card's, and usually involve more technical layers — risk rules, verification protocols — where "just try a different card" isn't an efficient fix. This article breaks apart the common causes so you can pinpoint what's actually going wrong faster.</p>
@@ -127,6 +138,7 @@
           <p>A declined virtual card payment almost always traces back to one of four things: an AVS mismatch, a 3DS check, a BIN-level risk flag, or a limit/status issue — and working through them in order usually finds the answer quickly. Choosing a provider with solid 3DS support and a track record of stability cuts down on declines from the start. Combine this with <a href="/en/articles/virtual-card-guide.html">Using Virtual Cards for AI Subscriptions</a> and <a href="/en/articles/payment-methods-guide.html">AI Subscription Payment Methods Compared</a> to get card selection, funding, and decline troubleshooting all sorted — that's what makes a virtual card a genuinely low-hassle way to pay for AI subscriptions.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/Knowledgearticle/?code=000003111" target="_blank" rel="noopener nofollow">Visa Acceptance Solutions — AVS result codes</a>: how the address verification system compares billing details, relevant to the AVS-mismatch cause covered here</li>
+            <li><a href="https://www.emvco.com/emv-technologies/3-d-secure/" target="_blank" rel="noopener nofollow">EMVCo — 3-D Secure official overview</a>: how the 3DS strong-authentication protocol works, relevant to the 3DS-failure cause covered here</li>
+          </ul>
+          <p class="ref-note">Decline-troubleshooting steps and verification mechanics can change as card networks and platforms update their risk policies — check your virtual card provider and the target platform for current details. This article is for informational purposes only and isn't financial advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

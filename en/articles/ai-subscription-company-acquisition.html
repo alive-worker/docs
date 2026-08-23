@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-company-acquisition-en.svg" width="800" height="400" alt="AI subscription billing change after company acquisition cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does an unfamiliar merchant name on your statement match a recent acquisition notice email, rather than jumping straight to a fraud dispute</li>
+            <li><span class="article-verify-check">✓</span>If the card has a merchant whitelist, does a renewal decline get checked against a merchant-identity change before you retry the charge</li>
+            <li><span class="article-verify-check">✓</span>Do the new terms still show the same billing currency and refund policy, and does a business subscription's invoice details need re-registering</li>
+            <li><span class="article-verify-check">✓</span>Does the acquisition notice mention a "price protected through [date]" window, and have you noted that date</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. An acquisition is not a shutdown, but it still hits the bill hard</h2>
           <p>A shutdown means the product and your data are genuinely going away. An acquisition is different — the product usually survives, the interface still loads, features may keep shipping, and at first glance nothing feels different at all. But financially, an acquisition usually means the contracting party changed: the company that originally signed you up and issued invoices has been absorbed into or taken over by another company, and billing, invoicing, and support all move to the new entity. The product staying alive doesn't mean the billing structure stayed the same — that's exactly what makes this kind of change easy to miss.</p>
@@ -126,6 +137,7 @@
           <p>Compared to a company shutting down outright, "the company got acquired" usually reads as good news — the product survives, maybe even gets more resources behind it. But from a billing and payments angle, an acquisition means the billing entity, merchant details, and fine print can all get reshuffled, and none of it tends to arrive with a loud warning — it's easy to swipe past as just another email. Taking a few minutes to check the new entity's details and any price-protection window when an acquisition notice lands beats staring blankly at an unfamiliar merchant charge later. This is entry eight in the series — more overlooked details in AI subscription payments and account management are coming.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Bottom line: the product surviving doesn't mean the bill stayed the same</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.authorize.net/knowledgebase/Knowledgearticle/?code=000001463" target="_blank" rel="noopener nofollow">Authorize.net's official guide to updating a merchant descriptor</a>: explains who controls the merchant descriptor shown on statements and how it gets changed, relevant to why a post-acquisition merchant name shows up differently</li>
+            <li><a href="https://support.stripe.com/questions/why-do-customers-see-statement-descriptors-that-don-t-match-what-i-ve-set-in-stripe" target="_blank" rel="noopener nofollow">Stripe's official explanation of statement descriptor mismatches</a>: explains how issuing banks apply their own "friendly name" mapping that can override the original descriptor, which can compound confusion after an acquisition</li>
+          </ul>
+          <p class="ref-note">Exact merchant descriptor rules vary by acquirer, card network, and issuing bank — check the actual notice you received for authoritative details. This article is for informational purposes only and isn't financial or legal advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

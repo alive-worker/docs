@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-seat-removal-lag.svg" width="800" height="400" alt="团队订阅移除席位账单本月不变封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>登录团队订阅后台，找到"当前计费席位数"或"next billing seats"字段，和团队成员列表里的实际人数逐一核对是否一致</li>
+            <li><span class="article-verify-check">✓</span>查看最近一次删除席位的操作时间，是在计费周期临近结束前几天，还是刚好在新周期快照生成之后</li>
+            <li><span class="article-verify-check">✓</span>检查平台的账单变更历史或邮件通知里，是否写明"席位调整将于 XX 日生效"这类具体日期</li>
+            <li><span class="article-verify-check">✓</span>如果最近有新旧成员交接，确认被删除的席位是否可以立刻分配给新成员，还是被平台锁定到本周期结束</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 席位计费的底层逻辑：账单跟着"周期开始时的快照"走，不跟实时操作走</h2>
           <p>按席位收费的团队订阅，绝大多数平台在计费系统内部并不是"实时统计当前有效席位数、随时结算"，而是在每个计费周期开始的那一刻拍一张"席位快照"，这个周期接下来要扣多少钱，就按这张快照上的人数算，中途席位怎么增减，只会影响下一次快照，不会反过来改写这个周期已经生效的账单。这么设计是为了让计费系统足够简单、可预测——账单金额一旦周期开始就固定下来，财务对账和平台自己的营收预测都省事很多，但代价是所有"周期中途"发生的席位变动，都会有一段时间对不上账。</p>
@@ -126,6 +137,7 @@
           <p>团队订阅按席位收费这套模式，本质上是把"访问权限"和"计费结算"拆成了两套各自独立运行的系统，管理员在界面上完成的删除操作，只对前者立刻生效，对后者只是提交了一个要等到下个周期才会被处理的变更请求。理解这层机制之后，比较务实的做法是把席位清点和计费周期截止日绑在一起做，同时定期核对账单里的实际计费席位数，而不是假设"删除=当场减免"。这个系列后面还会继续拆解 AI 订阅计费与支付里其他容易被想当然的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：删除席位是操作，退费是计费事件，两者之间有一个必然的时间差</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://knowledge.workspace.google.com/admin/billing/reduce-user-licenses" target="_blank" rel="noopener nofollow">Google Workspace 官方帮助：减少用户席位</a>：说明年费/固定期限合同下席位减少只在合约续约日才生效，与灵活套餐立即生效形成对比，对应文中账单锁定窗口的机制</li>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/billing-cycle" target="_blank" rel="noopener nofollow">Stripe 官方文档：Billing cycle</a>：说明订阅的计费周期锚点如何决定账单变更何时生效，对应文中"周期开始时的快照"这一底层逻辑</li>
+          </ul>
+          <p class="ref-note">文中提及的具体锁定规则与退费政策因平台而异，可能随各服务条款调整而变化，请以官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

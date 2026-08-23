@@ -89,6 +89,18 @@
         <img class="article-cover" src="/img/cover-fraud-flag-en.svg" width="800" height="400" alt="AI subscription account fraud flag cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the billing address on the card match what the issuing bank has on file, rather than wherever the person paying currently lives</li>
+            <li><span class="article-verify-check">✓</span>Can the account's registered email and receipt name be recognized as the same household or person as the cardholder</li>
+            <li><span class="article-verify-check">✓</span>Has this card been bound to multiple different AI subscription accounts within the last 24 hours</li>
+            <li><span class="article-verify-check">✓</span>Did this renewal happen from a device or location that's never logged in before</li>
+            <li><span class="article-verify-check">✓</span>After a block, have repeated retries stopped before escalating to an appeal, to avoid pushing the risk score higher</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Fraud engines don't recognize "family" — only a stack of statistical signals</h2>
           <p>Payment gateway and issuing-bank anti-fraud systems are scoring models trained on historical chargeback data, fed dozens of quantifiable features: text similarity between the cardholder name and the billing/account contact name, the distance between the billing address and the geolocated IP of the device making the charge, whether the card's issuing-country BIN matches the current login country, and how many distinct accounts or devices have attempted to use this card in the last 24 hours. The system has no way to understand "this is my mother's card and I'm renewing it for her while living elsewhere" — it just sees a bundle of features like "cardholder name doesn't match account name + geographic distance over 500km + first use on this device in 24 hours." Any single signal might only add a modest risk weight, but three or four together routinely push the score straight past the automatic-block line.</p>
@@ -126,6 +138,7 @@
           <p>A renewal blocked by fraud detection isn't the platform singling anyone out — it's a scoring system trained on historical fraud data, making a cost trade-off between wrongly declining a legitimate charge and letting a real theft through, and for most platforms the former is far cheaper than the latter. Understanding how name, address, device, and velocity signals combine to trigger that block is what tells you which details to align beforehand and what to bring to an appeal afterward, instead of just assuming the card itself is broken.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +153,15 @@
           <li><a href="#sec-9">9. Takeaway: a fraud block isn't personal, it's a statistical cost trade-off</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.verifi.com/chargebacks-disputes-faq/what-is-address-verification-service-avs.html" target="_blank" rel="noopener nofollow">Verifi (a Visa company) official AVS explainer</a>: explains that AVS only checks street number and postal code, only covers the US/Canada/UK, and shouldn't be relied on alone for fraud decisions — relevant to the address-mismatch problem in family billing setups discussed here</li>
+            <li><a href="https://support.authorize.net/knowledgebase/Knowledgearticle/?code=KA-04439" target="_blank" rel="noopener nofollow">Authorize.net's official guide to configuring AVS rules</a>: explains that merchants can customize which AVS response codes trigger an automatic decline, which is why the same address mismatch produces different outcomes on different platforms</li>
+          </ul>
+          <p class="ref-note">Exact fraud rules and AVS decision thresholds vary by issuing bank, card network, and each platform's internal policy — check the actual notice you received for authoritative details. This article is for informational purposes only and isn't financial advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

@@ -91,6 +91,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>兑换平台报价页面是否分别列出了价差、滑点和网络费三项，而非只给一个笼统的"预计到账"数字</li>
+            <li><span class="article-verify-check">✓</span>使用的兑换工具是否为非托管型——全程只把资产转入一次性收款地址，不需要注册账户或充值到平台余额</li>
+            <li><span class="article-verify-check">✓</span>转账前访问的域名是否与平台官方公布的一致，避免落入钓鱼链接生成的虚假收款地址</li>
+            <li><span class="article-verify-check">✓</span>大额兑换前是否先用小额资产做过一次测试，确认到账金额与报价基本一致</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么稳定币经常"卡"在选链这一步</h2>
           <p>越来越多海外 AI 订阅的支付路径开始接受稳定币，但"能接受 USDT"和"你手里的 USDT 能直接用"是两回事——支付方要求的往往是某条特定链上的稳定币（比如 TRC20 或者某条 EVM 链），而用户手里现成的资产可能躺在另一条完全不同的链上。如果不提前处理，轻则支付时发现选不出对应网络而卡住，重则像本站《USDT转错链别慌：海外AI付款资产找回实操》里写的那样，一不小心转错链导致资产滞留。与其临时手忙脚乱，不如提前了解清楚跨链兑换这一步该怎么做、该用什么工具。</p>
@@ -128,6 +139,7 @@
           <p>稳定币跨链兑换本身不复杂，难的是在一堆工具里挑出报价透明、不托管资产、到账速度可预期的那一个，并且养成转账前核对地址、金额和链名的习惯。把这篇文章和本站《用稳定币支付海外 AI 订阅》《稳定币留多少才够用：海外AI资金储备规划》《USDT转错链别慌：海外AI付款资产找回实操》放在一起看，基本能覆盖从选链、储备到兑换、纠错的完整链路，让稳定币支付这条路径真正变得省心。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -142,6 +154,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://ethereum.org/en/bridges/" target="_blank" rel="noopener nofollow">Ethereum.org 官方跨链桥风险说明</a>：智能合约风险、技术风险等跨链操作固有风险的官方权威解读，对应本文对跨链兑换风险的提醒</li>
+            <li><a href="https://www.circle.com/multi-chain-usdc" target="_blank" rel="noopener nofollow">Circle 官方 USDC 多链说明页面</a>：不同链上稳定币合约互不通用、需要匹配目标链资产版本的官方技术依据，对应本文第7节"选错资产版本"的踩坑说明</li>
+          </ul>
+          <p class="ref-note">文中提及的兑换工具功能、报价机制与链上参数可能随时间变化，请以各平台官方最新信息为准。本文仅供学习与参考，不构成任何金融或投资建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

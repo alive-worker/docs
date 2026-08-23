@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-shared-plan-payment-failure.svg" width="800" height="400" alt="合租AI订阅房主付款卡失效全员掉线封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>确认自己所在的合租/家庭订阅是否只登记了房主一张付款卡，还是支持每个成员单独付款</li>
+            <li><span class="article-verify-check">✓</span>问房主最近是否换过卡、卡是否临近有效期，如果换了新卡，核实这笔合租订阅的支付方式是否已同步更新</li>
+            <li><span class="article-verify-check">✓</span>如果服务突然提示"已过期"，先检查是不是全体成员同一天一起掉线，这能快速判断是不是房主付款卡的问题而非自己账号异常</li>
+            <li><span class="article-verify-check">✓</span>确认订阅设置里是否已开启续费提醒，以及平台是否支持挂一张备用付款方式</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 合租套餐的结构性弱点：一张卡撑起所有人的访问权限</h2>
           <p>不管是家庭共享档位、团队席位，还是朋友之间私下拼车分摊同一个订阅账号，背后的计费结构几乎都一样：套餐只认一张付款方式，扣款成功，全部成员的访问权限跟着续期；扣款失败，全部成员的访问权限跟着一起被冻结或降级。这个设计对平台来说最省事，但对合租的用户来说意味着一个隐藏的单点故障——不是每个人风险独立，而是所有人的访问权限绑定在房主个人的支付状况上，房主的卡出问题，跟每个成员自己是否按时交了分摊的钱毫无关系。</p>
@@ -126,6 +137,7 @@
           <p>家庭共享、团队订阅、朋友拼车能省下不少订阅费用，但这种模式天生带着一个容易被忽略的风险：所有人的访问权限系在房主一张卡上，房主的支付状况一出问题，成员即使自己什么都没做错，也会被一起断线。房主主动设提醒、留备用卡、把合租订阅换成单独一张虚拟卡，这几步都不复杂，却能显著缩短"全员掉线"到"重新恢复"之间的空窗期。这是这个系列的第九篇，后面还会继续拆解 AI 订阅支付与账号管理里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：合租省下的钱，值得配一套更靠谱的续费机制</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-us/108774" target="_blank" rel="noopener nofollow">Apple 官方支持：家人共享中的购买共享与付款方式</a>：官方说明家庭组织者的付款方式是所有成员购买/订阅的共享结算依据，对应文中"一张卡撑起所有人访问权限"的机制</li>
+            <li><a href="https://www.visa.com/en-us/personal/products/purchase-alerts" target="_blank" rel="noopener nofollow">Visa Purchase Alerts 官方说明</a>：介绍持卡人如何为可疑交易、境外交易、扣款失败等场景开启实时提醒，对应文中"房主自己都可能没收到通知"一节的应对方法</li>
+          </ul>
+          <p class="ref-note">文中提及的具体权限设置与通知机制可能因平台、发卡行政策调整而变化，请以官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

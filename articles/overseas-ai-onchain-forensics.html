@@ -95,6 +95,17 @@
         <img class="article-cover" src="/img/cover-onchain-forensics.svg" width="800" height="400" alt="用USDT充虚拟卡会被追踪吗链上侦查原理解析封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>通过区块浏览器（如 Etherscan、Blockchain.com）查一下自己常用的钱包地址，是否能看到完整的历史交易记录和往来地址</li>
+            <li><span class="article-verify-check">✓</span>这个地址是否曾在某个 KYC 交易所提现或充值过，一旦有过，链上历史是否已经和真实身份产生了可追溯的关联</li>
+            <li><span class="article-verify-check">✓</span>是否把同一个地址同时用作"公开身份关联的收款地址"和"日常消费转账地址"，这两类用途是否有必要拆分</li>
+            <li><span class="article-verify-check">✓</span>日常给 AI 订阅付款的金额和频率，是否属于交易所合规系统关注的大额异常范围（正常几十到几百美元的订阅付款通常不属于）</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 区块链的"伪匿名"：公开账本上什么都藏不住</h2>
           <p>用稳定币给虚拟卡充值、支付海外订阅的人越来越多，但很多人心里都有一个疑问：我的链上交易记录会被追踪到吗？区块链是公开透明的，每一笔转账都能在链上查到，但"能查到"和"能查到你是谁"是两回事。本文拆解链上侦查的基本原理，以及用 USDT 充值虚拟卡时，你的隐私到底暴露了多少。</p>
@@ -150,6 +161,7 @@
           <p>对普通用户而言，理解链上侦查的原理不是为了逃避，而是为了建立更合理的隐私预期：正常的消费和转账不会被重点关注，但地址复用、和公开身份的不必要关联，依然值得留意。这是本站稳定币支付专题的第五篇偏研究向内容，后续会继续跟进加密货币安全与合规领域的新进展。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -164,6 +176,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.justice.gov/archives/opa/pr/bitfinex-hacker-and-wife-plead-guilty-money-laundering-conspiracy-involving-billions" target="_blank" rel="noopener nofollow">美国司法部官方新闻稿：Bitfinex Hacker and Wife Plead Guilty to Money Laundering Conspiracy</a>：印证文中 2016 年 Bitfinex 被盗比特币于 2022 年被追踪查获约 36 亿美元资产的案件细节</li>
+            <li><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noopener nofollow">FATF 官方页面：Virtual Assets</a>：印证国际反洗钱金融行动特别工作组对虚拟资产服务商（VASP）"旅行规则"（Travel Rule）的监管要求</li>
+          </ul>
+          <p class="ref-note">文中提及的具体案例细节、监管规则可能随司法程序进展与法规更新变化，请以官方最新披露为准。本文是链上取证技术原理的科普与研究整理，不构成任何投资建议或法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

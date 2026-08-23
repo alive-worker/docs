@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-free-tier-throttle.svg" width="800" height="400" alt="AI免费额度动态限流缩水封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>限流是否总是发生在固定时段（如全球流量高峰），换个非高峰时段重试是否能恢复</li>
+            <li><span class="article-verify-check">✓</span>是否连续多天在原本不受限的时段也被拦截，社区论坛是否有同期大量同类反馈</li>
+            <li><span class="article-verify-check">✓</span>额度看起来没变但回答明显变短、变弱，是否是被路由到了轻量模型（可尝试提示词显式要求完整版模型）</li>
+            <li><span class="article-verify-check">✓</span>退出重新登录、清缓存、换网络三种方式是否都无法恢复，如果都不行才需要升级到客服渠道</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 免费额度从来不是一个数字，而是一段随时可调的区间</h2>
           <p>官方帮助文档里常见的"免费用户每日可发送约 XX 条消息"，措辞里的"约"字往往被用户直接忽略，但对平台而言这恰恰是关键的免责空间。真正写进后端配置的，通常是一个带上下界的区间加一套触发条件，而不是一个固定值——同一个账号、同样的使用习惯，在系统负载较低的凌晨可能被放行到区间上限，在高峰时段又会被压到下限，用户感知到的"额度突然变少"，其实是这套动态阈值在配置层面被重新赋值的结果，而不是账号本身发生了任何变化。</p>
@@ -126,6 +137,7 @@
           <p>AI 平台的免费档用量上限从设计之初就不是一份写死的承诺，而是一个随算力成本、并发压力实时调整的柔性阈值，缩水往往悄无声息、也很少提前告知。分清临时限流、基线下调和模型降级三种不同的表现，才能判断这次波动该等待还是该规划长期方案，而不是每次都当成账号出了问题去反复排查。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：免费额度是一个动态调度的成本变量，不是一份固定承诺</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/guides/rate-limits" target="_blank" rel="noopener nofollow">OpenAI 官方速率限制说明</a>：确认免费/低等级账号的请求速率、每日请求数上限是按使用等级实时设定的，且会随消费自动提升，对应本文"额度不是固定值"的机制</li>
+            <li><a href="https://platform.claude.com/docs/en/api/rate-limits" target="_blank" rel="noopener nofollow">Anthropic 官方速率限制说明</a>：说明速率限制按组织的使用等级动态划分，新账号默认限制更低，随使用历史自动提升，可作为动态限流机制的另一个官方案例</li>
+          </ul>
+          <p class="ref-note">各平台具体的限流规则、阈值调整逻辑可能随时间变化且很少完整公开，请以实际使用体验与官方文档更新为准。本文仅供学习与参考。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

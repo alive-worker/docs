@@ -95,6 +95,18 @@
         <img class="article-cover" src="/img/cover-flash-loan-attack.svg" width="800" height="400" alt="稳定币支付安全吗闪电贷攻击原理与风险防范封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>闪电贷是否要求借款、操作、还款全部打包进同一笔交易，任意一步失败整笔交易是否会被 EVM 完全回滚</li>
+            <li><span class="article-verify-check">✓</span>要评估的协议是否把某个流动性较浅的 DEX 即时现货价格直接当作预言机使用，而不是用 TWAP 或去中心化预言机聚合报价</li>
+            <li><span class="article-verify-check">✓</span>该协议的合约是否经过至少一次公开可查的第三方安全审计，审计机构是否具备行业知名度</li>
+            <li><span class="article-verify-check">✓</span>协议的链上治理提案通过后是否设有强制执行延迟（timelock），而不是票数达标即可立即执行</li>
+            <li><span class="article-verify-check">✓</span>是否可以在 immunefi.com 等平台查到该协议的漏洞赏金计划及赏金上限</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 闪电贷是什么：没有抵押，没有风险，只要同一笔交易还清</h2>
           <p>用稳定币支付虚拟卡、订阅海外服务已经成为很多人的日常，但 DeFi 世界的安全风险你了解吗？闪电贷攻击是 DeFi 生态中最著名的攻击方式之一，历史上多次造成数千万美元的损失。虽然普通用户很少直接成为闪电贷攻击的目标，但了解它能帮你判断哪些稳定币平台更安全、用稳定币付虚拟卡时要注意什么。本文拆解闪电贷攻击的原理和影响。</p>
@@ -158,6 +170,7 @@
           <p>行业对此的应对也在持续演进：去中心化预言机、TWAP 机制、重入锁、治理 timelock、闪电贷额度限制和熔断机制，都是过去几年里从一次次真实损失中总结出来的具体防御手段，并已逐步成为新协议上线前的标准检查项。但正如 Euler 事件所展示的那样，即便经过审计的协议依然可能存在未被覆盖的组合漏洞，这也是为什么持续的第三方审计、漏洞赏金和链上监控依然不可或缺。这是本站稳定币支付专题里又一篇偏研究向的内容，后续会继续跟进链上安全领域的新进展。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -172,6 +185,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://aave.com/docs/aave-v3/guides/flash-loans" target="_blank" rel="noopener nofollow">Aave 官方文档：Flash Loans</a>：印证闪电贷"借款+还款必须在同一笔交易内完成，否则整体回滚"的原子性机制与手续费设定</li>
+            <li><a href="https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/" target="_blank" rel="noopener nofollow">Chainalysis：Euler Finance 闪电贷攻击事件解析</a>：印证文中 Euler Finance 约 1.97 亿美元损失事件的攻击手法与后续资金追踪、归还过程</li>
+          </ul>
+          <p class="ref-note">文中提及的具体攻击金额、协议机制与安全实践可能随时间变化，请以协议官方文档及权威安全机构最新披露为准。本文仅为技术与安全层面的研究整理，不构成任何投资建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

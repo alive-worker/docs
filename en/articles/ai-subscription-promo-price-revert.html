@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-promo-price-revert-en.svg" width="800" height="400" alt="AI subscription promo code price revert cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Dig up the original promo email or screenshot and confirm whether the discount was fixed-cycle or permanent — don't rely on memory</li>
+            <li><span class="article-verify-check">✓</span>Compare the amount on your most recent renewal receipt against the prior one, especially for the month the promo cycle count runs out</li>
+            <li><span class="article-verify-check">✓</span>For annual plans, confirm whether the promo was "first year only" or ongoing — the second-year invoice is the one to check closely</li>
+            <li><span class="article-verify-check">✓</span>Before contacting support, write down the promo code name and the exact original vs. discounted price — not just "my bill went up"</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. A promo code isn't a price change — it's a "cycle count" parameter on the subscription</h2>
           <p>The billing infrastructure that powers most subscription platforms — Stripe and similar systems, which sit underneath a huge share of AI product billing — handles promo codes by attaching a separate discount object to the subscription, and that object carries its own duration parameter: once, for a fixed number of billing cycles, or forever. The vast majority of acquisition-driven promo codes use the fixed-cycle mode — 20% off the first three months, half price for the first year — and once that's configured, the billing engine counts it down automatically with no human review needed each cycle. Because it's a parameter that expires by counting down to zero rather than a manual repricing decision someone approves, the system's architecture never files it under "price change" at all — it's simply another ordinary renewal, executed at whatever price is currently in effect.</p>
@@ -126,6 +137,7 @@
           <p>A promo code silently reverting to full price isn't the platform deliberately keeping quiet — it's that "a time-limited discount expiring" was simply never categorized as an event worth a dedicated alert in most billing architectures. From the system's perspective, it's just another ordinary renewal at whatever price currently applies. Understanding that means not expecting the platform to flag it for you, and instead tracking your own promo expiry dates, checking every renewal receipt's amount, or using a capped virtual card to put the decision back in your own hands.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Takeaway: the platform isn't hiding it, it just was never built to tell you</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/coupons" target="_blank" rel="noopener nofollow">Stripe docs: Coupons and promotion codes</a>: how a coupon's duration parameter (once/repeating/forever) is actually configured in billing systems, matching the technical explanation in section 1</li>
+            <li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/" target="_blank" rel="noopener nofollow">CFPB: How do I dispute a charge on my credit card bill?</a>: the official process for contacting your issuer or the platform after being charged full price by mistake</li>
+          </ul>
+          <p class="ref-note">Billing system implementation details and platform compensation policies mentioned here can change by provider — check official sources for current terms. This article is for informational purposes only and isn't financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

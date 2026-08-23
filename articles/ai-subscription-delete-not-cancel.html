@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-delete-not-cancel.svg" width="800" height="400" alt="删除AI账户后订阅仍在扣款封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>删除账户前，是否已经单独进入订阅/账单管理页面点击了取消，并看到"已取消"或"当前周期后不再续费"的明确提示</li>
+            <li><span class="article-verify-check">✓</span>是否收到过取消订阅的确认邮件，或截图保存了取消确认页面</li>
+            <li><span class="article-verify-check">✓</span>是否通过第三方登录（如Google一键注册）注册的账号，删除的只是登录授权而非底层订阅记录</li>
+            <li><span class="article-verify-check">✓</span>已删号后仍被扣款时，是否保留了账户删除的截图/邮件与信用卡扣款记录这两份能对照时间线的证据</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 先说清楚：删除账户和取消订阅，压根不是一回事</h2>
           <p>"删除账户"删除的是你的用户身份信息——邮箱、密码、历史对话记录、生成内容、登录凭证，这些数据被清空或标记为待删除，你自此无法再用这个身份登录该平台。"取消订阅"删除的是一条独立的计费指令——告诉背后的计费系统"下个周期不要再从这张卡上扣款了"。这两件事在很多产品的原始设计里，属于两套完全不同的后台系统各自负责的范畴：账户系统关心的是"这个人是谁、能不能登录"，计费系统关心的是"这张卡、这个订阅、要不要继续收钱"，删除前者不会自动触发后者，除非产品团队专门写了一段"删号联动取消订阅"的逻辑——而很多平台，尤其是中小型AI工具，根本没写这段逻辑。</p>
@@ -127,6 +138,7 @@
           <p>删除账户和取消订阅，一个动的是身份系统，一个动的是计费系统，两者之间是否联动完全取决于平台工程实现，而不是用户的常识预期。与其假设"号都删了钱肯定不会再扣"，不如把这两步拆开做：先去订阅管理页面明确取消并确认生效，再执行删除账户；支付这一端再用按订阅单独开卡、准备删号前先限额或冻结的方式兜底，即便平台那边的联动逻辑真的缺失，扣款这件事本身也发不起来。删除账户从来不是终止扣款的可靠手段，取消订阅才是。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：删账户不是取消订阅的替代动作</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://gdpr-info.eu/art-17-gdpr/" target="_blank" rel="noopener nofollow">GDPR 第17条"被遗忘权"原文</a>：说明数据删除请求的法律依据与适用范围，对应本文"删除账户清空的是身份数据"这一机制</li>
+            <li><a href="https://support.google.com/accounts/answer/32046" target="_blank" rel="noopener nofollow">Google 官方"删除账号"帮助文档</a>：明确删除整个账号会连带失去该账号购买的订阅与内容访问权，但不等同于主动取消订阅这一独立操作</li>
+          </ul>
+          <p class="ref-note">不同平台账户删除与订阅取消的联动逻辑差异很大，请以实际使用的平台官方说明为准。本文仅供学习与参考，不构成任何法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

@@ -96,6 +96,17 @@
         <img class="article-cover" src="/img/cover-virtual-card-hub-en.svg" width="800" height="400" alt="The complete virtual card guide for AI subscriptions cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Match your current subscription count and stage against the "Pick a setup by scenario" table, rather than guessing which row applies</li>
+            <li><span class="article-verify-check">✓</span>When troubleshooting a failed renewal, work through AVS → 3DS → BIN risk → limit status in order, rather than retrying at random</li>
+            <li><span class="article-verify-check">✓</span>Confirm your card limit already accounts for currency-conversion variance, rather than being set to the exact listed subscription price</li>
+            <li><span class="article-verify-check">✓</span>Confirm the card's expiry leaves a one-to-two-month buffer past the subscription's billing cycle, so it doesn't expire on renewal day itself</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. A virtual card isn't one decision — it's four</h2>
           <p>Opening a virtual card for an AI subscription sounds like a single step, but it breaks down into four independent decisions: which <strong>provider</strong> to open with, what <strong>card type</strong> to choose, how to <strong>allocate</strong> subscriptions across cards, and what <strong>limit</strong> to set on each. These four questions interact with each other, but rarely get covered together — we wrote them as six separate guides too. This page exists purely as a summary: every guide's core conclusion, compressed into tables you can look up as needed instead of reading start to finish again. For a shorter overview first, see <a href="/en/articles/virtual-card-solution-guide.html">Virtual Cards: A Payment Plan for Overseas AI Subscriptions</a>.</p>
@@ -165,6 +176,7 @@
           </div>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -175,6 +187,15 @@
           <li><a href="#sec-5">5. Frequently asked questions</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/Knowledgearticle/?code=000003111" target="_blank" rel="noopener nofollow">Visa Acceptance: AVS result code reference</a>: the official technical basis for the AVS step in this article's "check AVS → 3DS → BIN risk → limit status in order" troubleshooting sequence</li>
+            <li><a href="https://www.emvco.com/emv-technologies/3-d-secure/" target="_blank" rel="noopener nofollow">EMVCo: 3-D Secure — official overview</a>: the technical background for the 3DS step in that same troubleshooting sequence</li>
+          </ul>
+          <p class="ref-note">The conclusions summarized here come from this site's own accumulated guides — specific rules vary by provider and issuer, so check the official documentation for the payment channel you actually use. This article is for informational purposes only and isn't financial advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>All seven guides</h2>

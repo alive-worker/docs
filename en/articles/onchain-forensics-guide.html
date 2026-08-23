@@ -95,6 +95,17 @@
         <img class="article-cover" src="/img/cover-onchain-forensics-en.svg" width="800" height="400" alt="On-chain forensics investigators tracing crypto funds cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Look up a wallet address you actively use on a block explorer (Etherscan, Blockchain.com) — can you see its full transaction history and counterparties</li>
+            <li><span class="article-verify-check">✓</span>Has that address ever withdrawn from or deposited to a KYC exchange — if so, is its on-chain history already traceably linked to a verified identity</li>
+            <li><span class="article-verify-check">✓</span>Are you using the same address as both a "receiving address tied to a public identity" and a "day-to-day spending address," and should those be separated</li>
+            <li><span class="article-verify-check">✓</span>Does the amount and frequency of your routine AI subscription payments fall within the range exchange compliance systems actually flag (typically not — routine payments of tens to hundreds of dollars usually don't)</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Pseudonymous, Not Anonymous: Nothing Stays Hidden on a Public Ledger</h2>
           <p>People new to crypto often equate it with anonymity — no name attached to a transfer, no ID required, so surely nothing can be traced. That assumption is wrong. The accurate term for chains like Bitcoin and Ethereum is "pseudonymous": the chain doesn't display your name, national ID number, or phone number directly. What it shows is a string of letters and numbers — an address, something like <code>0x7a2c...e91f</code> on Ethereum. But every transaction tied to that address — how much moved, to whom, and when — is permanently recorded on a public ledger anyone can inspect, and once written to the chain, that record is essentially impossible to delete or alter.</p>
@@ -151,6 +162,7 @@
           <p>For ordinary users, understanding how on-chain forensics works isn't about evasion — it's about setting reasonable privacy expectations: normal spending and transfers won't draw focused scrutiny, but address reuse and unnecessary links to a public identity are still worth paying attention to. This is the fifth, research-oriented installment in this site's stablecoin payments series; we'll continue following new developments in crypto security and compliance.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -165,6 +177,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.justice.gov/archives/opa/pr/bitfinex-hacker-and-wife-plead-guilty-money-laundering-conspiracy-involving-billions" target="_blank" rel="noopener nofollow">US Department of Justice: Bitfinex Hacker and Wife Plead Guilty to Money Laundering Conspiracy</a>: confirms the details of the 2016 Bitfinex hack and the roughly $3.6 billion recovery of the stolen bitcoin in 2022 covered in this article</li>
+            <li><a href="https://www.fatf-gafi.org/en/topics/virtual-assets.html" target="_blank" rel="noopener nofollow">FATF: Virtual Assets</a>: confirms the international Financial Action Task Force's Travel Rule requirements for virtual asset service providers (VASPs)</li>
+          </ul>
+          <p class="ref-note">Specific case details and regulatory requirements mentioned here can change as legal proceedings and regulations evolve — check official disclosures for the latest details. This article is an explainer and research summary of on-chain forensics techniques, and does not constitute investment or legal advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

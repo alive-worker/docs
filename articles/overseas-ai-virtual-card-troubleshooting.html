@@ -91,6 +91,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>支付页面填写的账单地址、卡号、有效期、CVV 是否与虚拟卡平台后台提供的信息完全一致，而不是自己的真实地址</li>
+            <li><span class="article-verify-check">✓</span>是否确认过这张卡明确支持 3DS 验证流程，验证短信/推送是否能正常接收</li>
+            <li><span class="article-verify-check">✓</span>卡片单笔或单日限额是否覆盖订阅金额，而不是只看余额是否充足</li>
+            <li><span class="article-verify-check">✓</span>被拒后是否按顺序排查（账单信息→额度状态→3DS→BIN风控），而不是直接换一张卡再试</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么虚拟卡拒付值得单独讲清楚</h2>
           <p>本站《用虚拟信用卡开通海外 AI 订阅》讲过怎么选卡、怎么充值、怎么维持稳定续费，但很多人真正遇到的第一个坎，是卡片本身没问题、余额也充足，支付却在结账那一步直接被拒。虚拟卡的拒付原因和实体卡不完全一样，往往牵涉到风控规则、验证协议等更技术性的环节，笼统地"换一张卡试试"效率很低。这篇把常见的拒付原因拆开讲清楚，帮你更快定位问题出在哪一环。</p>
@@ -128,6 +139,7 @@
           <p>虚拟卡支付被拒，大概率出在 AVS 地址不匹配、3DS 验证、BIN 卡段风控、额度或卡片状态这四类常见原因之一，按顺序排查通常能较快定位问题。选择支持 3DS、口碑稳定的正规服务商，能从源头上减少拒付概率。结合本站《用虚拟信用卡开通海外 AI 订阅》与《实体卡、虚拟卡、稳定币：海外AI三条支付路径对比》一起参考，把选卡、充值与拒付排查这几件事都理顺，虚拟卡才能真正成为省心的订阅支付方式。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -142,6 +154,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/Knowledgearticle/?code=000003111" target="_blank" rel="noopener nofollow">Visa Acceptance Solutions AVS 结果代码说明</a>：地址验证系统如何比对账单地址，对应本文 AVS 不匹配这一常见拒付原因</li>
+            <li><a href="https://www.emvco.com/emv-technologies/3-d-secure/" target="_blank" rel="noopener nofollow">EMVCo 3-D Secure 官方说明</a>：3DS 强身份验证协议的工作原理，对应本文 3DS 验证失败导致拒付的部分</li>
+          </ul>
+          <p class="ref-note">文中提及的拒付排查方法与验证机制可能随卡组织与平台风控策略变化，请以虚拟卡服务商与目标平台的官方最新信息为准。本文仅供学习与参考，不构成任何金融建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

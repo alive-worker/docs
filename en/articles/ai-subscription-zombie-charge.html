@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-zombie-charge-en.svg" width="800" height="400" alt="AI subscription zombie charges after cancellation cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>After cancelling, check your bank or virtual card's raw transaction history for the next billing date, rather than trusting the web "cancelled" message alone</li>
+            <li><span class="article-verify-check">✓</span>If the subscription runs through an app, separately check the Apple ID subscriptions page in iOS Settings or Google Play's "Payments & subscriptions" to confirm that independent record also shows cancelled</li>
+            <li><span class="article-verify-check">✓</span>When contacting support, ask them to name the exact billing period a disputed charge corresponds to, instead of accepting a vague "wait one more cycle"</li>
+            <li><span class="article-verify-check">✓</span>If a virtual card is funding the subscription, confirm the card's limit was actually zeroed out or frozen at the same moment you cancelled</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. What a zombie charge actually is</h2>
           <p>A zombie charge is when you've completed whatever the platform considers a valid cancellation — the account page shows "cancelled" or "won't renew," you may have even gotten a confirmation email — but the next billing cycle still pulls the same amount, sometimes for several months running, until you notice and fight it a second time. This is different from simply forgetting to cancel, where the fault is on you. With a zombie charge, you genuinely did cancel and the interface confirmed it, but that "cancelled" status never actually propagated to the system that triggers the charge. The two sides fall out of sync: you believe the subscription is dead, but somewhere out of view, it's still alive.</p>
@@ -127,6 +138,7 @@
           <p>Zombie charges exist because cancellation depends on multiple internal systems staying in sync — a process you can't see and can't control, where the only thing you can actually verify is the outcome: did it charge or not. Instead of re-checking the word "cancelled" on a settings page, put the power to stop a charge on the payment side instead: a separate virtual card per subscription, a limit cut or freeze the moment you cancel, and stablecoin top-ups that never leave spare balance behind. That way, whether or not the platform's internal cancellation actually took, the charge itself simply can't happen. This is the fifth piece in the series — more overlooked details in AI subscription payments are coming.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. The bottom line: stop trusting the platform, and start controlling cancellation yourself</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-us/118428" target="_blank" rel="noopener nofollow">Apple Support: Cancel a subscription from Apple</a>: how to verify on the iOS subscriptions page whether a subscription was actually cancelled, rather than relying on a third-party platform's own web status, relevant to sections 3 and 4</li>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/webhooks" target="_blank" rel="noopener nofollow">Stripe docs: Webhooks for subscriptions</a>: explains how cancellation depends on reliable delivery of events like customer.subscription.deleted, showing why the front end and the underlying billing engine can fall out of sync</li>
+          </ul>
+          <p class="ref-note">Specific system implementations and support handling can vary by product architecture — check official sources for current details. This article is for informational purposes only and isn't financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-downgrade-data-loss-en.svg" width="800" height="400" alt="AI subscription downgrade data retention deadline cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Before downgrading, did you confirm export access is still working and pull a full local copy of conversations and project files</li>
+            <li><span class="article-verify-check">✓</span>How much does current storage usage exceed the free tier's cap</li>
+            <li><span class="article-verify-check">✓</span>Do the account settings page, terms of service, and downgrade confirmation dialog agree on the retention window, and have you planned around the shortest one</li>
+            <li><span class="article-verify-check">✓</span>For a team/workspace downgrade, have you confirmed with collaborators who retains access to shared projects afterward</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Downgrading is not the same as cancelling, even though it feels like it</h2>
           <p>Cancelling a subscription ends the service outright, and most products give you a fairly generous grace window to pull your data out. Downgrading is different — the account stays active, it just switches from the paid tier back to free, so people naturally assume "the account is still there, so the data must still be there too." In reality, most AI products' terms of service tie the paid and free tiers to two entirely different storage quotas, history limits, and feature permissions. Downgrading doesn't trigger account deletion; it triggers a quota shrink, and anything past the new limit enters a state where it can be cleaned up at any point — usually without a prominent warning.</p>
@@ -127,6 +138,7 @@
           <p>There's nothing wrong with downgrading to save money — the problem is treating it as a pure plan switch when it's really a storage-quota shrink and a feature-permission rollback happening at the same time. Spending five minutes in account settings, the terms of service, and the downgrade dialog to find the actual retention window, and exporting what needs exporting first, is far cheaper than discovering later that your chat history is gone and your project files won't open. This is entry six in the series — more overlooked details in AI subscription payments and account management are coming.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Bottom line: ask "how long is the retention window" before you confirm</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.notion.com/help/plan-downgrade" target="_blank" rel="noopener nofollow">Notion's official "What happens when I downgrade my plan?" guide</a>: a concrete example of a platform preserving most existing content but restricting features past the new quota rather than deleting it instantly, matching the "quota shrink" mechanism discussed here</li>
+            <li><a href="https://developer.apple.com/app-store/subscriptions/" target="_blank" rel="noopener nofollow">Apple's official subscription upgrade/downgrade guide</a>: explains that downgrades defer to the next billing cycle, unlike upgrades which take effect immediately with a prorated refund — useful for checking how a specific product's downgrade timing actually works</li>
+          </ul>
+          <p class="ref-note">Exact data retention windows and downgrade rules vary by platform and can change over time — check the relevant platform's current account settings and terms of service for details. This article is for informational purposes only and isn't legal advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

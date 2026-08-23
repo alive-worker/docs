@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-billing-cycle-switch.svg" width="800" height="400" alt="AI订阅月付续费时被静默换成年付方案封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>账单历史里金额突变的那一笔，"方案"字段是否显示为年付，生效日期是哪天</li>
+            <li><span class="article-verify-check">✓</span>该生效日期是否正好落在一次登录、一次点击营销弹窗，或一次客服对话之后</li>
+            <li><span class="article-verify-check">✓</span>试用转正确认页面上，默认勾选/高亮显示的是不是年付档位，"保持月付"的入口是否被弱化</li>
+            <li><span class="article-verify-check">✓</span>申诉改回月付时，退款金额是否按未使用月份比例计算，而不是按全额年付金额</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 计费周期切换和价格上涨是两回事，容易被混为一谈</h2>
           <p>很多用户看到账单金额突然变大，第一反应是"又涨价了"，但计费周期切换其实是完全不同的一类问题：单价可能一分没变，只是原本按月扣一小笔钱，变成了一次性扣一整年的钱。这种变化不会出现在平台的"价格调整通知"里，因为从平台的角度看，这不是涨价，只是"用户选择的方案变了"——哪怕这个选择本人根本没有主动做出过。</p>
@@ -126,6 +137,7 @@
           <p>计费周期从月付变成年付，很少是用户主动、清醒地做出的决定，更多时候是页面默认选中项、营销弹窗的一键操作，或者一次随口的客服对话累积出的结果。养成续费提醒邮件、方案确认页面都多看一眼当前档位的习惯，给订阅单独配一张限额虚拟卡作为兜底，能大幅降低"钱已经扣了才发现方案不对"的情况。这是这个系列的第十篇，后面还会继续拆解 AI 订阅支付里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：默认选项不是你的选择，续费页面值得多停留几秒</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developer.apple.com/app-store/subscriptions/" target="_blank" rel="noopener nofollow">Apple 官方订阅升降级说明</a>：解释升级即时生效并按比例退款、降级则顺延到下个周期生效的官方规则，可用来对照周期切换是否走了正常流程</li>
+            <li><a href="https://support.google.com/googleplay/answer/7018481?hl=en" target="_blank" rel="noopener nofollow">Google Play 官方"更改订阅方案"说明</a>：说明切换计费周期需要用户在应用内主动选择新方案，且可能需要补差价，可用来判断切换是否经过明确操作</li>
+          </ul>
+          <p class="ref-note">各平台具体的升降级与退款规则可能随时间调整，请以对应应用商店或AI平台官方说明为准。本文仅供学习与参考，不构成任何消费或法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

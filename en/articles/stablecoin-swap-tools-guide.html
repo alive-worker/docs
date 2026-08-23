@@ -91,6 +91,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the swap tool's quote screen break out spread, slippage, and network fee separately, rather than showing one vague "estimated amount"</li>
+            <li><span class="article-verify-check">✓</span>Is the tool you're using non-custodial — sending funds only to a one-time deposit address, with no account registration or platform-balance deposit required</li>
+            <li><span class="article-verify-check">✓</span>Does the domain you're on before sending match the platform's official channels, so you're not on a phishing clone generating a fake deposit address</li>
+            <li><span class="article-verify-check">✓</span>Before a large swap, have you run a small test swap first and confirmed the settled amount roughly matches the quote</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why stablecoin payments so often get stuck on chain selection</h2>
           <p>More AI subscription payment paths now accept stablecoins, but "accepts USDT" and "the USDT you're holding works right now" are two different things. Payment processors usually require a stablecoin on one specific chain, while the funds you already hold may be sitting on a completely different one. Without handling that gap ahead of time, you'll either get stuck at checkout with no matching network to select, or — as covered in our <a href="/en/articles/cross-chain-recovery-guide.html">Sent Stablecoins to the Wrong Chain?</a> guide — accidentally send funds to the wrong chain entirely. Better to understand the swap step in advance than to scramble at the last minute.</p>
@@ -128,6 +139,7 @@
           <p>Cross-chain stablecoin swaps aren't inherently complicated — the hard part is picking a tool with transparent quotes, no custody of your funds, and predictable settlement speed, and building the habit of double-checking the address, amount, and chain name before every transfer. Read this alongside <a href="/en/articles/stablecoin-payment-guide.html">Paying for AI Subscriptions with Stablecoins</a>, <a href="/en/articles/fund-reserve-guide.html">Fund Reserve &amp; On-Chain Asset Management for AI Subscriptions</a>, and <a href="/en/articles/cross-chain-recovery-guide.html">Sent Stablecoins to the Wrong Chain?</a>, and you'll have the full loop covered — chain selection, reserves, swaps, and recovery — so stablecoin payments actually become the low-stress option they're supposed to be.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -142,6 +154,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://ethereum.org/en/bridges/" target="_blank" rel="noopener nofollow">Ethereum.org official bridge risk guide</a>: the authoritative breakdown of smart-contract and technology risk inherent to any cross-chain operation, backing this article's risk warnings</li>
+            <li><a href="https://www.circle.com/multi-chain-usdc" target="_blank" rel="noopener nofollow">Circle official Multichain USDC page</a>: the official technical basis for why stablecoin contracts don't interoperate across chains and why matching the exact asset version matters — relevant to Section 7's "wrong asset version" pitfall</li>
+          </ul>
+          <p class="ref-note">Swap tool features, quote mechanics, and on-chain parameters referenced here may change over time — always check each platform's current official information. This article is for informational purposes only and is not financial or investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

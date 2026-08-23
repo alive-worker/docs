@@ -91,6 +91,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Do you have this transfer's transaction hash (TxID), and have you checked the actual receiving address on the relevant chain's official block explorer (etherscan.io, Tronscan, etc.)?</li>
+            <li><span class="article-verify-check">✓</span>Are the destination chain and the chain you actually sent from both EVM-compatible with matching address formats, or are they fundamentally incompatible?</li>
+            <li><span class="article-verify-check">✓</span>If the funds landed on an exchange's deposit address, have you filed a ticket through the exchange's official support channel — not a "manual recovery" contact found via search engine?</li>
+            <li><span class="article-verify-check">✓</span>At any point in the recovery process, has anyone asked for your private key or seed phrase? If so, stop immediately and treat it as a scam.</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why wrong-chain transfers are the easiest crypto mistake to make</h2>
           <p>Stablecoins like USDT and USDC share a name across chains but aren't interchangeable between them — the same "USDT" on TRC20 (Tron), ERC20 (Ethereum), BEP20 (BSC), and Solana are entirely separate assets. Many wallet and exchange transfer screens also don't make the chain-selection step visually prominent, so it's easy to check only the coin and skip the chain. If the destination address's chain doesn't match the chain you actually sent from, the funds end up in an awkward state: visible on-chain, but not usable. This mistake is especially common when preparing crypto funds for an AI subscription, since those transfers are often rushed.</p>
@@ -128,6 +139,7 @@
           <p>A wrong-chain transfer isn't necessarily unrecoverable, but handling it well starts with staying calm and verifying the actual state of your funds first — then choosing between manual recovery, a cross-chain swap to consolidate assets, or exchange support, rather than panicking into a scam. Just as important is building in prevention: an address book to cut down manual errors, and a small test transfer before any large one. Combine this with the habits from <a href="/en/articles/stablecoin-payment-guide.html">Paying for AI Subscriptions with Stablecoins</a> and <a href="/en/articles/fund-reserve-guide.html">Fund Reserve &amp; On-Chain Asset Management for AI Subscriptions</a> to build a genuinely low-risk routine for managing your crypto assets day to day.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -142,6 +154,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.binance.com/en/academy/articles/how-to-recover-crypto-transferred-to-the-wrong-network-on-binance" target="_blank" rel="noopener nofollow">Binance Academy: How to Recover Crypto Transferred to the Wrong Network</a>: Binance's official breakdown of wrong-chain scenarios, recovery paths, and private-key safety warnings, matching this article's guidance on contacting exchange support correctly</li>
+            <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan Official Block Explorer</a>: the authoritative tool for looking up an Ethereum-family transaction hash, confirming the actual receiving address, and checking on-chain activity — matching this article's "what to check first" step</li>
+          </ul>
+          <p class="ref-note">Recovery processes, fees, and individual exchange policies referenced here can change over time — check the relevant exchange's, wallet's, or block explorer's current official guidance. This article is for informational purposes only and isn't investment advice; never give your private key or seed phrase to anyone under any circumstances.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

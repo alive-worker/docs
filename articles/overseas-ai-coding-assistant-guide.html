@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-coding-assistant.svg" width="800" height="400" alt="Copilot还是Cursor：AI编程订阅怎么挑封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Copilot 账单设置里的高级请求用量是否已经接近或超过当月配额，是否开启了超额自动按量购买</li>
+            <li><span class="article-verify-check">✓</span>Cursor 账户设置里的"按量购买"（usage-based pricing）开关状态是什么，超出订阅内含额度后是自动转慢速还是直接产生额外扣款</li>
+            <li><span class="article-verify-check">✓</span>团队新开的席位是否已经确认核心成员实际使用频率，而不是一次性按团队编制满员购买</li>
+            <li><span class="article-verify-check">✓</span>用稳定币或虚拟卡续费编程工具订阅前，卡内或链上余额是否已经覆盖了当月可能出现的超额扣款空间，而不只是订阅费本身</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么编程助手不能照搬聊天类 AI 的订阅逻辑</h2>
           <p>ChatGPT、Claude 这类聊天式 AI，订阅逻辑很简单：选一个档位，按月或按年付费，用多用少差别不大。但 GitHub Copilot 和 Cursor 这类编程助手不一样——它们的计费单位往往不是"账号"而是"席位"或"请求量"，团队采购时按人头算钱，个人使用时又可能牵扯到用量超额扣费。搞不清这两者的差异，很容易在团队场景下多买席位造成浪费，或者在个人场景下低估了实际月支出。</p>
@@ -134,6 +145,7 @@
           <p>GitHub Copilot 和 Cursor 虽然都归类为"AI 编程助手"，但计费单位、超额规则和适用场景并不完全相同，个人开发者和团队采购需要分别评估。支付这一环仍然可以复用虚拟卡或稳定币这套通用方案。这是"AI 服务不止聊天"系列的第二篇，系列第三篇《<a href="/articles/overseas-ai-image-gen-billing-guide.html">Midjourney 订阅档位怎么选：算力时长怎么算</a>》已经上线，拆解 Midjourney 这类 AI 绘图工具的订阅档位和算力计费怎么选。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -147,6 +159,15 @@
           <li><a href="#sec-8">8. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://docs.github.com/copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot" target="_blank" rel="noopener nofollow">GitHub 官方文档：理解与管理 Copilot 中的请求</a>：Copilot 高级请求配额、模型倍率与超额计费机制的官方说明</li>
+            <li><a href="https://cursor.com/docs/models-and-pricing" target="_blank" rel="noopener nofollow">Cursor 官方文档：模型与定价</a>：Cursor 订阅内含用量、超额按量购买（usage-based pricing）与不同模型计费方式的官方说明</li>
+          </ul>
+          <p class="ref-note">文中提及的计费规则、配额与价格可能随产品迭代而调整，请以 GitHub Copilot 与 Cursor 官方文档的最新说明为准。本文仅供学习与参考，不构成任何采购建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

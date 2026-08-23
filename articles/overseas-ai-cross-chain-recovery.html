@@ -91,6 +91,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否已经拿到这笔转账的交易哈希（TxID），并用对应链的官方区块浏览器（如 etherscan.io、Tronscan）查过实际到账地址</li>
+            <li><span class="article-verify-check">✓</span>目标地址所在链和转出地址所在链是否都是 EVM 兼容链（地址格式一致），还是完全不兼容的地址格式</li>
+            <li><span class="article-verify-check">✓</span>如果转错到了交易所充值地址，是否已经通过交易所官方客服渠道（而不是搜索引擎里找到的"人工找回"联系方式）提交了工单</li>
+            <li><span class="article-verify-check">✓</span>整个找回过程中，是否有任何环节要求提供私钥或助记词——只要有，就应该立刻停止并判定为诈骗</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么跨链转错是稳定币支付里最容易踩的坑</h2>
           <p>USDT、USDC 这类稳定币的一大特点是"同名不同链"——同样叫 USDT，在 TRC20（波场）、ERC20（以太坊）、BEP20（BSC）、Solana 等不同链上是完全独立、互不通用的资产。很多钱包和交易所的转账界面又把"选链"这一步做得不够醒目，用户习惯性地只看币种、不看链，一旦目标地址所在的链和实际转出的链对不上，资产就会进入一种"看得见、用不了"的尴尬状态。这类问题在准备海外 AI 订阅所需的加密资金时尤其容易发生，因为很多人是临时、匆忙地完成转账。</p>
@@ -128,6 +139,7 @@
           <p>跨链转错不是无解的死局，但处理的前提是第一时间保持冷静、核实清楚资产的真实状态，再按情况选择手动找回、跨链兑换归集或联系客服协助，切勿病急乱投医。更重要的是把预防机制建立起来——用地址簿减少手动出错、大额转账前先做小额测试，结合本站《用稳定币支付海外 AI 订阅》和《稳定币留多少才够用：海外AI资金储备规划》一起规划好日常的加密资产管理习惯，才能从根本上减少这类问题的发生概率。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -142,6 +154,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.binance.com/en/academy/articles/how-to-recover-crypto-transferred-to-the-wrong-network-on-binance" target="_blank" rel="noopener nofollow">Binance Academy：如何找回转错网络的加密资产</a>：币安官方对转错链场景分类、找回路径与私钥安全提醒的说明，对应文中提到的联系交易所客服正确姿势</li>
+            <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan 官方区块链浏览器</a>：查询以太坊系交易哈希、确认实际到账地址与链上活动记录的权威工具，对应文中"第一时间该核对什么信息"的具体操作</li>
+          </ul>
+          <p class="ref-note">文中提及的找回流程、手续费与各交易所具体政策可能随时间变化，请以相关交易所、钱包及区块浏览器官方最新说明为准。本文仅供学习与参考，不构成任何投资建议，任何情况下都不应向他人提供私钥或助记词。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

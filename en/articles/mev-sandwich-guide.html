@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-mev-sandwich-en.svg" width="800" height="400" alt="Sandwich attacks explained how MEV bots eat your slippage cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Is your recent swap's slippage tolerance noticeably above 1% (especially in a thinner-liquidity pool), and could it be tightened</li>
+            <li><span class="article-verify-check">✓</span>Does the wallet or DEX front-end you're using have a built-in private transaction/MEV protection toggle (sometimes labeled "MEV Protection" or "Private Mode")</li>
+            <li><span class="article-verify-check">✓</span>Is the target pool's TVL and 24-hour volume noticeably low relative to the size of your swap</li>
+            <li><span class="article-verify-check">✓</span>Could a large swap be split into several smaller batches instead of one order well above the pool's typical daily volume</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. What MEV actually is: the money hiding in block ordering</h2>
           <p>MEV (Maximal Extractable Value) refers to the extra profit a block producer or transaction sequencer can capture by controlling the order transactions get packed into a block — inserting their own transactions, reordering others, or excluding some entirely. This is possible because on most chains, a transaction sits briefly in a public "mempool" of pending transactions before it gets included in a block, and anyone watching that mempool can see what a transaction intends to do and how much fee it's willing to pay, then decide whether to jump in front of it, wedge something in the middle, or follow right after. That combination — ordering is manipulable, and the manipulable window is publicly visible — is the technical precondition behind nearly every MEV strategy, sandwich attacks included.</p>
@@ -127,6 +138,7 @@
           <p>Sandwich attacks exist because transactions sit briefly and publicly exposed in the mempool before being packed into a block, giving every layer of the MEV supply chain — searchers, builders, validators — a chance to place a bet ahead of time. Front-run to push the price up, let the victim fill at a worse rate, back-run to lock in the spread: the mechanics are simple but remarkably effective, extracting hundreds of millions of dollars a year from ordinary traders in aggregate slippage. What an ordinary trader can realistically do isn't eliminate the risk entirely, but make themselves a poor economic target through private transaction routing, tighter slippage tolerance, batching large trades, and a basic read on pool depth. This is the third, more research-oriented entry in our stablecoin-payments series; we'll keep following developments in MEV and on-chain trading security.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://docs.flashbots.net/flashbots-protect/overview" target="_blank" rel="noopener nofollow">Flashbots Documentation: Flashbots Protect Overview</a>: confirms that private transaction routing hides a transaction's contents by sending it to a private mempool, preventing front-running and sandwich bots from seeing it in advance</li>
+            <li><a href="https://blog.uniswap.org/minimize-slippage-on-swaps" target="_blank" rel="noopener nofollow">Uniswap Blog: How to Minimize Slippage on Your Swaps</a>: confirms that overly loose slippage tolerance raises the risk of a bad fill, and that deep vs. thin pools warrant different tolerance strategies</li>
+          </ul>
+          <p class="ref-note">Specific defense tools and default parameters mentioned here can change as protocols update — check Flashbots, Uniswap, and other providers' current official documentation. This article is technical and security-level research only, and does not constitute investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

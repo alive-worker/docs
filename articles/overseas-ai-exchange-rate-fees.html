@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>支付确认页面弹出"以本地货币结算"还是"以美元结算"选项时，是否选择了原始计价货币（通常是美元），而不是收单方推荐的本地货币</li>
+            <li><span class="article-verify-check">✓</span>信用卡合同或网银费率公示页面里，这张卡的境外交易手续费具体是多少、是否被免除</li>
+            <li><span class="article-verify-check">✓</span>虚拟卡平台公示的汇率加价比例，以及是否存在开卡费、月费、提现手续费等未计入订阅价格的附加费用</li>
+            <li><span class="article-verify-check">✓</span>稳定币支付前，选用的链（TRC20/ERC20/Solana 等）网络手续费是否已经对比过，是不是当下最低成本的选项</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么"到手成本"和标价经常对不上</h2>
           <p>ChatGPT Plus、Claude Pro 这类订阅通常以美元标价，比如每月 20 美元，看起来是个很干脆的数字。但本站此前的文章分别讨论过信用卡、虚拟卡、稳定币三种支付方式，很多人在实际扣费后才发现，账单上出现的金额并不是"20 美元 × 当天汇率"这么简单——中间可能被加了一层动态货币转换费、一层境外交易手续费，或者稳定币兑换时的滑点损耗。这些加价往往是几个百分点，单次看起来不起眼，但按月订阅、多个服务叠加起来，一年下来可能是一笔不小的隐性支出。这篇文章把"标价"和"到手成本"之间的这几层差异拆开讲清楚。</p>
@@ -127,6 +138,7 @@
           <p>一份海外 AI 订阅的真实成本，从来不只是标价乘以汇率这么简单：动态货币转换陷阱、境外交易手续费、虚拟卡的汇率加价、稳定币的网络费与滑点，每一层都可能悄悄多花掉几个百分点。付款前多花一分钟确认结算货币、对比几家服务商的费率、减少不必要的兑换次数，长期积累下来能省下不少钱。结合本站《实体卡、虚拟卡、稳定币：海外AI三条支付路径对比》与《用虚拟信用卡开通海外 AI 订阅》，把支付渠道选择和成本核算这两件事一起理顺，才是真正把海外 AI 订阅的钱花明白。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.visa.com/en-us/personal/travel/dynamic-currency-conversion" target="_blank" rel="noopener nofollow">Visa 官方说明：什么是动态货币转换（DCC）</a>：Visa 官方对 DCC 机制、商户披露义务与"应选择原始计价货币结算"的消费者建议，对应文中第 2 节的核心结论</li>
+            <li><a href="https://corporate.visa.com/en/solutions/acceptance/chargebacks.html" target="_blank" rel="noopener nofollow">Visa 官方争议/拒付流程说明</a>：如果因 DCC 或汇率争议需要联系发卡行处理，可参考 Visa 官方描述的争议处理流程</li>
+          </ul>
+          <p class="ref-note">文中提及的具体费率区间（境外交易手续费、汇率加价等）会因发卡行、虚拟卡平台与稳定币兑换渠道不同而变化，请以各机构官方公示的最新费率为准。本文仅供学习与参考，不构成任何金融建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

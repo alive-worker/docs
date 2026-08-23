@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-addon-bundle-upsell.svg" width="800" height="400" alt="AI订阅续费捆绑插件加购封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>打开订阅管理后台的"账单历史"或"发票"页面，把最近两三个周期的扣款明细逐行拉出来看，能不能对应到具体是主订阅还是某个插件</li>
+            <li><span class="article-verify-check">✓</span>订阅设置页里"附加功能／Add-ons"分类下，当前账号名下挂着哪些插件、各自的计费周期是否清楚</li>
+            <li><span class="article-verify-check">✓</span>最新一次续费通知邮件里的总金额，和账单明细逐项相加的结果是否一致，对不上就是插件计费周期没对齐主订阅的信号</li>
+            <li><span class="article-verify-check">✓</span>如果是团队/工作区订阅，插件加购权限是不是开放给了全部成员，而不只是管理员才能触发扣款</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. "续费"和"续费+顺带加购"，账单上只会显示一个总数</h2>
           <p>正常续费只是按原价格延续订阅，账单金额应该和上个周期一致；但不少产品的续费流程会在同一个页面里塞进"顺手升级"的选项——额外存储、优先响应、更高的算力额度包，这些项目常常以复选框或滑块的形式和"确认续费"按钮共享同一个页面，稍不留意就会一起被提交。问题在于，续费成功后的邮件通知和账单页往往只显示一个笼统的总金额，不会单独列出"这次比上次多收的部分是什么"，用户很难在事后凭一个数字反推出账单变长的具体原因。</p>
@@ -127,6 +138,7 @@
           <p>捆绑插件本身不是什么阴暗手段，很多加购项确实解决了真实需求，问题在于它们太容易在续费流程里被默认勾选或以弹窗形式悄悄合并进同一笔扣款，而账单和通知邮件又很少主动拆分明细。花几分钟去订阅管理后台看一眼当前挂着哪些插件、各自值不值得留，比每次续费后隐约觉得"好像比上次贵了点"却说不清原因要省心得多。这是这个系列的第七篇，后面还会继续拆解 AI 订阅支付与账号管理里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：续费前多看一眼明细，比事后翻账单省心</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2021/10/ftc-ramp-enforcement-against-illegal-dark-patterns-trick-or-trap-consumers-subscriptions" target="_blank" rel="noopener nofollow">美国联邦贸易委员会（FTC）：加强打击订阅"暗黑模式"执法公告</a>：核对文中第2节提到的默认勾选、弹窗诱导等加购手法为何被监管机构明确列为问题模式</li>
+            <li><a href="https://www.federalregister.gov/documents/2024/11/15/2024-25534/negative-option-rule" target="_blank" rel="noopener nofollow">美国联邦公报：FTC《负面选项规则》（Negative Option Rule）正式条文</a>：核对文中提到的"默认勾选需要用户主动取消"这类做法在监管层面的具体要求</li>
+          </ul>
+          <p class="ref-note">文中提及的监管规则执行细节可能随时间调整，请以官方最新发布信息为准。本文仅供学习与参考，不构成任何法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

@@ -89,6 +89,18 @@
         <img class="article-cover" src="/img/cover-fraud-flag.svg" width="800" height="400" alt="AI订阅账号被风控误判盗刷封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>信用卡账单地址是否与发卡行留档地址完全一致，而不是子女或代付人当前居住地</li>
+            <li><span class="article-verify-check">✓</span>AI平台账户的注册邮箱、收据接收人姓名是否与持卡人姓名能被识别为同一家庭/同一人</li>
+            <li><span class="article-verify-check">✓</span>这张卡在过去24小时内是否被绑定到了多个不同的AI订阅账号，是否集中在很短的时间窗口内操作</li>
+            <li><span class="article-verify-check">✓</span>本次续费是否发生在一台此前从未登录过、或所在城市/国家与平时明显不同的新设备上</li>
+            <li><span class="article-verify-check">✓</span>被拦截后是否已停止反复重试扣款，避免进一步推高风控评分再去申诉</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 风控引擎不认识"家人"，只认识几十个统计特征的组合</h2>
           <p>支付网关和发卡行背后的反欺诈系统，本质上是一套基于历史盗刷数据训练出来的评分模型，输入的是几十个可量化的特征：持卡人姓名与收件人/账单联系人姓名的文本相似度、账单地址与设备IP解析出的地理坐标之间的距离、卡片BIN号对应的发卡国与当前登录国是否一致、这张卡在过去24小时内被多少个不同账号或设备尝试使用过。系统不会去理解"这是我妈妈的卡，我在外地帮她续费"这种人类语境，它只会看到"持卡人姓名与账户注册姓名不符 + 地理距离超过500公里 + 24小时内首次在此设备使用"这样一组特征，任何一条单独出现都可能只是加几分风险权重，但三四条同时出现，系统会直接把评分推过自动拦截线。</p>
@@ -126,6 +138,7 @@
           <p>AI订阅续费被风控拦截，本质上不是平台在针对某个用户，而是一套基于历史欺诈数据训练出的评分系统，在"错误拒绝一笔正常交易"和"放过一笔真实盗刷"之间做出的成本权衡——对平台而言，前者的代价通常远低于后者。看懂姓名、地址、设备、速度这几类特征怎么组合触发拦截，才知道该提前对齐哪些信息、被拦下后该准备什么材料去申诉，而不是把"续费总失败"简单归咎为卡有问题。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：风控拦截不是针对你，而是一套统计模型的成本权衡</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.verifi.com/chargebacks-disputes-faq/what-is-address-verification-service-avs.html" target="_blank" rel="noopener nofollow">Verifi（Visa旗下）官方AVS说明</a>：解释地址验证系统只核对门牌号与邮编、覆盖范围仅限美加英三国，且不建议单独依赖AVS判定交易风险，对应本文提到的家庭场景地址错位问题</li>
+            <li><a href="https://support.authorize.net/knowledgebase/Knowledgearticle/?code=KA-04439" target="_blank" rel="noopener nofollow">Authorize.net 官方AVS规则配置说明</a>：说明商户可自定义哪些AVS返回码触发自动拒绝，解释了为什么同样的地址不匹配在不同平台会有不同的拦截结果</li>
+          </ul>
+          <p class="ref-note">具体的风控规则与AVS判定标准因发卡行、卡组织与各平台内部策略而异，请以实际收到的官方说明为准。本文仅供学习与参考，不构成任何金融建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

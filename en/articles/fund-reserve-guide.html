@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does your current stablecoin reserve cover at least the next 1-2 billing cycles (2-3 months for a monthly plan)</li>
+            <li><span class="article-verify-check">✓</span>Have you confirmed exactly which chain your payment channel or virtual card accepts, and would sending the wrong one (like ERC20 to a TRC20 address) leave funds temporarily unusable</li>
+            <li><span class="article-verify-check">✓</span>Are assets scattered across multiple chains and coins actually consolidated onto the target chain/coin, rather than technically "there" but nowhere spendable</li>
+            <li><span class="article-verify-check">✓</span>Have you checked in the last month or two whether the balance is still sufficient and whether network fees on that chain have shifted noticeably</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why planning ahead beats emergency fixes</h2>
           <p>Our <a href="/en/articles/renewal-failure-guide.html">AI Subscription Renewal Failed? Emergency Recovery Guide</a> covers diagnosing a failed renewal and topping up funds fast with crypto you already hold — that's a last-resort fix for when things have already gone wrong. The better state to be in is never needing that fix at all. Scrambling to convert funds or find a top-up channel at the last minute usually means a worse exchange rate, higher fees, and a higher chance of picking the wrong channel simply because you're short on time. Planning your reserve ahead of time trades a small amount of routine planning effort for real peace of mind — and a genuinely lower total cost — when renewal day actually arrives.</p>
@@ -127,6 +138,7 @@
           <p>Rather than reaching for <a href="/en/articles/renewal-failure-guide.html">AI Subscription Renewal Failed? Emergency Recovery Guide</a> after a renewal already fails, plan the reserve ahead of time: settle on a reasonable buffer, pick the right form and chain to hold it in, consolidate scattered assets in advance, and check in and store it safely on a regular basis. Combine this with <a href="/en/articles/exchange-rate-fees-guide.html">The Real Cost of Paying for an AI Subscription From Abroad</a> to plan both the payment channel and the fund reserve behind it — that's what actually keeps an overseas AI subscription worry-free for the long run.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://tether.to/en/supported-protocols/" target="_blank" rel="noopener nofollow">Tether: Supported Protocols and Integration Guidelines</a>: confirms USDT is issued in parallel across chains like Ethereum (ERC20), Tron (TRC20), and Solana, and that tokens on different chains aren't interchangeable without a bridge/swap — check what your payment channel actually accepts</li>
+            <li><a href="https://www.circle.com/multi-chain-usdc" target="_blank" rel="noopener nofollow">Circle: Multichain USDC</a>: confirms USDC is natively issued on 30+ blockchains with different technical implementations (smart contract vs. native token) per chain, so it's worth confirming your target chain is actually supported before reserving funds there</li>
+          </ul>
+          <p class="ref-note">Specific chain support and fee levels mentioned here can change over time — check Tether, Circle, and your payment channel's current official documentation. This article is for informational purposes only and isn't financial or investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

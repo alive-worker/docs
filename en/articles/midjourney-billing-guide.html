@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-image-gen-billing-en.svg" width="800" height="400" alt="Picking a Midjourney plan how GPU time billing works cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the remaining Fast time shown in your account settings match your plan's allowance (~3.3 hrs Basic / ~15 hrs Standard / ~30 hrs Pro / ~60 hrs Mega)</li>
+            <li><span class="article-verify-check">✓</span>Once Fast hours run out, does generation automatically drop into Relax-mode queuing rather than demanding an immediate top-up purchase</li>
+            <li><span class="article-verify-check">✓</span>If you need to keep unpublished work private, is your plan actually Pro or above — Stealth Mode isn't available on Standard</li>
+            <li><span class="article-verify-check">✓</span>Does any extra Fast GPU time you purchased show an expiration date on your billing page rather than carrying forward indefinitely</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. AI image generation bills by GPU time, not message count</h2>
           <p>ChatGPT and Claude charge a flat monthly fee; GitHub Copilot bills per seat. Midjourney's core billing unit is different — it's "Fast hours," the amount of GPU processing time an image takes to generate. Every plan comes with a set amount of Fast time, and once it runs out, you either drop into slower Relax-mode queuing or buy extra GPU time on top. Miss this distinction and it's easy to assume "the subscription is cheap, so I can generate freely" — only to hit a wall mid-month when the Fast allowance runs dry and every image starts queuing.</p>
@@ -133,6 +144,7 @@
           <p>Midjourney's billing logic centers on GPU time rather than a simple message count or seat count, and understanding the Fast/Relax split is the key to picking the right tier. Payment still comes down to the same virtual card or stablecoin setup as any other subscription. This is the third piece in the "Beyond Chatbots" series; part four, <a href="/en/articles/video-gen-billing-guide.html">What AI Video Generation Costs: Runway vs Luma AI</a>, is now live.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -146,6 +158,15 @@
           <li><a href="#sec-8">8. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://docs.midjourney.com/docs/plans" target="_blank" rel="noopener nofollow">Midjourney Official Documentation: Subscription Plans</a>: confirms the positioning of the Basic, Standard, Pro, and Mega tiers and where Relax/Stealth Mode access starts</li>
+            <li><a href="https://docs.midjourney.com/hc/en-us/articles/32016412137741-GPU-Speed-Fast-Relax-Turbo" target="_blank" rel="noopener nofollow">Midjourney Official Documentation: GPU Speed (Fast, Relax, Turbo)</a>: confirms that generation automatically shifts to Relax-mode queuing once Fast hours are used up, and that unused Fast time doesn't carry over to the next month</li>
+          </ul>
+          <p class="ref-note">Specific tier allowances, pricing, and GPU-time rules mentioned here can change over time — check Midjourney's current official documentation. This article is for informational purposes only and isn't subscription advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

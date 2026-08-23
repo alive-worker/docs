@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>下载的账单 PDF 上是否列出了订阅计划名称、计费周期、扣费金额与支付方式后四位这几项信息</li>
+            <li><span class="article-verify-check">✓</span>订阅是否通过 App Store/Google Play 内购完成——如果是，账单不会出现在 AI 服务自己的账单页，需要去对应商店的购买记录里找</li>
+            <li><span class="article-verify-check">✓</span>报销单上填写的本位币金额，是否附上了当时的换算汇率来源截图，而不是自己按官方汇率重新估算</li>
+            <li><span class="article-verify-check">✓</span>稳定币支付场景下，是否同时保留了官网扣费记录、代充平台订单确认页与链上交易哈希这三份材料</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么发票与报销值得单独讲清楚</h2>
           <p>本站此前的文章讲过怎么选支付方式、怎么算清楚汇率手续费，但对不少职场用户来说，订阅海外 AI 服务的最后一步往往是"能不能报销"。海外 AI 服务的账单凭证形式和国内发票体系差异很大，官方渠道、应用商店内购、虚拟卡、稳定币这几种支付路径各自对应不同的凭证获取方式，财务审核时也常常因为格式不熟悉而卡壳。这篇把发票获取和报销这件事单独讲清楚，作为订阅使用的最后一环。</p>
@@ -127,6 +138,7 @@
           <p>海外 AI 订阅的发票和报销，核心是"凭证要对应支付路径"：官网渠道下载官方账单 PDF，应用商店内购去商店订单历史找收据，虚拟卡/稳定币支付则需要额外准备平台记录和链上交易记录补充说明。团队场景优先用官方团队账单减少重复报销的风险，遇到汇率口径不一致时以实际支付金额为准。结合本站《实体卡、虚拟卡、稳定币：海外AI三条支付路径对比》与《海外AI到底多贵：汇率加点与手续费全拆解》，把支付方式选择和报销凭证准备一起规划好，能省去后续来回补材料的麻烦。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.openai.com/en/articles/12356340-how-can-i-find-my-past-chatgpt-invoices" target="_blank" rel="noopener nofollow">OpenAI 官方帮助中心：How can I find my past ChatGPT invoices?</a>：印证官网渠道订阅在账单历史/发票页可下载 PDF 发票，而通过 App Store/Google Play 内购的订阅收据不会出现在这里</li>
+            <li><a href="https://support.apple.com/en-us/118212" target="_blank" rel="noopener nofollow">Apple 官方支持：查看 App Store 购买记录</a>：印证通过 Apple 内购的订阅需要单独去"购买记录"里查找收据，而不是在应用自身的账单页</li>
+          </ul>
+          <p class="ref-note">文中提及的具体账单获取路径与页面位置可能随各平台改版调整，请以 OpenAI、Apple、Google 官方最新说明为准。本文仅供学习与参考，不构成任何财务或税务建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

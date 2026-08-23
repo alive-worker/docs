@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-currency-mismatch.svg" width="800" height="400" alt="AI 订阅账单货币不匹配 DCC 陷阱封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>收据或账单上是否出现"约合"字样，标价货币和实际扣款货币是否一致</li>
+            <li><span class="article-verify-check">✓</span>同一份订阅账单的货币符号是否在不同月份之间发生过变化</li>
+            <li><span class="article-verify-check">✓</span>支付页面弹出货币选项时，是否默认勾选了"以本地货币结算"</li>
+            <li><span class="article-verify-check">✓</span>怀疑被多扣后，能否让发卡行调出这笔交易的原始币种和实际结算币种做对比</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 先搞清楚：这是什么现象</h2>
           <p>订阅页面上写的价格，和银行账单上实际出现的货币，理论上应该是同一种——AI 平台标价多少美元，你的卡就该按美元被扣款，剩下的换算工作交给发卡行，用它自己的汇率转成人民币或其他本币结算。但有些收单方（尤其是部分欧洲、部分亚太地区的支付通道）会在结算这一步"贴心"地帮你先转换一次：把美元账单直接换算成你卡片归属地区的货币（比如欧元、英镑），再把这个转换后的金额发给发卡行做最终扣款。这个动作有个专门的名字，叫动态货币转换（Dynamic Currency Conversion，简称 DCC），表面上看是"方便你直接看懂账单货币"，实际上收单方会在这次转换里加一道自己的汇率加点，通常比发卡行的官方汇率贵 3%–8%。</p>
@@ -127,6 +138,7 @@
           <p>动态货币转换之所以能悄悄多扣钱，本质是因为你的卡片信息暴露了"可以被转换"的空间——收单方知道你的卡归属哪个地区，就有机会在中间加一道自己的汇率。用一张锁定美元计价的独立虚拟卡搭配美元稳定币充值，相当于从源头堵住这个空间，账单从平台标价到最终扣款只走一种货币，没有中间商赚差价的机会。这是这个系列的第四篇，后面会继续拆解 AI 订阅支付里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：让账单货币从一开始就没有选择空间</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.visa.com/en-us/personal/travel/dynamic-currency-conversion" target="_blank" rel="noopener nofollow">Visa 官方动态货币转换（DCC）说明</a>：明确商户和ATM必须让持卡人自主选择是否使用DCC、不得替持卡人做决定，对应本文提到的"默认选项"问题</li>
+            <li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/" target="_blank" rel="noopener nofollow">美国消费者金融保护局（CFPB）信用卡账单异议指南</a>：说明发现异常扣款后如何在时限内向发卡行提出异议，可用于本文提到的"已被多扣是否还能要回来"</li>
+          </ul>
+          <p class="ref-note">具体的DCC规则与手续费标准因收单方、卡组织与发卡行而异，请以官方最新政策为准。本文仅供学习与参考，不构成任何金融建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

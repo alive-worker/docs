@@ -95,6 +95,17 @@
         <img class="article-cover" src="/img/cover-mev-sandwich.svg" width="800" height="400" alt="稳定币充值滑点怎么回事MEV与三明治攻击解析封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>自己近期一笔兑换的滑点容差设置是否明显高于1%（尤其是流动性较薄的代币池），是否有必要收紧</li>
+            <li><span class="article-verify-check">✓</span>正在使用的钱包或 DEX 前端是否内置私有交易通道/MEV 保护选项（有时标注为"MEV Protection"或"Private Mode"）</li>
+            <li><span class="article-verify-check">✓</span>要交易的代币池锁仓量（TVL）和24小时交易量是否明显偏低，兑换金额是否远超这个池子的日常交易规模</li>
+            <li><span class="article-verify-check">✓</span>大额兑换是否可以拆分成几笔分批完成，而不是一次性提交一笔远超日常交易量的大单</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. MEV 是什么：区块打包顺序里藏着的钱</h2>
           <p>给虚拟卡充 USDT 的时候，你有没有遇到过这种情况：明明转了 100 USDT，到账却少了几块钱？这就是滑点。滑点的产生不只是因为市场波动，还有一种叫"三明治攻击"的 MEV 机器人在背后悄悄"吃"你的交易差价。本文拆解 MEV 和三明治攻击的原理，以及充值虚拟卡时怎么减少滑点损失。</p>
@@ -133,6 +144,7 @@
           <p>三明治攻击能够存在，根源是交易在打包前会短暂公开曝光在 mempool 里，给了搜索者、构建者、验证者这条 MEV 供应链上的每一环提前下注的机会。抢跑推高价格、用户按坏价格成交、反向卖出锁定利润，三步走的套路简单但极其有效，每年从普通交易者身上吃掉的滑点损失以数亿美元计。普通用户能做的不是奢望彻底杜绝，而是通过私有交易通道、更紧的滑点容差、分批操作和对代币池深度的基本判断，把自己变成一个"性价比不高"的攻击目标。这是本站稳定币支付专题里第三篇偏研究向的内容，后续会继续跟进 MEV 与链上交易安全领域的新进展。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -147,6 +159,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://docs.flashbots.net/flashbots-protect/overview" target="_blank" rel="noopener nofollow">Flashbots 官方文档：Flashbots Protect Overview</a>：印证私有交易通道通过把交易发往私有 mempool 来隐藏交易内容，从而避免被抢跑和三明治攻击机器人盯上</li>
+            <li><a href="https://blog.uniswap.org/minimize-slippage-on-swaps" target="_blank" rel="noopener nofollow">Uniswap 官方博客：How to Minimize Slippage on Your Swaps</a>：印证滑点容差设置过宽会增加被攻击的风险，深度池与浅池应该采用不同的容差策略</li>
+          </ul>
+          <p class="ref-note">文中提及的具体防御工具、默认参数可能随协议版本更新变化，请以 Flashbots、Uniswap 等官方最新文档为准。本文仅为技术与安全层面的研究整理，不构成任何投资建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

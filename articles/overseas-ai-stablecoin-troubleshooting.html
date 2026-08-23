@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-stablecoin-troubleshooting.svg" width="800" height="400" alt="稳定币扣款失败怎么办：海外AI支付故障排查手册封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否已经拿到交易哈希（TxID），并在对应链的区块浏览器上查过真实确认状态，而不是只看钱包页面的转圈提示</li>
+            <li><span class="article-verify-check">✓</span>如果显示待确认，区块浏览器上的实时手续费建议是否高于自己当初设置的手续费——判断是否真的因为费用过低卡在队列里</li>
+            <li><span class="article-verify-check">✓</span>如果链上已确认但商户显示未到账，是否已经超过商户页面给出的最长同步等待时间，超过了才联系客服</li>
+            <li><span class="article-verify-check">✓</span>联系客服前，交易哈希、发送时间、收款地址、金额与链名称这几项信息是否已经准备齐全</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 先分清三种"付款好像有问题"的状态</h2>
           <p>用稳定币给海外 AI 订阅付款后，页面卡住不动时，先别急着重复付款或者到处求助，第一件事是分清楚自己到底属于哪种状态：一是交易已经广播但还没被区块确认（待确认）；二是链上已经确认，但对方系统还没识别到这笔入账（到账延迟）；三是交易本身失败、被退回或者根本没有成功广播（真失败）。这三种状态的成因和处理方式完全不同，混在一起处理只会越弄越乱。</p>
@@ -126,6 +137,7 @@
           <p>稳定币支付"看起来卡住了"，绝大多数情况下都能通过先核实交易哈希、判断属于待确认、到账延迟还是真失败这三种状态之一，再对症处理——耐心等待、准备材料找客服，或者切换备用支付方式续费。把这篇文章和本站《用稳定币支付海外 AI 订阅》《跨链兑换工具怎么挑：海外AI稳定币兑换避坑》《USDT转错链别慌：海外AI付款资产找回实操》放在一起看，基本能覆盖稳定币支付从选链、兑换到排查故障的完整流程。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.metamask.io/manage-crypto/transactions/how-to-speed-up-or-cancel-a-pending-transaction/" target="_blank" rel="noopener nofollow">MetaMask 官方帮助中心：加速或取消待确认交易</a>：手续费设置过低导致交易长时间待确认的官方原理说明，对应本文第2节</li>
+            <li><a href="https://docs.etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan 官方文档</a>：区块浏览器查询交易确认状态、地址到账记录的官方参考</li>
+          </ul>
+          <p class="ref-note">文中提及的钱包操作界面与区块浏览器功能可能随版本更新变化，请以各官方渠道最新信息为准。本文仅供学习与参考，不构成任何金融或投资建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

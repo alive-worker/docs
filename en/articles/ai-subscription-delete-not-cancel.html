@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-delete-not-cancel-en.svg" width="800" height="400" alt="AI subscription still billing after account deletion cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Before deleting, did you go to the subscription/billing page specifically and click cancel until it explicitly showed "cancelled" or "won't renew"</li>
+            <li><span class="article-verify-check">✓</span>Did you get a cancellation confirmation email, or a screenshot of the confirmation page</li>
+            <li><span class="article-verify-check">✓</span>If you signed up via third-party login (e.g. Google), does deleting it revoke only the login, not a separate underlying subscription record</li>
+            <li><span class="article-verify-check">✓</span>If billed after deletion, do you have both the account-deletion screenshot/email and the card charge record to line up the timeline</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Deletion and cancellation are simply not the same action</h2>
           <p>"Delete account" wipes your identity data — email, password, chat history, generated content, login credentials — and clears or marks them for removal so you can no longer sign in as that user. "Cancel subscription" issues a completely separate billing instruction: tell the billing engine not to charge this card next cycle. In most products' original architecture, these two things belong to two different back-end systems that were never designed to talk to each other. The account system answers "who is this person and can they log in"; the billing system answers "does this card, this subscription, keep getting charged." Deleting the account doesn't automatically trigger the other unless engineering specifically wired that link — and a lot of platforms, especially smaller AI tools, never did.</p>
@@ -127,6 +138,7 @@
           <p>Account deletion touches the identity system; cancellation touches the billing system — whether the two are linked at all is entirely down to how a given platform's engineers built it, not a reasonable user assumption. Instead of assuming "the account's gone, so surely nothing gets charged," split it into two explicit steps: cancel and confirm it in the subscription management page first, then delete the account. Back that up on the payment side with a per-subscription card that you zero out or freeze right before deletion — that way, even if the platform's internal linkage genuinely doesn't exist, the charge itself simply can't happen. Deleting an account has never been a reliable way to stop billing. Cancelling the subscription is.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Bottom line: deleting the account is not a substitute for cancelling</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://gdpr-info.eu/art-17-gdpr/" target="_blank" rel="noopener nofollow">GDPR Article 17: Right to Erasure</a>: the legal basis and scope of data deletion requests, relevant to what "delete account" actually wipes on the identity side</li>
+            <li><a href="https://support.google.com/accounts/answer/32046" target="_blank" rel="noopener nofollow">Google's official "Delete your Google Account" help article</a>: confirms full account deletion also forfeits access to subscriptions and content purchased under it, but is a distinct action from actively cancelling a subscription</li>
+          </ul>
+          <p class="ref-note">How deletion and cancellation are linked varies significantly by platform — check the specific platform's official policy for details. This article is for informational purposes only and isn't legal advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

@@ -90,6 +90,18 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>What exact reason does the billing/account settings page give — "card declined," "identity re-verification required," or "price/plan change"</li>
+            <li><span class="article-verify-check">✓</span>How many days does the official notice or account page state the grace period runs, and has that deadline already passed</li>
+            <li><span class="article-verify-check">✓</span>Does your current login region match the region on file for your account, and have you switched networks recently</li>
+            <li><span class="article-verify-check">✓</span>Before using a cross-chain swap tool to top up funds, have you double-checked the receiving address, destination chain, and amount</li>
+            <li><span class="article-verify-check">✓</span>Is your backup payment method (card or virtual card) active and sufficiently funded, so a retry doesn't fail again</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why renewals suddenly fail</h2>
           <p>Most people put all their effort into figuring out "how do I sign up the first time" and rarely think about what happens a few months in, when a renewal that's been working fine suddenly fails. That's exactly the scenario this guide focuses on: you've been using a payment method without issue, and then one billing cycle it simply doesn't go through — you get a failed-payment notice from the platform, premium features get restricted, or the account drops straight to the free tier. The reasons behind this vary widely: an expired card, insufficient balance, a temporary risk-control hold from your card issuer, a mismatch between your account details and your payment information, or a price or plan change on the platform's side that altered the billing amount. This article isn't about which payment method to choose in the first place (for that, see our <a href="/en/articles/payment-methods-guide.html">AI Subscription Payment Methods Compared</a>) — it's about the more urgent question: your renewal has already failed, so what do you do right now?</p>
@@ -133,6 +145,7 @@
           <p>A failed renewal isn't something to panic over — what's actually risky is not knowing where to start while the grace period quietly ticks away. Work through the sequence of diagnose the cause, choose a recovery path, and do a post-mortem afterward, and most situations resolve quickly. More importantly, treat this emergency as a prompt to build in a payment buffer and a backup method ahead of time, so your next renewal doesn't catch you off guard.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -146,6 +159,15 @@
           <li><a href="#sec-8">8. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.claude.com/en/articles/9402418-why-was-my-card-declined" target="_blank" rel="noopener nofollow">Anthropic Help Center: Why was my card declined?</a>: the official breakdown of decline reasons that map to the failure messages shown on a Claude billing page</li>
+            <li><a href="https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs" target="_blank" rel="noopener nofollow">Anthropic paid plan billing FAQs</a>: official notes on grace periods, retries, and downgrade behavior after a failed subscription charge</li>
+          </ul>
+          <p class="ref-note">Grace period lengths, billing rules, and exchange tool features referenced here may change over time — always check each platform's current official information. This article is for informational purposes only and does not constitute financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

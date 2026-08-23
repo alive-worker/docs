@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-tool-cost-tutorial.svg" width="800" height="400" alt="AI tool cost estimation and virtual card open, top up, bind tutorial cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>List every flat-fee subscription in a table and add it up, checking the total against the article's worked example (ChatGPT Plus + Claude Pro + Midjourney)</li>
+            <li><span class="article-verify-check">✓</span>Check the current per-million-token price on the API's official pricing page and compare it against your usage-based estimate, rather than estimating from memory</li>
+            <li><span class="article-verify-check">✓</span>After opening and funding the card, confirm the funded amount actually covers the target total — flat fees plus the API estimate's upper bound plus a 15–20% buffer</li>
+            <li><span class="article-verify-check">✓</span>If a charge is declined while binding a subscription, troubleshoot in order — balance, billing address, 3DS verification, merchant category — instead of just retrying blindly</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. The two problems this tutorial solves</h2>
           <p>Most people get stuck in the same spot: they've subscribed to a pile of AI tools but can't total the monthly cost, and they don't have a card that pays those overseas subscriptions cleanly. The two issues are linked — you can't know how much to load onto a card until you've estimated the spend, and no amount of careful estimating helps if the payment won't go through. So this tutorial goes in order: estimate first, then open the card, step by step, without leaving anything half-done.</p>
@@ -131,6 +142,7 @@
           <p>This whole AI tool cost virtual card tutorial really comes down to two moves: estimate the flat monthly fees and the usage-based APIs separately, add headroom to get a target amount; then open a virtual card from scratch, fund it, and bind every subscription to it. From there, each month's AI spend lands in the same card statement, easy to read at a glance, with a lower chance of a failed renewal. If you later want to weigh which tools are actually worth subscribing to, our AI tool comparison piece pairs well with this one, covering the "pick the tool" side to go with this "make the payment work" side.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -146,6 +158,15 @@
           <li><a href="#sec-10">10. Summary: estimate the cost, then consolidate on one card</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI official API pricing page</a>: live per-million-token rates for each model, matching the usage-based cost estimation method in section 4</li>
+            <li><a href="https://corporate.visa.com/en/solutions/visa-protect/insights/3d-secure.html" target="_blank" rel="noopener nofollow">Visa official overview: 3D Secure cardholder authentication</a>: explains the frictionless vs. challenge verification flows referenced in the decline-troubleshooting checklist in section 9</li>
+          </ul>
+          <p class="ref-note">Specific unit prices, exchange rates, and verification flows mentioned here can change with official policy — check official sources for current details. This article is for informational purposes only and isn't financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

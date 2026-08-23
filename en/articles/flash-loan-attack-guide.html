@@ -95,6 +95,18 @@
         <img class="article-cover" src="/img/cover-flash-loan-attack-en.svg" width="800" height="400" alt="Flash loan attacks draining a protocol in one transaction cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the flash loan actually bundle borrowing, execution, and repayment into one transaction, with any failed step causing a full EVM rollback</li>
+            <li><span class="article-verify-check">✓</span>Does the protocol you're evaluating use a shallow-liquidity DEX's real-time spot price directly as an oracle, instead of TWAP or an aggregated decentralized oracle</li>
+            <li><span class="article-verify-check">✓</span>Has the protocol's contract undergone at least one publicly verifiable third-party security audit from a reputable firm</li>
+            <li><span class="article-verify-check">✓</span>Do the protocol's on-chain governance proposals require a mandatory timelock before execution, rather than executing immediately once vote thresholds are met</li>
+            <li><span class="article-verify-check">✓</span>Can you find the protocol's bug bounty program and payout cap listed on a platform like immunefi.com</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. What Are Flash Loans: No Collateral, No Risk — If You Repay in One Transaction</h2>
           <p>Flash loans are a borrowing mechanism unique to DeFi lending protocols. AAVE launched flash loans in January 2020 and became the model most associated with this pattern, and dYdX offered a similar capability around the same time. Unlike traditional lending, flash loans require no collateral at all — a borrower can access millions in a protocol's liquidity pool with zero asset backing. That would be unthinkable in traditional finance, but it's entirely possible on a chain like Ethereum that supports atomic transactions, because borrowing, operating on the funds, and repaying are all packaged into a single indivisible transaction.</p>
@@ -157,6 +169,7 @@
           <p>The industry's responses continue to evolve: decentralized oracles, TWAP mechanisms, reentrancy guards, governance timelocks, flash loan size limits, and circuit breakers are all concrete defenses drawn from real losses over the past several years, and have progressively become standard pre-launch checklist items for new protocols. But as the Euler incident demonstrated, even audited protocols can still contain uncovered combination vulnerabilities — which is why continuous third-party audits, bug bounties, and on-chain monitoring remain indispensable. This is another research-oriented piece in the Stablecoin Payments series; we'll continue following new developments in on-chain security.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -171,6 +184,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://aave.com/docs/aave-v3/guides/flash-loans" target="_blank" rel="noopener nofollow">Aave Protocol Documentation: Flash Loans</a>: confirms the atomic mechanism described in this article — borrow and repay must both succeed within the same transaction, or the entire transaction reverts — plus how the fee is set</li>
+            <li><a href="https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/" target="_blank" rel="noopener nofollow">Chainalysis: Euler Finance Flash Loan Attack Explained</a>: confirms the mechanics, fund tracing, and eventual return of funds in the roughly $197M Euler Finance incident covered in this article</li>
+          </ul>
+          <p class="ref-note">Specific attack figures, protocol mechanics, and security practices mentioned here can change over time — check the protocol's official docs and disclosures from reputable security firms for the latest details. This article is technical and security-level research only, and does not constitute investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

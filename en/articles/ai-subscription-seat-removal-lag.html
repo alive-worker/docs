@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-seat-removal-lag-en.svg" width="800" height="400" alt="Team subscription seat removal billing lag cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Log into the team subscription dashboard and find the "seats for next billing" field, then compare it against the actual headcount in the member list</li>
+            <li><span class="article-verify-check">✓</span>Check when the most recent seat deletion happened — a few days before the cycle ended, or right after the new cycle's snapshot was already generated</li>
+            <li><span class="article-verify-check">✓</span>Look through the platform's billing change history or email notifications for specific language like "seat adjustment takes effect on [date]"</li>
+            <li><span class="article-verify-check">✓</span>If there was a recent handoff between an outgoing and incoming member, confirm whether the removed seat can be reassigned immediately or is locked until the cycle ends</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. The mechanism: bills follow a snapshot taken at the start of the cycle, not real-time actions</h2>
           <p>Most per-seat billing systems do not tally the currently active seat count in real time and settle continuously. Instead, at the instant each billing cycle begins, the system takes a "seat snapshot," and that number determines exactly how much gets charged for the entire cycle. Whatever happens to the seat count mid-cycle only affects the next snapshot — it never retroactively rewrites a cycle that has already locked in and charged. This design keeps the billing system simple and predictable: once a cycle starts, the amount is fixed, which makes reconciliation and revenue forecasting far easier on the platform's side. The tradeoff is that any seat change made mid-cycle will be out of sync with the bill for a while.</p>
@@ -126,6 +137,7 @@
           <p>Per-seat billing effectively splits "access control" and "billing settlement" into two systems that run independently of each other. The delete action an admin performs in the dashboard takes effect on the first system instantly, but on the second, it merely submits a change request that won't be processed until the next cycle begins. Once that's understood, the practical move is to tie seat cleanup to the billing cycle's cutoff date and periodically check the actual billed seat count on the invoice, rather than assuming "removed" means "credited immediately." This series will keep digging into other AI subscription billing and payment details that are easy to take for granted.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Takeaway: deletion is an action, crediting is a billing event</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://knowledge.workspace.google.com/admin/billing/reduce-user-licenses" target="_blank" rel="noopener nofollow">Google Workspace Help: Reduce user licenses</a>: explains how, on annual/fixed-term contracts, seat reductions only take effect at contract renewal rather than immediately, versus flexible plans where deletion drops the bill right away — the same lock mechanism this article describes</li>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/billing-cycle" target="_blank" rel="noopener nofollow">Stripe docs: Billing cycle</a>: explains how a subscription's billing cycle anchor determines exactly when billing changes take effect, matching the "snapshot at cycle start" mechanism described in section 1</li>
+          </ul>
+          <p class="ref-note">Specific lock rules and refund policies vary by platform and can change with each provider's terms — check official sources for current details. This article is for informational purposes only and isn't financial or payment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

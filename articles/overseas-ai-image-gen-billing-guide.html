@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-image-gen-billing.svg" width="800" height="400" alt="Midjourney订阅档位怎么选算力时长怎么算封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>账户设置页里当月剩余的 Fast 时长是否与订阅档位对应的额度一致（Basic 约3.3小时/Standard约15小时/Pro约30小时/Mega约60小时）</li>
+            <li><span class="article-verify-check">✓</span>Fast 时长用完后出图是否自动切到 Relax 排队模式，而不是被要求立刻加钱购买算力包</li>
+            <li><span class="article-verify-check">✓</span>如果需要隐藏未公开作品，当前订阅档位是否为 Pro 或以上——隐身模式在 Standard 档不可用</li>
+            <li><span class="article-verify-check">✓</span>额外购买的 Fast GPU 小时是否标注了有效期，账单页是否显示这部分购买记录会在一定天数后过期</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. AI 绘图订阅的计费单位是"算力时长"，不是聊天次数</h2>
           <p>ChatGPT、Claude 按月固定收费，GitHub Copilot 按席位收费，而 Midjourney 这类 AI 绘图工具的核心计费单位是"算力时长"——也就是 GPU 处理一张图所占用的时间。每个订阅档位包含一定量的 Fast 时长，用完之后要么自动转为速度更慢的 Relax 模式，要么按量购买额外算力包。搞不清这套逻辑，很容易觉得"订阅费不高，随便出图"，结果月中就撞上算力用尽、出图排队的情况。</p>
@@ -133,6 +144,7 @@
           <p>Midjourney 的订阅逻辑核心是"算力时长"而不是简单的次数或席位，理解 Fast 和 Relax 的区别是选对档位的关键。支付这一环依然可以复用虚拟卡或稳定币这套通用方案。这是"AI 服务不止聊天"系列的第三篇，系列第四篇《<a href="/articles/overseas-ai-video-gen-billing-guide.html">Runway vs Luma AI 对比：AI 视频生成工具哪个好？费用全解析</a>》已经上线，拆解 Runway、Luma AI 这类 AI 视频生成工具的订阅和计费方式。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -146,6 +158,15 @@
           <li><a href="#sec-8">8. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://docs.midjourney.com/docs/plans" target="_blank" rel="noopener nofollow">Midjourney 官方文档：Subscription Plans</a>：印证 Basic、Standard、Pro、Mega 四档的定位与 Relax/隐身模式的开放范围</li>
+            <li><a href="https://docs.midjourney.com/hc/en-us/articles/32016412137741-GPU-Speed-Fast-Relax-Turbo" target="_blank" rel="noopener nofollow">Midjourney 官方文档：GPU Speed (Fast, Relax, Turbo)</a>：印证 Fast 时长用完后自动转 Relax 排队、且当月未用完的 Fast 时长不会结转到下个月的机制</li>
+          </ul>
+          <p class="ref-note">文中提及的具体档位额度、价格与算力规则可能随时间变化，请以 Midjourney 官方最新说明为准。本文仅供学习与参考，不构成任何订阅建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-promo-price-revert.svg" width="800" height="400" alt="AI订阅优惠码到期悄悄恢复原价封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>翻出当初领取优惠码时的邮件或截图，核对折扣是绑定"固定期数"还是"永久生效"，别凭记忆猜</li>
+            <li><span class="article-verify-check">✓</span>对比最近一封续费邮件的金额和上一封是否一致，尤其是刚好跨过优惠期数的那个月</li>
+            <li><span class="article-verify-check">✓</span>如果是年付订阅，确认当初优惠是"首年优惠"还是"长期优惠"，首年优惠的次年账单要重点核对</li>
+            <li><span class="article-verify-check">✓</span>联系客服申诉差价前，先把优惠码名称、原价与折扣价数字整理成一句话，而不是只说"账单变贵了"</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 优惠码不是改价，是绑定在订阅对象上的一个"生效期数"参数</h2>
           <p>主流订阅计费系统（比如 Stripe 这类被大量 AI 平台底层使用的支付基础设施）处理优惠码的方式，是给订阅对象挂载一个独立的折扣对象，这个折扣对象本身带一个"持续时长"参数：只生效一次、固定生效N个计费周期、或者永久生效。绝大多数拉新用的优惠码用的是"固定生效N个周期"这种模式，比如前3个月8折、首年5折，这个参数一旦设置好，会由计费系统自动倒数，不需要人工每期手动判断折扣还在不在。也正因为它是一个"倒数到零就自动失效"的参数，而不是一次需要人工审批的改价操作，系统在架构层面根本不会把它归到"价格变更"这个事件类别里——它就是一次普通的、按当前有效价格执行的续费。</p>
@@ -126,6 +137,7 @@
           <p>AI订阅优惠码到期后悄悄恢复原价，本质上不是平台在刻意隐瞒，而是这类"限时折扣自动失效"的场景，在大多数计费系统的架构设计里从一开始就没有被划入需要单独提醒的事件类型——对系统而言，这只是一次普通的、按当前价格执行的续费。理解这一点，才知道不能指望平台主动提醒，而要靠自己记住优惠期限、核对每一封续费邮件的金额，或者用限额虚拟卡把决定权重新拿回到自己手里。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. 小结：优惠到期不是系统的错，而是它本就不打算单独告诉你</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://docs.stripe.com/billing/subscriptions/coupons" target="_blank" rel="noopener nofollow">Stripe 官方文档：Coupons and promotion codes</a>：说明优惠码在计费系统里的"生效期数"参数（once/repeating/forever）具体如何配置，对应文中第1节的技术原理</li>
+            <li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/" target="_blank" rel="noopener nofollow">CFPB：如何对信用卡账单上的扣款提出异议</a>：发现按原价被误扣款后，联系发卡行或平台申诉的官方流程说明</li>
+          </ul>
+          <p class="ref-note">文中提及的计费系统实现细节与平台补偿政策可能随各平台自身调整而变化，请以官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

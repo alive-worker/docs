@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Have you gotten the transaction hash (TxID) and checked its real status on the relevant chain's block explorer, rather than just trusting a spinner in your wallet app</li>
+            <li><span class="article-verify-check">✓</span>If it's showing pending, is the block explorer's current recommended fee higher than what you originally set — confirming whether a low fee is really why it's stuck in the queue</li>
+            <li><span class="article-verify-check">✓</span>If confirmed on-chain but the merchant shows nothing received, have you actually waited past the maximum sync window the merchant's page states before contacting support</li>
+            <li><span class="article-verify-check">✓</span>Before contacting support, do you have the transaction hash, send time, receiving address, amount, and chain name all ready to hand over</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Three different "something's wrong" states</h2>
           <p>When a stablecoin payment for an AI subscription seems to hang, resist the urge to resend the payment or start asking around immediately — first figure out which situation you're actually in. There's the transaction broadcast but not yet confirmed in a block (pending); the transaction confirmed on-chain, but the other side's system hasn't recognized the deposit yet (delayed recognition); and the transaction genuinely failing, bouncing back, or never broadcasting at all (a real failure). The causes and fixes for these three are completely different, and treating them as the same problem only makes things messier.</p>
@@ -127,6 +138,7 @@
           <p>A stablecoin payment that "seems stuck" can almost always be resolved by first checking the transaction hash, determining whether you're pending, delayed, or genuinely failed, and then responding accordingly — wait it out, gather evidence for support, or switch to a backup payment method to keep your subscription active. Read this alongside <a href="/en/articles/stablecoin-payment-guide.html">Paying for AI Subscriptions with Stablecoins</a>, <a href="/en/articles/stablecoin-swap-tools-guide.html">The Stablecoin Cross-Chain Swap Tool Guide</a>, and <a href="/en/articles/cross-chain-recovery-guide.html">Sent Stablecoins to the Wrong Chain?</a>, and you'll have the full loop covered — from picking a chain and swapping, to troubleshooting when something goes wrong.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.metamask.io/manage-crypto/transactions/how-to-speed-up-or-cancel-a-pending-transaction/" target="_blank" rel="noopener nofollow">MetaMask Help Center: How to speed up or cancel a pending transaction</a>: the official explanation of why a low fee leaves a transaction pending for a long time, relevant to Section 2</li>
+            <li><a href="https://docs.etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan official documentation</a>: official reference for looking up transaction confirmation status and address deposit history on a block explorer</li>
+          </ul>
+          <p class="ref-note">Wallet interfaces and block explorer features referenced here may change with product updates — always check each official channel's current information. This article is for informational purposes only and is not financial or investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

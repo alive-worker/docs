@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-stablecoin-consolidation.svg" width="800" height="400" alt="USDT/USDC散落多条链海外AI资产归集实操封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>盘点表里是否列全了每条链、每个地址上的余额与币种，而不是凭记忆估算</li>
+            <li><span class="article-verify-check">✓</span>确定的"主链"是否跟支付渠道实际接受的链一致（如是否为 TRC20-USDT），而非余额最多的那条链</li>
+            <li><span class="article-verify-check">✓</span>归集转账前，目的地址与内存标签（Memo/Tag）是否逐字核对无误</li>
+            <li><span class="article-verify-check">✓</span>归集完成后，交易哈希是否已在对应链的区块浏览器上核实到账，而不是只看钱包余额显示</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 为什么零散稳定币会越攒越多</h2>
           <p>稳定币零头的来源比想象中多：一次转账凑整数导致的找零、上次跨链转错后按本站《USDT转错链别慌：海外AI付款资产找回实操》找回但没来得及处理的资产、测试转账时故意转的小额、不同订阅渠道要求的链不一样导致资金分散在多条链上，甚至是分批换币时留下的尾数。单笔看都不值一提，但攒的时间一长，很容易出现"手里明明有钱，却凑不出一整份续费"的情况。</p>
@@ -127,6 +138,7 @@
           <p>零散的稳定币本身不是问题，没有归集习惯才是。先盘点、再确定主链、用跨链兑换工具批量处理，同时注意地址核对和手续费划算与否，把这套流程和本站《稳定币留多少才够用：海外AI资金储备规划》《跨链兑换工具怎么挑：海外AI稳定币兑换避坑》放在一起用，基本能把稳定币从零散到可用的整个管理链路打通。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.circle.com/multi-chain-usdc" target="_blank" rel="noopener nofollow">Circle 官方 USDC 多链说明页面</a>：USDC 在不同链上分别部署独立合约地址、彼此不互通的官方技术说明</li>
+            <li><a href="https://tether.to/en/transparency/" target="_blank" rel="noopener nofollow">Tether 官方储备透明度页面</a>：USDT 储备资产与跨链发行情况的官方披露</li>
+          </ul>
+          <p class="ref-note">文中提及的链上机制与兑换工具功能可能随时间变化，请以各稳定币发行方及兑换平台官方最新信息为准。本文仅供学习与参考，不构成任何金融或投资建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

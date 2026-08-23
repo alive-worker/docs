@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-currency-mismatch-en.svg" width="800" height="400" alt="AI subscription currency mismatch DCC trap cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the receipt or bill show "approximate" language, and does the listed currency match what actually got charged</li>
+            <li><span class="article-verify-check">✓</span>Has the currency symbol on the same subscription's bill changed from one month to another</li>
+            <li><span class="article-verify-check">✓</span>When a currency option pops up at checkout, is "settle in local currency" pre-checked by default</li>
+            <li><span class="article-verify-check">✓</span>If you suspect overcharging, can your issuer pull up both the original transaction currency and the actual settlement currency for comparison</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. What's actually happening here</h2>
           <p>In theory, the currency on your bank statement should match the currency the AI platform priced its subscription in — the platform bills $20, your card gets charged $20, and your issuing bank handles the conversion to your home currency using its own rate. But some payment processors, especially in parts of Europe and Asia-Pacific, insert an extra step: they convert the USD amount into the currency tied to your card's country before sending the final figure to your issuer. That mechanism is called dynamic currency conversion (DCC). It's marketed as a convenience — "see your bill in a currency you recognize" — but the processor adds its own markup during that conversion, typically 3–8% worse than the interbank rate your issuer would have used.</p>
@@ -127,6 +138,7 @@
           <p>Dynamic currency conversion works because your card leaks a signal — the processor can tell which country it's tied to, and that's the opening it needs to insert its own rate. A dedicated USD virtual card funded with USD-pegged stablecoins closes that opening from the start: the currency chain from the platform's listed price to the final charge never changes, and there's no room for a hidden markup to ride along. This is the fourth piece in the series; more overlooked details in AI subscription payments are coming.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. The bottom line: remove the currency choice from the equation entirely</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.visa.com/en-us/personal/travel/dynamic-currency-conversion" target="_blank" rel="noopener nofollow">Visa's official guide to Dynamic Currency Conversion (DCC)</a>: confirms merchants and ATMs must let cardholders choose whether to use DCC and cannot decide on their behalf, matching the default-opt-in issue discussed here</li>
+            <li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/" target="_blank" rel="noopener nofollow">CFPB's guide to disputing a credit card charge</a>: explains how to raise a billing dispute with your issuer within the required window, relevant to whether an overcharge from DCC can still be recovered</li>
+          </ul>
+          <p class="ref-note">Exact DCC rules and fee structures vary by processor, card network, and issuing bank — check official current policy for details. This article is for informational purposes only and isn't financial advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

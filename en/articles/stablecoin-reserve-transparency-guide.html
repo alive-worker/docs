@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-stablecoin-reserve-transparency-en.svg" width="800" height="400" alt="What actually backs USDT and USDC dollar peg cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Is the reserve report you're reading a point-in-time attestation or a full annual audit — the cover page or summary usually states which</li>
+            <li><span class="article-verify-check">✓</span>Is the date on Circle's most recent monthly reserve report (via its official Reserve Fund page) recent enough — generally within the last month</li>
+            <li><span class="article-verify-check">✓</span>Does Tether's latest quarterly reserve report break out cash and cash equivalents into specific categories, rather than just stating reserves are "adequate"</li>
+            <li><span class="article-verify-check">✓</span>If you routinely hold a meaningful stablecoin balance, is it split between USDT and USDC rather than concentrated in a single issuer</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why the reserves behind the "1:1 peg" matter</h2>
           <p>For most people, a stablecoin's whole appeal is that you don't have to think about it — it settles at roughly one dollar, both sender and receiver book it as one dollar, and it doesn't swing the way Bitcoin does. But that convenience rests on an assumption: the issuer actually holds enough backing assets to redeem the coin for real dollars when someone asks. That assumption is nearly invisible in normal times, because most holders never redeem at all — they just pass the token along as "on-chain dollars." The moment sentiment turns and a run starts, whether the reserves are real, fully backed, and quickly liquid decides, in a matter of hours, whether the "stable" part of stablecoin holds up. Looking into this isn't about stoking panic — it's about understanding what the funding layer you rely on is actually built on.</p>
@@ -127,6 +138,7 @@
           <p>The dollar peg on USDT and USDC isn't a given — it rests on whether the underlying reserves are real, fully backed, and verifiable. USDT went through a period of real opacity and has since moved to quarterly disclosure; USDC took the more transparent route from the start, yet the 2023 SVB episode showed that reserve transparency alone doesn't eliminate banking counterparty risk. Understanding the real difference between an attestation and an audit, and knowing how to cross-check on-chain data against third-party trackers, lets anyone who relies on stablecoins long-term size up the risk they're actually carrying, instead of treating "pegged to $1" as a settled fact that never needs a second look. This is the more research-oriented entry in our stablecoin series; we'll keep following developments in reserve transparency and on-chain verification tooling.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.circle.com/transparency" target="_blank" rel="noopener nofollow">Circle official transparency page</a>: official disclosure of USDC's reserve composition breakdown, monthly third-party attestation reports, and the Circle Reserve Fund — the core source for Section 4</li>
+            <li><a href="https://tether.to/en/transparency/" target="_blank" rel="noopener nofollow">Tether official transparency page</a>: official source for USDT's reserve asset composition and quarterly disclosures, referenced in Section 3</li>
+          </ul>
+          <p class="ref-note">Reserve composition, disclosure frequency, and historical event details referenced here may change over time — always check Circle's and Tether's current official disclosures. This article is informational and technical research only, not investment advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related articles</h2>

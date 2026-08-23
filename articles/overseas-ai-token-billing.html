@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-token-billing.svg" width="800" height="400" alt="AI API按token怎么计费输入输出价差与用量估算封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>用官方 tokenizer 工具把真实文本贴进去实测一次，而不是按"1个汉字=1-2个token"的经验值直接估算</li>
+            <li><span class="article-verify-check">✓</span>去平台价目表核对当前模型的输入单价与输出单价，确认输出确实明显高于输入（而不是想当然套用"三到五倍"这个经验区间）</li>
+            <li><span class="article-verify-check">✓</span>检查账单明细里是否区分了"标准输入"与"缓存命中输入"两档价格，确认重复前缀是否被命中了更低的缓存计费</li>
+            <li><span class="article-verify-check">✓</span>批量任务上线前，用真实样本按本文方法算一次月度预算量级，再核对是否已设置用量上限或消费告警</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 订阅制和 API 计费，是两种完全不同的付费逻辑</h2>
           <p>大多数人接触 AI 是从网页版订阅开始的：每月付一笔固定费用（比如 ChatGPT Plus），用量在套餐范围内基本不用操心花多少钱。但当你开始用 API——也就是在自己的程序、脚本或第三方工具里直接调用大模型——计费逻辑就变了：不再是包月封顶，而是按实际处理的 token 数量逐次扣费，调用一次算一次的钱，没有月度上限。这带来两个直接后果：一是成本完全跟着用量走，用得少就便宜，用得多可能比订阅贵得多；二是没有"套餐用完自动停"的保护，一段写错的循环代码可能在几分钟内烧掉几十美元。搞清楚 token 怎么计费，是用好 API 的前提。</p>
@@ -123,6 +134,7 @@
           <p>API 按 token 计费是一套和订阅制完全不同的付费逻辑：用多少算多少、没有封顶，输入和输出分开计价且输出更贵，上下文越长每次调用越贵。想控制成本，先用真实样本估算月度预算，再通过选对模型、限制输出、精简上下文、开启缓存和设置用量告警这几条手段综合降本。支付这一环依然可以复用虚拟卡或稳定币这套通用方案。这是本站计费主题连载的最新一篇，后续会继续覆盖更多 AI 服务的计费细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -136,6 +148,15 @@
           <li><a href="#sec-8">8. 小结</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API 官方定价页</a>：文中输入/输出单价差异、缓存输入更低计费的官方数据来源</li>
+            <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener nofollow">Anthropic 官方文档：Prompt Caching</a>：本文提到的"开启上下文缓存对重复前缀降价"这一技巧的官方机制说明</li>
+          </ul>
+          <p class="ref-note">文中提及的具体单价、模型型号与缓存折扣比例会持续调整，请以各平台官方定价页当时公布的信息为准。本文仅供学习与参考，不构成任何金融或技术建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

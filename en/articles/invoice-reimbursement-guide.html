@@ -90,6 +90,17 @@
 
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the downloaded billing PDF list the plan name, billing period, charged amount, and last four digits of the payment method</li>
+            <li><span class="article-verify-check">✓</span>Was the subscription bought as an App Store/Google Play in-app purchase — if so, the receipt won't be on the AI service's own billing page, it's in the store's own purchase history</li>
+            <li><span class="article-verify-check">✓</span>Does the local-currency amount on your expense claim cite a source for the exchange rate used, instead of a rate you recalculated yourself</li>
+            <li><span class="article-verify-check">✓</span>For a stablecoin payment, have you kept all three records together — the AI service's own charge record, the top-up provider's order confirmation, and the on-chain transaction hash</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Why invoices and reimbursement deserve their own guide</h2>
           <p>Earlier articles on this site cover choosing a payment method and working out the true cost after fees, but for a lot of people using these subscriptions for work, the last step is simply: can this actually get expensed? The paperwork AI services produce doesn't look like a typical local invoice, and each payment path — official web checkout, an app-store in-app purchase, a virtual card, or stablecoins — produces a different kind of proof, which trips up finance teams unfamiliar with the format. This article treats invoices and reimbursement as their own topic, the last stage of actually using one of these subscriptions for work.</p>
@@ -127,6 +138,7 @@
           <p>The core principle for AI subscription invoices and reimbursement is matching your proof to your payment path: download the official billing PDF for a direct web subscription, pull the receipt from the store's order history for an app-store purchase, and for virtual cards or stablecoins, gather the platform record and on-chain transaction as supporting evidence. For teams, prefer an official consolidated bill to avoid duplicate claims, and when the exchange rate doesn't line up, go with the amount actually charged. Combine this with <a href="/en/articles/payment-methods-guide.html">AI Subscription Payment Methods Compared</a> and <a href="/en/articles/exchange-rate-fees-guide.html">The Real Cost of Paying for an AI Subscription From Abroad</a> to plan both the payment method and the paperwork that comes with it.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. Summary</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://help.openai.com/en/articles/12356340-how-can-i-find-my-past-chatgpt-invoices" target="_blank" rel="noopener nofollow">OpenAI Help Center: How can I find my past ChatGPT invoices?</a>: confirms a direct web subscription's invoice/receipt PDF is downloadable from the billing history page, while App Store/Google Play in-app purchase receipts don't appear there</li>
+            <li><a href="https://support.apple.com/en-us/118212" target="_blank" rel="noopener nofollow">Apple Support: View your purchase history for the App Store</a>: confirms receipts for an Apple in-app purchase have to be found in Apple's own purchase history rather than the app's own billing page</li>
+          </ul>
+          <p class="ref-note">Exact billing-access paths and page locations mentioned here can shift as OpenAI, Apple, and Google update their interfaces — check each platform's current official documentation. This article is for informational purposes only and isn't financial or tax advice.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>

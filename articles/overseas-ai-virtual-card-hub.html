@@ -96,6 +96,17 @@
         <img class="article-cover" src="/img/cover-virtual-card-hub.svg" width="800" height="400" alt="虚拟卡类型额度分配一次理清7篇经验汇总封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>对照"按场景直接选配置"表格，确认自己当前的订阅数量与使用阶段落在哪一行，而不是凭直觉套用某个配置</li>
+            <li><span class="article-verify-check">✓</span>续费失败排查时，是否按 AVS → 3DS → BIN 风控 → 额度状态的顺序逐项核对，而不是随机重试</li>
+            <li><span class="article-verify-check">✓</span>额度设置是否已经把汇率转换的浮动空间算进去，而不是刚好按订阅标价设置</li>
+            <li><span class="article-verify-check">✓</span>卡的有效期是否比订阅计费周期多留了一到两个月缓冲，避免续订当天卡片刚好过期</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 虚拟卡不是一个决定，是四个</h2>
           <p>开一张虚拟卡用来订阅 AI 服务，听起来是一步操作，实际拆开看有四个各自独立的决策：找哪家<strong>服务商</strong>开卡、开成<strong>哪种卡型</strong>、多个订阅之间怎么<strong>分配</strong>到卡上、以及每张卡<strong>额度</strong>设多少。这四个问题互相影响，但很少有地方把它们放在一起讲——本站也是分六篇分别写的。这篇作为汇总页，把每篇的核心结论压缩成表格，方便按需查阅，而不是从头到尾重新读一遍。想先看一份更简洁的整体说明，可参考《<a href="/articles/overseas-ai-virtual-card-solution.html">虚拟信用卡支付方案：一张卡搞定海外AI账单</a>》。</p>
@@ -165,6 +176,7 @@
           </div>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -175,6 +187,15 @@
           <li><a href="#sec-5">5. 常见问题</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/Knowledgearticle/?code=000003111" target="_blank" rel="noopener nofollow">Visa Acceptance：AVS 地址验证服务结果代码说明</a>：速查表里"按 AVS → 3DS → BIN 风控 → 额度状态顺序排查"这一结论中 AVS 环节的官方技术依据</li>
+            <li><a href="https://www.emvco.com/emv-technologies/3-d-secure/" target="_blank" rel="noopener nofollow">EMVCo：3-D Secure 官方说明</a>：同一排查顺序中 3DS 环节对应的官方技术背景</li>
+          </ul>
+          <p class="ref-note">文中汇总的七篇结论为本站过往经验总结，具体规则可能因服务商、发卡行而异，请以实际使用的支付渠道官方说明为准。本文仅供学习与参考，不构成任何金融建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>七篇专题全部链接</h2>

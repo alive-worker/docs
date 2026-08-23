@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-ai-tool-cost-tutorial.svg" width="800" height="400" alt="AI 工具费用与虚拟卡开卡充值教程封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>把手上所有固定月费订阅列成表格逐项相加，核对总和是否和文中示例的算法（ChatGPT Plus + Claude Pro + Midjourney）一致</li>
+            <li><span class="article-verify-check">✓</span>去 API 官方定价页查当前每百万 token 的单价，和自己按用量估算出的月成本做一次核对，而不是凭记忆估算</li>
+            <li><span class="article-verify-check">✓</span>开卡充值后，确认充值金额是否覆盖了"固定月费+API估算上限+15%–20%缓冲"这个目标总额</li>
+            <li><span class="article-verify-check">✓</span>如果绑定订阅时扣款失败，按余额、账单地址、3DS验证、商户类别这个顺序逐条排查，而不是随意重试</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 先说清楚：这篇要解决的两个问题</h2>
           <p>很多人卡在同一个地方：AI 工具订了一堆，但既算不清一个月总共要花多少，也没有一张能顺利付掉这些海外订阅的卡。这两件事其实是连着的——不先把费用算清楚，就不知道该给卡里充多少钱；不解决支付通道，算得再准也付不出去。所以这份教程就按"先估算、后开卡"的顺序，一步步带你走完，尽量不留半截。</p>
@@ -131,6 +142,7 @@
           <p>整份 AI 工具费用虚拟卡教程其实就两句话：先把固定月费和按用量的 API 分别估出来、加上余量得到目标金额；再从零开一张虚拟卡，充值后统一绑定所有订阅。这样一来，每个月的 AI 花销都并到同一张卡的流水里，一眼看得清，续费失败的概率也低。如果你之后还想细比不同工具值不值得订，可以再翻我们那篇 AI 工具对比的文章，两篇搭配着看正好补齐"选工具"和"付得出"这两块。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -146,6 +158,15 @@
           <li><a href="#sec-10">10. 小结：算清费用，再用一张卡收拢</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI 官方 API 定价页</a>：查询各模型每百万 token 的实时单价，对应文中第4节按用量估算 API 成本的方法</li>
+            <li><a href="https://corporate.visa.com/en/solutions/visa-protect/insights/3d-secure.html" target="_blank" rel="noopener nofollow">Visa 官方说明：3D Secure 持卡人验证</a>：解释 Frictionless/Challenge 两种验证流程，对应文中第9节扣款失败排查里的"3DS验证"环节</li>
+          </ul>
+          <p class="ref-note">文中提及的具体单价、汇率与验证流程可能随官方政策调整而变化，请以官方最新信息为准。本文仅供学习与参考，不构成任何金融或支付建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

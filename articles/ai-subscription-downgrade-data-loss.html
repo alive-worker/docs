@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-downgrade-data-loss.svg" width="800" height="400" alt="AI订阅降级到免费档后数据保留期限封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>降级前是否已经确认导出功能仍可用，并把完整对话记录、项目文件导出到本地保存</li>
+            <li><span class="article-verify-check">✓</span>账户设置的存储用量与免费档配额上限之间，超出部分大概是多少</li>
+            <li><span class="article-verify-check">✓</span>账户设置、服务条款、降级确认弹窗三处关于数据保留期限的措辞是否一致，是否取了最保守的那个数字</li>
+            <li><span class="article-verify-check">✓</span>团队/工作区账号降级时，共享项目的访问权限归属是否已经和其他协作成员确认清楚</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 降级和取消不是一回事，但很多人当成同一件事</h2>
           <p>取消订阅意味着服务彻底停止，账号通常会保留一段较长的宽限期让你把数据搬走；降级则完全不同——账号本身还在正常使用，只是从付费档切回免费档，很多人下意识觉得"账号都还在，数据肯定也都在"，但绝大多数 AI 产品的服务条款里，免费档和付费档对应的是两套完全不同的存储配额、历史记录上限和功能权限。降级这个动作触发的不是账号注销流程，而是一次"配额收缩"，超出新配额的那部分数据从这一刻起就进入了随时可能被清理的状态，而这个状态变化往往不会有醒目的弹窗提醒。</p>
@@ -127,6 +138,7 @@
           <p>降级省钱本身没有问题，问题出在大多数人把它当成一个纯粹的"套餐切换"操作，而忽略了它同时也是一次"存储配额收缩"和"功能权限收回"。在点下确认按钮之前，花五分钟找到账户设置、服务条款和降级弹窗里关于数据保留期限的具体措辞，把该导出的东西先导出，比降级之后才发现历史记录消失、项目文件打不开要省心得多。这是这个系列的第六篇，后面还会继续拆解 AI 订阅支付与账号管理里其他容易被忽略的细节。</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="本文目录">
           <h2>本文目录</h2>
           <ol>
@@ -141,6 +153,15 @@
           <li><a href="#sec-9">9. 小结：降级前先问一句"数据保留期是多久"</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.notion.com/help/plan-downgrade" target="_blank" rel="noopener nofollow">Notion 官方"降级后会发生什么"说明</a>：官方案例说明降级后大多数已有内容保留但功能受限，图表、自动化等超出新配额的部分逐项被限制而非立刻清空，对应本文"配额收缩"这一机制</li>
+            <li><a href="https://developer.apple.com/app-store/subscriptions/" target="_blank" rel="noopener nofollow">Apple 官方订阅升降级说明</a>：说明降级会顺延到下个计费周期生效，与升级立即生效、按比例退款的处理方式不同，可用于对照具体产品的降级时间点</li>
+          </ul>
+          <p class="ref-note">具体的数据保留期限与降级规则因平台而异且可能随时间调整，请以对应平台账户设置与服务条款的最新说明为准。本文仅供学习与参考，不构成任何法律建议。</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>

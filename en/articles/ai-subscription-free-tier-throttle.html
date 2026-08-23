@@ -89,6 +89,17 @@
         <img class="article-cover" src="/img/cover-free-tier-throttle-en.svg" width="800" height="400" alt="AI free tier dynamic throttling cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does throttling consistently happen during a fixed window (e.g. global peak hours), and does retrying off-peak clear it</li>
+            <li><span class="article-verify-check">✓</span>Has a previously unrestricted window started getting blocked for several consecutive days, with matching reports on community forums</li>
+            <li><span class="article-verify-check">✓</span>If the quota looks unchanged but answers get shorter or weaker, is it silent routing to a lighter model (try explicitly requesting the full model in the prompt)</li>
+            <li><span class="article-verify-check">✓</span>Have you tried logging out/in, clearing cache, and switching networks — only escalate to support if all three fail</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. A free-tier cap was never a number — it's an adjustable band</h2>
           <p>The typical help-doc phrasing — "free users can send roughly N messages a day" — buries the word "roughly," and most users skip right past it. But that hedge is exactly the operational reality: what actually ships in the backend config is usually a band with an upper and lower bound plus a set of trigger conditions, not a single fixed value. The same account with identical usage habits might get pushed to the top of that band during low-traffic hours and squeezed to the bottom during peak load. What feels like "my limit suddenly dropped" is really that variable being reassigned at the configuration layer — nothing about the account itself changed.</p>
@@ -126,6 +137,7 @@
           <p>An AI platform's free usage cap was never designed as a locked-in commitment — it's a flexible threshold recalculated continuously against compute cost and concurrency pressure, and it usually shrinks quietly with little to no advance notice. Telling temporary throttling, a permanent baseline cut, and silent model downgrading apart is what tells you whether a given dip is worth waiting out or worth planning around — instead of treating every fluctuation as a broken account to keep troubleshooting.</p>
         </section>
         </div>
+        <div class="article-sidebar">
         <nav class="toc" aria-label="Table of contents">
           <h2>Table of Contents</h2>
           <ol>
@@ -140,6 +152,15 @@
           <li><a href="#sec-9">9. Takeaway: a free-tier cap is a live cost variable, not a fixed promise</a></li>
           </ol>
         </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://developers.openai.com/api/docs/guides/rate-limits" target="_blank" rel="noopener nofollow">OpenAI's official rate limits guide</a>: confirms request rates and daily caps for free/low-usage tiers are set by usage tier and automatically increase with spend, matching this article's point that a cap isn't a fixed number</li>
+            <li><a href="https://platform.claude.com/docs/en/api/rate-limits" target="_blank" rel="noopener nofollow">Anthropic's official rate limits guide</a>: explains that rate limits are assigned dynamically by an organization's usage tier, with new accounts starting lower and increasing automatically with usage history — another official example of dynamic throttling</li>
+          </ul>
+          <p class="ref-note">Exact throttling rules and threshold logic vary by platform, change over time, and are rarely fully disclosed — treat actual usage experience and official documentation updates as the current source of truth. This article is for informational purposes only.</p>
+        </aside>
+        </div>
         </div>
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>
