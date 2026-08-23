@@ -39,7 +39,7 @@
   <meta property="og:image:alt" content="AI subscription platform missing bank card reissue notice cover image">
   <meta name="twitter:image" content="https://ponr.org/img/cover-card-reissue-lockout-en.png">
   <link rel="dns-prefetch" href="https://chdh.me">
-  <link rel="stylesheet" href="/styles.min.css?v=e83e77ad1f">
+  <link rel="stylesheet" href="/styles.min.css?v=aae1b25772">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-card-reissue-lockout-en.svg" width="800" height="400" alt="AI subscription platform missing bank card reissue notice cover image" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Do the last 4 digits on your bank's app/site match the card on file in the AI platform's billing page?</li>
+            <li><span class="article-verify-check">✓</span>Did you get a bulk-reissue notice (letter/email/push) from your bank, and does its date precede the failed charge?</li>
+            <li><span class="article-verify-check">✓</span>Does the date of your last successful charge predate the new card's effective date?</li>
+            <li><span class="article-verify-check">✓</span>After lockout, does the login screen ask for re-verification, or does it show a downgrade/cancellation notice — the unlock path differs</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. Bulk reissues happen for reasons that have nothing to do with expiry</h2>
           <p>Most people think "card reissue" means one of two things: the card expired and it's time to renew, or the card was lost or stolen and reported. In practice, issuing banks reissue entire batches of cards for reasons that involve zero fault on the cardholder's part: a data breach at an unrelated third-party merchant that shares the same BIN range, an internal migration off a legacy issuing platform to a new one, or a preemptive risk decision to retire a BIN range entirely. These bulk reissues usually come with a letter or an email, but that notice is easy to mistake for marketing and ignore, and the old physical card keeps working fine for in-person purchases right up until expiry — it's specifically the "card on file, charge automatically" pattern used by online subscriptions where the old number quietly stops being a live billing channel.</p>

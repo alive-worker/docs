@@ -49,6 +49,7 @@
 11. `articles.html` / `en/articles.html` 顶部「按主题分类阅读」的标签筛选（`.topic-tag-btn`）：新文章要归到入门与基础/虚拟卡专题/稳定币支付专题/特殊场景与账户管理这四类之一，同时给对应 `<li class="archive-item">` 加 `data-topic="basics|virtual-card|stablecoin|special"` 属性，并把该标签按钮里 `.topic-tag-count` 的计数 +1（这个数字是手工维护的静态计数，不是自动统计，改了文章分类却忘记同步这个数字，标签上显示的篇数就会跟点开后的实际结果对不上）。
 12. 新文章按 `data-topic` 归类后，同步检查 `/topics/{basics|virtual-card|stablecoin|billing-account}/`（含 `en/topics/...`）对应的专题聚合页——这些页面（2026-08-22 新增）是手工维护的分组文章列表，不会跟着 `articles.html` 自动更新，漏加会导致专题页比归档页少收录文章。
 13. 首页「热门精选」（hotpicks，4条）**不能跟轮播（carousel，最新5篇，2026-08-23 起从3篇扩到5篇）重复**，网格可见的 9 篇也不能跟轮播/hotpicks 重复——这是 2026-08-21 用户明确纠正过的标准（早期版本允许两者重叠，已废弃）。发新文章后用脚本核对 `index.html`/`en/index.html` 的 carousel（5个）、hotpicks（4个）、网格非 overflow（9个）三组文章 slug 两两交集必须为空。
+14. **核验清单**（2026-08-23 新增，仿照 docs-coin 项目）：每篇新文章正文最前面（封面图之后、第一个 `<section>` 之前）加一个 `<div class="article-verify-panel">` 组件，标题固定「核验清单」/`Verification Checklist`，里面 3–5 条 `<li><span class="article-verify-check">✓</span>...</li>`。条目必须是**针对这篇文章具体机制、读者能直接照做去核对的动作**（比如"账单页显示的卡号后四位是否跟银行APP一致"），不能是"注意资金安全"这种没有可执行下一步的空泛提醒——标准与 `methodology.html` 第2节「核验清单标注标准」一致。此前发布的文章暂不需要回填，只针对 2026-08-23 起的新文章。
 
 ## 5. 改动首页/列表页/关于页时
 

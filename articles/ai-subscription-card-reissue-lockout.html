@@ -39,7 +39,7 @@
   <meta property="og:image:alt" content="AI订阅平台未收到银行换卡通知导致账号锁定封面图">
   <meta name="twitter:image" content="https://ponr.org/img/cover-card-reissue-lockout.png">
   <link rel="dns-prefetch" href="https://chdh.me">
-  <link rel="stylesheet" href="/styles.min.css?v=e83e77ad1f">
+  <link rel="stylesheet" href="/styles.min.css?v=aae1b25772">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -90,6 +90,17 @@
         <img class="article-cover" src="/img/cover-card-reissue-lockout.svg" width="800" height="400" alt="AI订阅平台未收到银行换卡通知导致账号锁定封面图" fetchpriority="high">
         <div class="article-columns">
         <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>银行APP/官网的"我的卡片"页面，卡号后四位是否跟AI平台账单页显示的扣款卡一致</li>
+            <li><span class="article-verify-check">✓</span>近期是否收到发卡行的批量换卡通知（信件/邮件/APP推送），日期是否早于订阅扣款失败的时间点</li>
+            <li><span class="article-verify-check">✓</span>AI平台账单历史里最近一次成功扣款的日期，是否早于新卡号的生效日期</li>
+            <li><span class="article-verify-check">✓</span>账号被锁定后，登录页提示的是"需要重新验证身份"还是"降级/取消订阅"，两者对应的解锁路径不同</li>
+          </ul>
+        </div>
+
         <section id="sec-1">
           <h2>1. 换卡不只发生在"卡到期"，批量重发是银行侧的常规操作</h2>
           <p>大多数人对"换卡"的理解只有两种：卡片过期该续了，或者卡丢了、被盗刷了主动挂失。但发卡行在实际运营中，还会因为完全不涉及个人过错的原因批量重发一整批卡——比如某个第三方商户发生数据泄露、发卡行判断这批BIN段存在潜在风险，就会预防性地整批换发新卡号；又或者银行把老的发卡系统迁移到新平台，旧的BIN段需要整体退役，所有关联卡片都要换新号。这类批量重发通常伴随着一封纸质信件或邮件通知，但通知本身很容易被当成营销邮件忽略，用户手里的旧卡片在有效期到期前依然能正常刷卡消费，唯独在线上订阅这类"存了卡号自动扣款"的场景里，旧卡号背后已经不再是真实有效的扣款通道。</p>
