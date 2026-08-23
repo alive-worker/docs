@@ -944,8 +944,9 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
    so homepage and article pages read as one product. Standing requirement for new
    articles from 2026-08-23 — see CLAUDE.md §4. */
 .article-verify-panel {
-  margin: 20px 0 28px; padding: 16px 18px;
+  margin: 0 0 28px; padding: 16px 18px;
   border: 1px solid var(--line-strong); border-radius: 12px; background: var(--soft);
+  box-sizing: border-box;
 }
 [data-theme="dark"] .article-verify-panel {
   background: var(--panel);
