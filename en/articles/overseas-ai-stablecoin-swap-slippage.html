@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why the Swap Quote and the Amount That Arrives Don't Match</title>
+  <meta name="description" content="A swap quote is a snapshot at request time &mdash; settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why the Swap Quote and the Amount That Arrives Don't Match">
+  <meta property="og:description" content="A swap quote is a snapshot at request time &mdash; settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.">
+  <meta property="og:url" content="https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html">
+  <meta property="article:published_time" content="2026-08-24T15:03:12+08:00">
+  <meta property="article:modified_time" content="2026-08-24T15:03:12+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Stablecoin Payments">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why the Swap Quote and the Amount That Arrives Don't Match">
+  <meta name="twitter:description" content="A swap quote is a snapshot at request time &mdash; settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-stablecoin-swap-slippage-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Why the swap quote and the settled amount on a cross-chain swap can differ cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-stablecoin-swap-slippage-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual credit cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#primaryimage", "url": "https://ponr.org/img/cover-overseas-ai-stablecoin-swap-slippage-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#webpage", "url": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html", "name": "Why the Swap Quote and the Amount That Arrives Don't Match", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Why the Swap Quote and the Amount That Arrives Don't Match", "item": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html" }
+    ] },
+    { "@type": "Article", "headline": "Why the Swap Quote and the Amount That Arrives Don't Match", "description": "A swap quote is a snapshot at request time — settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.", "image": "https://ponr.org/img/cover-overseas-ai-stablecoin-swap-slippage-en.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-24T15:03:12+08:00", "dateModified": "2026-08-24T15:03:12+08:00", "inLanguage": "en", "articleSection": "Stablecoin Payments", "keywords": ["cross-chain swap slippage", "quote vs settled amount", "slippage tolerance parameter", "market-maker live pricing", "stablecoin AI subscription payment"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-stablecoin-swap-slippage.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why the Swap Quote and the Amount That Arrives Don't Match</h1>
+          <p class="article-summary">Anyone who's used a non-custodial cross-chain swap tool to turn USDT or USDC on one chain into an asset on another — often to fund an AI subscription — has run into this: the quote screen shows one number, and a few dozen seconds later the wallet actually receives a different one. Sometimes the gap is a few cents; sometimes it's just enough to leave a subscription charge short by an awkward remainder. This isn't a bug or a hidden fee — it's a structural gap between two moments in time. The quote is only a snapshot at the instant you request it; the actual execution price only locks in once the transaction is confirmed on-chain, and the market doesn't pause and wait for you in between. This article isn't a how-to for swapping crypto — it's a breakdown of exactly where that quote-to-settlement gap comes from, and what to check before and after you send funds.</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-08-24T15:03:12+08:00">2026-08-24 15:03:12</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-stablecoin-swap-slippage-en.svg" width="800" height="400" alt="Why the swap quote and the settled amount on a cross-chain swap can differ cover image" fetchpriority="high">
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Is the gap between the settled amount and the quote you saw at request time within a range you actually find acceptable (say, under 0.5%–1%)</li>
+            <li><span class="article-verify-check">✓</span>Before sending funds, does the tool expose a visible or settable slippage tolerance parameter — and if not, what rule does it default to at settlement</li>
+            <li><span class="article-verify-check">✓</span>If the deviation exceeds what you expected, can the transaction record show whether it auto-cancelled and refunded, or force-settled at the new price</li>
+            <li><span class="article-verify-check">✓</span>For a swap meant to fund an AI subscription charge, does the settled amount exactly cover what the merchant requires, and have you already run a small test swap first</li>
+            <li><span class="article-verify-check">✓</span>Was either the source or destination chain congested when you submitted (check a block explorer for a backlog of pending transactions or an unusual gas fee spike)</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The number on the quote screen is really just a timestamped snapshot</h2>
+          <p>Open any cross-chain swap aggregator, enter the asset and amount you want to convert, and a quote appears almost instantly. Behind that number, the aggregator queried several market makers or liquidity pools at that exact moment and surfaced the best result — functionally no different from a live quote on a trading app. It's only guaranteed accurate at the instant it's generated; it makes no promise the price will hold for the next thirty seconds, let alone the next few minutes. The mistake users make is treating that number as a locked-in contract — assuming that clicking confirm should guarantee that exact figure arrives. In reality, most swap tools don't hard-code that quoted price into the transaction itself at the protocol level. The moment the transaction is actually submitted on-chain and picked up by a miner or validator is when the price truly locks in — every second before that, the quote is informational only.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Between quote and settlement, the market-maker's live price never stops moving</h2>
+          <p>The market makers providing liquidity behind a cross-chain swap are, functionally, automated systems running market-making strategies across multiple trading pairs and chains at once. Their quoted prices adjust continuously based on their own inventory, price movement on other exchanges, and overall buy/sell pressure — often at a sub-second to few-second cadence. During the ten seconds to a minute a user spends looking at the quote screen, confirming, signing, and broadcasting the transaction, the market maker's price may have already refreshed several times based on newer market information. By the time the submitted transaction is actually picked up by a node and matched against the live price at that moment, the executed price has naturally drifted from what was first shown. The more volatile the market — a sharp short-term move in the underlying asset — the wider that drift tends to be; in a calm market, the gap can be small enough to go unnoticed. That's also why the same tool can feel like it settles exactly at quote one day and shows a visible gap the next: the difference isn't the tool, it's how turbulent the market was during those few seconds.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Slippage tolerance: some tools hand this control to you, others hide it entirely</h2>
+          <p>To manage the price drift between quote and settlement, mature decentralized exchange protocols generally build in a parameter called slippage tolerance: the user sets a maximum acceptable percentage deviation, and if the actual execution price on-chain moves beyond that threshold relative to the quote, the transaction simply fails and reverts rather than force-settling at a worse price (funds aren't taken, though gas already spent on the attempt is usually not refunded). This mechanism exists to protect the user, but set the tolerance too low and normal market noise alone causes transactions to fail routinely; set it too high and you've effectively pre-authorized settlement at a price that's visibly off from what you were quoted. The more important detail is that not every consumer-facing cross-chain swap aggregator exposes this parameter for the user to adjust — some bake in a fixed default tolerance without ever disclosing the number; others impose no cap at all, executing the trade as long as it can be matched. In that second case, the user has no control whatsoever over how bad the worst-case settled amount could get — they simply have to accept whatever comes back.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Network congestion stretches an already-existing time gap even further</h2>
+          <p>The gap between quote and settlement is fundamentally a function of elapsed time — the longer that window stays open, the more room the market has to move. The most common thing that actually stretches this window is congestion on either the source or destination chain. If the source chain has a backlog, the submitted swap transaction may sit waiting for several blocks before it's confirmed, pushing the moment it actually matches against a live price well past when the quote was first shown. If the destination chain is also congested, the leg where the aggregator forwards the settled asset to the user's wallet gets delayed too. Stack both delays together and the gap between the moment the quote was generated and the moment funds actually land can stretch to several minutes or more — and the market has proportionally more room to drift in that window. This is why the same tool can feel like it settles almost instantly at off-peak times and produce a visibly wider gap during a period of chain congestion — the tool hasn't changed, congestion has simply extended the exposure window the quote was never designed to survive.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Why this gap matters more for funding an AI subscription than for an ordinary swap</h2>
+          <p>If you're just moving stablecoins from one chain to another to hold for yourself, landing a fraction of a percent short of the quote is usually harmless — it's still your money, and you can adjust next time. But when the destination of that swap is a direct AI subscription charge, the calculus changes. Many subscription billing systems — especially ones that charge stablecoins directly rather than crediting a prepaid balance pool first — require the received amount to exactly match the billed amount. A shortfall of even a few cents can trigger an "amount mismatch" and fail the charge outright, leaving you to send a small top-up before the renewal goes through. The opposite problem is just as real: if the settled amount comes in slightly above the quote (a favorable price move), it leaves an odd, hard-to-spend remainder sitting in the account that accumulates into meaningfully stranded funds over time. This is why the quote-to-settlement gap can't be dismissed as an irrelevant rounding detail in this specific use case — it's a practical variable that determines whether the payment actually clears.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Practical steps when using a tool like AllSwap</h2>
+          <p>Take a non-custodial cross-chain swap aggregator like <a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> as an example: the typical flow shows live comparative quotes from multiple market makers, generates a one-time deposit address once you confirm, and completes the swap without requiring an account. When using a tool like this to fund an AI subscription, a few things are worth doing proactively. First, look for any language about slippage or price protection on the quote or confirmation screen — if there's an explicit tolerance setting, adjust it to a deviation you're actually comfortable with rather than leaving the default untouched. Second, try to avoid submitting during a window when the source or destination chain is visibly congested — a quick look at a block explorer for a backlog of pending transactions or an unusual gas spike can tell you whether it's a good time. Third, before moving a large amount, run a small test swap first to measure the tool's actual typical drift under normal conditions, so you know roughly how much buffer, if any, to build in before sending the amount that really matters.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. If the settled amount doesn't match the quote, how to verify and fix it</h2>
+          <p>If a swap settles noticeably off from the quoted price, the first step is to look up the transaction hash on the relevant chain's block explorer and confirm the actual execution price and amount received, rather than trusting a bare "completed" status shown by the swap tool itself. Second, check whether the resulting charge to the AI subscription merchant actually went through — if it failed due to an amount mismatch, most billing pages will show something like "insufficient amount" rather than a generic decline, and usually all that's needed is a small top-up rather than redoing the entire swap. Third, if a particular tool repeatedly produces deviations well outside what normal market movement would explain, it's worth switching to one with clearer slippage disclosure or deeper market-maker liquidity rather than writing it off as bad luck every time. Building these checks into a habit is what keeps the natural gap between quote and settlement from turning into a surprise failed renewal.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. Bottom line: the quote is a snapshot, the settled amount is the real price</h2>
+          <p>The gap between a quote and the amount that actually arrives isn't a defect in any specific swap tool — it's a physical reality of "snapshot quote, settle later" mechanics that no swap involving a live, moving market can fully avoid. Market makers' prices never stop moving, on-chain confirmation takes real time, congestion stretches that window further, and slippage tolerance — the one lever meant to bound the damage — isn't something every tool hands to the user. Once you understand that mechanism, funding an AI subscription with a cross-chain swap stops being a blind assumption that the exact number will land, and becomes something you can actively manage: check the slippage disclosure, avoid congested windows, and test with a small amount first. The gap will never fully disappear, but understanding where it comes from is enough to keep it from ever standing between you and a successful payment.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The number on the quote screen is really just a timestamped snapshot</a></li>
+          <li><a href="#sec-2">2. Between quote and settlement, the market-maker's live price never stops moving</a></li>
+          <li><a href="#sec-3">3. Slippage tolerance: some tools hand this control to you, others hide it entirely</a></li>
+          <li><a href="#sec-4">4. Network congestion stretches an already-existing time gap even further</a></li>
+          <li><a href="#sec-5">5. Why this gap matters more for funding an AI subscription than for an ordinary swap</a></li>
+          <li><a href="#sec-6">6. Practical steps when using a tool like AllSwap</a></li>
+          <li><a href="#sec-7">7. If the settled amount doesn't match the quote, how to verify and fix it</a></li>
+          <li><a href="#sec-8">8. Bottom line: the quote is a snapshot, the settled amount is the real price</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://blog.uniswap.org/minimize-slippage-on-swaps" target="_blank" rel="noopener nofollow">Uniswap Blog: How to Minimize Slippage on Your Swaps</a>: explains slippage tolerance as the maximum acceptable price difference between submitting a quote and execution, and how liquidity depth affects that gap</li>
+            <li><a href="https://help.1inch.com/en/articles/4585126-what-is-the-slippage-tolerance-setting" target="_blank" rel="noopener nofollow">1inch Help Center: What Is the Slippage Tolerance Setting</a>: explains how a slippage tolerance set too low causes a transaction to revert and fail outright</li>
+            <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan Block Explorer</a>: a public tool for verifying the actual execution price, settled amount, and confirmation time of any on-chain transaction</li>
+          </ul>
+          <p class="ref-note">Slippage and quote mechanics vary by tool and can change as products evolve; always defer to the live disclosure on the specific tool's page. This article is for informational purposes only and is not financial or investment advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related Articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/overseas-ai-stablecoin-swap-tools.html">Choosing a Cross-Chain Swap Tool for AI Subscription Payments</a></li>
+          <li><a href="/en/articles/overseas-ai-mev-sandwich.html">Why Your Stablecoin Deposit Got Sandwiched: MEV Explained</a></li>
+          <li><a href="/en/articles/overseas-ai-cross-chain-recovery.html">Sent USDT to the Wrong Chain? Recovery Steps That Work</a></li>
+          <li><a href="/en/articles/overseas-ai-stablecoin-troubleshooting.html">Stablecoin Payment Failed? A Troubleshooting Playbook</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to Home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, in-depth guides on subscribing to and paying for AI services abroad — billing, payment rails, virtual cards, and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Accounts &amp; Edge Cases</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Payment Solutions</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI Billing Proxy</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Credit Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Global Tools Directory</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI Service</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only, not advice</p>
+      <p>Prices, regional availability, and policies referenced here are subject to change — always confirm with the official AI platform or payment provider.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=1edfcbd79e"></script>
+</body>
+</html>

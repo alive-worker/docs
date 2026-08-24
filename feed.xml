@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 24 Aug 2026 13:32:27 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 24 Aug 2026 15:03:12 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[跨链兑换到账的钱，为什么和报价对不上]]></title>
+    <link>https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html</guid>
+    <pubDate>Mon, 24 Aug 2026 15:03:12 +0800</pubDate>
+    <category>稳定币支付</category>
+    <description><![CDATA[跨链兑换页面显示的报价只是下单瞬间的价格快照，真正成交发生在稍后的链上结算环节，做市商的实时报价会随行情持续波动漂移，部分兑换工具提供可自行设置的滑点容忍度参数，未设置的工具可能悄悄按结算时的新价格成交，网络拥堵还会进一步拉大报价与实际到账金额之间的差距，本文拆解背后具体机制及付款前后该核对哪些数值。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI订阅的暂停按钮，到底按下了什么]]></title>
     <link>https://ponr.org/articles/ai-subscription-pause-not-cancel.html</link>
