@@ -1084,3 +1084,61 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
 @media (max-width: 600px) {
   .back-to-top { right: 14px; bottom: 14px; width: 40px; height: 40px; }
 }
+
+/* --- price-hike calculator tool page --- */
+.calc-panel {
+  margin: 28px 0 40px; padding: 26px 28px;
+  border: 1px solid var(--line-strong); border-radius: 16px;
+  background: var(--panel-gradient);
+  box-shadow: var(--shadow-sm);
+}
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; }
+.calc-field { display: flex; flex-direction: column; gap: 6px; }
+.calc-field label { font-size: 13px; font-weight: 600; color: var(--muted-2); }
+.calc-field .calc-input-wrap { position: relative; }
+.calc-field .calc-input-wrap span {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--muted); font-weight: 600; pointer-events: none;
+}
+.calc-field input[type="number"] {
+  width: 100%; box-sizing: border-box;
+  padding: 11px 14px 11px 30px;
+  border: 1px solid var(--line-strong); border-radius: 10px;
+  background: var(--soft); color: var(--ink);
+  font-size: 16px; font-variant-numeric: tabular-nums;
+}
+.calc-field input[type="number"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.calc-cycle { display: flex; gap: 8px; }
+.calc-cycle button {
+  flex: 1; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line-strong); background: var(--soft); color: var(--muted-2);
+  font-size: 13.5px; font-weight: 600; cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.calc-cycle button.is-active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.calc-result {
+  margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.calc-stat { text-align: center; }
+.calc-stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.calc-stat-value { margin-top: 6px; font-size: 26px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.calc-stat-value.is-up { color: var(--accent-2); }
+.calc-note { margin-top: 18px; font-size: 13.5px; color: var(--muted-2); line-height: 1.6; }
+@media (max-width: 640px) {
+  .calc-grid { grid-template-columns: 1fr; }
+  .calc-result { grid-template-columns: 1fr; gap: 14px; }
+}
+
+.pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0 0; }
+.pattern-card {
+  padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--soft);
+  text-decoration: none; display: block;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.pattern-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.pattern-card h3 { margin: 0 0 6px; font-size: 15.5px; color: var(--ink); }
+.pattern-card p { margin: 0; font-size: 13.5px; color: var(--muted-2); line-height: 1.5; }
+@media (max-width: 640px) {
+  .pattern-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI订阅涨价计算器：算清楚这次涨价到底多花多少钱</title>
+  <meta name="description" content="输入订阅涨价前的价格、涨价后的价格和当前计费周期，这个免费小工具立刻算出涨幅百分比、每年因此多花多少钱、这笔差额相当于按新价格能多订阅几个月；下方还整理了公开涨价、优惠到期恢复原价、默认加购插件、额度清零逼迫升档这四种最常见的AI订阅隐性涨价机制，帮你判断这次具体属于哪一种、该去平台哪个页面核实清楚。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/tools/price-hike-calculator.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/tools/price-hike-calculator.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/tools/price-hike-calculator.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/tools/price-hike-calculator.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="AI订阅涨价计算器：算清楚这次涨价到底多花多少钱">
+  <meta property="og:description" content="输入订阅涨价前的价格、涨价后的价格和当前计费周期，这个免费小工具立刻算出涨幅百分比、每年因此多花多少钱、这笔差额相当于按新价格能多订阅几个月；下方还整理了公开涨价、优惠到期恢复原价、默认加购插件、额度清零逼迫升档这四种最常见的AI订阅隐性涨价机制，帮你判断这次具体属于哪一种、该去平台哪个页面核实清楚。">
+  <meta property="og:url" content="https://ponr.org/tools/price-hike-calculator.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI订阅涨价计算器：算清楚这次涨价到底多花多少钱">
+  <meta name="twitter:description" content="输入订阅涨价前的价格、涨价后的价格和当前计费周期，这个免费小工具立刻算出涨幅百分比、每年因此多花多少钱、这笔差额相当于按新价格能多订阅几个月；下方还整理了公开涨价、优惠到期恢复原价、默认加购插件、额度清零逼迫升档这四种最常见的AI订阅隐性涨价机制，帮你判断这次具体属于哪一种、该去平台哪个页面核实清楚。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="AI订阅涨价计算器">
+  <meta name="twitter:image" content="https://ponr.org/logo.png">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "WebApplication", "@id": "https://ponr.org/tools/price-hike-calculator.html#app", "name": "AI订阅涨价计算器", "url": "https://ponr.org/tools/price-hike-calculator.html", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "isPartOf": { "@id": "https://ponr.org/#website" } },
+    { "@type": "WebPage", "@id": "https://ponr.org/tools/price-hike-calculator.html#webpage", "url": "https://ponr.org/tools/price-hike-calculator.html", "name": "AI订阅涨价计算器：算清楚这次涨价到底多花多少钱", "isPartOf": { "@id": "https://ponr.org/#website" }, "breadcrumb": { "@id": "https://ponr.org/tools/price-hike-calculator.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/tools/price-hike-calculator.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "AI订阅涨价计算器", "item": "https://ponr.org/tools/price-hike-calculator.html" }
+    ] }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/tools/price-hike-calculator.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--single">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>AI订阅涨价计算器：算清楚这次涨价到底多花多少钱</h1>
+        </header>
+        <div class="article-body">
+        <p>账单上的新价格跳出来的那一刻，大多数人的第一反应是“好像贵了不少”，但很少有人真的会拿计算器算一下具体贵了多少、一年下来多花多少钱——这个小工具帮你把这笔账算清楚，再往下翻，还整理了四种最常见的“隐性涨价”机制，帮你判断这次涨价具体属于哪一种、该去平台的哪个地方核实。</p>
+
+        <div class="calc-panel">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label for="calc-old">涨价前价格</label>
+              <div class="calc-input-wrap">
+                <span>$</span>
+                <input type="number" id="calc-old" inputmode="decimal" min="0" step="0.01" value="20" placeholder="20.00">
+              </div>
+            </div>
+            <div class="calc-field">
+              <label for="calc-new">涨价后价格</label>
+              <div class="calc-input-wrap">
+                <span>$</span>
+                <input type="number" id="calc-new" inputmode="decimal" min="0" step="0.01" value="24" placeholder="24.00">
+              </div>
+            </div>
+          </div>
+          <div class="calc-field" style="margin-top:16px">
+            <label>计费周期</label>
+            <div class="calc-cycle" role="group" aria-label="计费周期">
+              <button type="button" class="is-active" data-cycle="month">按月计费</button>
+              <button type="button" data-cycle="year">按年计费</button>
+            </div>
+          </div>
+          <div class="calc-result">
+            <div class="calc-stat">
+              <p class="calc-stat-label">涨幅</p>
+              <p class="calc-stat-value is-up" id="calc-out-pct">+20.0%</p>
+            </div>
+            <div class="calc-stat">
+              <p class="calc-stat-label">每年多花</p>
+              <p class="calc-stat-value" id="calc-out-year">$48.00</p>
+            </div>
+            <div class="calc-stat">
+              <p class="calc-stat-label">相当于多订阅</p>
+              <p class="calc-stat-value" id="calc-out-months">2.4 个月</p>
+            </div>
+          </div>
+          <p class="calc-note">"相当于多订阅"是把每年多花的钱，换算成按新价格能多订阅几个月，帮你更直观地感受涨幅的实际分量，仅供参考，不是任何形式的财务建议。</p>
+        </div>
+
+        <section>
+          <h2>这次涨价，属于下面哪一种？</h2>
+          <p>"涨价"两个字背后其实是好几种完全不同的机制——有的是平台真的调整了公开定价，有的是你自己的优惠期到了，有的甚至不是"涨价"而是账单里多了一项你没注意到的加购。点进对应的文章，能更快判断该去核实什么、找谁申诉。</p>
+          <div class="pattern-grid">
+            <a class="pattern-card" href="/articles/ai-subscription-price-hike-notice.html">
+              <h3>公开定价直接上调</h3>
+              <p>平台整体调价，通常不会单独发提醒邮件，需要自己去账单历史和官网定价页对比确认。</p>
+            </a>
+            <a class="pattern-card" href="/articles/ai-subscription-promo-price-revert.html">
+              <h3>优惠码/促销价到期</h3>
+              <p>续订价从来不是永久价，只是绑定固定期数，到期后按公开价自动恢复，账单格式和往期一模一样。</p>
+            </a>
+            <a class="pattern-card" href="/articles/ai-subscription-addon-bundle-upsell.html">
+              <h3>续费时被默认加购插件</h3>
+              <p>不是基础订阅涨价，是账单里多了一项默认勾选的插件/加购费用，总额变大但单价没变。</p>
+            </a>
+            <a class="pattern-card" href="/articles/ai-subscription-credit-expiry.html">
+              <h3>额度清零后被迫升档</h3>
+              <p>用量额度到期清零，逼得你为了够用而升级到更贵的档位，本质是变相涨价。</p>
+            </a>
+          </div>
+        </section>
+        </div>
+        <div class="back-row"><a href="/articles.html">在全部文章里找更多相关分析</a> · <a href="/">返回首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/topics/basics/">入门与基础</a></li>
+          <li><a href="/topics/virtual-card/">虚拟卡专题</a></li>
+          <li><a href="/topics/stablecoin/">稳定币支付专题</a></li>
+          <li><a href="/topics/billing-account/">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/tools/price-hike-calculator.html">涨价计算器</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=de94984949"></script>
+  <script>
+  (function () {
+    var oldInput = document.getElementById('calc-old');
+    var newInput = document.getElementById('calc-new');
+    var cycleButtons = Array.prototype.slice.call(document.querySelectorAll('.calc-cycle button'));
+    var outPct = document.getElementById('calc-out-pct');
+    var outYear = document.getElementById('calc-out-year');
+    var outMonths = document.getElementById('calc-out-months');
+    var cycle = 'month';
+
+    function fmt(n) {
+      return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function recalc() {
+      var oldPrice = parseFloat(oldInput.value) || 0;
+      var newPrice = parseFloat(newInput.value) || 0;
+      var pct = oldPrice > 0 ? ((newPrice - oldPrice) / oldPrice) * 100 : 0;
+      var yearlyOld = cycle === 'year' ? oldPrice : oldPrice * 12;
+      var yearlyNew = cycle === 'year' ? newPrice : newPrice * 12;
+      var yearlyDelta = yearlyNew - yearlyOld;
+      var monthsEquivalent = newPrice > 0 ? (yearlyDelta / (cycle === 'year' ? newPrice / 12 : newPrice)) : 0;
+
+      outPct.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
+      outPct.classList.toggle('is-up', pct > 0);
+      outYear.textContent = fmt(Math.abs(yearlyDelta));
+      outMonths.textContent = Math.abs(monthsEquivalent).toFixed(1) + ' 个月';
+    }
+
+    cycleButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        cycleButtons.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        cycle = btn.getAttribute('data-cycle');
+        recalc();
+      });
+    });
+    oldInput.addEventListener('input', recalc);
+    newInput.addEventListener('input', recalc);
+    recalc();
+  })();
+  </script>
+</body>
+</html>
