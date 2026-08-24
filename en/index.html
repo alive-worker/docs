@@ -34,7 +34,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="AI Access Guide">
   <meta name="twitter:image" content="https://ponr.org/og/og-home-en.png">
-  <link rel="preload" as="image" href="/img/cover-card-reissue-lockout-en.svg" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/cover-pause-not-cancel-en.svg" fetchpriority="high">
   <link rel="stylesheet" href="/styles.min.css?v=48a9146bfd">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -177,7 +177,10 @@
         <div class="carousel" aria-roledescription="carousel">
           <div class="carousel-track">
             <div class="carousel-slide is-active">
-              <img src="/img/cover-card-reissue-lockout-en.svg" width="800" height="400" alt="AI subscription platform missing bank card reissue notice cover image" fetchpriority="high">
+              <img src="/img/cover-pause-not-cancel-en.svg" width="800" height="400" alt="What actually happens when you pause an AI subscription cover image" fetchpriority="high">
+            </div>
+            <div class="carousel-slide">
+              <img src="/img/cover-card-reissue-lockout-en.svg" width="800" height="400" alt="AI subscription platform missing bank card reissue notice cover image" loading="lazy">
             </div>
             <div class="carousel-slide">
               <img src="/img/cover-promo-price-revert-en.svg" width="800" height="400" alt="AI subscription promo code price revert cover image" loading="lazy">
@@ -188,42 +191,39 @@
             <div class="carousel-slide">
               <img src="/img/cover-seat-removal-lag-en.svg" width="800" height="400" alt="Team subscription seat removal billing lag cover image" loading="lazy">
             </div>
-            <div class="carousel-slide">
-              <img src="/img/cover-free-tier-throttle-en.svg" width="800" height="400" alt="AI free tier dynamic throttling cover image" loading="lazy">
-            </div>
             <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="Previous slide">&#8592;</button>
             <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="Next slide">&#8594;</button>
           </div>
           <div class="carousel-body">
             <div class="carousel-slide-info" data-index="0" hidden>
+              <span class="carousel-tag-row"><span class="archive-tag archive-tag--cyan">Pause Mechanics</span></span>
+              <h2 class="carousel-title"><a href="/en/articles/ai-subscription-pause-not-cancel.html">Pausing an AI Subscription Isn't the Same as Cancelling</a></h2>
+              <p class="carousel-desc">Pause looks gentler than cancel, but whether the renewal clock freezes, how much data survives, and whether locked-in pricing is voided often work nothing like cancel or downgrade.</p>
+              <span class="carousel-meta"><time datetime="2026-08-24T05:32:27+08:00">2026-08-24 05:32:27</time><a class="carousel-more" href="/en/articles/ai-subscription-pause-not-cancel.html">Read more →</a></span>
+            </div>
+            <div class="carousel-slide-info" data-index="1" hidden>
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--fuchsia">Card Reissue</span></span>
               <h2 class="carousel-title"><a href="/en/articles/ai-subscription-card-reissue-lockout.html">Your Card Was Reissued — Your AI Account Just Got Locked</a></h2>
               <p class="carousel-desc">A bank-side bulk card reissue that the AI platform's account updater never caught fails silently, and the grace period ends in a security lockout instead of a downgrade.</p>
               <span class="carousel-meta"><time datetime="2026-08-23T13:37:55+08:00">2026-08-23 13:37:55</time><a class="carousel-more" href="/en/articles/ai-subscription-card-reissue-lockout.html">Read more →</a></span>
             </div>
-            <div class="carousel-slide-info" data-index="1" hidden>
+            <div class="carousel-slide-info" data-index="2" hidden>
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--lime">Promo Expired</span></span>
               <h2 class="carousel-title"><a href="/en/articles/ai-subscription-promo-price-revert.html">Why Your Discounted AI Subscription Renews at Full Price</a></h2>
               <p class="carousel-desc">A promo code is bound to a fixed number of billing cycles, not the plan — when it lapses, price quietly reverts to full with no separate alert, just an ordinary renewal receipt.</p>
               <span class="carousel-meta"><time datetime="2026-08-23T11:07:52+08:00">2026-08-23 11:07:52</time><a class="carousel-more" href="/en/articles/ai-subscription-promo-price-revert.html">Read more →</a></span>
             </div>
-            <div class="carousel-slide-info" data-index="2" hidden>
+            <div class="carousel-slide-info" data-index="3" hidden>
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--gold">Deletion ≠ Cancel</span></span>
               <h2 class="carousel-title"><a href="/en/articles/ai-subscription-delete-not-cancel.html">You Deleted the Account, So Why Are You Still Billed</a></h2>
               <p class="carousel-desc">Many AI platforms treat account deletion and subscription cancellation as two unrelated buttons — deletion clears login and data, billing runs on separately until you cancel it.</p>
               <span class="carousel-meta"><time datetime="2026-08-22T19:19:39+08:00">2026-08-22 19:19:39</time><a class="carousel-more" href="/en/articles/ai-subscription-delete-not-cancel.html">Read more →</a></span>
             </div>
-            <div class="carousel-slide-info" data-index="3" hidden>
+            <div class="carousel-slide-info" data-index="4" hidden>
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--teal">Seat Lock</span></span>
               <h2 class="carousel-title"><a href="/en/articles/ai-subscription-seat-removal-lag.html">You Removed a Seat, So Why Is the Bill Still the Same?</a></h2>
               <p class="carousel-desc">Removing a seat from a team AI plan rarely lowers the bill right away. Most platforms lock the seat count until the next billing cycle, so you keep paying for a headcount that no longer exists.</p>
               <span class="carousel-meta"><time datetime="2026-08-22T16:11:41+08:00">2026-08-22 16:11:41</time><a class="carousel-more" href="/en/articles/ai-subscription-seat-removal-lag.html">Read more →</a></span>
-            </div>
-            <div class="carousel-slide-info" data-index="4" hidden>
-              <span class="carousel-tag-row"><span class="archive-tag archive-tag--teal">Usage Throttle</span></span>
-              <h2 class="carousel-title"><a href="/en/articles/ai-subscription-free-tier-throttle.html">Why Your AI Free Tier's Usage Cap Keeps Shrinking</a></h2>
-              <p class="carousel-desc">A free-tier usage cap isn't fixed — platforms flex it against real-time compute cost and load. Here's how the throttling engine actually works and what to do as your limit shrinks.</p>
-              <span class="carousel-meta"><time datetime="2026-08-21T16:01:22+08:00">2026-08-21 16:01:22</time><a class="carousel-more" href="/en/articles/ai-subscription-free-tier-throttle.html">Read more →</a></span>
             </div>
           </div>
           <div class="carousel-dots">
@@ -241,6 +241,20 @@
             <li class="hotpicks-item">
               <span class="hotpicks-num">1</span>
               <div class="hotpicks-body">
+                <a href="/en/articles/ai-subscription-free-tier-throttle.html">
+                  <span class="hotpicks-item-text">
+                    <span class="hotpicks-item-title">Why Your AI Free Tier's Usage Cap Keeps Shrinking</span>
+                    <span class="hotpicks-item-meta">
+                      <span class="hotpicks-item-desc">A free-tier usage cap isn't fixed — platforms flex it against real-time compute cost and load.</span>
+                      <span class="hotpicks-item-date">2026-08-21 16:01:22</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="hotpicks-item">
+              <span class="hotpicks-num">2</span>
+              <div class="hotpicks-body">
                 <a href="/en/articles/ai-subscription-fraud-flag.html">
                   <span class="hotpicks-item-text">
                     <span class="hotpicks-item-title">Why a Family Member's Card Keeps Getting Fraud-Flagged</span>
@@ -253,7 +267,7 @@
               </div>
             </li>
             <li class="hotpicks-item">
-              <span class="hotpicks-num">2</span>
+              <span class="hotpicks-num">3</span>
               <div class="hotpicks-body">
                 <a href="/en/articles/ai-subscription-credit-expiry.html">
                   <span class="hotpicks-item-text">
@@ -267,7 +281,7 @@
               </div>
             </li>
             <li class="hotpicks-item">
-              <span class="hotpicks-num">3</span>
+              <span class="hotpicks-num">4</span>
               <div class="hotpicks-body">
                 <a href="/en/articles/ai-subscription-billing-cycle-switch.html">
                   <span class="hotpicks-item-text">
@@ -275,20 +289,6 @@
                     <span class="hotpicks-item-meta">
                       <span class="hotpicks-item-desc">A pre-checked upsell or trial-to-paid default can quietly flip a monthly plan to annual billing.</span>
                       <span class="hotpicks-item-date">2026-08-21 10:06:22</span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            </li>
-            <li class="hotpicks-item">
-              <span class="hotpicks-num">4</span>
-              <div class="hotpicks-body">
-                <a href="/en/articles/ai-subscription-shared-plan-payment-failure.html">
-                  <span class="hotpicks-item-text">
-                    <span class="hotpicks-item-title">When the Plan Owner's Card Fails, Everyone Gets Locked Out</span>
-                    <span class="hotpicks-item-meta">
-                      <span class="hotpicks-item-desc">Shared and family AI plans run on one card — when it fails, every member loses access the same day.</span>
-                      <span class="hotpicks-item-date">2026-08-20 16:43:49</span>
                     </span>
                   </span>
                 </a>
@@ -307,6 +307,18 @@
           <a class="view-all-link" href="/en/articles.html">View All →</a>
         </div>
         <div class="card-grid" aria-label="Article summaries">
+          <article class="post-card post-card--overflow" id="ai-subscription-pause-not-cancel">
+            <a class="post-card-cover-link" href="/en/articles/ai-subscription-pause-not-cancel.html" tabindex="-1" aria-hidden="true"><img class="post-card-cover" src="/img/cover-pause-not-cancel-en.svg" width="600" height="300" alt="What actually happens when you pause an AI subscription cover image" loading="lazy"></a>
+            <div class="post-card-body">
+              <div class="post-card-tags"><span class="archive-tag archive-tag--cyan">Pause Mechanics</span></div>
+              <h3 class="post-card-title"><a href="/en/articles/ai-subscription-pause-not-cancel.html">Pausing an AI Subscription Isn't the Same as Cancelling</a></h3>
+              <p class="post-card-desc">Pause looks gentler than cancel, but whether the renewal clock freezes, how much data survives, and whether locked-in pricing is voided often work nothing like cancel or downgrade.</p>
+              <div class="post-card-meta">
+                <time datetime="2026-08-24T05:32:27+08:00">2026-08-24 05:32:27</time>
+                <a class="read-link" href="/en/articles/ai-subscription-pause-not-cancel.html">Read details</a>
+              </div>
+            </div>
+          </article>
           <article class="post-card post-card--overflow" id="ai-subscription-card-reissue-lockout">
             <a class="post-card-cover-link" href="/en/articles/ai-subscription-card-reissue-lockout.html" tabindex="-1" aria-hidden="true"><img class="post-card-cover" src="/img/cover-card-reissue-lockout-en.svg" width="600" height="300" alt="AI subscription platform missing bank card reissue notice cover image" loading="lazy"></a>
             <div class="post-card-body">
@@ -403,7 +415,7 @@
               </div>
             </div>
           </article>
-          <article class="post-card post-card--overflow" id="ai-subscription-shared-plan-payment-failure">
+          <article class="post-card" id="ai-subscription-shared-plan-payment-failure">
             <a class="post-card-cover-link" href="/en/articles/ai-subscription-shared-plan-payment-failure.html" tabindex="-1" aria-hidden="true"><img class="post-card-cover" src="/img/cover-shared-plan-payment-failure-en.svg" width="600" height="300" alt="Shared AI plan owner card failure locks out all members cover image" loading="lazy"></a>
             <div class="post-card-body">
               <div class="post-card-tags"><span class="archive-tag archive-tag--teal">Shared Plan Lockout</span></div>
@@ -511,7 +523,7 @@
               </div>
             </div>
           </article>
-          <article class="post-card" id="free-trial-auto-renewal-trap">
+          <article class="post-card post-card--overflow" id="free-trial-auto-renewal-trap">
             <a class="post-card-cover-link" href="/en/articles/free-trial-auto-renewal-trap.html" tabindex="-1" aria-hidden="true"><img class="post-card-cover" src="/img/cover-free-trial-trap-en.svg" width="600" height="300" alt="Free trial to auto-renewal trap: AI subscription cover image" loading="lazy"></a>
             <div class="post-card-body">
               <div class="post-card-tags"><span class="archive-tag archive-tag--fuchsia">Renewal Traps</span></div>
@@ -911,6 +923,6 @@
     <a class="back-to-top" href="#top" aria-label="Back to top">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </a>
-  <script src="/js/site.min.js?v=70f5f03743"></script>
+  <script src="/js/site.min.js?v=9af0c6a041"></script>
 </body>
 </html>

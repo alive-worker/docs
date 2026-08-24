@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 23 Aug 2026 13:37:55 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 24 Aug 2026 05:32:27 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Pausing an AI Subscription Isn't the Same as Cancelling]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-pause-not-cancel.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-pause-not-cancel.html</guid>
+    <pubDate>Mon, 24 Aug 2026 05:32:27 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Many AI platforms quietly added a "pause" option, distinct from cancel or downgrade — it may freeze your renewal clock, trim data, or void locked-in pricing.]]></description>
+  </item>
   <item>
     <title><![CDATA[Your Card Was Reissued — Your AI Account Just Got Locked]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-card-reissue-lockout.html</link>
