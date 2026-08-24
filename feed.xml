@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 24 Aug 2026 15:03:12 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 24 Aug 2026 17:26:30 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[支付服务商悄悄换了，AI订阅为什么突然扣款失败]]></title>
+    <link>https://ponr.org/articles/ai-subscription-psp-migration-failure.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-psp-migration-failure.html</guid>
+    <pubDate>Mon, 24 Aug 2026 17:26:30 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[AI服务商更换支付处理商(PSP)后，绑定的网络令牌未必被正确迁移过去，续费失败邮件措辞变含糊、账单收款方名称突然改变、卡里余额充足却仍被拒付，这篇拆解背后机制与可以立即核对的具体步骤。]]></description>
+  </item>
   <item>
     <title><![CDATA[跨链兑换到账的钱，为什么和报价对不上]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html</link>

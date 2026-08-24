@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 24 Aug 2026 15:03:12 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 24 Aug 2026 17:26:30 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Your AI Subscription Failed After a Silent PSP Switch]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-psp-migration-failure.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-psp-migration-failure.html</guid>
+    <pubDate>Mon, 24 Aug 2026 17:26:30 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[After an AI provider swaps payment processors, old card tokens may not carry over. A vague decline email, a changed billing name, or a decline despite balance are the signs to check.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why the Swap Quote and the Amount That Arrives Don't Match]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html</link>

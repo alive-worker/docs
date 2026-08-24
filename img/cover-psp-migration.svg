@@ -1,0 +1,57 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅支付服务商迁移导致续费失败示意图">
+  <defs>
+    <linearGradient id="bgGradPsp" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141b2e"/>
+      <stop offset="1" stop-color="#1c2740"/>
+    </linearGradient>
+    <radialGradient id="glowPsp" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5a86e0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#5a86e0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradPsp)"/>
+  <rect width="800" height="400" fill="url(#glowPsp)"/>
+  <g stroke="#3d4d75" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#9db4e8">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <!-- Left: two boxes (old PSP -> new PSP) with a broken link between them -->
+  <rect x="56" y="150" width="120" height="80" rx="14" fill="#20293f" stroke="#6d84c2" stroke-width="2.2"/>
+  <text x="116" y="184" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#dbe4fb">PSP A</text>
+  <text x="116" y="206" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#9db4e8">旧支付通道</text>
+
+  <path d="M188 190 h34" stroke="#8fa3d6" stroke-width="2.4" stroke-dasharray="6 6"/>
+  <path d="M232 178 l14 12 l-14 12" stroke="#e07a7a" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="222" y1="168" x2="242" y2="212" stroke="#e07a7a" stroke-width="3" stroke-linecap="round"/>
+
+  <rect x="256" y="150" width="120" height="80" rx="14" fill="#20293f" stroke="#6d84c2" stroke-width="2.2"/>
+  <text x="316" y="184" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#dbe4fb">PSP B</text>
+  <text x="316" y="206" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11" fill="#9db4e8">新支付通道</text>
+
+  <text x="56" y="270" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700" fill="#e7edfb">支付通道迁移</text>
+  <text x="58" y="304" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#9db4e8">PSP MIGRATION &amp; TOKEN LOSS</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9db4e8" opacity="0.85">AI服务指南</text>
+
+  <!-- Right: billing card panel showing signals -->
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#20293f" stroke="#3d4d75" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#e07a7a"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#e7edfb">可观察信号</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#324066" stroke-width="1"/>
+
+  <text x="440" y="148" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 失败邮件措辞变得含糊笼统</text>
+  <text x="440" y="176" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 账单收款方名称突然改变</text>
+  <text x="440" y="204" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 卡内余额充足却仍被拒付</text>
+  <text x="440" y="232" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 支付方式ID显示"需要验证"</text>
+
+  <rect x="440" y="252" width="290" height="30" rx="8" fill="#243252"/>
+  <text x="454" y="272" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#9db4e8">先核对通道，再判断是否换卡</text>
+</svg>
