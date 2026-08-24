@@ -6,12 +6,12 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 24 Aug 2026 05:32:27 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 24 Aug 2026 13:32:27 +0800</lastBuildDate>
   <item>
     <title><![CDATA[AI订阅的暂停按钮，到底按下了什么]]></title>
     <link>https://ponr.org/articles/ai-subscription-pause-not-cancel.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-pause-not-cancel.html</guid>
-    <pubDate>Mon, 24 Aug 2026 05:32:27 +0800</pubDate>
+    <pubDate>Mon, 24 Aug 2026 13:32:27 +0800</pubDate>
     <category>海外AI订阅</category>
     <description><![CDATA[订阅平台悄悄上线的"暂停"按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，这篇文章逐条拆解暂停按钮背后真正发生的事情。]]></description>
   </item>

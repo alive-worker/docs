@@ -18,8 +18,8 @@
   <meta property="og:title" content="AI订阅的暂停按钮，到底按下了什么">
   <meta property="og:description" content="订阅平台悄悄上线的&quot;暂停&quot;按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，还可能藏着暂停期满自动恢复扣款却不再重新确认的隐藏风险，这篇文章逐条拆解暂停按钮背后真正发生的事情。">
   <meta property="og:url" content="https://ponr.org/articles/ai-subscription-pause-not-cancel.html">
-  <meta property="article:published_time" content="2026-08-24T05:32:27+08:00">
-  <meta property="article:modified_time" content="2026-08-24T05:32:27+08:00">
+  <meta property="article:published_time" content="2026-08-24T13:32:27+08:00">
+  <meta property="article:modified_time" content="2026-08-24T13:32:27+08:00">
   <meta property="article:author" content="ipfsWeb">
   <meta property="article:section" content="海外AI订阅">
   <meta name="twitter:card" content="summary_large_image">
@@ -52,7 +52,7 @@
         { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
         { "@type": "ListItem", "position": 2, "name": "AI订阅的暂停按钮，到底按下了什么", "item": "https://ponr.org/articles/ai-subscription-pause-not-cancel.html" }
     ] },
-    { "@type": "Article", "headline": "AI订阅的暂停按钮，到底按下了什么", "description": "订阅平台悄悄上线的\"暂停\"按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，还可能藏着暂停期满自动恢复扣款却不再重新确认的隐藏风险，这篇文章逐条拆解暂停按钮背后真正发生的事情。", "image": "https://ponr.org/img/cover-pause-not-cancel.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-24T05:32:27+08:00", "dateModified": "2026-08-24T05:32:27+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["AI订阅暂停机制", "暂停与取消的区别", "续费时钟是否冻结", "暂停期满自动恢复扣款", "锁定优惠价是否作废"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-subscription-pause-not-cancel.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+    { "@type": "Article", "headline": "AI订阅的暂停按钮，到底按下了什么", "description": "订阅平台悄悄上线的\"暂停\"按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，还可能藏着暂停期满自动恢复扣款却不再重新确认的隐藏风险，这篇文章逐条拆解暂停按钮背后真正发生的事情。", "image": "https://ponr.org/img/cover-pause-not-cancel.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-24T13:32:27+08:00", "dateModified": "2026-08-24T13:32:27+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["AI订阅暂停机制", "暂停与取消的区别", "续费时钟是否冻结", "暂停期满自动恢复扣款", "锁定优惠价是否作废"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-subscription-pause-not-cancel.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
   ]
 }</script>
 </head>
@@ -85,7 +85,7 @@
         <header class="article-head">
           <h1>AI订阅的暂停按钮，到底按下了什么</h1>
           <p class="article-summary">过去一两年里，越来越多AI订阅平台在"取消"和"降级到免费版"之外，悄悄加了第三个选项——暂停。它听起来像是专门为"这个月不想用但下个月还想回来"的人设计的温柔中间态：不用走完整的取消流程，也不用降级损失权益，点一下就能把订阅先冻结起来。但"暂停"这个词本身在不同平台的实现里差异极大，有的真的把续费时钟一起冻结了，有的只是暂停扣款、续费日期照常往前走；有的暂停期间数据原封不动保留，有的实际保留的内容比降级到免费版还少；还有平台给暂停设了一个用户完全不知道的最长期限，一旦超过就自动恢复计费甚至直接转成正式取消。这篇文章不讲怎么取消订阅，只拆解"暂停"这一个按钮背后到底发生了什么，以及点下去之前应该先核对哪些细节。</p>
-          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-24T05:32:27+08:00">2026-08-24 05:32:27</time></p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-24T13:32:27+08:00">2026-08-24 13:32:27</time></p>
         </header>
         <img class="article-cover" src="/img/cover-pause-not-cancel.svg" width="800" height="400" alt="AI订阅暂停按钮背后计费与数据机制封面图" fetchpriority="high">
         <div class="article-columns">
@@ -222,6 +222,6 @@
     <a class="back-to-top" href="#top" aria-label="返回顶部">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </a>
-  <script src="/js/site.min.js?v=9af0c6a041"></script>
+  <script src="/js/site.min.js?v=de94984949"></script>
 </body>
 </html>
