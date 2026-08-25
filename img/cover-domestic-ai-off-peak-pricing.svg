@@ -1,0 +1,77 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="国内大模型API错峰定价：白天算力紧张、深夜价格打折示意图">
+  <defs>
+    <linearGradient id="bgGradOpp" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#101a2e"/>
+      <stop offset="1" stop-color="#1a2a3e"/>
+    </linearGradient>
+    <linearGradient id="dayNightOpp" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2b84a" stop-opacity="0.22"/>
+      <stop offset="0.5" stop-color="#f2b84a" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#5a86d6" stop-opacity="0"/>
+      <stop offset="1" stop-color="#5a86d6" stop-opacity="0.28"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradOpp)"/>
+  <rect width="800" height="400" fill="url(#dayNightOpp)"/>
+
+  <!-- clock face, center-left -->
+  <g transform="translate(210,210)">
+    <circle r="86" fill="#182338" stroke="#f2b84a" stroke-width="3"/>
+    <circle r="86" fill="none" stroke="#5a86d6" stroke-width="3" stroke-dasharray="135 405"/>
+    <g stroke="#e7ecf5" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="0" x2="0" y2="-52"/>
+      <line x1="0" y1="0" x2="34" y2="14"/>
+    </g>
+    <circle r="6" fill="#f2b84a"/>
+    <!-- tick marks -->
+    <g stroke="#7b8bab" stroke-width="2">
+      <line x1="0" y1="-74" x2="0" y2="-64"/>
+      <line x1="0" y1="74" x2="0" y2="64"/>
+      <line x1="-74" y1="0" x2="-64" y2="0"/>
+      <line x1="74" y1="0" x2="64" y2="0"/>
+    </g>
+  </g>
+
+  <!-- sun icon top-left (peak / expensive) -->
+  <g transform="translate(150,88)">
+    <circle r="22" fill="#f2b84a"/>
+    <g stroke="#f2b84a" stroke-width="4" stroke-linecap="round">
+      <line x1="0" y1="-34" x2="0" y2="-44"/>
+      <line x1="24" y1="-24" x2="31" y2="-31"/>
+      <line x1="-24" y1="-24" x2="-31" y2="-31"/>
+      <line x1="34" y1="0" x2="44" y2="0"/>
+      <line x1="-34" y1="0" x2="-44" y2="0"/>
+    </g>
+  </g>
+
+  <!-- moon icon, right side (off-peak / cheap) -->
+  <g transform="translate(600,110)">
+    <path d="M28 -30 A40 40 0 1 0 30 42 A32 32 0 0 1 28 -30 Z" fill="#5a86d6"/>
+    <circle cx="16" cy="-6" r="3.2" fill="#182338" opacity="0.5"/>
+    <circle cx="8" cy="14" r="2.2" fill="#182338" opacity="0.5"/>
+  </g>
+
+  <!-- price tags: high (day) vs low (night) with down arrow -->
+  <g transform="translate(150,168)">
+    <rect x="-34" y="-16" width="68" height="32" rx="8" fill="#3a2c1a" stroke="#f2b84a" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#f2b84a">￥￥</text>
+  </g>
+  <g transform="translate(600,182)">
+    <rect x="-34" y="-16" width="68" height="32" rx="8" fill="#122238" stroke="#5a86d6" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#8fb2ea">￥/2</text>
+  </g>
+  <g transform="translate(600,232)" stroke="#8fb2ea" stroke-width="4" stroke-linecap="round" fill="none">
+    <line x1="0" y1="0" x2="0" y2="26"/>
+    <path d="M-9 16 L0 27 L9 16"/>
+  </g>
+
+  <!-- data flow arrows converging toward clock (batch jobs routed to off-peak) -->
+  <g stroke="#7ba7ec" stroke-width="2.4" stroke-dasharray="5 6" fill="none" opacity="0.8">
+    <path d="M540 300 C 440 320 320 300 264 250"/>
+    <path d="M560 340 C 440 360 320 330 268 262"/>
+  </g>
+
+  <text x="60" y="330" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="38" font-weight="700" fill="#eef2fb">错峰定价 · 算力限流</text>
+  <text x="62" y="360" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#8fb2ea">PEAK &amp; OFF-PEAK API PRICING</text>
+  <text x="736" y="60" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8fb2ea" opacity="0.85">AI服务指南</text>
+</svg>

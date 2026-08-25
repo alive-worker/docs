@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why DeepSeek's API Is Cheaper After Midnight</title>
+  <meta name="description" content="DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why DeepSeek's API Is Cheaper After Midnight">
+  <meta property="og:description" content="DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night.">
+  <meta property="og:url" content="https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html">
+  <meta property="article:published_time" content="2026-08-25T15:42:00+08:00">
+  <meta property="article:modified_time" content="2026-08-25T15:42:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="AI Subscriptions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why DeepSeek's API Is Cheaper After Midnight">
+  <meta name="twitter:description" content="DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Why DeepSeek's API Is Cheaper After Midnight cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#webpage", "url": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html", "name": "Why DeepSeek's API Is Cheaper After Midnight", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Why DeepSeek's API Is Cheaper After Midnight", "item": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html" }
+    ] },
+    { "@type": "Article", "headline": "Why DeepSeek's API Is Cheaper After Midnight", "description": "DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night.", "image": "https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-08-25T15:42:00+08:00", "dateModified": "2026-08-25T15:42:00+08:00", "inLanguage": "en", "articleSection": "AI Subscriptions", "keywords": ["off-peak pricing", "peak/off-peak billing", "DeepSeek API", "GPU capacity throttling", "enterprise verification"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/ai-domestic-model-off-peak-pricing.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why DeepSeek's API Is Cheaper After Midnight</h1>
+          <p class="article-summary">DeepSeek, Doubao, Kimi and other Chinese large-model providers have recently switched their API pricing from a flat all-day rate to "peak/off-peak" pricing: calling the same model during Beijing daytime working hours now costs noticeably more than calling it overnight or during other off-peak windows. This isn't a promotion — it's providers using price as a lever to push non-urgent batch workloads toward the idle GPU capacity that piles up at night, because daytime compute is genuinely scarce. This piece breaks down how the mechanism actually works, how it differs fundamentally from the batch-API discounts offered by overseas providers, which task types are worth migrating, how to schedule off-peak calls in your own code, and what the enterprise verification process for higher rate limits — often confused with off-peak pricing — actually involves.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-08-25T15:42:00+08:00">2026-08-25 15:42:00</time> · Pricing last verified 2026-08-25</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-off-peak-pricing.svg" width="800" height="400" alt="Why DeepSeek's API Is Cheaper After Midnight cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Can your own batch data processing, fine-tuning, or offline reporting jobs — ones that don't need an instant response — be scheduled to run during Beijing off-peak hours (overnight)</li>
+            <li><span class="article-verify-check">✓</span>Does your scheduling script check the correct Beijing time (UTC+8) rather than your server's local timezone or raw UTC when deciding whether a call falls in the peak window</li>
+            <li><span class="article-verify-check">✓</span>If a job straddles the peak/off-peak boundary, is billing based on when the request was submitted or when it was actually processed — and have you built in a safety margin instead of submitting right at the cutoff</li>
+            <li><span class="article-verify-check">✓</span>Before applying for a higher concurrency/rate-limit tier, have you already gathered your business license and corporate bank account details, rather than assuming a bigger top-up automatically raises your concurrency</li>
+            <li><span class="article-verify-check">✓</span>Does the tier shown on your actual bill for this call match what the provider's current official pricing page states, rather than what you remember from an older price list</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The phenomenon: the same model, two different prices</h2>
+          <p>If you've called DeepSeek's or a similar Chinese provider's API recently, you may have noticed two distinct rates showing up on your bill: calling the same model during Beijing weekday daytime hours (say, 9am–noon or 2pm–6pm) now costs noticeably more than calling it late at night or during other off-peak windows. This isn't a glitch or a limited-time promotion — it's a formal shift to "peak/off-peak pricing," where the same endpoint and the same model automatically switch price tiers depending on the clock.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. The underlying logic: daytime compute is genuinely scarce, and price is the routing lever</h2>
+          <p>The logic isn't complicated: the GPU capacity behind model inference is a finite resource. Daytime is when enterprise and developer traffic is densest, so the compute pool is most likely to hit its ceiling; overnight through early morning, call volume drops sharply and a large chunk of capacity sits idle. Rather than let that idle capacity go to waste, providers use a lower price to attract the workloads that "aren't in a rush" to move over voluntarily — this is fundamentally traffic routing via price, not a simple discount. That's also why peak pricing isn't just "no discount" — under many of the newer pricing schemes, peak-hour rates themselves have gone up at the same time, and the off-peak discount is the part of the new scheme that's actually a good deal.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. The specifics: DeepSeek's time windows and the actual price gap</h2>
+          <p>Take DeepSeek's officially published pricing as an example: peak hours are Beijing time, Monday through Friday, 9:00–12:00 and 14:00–18:00; every other hour, including all of the weekend, counts as off-peak, and off-peak rates are fixed at half the peak rate. On specific numbers, for one of its model tiers, cache-miss input pricing runs roughly ¥1.5 per million tokens off-peak versus roughly ¥3 at peak, and output pricing runs roughly ¥4.5 per million tokens off-peak versus roughly ¥9 at peak. Exact figures vary by model tier and change over time on the provider's side — check the official pricing page before you rely on any specific number, including the ones in this article.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. How this compares to overseas batch-API discounts: the trigger condition is what differs</h2>
+          <p>A related article on this site, "Why Your AI API Bill Costs More Than the Per-Token Math," covers how OpenAI, Anthropic and other overseas providers offer a similar "trade flexibility for a lower price" mechanism through their batch APIs — bundling non-real-time work into a batch submission typically earns a meaningfully lower rate than a synchronous call. Both mechanisms share the same underlying economics: providers give a discount in exchange for more scheduling flexibility over their compute. But the trigger condition is completely different. An overseas batch-API discount depends on which endpoint you call — a batch submission versus a synchronous request — regardless of what time it is, and the job itself has to tolerate a delayed response. A Chinese off-peak discount depends on what time your call happens; the endpoint is still an ordinary synchronous call, and the price simply switches on the clock. In short: one is about picking the right endpoint, the other is about picking the right time, and you can't apply the same optimization playbook to both.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Enterprise verification is a separate matter from off-peak pricing</h2>
+          <p>Here's a point that trips up a lot of developers: it's easy to assume that once an account is verified or has topped up enough credit, higher concurrency or rate limits kick in automatically — and from there, to assume off-peak pricing and account tier are bundled into one system. They aren't. Off-peak pricing depends purely on when you call the API; it has nothing to do with whether your account has completed enterprise verification or what concurrency tier it's on. Getting a higher concurrency allowance or a higher rate-limit tier typically requires going through a separate enterprise qualification review — and that, in turn, is not the same thing as the phone-number verification covered in a separate article on this site about getting started with domestic Chinese AI tools. Phone verification is the baseline requirement to open an account at all; enterprise qualification review is the advanced step for requesting higher concurrency. These are three separate tiers of requirements, and completing one doesn't mean the other two are automatically settled.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Which tasks are worth moving to off-peak hours, and how to schedule them in code</h2>
+          <p>Tasks worth migrating to off-peak hours share one trait: they don't need a response within seconds or even minutes. Typical examples include batch cleaning and structuring of historical data (bulk-tagging old support tickets, say), model fine-tuning or continued-training runs, scheduled daily/weekly/monthly report generation, bulk document summarization or translation, and offline corpus labeling or quality evaluation. These jobs usually run for minutes to hours regardless, and nobody's watching the clock for exactly when they start — which makes them a natural fit for the overnight window. In practice, the simplest approach is to use your platform's built-in scheduler (cron on Linux, Task Scheduler on Windows, or a library like APScheduler in Python) to kick jobs off within the Beijing 0:00–8:00 window, while also having your code independently verify the current time against Beijing time (UTC+8) rather than the server's own local timezone. If a job looks likely to run past the peak-hour cutoff, build in a 30–60 minute buffer rather than submitting requests right up against the boundary, so a straggling request doesn't get billed at the peak rate.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. What enterprise verification paperwork typically involves before requesting higher concurrency</h2>
+          <p>If your usage has grown to the point where you need a higher concurrency or rate-limit tier, most Chinese model providers' enterprise verification process asks for: a scan or photo of your business license (the unified social credit code certificate), corporate bank account details (some platforms require a small verification deposit to a corporate account), identification for the person handling the application plus a letter of authorization where required, and sometimes a written description of your intended use case. These are usually submitted through a dedicated "enterprise verification" or "tier upgrade" entry point in the platform's developer console, and review can take anywhere from a few business days to about two weeks depending on the provider — start the paperwork well before your usage actually hits the existing concurrency ceiling, rather than scrambling once production traffic is already blocked.</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. Summary</h2>
+          <p>The "cheaper at night, pricier by day" pattern in Chinese model APIs comes down to providers using price as a lever to route non-real-time workloads toward idle overnight GPU capacity — economically similar to overseas batch-API discounts, but triggered by time of day rather than by which endpoint you call, so the two optimization strategies aren't interchangeable. Enterprise verification and concurrency tier upgrades are a separate compliance and quota system that has nothing directly to do with off-peak pricing. Moving batch-style workloads to off-peak hours and getting your enterprise paperwork ready ahead of time are two concrete, separately actionable steps.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The phenomenon: the same model, two different prices</a></li>
+          <li><a href="#sec-2">2. The underlying logic: daytime compute is genuinely scarce, and price is the routing lever</a></li>
+          <li><a href="#sec-3">3. The specifics: DeepSeek's time windows and the actual price gap</a></li>
+          <li><a href="#sec-4">4. How this compares to overseas batch-API discounts: the trigger condition is what differs</a></li>
+          <li><a href="#sec-5">5. Enterprise verification is a separate matter from off-peak pricing</a></li>
+          <li><a href="#sec-6">6. Which tasks are worth moving to off-peak hours, and how to schedule them in code</a></li>
+          <li><a href="#sec-7">7. What enterprise verification paperwork typically involves before requesting higher concurrency</a></li>
+          <li><a href="#sec-8">8. Summary</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener nofollow">DeepSeek API Docs — Models &amp; Pricing</a>: DeepSeek's official peak/off-peak pricing rules, time-window definitions, and per-model rates, relevant to the specifics covered here</li>
+            <li><a href="https://www.ithome.com/0/990/413.htm" target="_blank" rel="noopener nofollow">IT之家 (ITHome) — DeepSeek's peak/off-peak pricing scheme took effect today, peak-hour prices doubled</a>: third-party media coverage of the effective date and price changes for this pricing scheme, relevant to the point that this wasn't simply a discount</li>
+            <li><a href="https://platform.kimi.com/docs" target="_blank" rel="noopener nofollow">Kimi Open Platform Documentation</a>: Moonshot AI's official documentation on registering and accessing the Kimi API platform, relevant to the account verification tiers discussed here</li>
+          </ul>
+          <p class="ref-note">Off-peak time windows, exact pricing, and enterprise verification requirements from Chinese model providers change fairly often — check the official pricing page and developer docs for the platform you use for the current rules. This article is for informational purposes only and isn't procurement or financial advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/domestic-ai-subscription-guide.html">Subscribing to Domestic AI Tools in China: A Quick Guide</a></li>
+          <li><a href="/en/articles/ai-api-rate-limit-tier-billing.html">Why Your AI API Bill Costs More Than the Per-Token Math</a></li>
+          <li><a href="/en/articles/token-billing-guide.html">How AI API Token Billing Works: Input vs Output Costs</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to overview</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment methods, virtual cards, account security, and more, written from hands-on experience.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; always confirm pricing, regional availability, and policy with the official AI platform and payment provider sources.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ba6ce95274"></script>
+</body>
+</html>

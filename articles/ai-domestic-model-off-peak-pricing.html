@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek凌晨调用更便宜：错峰定价背后的算力账</title>
+  <meta name="description" content="DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API按接口类型给折扣的逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛，本文给出错峰调度思路与实名材料清单。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="DeepSeek凌晨调用更便宜：错峰定价背后的算力账">
+  <meta property="og:description" content="DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API按接口类型给折扣的逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛，本文给出错峰调度思路与实名材料清单。">
+  <meta property="og:url" content="https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html">
+  <meta property="article:published_time" content="2026-08-25T15:42:00+08:00">
+  <meta property="article:modified_time" content="2026-08-25T15:42:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DeepSeek凌晨调用更便宜：错峰定价背后的算力账">
+  <meta name="twitter:description" content="DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API按接口类型给折扣的逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛，本文给出错峰调度思路与实名材料清单。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="DeepSeek凌晨调用更便宜：错峰定价背后的算力账封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#webpage", "url": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html", "name": "DeepSeek凌晨调用更便宜：错峰定价背后的算力账", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "DeepSeek凌晨调用更便宜：错峰定价背后的算力账", "item": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html" }
+    ] },
+    { "@type": "Article", "headline": "DeepSeek凌晨调用更便宜：错峰定价背后的算力账", "description": "DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API按接口类型给折扣的逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛，本文给出错峰调度思路与实名材料清单。", "image": "https://ponr.org/img/cover-domestic-ai-off-peak-pricing.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-25T15:42:00+08:00", "dateModified": "2026-08-25T15:42:00+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["错峰定价", "峰谷计费", "DeepSeek API", "算力限流", "企业实名认证"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/ai-domestic-model-off-peak-pricing.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>DeepSeek凌晨调用更便宜：错峰定价背后的算力账</h1>
+          <p class="article-summary">DeepSeek、豆包、Kimi等国内大模型厂商近期陆续把API计价从"全天统一单价"改成了"错峰/峰谷定价"——北京时间白天工作时段调用更贵，凌晨或非高峰时段调用价格直接打对折甚至更低。这不是促销活动，而是厂商在算力资源白天紧张、夜间空闲这个现实约束下，用价格杠杆引导开发者把不着急出结果的批量任务挪到夜里跑。本文拆解这套机制具体怎么运作、跟海外批量API折扣有什么本质区别、哪些任务类型值得迁移、怎么在自己的调用脚本里做错峰调度，以及容易被和错峰定价混为一谈的实名认证/并发额度申请到底是怎么回事。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-25T15:42:00+08:00">2026-08-25 15:42:00</time> · 价格信息最后核验于 2026-08-25</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-off-peak-pricing.svg" width="800" height="400" alt="DeepSeek凌晨调用更便宜：错峰定价背后的算力账封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>自己的批量数据处理、模型微调、离线报表这类不要求即时返回的任务，是否可以直接设置成北京时间凌晨/非高峰时段调度执行</li>
+            <li><span class="article-verify-check">✓</span>调用脚本里判断"是否高峰时段"时，用的是不是准确的北京时间而不是服务器所在地时区或UTC，避免算错档位反而多付钱</li>
+            <li><span class="article-verify-check">✓</span>任务如果会跨越高峰/空闲时段的分界点，账单是按请求发起时间还是实际处理时间计价，有没有留出安全余量而不是卡着分界点提交</li>
+            <li><span class="article-verify-check">✓</span>申请更高并发额度前，是否已经把企业营业执照、对公银行账户等实名/资质材料准备好，而不是误以为多付钱就能自动获得更高并发</li>
+            <li><span class="article-verify-check">✓</span>账单明细里这次调用落在哪个时段档位，是否跟官方定价页当前公示的价格对得上，而不是凭旧印象心算</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：同一个模型，白天调用和凌晨调用不是一个价</h2>
+          <p>如果你最近在用DeepSeek等国内大模型的API，可能已经注意到账单上出现了两套单价：北京时间工作日白天（比如上午9点到12点、下午2点到6点这类高峰时段）调用同一个模型，单价会明显高于深夜或非高峰时段调用。这不是系统故障，也不是临时促销，而是厂商正式切换到的"峰谷定价"（也叫错峰定价）计费模式——同一个接口、同一个模型，价格会随时段自动切换。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 本质：算力白天紧张，价格是用来引导流量的杠杆</h2>
+          <p>错峰定价的底层逻辑并不复杂：模型推理需要的GPU算力是有限资源，白天是企业和开发者调用最密集的时段，算力池最容易被打满；而凌晨到清晨这段时间，调用量明显下降，大量算力处于空闲状态。厂商与其让这部分空闲算力白白闲置，不如用更低的价格吸引那些"不着急拿结果"的任务主动挪过来——本质上是用价格这根杠杆做流量调度，而不是单纯让利。这也是为什么高峰时段的价格不只是"没有折扣"，很多厂商的新定价方案里，高峰时段的价格本身也在同步上调，空闲时段的低价才是新方案里真正划算的部分。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 具体规则：以DeepSeek为例，时段怎么划分、价差有多大</h2>
+          <p>以DeepSeek官方定价文档公示的规则为例：高峰时段为北京时间周一至周五 9:00–12:00、14:00–18:00，其余时间（含全部周末）都算空闲时段，空闲时段价格固定为高峰时段价格的一半。具体到金额，以其中一档模型为例，缓存未命中的输入价格空闲时段约为每百万token 1.5元，高峰时段约为3元；输出价格空闲时段约为每百万token 4.5元，高峰时段约为9元。不同模型档位的具体数字会不一样，且厂商公示的价格本身也会调整，调用前建议直接查官方定价页确认当前生效的数字，不要凭这篇文章里的示例数字心算账单。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 跟海外批量API折扣像不像：触发条件是关键差异</h2>
+          <p>本站另一篇文章《按官方单价心算的AI API账单，为什么总是差着一截》里提到，OpenAI、Anthropic等海外服务商也有类似的"用低价换取灵活性"的机制——批量API（batch API），把不要求实时返回的任务打包提交，通常能拿到明显低于同步调用的折扣价。这跟国内大模型的错峰定价背后是同一套经济学原理：都是用价格换取"厂商能更灵活地安排算力资源"。但两者的触发条件完全不同：海外批量API的折扣看你调的是哪个接口（批量提交 vs 同步请求），跟具体几点钟提交没有关系，任务本身也不需要实时返回；国内错峰定价的折扣看你调用发生在哪个时间段，接口本身还是普通的同步调用接口，只是价格随时钟自动切换。简单说：一个是"选对接口"，一个是"选对时间"，不能拿同一套优化思路套两边。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 实名认证/企业资质核验，跟错峰定价是两件独立的事</h2>
+          <p>这里有一个很容易被搞混的地方：不少开发者以为只要账户完成了实名认证或者充值够多，就能自动解锁更高的并发/速率限制，进而误以为错峰定价和账号等级是绑在一起的同一套体系。实际上这是两套完全独立的机制——错峰定价只跟"你在什么时段调用"有关，跟账户是不是企业认证、并发额度多高完全无关；而更高的并发额度、更高的速率限制层级，通常需要单独走企业资质核验流程，跟本站《DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门》里提到的手机号实名认证也不是一回事——手机号实名是开通账号的基本门槛，企业资质核验是申请更高并发额度时的进阶门槛，三件事分属三个不同层级，不要因为完成了其中一件就默认另外两件也自动搞定。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 哪些任务适合迁移到低峰时段，脚本里怎么做错峰调度</h2>
+          <p>适合迁移到低峰时段的任务有一个共同特征：不要求秒级甚至分钟级的实时响应。典型的有：批量数据清洗与结构化处理（比如把历史客服记录批量打标签）、模型微调/继续训练任务、定时生成的日报周报月报、大批量文档的摘要与翻译、离线的语料标注与质量评估。这类任务本身跑起来通常要几分钟到几小时，用户对"几点钟开始跑"并不敏感，天然适合挪到夜间。落地到调用脚本层面，最简单的做法是用系统自带的定时任务工具（Linux下用cron，Windows下用任务计划程序，Python生态也可以用APScheduler这类库）把任务的启动时间设定在北京时间0点到8点这个窗口内，同时在代码里对当前时间做一次校验（务必按北京时间UTC+8计算，不要直接用服务器本地时区），如果发现任务快要拖到高峰时段分界点还没跑完，提前预留出半小时到一小时的缓冲，避免账单被算到刚好卡在分界线上的那次请求。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 申请更高并发额度前，实名材料通常要准备什么</h2>
+          <p>如果业务量上来了需要申请更高的并发/速率限制额度，大多数国内大模型厂商的企业资质核验流程会要求准备这几类材料：企业营业执照（三证合一后的统一社会信用代码证）扫描件或照片、对公银行账户信息（部分平台要求先完成对公账户打款验证）、企业经办人的身份证明以及必要时的授权委托书、部分场景还会要求提供业务使用场景说明。这些材料通常在平台的开放者控制台里有专门的"企业认证"或"资质升级"入口提交，审核周期从几个工作日到两周不等，具体以你使用的平台官方说明为准——建议在业务量真正逼近现有并发上限之前就提前准备，避免临时申请卡住线上任务。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 小结</h2>
+          <p>国内大模型API"白天贵、深夜打折"的错峰定价，本质是厂商用价格杠杆引导开发者把非实时任务挪到算力空闲的夜间时段，跟海外批量API折扣是相似的经济学逻辑，但触发条件一个按时段一个按接口类型，不能混用同一套优化思路。实名认证、企业资质核验与并发额度申请是另一套独立的合规/额度体系，跟错峰定价没有直接关系，把批量处理类任务迁移到低峰时段、并提前准备好企业资质材料，是两件可以分别落地的具体动作。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：同一个模型，白天调用和凌晨调用不是一个价</a></li>
+          <li><a href="#sec-2">2. 本质：算力白天紧张，价格是用来引导流量的杠杆</a></li>
+          <li><a href="#sec-3">3. 具体规则：以DeepSeek为例，时段怎么划分、价差有多大</a></li>
+          <li><a href="#sec-4">4. 跟海外批量API折扣像不像：触发条件是关键差异</a></li>
+          <li><a href="#sec-5">5. 实名认证/企业资质核验，跟错峰定价是两件独立的事</a></li>
+          <li><a href="#sec-6">6. 哪些任务适合迁移到低峰时段，脚本里怎么做错峰调度</a></li>
+          <li><a href="#sec-7">7. 申请更高并发额度前，实名材料通常要准备什么</a></li>
+          <li><a href="#sec-8">8. 小结</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing/" target="_blank" rel="noopener nofollow">DeepSeek 官方 API 定价文档</a>：DeepSeek 官方公示的峰谷分时定价规则、高峰/空闲时段划分与具体单价，对应本文错峰定价具体规则部分</li>
+            <li><a href="https://www.ithome.com/0/990/413.htm" target="_blank" rel="noopener nofollow">IT之家：DeepSeek API 峰谷定价方案今日生效，高峰时段价格翻倍</a>：第三方媒体对本次峰谷定价方案生效时间与价格变化的报道，对应本文错峰定价并非单纯让利的部分</li>
+            <li><a href="https://platform.kimi.com/docs" target="_blank" rel="noopener nofollow">Kimi 开放平台官方文档</a>：月之暗面 Kimi API 开放平台账户注册与接入流程的官方说明，对应本文实名认证与账户开通门槛部分</li>
+          </ul>
+          <p class="ref-note">国内大模型厂商的错峰定价时段划分、具体价格与实名/资质核验要求可能随时间调整，请以你所使用平台的官方定价页与开放平台文档最新说明为准。本文仅供学习与参考，不构成任何采购或财务建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          <li><a href="/articles/overseas-ai-token-billing.html">OpenAI API 价格详解：token 计费规则与用量估算方法</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ba6ce95274"></script>
+</body>
+</html>

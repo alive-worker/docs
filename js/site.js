@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-domestic-model-off-peak-pricing.html': '2026-08-25 15:42:00',
+    '/en/articles/ai-domestic-model-off-peak-pricing.html': '2026-08-25 15:42:00',
     '/articles/ai-account-login-risk-device-fingerprint.html': '2026-08-25 13:15:00',
     '/en/articles/ai-account-login-risk-device-fingerprint.html': '2026-08-25 13:15:00',
     '/articles/ai-api-rate-limit-tier-billing.html': '2026-08-25 10:41:45',

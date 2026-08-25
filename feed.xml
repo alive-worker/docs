@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 25 Aug 2026 13:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 25 Aug 2026 15:42:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[DeepSeek凌晨调用更便宜：错峰定价背后的算力账]]></title>
+    <link>https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</guid>
+    <pubDate>Tue, 25 Aug 2026 15:42:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API折扣逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛。]]></description>
+  </item>
   <item>
     <title><![CDATA[换个网络登录AI账号，为什么突然要过一遍验证码]]></title>
     <link>https://ponr.org/articles/ai-account-login-risk-device-fingerprint.html</link>
