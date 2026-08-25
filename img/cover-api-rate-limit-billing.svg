@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI API并发速率限制费导致账单高于token单价心算示意图">
+  <defs>
+    <linearGradient id="bgGradRlb" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141b2e"/>
+      <stop offset="1" stop-color="#1c2740"/>
+    </linearGradient>
+    <radialGradient id="glowRlb" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e0a95a" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#e0a95a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradRlb)"/>
+  <rect width="800" height="400" fill="url(#glowRlb)"/>
+  <g stroke="#3d4d75" stroke-width="1.4" opacity="0.55" fill="none">
+    <path d="M40 40 h90 v50 h60"/>
+    <path d="M60 360 h80 v-45 h55"/>
+  </g>
+  <g fill="#9db4e8">
+    <circle cx="40" cy="40" r="3.5"/>
+    <circle cx="130" cy="40" r="3.5"/>
+    <circle cx="190" cy="90" r="3.5"/>
+    <circle cx="60" cy="360" r="3.5"/>
+    <circle cx="140" cy="360" r="3.5"/>
+    <circle cx="195" cy="315" r="3.5"/>
+  </g>
+
+  <!-- Left: gauge/speedometer showing burst zone hitting the rate-limit ceiling -->
+  <g transform="translate(116,190)">
+    <circle r="70" fill="#20293f" stroke="#6d84c2" stroke-width="2.2"/>
+    <path d="M -50 20 A 55 55 0 0 1 -30 -46" stroke="#5fbf8f" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M -30 -46 A 55 55 0 0 1 30 -46" stroke="#e0c05a" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M 30 -46 A 55 55 0 0 1 50 20" stroke="#e07a7a" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="34" y2="-38" stroke="#e7edfb" stroke-width="3.4" stroke-linecap="round"/>
+    <circle r="6" fill="#e7edfb"/>
+    <text x="0" y="46" text-anchor="middle" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="700" fill="#dbe4fb">QPS / RPM</text>
+  </g>
+
+  <text x="56" y="270" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="40" font-weight="700" fill="#e7edfb">并发限速账单</text>
+  <text x="58" y="304" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#9db4e8">RATE LIMIT &amp; TIER SURCHARGE</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#9db4e8" opacity="0.85">AI服务指南</text>
+
+  <!-- Right: billing card panel showing signals -->
+  <rect x="420" y="70" width="330" height="230" rx="16" fill="#20293f" stroke="#3d4d75" stroke-width="1.5"/>
+  <circle cx="446" cy="100" r="6" fill="#e0a95a"/>
+  <text x="462" y="105" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="700" fill="#e7edfb">账单明细多出的行</text>
+  <line x1="440" y1="122" x2="730" y2="122" stroke="#324066" stroke-width="1"/>
+
+  <text x="440" y="148" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ Rate Limit / Concurrency 费用行</text>
+  <text x="440" y="176" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 突发流量计入更贵的按需层级</text>
+  <text x="440" y="204" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 高峰时段费用曲线明显异常</text>
+  <text x="440" y="232" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#dbe4fb">✕ 同步请求拿不到批量接口折扣</text>
+
+  <rect x="440" y="252" width="290" height="30" rx="8" fill="#243252"/>
+  <text x="454" y="272" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#e0c05a">先拆账单行，再判断能否迁移批量接口</text>
+</svg>
