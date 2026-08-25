@@ -110,7 +110,7 @@
           <h2>2. Three Key Dimensions of a Healthy Network Environment</h2>
           <p>Whether a network environment is "healthy" can be broken down into three dimensions.</p>
           <h3 id="sec-2-1">2.1 Stability</h3>
-          <p>Does the connection drop frequently, or does the exit IP switch mid-session? If your network disconnects or your IP suddenly changes partway through registration or checkout, it can easily trigger a platform's anomaly detection, causing verification codes or SMS checks to fail repeatedly, or the order to be rejected outright.</p>
+          <p>Does the connection drop frequently, or does the exit IP switch mid-session? If your network disconnects or your IP suddenly changes partway through registration or checkout, it can easily trigger a platform's anomaly detection, causing verification codes or SMS checks to fail repeatedly, or the order to be rejected outright. That step-up verification is login/session risk control at work — device fingerprint changes, IP geolocation jumps, and odd login timing are independent signals it weighs, and it's a separate system from the payment risk control that blocks renewal charges. For the specific mechanism and the unlock/appeal process, see "<a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a>."</p>
           <h3 id="sec-2-2">2.2 Legitimacy</h3>
           <p>Is your exit node flagged by the platform as a datacenter IP, a known proxy pool, or otherwise high-risk? Even if such an IP can load a website normally, sensitive actions like registration, login, and payment are far more likely to trigger extra verification steps — or be blocked outright.</p>
           <h3 id="sec-2-3">2.3 Regional Consistency</h3>
@@ -175,6 +175,7 @@
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>
           <ul>
+          <li><a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a></li>
           <li><a href="/en/articles/tool-selection-guide.html">Choosing the Right Tools for Overseas AI Subscriptions: Payments, Network &amp; Account Management</a></li>
           <li><a href="/en/articles/account-security-guide.html">AI Subscription Account Security: Two-Factor Auth, Suspicious Logins &amp; Account Recovery</a></li>
           <li><a href="/en/articles/subscription-guide.html">The Complete Guide to Subscribing to ChatGPT, Claude, Gemini &amp; More</a></li>

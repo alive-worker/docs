@@ -112,7 +112,7 @@
           <h3 id="sec-2-1">2.1 The login credentials themselves</h3>
           <p>Weak passwords and password reuse — using the same password across multiple platforms — are the most basic and most common risk. Once any one platform suffers a data breach, accounts that reused that password become targets for automated "credential stuffing" attempts across other services.</p>
           <h3 id="sec-2-2">2.2 Consistency of your login environment</h3>
-          <p>Frequently switching network exit points, or logging in from wildly different regions in a short span, is easy for a platform to flag as anomalous — triggering extra verification steps or even a temporary lock. This connects directly to what we cover in <a href="/en/articles/network-region-check.html">Network &amp; Region Check Before You Subscribe</a>: an unstable network setup doesn't just complicate billing, it also undermines the stability of your login sessions.</p>
+          <p>Frequently switching network exit points, or logging in from wildly different regions in a short span, is easy for a platform to flag as anomalous — triggering extra verification steps or even a temporary lock. This connects directly to what we cover in <a href="/en/articles/network-region-check.html">Network &amp; Region Check Before You Subscribe</a>: an unstable network setup doesn't just complicate billing, it also undermines the stability of your login sessions. What's actually firing here is login/session risk control — device fingerprint changes, IP geolocation jumps, and odd login timing all feed into the score — and it's a completely separate system from the payment risk control that blocks renewal charges covered elsewhere on this site. For the specific triggers and the appeal/unlock process, see "<a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a>."</p>
           <h3 id="sec-2-3">2.3 Shared and collaborative use</h3>
           <p>When a team or multiple people share one account, unclear permission boundaries and credentials passed around in plain text over chat apps are where things go wrong most often. See <a href="/en/articles/team-subscription-management.html">Managing AI Subscriptions for Teams &amp; Multiple Accounts</a> for more on this.</p>
         </section>
@@ -173,6 +173,7 @@
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>
           <ul>
+          <li><a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a></li>
           <li><a href="/en/articles/tool-selection-guide.html">Choosing the Right Tools for Overseas AI Subscriptions: Payments, Network &amp; Account Management</a></li>
           <li><a href="/en/articles/family-plan-guide.html">Family &amp; Shared Plans for AI Subscriptions: A Practical Guide</a></li>
           <li><a href="/en/articles/network-region-check.html">Network &amp; Region Check Before You Subscribe: Stable Connections, Consistent Billing Regions</a></li>

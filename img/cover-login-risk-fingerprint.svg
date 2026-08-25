@@ -1,0 +1,71 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="设备指纹突变与异地登录触发账号锁定示意图">
+  <defs>
+    <linearGradient id="bgGradLrf" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1c1420"/>
+      <stop offset="1" stop-color="#241c2e"/>
+    </linearGradient>
+    <radialGradient id="glowLrf" cx="680" cy="70" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d15a6e" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#d15a6e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradLrf)"/>
+  <rect width="800" height="400" fill="url(#glowLrf)"/>
+
+  <!-- faint world dot-map backdrop -->
+  <g fill="#5a4a68" opacity="0.55">
+    <circle cx="120" cy="90" r="2.6"/><circle cx="150" cy="80" r="2.6"/><circle cx="180" cy="95" r="2.6"/>
+    <circle cx="210" cy="70" r="2.6"/><circle cx="240" cy="88" r="2.6"/><circle cx="270" cy="76" r="2.6"/>
+    <circle cx="480" cy="100" r="2.6"/><circle cx="510" cy="82" r="2.6"/><circle cx="540" cy="96" r="2.6"/>
+    <circle cx="570" cy="74" r="2.6"/><circle cx="610" cy="90" r="2.6"/><circle cx="650" cy="80" r="2.6"/>
+    <circle cx="140" cy="320" r="2.6"/><circle cx="180" cy="335" r="2.6"/><circle cx="220" cy="318" r="2.6"/>
+    <circle cx="560" cy="330" r="2.6"/><circle cx="600" cy="315" r="2.6"/><circle cx="640" cy="332" r="2.6"/>
+  </g>
+
+  <!-- two distant pins connected by a crossed-out dashed "impossible travel" line -->
+  <g>
+    <path d="M180 150 Q 400 60 600 160" fill="none" stroke="#e9a2ad" stroke-width="2.4" stroke-dasharray="7 7" opacity="0.85"/>
+    <g transform="translate(180,150)">
+      <path d="M0 -20 C11 -20 20 -11.5 20 0 C20 15 0 30 0 30 C0 30 -20 15 -20 0 C-20 -11.5 -11 -20 0 -20 Z" fill="#e0748a"/>
+      <circle cx="0" cy="-1" r="7" fill="#241c2e"/>
+    </g>
+    <g transform="translate(600,160)">
+      <path d="M0 -20 C11 -20 20 -11.5 20 0 C20 15 0 30 0 30 C0 30 -20 15 -20 0 C-20 -11.5 -11 -20 0 -20 Z" fill="#e0748a"/>
+      <circle cx="0" cy="-1" r="7" fill="#241c2e"/>
+    </g>
+    <!-- crossed-out mark over the travel line -->
+    <g transform="translate(390,108)" stroke="#f3d6da" stroke-width="6" stroke-linecap="round">
+      <line x1="-16" y1="-16" x2="16" y2="16"/>
+      <line x1="16" y1="-16" x2="-16" y2="16"/>
+    </g>
+  </g>
+
+  <!-- shield + lock, center-left focal icon -->
+  <g transform="translate(120,232)">
+    <path d="M0 -58 L56 -40 L56 4 C56 42 28 62 0 74 C-28 62 -56 42 -56 4 L-56 -40 Z" fill="#2c2236" stroke="#c97f8f" stroke-width="2.4"/>
+    <rect x="-22" y="-6" width="44" height="34" rx="6" fill="#3a2c46" stroke="#e6b3bd" stroke-width="2.2"/>
+    <path d="M-14 -6 v-12 a14 14 0 0 1 28 0 v12" fill="none" stroke="#e6b3bd" stroke-width="4.4" stroke-linecap="round"/>
+    <circle cx="0" cy="12" r="5.4" fill="#e6b3bd"/>
+    <rect x="-2.4" y="14" width="4.8" height="11" rx="2" fill="#e6b3bd"/>
+  </g>
+
+  <!-- browser/fingerprint chip icon top-right -->
+  <g transform="translate(660,240)">
+    <rect x="-46" y="-34" width="92" height="68" rx="10" fill="#2c2236" stroke="#8f7aa8" stroke-width="2"/>
+    <line x1="-46" y1="-16" x2="46" y2="-16" stroke="#8f7aa8" stroke-width="1.6"/>
+    <circle cx="-34" cy="-25" r="2.6" fill="#c9a4d6"/>
+    <circle cx="-24" cy="-25" r="2.6" fill="#c9a4d6"/>
+    <circle cx="-14" cy="-25" r="2.6" fill="#c9a4d6"/>
+    <g stroke="#d7b8e2" stroke-width="2.2" fill="none" stroke-linecap="round">
+      <path d="M-22 6 a22 22 0 0 1 44 0"/>
+      <path d="M-15 12 a15 15 0 0 1 30 0"/>
+      <path d="M-8 18 a8 8 0 0 1 16 0"/>
+      <line x1="0" y1="18" x2="0" y2="24"/>
+    </g>
+  </g>
+
+  <text x="56" y="270" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="0" fill="transparent">.</text>
+  <text x="230" y="270" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="38" font-weight="700" fill="#f3e6ea">登录风控 · 异地锁定</text>
+  <text x="232" y="304" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#c9a4d6">DEVICE FINGERPRINT &amp; IMPOSSIBLE TRAVEL</text>
+  <text x="736" y="366" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#c9a4d6" opacity="0.85">AI服务指南</text>
+</svg>

@@ -32,6 +32,10 @@
 - `og:image` / `twitter:image` / JSON-LD `ImageObject.url` / `Article.image` 四处都指向 `.png`，`og:image:type` 写 `image/png`，`og:image:width`/`height` 与光栅化尺寸一致（800/400 或 1200/630，不要照抄别的页面的尺寸）。
 - 系统里没有 ImageMagick/rsvg-convert 之类的 CLI 工具，`C:\WINDOWS\system32\convert.exe` 是磁盘转换工具、不是图片转换工具，不要被名字误导；无头 Chrome 截图是当前唯一可用的光栅化手段。
 
+## 3.5 选题：别只写海外AI，国内AI大模型也要时不时覆盖
+
+站内 75+ 篇文章绝大多数标题带 `overseas-ai-`/`ai-subscription-`，全是围绕海外AI服务（ChatGPT/Claude/Gemini）的支付、账单、风控、虚拟卡、稳定币场景；专门讲国内AI大模型（DeepSeek、豆包、Kimi、文心一言、通义千问等）的只有 `domestic-ai-subscription-guide.html` 一篇入门导读，且没有进首页可见网格（被标了 `post-card--overflow`）。这是 2026-08-25 用户明确提出的反馈：以后新增文章时，不能每次都默认写海外AI主题，要时不时选国内大模型相关的具体场景/机制作为选题（比如国内大模型的会员计费规则、企业API定价、账号实名/合规要求、算力紧张导致的限流、国内支付渠道特有的坑等），跟海外AI主题交替安排，不要长期只发一种。新增国内AI主题文章时，同样要满足本文件其余全部标准（标题/描述/封面图/核验清单/资料来源等），资料来源改用国内官方文档/公告（比如各厂商自己的定价页、公告）。
+
 ## 4. 新文章上线检查清单
 
 生成新文章（中英文各一篇）时，除了正文本身，以下**全部**要同步完成，不要遗漏：

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 25 Aug 2026 10:41:45 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 25 Aug 2026 13:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[换个网络登录AI账号，为什么突然要过一遍验证码]]></title>
+    <link>https://ponr.org/articles/ai-account-login-risk-device-fingerprint.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-account-login-risk-device-fingerprint.html</guid>
+    <pubDate>Tue, 25 Aug 2026 13:15:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[出差换了酒店Wi-Fi或切换VPN节点登录AI账号，密码没输错，却突然被要求补一次邮箱验证码、图形人机验证，严重时账号还会被直接临时锁定，这是登录风控系统在识别设备指纹突变、IP地理位置跳跃与登录时段异常，和拦截续费扣款的支付风控完全是两套独立系统，本文拆解三类触发信号、锁号后的申诉流程与预防方法。]]></description>
+  </item>
   <item>
     <title><![CDATA[按官方单价心算的AI API账单，为什么总是差着一截]]></title>
     <link>https://ponr.org/articles/ai-api-rate-limit-tier-billing.html</link>

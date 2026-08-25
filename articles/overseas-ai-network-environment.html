@@ -111,7 +111,7 @@
           <h2>2. 网络环境的三个关键维度</h2>
           <p>评估网络环境是否"健康"，可以拆成三个维度来看。</p>
           <h3 id="sec-2-1">2.1 稳定性</h3>
-          <p>连接是否会频繁掉线、切换出口 IP。注册或支付过程中如果网络中途断开或 IP 突然变化，很容易触发平台的异常检测，导致验证码/短信验证反复失败，或订单直接被拒。</p>
+          <p>连接是否会频繁掉线、切换出口 IP。注册或支付过程中如果网络中途断开或 IP 突然变化，很容易触发平台的异常检测，导致验证码/短信验证反复失败，或订单直接被拒。这里触发的登录异常验证属于登录/会话风控——设备指纹突变、IP地理跳跃、登录时段异常都是独立信号，和拦截续费扣款的支付风控是两套系统，具体机制与解锁申诉流程可参考《<a href="/articles/ai-account-login-risk-device-fingerprint.html">换个网络登录AI账号，为什么突然要过一遍验证码</a>》。</p>
           <h3 id="sec-2-2">2.2 真实性</h3>
           <p>网络出口是否被平台判定为数据中心 IP、已知代理池或高风险节点。这类 IP 即便能正常打开网站，在注册、登录、支付这类敏感操作上也更容易被要求额外验证，甚至直接被拦截。</p>
           <h3 id="sec-2-3">2.3 地区一致性</h3>
@@ -176,6 +176,7 @@
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>
           <ul>
+          <li><a href="/articles/ai-account-login-risk-device-fingerprint.html">换个网络登录AI账号，为什么突然要过一遍验证码</a></li>
           <li><a href="/articles/overseas-ai-tool-selection.html">工具怎么选不踩坑：海外AI支付与网络避坑手册</a></li>
           <li><a href="/articles/overseas-ai-account-security.html">两步验证、异常登录、账号找回：海外AI账号安全实操</a></li>
           <li><a href="/articles/overseas-ai-subscription-guide.html">ChatGPT、Claude、Gemini怎么开通：海外AI订阅全景图</a></li>

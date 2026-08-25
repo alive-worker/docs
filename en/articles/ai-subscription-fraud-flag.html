@@ -104,7 +104,7 @@
 
         <section id="sec-1">
           <h2>1. Fraud engines don't recognize "family" — only a stack of statistical signals</h2>
-          <p>Payment gateway and issuing-bank anti-fraud systems are scoring models trained on historical chargeback data, fed dozens of quantifiable features: text similarity between the cardholder name and the billing/account contact name, the distance between the billing address and the geolocated IP of the device making the charge, whether the card's issuing-country BIN matches the current login country, and how many distinct accounts or devices have attempted to use this card in the last 24 hours. The system has no way to understand "this is my mother's card and I'm renewing it for her while living elsewhere" — it just sees a bundle of features like "cardholder name doesn't match account name + geographic distance over 500km + first use on this device in 24 hours." Any single signal might only add a modest risk weight, but three or four together routinely push the score straight past the automatic-block line.</p>
+          <p>Payment gateway and issuing-bank anti-fraud systems are scoring models trained on historical chargeback data, fed dozens of quantifiable features: text similarity between the cardholder name and the billing/account contact name, the distance between the billing address and the geolocated IP of the device making the charge, whether the card's issuing-country BIN matches the current login country, and how many distinct accounts or devices have attempted to use this card in the last 24 hours. The system has no way to understand "this is my mother's card and I'm renewing it for her while living elsewhere" — it just sees a bundle of features like "cardholder name doesn't match account name + geographic distance over 500km + first use on this device in 24 hours." Any single signal might only add a modest risk weight, but three or four together routinely push the score straight past the automatic-block line. One clarification worth making up front: this article covers payment risk control that blocks a renewal charge. If what you're actually running into is a new network or device suddenly requiring step-up verification or triggering a temporary account lock at login, that's a completely separate login/session risk system, with different triggers and a different appeal channel — see "<a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a>."</p>
         </section>
         <section id="sec-2">
           <h2>2. AVS address checks are the piece most likely to misfire in family setups</h2>
@@ -167,6 +167,7 @@
         <aside class="related" aria-label="Related articles">
           <h2>Related Articles</h2>
           <ul>
+          <li><a href="/en/articles/ai-account-login-risk-device-fingerprint.html">Why a New Network Locks You Out of Your AI Account</a></li>
           <li><a href="/en/articles/ai-subscription-shared-plan-payment-failure.html">When the Plan Owner's Card Fails, Everyone Gets Locked Out</a></li>
           <li><a href="/en/articles/ai-subscription-company-acquisition.html">Your AI Tool Got Acquired: What Happens to Your Bill</a></li>
           <li><a href="/en/articles/ai-subscription-chargeback-dispute.html">Disputing an AI Subscription Charge? Do This First</a></li>
