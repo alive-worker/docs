@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent模式改代码，为什么几分钟就把整月请求额度刷没了</title>
+  <meta name="description" content="Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单代码补全消耗很少甚至不计入额度，但Agent模式下读文件、跑测试、多轮修改每一步都可能各算一次请求，账单只显示笼统总数，几分钟就能耗光平时几天的额度，本文讲清计费机制、怎么看请求细分、按任务选补全还是Agent模式控用量。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/ai-coding-agent-request-quota-burn.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-coding-agent-request-quota-burn.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-coding-agent-request-quota-burn.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="Agent模式改代码，为什么几分钟就把整月请求额度刷没了">
+  <meta property="og:description" content="Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单代码补全消耗很少甚至不计入额度，但Agent模式下读文件、跑测试、多轮修改每一步都可能各算一次请求，账单只显示笼统总数，几分钟就能耗光平时几天的额度，本文讲清计费机制、怎么看请求细分、按任务选补全还是Agent模式控用量。">
+  <meta property="og:url" content="https://ponr.org/articles/ai-coding-agent-request-quota-burn.html">
+  <meta property="article:published_time" content="2026-08-25T18:05:02+08:00">
+  <meta property="article:modified_time" content="2026-08-25T18:05:02+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent模式改代码，为什么几分钟就把整月请求额度刷没了">
+  <meta name="twitter:description" content="Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单代码补全消耗很少甚至不计入额度，但Agent模式下读文件、跑测试、多轮修改每一步都可能各算一次请求，账单只显示笼统总数，几分钟就能耗光平时几天的额度，本文讲清计费机制、怎么看请求细分、按任务选补全还是Agent模式控用量。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-ai-coding-agent-quota-burn.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Agent模式改代码，为什么几分钟就把整月请求额度刷没了封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-ai-coding-agent-quota-burn.png">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#primaryimage", "url": "https://ponr.org/img/cover-ai-coding-agent-quota-burn.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#webpage", "url": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html", "name": "Agent模式改代码，为什么几分钟就把整月请求额度刷没了", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Agent模式改代码，为什么几分钟就把整月请求额度刷没了", "item": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html" }
+    ] },
+    { "@type": "Article", "headline": "Agent模式改代码，为什么几分钟就把整月请求额度刷没了", "description": "Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单代码补全消耗很少甚至不计入额度，但Agent模式下读文件、跑测试、多轮修改每一步都可能各算一次请求，账单只显示笼统总数，几分钟就能耗光平时几天的额度，本文讲清计费机制、怎么看请求细分、按任务选补全还是Agent模式控用量。", "image": "https://ponr.org/img/cover-ai-coding-agent-quota-burn.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-25T18:05:02+08:00", "dateModified": "2026-08-25T18:05:02+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["高级请求计费", "Agent模式", "Cursor定价", "GitHub Copilot计费", "premium request"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-coding-agent-request-quota-burn.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/ai-coding-agent-request-quota-burn.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Agent模式改代码，为什么几分钟就把整月请求额度刷没了</h1>
+          <p class="article-summary">Cursor、GitHub Copilot、Windsurf这类AI编程工具的订阅都按"高级请求（premium request）"数量计费并设有月度上限，但同一个额度池里，单次代码补全消耗很少甚至不计入额度，而开启Agent模式让模型自主读文件、跑测试、多轮修改的一次任务，背后可能拆成好几次独立的模型调用，每一步都各自算一次请求。账单上通常只显示"请求数"这一个笼统总数，用户很难在使用当下意识到消耗速度的巨大差异，导致平时能用好几天的额度，一次复杂的Agent任务几分钟就能刷完。本文拆解这套计费机制具体怎么运作、几款主流工具各自的计法有什么不同、怎么在自己的用量面板里查看请求类型细分，以及怎么按任务类型主动选择补全模式还是Agent模式来控制消耗速度。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-25T18:05:02+08:00">2026-08-25 18:05:02</time> · 计费机制信息最后核验于 2026-08-25</p>
+        </header>
+        <img class="article-cover" src="/img/cover-ai-coding-agent-quota-burn.svg" width="800" height="400" alt="Agent模式改代码，为什么几分钟就把整月请求额度刷没了封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>这个月账单里请求数是从哪一天开始快速上涨的，能否对应回自己某一次开启Agent模式处理多文件任务的时间点</li>
+            <li><span class="article-verify-check">✓</span>自己使用的工具后台是否有用量/usage细分面板，能不能看到"补全""对话""Agent"这几类各自消耗了多少请求或额度，而不是只有一个笼统总数</li>
+            <li><span class="article-verify-check">✓</span>近期跑过的某一次Agent多步任务，中间是不是包含了读取多个文件、执行终端命令、反复修改再验证这类会被拆成多次调用的动作</li>
+            <li><span class="article-verify-check">✓</span>是否已经根据任务类型（简单改一行代码 vs 需要跨文件排查的复杂改动）在工具里手动区分选用补全/对话模式还是Agent模式，而不是不管任务大小都默认打开Agent</li>
+            <li><span class="article-verify-check">✓</span>如果账单里出现了"model multiplier"或类似倍率字段，有没有确认自己选用的具体模型对应的倍率数字，而不是凭旧价格表心算</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：明明只跑了一个任务，额度却掉了一大截</h2>
+          <p>如果你用Cursor、GitHub Copilot或Windsurf这类AI编程工具订阅了付费计划，可能遇到过这样的情况：打开Agent模式让它帮你完成一个"重构这几个文件里的某个函数"的任务，看起来只是提交了一次指令，结果几分钟后回头看用量面板，这个月的高级请求额度已经消耗了一大截——按平时补全代码的消耗速度，这本该是够用好几天的量。这不是账单出错，而是Agent模式背后的计费颗粒度跟你直觉里"发一条指令=一次消耗"完全不是一回事。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 计费单位不是"你发的一条指令"，而是模型/工具背后实际发生的调用</h2>
+          <p>这几款工具的订阅制普遍按"高级请求"数量计费并设月度上限，但"一次高级请求"具体怎么定义，各家规则不完全一样，且都在随时间调整。核心共性是：简单的单次代码补全（Tab自动补全、行内建议）通常运行在轻量或工具自研的模型上，消耗很少甚至完全不计入额度；但当你切换到Agent模式，让模型自主完成一个多步骤任务时，这个任务在后台往往会被拆解成多次独立的模型调用或工具调用——读一次文件、跑一次测试、改一次代码、再验证一次，每一步都可能各自触发一次计费判定，而不是整个任务合并算一次。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 为什么Agent模式消耗更快：每一步都是独立的模型/工具调用</h2>
+          <p>补全模式之所以便宜，是因为它做的事情单一且确定——根据当前光标位置预测接下来几行代码，一次调用就能给出结果。Agent模式则完全不同：它要完成的是一个开放式任务，模型需要自己规划步骤、决定读哪些文件、要不要执行终端命令、结果不对时要不要重试，整个过程是一连串自主决策链，链条上的每一环（读文件、写文件、跑测试、看报错、再修改）都可能是一次独立的模型推理或工具调用。任务涉及的文件越多、需要的修改-验证循环越多，链条就越长，实际消耗的调用次数也越多——这跟任务"看起来复杂不复杂"未必成正比，一个涉及五六个文件的重构任务，哪怕每处改动都很小，也可能因为步骤多而消耗不少次调用。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 几款主流工具各自怎么计：不能用同一套规则套所有产品</h2>
+          <p>具体到产品层面，几家的规则并不相同，且都在持续调整，建议以各自官方最新文档为准，这里只说清楚"计费单位是什么"这个结构性问题：Cursor的计价围绕实际消耗的token展开，手动选用某个前沿模型（而非自动路由）才会从付费额度池里扣费，Agent模式下一次多文件任务可能在背后触发若干次独立的模型调用，因此实际扣费会随任务涉及的文件数、步骤数浮动；GitHub Copilot的官方文档明确说明，Agent模式下真正计入"高级请求"的是你自己发出的每一条提示词，按所选模型的倍率计费，而模型在这条提示词之后自主执行的文件编辑、终端命令等后续动作不重复计费，但如果你在同一个Agent任务执行过程中多次追加指令，每一次追加都会单独计费；Windsurf的Cascade代理同样是多步骤智能体，官方文档里把"每一步"和"每一次高级模型调用"作为消耗单位，一次涉及多个步骤的任务会按步骤数累计消耗，具体计费单位这家产品在最近一段时间也经历过调整，务必以你打开控制台时看到的当前规则为准。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 账单只显示一个笼统总数，是消耗速度难被察觉的关键原因</h2>
+          <p>这套机制之所以容易让人措手不及，很大程度是因为大多数工具默认呈现给用户的用量信息，就是月度已用/剩余的"请求数"这一个汇总数字，并不会在你操作的当下实时提示"这次Agent任务已经消耗了N次调用"。你在敲下一次指令、看着Agent自动跑完任务的过程中，感知到的只是"我提交了一次任务"，而账本里实际记录的可能是好几笔独立扣费，两者之间的落差只有等你回头翻用量面板时才会暴露出来——这也是为什么很多用户的直观印象是"这个月怎么突然就超额了"，而不是能在使用当下就意识到某一次操作正在快速消耗额度。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 怎么观察自己的消耗速率：留意后台的用量细分面板</h2>
+          <p>如果账单上只有一个总数，确实很难判断消耗速度是否异常，但部分工具在设置或账户页面里提供了更细的用量拆解入口，值得主动去找一下：Cursor的账户设置里有usage-based pricing的用量明细页，能按具体调用逐条查看token消耗与费用；GitHub Copilot的组织管理后台对企业账户提供按模型、按功能（Chat/Agent/Code Review等）拆分的用量报表；Windsurf的账户面板也能看到按会话拆分的消耗记录。养成习惯，在开始一个预计会比较复杂的Agent任务之前先看一眼当前剩余额度，任务跑完后再回头核对一次消耗了多少，比只在月底账单出来时才发现异常要主动得多。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 怎么按任务类型主动选择：什么时候该用补全，什么时候值得开Agent</h2>
+          <p>控制消耗速度最直接的办法不是少用这些工具，而是让任务类型和模式匹配起来。像"补全下一行代码""按已有模式写一个类似的函数"这类范围明确、单文件内就能完成的改动，用普通的Tab补全或简单对话模式往往就够了，成本也最低；而"跨多个文件排查一个bug的根因""按新需求重构一整个模块""帮我把这批文件都改成新的接口写法"这类需要模型自主规划步骤、涉及多文件读写的任务，才真正适合交给Agent模式，因为这类任务本身就需要多轮读写验证，用普通对话模式反而要你自己一步步喂上下文，效率更低。实操上可以给自己定一条简单的判断标准：改动范围能不能用一两句话说清楚、涉及的文件数是不是个位数——能，就先试试补全或对话模式；涉及步骤多到自己也数不清楚要改几处，再开Agent模式，并且开始前先看一眼当前剩余额度，任务执行中如果发现范围在不断扩大，考虑中途打断、拆成几个更小的Agent任务分别执行，而不是让它在一个不断膨胀的任务里持续跑下去。</p>
+        </section>
+        <section id="sec-8">
+          <h2>8. 小结</h2>
+          <p>Cursor、GitHub Copilot、Windsurf这类AI编程订阅按高级请求数计费封顶，但同一个额度池里，简单补全消耗很少，Agent模式下每一步读文件、跑测试、多轮修改都可能各自算一次调用，账单默认只呈现一个笼统总数，导致消耗速度很难在使用当下被察觉。主动去看工具后台的用量细分面板、按任务范围是否需要多文件多步骤来选择补全还是Agent模式，是两个可以立刻落地的具体动作，比等到月底额度耗尽才回头查账单更有效。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：明明只跑了一个任务，额度却掉了一大截</a></li>
+          <li><a href="#sec-2">2. 计费单位不是"你发的一条指令"，而是模型/工具背后实际发生的调用</a></li>
+          <li><a href="#sec-3">3. 为什么Agent模式消耗更快：每一步都是独立的模型/工具调用</a></li>
+          <li><a href="#sec-4">4. 几款主流工具各自怎么计：不能用同一套规则套所有产品</a></li>
+          <li><a href="#sec-5">5. 账单只显示一个笼统总数，是消耗速度难被察觉的关键原因</a></li>
+          <li><a href="#sec-6">6. 怎么观察自己的消耗速率：留意后台的用量细分面板</a></li>
+          <li><a href="#sec-7">7. 怎么按任务类型主动选择：什么时候该用补全，什么时候值得开Agent</a></li>
+          <li><a href="#sec-8">8. 小结</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://cursor.com/docs/models-and-pricing" target="_blank" rel="noopener nofollow">Cursor 官方文档：Models &amp; Pricing</a>：Cursor 官方对按 token 计费、Auto 模式与手动选用前沿模型时额度池扣费规则的说明，对应本文计费单位部分</li>
+            <li><a href="https://docs.github.com/en/copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot" target="_blank" rel="noopener nofollow">GitHub 官方文档：Understanding and managing requests in Copilot</a>：GitHub 官方说明 Agent 模式下用户提示词才计入高级请求、模型自主执行的后续动作不重复计费，对应本文几款工具计法对比部分</li>
+            <li><a href="https://docs.github.com/en/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans" target="_blank" rel="noopener nofollow">GitHub 官方文档：Model multipliers for annual plans</a>：GitHub 官方公示的各模型请求倍率表，对应本文关于倍率数字的核验建议</li>
+          </ul>
+          <p class="ref-note">各工具的高级请求定义、计费颗粒度与倍率数字会随时间调整，请以你所使用平台的官方定价页与用量面板当前显示为准。本文仅供学习与参考，不构成任何采购或财务建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-coding-assistant-guide.html">Copilot 还是 Cursor：AI 编程订阅怎么挑</a></li>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          <li><a href="/articles/overseas-ai-token-billing.html">OpenAI API 价格详解：token 计费规则与用量估算方法</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ba6ce95274"></script>
+</body>
+</html>

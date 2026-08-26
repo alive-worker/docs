@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规</title>
+  <meta name="description" content="很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力、面向境内公众的生成式AI服务需单独完成算法备案，这是网信办备案系统里区别于ICP的另一套流程，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规">
+  <meta property="og:description" content="很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力、面向境内公众的生成式AI服务需单独完成算法备案，这是网信办备案系统里区别于ICP的另一套流程，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html">
+  <meta property="article:published_time" content="2026-08-26T10:00:01+08:00">
+  <meta property="article:modified_time" content="2026-08-26T10:00:01+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规">
+  <meta name="twitter:description" content="很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力、面向境内公众的生成式AI服务需单独完成算法备案，这是网信办备案系统里区别于ICP的另一套流程，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-generative-filing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-generative-filing.png">
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-generative-filing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#webpage", "url": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html", "name": "接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规", "item": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html" }
+    ] },
+    { "@type": "Article", "headline": "接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规", "description": "很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力、面向境内公众的生成式AI服务需单独完成算法备案，这是网信办备案系统里区别于ICP的另一套流程，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。", "image": "https://ponr.org/img/cover-domestic-ai-generative-filing.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-26T10:00:01+08:00", "dateModified": "2026-08-26T10:00:01+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["生成式人工智能服务管理暂行办法", "算法备案", "ICP备案", "网信办", "大模型API合规"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-generative-filing-vs-icp.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规</h1>
+          <p class="article-summary">很多个人开发者和小团队调用DeepSeek、豆包、通义千问这类国内大模型的API做面向公众的网站、小程序或App，走完了网站的ICP备案就以为万事俱备。但ICP备案、《互联网信息服务算法推荐管理规定》里的算法备案、《生成式人工智能服务管理暂行办法》要求的生成式AI服务备案，是三件分别针对不同环节、走不同申报系统的事——只要产品具有舆论属性或社会动员能力、面向境内公众提供生成式AI服务，通常还需要单独完成后两项里至少一项，调用大模型厂商的API并不意味着厂商已经替接入方把这件事办完。本文尽量说清楚三种备案各自是什么、门槛判断上哪些是官方明确写清楚的、哪些官方文件目前并未给出量化标准，以及该去哪个官方入口核实。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-26T10:00:01+08:00">2026-08-26 10:00:01</time> · 法规条文与备案入口最后核验于 2026-08-26</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-generative-filing.svg" width="800" height="400" alt="接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>自己的网站/小程序/App除了工信部ICP备案号，是否还单独去核实过是否需要办理生成式人工智能服务相关的算法备案，而不是默认"网站能备案就是能上线"</li>
+            <li><span class="article-verify-check">✓</span>调用的大模型厂商（DeepSeek、豆包、通义千问等）的接入文档或服务协议里，是否明确写过"接入方仍需自行完成属于自己产品的备案"这类条款，还是压根没提</li>
+            <li><span class="article-verify-check">✓</span>自己的产品形态是否具有舆论属性或社会动员能力（比如允许用户公开发帖、评论、转发扩散，而不是纯内部工具），这是判断是否触发备案义务的关键描述性标准之一</li>
+            <li><span class="article-verify-check">✓</span>是否已经去查过网信办官网关于算法备案的公告或备案系统入口，看能不能查到与自己产品类似的同行案例，而不是凭道听途说判断"应该不用备案"</li>
+            <li><span class="article-verify-check">✓</span>如果产品还处于小范围内部测试阶段，是否已经明确记录了这个阶段的用户范围和时间计划，以便在真正对外扩大开放前有据可查地重新评估是否需要备案</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：ICP备案通过了，是不是就可以放心上线？</h2>
+          <p>不少个人开发者和小团队的典型路径是：注册好域名、完成网站的工信部ICP备案（有的还加了公安联网备案），然后调用DeepSeek、豆包、通义千问这类国内大模型厂商开放的API，做一个对外提供AI问答、AI写作或AI客服能力的网站、小程序或App，上线前的合规清单里勾掉的最后一项通常就是"ICP备案已完成"。但ICP备案解决的是"这个网站/App本身有没有在工信部登记、能不能在境内被访问"这件事，跟"这个产品提供的生成式AI服务本身有没有单独完成算法备案"完全是两个不同层面的问题——很多开发者把两者混为一谈，是因为两个备案听起来都叫"备案"，办理入口和主管部门却并不完全一样。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三件不同的事：ICP备案、算法推荐备案、生成式AI服务备案</h2>
+          <p>厘清概念是第一步。第一件事是ICP备案，由工业和信息化部主管，针对的是网站/App这个"载体"本身是否在境内合法运营，跟载体上具体提供什么功能没有直接关系，几乎所有面向境内公众提供服务的网站都需要办理。第二件事是《互联网信息服务算法推荐管理规定》里规定的算法推荐服务备案，2022年3月起通过网信办的互联网信息服务算法备案系统（<a href="https://beian.cac.gov.cn" target="_blank" rel="noopener">beian.cac.gov.cn</a>）办理，最初主要针对内容分发、个性化推荐、排序精选这类算法。第三件事是《生成式人工智能服务管理暂行办法》第十七条对生成式AI服务提出的要求：提供具有舆论属性或者社会动员能力的生成式人工智能服务的，应当按照国家有关规定开展安全评估，并按照《互联网信息服务算法推荐管理规定》履行算法备案和变更、注销备案手续——也就是说，生成式AI服务如果落入这个范围，走的备案入口跟第二件事是同一个系统，但触发条件和适用主体是《暂行办法》单独规定的，跟一般的内容推荐算法备案在监管意图上并不相同，不能简单认为"我没做内容推荐所以不用管"。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 触发条件：舆论属性或社会动员能力，这个判断标准官方原文怎么写</h2>
+          <p>《生成式人工智能服务管理暂行办法》第十七条的原文表述是"提供具有舆论属性或者社会动员能力的生成式人工智能服务的"，这是一个描述性、定性的门槛，而不是一个写明具体数字的量化门槛。实践中通常理解为：产品是否允许生成内容被公开传播、扩散给不特定公众，或者是否具备聚合、引导公众讨论和行动的能力，比如面向公众开放的AI聊天/内容生成工具、允许生成内容被公开分享转发的社区型产品，往往容易落入这个范围；而完全对内部员工使用、生成内容不对外公开传播的内部工具，通常风险相对较低。但需要明确说明的是：官方文件目前并未给出诸如"月活超过多少人""并发用户数超过多少"这类具体量化的豁免或触发数字，网络上流传的一些"低于XX用户量可以不用备案"的说法，本文没有找到对应的官方条文支撑，不应该当作确定的判断依据。是否需要备案，需要结合自己产品的具体功能形态、开放范围、内容传播能力去综合判断，拿不准的情况下更稳妥的做法是直接对照网信办官网公示的备案清单和公告去比对同类产品案例，或者按照下一节提到的入口主动核实、必要时寻求专业法律意见。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 内部测试/未大规模上线能不能豁免？官方没有给出明确的量化答案</h2>
+          <p>另一个开发者常问的问题是：如果产品还在小范围内部测试阶段、没有大规模对外开放，是不是可以暂时不用管备案。同样地，官方文件并未给出一个"测试期多长时间内、多少测试用户以内可以豁免"的明确量化标准，这是需要如实说明的信息空白，而不是可以替读者编一个数字出来的地方。比较稳妥的实操思路是：如果产品确实还处于封闭的小范围内测（比如仅限受邀的内部员工或有限的白名单测试用户，且不具备公开传播能力），可以视为风险相对可控的阶段，但一旦产品计划扩大到面向不特定公众开放注册、允许生成内容被公开分享，就应当在正式扩大开放之前重新评估是否需要完成备案手续，而不是等已经大规模上线、出了问题之后才回头补救。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 调用大模型厂商的API，厂商是不是已经替你把备案办完了？</h2>
+          <p>这是最容易被误解的一点：接入DeepSeek、豆包、通义千问这些厂商开放的大模型API，本质上只是拿到了一个可以调用的模型能力接口，厂商自己作为生成式AI服务提供者去完成它自身平台产品（比如DeepSeek官网聊天界面、豆包App）的备案，跟接入方基于这个API做出来的、面向自己终端用户的产品，通常是两个独立的备案主体和备案对象。换句话说，厂商完成了自己产品的备案，并不自动覆盖接入方基于其API二次开发出来的下游产品——接入方如果自己的产品落入前面第三节所说的适用范围，仍然需要以自己的产品作为主体单独完成备案手续。建议在接入任何大模型API之前，仔细查阅该厂商开放平台的接入文档、服务协议里有没有专门就"接入方自身合规义务"作出的说明，不要想当然地认为"调用了大厂的API，合规责任就转移给大厂了"。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 该去哪里查、去哪里报：官方入口在哪</h2>
+          <p>具体的申报与查询入口，目前公开可查的官方信息是：网信办自2022年3月起上线运行了互联网信息服务算法备案系统，官方地址为<a href="https://beian.cac.gov.cn" target="_blank" rel="noopener">beian.cac.gov.cn</a>，备案主体通过这个系统填报服务提供者名称、服务形式、应用领域、算法类型、算法自评估报告等信息完成备案手续，普通用户也可以通过这个系统查询已公示的备案信息；网信办官网（cac.gov.cn）会定期发布备案清单公告，公示已完成备案的服务名称与备案编号，可以用来比对同类产品是否已经完成备案、走的是什么类型。需要强调的是，具体的申报材料清单、审核周期、是否需要额外的安全评估，各地网信部门在执行细节上可能会有差异，建议以自己所在地区网信部门或登录备案系统后看到的实际要求为准，本文只负责说清楚"存在这三件不同的事、该去哪个官方入口找"，不代替专业合规咨询。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 小结：ICP备案是起点，不是终点</h2>
+          <p>ICP备案确认的是网站/App载体本身可以在境内合法运营，但如果产品调用国内大模型API对外提供具有舆论属性或社会动员能力的生成式AI服务，通常还需要按《生成式人工智能服务管理暂行办法》第十七条的要求，单独通过网信办的算法备案系统完成生成式AI服务相关的备案手续，这是跟ICP备案完全不同、走不同系统的另一件事，调用厂商API也不代表厂商已经代为完成。具体触发门槛官方目前主要是定性描述而非量化数字，拿不准时优先去官方公示的备案清单核实同类产品案例，而不是凭猜测决定要不要办。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：ICP备案通过了，是不是就可以放心上线？</a></li>
+          <li><a href="#sec-2">2. 三件不同的事：ICP备案、算法推荐备案、生成式AI服务备案</a></li>
+          <li><a href="#sec-3">3. 触发条件：舆论属性或社会动员能力，这个判断标准官方原文怎么写</a></li>
+          <li><a href="#sec-4">4. 内部测试/未大规模上线能不能豁免？官方没有给出明确的量化答案</a></li>
+          <li><a href="#sec-5">5. 调用大模型厂商的API，厂商是不是已经替你把备案办完了？</a></li>
+          <li><a href="#sec-6">6. 该去哪里查、去哪里报：官方入口在哪</a></li>
+          <li><a href="#sec-7">7. 小结：ICP备案是起点，不是终点</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noopener nofollow">国家互联网信息办公室：《生成式人工智能服务管理暂行办法》官方发布页</a>：办法自2023年8月15日起施行，第十七条明确"具有舆论属性或社会动员能力的生成式人工智能服务"需按算法推荐管理规定履行备案手续，对应本文触发条件部分</li>
+            <li><a href="https://www.cac.gov.cn/2022-02-25/c_1647395666889023.htm" target="_blank" rel="noopener nofollow">国家互联网信息办公室：关于互联网信息服务算法备案系统上线的通告</a>：官方确认算法备案系统（beian.cac.gov.cn）自2022年3月1日起上线运行，对应本文官方入口部分</li>
+            <li><a href="https://www.cac.gov.cn/2022-08/12/c_1661927474338504.htm" target="_blank" rel="noopener nofollow">国家互联网信息办公室：关于发布互联网信息服务算法备案信息的公告</a>：网信办定期公示备案清单与备案编号的官方公告范例，可用于比对同类产品是否已完成备案</li>
+          </ul>
+          <p class="ref-note">具体备案门槛、申报材料与地方执行细则可能随时间调整，请以网信办官网及备案系统当前公示的最新信息为准；如产品涉及大规模对外经营，建议同时咨询专业法律顾问。本文仅供学习与参考，不构成法律意见。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/ai-domestic-model-off-peak-pricing.html">DeepSeek凌晨调用更便宜：错峰定价背后的算力账</a></li>
+          <li><a href="/articles/ai-account-login-risk-device-fingerprint.html">换个网络登录AI账号，为什么突然要过一遍验证码</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ba6ce95274"></script>
+</body>
+</html>

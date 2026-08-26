@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI编程Agent模式请求额度仪表盘快速归零示意图">
+  <defs>
+    <linearGradient id="bgGradQb" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#171522"/>
+      <stop offset="1" stop-color="#241a2e"/>
+    </linearGradient>
+    <linearGradient id="gaugeGradQb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e05a5a"/>
+      <stop offset="0.5" stop-color="#f2b84a"/>
+      <stop offset="1" stop-color="#5ad6a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradQb)"/>
+
+  <!-- gauge / speedometer, center-left -->
+  <g transform="translate(210,220)">
+    <path d="M -100 10 A 100 100 0 1 1 100 10" fill="none" stroke="#332a44" stroke-width="16" stroke-linecap="round"/>
+    <path d="M -100 10 A 100 100 0 1 1 60 -80" fill="none" stroke="url(#gaugeGradQb)" stroke-width="16" stroke-linecap="round"/>
+    <g stroke="#e7ecf5" stroke-width="4" stroke-linecap="round">
+      <line x1="0" y1="8" x2="64" y2="-56"/>
+    </g>
+    <circle r="9" fill="#f2b84a"/>
+    <text x="0" y="46" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#e05a5a">已用尽</text>
+  </g>
+
+  <!-- fast downward arrow bursting from gauge center -->
+  <g transform="translate(210,150)" stroke="#e05a5a" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.9">
+    <line x1="0" y1="-8" x2="0" y2="34"/>
+    <path d="M-11 20 L0 35 L11 20"/>
+  </g>
+
+  <!-- chat/agent bubble top with multiple step dots (each step = one request) -->
+  <g transform="translate(560,110)">
+    <rect x="-90" y="-46" width="180" height="92" rx="18" fill="#241a30" stroke="#8f6bd6" stroke-width="2.5"/>
+    <path d="M-20 46 L-20 66 L6 46 Z" fill="#241a30" stroke="#8f6bd6" stroke-width="2.5"/>
+    <circle cx="-52" cy="-8" r="8" fill="#e05a5a"/>
+    <circle cx="-16" cy="-8" r="8" fill="#f2b84a"/>
+    <circle cx="20" cy="-8" r="8" fill="#f2b84a"/>
+    <circle cx="56" cy="-8" r="8" fill="#5ad6a0"/>
+    <text x="0" y="20" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#d8c9f2">每一步 = 一次请求</text>
+  </g>
+
+  <!-- connecting dashed lines from agent steps down toward gauge (each step drains quota) -->
+  <g stroke="#8f6bd6" stroke-width="2.2" stroke-dasharray="5 6" fill="none" opacity="0.7">
+    <path d="M480 150 C 400 190 320 190 270 190"/>
+    <path d="M500 168 C 420 220 340 230 280 220"/>
+  </g>
+
+  <!-- small idle tab-completion icon bottom right, single tiny dot (cheap) -->
+  <g transform="translate(620,300)">
+    <rect x="-58" y="-30" width="116" height="60" rx="12" fill="#1c2a24" stroke="#5ad6a0" stroke-width="2"/>
+    <circle cx="-18" cy="0" r="5" fill="#5ad6a0"/>
+    <text x="10" y="5" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#9fe6c4">单次补全≈几乎不计</text>
+  </g>
+
+  <text x="60" y="330" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" font-weight="700" fill="#eef2fb">Agent模式 · 请求额度速耗</text>
+  <text x="62" y="360" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#c6a9f0">PREMIUM REQUEST QUOTA BURN RATE</text>
+  <text x="736" y="60" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#c6a9f0" opacity="0.85">AI服务指南</text>
+</svg>

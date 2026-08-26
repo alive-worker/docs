@@ -194,6 +194,10 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-generative-filing-vs-icp.html': '2026-08-26 10:00:01',
+    '/en/articles/domestic-ai-generative-filing-vs-icp.html': '2026-08-26 10:00:01',
+    '/articles/ai-coding-agent-request-quota-burn.html': '2026-08-25 18:05:02',
+    '/en/articles/ai-coding-agent-request-quota-burn.html': '2026-08-25 18:05:02',
     '/articles/ai-domestic-model-off-peak-pricing.html': '2026-08-25 15:42:00',
     '/en/articles/ai-domestic-model-off-peak-pricing.html': '2026-08-25 15:42:00',
     '/articles/ai-account-login-risk-device-fingerprint.html': '2026-08-25 13:15:00',

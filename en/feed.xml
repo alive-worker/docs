@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 25 Aug 2026 15:42:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 26 Aug 2026 10:00:01 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[ICP Filing Alone Won't Cover Your China LLM API Product]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html</guid>
+    <pubDate>Wed, 26 Aug 2026 10:00:01 +0800</pubDate>
+    <category>Domestic AI</category>
+    <description><![CDATA[Calling DeepSeek or Doubao's API doesn't meet China's generative AI filing rule beyond ICP registration, since providers with public-opinion attributes or social mobilization capability need a separate algorithm filing.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Why Agent Mode Burns Your Coding Plan's Quota Fast]]></title>
+    <link>https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html</guid>
+    <pubDate>Tue, 25 Aug 2026 18:05:02 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[Cursor, Copilot, and Windsurf cap plans by premium requests, but agent mode bills each file read, test, or edit step as its own request while the bill shows only one blunt total, burning quota fast.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why DeepSeek's API Is Cheaper After Midnight]]></title>
     <link>https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html</link>

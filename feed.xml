@@ -6,7 +6,23 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 25 Aug 2026 15:42:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 26 Aug 2026 10:00:01 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规]]></title>
+    <link>https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</guid>
+    <pubDate>Wed, 26 Aug 2026 10:00:01 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力的生成式AI服务需单独完成算法备案，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Agent模式改代码，为什么几分钟就把整月请求额度刷没了]]></title>
+    <link>https://ponr.org/articles/ai-coding-agent-request-quota-burn.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-coding-agent-request-quota-burn.html</guid>
+    <pubDate>Tue, 25 Aug 2026 18:05:02 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单补全消耗很少，Agent模式下每一步读文件、跑测试、多轮修改都可能各算一次请求，账单只显示笼统总数，本文讲清计费机制与怎么按任务类型控用量。]]></description>
+  </item>
   <item>
     <title><![CDATA[DeepSeek凌晨调用更便宜：错峰定价背后的算力账]]></title>
     <link>https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</link>

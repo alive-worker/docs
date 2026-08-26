@@ -2,11 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</loc>
+    <lastmod>2026-08-26T10:00:01+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html</loc>
+    <lastmod>2026-08-26T10:00:01+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-coding-agent-request-quota-burn.html</loc>
+    <lastmod>2026-08-25T18:05:02+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html</loc>
+    <lastmod>2026-08-25T18:05:02+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</loc>
@@ -434,11 +450,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
