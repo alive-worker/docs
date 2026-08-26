@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 26 Aug 2026 10:00:01 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 26 Aug 2026 13:58:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[首次扣款要验证码，续费凭什么又弹一次——3DS豁免为什么会失效]]></title>
+    <link>https://ponr.org/articles/overseas-ai-renewal-3ds-mit-exemption.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-renewal-3ds-mit-exemption.html</guid>
+    <pubDate>Wed, 26 Aug 2026 13:58:00 +0800</pubDate>
+    <category>支付风控</category>
+    <description><![CDATA[AI订阅首次扣款按PSD2要求完成3D Secure强客户认证后，自动续费本该作为商户发起交易（MIT）豁免验证，但支付网关没传对MIT标识，或发卡行风控主动升级验证，续费在无人操作时挑战失败，本文讲清豁免机制、失效原因与应对办法。]]></description>
+  </item>
   <item>
     <title><![CDATA[接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规]]></title>
     <link>https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</link>

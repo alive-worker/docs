@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI订阅首次3D Secure验证通过后，自动续费MIT豁免失效导致验证挑战失败示意图">
+  <defs>
+    <linearGradient id="bgGradMit" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradMit)"/>
+
+  <!-- Phone 1: first charge, cardholder present, verification code + lock success -->
+  <g transform="translate(150,150)">
+    <rect x="-46" y="-80" width="92" height="160" rx="16" fill="#20342f" stroke="#4fae8a" stroke-width="2.5"/>
+    <rect x="-34" y="-64" width="68" height="100" rx="4" fill="#16241f"/>
+    <circle cx="0" cy="6" r="20" fill="#2f5e4c"/>
+    <path d="M-8 6 L-2 14 L11 -6" fill="none" stroke="#7be8b8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="-40" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" font-weight="700" fill="#9fe6c4">8 4 1 2</text>
+    <text x="0" y="98" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#9fe6c4">首次扣款 · 3DS通过</text>
+  </g>
+
+  <!-- arrow / dashed connector representing time passing, MIT flag -->
+  <g stroke="#4fae8a" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity="0.7">
+    <path d="M215 150 C 280 150 300 150 360 150"/>
+  </g>
+  <text x="220" y="130" font-family="-apple-system,'Segoe UI',sans-serif" font-size="13" font-weight="700" fill="#8fd6b6">MIT标记应传递</text>
+
+  <!-- lock icon in middle representing stored credential / MIT flag, cracked -->
+  <g transform="translate(400,150)">
+    <rect x="-30" y="-6" width="60" height="46" rx="8" fill="#2a2038" stroke="#c98be0" stroke-width="2.5"/>
+    <path d="M-16 -6 v-18 a16 16 0 0 1 32 0 v18" fill="none" stroke="#c98be0" stroke-width="4"/>
+    <path d="M-4 -14 L6 4" stroke="#f2b84a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="20" r="5" fill="#e6c4f7"/>
+    <text x="0" y="62" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="13" font-weight="700" fill="#e6c4f7">标识丢失/风控升级</text>
+  </g>
+
+  <g stroke="#f2b84a" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity="0.7">
+    <path d="M440 150 C 500 150 520 150 580 150"/>
+  </g>
+
+  <!-- Phone 2: renewal, no cardholder present, challenge fails with X -->
+  <g transform="translate(640,150)">
+    <rect x="-46" y="-80" width="92" height="160" rx="16" fill="#3a2224" stroke="#e08a8a" stroke-width="2.5"/>
+    <rect x="-34" y="-64" width="68" height="100" rx="4" fill="#241618"/>
+    <circle cx="0" cy="6" r="20" fill="#5e2f2f"/>
+    <path d="M-11 -6 L11 16 M11 -6 L-11 16" stroke="#f2a3a3" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="0" y="-40" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="12" font-weight="700" fill="#f2c4c4">无人操作</text>
+    <text x="0" y="98" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#f2c4c4">自动续费 · 挑战失败</text>
+  </g>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#8fd6b6">持卡人在场 → 持卡人不在场</text>
+  <text x="60" y="330" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="700" fill="#eef2fb">续费为什么又弹验证码</text>
+  <text x="62" y="360" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#b6d6c8">3D SECURE · SCA · MERCHANT-INITIATED TRANSACTION</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

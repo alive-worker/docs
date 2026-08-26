@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-renewal-3ds-mit-exemption.html': '2026-08-26 13:58:00',
+    '/en/articles/overseas-ai-renewal-3ds-mit-exemption.html': '2026-08-26 13:58:00',
     '/articles/domestic-ai-generative-filing-vs-icp.html': '2026-08-26 10:00:01',
     '/en/articles/domestic-ai-generative-filing-vs-icp.html': '2026-08-26 10:00:01',
     '/articles/ai-coding-agent-request-quota-burn.html': '2026-08-25 18:05:02',
