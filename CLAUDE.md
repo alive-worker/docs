@@ -44,7 +44,7 @@
 2. 封面 SVG + 光栅化 PNG（中英文各一套，配色/图标可以共用，只换文字）。
 3. `sitemap.xml`：新增 `<url>` 条目，`lastmod` 用真实发布时间戳（`date` 命令获取，不要瞎写），**不需要**再加 `priority`/`changefreq`（Google 2020 年后已忽略，站点已统一去掉）。
 4. `feed.xml` / `en/feed.xml`：在顶部插入新 `<item>`，`pubDate` 与 sitemap 的 `lastmod` 一致，同时更新 `lastBuildDate`。
-5. `js/site.js` 的 `DATES` 映射表：补充新文章的时间戳条目。
+5. `js/site.js` 的 `DATES` 映射表：补充新文章的时间戳条目，同时手工同步改 `js/site.min.js`（不需要重新跑 terser，直接照抄格式加进去即可）。**改完 `site.min.js` 之后必须走一遍第8节的哈希重算流程**——哪怕只加了一行数据、没碰任何逻辑代码，文件字节也已经变了，`?v=` 版本号不重算，Cloudflare 就会用旧哈希对应的缓存继续伺候好几天，线上首页统计数字之类依赖这个文件的地方会卡在旧值上（2026-08-26 已经因为漏了这步导致线上文章数連续几次发布都没更新，见第8节记录）。
 6. hreflang 互链：中英文页面互相 `<link rel="alternate" hreflang="...">`，发布后建议跑一遍互链核对（不能只单向声明）。
 7. 首页（`index.html` + `en/index.html`）卡片网格、`articles.html` + `en/articles.html` 归档列表、所有相关旧文章侧边栏「相关阅读」都要插入新文章条目。首页三段式（轮播 carousel 5 篇 + 热门精选 hotpicks 4 篇 + 网格可见 9 篇，2026-08-23 起轮播从 3 篇扩到 5 篇）按最新发布时间顺序依次排列、互不重叠：最新 5 篇进轮播，其后 4 篇进 hotpicks，再其后 9 篇在网格里不带 `post-card--overflow`，更早的文章网格卡片都要带 `post-card--overflow`（网格里其实收录了全部文章，只是超出前 9 篇的用这个 class 隐藏）。
 8. JSON-LD `ItemList`（首页/归档页）里的 position 需要整体重新编号。
@@ -79,7 +79,7 @@ npx --yes terser js/site.js -c -m -o js/site.min.js
 
 `nginx` 给 `styles.min.css` / `js/site.min.js` 设置了 `Cache-Control: public, max-age=604800`（7 天），Cloudflare 会按这个头在边缘缓存这两个文件整整 7 天，且**源站文件更新后不会自动通知 Cloudflare 刷新缓存**。如果只改了源文件、重新压缩、部署上线，用户看到的可能还是 7 天缓存窗口内第一次被缓存下来的旧版本（表现为：新加的 CSS 规则/JS 逻辑在线上不生效，但源码和压缩产物本身都是对的）。
 
-为此站点给这两个文件的引用加了内容哈希版本号（`?v=xxxx`），全站 60+ 个页面的 `<link>`/`<script>` 都要保持一致。**每次重新压缩 `styles.min.css` 或 `js/site.min.js` 之后，必须重新计算哈希并批量更新所有页面的引用**，否则版本号不变 = URL 不变 = Cloudflare 照样返回旧缓存，压缩这一步等于白做：
+为此站点给这两个文件的引用加了内容哈希版本号（`?v=xxxx`），全站 60+ 个页面的 `<link>`/`<script>` 都要保持一致。**判断要不要重算哈希的标准是"文件字节有没有变"，不是"有没有跑压缩工具"**——2026-08-26 踩过一次实锤的坑：连续几次发文只往 `js/site.min.js` 里手工加 `DATES` 数据条目（图省事没跑 terser，理由是"没改源码逻辑"），但 `site.min.js` 的**文件内容确实变了**，`?v=` 却没跟着变，导致 Cloudflare 用旧哈希对应的旧缓存连续伺候了好几次发布，线上首页"N篇实测文章"数字卡在了好几篇之前的旧值，直到专门排查才发现。**结论：不管是重新跑 `clean-css`/`terser`，还是手工直接改 `styles.min.css`/`js/site.min.js`（哪怕只加了一行 `DATES` 数据），只要这两个文件的字节内容变了，就必须重新计算哈希并批量替换全站引用，没有例外。**
 
 ```bash
 node -e "
