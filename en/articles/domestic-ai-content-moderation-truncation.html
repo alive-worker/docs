@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why a China LLM API Returns 200 OK With Empty Content</title>
+  <meta name="description" content="A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which field to check, streaming included.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why a China LLM API Returns 200 OK With Empty Content">
+  <meta property="og:description" content="A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which field to check, streaming included.">
+  <meta property="og:url" content="https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html">
+  <meta property="article:published_time" content="2026-08-27T10:45:00+08:00">
+  <meta property="article:modified_time" content="2026-08-27T10:45:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Domestic AI Models">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why a China LLM API Returns 200 OK With Empty Content">
+  <meta name="twitter:description" content="A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which field to check, streaming included.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-content-moderation.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Why a China LLM API Returns 200 OK With Empty Content cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-content-moderation.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-content-moderation.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#webpage", "url": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html", "name": "Why a China LLM API Returns 200 OK With Empty Content", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Why a China LLM API Returns 200 OK With Empty Content", "item": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html" }
+    ] },
+    { "@type": "Article", "headline": "Why a China LLM API Returns 200 OK With Empty Content", "description": "A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which field to check, streaming included.", "image": "https://ponr.org/img/cover-domestic-ai-content-moderation.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-08-27T10:45:00+08:00", "dateModified": "2026-08-27T10:45:00+08:00", "inLanguage": "en", "articleSection": "Domestic AI Models", "keywords": ["DeepSeek API", "Qwen API", "content moderation", "finish_reason", "streaming truncation"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-content-moderation-truncation.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why a China LLM API Returns 200 OK With Empty Content</h1>
+          <p class="article-summary">A common, disorienting problem when calling domestic Chinese LLM APIs like DeepSeek or Qwen: the HTTP status is a clean 200, the call gets billed normally, yet the content you get back is an empty string, or text that just stops mid-sentence with no obvious error. Because the transport layer looks fine, developers often assume a parsing bug or a dropped connection and spend hours debugging code that was never broken. The real cause is usually content moderation — domestic LLM APIs typically layer an independent safety filter on top of whatever alignment the model itself was trained with, sometimes filtering output after generation, sometimes blocking the request before it ever reaches the model. Exactly how each vendor implements this, which field marks it in the response, and how it behaves in streaming mode all differ — which is exactly why it's so easy to mistake for a bug the first time you run into it.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-08-27T10:45:00+08:00">2026-08-27 10:45:00</time> · Vendor docs last verified 2026-08-27</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-content-moderation.svg" width="800" height="400" alt="Why a China LLM API Returns 200 OK With Empty Content cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Was the HTTP status actually 200, or a 4xx error? 200 means the model started generating and moderation happened during or after generation; a non-200 status usually means the request was blocked before it ever reached the model — these call for different debugging paths</li>
+            <li><span class="article-verify-check">✓</span>Does the response body carry a field like finish_reason or stop_reason, and is its value something other than a normal stop or length-limit value (naming varies by vendor — check that vendor's current official API docs for the exact field name and enum values, don't assume based on another vendor or an old doc)</li>
+            <li><span class="article-verify-check">✓</span>For streaming calls, did the connection end after some explicit terminal event, or did it just drop with no closing signal at all — the latter points more toward a network or client issue, the former toward moderation firing mid-stream</li>
+            <li><span class="article-verify-check">✓</span>Have you checked that vendor's current billing docs for whether a filtered or blocked call still counts toward billed tokens — this varies by vendor, don't assume one vendor's rule applies to another</li>
+            <li><span class="article-verify-check">✓</span>If the use case genuinely needs relaxed moderation (an internal enterprise tool, a specialized professional domain), have you checked the vendor console for an official whitelist/exception request path, rather than building your own client-side workaround around the moderation result</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The pattern: no error, billed normally, yet the content is empty or cut off</h2>
+          <p>This is a common but confusing failure mode: calling a Chat Completions-style endpoint on DeepSeek, Qwen, or a similar domestic Chinese LLM API, everything looks fine at the HTTP layer — status 200, the call shows up in usage records — but the content field in the response is an empty string, or the text just stops abruptly mid-sentence with no visible warning. Because the status code is clean and nothing threw an exception, the first instinct is usually to suspect a parsing bug or a dropped connection somewhere in transit, and hours can go by debugging request and parsing code that was never actually broken. The real cause is almost always unrelated to the network — it's content safety moderation intervening at some stage of the response pipeline.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Why this layer exists: independent moderation on top of model alignment</h2>
+          <p>Anomalous output from a domestic LLM API usually comes from two distinct mechanisms stacked on top of each other. The first is alignment baked into the model during training — the model learns to decline or deflect certain questions on its own, in which case it genuinely "generated" something, it's just a refusal rather than empty content. The second is a moderation layer the platform adds independently of the model itself — it can act on the input side (screening the user's request before it ever reaches the model) or on the output side (screening the model's generated content after the fact, and stripping some or all of it if it trips a rule). Under regulations like China's Interim Measures for the Management of Generative AI Services, the platform providing a generative AI service itself carries the primary responsibility for content safety — this is why nearly every domestic LLM API bakes in, or offers as an option, an independent moderation layer rather than relying solely on the model's own alignment. Figuring out whether you're looking at a model refusal or a moderation-layer block is the first fork in the road for debugging this.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Which field to actually check: it differs by vendor — don't assume</h2>
+          <p>Distinguishing "generation completed normally" from "moderation cut it off" always starts with the response body itself, not a guess. In DeepSeek's own Chat Completions API documentation, the response carries a finish_reason field marking why the model stopped generating; besides stop (a natural end) and length (hit the max token limit), there's a dedicated content_filter value specifically meaning content was omitted because of a flag from the content filter — so the same 200 status and the same completed request can mean entirely different things depending on that field's value, and it's the first place worth checking. But not every vendor's moderation looks like this: Alibaba Cloud's Bailian (DashScope) platform, per its own documentation, describes its input/output AI guardrail mechanism as returning an HTTP 400 status directly when it flags a request or output as violating policy, along with an error code like data_inspection_failed and a message such as "Input data may contain inappropriate content" — that's a block at the request stage, not a field to inspect after a 200. So whatever vendor you're actually calling, you need to check its current official API docs for the exact field name and whether the block happens inside a 200 response or as a request-stage error — don't carry over assumptions from a different vendor.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Streaming makes it worse: content flows, then just stops</h2>
+          <p>If you're calling a streaming endpoint, this kind of moderation cutoff gets harder to diagnose. Streaming responses arrive as a sequence of chunks pushed to the client incrementally, so if moderation triggers partway through generation — after the model has already produced dozens of tokens and the client has already rendered some of that content — what the client actually sees is "content stopped updating partway through," which looks almost identical to a network drop or a client-side timeout. The key differentiator is whether the stream ended with some explicit terminal event carrying a field indicating an abnormal stop (the exact event name and field vary by vendor — check that vendor's current streaming API docs), versus the connection just closing with no terminal signal at all. If there's a clear closing event with an abnormal finish_reason-style value, moderation intervening mid-stream is the likely cause; if the connection just drops with nothing, network layer or client timeout settings are worth ruling out first before suspecting moderation.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Does a moderated call still get billed? It varies — don't assume a universal rule</h2>
+          <p>This is the assumption developers make most often: if content got moderated away, surely it shouldn't be billed? In practice this depends on the vendor, and this article deliberately doesn't offer one universal answer — check that specific vendor's current official billing documentation for how it treats this scenario. In some cases the model already generated some tokens before output-side filtering stripped them, meaning that compute cost was already incurred, and whether it's billed depends on vendor policy; in other cases the request gets blocked on the input side before the model ever runs inference at all, which can carry different billing logic entirely. Rather than guessing at a general rule, when a bill looks off, the more reliable path is looking up that specific call's request ID against the vendor's official billing docs or support channel.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. If the business genuinely needs an exemption: use the official channel, don't work around it</h2>
+          <p>If a use case is legitimate and compliant but keeps getting flagged because of inherently sensitive-sounding professional content (medical, legal, security research, and similar fields naturally touch on some flagged terms), or an internal enterprise tool needs a relaxed moderation policy, the right approach is applying through the vendor's official exception or whitelist channel — not building a client-side workaround to bypass the moderation result. Alibaba Cloud's Bailian documentation, for example, describes a console where users can review the guardrail's detection results and risk labels, and a support-ticket channel to request whitelisting for specific content when genuinely needed; that process typically requires describing the actual use case and requesting entity, and it runs through a formal, vendor-reviewed exception path rather than around the moderation itself. In short: a 200 response with empty or truncated content is almost always content moderation acting somewhere in the pipeline — figuring out which field and which stage triggered it, and then either adjusting your retry logic or filing a formal exception request, is far more effective than repeatedly assuming it's a network issue.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The pattern: no error, billed normally, yet the content is empty or cut off</a></li>
+          <li><a href="#sec-2">2. Why this layer exists: independent moderation on top of model alignment</a></li>
+          <li><a href="#sec-3">3. Which field to actually check: it differs by vendor -- don't assume</a></li>
+          <li><a href="#sec-4">4. Streaming makes it worse: content flows, then just stops</a></li>
+          <li><a href="#sec-5">5. Does a moderated call still get billed? It varies -- don't assume a universal rule</a></li>
+          <li><a href="#sec-6">6. If the business genuinely needs an exemption: use the official channel, don't work around it</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/api/create-chat-completion/" target="_blank" rel="noopener nofollow">DeepSeek official API docs: Chat Completions endpoint</a>: documents the finish_reason field's enum values, including content_filter for content omitted due to a content-filter flag, relevant to section 3</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/content-security" target="_blank" rel="noopener nofollow">Alibaba Cloud Bailian (Model Studio) official docs: input/output AI guardrails</a>: describes how moderation is enabled, the error codes returned when it blocks a request, and the ticket-based exception request channel, relevant to sections 3 and 6</li>
+            <li><a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noopener nofollow">Cyberspace Administration of China: Interim Measures for the Management of Generative AI Services</a>: establishes the content-safety responsibility that leads domestic LLM providers to build in an independent moderation layer, relevant to section 2</li>
+          </ul>
+          <p class="ref-note">Exact field names, error codes, and billing rules can change between vendor API versions -- always check the current official documentation for the vendor you're actually calling. For billing disputes or moderation false positives, contact the vendor's support channel directly. This article is for technical troubleshooting reference only and is not compliance or legal advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/domestic-ai-subscription-guide.html">Subscribing to Domestic AI Tools in China: A Quick Guide</a></li>
+          <li><a href="/en/articles/ai-domestic-model-off-peak-pricing.html">Why DeepSeek's API Is Cheaper After Midnight</a></li>
+          <li><a href="/en/articles/domestic-ai-generative-filing-vs-icp.html">ICP Filing Alone Won't Cover Your China LLM API Product</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to overview</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical, long-form guides on subscribing to overseas AI services — payment methods, virtual cards, account security, and more, written from hands-on experience.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">AllSwap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">chdh.me</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">ibve · AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">Understanding AI</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">IE9 · AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · for reference only</p>
+      <p>This site shares information for reference only; always confirm pricing, regional availability, and policy with the official AI platform and payment provider sources.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ee48aee833"></script>
+</body>
+</html>

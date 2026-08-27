@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="国内大模型API返回200却是空内容或被内容审核截断示意图">
+  <defs>
+    <linearGradient id="bgGradCm" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradCm)"/>
+
+  <!-- chat bubble with text lines that cut off mid-way -->
+  <g transform="translate(190,160)">
+    <path d="M-120 -70 h240 a20 20 0 0 1 20 20 v90 a20 20 0 0 1 -20 20 h-160 l-40 34 v-34 h-40 a20 20 0 0 1 -20 -20 v-90 a20 20 0 0 1 20 -20 z" fill="#20342f" stroke="#4fae8a" stroke-width="2.5"/>
+    <rect x="-95" y="-40" width="150" height="10" rx="4" fill="#7be8b8" opacity="0.85"/>
+    <rect x="-95" y="-16" width="190" height="10" rx="4" fill="#7be8b8" opacity="0.85"/>
+    <rect x="-95" y="8" width="90" height="10" rx="4" fill="#7be8b8" opacity="0.45"/>
+    <text x="10" y="18" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="20" font-weight="800" fill="#f2b84a">···</text>
+  </g>
+
+  <!-- scissors / truncation break line -->
+  <g transform="translate(330,100)" stroke="#f2b84a" stroke-width="3" stroke-linecap="round">
+    <line x1="-14" y1="-14" x2="14" y2="14"/>
+    <line x1="14" y1="-14" x2="-14" y2="14"/>
+  </g>
+
+  <!-- moderation shield with check/cross -->
+  <g transform="translate(560,150)">
+    <path d="M0 -70 L60 -50 V10 C60 55 30 80 0 92 C-30 80 -60 55 -60 10 V-50 Z" fill="#2a2038" stroke="#c98be0" stroke-width="3"/>
+    <path d="M-22 6 L-6 24 L26 -16" fill="none" stroke="#e6c4f7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- HTTP 200 badge -->
+  <g transform="translate(150,270)">
+    <rect x="-56" y="-22" width="112" height="44" rx="10" fill="#2f5e4c" stroke="#7be8b8" stroke-width="2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="800" fill="#9fe6c4">200 OK</text>
+  </g>
+
+  <!-- empty content indicator -->
+  <g transform="translate(330,270)">
+    <rect x="-70" y="-22" width="140" height="44" rx="10" fill="#5e4f2f" stroke="#f2d18a" stroke-width="2"/>
+    <text x="0" y="7" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#f2d18a">content: ""</text>
+  </g>
+
+  <!-- dashed connector implying 200 + empty is confusing -->
+  <g stroke="#4fae8a" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity="0.6">
+    <path d="M150 248 C 180 210 260 210 300 250"/>
+  </g>
+
+  <text x="60" y="60" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#8fd6b6">状态码正常 ≠ 内容完整</text>
+  <text x="60" y="335" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="700" fill="#eef2fb">200却是空的：审核截断该查哪</text>
+  <text x="62" y="362" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#b6d6c8">CONTENT MODERATION &amp; TRUNCATION</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

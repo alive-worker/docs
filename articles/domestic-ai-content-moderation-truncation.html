@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段</title>
+  <meta name="description" content="调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，不同厂商标记方式不同，本文讲清该查响应体哪个字段区分生成完毕与被截断，流式场景断流怎么判断，以及企业内部工具的审核豁免申请渠道。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段">
+  <meta property="og:description" content="调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，不同厂商标记方式不同，本文讲清该查响应体哪个字段区分生成完毕与被截断，流式场景断流怎么判断，以及企业内部工具的审核豁免申请渠道。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-content-moderation-truncation.html">
+  <meta property="article:published_time" content="2026-08-27T10:45:00+08:00">
+  <meta property="article:modified_time" content="2026-08-27T10:45:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段">
+  <meta name="twitter:description" content="调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，不同厂商标记方式不同，本文讲清该查响应体哪个字段区分生成完毕与被截断，流式场景断流怎么判断，以及企业内部工具的审核豁免申请渠道。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-content-moderation.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-content-moderation.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-content-moderation.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#webpage", "url": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html", "name": "接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段", "item": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html" }
+    ] },
+    { "@type": "Article", "headline": "接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段", "description": "调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，不同厂商标记方式不同，本文讲清该查响应体哪个字段区分生成完毕与被截断，流式场景断流怎么判断，以及企业内部工具的审核豁免申请渠道。", "image": "https://ponr.org/img/cover-domestic-ai-content-moderation.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-27T10:45:00+08:00", "dateModified": "2026-08-27T10:45:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["DeepSeek API", "通义千问", "内容安全审核", "finish_reason", "流式截断"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-content-moderation-truncation.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-content-moderation-truncation.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段</h1>
+          <p class="article-summary">不少开发者调用DeepSeek、通义千问这类国内大模型API时会遇到一种反直觉的情况：HTTP状态码明明是200，请求也正常计费，返回的内容却是空字符串，或者写到一半突然断在某个地方，看起来像是接口出了故障。实际上这通常不是网络或接口的问题，而是内容安全审核在起作用——国内大模型API在模型本身的对齐训练之外，往往还叠加了一层独立的安全审核，可能在生成完成后过滤输出，也可能在请求进入模型之前就直接拦截，不同厂商对这层审核的实现方式、在响应体里标记的字段、流式场景下的表现都不一样，这也是很多开发者第一次遇到时容易误判成bug或网络问题的根源。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-27T10:45:00+08:00">2026-08-27 10:45:00</time> · 相关厂商文档最后核验于 2026-08-27</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-content-moderation.svg" width="800" height="400" alt="接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>这次请求返回的HTTP状态码到底是200还是400/403之类的错误码——200代表模型已经开始生成、审核发生在生成之后或流程之中，非200状态码通常意味着请求在进入模型之前就被拦截，两者对应完全不同的排查方向</li>
+            <li><span class="article-verify-check">✓</span>响应体里有没有类似finish_reason/stop_reason这类字段，取值是不是stop（正常结束）或length（达到长度上限）之外的第三种取值（不同厂商命名不同，需要去对应厂商当前的官方API文档核对具体字段名和取值枚举，不要凭经验或旧文档假设）</li>
+            <li><span class="article-verify-check">✓</span>如果是流式（streaming）调用，检查连接是断在了收到某种明确的结束事件之后，还是在没有任何结束标记的情况下直接中断——后者更可能是网络或客户端问题，前者才是审核在流程中途触发</li>
+            <li><span class="article-verify-check">✓</span>去对应厂商当前的计费文档里核实：被截断或拦截的这次调用，输出的token是否仍然计入账单——不同厂商结论可能不同，不要直接套用其他厂商的规则</li>
+            <li><span class="article-verify-check">✓</span>如果业务场景确实需要放宽审核（比如企业内部工具、特定领域的专业内容），检查厂商控制台里是否有正式的加白/例外申请入口，而不是自己在客户端做二次过滤绕过官方审核结果</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：接口没报错、也照常计费，内容却是空的或断在一半</h2>
+          <p>这是一类相当常见但容易让人摸不着头脑的问题：调用DeepSeek、通义千问这类国内大模型的Chat Completions类接口，HTTP层面一切正常——状态码是200，请求也确实被计入了调用记录，但拿到手的响应里，content字段是空字符串，或者是一段看起来毫无征兆地在句子中间戛然而止的文本。因为HTTP状态码正常、请求本身没有抛异常，很多开发者第一反应是怀疑自己的解析代码写错了，或者怀疑是网络传输把内容截断了，往返排查半天却发现请求、解析代码都没问题。这类现象的真正原因，通常和网络无关，而是内容安全审核在响应生成的某个环节介入了。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 为什么会有这层审核：模型自身对齐之外，还有独立的安全审核</h2>
+          <p>国内大模型API返回内容异常，背后往往叠加了两层不同性质的机制。第一层是模型本身在训练阶段做的对齐（alignment），模型学会了对某些问题主动拒答或者给出委婉的回避回答，这种情况下模型确实"生成"了内容，只是内容本身是拒答文本，不是空的。第二层是独立于模型之外、由平台方额外加装的内容安全审核层——它可能作用在输入侧（在请求送进模型之前，先检测用户输入是否包含违规内容），也可能作用在输出侧（模型生成完之后，再检测输出内容是否合规，一旦命中就把内容整体或部分抹掉）。按《生成式人工智能服务管理暂行办法》等监管要求，提供生成式AI服务的平台本身就负有内容安全主体责任，这也是为什么几乎所有国内大模型API都会内置或可选接入这层独立审核，而不只是依赖模型自身的对齐效果。搞清楚"是模型拒答还是审核层拦截"，是判断该往哪个方向排查的第一步。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 具体该查哪个字段：不同厂商标记方式不一样，别凭经验假设</h2>
+          <p>要区分"正常生成完毕"和"被审核截断"，第一手信息永远是响应体本身，而不是猜测。以DeepSeek官方Chat Completions API文档的说明为例，响应体里有一个finish_reason字段，标记模型停止生成的原因，其取值除了stop（正常结束）、length（达到最大token限制）之外，还专门有一个content_filter取值，用于表示"因内容过滤器标记而省略了部分内容"——也就是说，同样是HTTP 200、同样是完整走完了一次请求，finish_reason取值不同，代表的含义完全不同，这个字段就是排查这类问题该优先检查的位置。但要注意，不是所有厂商的审核拦截都长这样：以阿里云百炼（DashScope）为例，它的输入输出安全护栏机制在检测到请求或输出包含违规内容时，官方文档描述的是直接返回HTTP 400状态码，并带上诸如"data_inspection_failed"这样的错误码和"Input data may contain inappropriate content"这样的错误提示——这属于请求阶段就被拦截，而不是200之后再看某个字段。所以具体到你在用的这家厂商，字段名叫什么、拦截发生在200之内还是400之外，必须去它当前的官方API文档核实，不能照抄别的厂商的经验。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 流式场景更麻烦：内容推到一半，突然就断了</h2>
+          <p>如果调用的是流式（streaming）接口，这类审核截断会变得更难判断。因为流式响应本身就是分成一个个小块（chunk）陆续推送给客户端的，如果审核是在生成过程中途才触发——比如模型已经生成了前面几十个token、客户端也已经陆续收到并展示了这部分内容，审核层这时候才判定后续内容有风险并中断了流——客户端看到的现象就是"内容显示到一半，然后就不再更新了"，这和网络中断、客户端超时在表现上几乎没有区别。要分辨清楚，关键是看这次流式响应最终有没有收到一个带着明确结束标记的收尾事件（不同厂商的具体事件名称和字段需要查对应厂商当前的流式接口文档），如果有明确的结束事件、只是finish_reason之类的字段显示了非正常停止的取值，那大概率是审核在中途介入；如果整个连接就是没有任何收尾信号地直接断开，那更可能需要先排查网络层或客户端超时设置，而不是急着怀疑审核。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 被截断的调用还计不计费：不同厂商结论可能不同，别套用</h2>
+          <p>这是开发者最容易想当然的一点：既然内容被审核拦下来了，是不是就不该计费？实际情况因厂商而异，本文不给出统一结论，需要开发者自己去核实当前调用的这家厂商官方计费文档里对这种场景的具体说明——有的场景下模型已经实际生成了部分token、只是输出侧被过滤，这部分token的计算成本已经发生，计费与否要看厂商政策；有的场景下请求在进入模型之前就被输入侧审核拦截，模型可能根本没有运行推理，计费逻辑也可能不同。与其凭经验猜测，不如在账单出现异常时，直接对照该次调用的request id去官方计费文档或工单渠道核实，这比自己假设一个通用规则更可靠。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 业务确实需要豁免审核怎么办：走官方申请渠道，不要自己绕过</h2>
+          <p>如果业务场景本身合法合规，只是因为专业内容（比如医疗、法律、安全研究等领域天然会涉及一些敏感词）被误判拦截，或者是企业内部工具场景需要相对宽松的审核策略，正确的做法是通过厂商提供的官方申请渠道去申请例外或白名单，而不是在客户端自己做二次处理去绕开审核结果。以阿里云百炼为例，其官方文档说明了用户可以在控制台查看安全护栏的检测结果和风险标签，如果确实需要对特定内容做例外处理，可以通过工单渠道提交加白申请；这类流程通常需要说明具体的业务场景和使用主体，走的是平台审核过的正式例外通道，而不是绕过审核本身。总的来说，接口返回200却是空内容或被截断，几乎总是内容安全审核在某个环节起作用，先查清楚是哪个字段、哪个环节触发的，再决定是调整业务侧的重试逻辑，还是走正式的例外申请渠道，比反复猜测网络问题要有效得多。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：接口没报错、也照常计费，内容却是空的或断在一半</a></li>
+          <li><a href="#sec-2">2. 为什么会有这层审核：模型自身对齐之外，还有独立的安全审核</a></li>
+          <li><a href="#sec-3">3. 具体该查哪个字段：不同厂商标记方式不一样，别凭经验假设</a></li>
+          <li><a href="#sec-4">4. 流式场景更麻烦：内容推到一半，突然就断了</a></li>
+          <li><a href="#sec-5">5. 被截断的调用还计不计费：不同厂商结论可能不同，别套用</a></li>
+          <li><a href="#sec-6">6. 业务确实需要豁免审核怎么办：走官方申请渠道，不要自己绕过</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/api/create-chat-completion/" target="_blank" rel="noopener nofollow">DeepSeek官方API文档：Chat Completions接口说明</a>：明确列出finish_reason字段的取值枚举，其中content_filter表示因内容过滤器标记而省略了部分输出，对应本文第3节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/content-security" target="_blank" rel="noopener nofollow">阿里云百炼（Model Studio）官方文档：输入输出AI安全护栏</a>：说明了内容审核的接入方式、触发拦截时返回的错误码，以及通过工单申请例外处理的渠道，对应本文第3、6节</li>
+            <li><a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noopener nofollow">国家互联网信息办公室：《生成式人工智能服务管理暂行办法》</a>：明确生成式AI服务提供者的内容安全主体责任，是国内大模型API普遍内置独立审核层的监管背景，对应本文第2节</li>
+          </ul>
+          <p class="ref-note">各厂商API的具体字段名、错误码与计费规则可能随版本更新调整，请以当前调用的厂商官方文档为准；涉及计费争议或审核误判，建议直接通过厂商工单渠道核实，本文仅供技术排查参考，不构成合规或法律意见。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/ai-domestic-model-off-peak-pricing.html">DeepSeek凌晨调用更便宜：错峰定价背后的算力账</a></li>
+          <li><a href="/articles/domestic-ai-generative-filing-vs-icp.html">接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ee48aee833"></script>
+</body>
+</html>

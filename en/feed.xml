@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 26 Aug 2026 13:58:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 27 Aug 2026 10:45:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why a China LLM API Returns 200 OK With Empty Content]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html</guid>
+    <pubDate>Thu, 27 Aug 2026 10:45:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which response field reveals why, how streaming truncation looks, and the official exemption request channel.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why Your AI Subscription Renewal Still Needs 3DS]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-renewal-3ds-mit-exemption.html</link>
