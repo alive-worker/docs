@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 27 Aug 2026 13:47:26 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 27 Aug 2026 15:55:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Does Your DeepSeek or Qwen API Data Train the Model?]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html</guid>
+    <pubDate>Thu, 27 Aug 2026 15:55:00 +0800</pubDate>
+    <category>Domestic AI</category>
+    <description><![CDATA[Enterprises calling DeepSeek or Qwen APIs on business data want to know if inputs train future models. The answer sits in provider data-use terms; free vs paid tiers can differ, and no training isn't the same as no retention for abuse review.]]></description>
+  </item>
   <item>
     <title><![CDATA[AI Subscription Canceled, PayPal Still Shows It Active]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html</link>

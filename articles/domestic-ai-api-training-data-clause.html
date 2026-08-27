@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型</title>
+  <meta name="description" content="企业和开发者调用DeepSeek、通义千问等国内大模型API处理客户对话、合同文档这类业务数据时，最关心输入内容会不会被厂商拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且承诺不用于训练不等于不会为安全审核留存数据，这是两件不同的事，本文讲清该去协议哪个章节核对。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-api-training-data-clause.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-api-training-data-clause.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-api-training-data-clause.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型">
+  <meta property="og:description" content="企业和开发者调用DeepSeek、通义千问等国内大模型API处理客户对话、合同文档这类业务数据时，最关心输入内容会不会被厂商拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且承诺不用于训练不等于不会为安全审核留存数据，这是两件不同的事，本文讲清该去协议哪个章节核对。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-api-training-data-clause.html">
+  <meta property="article:published_time" content="2026-08-27T15:55:00+08:00">
+  <meta property="article:modified_time" content="2026-08-27T15:55:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型">
+  <meta name="twitter:description" content="企业和开发者调用DeepSeek、通义千问等国内大模型API处理客户对话、合同文档这类业务数据时，最关心输入内容会不会被厂商拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且承诺不用于训练不等于不会为安全审核留存数据，这是两件不同的事，本文讲清该去协议哪个章节核对。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-api-training-data-clause.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-api-training-data-clause.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-api-training-data-clause.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#webpage", "url": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html", "name": "给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型", "item": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html" }
+    ] },
+    { "@type": "Article", "headline": "给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型", "description": "企业和开发者调用DeepSeek、通义千问等国内大模型API处理客户对话、合同文档这类业务数据时，最关心输入内容会不会被厂商拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且承诺不用于训练不等于不会为安全审核留存数据，这是两件不同的事，本文讲清该去协议哪个章节核对。", "image": "https://ponr.org/img/cover-domestic-ai-api-training-data-clause.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-27T15:55:00+08:00", "dateModified": "2026-08-27T15:55:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["DeepSeek隐私政策", "通义千问数据安全", "API训练数据", "服务协议", "国内大模型合规"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-api-training-data-clause.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-api-training-data-clause.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型</h1>
+          <p class="article-summary">企业和开发者把客户对话记录、合同文档这类业务数据传给DeepSeek、通义千问这些国内大模型的API做处理时，最常问的一个问题是：这些输入内容，厂商会不会拿去训练下一版模型？这个问题的答案不该靠猜，通常写在服务协议或隐私政策里跟"数据使用""模型优化""训练数据"相关的章节，但不同厂商措辞和默认设置并不一样：面向消费者的免费产品和面向企业的付费API，承诺力度可能完全不同；而且即便厂商承诺"不用于训练"，也不代表数据完全不会被留存——用于安全审核、滥用检测的留存，是另一件独立的事。本文讲清楚该去协议里查哪几个具体点，并核实了DeepSeek和阿里云通义千问目前公开的官方说明。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-27T15:55:00+08:00">2026-08-27 15:55:00</time> · 官方协议原文最后核验于 2026-08-27</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-api-training-data-clause.svg" width="800" height="400" alt="给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否在厂商开放平台的控制台或服务协议里，找到过明确写着"数据是否用于模型训练"的条款原文，而不是凭第三方博客或论坛的转述就下结论</li>
+            <li><span class="article-verify-check">✓</span>如果控制台里有"不同意用于训练"或"数据用于优化体验"这类开关，是否已经手动确认过自己账号当前的勾选/开关状态，而不是假设默认设置对自己有利</li>
+            <li><span class="article-verify-check">✓</span>免费个人版和企业付费API的协议条款是否分别核对过，不能假设两者承诺一致——很多厂商只在面向消费者的产品里写清楚训练用途和退出方式，开放平台/API协议对同一问题可能只字未提</li>
+            <li><span class="article-verify-check">✓</span>是否区分清楚"数据不用于训练"和"数据出于安全审核、滥用检测目的被留存一段时间"是两件不同的事，协议里对训练用途的承诺不能代替对留存期限、留存目的的核实</li>
+            <li><span class="article-verify-check">✓</span>涉及客户隐私或商业机密的业务数据，是否已经跟厂商客服或商务对接人书面确认过协议里模糊或未提及的部分，而不是仅凭公开条款自行判断风险可接受</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 问题的核心：输入内容会不会被拿去训练下一版模型</h2>
+          <p>企业或开发者调用DeepSeek、通义千问这类国内大模型的API处理业务数据——比如把客户服务对话记录喂给模型做摘要、把内部文档丢给模型做问答——最容易被忽略、但影响却可能很大的一个问题是：这些输入内容，以及模型返回的输出，会不会被厂商收集起来，用作训练下一版模型的语料？如果答案是"会"，意味着自己的客户对话、业务文档里可能包含的商业信息，理论上有可能通过模型训练这个渠道被沉淀进厂商的模型能力里，即便经过脱敏处理，这也是企业在选择接入哪家大模型API之前应该弄清楚、而不是想当然假设"应该不会"的问题。这个问题的答案不应该靠猜测或者道听途说，而应该去协议原文里找。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 该去协议里找哪些关键词：数据使用、模型优化、训练数据</h2>
+          <p>不同厂商的服务协议、隐私政策命名和结构不完全一样，但通常都会有专门讲"我们如何收集和使用你的信息"或类似的章节，值得重点查找的关键词包括"数据使用""模型优化""训练数据""数据用于优化体验"这类措辞——具体的章节名称、条款编号因厂商而异，本文不替任何一家厂商编造一个统一的固定名称，实际查找时建议直接在协议页面里用浏览器的页内搜索（Ctrl+F）去定位这几个关键词，看上下文具体怎么表述、有没有说明退出或选择不同意的路径。以DeepSeek为例，其官方隐私政策（见文末资料来源）在"我们如何收集和使用您的个人信息"章节下明确写到，服务收集的输入及对应输出，在加密和去标识化处理后，可能会用于DeepSeek模型训练和服务优化，同时说明用户可以在产品设置里的"数据管理"页面关闭"数据用于优化体验"这个选项来退出，关闭后输入输出内容不再用于训练——这是本文核实到的一个具体、可操作的条款范例。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 免费版和企业付费API，承诺可能完全不是一回事</h2>
+          <p>需要特别提醒的一点是：厂商在消费者产品（比如App、网页聊天界面）隐私政策里写清楚的训练用途说明和退出机制，不一定同等适用于面向开发者的开放平台/API协议。以DeepSeek为例，本文核实其《DeepSeek开放平台服务协议》全文后发现，这份专门针对API和开发者工具场景的协议里，第4条"输入与输出"主要讲的是输入输出内容的权利归属（比如用户保留对自己提交内容的权利），并没有像面向消费者的隐私政策那样，专门就"API输入内容是否会被用于训练官方模型"这件事给出明确说明——这跟消费者产品的隐私政策形成了一个值得注意的落差。这不代表答案就是"会"或者"不会"，而是提醒使用者：不能拿一家厂商消费者产品里的承诺，直接套用到自己用的企业API或开发者协议上，两份文件即使同属一个厂商，条款覆盖的场景和承诺力度也可能不同，必须分别核对，拿不准时应直接联系厂商商务或客服书面确认。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. "不用于训练"不等于"不会留存"：这是两件不同的事</h2>
+          <p>即便厂商在协议里明确承诺"不会将你的数据用于模型训练"，这也不意味着数据完全不会被服务器留存或用于其他目的——安全审核、滥用检测、故障排查、法定合规要求下的留存，跟"是否用于训练模型"是两个独立的问题，一个厂商完全可以同时做到"承诺不训练"和"仍然会留存调用产生的数据一段时间"，两者并不矛盾。本文核实了阿里云大模型服务平台百炼（通义千问API的官方接入平台）公开发布的《合规资质与隐私说明》页面，其中明确写到"阿里云严格保护数据隐私，绝不会将您的数据用于模型训练"，同时在同一份说明里也提到"阿里云百炼将存储模型与应用调用时产生的数据"，并注明存储依据详见其《阿里云百炼服务协议》里关于数据处理、隐私和安全的具体条款——这正是"不训练"和"会留存"两件事分别写明、同时存在的一个实际范例，读协议时不能只看到"不训练"三个字就以为数据完全不落地。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 实操建议：拿不准时怎么核实，而不是靠猜</h2>
+          <p>综合以上，给准备用国内大模型API处理业务数据的团队几条实操建议：第一，接入前先分别找到自己实际会用的具体产品/API对应的服务协议和隐私政策原文（不是同厂商其他产品的协议），用页内搜索定位"数据使用""训练""留存"这几类关键词，逐条读完整段落而不是只看标题；第二，如果控制台里存在"数据用于优化体验"或类似的开关，主动确认一遍当前状态，不要假设默认设置就是对自己有利的那一种；第三，涉及客户隐私、商业机密等敏感业务数据时，不要仅凭公开条款的措辞自行判断风险可以接受，应该书面（邮件或工单形式，便于留存记录）向厂商客服或商务对接人确认协议里没写清楚或存在歧义的部分；第四，定期复查，因为服务协议和隐私政策会随版本更新，今天核实过的条款不代表半年后依然适用，重要业务尤其应该建立定期复核协议变更的习惯。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 问题的核心：输入内容会不会被拿去训练下一版模型</a></li>
+          <li><a href="#sec-2">2. 该去协议里找哪些关键词：数据使用、模型优化、训练数据</a></li>
+          <li><a href="#sec-3">3. 免费版和企业付费API，承诺可能完全不是一回事</a></li>
+          <li><a href="#sec-4">4. "不用于训练"不等于"不会留存"：这是两件不同的事</a></li>
+          <li><a href="#sec-5">5. 实操建议：拿不准时怎么核实，而不是靠猜</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-privacy-policy.html" target="_blank" rel="noopener nofollow">DeepSeek官方隐私政策</a>：明确说明输入输出内容可能经脱敏后用于模型训练与服务优化，以及在"数据管理"里关闭"数据用于优化体验"的退出路径，对应本文第2节</li>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek开放平台服务协议</a>：面向API/开发者工具场景的专门协议，第4条讲输入输出权利归属，未见对API输入是否用于训练做专门说明，对应本文第3节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/compliance-and-privacy" target="_blank" rel="noopener nofollow">阿里云大模型服务平台百炼：合规资质与隐私说明</a>：官方明确"绝不会将您的数据用于模型训练"，同时说明会存储调用产生的数据，对应本文第4节</li>
+          </ul>
+          <p class="ref-note">各厂商服务协议与隐私政策可能随版本更新，条款措辞、覆盖范围以官方当前发布的最新原文为准；涉及重要业务数据的合规判断，建议同时咨询专业法律顾问或直接书面联系厂商确认。本文仅供参考，不构成法律意见。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/domestic-ai-generative-filing-vs-icp.html">接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规</a></li>
+          <li><a href="/articles/domestic-ai-content-moderation-truncation.html">接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=33b3f254fc"></script>
+</body>
+</html>

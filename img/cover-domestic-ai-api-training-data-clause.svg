@@ -1,0 +1,70 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="业务数据流向大模型训练与服务协议条款放大镜示意图">
+  <defs>
+    <linearGradient id="bgGradTc" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradTc)"/>
+
+  <!-- document stack representing business data (customer chats / files) -->
+  <g transform="translate(150,160)">
+    <rect x="-58" y="-56" width="100" height="128" rx="8" fill="#20342f" stroke="#4fae8a" stroke-width="2" transform="translate(10,10)"/>
+    <rect x="-64" y="-64" width="100" height="128" rx="8" fill="#233b34" stroke="#4fae8a" stroke-width="2.5"/>
+    <line x1="-46" y1="-40" x2="20" y2="-40" stroke="#7be8b8" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-46" y1="-18" x2="20" y2="-18" stroke="#7be8b8" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+    <line x1="-46" y1="4" x2="10" y2="4" stroke="#7be8b8" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <line x1="-46" y1="26" x2="20" y2="26" stroke="#7be8b8" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+    <text x="-14" y="86" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#9fe6c4">业务数据</text>
+  </g>
+
+  <!-- arrow flow from data to model -->
+  <g stroke="#4fae8a" stroke-width="2.5" fill="none" opacity="0.8">
+    <path d="M235 170 C 300 150 340 150 390 170" marker-end="url(#arrowTc)"/>
+  </g>
+  <defs>
+    <marker id="arrowTc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#4fae8a"/>
+    </marker>
+  </defs>
+
+  <!-- model training node (neural network abstraction) -->
+  <g transform="translate(460,150)">
+    <circle r="62" fill="#2a2038" stroke="#c98be0" stroke-width="3"/>
+    <circle cx="-22" cy="-16" r="6" fill="#e6c4f7"/>
+    <circle cx="0" cy="-30" r="6" fill="#e6c4f7"/>
+    <circle cx="22" cy="-16" r="6" fill="#e6c4f7"/>
+    <circle cx="-14" cy="10" r="6" fill="#e6c4f7"/>
+    <circle cx="16" cy="12" r="6" fill="#e6c4f7"/>
+    <circle cx="0" cy="30" r="6" fill="#e6c4f7"/>
+    <g stroke="#c98be0" stroke-width="1.4" opacity="0.75">
+      <line x1="-22" y1="-16" x2="0" y2="-30"/>
+      <line x1="0" y1="-30" x2="22" y2="-16"/>
+      <line x1="-22" y1="-16" x2="-14" y2="10"/>
+      <line x1="22" y1="-16" x2="16" y2="12"/>
+      <line x1="-14" y1="10" x2="0" y2="30"/>
+      <line x1="16" y1="12" x2="0" y2="30"/>
+      <line x1="-22" y1="-16" x2="16" y2="12"/>
+      <line x1="22" y1="-16" x2="-14" y2="10"/>
+    </g>
+    <text x="0" y="90" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#e6c4f7">模型训练?</text>
+  </g>
+
+  <!-- magnifying glass over a contract clause list, near bottom right -->
+  <g transform="translate(650,250)">
+    <rect x="-56" y="-64" width="112" height="128" rx="6" fill="#233b34" stroke="#4fae8a" stroke-width="2" opacity="0.9"/>
+    <line x1="-38" y1="-42" x2="30" y2="-42" stroke="#8fd6b6" stroke-width="2.5" opacity="0.8"/>
+    <line x1="-38" y1="-24" x2="30" y2="-24" stroke="#8fd6b6" stroke-width="2.5" opacity="0.65"/>
+    <line x1="-38" y1="-6" x2="20" y2="-6" stroke="#8fd6b6" stroke-width="2.5" opacity="0.5"/>
+    <line x1="-38" y1="12" x2="30" y2="12" stroke="#8fd6b6" stroke-width="2.5" opacity="0.65"/>
+    <line x1="-38" y1="30" x2="16" y2="30" stroke="#8fd6b6" stroke-width="2.5" opacity="0.5"/>
+    <g transform="translate(18,-6)">
+      <circle r="38" fill="rgba(20,32,29,0.15)" stroke="#f2b84a" stroke-width="4"/>
+      <line x1="27" y1="27" x2="52" y2="52" stroke="#f2b84a" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <text x="60" y="330" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" font-weight="700" fill="#eef2fb">你的数据，会训练模型吗</text>
+  <text x="62" y="360" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#b6d6c8">API DATA USE &amp; TRAINING CLAUSES</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>
