@@ -109,7 +109,7 @@
         </section>
         <section id="sec-2">
           <h2>2. 脱节出现在哪一层：前端状态和计费引擎不是一回事</h2>
-          <p>很多 AI 产品的账户设置页只是一层"前端展示"，真正负责按周期扣款的是背后独立的计费系统——可能是 Stripe、Chargebee、Recurly 这类第三方计费平台，也可能是苹果 App Store、Google Play 这类应用商店订阅通道。当你点击取消，网页前端立刻更新了显示状态、给你发了一封"订阅已取消"的确认邮件，看起来流程走完了；但如果这次取消请求没有正确地把状态同步给背后那个真正掌握扣款权限的系统——常见原因包括 API 调用失败但没有重试、webhook 通知丢失、或者取消请求本身走的是错误的接口——计费引擎那边完全不知道这件事，到了周期节点，它只会按原计划照常发起扣款。</p>
+          <p>很多 AI 产品的账户设置页只是一层"前端展示"，真正负责按周期扣款的是背后独立的计费系统——可能是 Stripe、Chargebee、Recurly 这类第三方计费平台，也可能是苹果 App Store、Google Play 这类应用商店订阅通道。当你点击取消，网页前端立刻更新了显示状态、给你发了一封"订阅已取消"的确认邮件，看起来流程走完了；但如果这次取消请求没有正确地把状态同步给背后那个真正掌握扣款权限的系统——常见原因包括 API 调用失败但没有重试、webhook 通知丢失、或者取消请求本身走的是错误的接口——计费引擎那边完全不知道这件事，到了周期节点，它只会按原计划照常发起扣款。如果走的是PayPal支付通道，情况又略有不同——详见<a href="/articles/overseas-ai-paypal-cancel-still-active.html">点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃</a>，PayPal那条独立授权记录用户自己就能直接查、直接终止，不必完全依赖平台修复。</p>
         </section>
         <section id="sec-3">
           <h2>3. 最容易踩雷的场景：多入口订阅</h2>
@@ -168,6 +168,7 @@
         <aside class="related" aria-label="相关文章">
           <h2>相关文章</h2>
           <ul>
+          <li><a href="/articles/overseas-ai-paypal-cancel-still-active.html">点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃</a></li>
           <li><a href="/articles/ai-subscription-pause-not-cancel.html">AI订阅的暂停按钮，到底按下了什么</a></li>
           <li><a href="/articles/ai-subscription-delete-not-cancel.html">把AI账户删了，为什么订阅还在扣钱</a></li>
           <li><a href="/articles/ai-subscription-billing-cycle-switch.html">月付AI订阅续费时，为什么会被换成年付方案</a></li>
@@ -233,6 +234,6 @@
     <a class="back-to-top" href="#top" aria-label="返回顶部">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </a>
-  <script src="/js/site.min.js?v=ee48aee833"></script>
+  <script src="/js/site.min.js?v=f6ef0f29ee"></script>
 </body>
 </html>

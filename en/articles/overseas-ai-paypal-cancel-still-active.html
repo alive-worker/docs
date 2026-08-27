@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Subscription Canceled, PayPal Still Shows It Active</title>
+  <meta name="description" content="AI subscriptions charge via a PayPal Billing Agreement kept separate from the platform's status; skip PayPal's cancel API and it stays active for later charges.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="AI Subscription Canceled, PayPal Still Shows It Active">
+  <meta property="og:description" content="AI subscriptions charge via a PayPal Billing Agreement kept separate from the platform's status; skip PayPal's cancel API and it stays active for later charges.">
+  <meta property="og:url" content="https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html">
+  <meta property="article:published_time" content="2026-08-27T13:47:26+08:00">
+  <meta property="article:modified_time" content="2026-08-27T13:47:26+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Overseas AI Subscriptions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Subscription Canceled, PayPal Still Shows It Active">
+  <meta name="twitter:description" content="AI subscriptions charge via a PayPal Billing Agreement kept separate from the platform's status; skip PayPal's cancel API and it stays active for later charges.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-paypal-cancel-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="AI Subscription Canceled, PayPal Still Shows It Active cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-paypal-cancel-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual credit cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#primaryimage", "url": "https://ponr.org/img/cover-paypal-cancel-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#webpage", "url": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html", "name": "AI Subscription Canceled, PayPal Still Shows It Active", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Subscription Canceled, PayPal Still Shows It Active", "item": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html" }
+    ] },
+    { "@type": "Article", "headline": "AI Subscription Canceled, PayPal Still Shows It Active", "description": "AI subscriptions charge via a PayPal Billing Agreement kept separate from the platform's status; skip PayPal's cancel API and it stays active for later charges.", "image": "https://ponr.org/img/cover-paypal-cancel-mismatch.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-08-27T13:47:26+08:00", "dateModified": "2026-08-27T13:47:26+08:00", "inLanguage": "en", "articleSection": "Overseas AI Subscriptions", "keywords": ["PayPal automatic payment", "Billing Agreement", "preapproved payment", "subscription cancellation", "AI subscription"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-paypal-cancel-still-active.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>AI Subscription Canceled, PayPal Still Shows It Active</h1>
+          <p class="article-summary">Many AI services running through PayPal actually charge you via a PayPal-internal mechanism called a Billing Agreement (PayPal's own account UI usually labels it "Automatic Payment" or "preapproved payment") -- an authorization record that lives entirely inside your PayPal account, completely separate from whatever subscription status the AI platform keeps in its own database. When you click "Cancel Subscription" in the AI platform's interface, the platform is supposed to also call PayPal's API to terminate that Billing Agreement. But if that step is skipped or fails inside the platform's own cancellation flow -- common, because many platforms' cancel buttons only update their own database and never actually call PayPal's cancellation endpoint -- you end up with a split: the AI platform says "canceled," but the Billing Agreement in your PayPal account is still active. If the merchant later fires off another charge request, PayPal may still approve it, because the agreement itself was never actually terminated.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-08-27T13:47:26+08:00">2026-08-27 13:47:26</time> · PayPal help pages last verified 2026-08-27</p>
+        </header>
+        <img class="article-cover" src="/img/cover-paypal-cancel-mismatch.svg" width="800" height="400" alt="AI Subscription Canceled, PayPal Still Shows It Active cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Don't just trust the "canceled" message on the AI platform's own page -- log into your PayPal account, go to the automatic payments / preapproved payments management section, and check whether the entry for this AI service is still listed as active</li>
+            <li><span class="article-verify-check">✓</span>Compare the merchant name shown on that PayPal automatic-payment entry against the name that actually appears on your charge statements -- some platforms bill under a different legal or processing name than their product name, which is easy to miss</li>
+            <li><span class="article-verify-check">✓</span>If the PayPal entry is still active, cancel or unlink it directly inside PayPal rather than waiting for the AI platform to "sync" itself or clicking its own cancel button again</li>
+            <li><span class="article-verify-check">✓</span>After manually ending the agreement, watch at least one full billing cycle to confirm no further charge from that merchant shows up in your PayPal activity; if one does, ask the merchant for a refund first and keep the PayPal cancellation timestamp as evidence</li>
+            <li><span class="article-verify-check">✓</span>If you find a charge you're confident you never authorized and the agreement had already been terminated, report it as unauthorized activity through PayPal's Resolution Center ("Report a Problem") rather than starting with the AI platform's support team</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The symptom: the platform says canceled, PayPal says the agreement is still alive</h2>
+          <p>Plenty of users click "Cancel Subscription" on an AI service and then, days or weeks later, get another charge notification from PayPal. Going back to the AI platform, the account status clearly says "Canceled" or "Subscription ended." But logging into PayPal and checking the automatic payment record for that merchant shows the authorization was never actually terminated -- the status still reads "Active." This isn't a delay or a PayPal glitch. It's two independent systems that were never actually synced: the AI platform's own subscription status, and the separate authorization record inside PayPal that actually controls whether a charge gets approved.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. The mechanism: a Billing Agreement is an authorization PayPal maintains on its own</h2>
+          <p>Many AI services accept PayPal through a mechanism PayPal calls a Billing Agreement -- also referred to as a preapproved payment or a reference transaction. It lets a merchant, after getting a one-time authorization from you, keep charging on an agreed schedule without you having to log into PayPal and approve every single transaction. Once that authorization exists, it lives entirely inside PayPal's own account system, completely separate from whatever the merchant's own database says about "is this user subscribed." The merchant's database decides whether to keep providing service and whether to fire off a charge request; PayPal's Billing Agreement decides whether that particular request gets approved. In principle both should update together when you cancel, but that sync depends on the merchant actually calling the API PayPal provides for terminating the agreement.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Why they drift apart: the platform's "cancel" button may only touch its own database</h2>
+          <p>The gap usually comes from how many AI platforms built their own cancellation flow: clicking "Cancel Subscription" does update the platform's own database to "canceled," and the UI does show the corresponding message -- but that step is often purely internal, and doesn't necessarily mean the platform also called PayPal's API to terminate the Billing Agreement. If that call gets skipped because of a code oversight, poor error handling, or simply because the platform never wired "cancel subscription" together with "terminate PayPal authorization" as a single action, the PayPal-side record just keeps sitting there active -- because as far as PayPal is concerned, nobody ever told it to end. This is a similar-looking gap to the "zombie charge" problem covered in an earlier article on this site (<a href="/en/articles/ai-subscription-zombie-charge.html">You Cancelled, So Why Is the AI App Still Billing You</a>), but the mechanism differs: that piece is mostly about a platform's front end drifting out of sync with a third-party billing system like Stripe inside the same billing stack. PayPal's case is different -- it's an authorization record maintained independently by the payment channel itself, fully separate from the merchant, and that distinction is the point of this article.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. How this differs from a card scenario: with PayPal, you can end it yourself</h2>
+          <p>Pay directly by credit card instead, and the card network or issuing bank typically generates a similar merchant "token" for future frictionless charges -- if the merchant's cancellation is incomplete, that token can also keep getting billed, and a user usually has no direct way to fix it beyond contacting the issuing bank for a chargeback or replacing the card number. PayPal's Billing Agreement is different in one clear way: the authorization record itself is fully visible in your own PayPal account settings, something you can view and act on directly, without depending on a bank's back office. In other words, even if the AI platform's cancellation flow has a bug, you don't have to wait for the platform to fix it or sit in a support queue -- you can log into PayPal yourself and terminate the agreement directly. That's the practical advantage PayPal's payment channel has over a card token: when something goes wrong, the control is actually in your hands.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Where to actually check: PayPal's automatic payment management page</h2>
+          <p>To confirm whether a Billing Agreement is still active, log into your PayPal account and go to the automatic payments management page (labeled "Automatic Payments" in some versions of the interface, or "Subscriptions and saved businesses" in others) -- it lists every merchant currently authorized to charge your PayPal account, along with each one's status and linked payment method. Note that the exact menu name and navigation path for this page can vary by region and account type, and can also differ between the website and the mobile app; this article isn't going to invent one fixed click-path, since the exact route depends on what your PayPal account actually shows when you log in. If you can't find it, PayPal's own help center can be searched for "automatic payment" or "billing agreement" to pull up the current official guidance. Once you find the entry for the merchant in question, if it shows as active, you can cancel or unlink it directly from that page without waiting on the AI platform to respond.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. If the agreement is still active or you've already been charged again</h2>
+          <p>The first step, if you find the Billing Agreement still active in PayPal, is to terminate it directly inside your PayPal account -- that way, even if the AI platform tries to fire off another charge request later, PayPal will decline it because the authorization no longer exists. After terminating it, watch at least one full billing cycle to confirm no further charge from that merchant shows up in your PayPal activity. If you're still charged after manually ending the agreement, or you find a past charge you're confident you never authorized and the agreement had already been ended, report it as unauthorized transaction or account activity through PayPal's Resolution Center -- this is PayPal's official channel for this kind of dispute. It's also worth contacting the AI platform directly to request a refund and explain the situation, handling both sides at once rather than waiting on either one alone. The bottom line: if a platform says "canceled" but PayPal keeps charging, don't assume the platform will fix it on its own -- the authorization record inside your PayPal account is something you can check and end yourself.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The symptom: the platform says canceled, PayPal says the agreement is still alive</a></li>
+          <li><a href="#sec-2">2. The mechanism: a Billing Agreement is an authorization PayPal maintains on its own</a></li>
+          <li><a href="#sec-3">3. Why they drift apart: the platform's "cancel" button may only touch its own database</a></li>
+          <li><a href="#sec-4">4. How this differs from a card scenario: with PayPal, you can end it yourself</a></li>
+          <li><a href="#sec-5">5. Where to actually check: PayPal's automatic payment management page</a></li>
+          <li><a href="#sec-6">6. If the agreement is still active or you've already been charged again</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://www.paypal.com/us/cshelp/article/what-is-an-automatic-payment-and-how-do-i-update-or-cancel-one-help240" target="_blank" rel="noopener nofollow">PayPal Help Center: What is an automatic payment and how do I update or cancel one?</a>: defines automatic payments/Billing Agreements and how to view and cancel them in account settings, referenced in sections 2 and 5</li>
+            <li><a href="https://www.paypal.com/us/money-hub/article/how-to-cancel-recurring-subscriptions" target="_blank" rel="noopener nofollow">PayPal Money Hub: How To Cancel Recurring Payments</a>: clarifies that canceling an automatic payment in PayPal only stops future charges on that method, and does not by itself cancel the underlying subscription with the merchant, referenced in sections 3 and 4</li>
+            <li><a href="https://www.paypal.com/us/cshelp/article/how-do-i-report-an-unauthorized-transaction-or-account-activity-help136" target="_blank" rel="noopener nofollow">PayPal Help Center: How do I report an unauthorized transaction or account activity?</a>: explains the official Resolution Center channel for reporting unauthorized charges, referenced in section 6</li>
+          </ul>
+          <p class="ref-note">Exact menu names and navigation paths on PayPal can vary by region and account type; follow what your logged-in account actually shows. For billing disputes, contact both PayPal and the AI service provider. This article is for operational reference only and is not legal or financial advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/ai-subscription-zombie-charge.html">You Cancelled, So Why Is the AI App Still Billing You</a></li>
+          <li><a href="/en/articles/payment-methods-guide.html">AI Subscription Payment Methods Compared: Cards, Virtual Cards &amp; Stablecoins</a></li>
+          <li><a href="/en/articles/ai-subscription-delete-not-cancel.html">You Deleted the Account, So Why Are You Still Billed</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to Home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI service subscriptions, payment channels, virtual cards, and account security -- hoping to help you as a fellow AI service user.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Billing &amp; Account</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Payment Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payment Proxy</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>This site shares information for reference only; pricing, regional availability, and policies are subject to the official information of each AI platform and payment service.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f6ef0f29ee"></script>
+</body>
+</html>

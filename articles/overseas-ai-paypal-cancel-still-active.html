@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃</title>
+  <meta name="description" content="AI服务常用PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，是PayPal账户里独立的授权记录，跟平台数据库订阅状态是两套系统；平台点取消若没调用PayPal接口终止，会出现平台已取消、PayPal自动付款仍活跃的分裂，商户再扣款可能照常放行，本文讲怎么去PayPal自查并手动终止。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="点了取消AI订阅，PayPal里这笔&quot;自动付款&quot;为什么还显示活跃">
+  <meta property="og:description" content="AI服务常用PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，是PayPal账户里独立的授权记录，跟平台数据库订阅状态是两套系统；平台点取消若没调用PayPal接口终止，会出现平台已取消、PayPal自动付款仍活跃的分裂，商户再扣款可能照常放行，本文讲怎么去PayPal自查并手动终止。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html">
+  <meta property="article:published_time" content="2026-08-27T13:47:26+08:00">
+  <meta property="article:modified_time" content="2026-08-27T13:47:26+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="点了取消AI订阅，PayPal里这笔&quot;自动付款&quot;为什么还显示活跃">
+  <meta name="twitter:description" content="AI服务常用PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，是PayPal账户里独立的授权记录，跟平台数据库订阅状态是两套系统；平台点取消若没调用PayPal接口终止，会出现平台已取消、PayPal自动付款仍活跃的分裂，商户再扣款可能照常放行，本文讲怎么去PayPal自查并手动终止。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-paypal-cancel-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="点了取消AI订阅，PayPal里这笔自动付款为什么还显示活跃封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-paypal-cancel-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#primaryimage", "url": "https://ponr.org/img/cover-paypal-cancel-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#webpage", "url": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html", "name": "点了取消AI订阅，PayPal里这笔\"自动付款\"为什么还显示活跃", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "点了取消AI订阅，PayPal里这笔\"自动付款\"为什么还显示活跃", "item": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html" }
+    ] },
+    { "@type": "Article", "headline": "点了取消AI订阅，PayPal里这笔\"自动付款\"为什么还显示活跃", "description": "AI服务常用PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，是PayPal账户里独立的授权记录，跟平台数据库订阅状态是两套系统；平台点取消若没调用PayPal接口终止，会出现平台已取消、PayPal自动付款仍活跃的分裂，商户再扣款可能照常放行，本文讲怎么去PayPal自查并手动终止。", "image": "https://ponr.org/img/cover-paypal-cancel-mismatch.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-27T13:47:26+08:00", "dateModified": "2026-08-27T13:47:26+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["PayPal自动付款", "Billing Agreement", "预授权协议", "订阅取消", "AI订阅"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/overseas-ai-paypal-cancel-still-active.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃</h1>
+          <p class="article-summary">不少AI服务在海外走PayPal支付通道时，扣款依赖的其实是PayPal内部一种叫"账单协议"（Billing Agreement，PayPal自己的账户界面里通常标注为"自动付款"或"预授权支付"）的独立授权记录，它跟AI平台自己数据库里记的订阅状态是完全独立的两套系统。用户在AI平台界面点击"取消订阅"时，平台理论上应该同步调用PayPal的接口去终止这条协议，但如果这一步在平台的取消流程里被跳过或调用失败——很常见，因为平台自己的取消按钮往往只更新了自己数据库的订阅状态、没有真正对接PayPal的取消接口——就会出现"AI平台显示已取消"但"PayPal账户里这条自动付款记录依然活跃"的分裂现象，商户后续再次发起扣款请求时，PayPal可能仍会照常放行，因为协议本身压根没被终止过。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-27T13:47:26+08:00">2026-08-27 13:47:26</time> · PayPal官方帮助页面最后核验于 2026-08-27</p>
+        </header>
+        <img class="article-cover" src="/img/cover-paypal-cancel-mismatch.svg" width="800" height="400" alt="点了取消AI订阅，PayPal里这笔自动付款为什么还显示活跃封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>不要只信AI平台界面上"已取消"的提示，登录PayPal账户，进入设置里管理自动付款/预授权支付的入口，看这个AI服务商对应的条目是否还列在"活跃"或类似状态里</li>
+            <li><span class="article-verify-check">✓</span>核对PayPal里这条自动付款记录关联的商户名称，是否跟AI服务商实际扣款时账单上显示的商户名一致——有些平台用的收款主体和产品名不是同一个词，容易漏看</li>
+            <li><span class="article-verify-check">✓</span>如果PayPal那边这条记录仍然活跃，直接在PayPal账户里手动取消/解除这条自动付款，而不是等AI平台"自己同步"或反复重新点一遍平台的取消按钮</li>
+            <li><span class="article-verify-check">✓</span>手动终止后，观察至少一个计费周期，确认PayPal账户活动记录里没有再出现这家商户的扣款；如果又扣了，先联系商户要求退款，同时保留PayPal里协议已终止的时间记录作为证据</li>
+            <li><span class="article-verify-check">✓</span>如果发现有一笔自己确认没有授权、协议也早已终止的扣款，通过PayPal的Resolution Center（解决中心）里的"Report a Problem"举报未授权交易，而不是先默认联系AI平台客服</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：平台说已取消，PayPal却显示协议还活着</h2>
+          <p>不少用户在AI服务平台点击"取消订阅"之后，几天或几周后又收到PayPal发来的扣款通知——回到AI平台一看，账户状态明明白白写着"已取消"或"订阅已结束"，但登录PayPal，去查这家商户的自动付款记录，却发现这条授权协议根本没有被终止，状态栏还是"活跃"（Active）。这不是偶发的系统延迟，也不是PayPal出了故障，而是两套彼此独立的系统之间没有真正同步——AI平台自己的订阅状态，和PayPal账户里那条实际控制扣款权限的授权记录，本来就是两回事。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 背后的机制：Billing Agreement是PayPal自己维护的独立授权</h2>
+          <p>很多AI服务在接入PayPal支付时，用的是PayPal的账单协议（Billing Agreement）机制，也叫"预授权支付"或"参考交易"（Reference Transaction）——这是PayPal提供给商户的一种能力，允许商户在获得用户一次性授权之后，后续按约定周期反复发起扣款，而不需要用户每次都重新登录PayPal确认。这条授权记录一旦建立，就完整保存在PayPal自己的账户体系里，跟商户自己数据库里记录的"这个用户是否订阅"是两套完全独立的系统：商户数据库负责判断要不要给用户提供服务、要不要发起扣款请求，而PayPal这边的Billing Agreement负责判断"这次扣款请求有没有被授权、要不要放行"。两者本该在用户取消订阅时同步更新，但同步这一步依赖商户主动调用PayPal提供的取消协议接口。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 为什么会脱节：平台的"取消"按钮可能只改了自己的数据库</h2>
+          <p>问题出在很多AI平台自己实现的取消订阅流程上：用户点击"取消订阅"按钮后，平台确实把自己数据库里这个用户的订阅状态改成了"已取消"，界面上也确实会显示对应的提示，但这一步往往只是平台自己内部的状态变更，并不必然意味着平台同时调用了PayPal提供的终止Billing Agreement的API。如果这次接口调用因为代码疏漏、异常处理不当、或者平台压根没有把"取消订阅"和"终止PayPal授权"这两个动作绑定在一起而被跳过，PayPal那边这条授权记录就会继续保持活跃状态——因为从PayPal的角度看，没有人告诉它这条协议应该终止。这跟本站之前一篇文章讨论的"僵尸扣款"现象（<a href="/articles/ai-subscription-zombie-charge.html">明明点了取消，AI订阅账单为什么还在扣钱</a>）背后的逻辑类似，都是前端展示的取消状态和后端真正控制扣款的系统脱节，但具体机制不同：那篇文章讲的多是Stripe这类平台自己的计费系统和商户前端之间的数据不同步，是同一家计费服务商体系内部的脱节；而PayPal这个案例，是支付渠道自己独立维护、跟商户完全分离的一套授权记录，这也是本文要讲清楚的关键区别。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 跟信用卡场景的区别：PayPal这条协议，你自己就能直接终止</h2>
+          <p>如果用信用卡直接支付AI订阅，卡组织和发卡行那边通常也会生成一条类似的"商户令牌"（token）用于后续免密扣款，商户取消不干净同样可能导致令牌没被撤销、继续被扣款，用户往往只能联系发卡行申请拒付或更换卡号才能彻底掐断。但PayPal的Billing Agreement有一个明显不同的地方：这条授权记录本身就完整地展示在你自己的PayPal账户设置里，是用户能够直接查看、直接操作的对象，不需要像信用卡令牌那样依赖发卡行后台才能处理。也就是说，即便AI平台那边的取消流程有疏漏，用户完全不需要等平台修复bug或联系客服排队处理，自己登录PayPal账户就能直接把这条协议终止掉——这是PayPal支付渠道相比信用卡令牌机制更容易被用户自己介入的地方，也是本文希望强调的核心实操点：出问题时，主动权其实在你自己手里。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 具体去哪里查：PayPal账户设置里的自动付款管理入口</h2>
+          <p>要确认一条Billing Agreement是否还活跃，需要登录PayPal账户，进入账户设置里管理"自动付款"（Automatic Payments，部分版本界面里显示为"Subscriptions and saved businesses"或"预授权支付"）的页面，这里会列出所有当前跟你的PayPal账户绑定的商户自动扣款授权，包括每个商户的名称、状态以及关联的支付方式。需要说明的是，PayPal官方页面在不同地区、不同账户类型下，这个入口的具体菜单名称、层级路径可能存在差异（比如网页版和手机App版的路径就不完全一样），本文不编造一个固定不变的点击路径，具体请以你登录时PayPal页面实际显示的菜单名称为准；如果找不到，可以直接在PayPal的帮助中心搜索"automatic payment"或"billing agreement"相关的官方说明页面获取当前版本的入口指引。找到对应商户的条目后，如果状态显示为活跃，可以在这个页面里直接操作取消或解除该笔自动付款，无需依赖AI平台那边的响应。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 如果协议还活跃或已经被多扣款，接下来怎么办</h2>
+          <p>发现PayPal那边的Billing Agreement仍处于活跃状态，第一步是直接在PayPal账户里手动终止它，这样即便AI平台后续又尝试发起扣款请求，PayPal也会因为授权已经不存在而拒绝放行。终止之后建议至少观察一个完整计费周期，确认PayPal账户的交易活动记录里没有再出现这家商户的扣款条目。如果在手动终止协议之后仍然被扣款，或者发现有一笔自己确认没有授权过、协议也早已终止的历史扣款，应该通过PayPal的Resolution Center（解决中心）使用"Report a Problem"举报未授权交易或账户活动，这是PayPal官方处理此类争议的正式渠道；同时也建议联系AI平台方要求退款并说明具体情况，两边同步处理，比只等一边响应更稳妥。总的来说，遇到"平台说取消了、PayPal还在扣"这种情况，别把希望都寄托在平台会自己修复上——PayPal账户里的这条授权记录，你自己就能直接查、直接终止。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：平台说已取消，PayPal却显示协议还活着</a></li>
+          <li><a href="#sec-2">2. 背后的机制：Billing Agreement是PayPal自己维护的独立授权</a></li>
+          <li><a href="#sec-3">3. 为什么会脱节：平台的"取消"按钮可能只改了自己的数据库</a></li>
+          <li><a href="#sec-4">4. 跟信用卡场景的区别：PayPal这条协议，你自己就能直接终止</a></li>
+          <li><a href="#sec-5">5. 具体去哪里查：PayPal账户设置里的自动付款管理入口</a></li>
+          <li><a href="#sec-6">6. 如果协议还活跃或已经被多扣款，接下来怎么办</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.paypal.com/us/cshelp/article/what-is-an-automatic-payment-and-how-do-i-update-or-cancel-one-help240" target="_blank" rel="noopener nofollow">PayPal官方帮助中心：What is an automatic payment and how do I update or cancel one?</a>：说明自动付款/Billing Agreement的定义，以及在设置里查看和取消的具体路径，对应本文第2、5节</li>
+            <li><a href="https://www.paypal.com/us/money-hub/article/how-to-cancel-recurring-subscriptions" target="_blank" rel="noopener nofollow">PayPal官方Money Hub：How To Cancel Recurring Payments</a>：明确指出在PayPal取消自动付款只是停止该支付方式的后续扣款，不等于取消与商户的订阅关系本身，对应本文第3、4节</li>
+            <li><a href="https://www.paypal.com/us/cshelp/article/how-do-i-report-an-unauthorized-transaction-or-account-activity-help136" target="_blank" rel="noopener nofollow">PayPal官方帮助中心：How do I report an unauthorized transaction or account activity?</a>：说明通过Resolution Center举报未授权交易的正式渠道，对应本文第6节</li>
+          </ul>
+          <p class="ref-note">PayPal各地区、各账户类型的具体菜单名称与操作路径可能有差异，请以当前登录账户实际显示的页面为准；涉及扣款争议，建议同时联系PayPal与AI服务商双方核实，本文仅供操作参考，不构成法律或财务建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/ai-subscription-zombie-charge.html">明明点了取消，AI订阅账单为什么还在扣钱</a></li>
+          <li><a href="/articles/overseas-ai-payment-methods.html">实体卡、虚拟卡、稳定币：海外AI三条支付路径对比</a></li>
+          <li><a href="/articles/ai-subscription-delete-not-cancel.html">把AI账户删了，为什么订阅还在扣钱</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f6ef0f29ee"></script>
+</body>
+</html>

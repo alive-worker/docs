@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 27 Aug 2026 10:45:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 27 Aug 2026 13:47:26 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃]]></title>
+    <link>https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html</guid>
+    <pubDate>Thu, 27 Aug 2026 13:47:26 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[许多AI服务靠PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，这是PayPal账户里独立维护的授权记录，跟平台数据库的订阅状态是两套系统；平台取消若没调用PayPal接口终止协议，会出现平台已取消、PayPal自动付款仍活跃的分裂，本文讲清机制与怎么去PayPal自查并手动终止。]]></description>
+  </item>
   <item>
     <title><![CDATA[接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段]]></title>
     <link>https://ponr.org/articles/domestic-ai-content-moderation-truncation.html</link>
