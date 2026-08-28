@@ -639,11 +639,16 @@
           if (match) { anyMatch = true; matching.push(li); } else { li.style.display = 'none'; }
         });
         emptyMsg2.hidden = anyMatch;
+        // Real bug found via a user's live repro: a matching card's display was only ever
+        // reset to visible inside the archiveList branch below. On the homepage (no
+        // archiveList), a card hidden by an earlier non-matching search stayed hidden
+        // forever even once a later search genuinely matched it — nothing ever cleared
+        // that stale inline display:none. Reset every match unconditionally, first.
+        matching.forEach(function (li) { li.style.display = ''; });
         if (archiveList) {
           // Archive list supports real pagination even while filtered by topic and/or
           // text — re-run paginate() on just the matching subset so a category with
           // more than one page's worth of articles still pages correctly.
-          matching.forEach(function (li) { li.style.display = ''; });
           if (pager) pager.innerHTML = '';
           paginate(archiveList, matching, 20, pager);
         } else if (pager) {
