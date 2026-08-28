@@ -1,6 +1,20 @@
 (function () {
   'use strict';
 
+  // Collapses a burst of rapid-fire calls (e.g. a Chinese IME can fire a dozen
+  // 'input'/'compositionend' events for a single committed character) into one
+  // trailing call using whatever arguments the LAST call received, after things
+  // settle for `wait` ms. Search filtering only needs to reflect the final state,
+  // not every transient keystroke/composition update in between.
+  function debounce(fn, wait) {
+    var timer = null;
+    return function () {
+      var ctx = this, args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(ctx, args); }, wait);
+    };
+  }
+
   // --- i18n: the /en/ tree shares this exact script with the zh-CN pages, so every
   // user-facing string it injects at runtime is looked up by language here. ---
   var IS_EN = location.pathname.indexOf('/en/') === 0;
@@ -531,12 +545,12 @@
         if (sidebarHeading) sidebarHeading.textContent = STR.searchHeading;
       };
 
-      // Some IME/browser combinations (notably Chinese Pinyin input on Windows Chrome)
-      // don't reliably fire a final 'input' event once composition commits a character,
-      // leaving the filter stuck on whatever partial pinyin string was mid-composition.
-      // compositionend guarantees one more pass with the true committed value.
-      searchInput.addEventListener('input', applySearch);
-      searchInput.addEventListener('compositionend', applySearch);
+      // Chinese IME composition can fire a burst of 'input'/'compositionend' events for a
+      // single committed character (candidate-window churn) — debounce so only the settled
+      // final value gets filtered, instead of racing through every transient pinyin state.
+      var debouncedApplySearch = debounce(applySearch, 120);
+      searchInput.addEventListener('input', debouncedApplySearch);
+      searchInput.addEventListener('compositionend', debouncedApplySearch);
       if (searchClear) {
         searchClear.addEventListener('click', function () {
           searchInput.value = '';
@@ -652,11 +666,11 @@
         applyArchiveSearch(); // sets up the initial full pagination
       }
 
-      // See the matching compositionend note on searchInput above — same IME edge case
-      // applies here (homepage inline box and the archive/topic-page sidebar box share
-      // this same filter function).
-      searchInput2.addEventListener('input', applyArchiveSearch);
-      searchInput2.addEventListener('compositionend', applyArchiveSearch);
+      // See the matching debounce note on searchInput above — same IME edge case applies
+      // here (homepage inline box and the archive/topic-page sidebar box share this filter).
+      var debouncedApplyArchiveSearch = debounce(applyArchiveSearch, 120);
+      searchInput2.addEventListener('input', debouncedApplyArchiveSearch);
+      searchInput2.addEventListener('compositionend', debouncedApplyArchiveSearch);
       if (searchClear2) {
         searchClear2.addEventListener('click', function () {
           searchInput2.value = '';
