@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟</title>
+  <meta name="description" content="企业用Okta、Azure AD等SSO管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步任务是否存在批量延迟、禁用前建立的活跃会话是否已被强制登出，这三点没逐一核实，实际访问权限很可能滞后于账号禁用状态，本文讲清具体该核实什么。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/ai-sso-scim-offboarding-lag.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-sso-scim-offboarding-lag.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-sso-scim-offboarding-lag.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟">
+  <meta property="og:description" content="企业用Okta、Azure AD等SSO管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步任务是否存在批量延迟、禁用前建立的活跃会话是否已被强制登出，这三点没逐一核实，实际访问权限很可能滞后于账号禁用状态，本文讲清具体该核实什么。">
+  <meta property="og:url" content="https://ponr.org/articles/ai-sso-scim-offboarding-lag.html">
+  <meta property="article:published_time" content="2026-08-28T11:13:00+08:00">
+  <meta property="article:modified_time" content="2026-08-28T11:13:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="特殊场景与账户管理">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟">
+  <meta name="twitter:description" content="企业用Okta、Azure AD等SSO管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步任务是否存在批量延迟、禁用前建立的活跃会话是否已被强制登出，这三点没逐一核实，实际访问权限很可能滞后于账号禁用状态，本文讲清具体该核实什么。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-ai-sso-scim-offboarding-lag.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-ai-sso-scim-offboarding-lag.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#primaryimage", "url": "https://ponr.org/img/cover-ai-sso-scim-offboarding-lag.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#webpage", "url": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html", "name": "员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟", "item": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html" }
+    ] },
+    { "@type": "Article", "headline": "员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟", "description": "企业用Okta、Azure AD等SSO管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步任务是否存在批量延迟、禁用前建立的活跃会话是否已被强制登出，这三点没逐一核实，实际访问权限很可能滞后于账号禁用状态，本文讲清具体该核实什么。", "image": "https://ponr.org/img/cover-ai-sso-scim-offboarding-lag.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-28T11:13:00+08:00", "dateModified": "2026-08-28T11:13:00+08:00", "inLanguage": "zh-CN", "articleSection": "特殊场景与账户管理", "keywords": ["SSO离职流程", "SCIM自动收权", "ChatGPT企业版", "Claude for Work", "账号安全"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-sso-scim-offboarding-lag.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/ai-sso-scim-offboarding-lag.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟</h1>
+          <p class="article-summary">很多企业通过Okta、Azure AD、Google Workspace这类SSO单点登录方案统一管理员工对ChatGPT Team/Enterprise、Claude for Work等AI工具的访问权限，理论上员工离职当天HR系统触发SSO账号禁用，应该会通过SCIM协议自动同步到下游各个SaaS应用、实时收回访问权限。但实际链路里存在三个可能掉链子的环节：并非所有AI服务的所有订阅层级都支持SCIM自动增删账号，有些层级只支持SSO登录认证本身；即使支持SCIM，同步任务本身也可能是周期性批量运行、不是实时的；员工离职前如果已经保留着活跃会话，单纯禁用SSO账号不代表这个会话立刻失效。本文讲清楚企业IT/安全团队离职流程里该额外核实哪几个具体动作。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-28T11:13:00+08:00">2026-08-28 11:13:00</time> · 官方文档最后核验于 2026-08-28</p>
+        </header>
+        <img class="article-cover" src="/img/cover-ai-sso-scim-offboarding-lag.svg" width="800" height="400" alt="员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>本公司实际购买的AI工具订阅层级，是否确认过官方文档里写明支持SCIM自动deprovision，还是只支持SSO登录认证本身、账号增删仍需IT去平台后台手动操作</li>
+            <li><span class="article-verify-check">✓</span>如果订阅层级支持SCIM，是否核实过同步任务的实际触发频率（实时webhook还是定时批量跑），而不是假设"支持SCIM"就等于"立刻生效"</li>
+            <li><span class="article-verify-check">✓</span>离职流程里是否有一步专门去AI平台的管理后台核对该员工账号的实际状态，而不是只看SSO一侧显示"已禁用"就默认收工</li>
+            <li><span class="article-verify-check">✓</span>平台是否提供"强制登出所有设备/所有活跃会话"这个管理员操作选项，离职流程里是否已经把这一步写成必须执行的动作，而不是可选项</li>
+            <li><span class="article-verify-check">✓</span>对于不支持SCIM自动收权的订阅层级，是否已经建立离职当天由IT/安全团队人工登录AI平台后台删除或禁用账号的补充流程，避免完全依赖SSO侧的状态</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. "SSO已禁用"和"AI工具访问权限已收回"，不是一回事</h2>
+          <p>企业规模稍大后，几乎都会用Okta、Azure AD（Microsoft Entra ID）、Google Workspace这类身份提供商（IdP）做统一的单点登录，员工用同一套企业账号登录ChatGPT Team/Enterprise、Claude for Work等各种SaaS工具，包括AI服务。这套体系理论上的收尾环节是：员工离职，HR系统里把这名员工标记为离职，联动触发身份提供商禁用其SSO账号，再通过SCIM（System for Cross-domain Identity Management，跨域身份管理系统，一套由IETF标准化的协议，见文末RFC 7644）协议把这个状态变化同步给每一个接入的下游应用，下游应用收到同步指令后自动禁用或删除对应账号，从而实时收回访问权限。这个设想的关键漏洞在于：SSO账号被禁用，只代表这名员工以后没法再用"企业账号登录"这条路径登进AI工具；它既不必然触发下游AI平台真正收回访问权限，也不必然让员工之前已经建立的登录会话立刻失效——这是两件独立的事，"SSO已禁用"不能被想当然地等同于"AI工具访问权限已经立刻收回"。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 第一个环节：订阅层级是否真的支持SCIM自动deprovision</h2>
+          <p>并非所有AI服务的所有订阅层级都支持SCIM自动收权，很多平台把SCIM目录同步作为更高订阅层级的独占能力，较低层级只提供SSO登录认证本身，账号的创建和删除仍然需要IT人员手动去AI平台的管理后台操作。以本文核实的两家为例：Anthropic的官方帮助中心明确写到，JIT（Just-in-Time）自动配置对Team、Enterprise、Console组织都可用，但SCIM目录同步（自动化的账号创建与停用）只对Enterprise和Console组织开放，Team层级并不包含；OpenAI的官方帮助中心也写明，SCIM/AD组同步是ChatGPT Enterprise、Edu等更高层级的能力，ChatGPT Business层级没有SCIM/AD组同步，用户的开通和停用都要走人工流程。也就是说，如果企业实际购买的是入门层级订阅，离职当天HR触发的SSO禁用，很可能根本不会触发AI平台侧的任何自动动作——这一点必须先去核实自己购买的具体层级，而不是假设"我们用了SSO，所以离职收权应该是自动的"。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 第二个环节：SCIM同步不是实时的，可能是周期性批量任务</h2>
+          <p>即便订阅层级确实支持SCIM自动deprovision，"支持SCIM"本身也不等于"实时生效"。SCIM协议定义的是身份提供商和下游应用之间交换用户状态（创建、更新属性、停用）的标准化接口，具体到某次账号状态变化多快被下游感知，取决于身份提供商这一侧同步任务的触发方式——有的按固定周期批量拉取或推送变更，有的接近准实时；不同IdP、不同下游应用之间的实际同步频率并不统一，也不是协议本身规定死的。这意味着即使公司确实买了支持SCIM的订阅层级、也正确配置了目录同步，员工离职当天SSO那头显示"已禁用"，AI平台那头真正收到并执行停用指令，中间仍可能存在一段不可忽视的时间差。核实这个环节的办法很直接：去查身份提供商和对应AI平台各自的官方文档或配置界面，确认同步任务的实际触发机制，而不是凭"SCIM"这个名词就默认它是即时生效的。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 第三个环节：离职前已建立的活跃会话，不会因为SSO被禁用而自动失效</h2>
+          <p>第三个、也是最容易被忽略的环节是：员工在SSO账号被禁用之前，如果已经登录过AI工具并保留着活跃会话（浏览器里的session、客户端保存的refresh token），单纯禁用这名员工的SSO账号，并不天然代表这个已经存在的会话会立刻失效。会话失效依赖的是另一套独立机制——AI平台是否支持、以及管理员是否主动执行了"强制登出所有设备的所有活跃会话"这个操作。如果平台没有这个能力，或者IT团队的离职流程里根本没包含这一步，员工完全可能在SSO账号被禁用之后，用手机或电脑上仍保持登录状态的AI工具客户端继续访问一段时间，直到会话自然过期。这也是为什么离职流程不能只核对SSO和SCIM这两层，还必须专门确认AI平台管理后台是否提供强制登出选项，并把它写进离职操作清单里必须执行的一步，而不是遇到问题才想起来查。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 实操建议：离职流程里该核实哪几个具体动作</h2>
+          <p>综合以上三个环节，给企业IT/安全团队几条具体建议：第一，提前核实公司实际购买的每一款AI工具订阅层级，逐个确认官方文档里是否明确写明支持SCIM自动deprovision，还是只支持SSO登录认证、账号增删需要人工操作——不能笼统假设"我们上了SSO所以都是自动的"；第二，对于确认支持SCIM的层级，进一步核实同步任务的触发频率，判断是否存在批量延迟窗口，涉及高敏感岗位离职时不要完全依赖这个自动窗口；第三，离职流程里增加一步人工核对：直接登录AI平台的管理后台，确认该员工账号的实际状态（是否已停用、是否显示离线），而不是只看SSO侧的状态就默认已经收工；第四，确认平台是否提供"强制登出所有活跃会话"这个管理员操作选项，如果有，把它列为离职当天必须执行的动作，不支持这个能力的平台，应在离职流程里额外注明这个已知限制。具体某个AI服务某个订阅层级是否支持SCIM及支持到什么程度，以官方企业版文档当前最新说明为准，不同厂商、不同层级差异较大，本文不对未经官方文档确认的具体产品能力下断言。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. "SSO已禁用"和"AI工具访问权限已收回"，不是一回事</a></li>
+          <li><a href="#sec-2">2. 第一个环节：订阅层级是否真的支持SCIM自动deprovision</a></li>
+          <li><a href="#sec-3">3. 第二个环节：SCIM同步不是实时的，可能是周期性批量任务</a></li>
+          <li><a href="#sec-4">4. 第三个环节：离职前已建立的活跃会话，不会因为SSO被禁用而自动失效</a></li>
+          <li><a href="#sec-5">5. 实操建议：离职流程里该核实哪几个具体动作</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning" target="_blank" rel="noopener nofollow">Anthropic官方帮助中心：Set up JIT or SCIM provisioning</a>：明确说明JIT自动配置对Team/Enterprise/Console组织都可用，但SCIM目录同步仅Enterprise与Console组织支持，对应本文第2节</li>
+            <li><a href="https://help.openai.com/en/articles/9672121-getting-started-with-identity-and-provisioning-in-chatgpt-enterprise-edu-and-chatgpt-for-teachers" target="_blank" rel="noopener nofollow">OpenAI官方帮助中心：Getting started with identity and provisioning in ChatGPT Enterprise, Edu, and ChatGPT for Teachers</a>：说明SCIM目录同步是Enterprise/Edu/Teachers层级的能力，对应本文第2节</li>
+            <li><a href="https://www.rfc-editor.org/rfc/rfc7644.html" target="_blank" rel="noopener nofollow">IETF RFC 7644：System for Cross-domain Identity Management: Protocol</a>：SCIM协议本身的权威标准文档，定义了身份提供商与下游应用之间同步用户状态的接口规范，对应本文第1、3节</li>
+          </ul>
+          <p class="ref-note">各AI服务不同订阅层级对SSO/SCIM的具体支持范围可能随产品更新调整，以官方企业版文档当前最新说明为准；涉及企业账号安全与离职合规流程的判断，建议同时咨询公司IT安全团队或直接联系厂商企业支持确认。本文仅供参考。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-subscription-team.html">团队多账号怎么管：海外AI成本与续费实践</a></li>
+          <li><a href="/articles/ai-account-login-risk-device-fingerprint.html">换个网络登录AI账号，为什么突然要过一遍验证码</a></li>
+          <li><a href="/articles/ai-subscription-seat-removal-lag.html">团队里退了一个人，AI订阅账单为什么本月还是没变</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=463de01ad7"></script>
+</body>
+</html>

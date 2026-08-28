@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-27T15:55:00+08:00</lastmod>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-27T15:55:00+08:00</lastmod>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</loc>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</loc>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/domestic-ai-api-training-data-clause.html</loc>
@@ -482,11 +490,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-27T13:47:26+08:00</lastmod>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-27T13:47:26+08:00</lastmod>
+    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>

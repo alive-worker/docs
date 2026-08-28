@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 27 Aug 2026 15:55:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 11:13:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟]]></title>
+    <link>https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</guid>
+    <pubDate>Fri, 28 Aug 2026 11:13:00 +0800</pubDate>
+    <category>特殊场景与账户管理</category>
+    <description><![CDATA[企业用SSO统一管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步是否有批量延迟、活跃会话是否被强制登出，这三点没核实，访问权限可能滞后于账号禁用，本文讲清具体该核实什么。]]></description>
+  </item>
   <item>
     <title><![CDATA[给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型]]></title>
     <link>https://ponr.org/articles/domestic-ai-api-training-data-clause.html</link>

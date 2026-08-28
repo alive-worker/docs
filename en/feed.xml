@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 27 Aug 2026 15:55:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 11:13:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why ChatGPT or Claude Access Outlives SSO Offboarding]]></title>
+    <link>https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</guid>
+    <pubDate>Fri, 28 Aug 2026 11:13:00 +0800</pubDate>
+    <category>Special Cases &amp; Accounts</category>
+    <description><![CDATA[Disabling SSO at offboarding does not revoke ChatGPT or Claude access instantly: tier SCIM support, sync delay, and live sessions can leave accounts logged in.]]></description>
+  </item>
   <item>
     <title><![CDATA[Does Your DeepSeek or Qwen API Data Train the Model?]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html</link>

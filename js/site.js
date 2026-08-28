@@ -194,6 +194,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-sso-scim-offboarding-lag.html': '2026-08-28 11:13:00',
+    '/en/articles/ai-sso-scim-offboarding-lag.html': '2026-08-28 11:13:00',
     '/articles/domestic-ai-api-training-data-clause.html': '2026-08-27 15:55:00',
     '/en/articles/domestic-ai-api-training-data-clause.html': '2026-08-27 15:55:00',
     '/articles/overseas-ai-paypal-cancel-still-active.html': '2026-08-27 13:47:26',
