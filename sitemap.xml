@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html</loc>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html</loc>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-domestic-model-routing-downgrade.html</loc>
@@ -498,11 +506,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-28T11:13:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -734,7 +742,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-08-25T00:00:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -750,7 +758,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-08-25T00:00:00+08:00</lastmod>
+    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/tools/price-hike-calculator.html</loc>

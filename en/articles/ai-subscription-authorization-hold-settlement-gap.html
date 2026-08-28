@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Bill Shows a Hold, Then a Different Final Charge</title>
+  <meta name="description" content="An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Card Bill Shows a Hold, Then a Different Final Charge">
+  <meta property="og:description" content="An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.">
+  <meta property="og:url" content="https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <meta property="article:published_time" content="2026-08-28T16:50:00+08:00">
+  <meta property="article:modified_time" content="2026-08-28T16:50:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="AI Subscriptions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Card Bill Shows a Hold, Then a Different Final Charge">
+  <meta name="twitter:description" content="An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-authorization-hold-settlement-gap.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Card Bill Shows a Hold, Then a Different Final Charge cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-authorization-hold-settlement-gap.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#primaryimage", "url": "https://ponr.org/img/cover-authorization-hold-settlement-gap.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#webpage", "url": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html", "name": "Card Bill Shows a Hold, Then a Different Final Charge", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Card Bill Shows a Hold, Then a Different Final Charge", "item": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html" }
+    ] },
+    { "@type": "Article", "headline": "Card Bill Shows a Hold, Then a Different Final Charge", "description": "An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.", "image": "https://ponr.org/img/cover-authorization-hold-settlement-gap.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-08-28T16:50:00+08:00", "dateModified": "2026-08-28T16:50:00+08:00", "inLanguage": "en", "articleSection": "AI Subscriptions", "keywords": ["authorization hold", "pending transaction", "settlement", "card statement", "AI subscription billing"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/ai-subscription-authorization-hold-settlement-gap.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Card Bill Shows a Hold, Then a Different Final Charge</h1>
+          <p class="article-summary">The moment you start, renew, or convert a trial into a paid AI subscription, your bank's app often shows a "pending" or "authorization hold" entry first, followed some time later — minutes, hours, or days — by a separate "posted" charge. The two amounts sometimes match exactly, sometimes don't, and the pending entry can even disappear on its own. This isn't a double charge — it's the two-stage mechanism nearly every card transaction goes through: authorization freezes funds first, settlement (capture) is the actual transfer, and there's an unpredictable gap between the two. This piece explains what each stage actually is, how to tell them apart in your bank's app, roughly how long an unreleased hold typically takes to expire, and who to contact if it doesn't.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-08-28T16:50:00+08:00">2026-08-28 16:50:00</time> · Official docs last verified 2026-08-28</p>
+        </header>
+        <img class="article-cover" src="/img/cover-authorization-hold-settlement-gap.svg" width="800" height="400" alt="Card Bill Shows a Hold, Then a Different Final Charge cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Open the transaction detail in your banking app and check whether it's labeled "Pending" or "Posted" — the two mean very different things</li>
+            <li><span class="article-verify-check">✓</span>Compare the pending hold amount against the later posted charge — are they identical, and if not, how large is the difference and in which direction</li>
+            <li><span class="article-verify-check">✓</span>Count how many entries show up for this one subscription action — one hold that converts to one posted charge is normal; two separate entries that both post is a real double charge</li>
+            <li><span class="article-verify-check">✓</span>If you've already cancelled the subscription or trial, check whether this hold has been outstanding longer than your card issuer's stated release window</li>
+            <li><span class="article-verify-check">✓</span>If a hold won't release, have you contacted your card issuer directly, rather than the AI platform or merchant first</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The symptom: a "pending hold" shows up first, then a separate "posted" charge</h2>
+          <p>At the moment you start an AI subscription, renew, or convert a free trial to paid, opening your bank's app often shows a transaction marked "pending" or "authorization hold" first. Its amount sometimes matches the subscription price exactly, sometimes it's a small, obviously symbolic amount (often around $1) used purely to verify the card, and sometimes it's slightly higher than the eventual charge. A while later — it could be minutes, or a day or two — a second entry appears marked "posted," and this is the one that actually moves the money; its amount may match the earlier pending hold exactly, or may not. The first time people notice this, it's easy to panic: was I charged twice? Did the platform quietly test the card with a small charge and then sneak in a bigger one later? That worry is understandable, but this is the standard two-stage flow that virtually every card transaction goes through — it isn't something specific to AI platforms, and by itself it isn't evidence of being overcharged.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. The mechanism: authorization and settlement/capture are two separate stages</h2>
+          <p>A card transaction generally moves through payment networks in two steps. Step one is "authorization": the merchant's payment gateway asks the card issuer to confirm the card is valid and has sufficient available funds; once approved, the issuer temporarily earmarks that amount out of your available balance — this is exactly the "pending" or "hold" entry you see in your banking app. It's a temporary freeze; the money hasn't actually left your account, it's just unavailable for other spending in the meantime. Step two is "settlement" or "capture": the merchant (here, the AI platform or its payment processor) later submits the transaction to the issuer to actually pull the funds, at which point the issuer transfers the money for real and the entry's status flips from "pending" to "posted." Visa's official merchant-facing document, "Authorization and Reversal Processing Best Practices," explicitly distinguishes these two stages and warns merchants that an authorization should be settled promptly — leaving it unsettled for too long ties up a cardholder's funds unnecessarily and generates complaints. Visa Acceptance Support's explainer on "Authorization Reversal" likewise confirms that refunds are only possible once a transaction has actually settled; before settlement, the only available action is reversing (voiding) the authorization to release the hold.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Why the two amounts don't always match: small verification holds, and a buffer for tax/FX movement</h2>
+          <p>A mismatch between the pending hold and the final settled amount is common and, on its own, doesn't indicate an error. One common case is a "verification authorization": some AI platforms or their payment processors only run a token, small-value hold (often around $1) when a new card is added or a free trial starts, purely to confirm the card is live — this small hold isn't the real subscription fee itself; the actual subscription charge is applied separately at settlement, or the small hold is simply voided once verification succeeds and never becomes a real charge. Another common case is a built-in "buffer for floating costs": for cross-border transactions, FX conversion and estimated taxes can shift the final payable amount somewhat, so to avoid the final settlement exceeding the originally authorized amount (which can cause the transaction to fail), a merchant may intentionally authorize a slightly higher amount than expected up front, then settle for the actual amount owed — meaning the final settled charge is usually equal to or lower than the pending hold. In either case, as long as the amount that finally posts matches the subscription price shown on the AI platform's own billing page, this isn't anomalous; it's only worth escalating under the next section's path if the settled amount is noticeably higher than the price the platform itself advertises.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. How to tell "pending" from "posted" in your banking app, without mistaking two entries for two charges</h2>
+          <p>Virtually every bank and card issuer's app clearly distinguishes "pending" from "posted" transactions — usually with different labels, colors, icons, or separate grouped sections. Chase's official page on "Pending Transactions" explains that a pending status means the amount has been "committed" by the merchant and is moving between accounts, but hasn't actually been deducted from your account balance yet — only from your available balance. This is also why some banking apps display separate "account balance" and "available balance" figures: a pending transaction reduces the available balance without touching the account balance until it actually settles. The concrete way to verify this: open the transaction's detail view and check exactly what the status field says. If a single subscription action corresponds to one entry that transitions from "pending" to "posted" (possibly with a small amount adjustment), that's the normal authorization-to-settlement flow, not a double charge. Only when your statement shows two genuinely separate entries that each independently reach a "posted" state should you treat it as an actual duplicate charge and escalate to your card issuer or the platform's support.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. How long does a hold take to release automatically — no single number, it depends on your issuer</h2>
+          <p>If a merchant never submits an authorization for settlement (say, a free trial that was never converted to paid, or a transaction cancelled before settlement), the hold doesn't stay in place forever. Card issuers automatically release these unreleased holds after some period, returning the funds to your available balance, and the corresponding "pending" entry typically disappears from your banking app at the same time. It's worth being honest here: the exact number of days for this automatic release varies by card issuer, by card network (Visa, Mastercard, and others), and by transaction type (hotel-style pre-authorizations, for instance, often follow longer release rules than ordinary purchases). Public sources commonly describe this as "anywhere from a few days up to around 30 days," but there is no single, uniform figure — the actual timeline is whatever your specific card issuer's policy states, and this piece does not assert a fixed number. If a hold has clearly outlived any reasonable waiting period and still hasn't disappeared, the most direct step is to contact your card issuer's support directly, flag it as an unreleased hold, and ask them to investigate — rather than waiting passively.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. After cancelling a subscription or trial, who handles a hold that's still sitting there</h2>
+          <p>Many people who cancel an AI subscription — or cancel during a free trial before it converts — notice that the earlier pending hold hasn't disappeared right away, and assume the cancellation "didn't really work." In reality, cancelling a subscription typically just stops future renewal on the platform's side; it neither can nor does directly "undo" a hold that already exists in your card issuer's own system. Releasing a hold is either an automatic mechanism on the issuer's side, or something that requires manual issuer intervention — the most a merchant can do is proactively submit an "authorization reversal" request for an unsettled hold, but whether and when it actually releases remains entirely up to the issuer, not something the merchant or the user directly controls. So if a hold is still showing after you've cancelled, the first step isn't to keep asking the AI platform's support "are you sure it's really cancelled" (you can first confirm in your account settings that the subscription status genuinely shows cancelled or expired); the second, more direct step is to contact your card issuer, describe the situation, and provide the hold's transaction details so they can check its status and determine whether manual release is needed — this is a more effective path than going through the merchant.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Takeaway</h2>
+          <p>A "pending hold" and a later "posted charge" showing up together on a card statement is simply the standard authorization-and-settlement flow that nearly every card transaction goes through, with an unpredictable gap in between, and the amounts may differ slightly due to small verification holds or a buffer for tax/FX movement — none of this by itself means you were overcharged. The key checks are distinguishing "pending" from "posted" in your banking app and confirming a transaction is a single entry rather than two independent charges. There's no uniform industry number for how long an unreleased hold takes to expire — it comes down to your specific issuer's policy — and if release doesn't happen on its own, contacting your card issuer directly is more effective than contacting the AI platform or merchant, whether or not you've already cancelled.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The symptom: a "pending hold" shows up first, then a separate "posted" charge</a></li>
+          <li><a href="#sec-2">2. The mechanism: authorization and settlement/capture are two separate stages</a></li>
+          <li><a href="#sec-3">3. Why the two amounts don't always match: small verification holds, and a buffer for tax/FX movement</a></li>
+          <li><a href="#sec-4">4. How to tell "pending" from "posted" in your banking app, without mistaking two entries for two charges</a></li>
+          <li><a href="#sec-5">5. How long does a hold take to release automatically — no single number, it depends on your issuer</a></li>
+          <li><a href="#sec-6">6. After cancelling a subscription or trial, who handles a hold that's still sitting there</a></li>
+          <li><a href="#sec-7">7. Takeaway</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/authorization-and-reversal-processing-best-practices-for-merchants.pdf" target="_blank" rel="noopener nofollow">Visa Official Document: Authorization and Reversal Processing Best Practices for Merchants</a>: explains to merchants that authorization and settlement are separate steps and that authorizations should be settled promptly to avoid tying up cardholder funds, referenced in Section 2</li>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/knowledgearticle/?code=000002054" target="_blank" rel="noopener nofollow">Visa Acceptance Support: Authorization Reversal</a>: distinguishes authorization reversal, capture, and refunds, and explains that a hold can only be released via automatic expiration or a reversal request, referenced in Sections 2, 5, and 6</li>
+            <li><a href="https://www.chase.com/personal/credit-cards/education/basics/pending-transactions" target="_blank" rel="noopener nofollow">Chase Official: What are Pending Transactions on a Credit Card</a>: explains that pending transactions reduce available balance before actually posting, and that amounts may adjust once settled, referenced in Sections 1 and 4</li>
+          </ul>
+          <p class="ref-note">The exact number of days for an authorization hold to release, and the exact timing of settlement, vary by card issuer and network and may change over time. Defer to your own card issuer's official policy and support confirmation; this article does not assert a uniform number of days or a single universal rule.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/ai-subscription-zombie-charge.html">You Cancelled, So Why Is the AI App Still Billing You</a></li>
+          <li><a href="/en/articles/overseas-ai-renewal-3ds-mit-exemption.html">First Charge Needed a Code, So Why Did Renewal Need One Too</a></li>
+          <li><a href="/en/articles/ai-subscription-currency-mismatch.html">Your AI Bill Says USD But You Were Charged in EUR</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI service subscriptions, payment channels, virtual cards, and account security, for anyone using AI services today.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Cases &amp; Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Billing</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>This site provides general information; pricing, regional availability, and policies are subject to change per each AI platform's or payment provider's official terms.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=3bf1937330"></script>
+</body>
+</html>

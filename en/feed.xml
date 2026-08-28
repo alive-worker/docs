@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 28 Aug 2026 13:58:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 16:50:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Card Bill Shows a Hold, Then a Different Final Charge]]></title>
+    <link>https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html</guid>
+    <pubDate>Fri, 28 Aug 2026 16:50:00 +0800</pubDate>
+    <category>AI Subscriptions</category>
+    <description><![CDATA[An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.]]></description>
+  </item>
   <item>
     <title><![CDATA[Is DeepSeek Quietly Swapping Your Model at Peak Hours?]]></title>
     <link>https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html</link>

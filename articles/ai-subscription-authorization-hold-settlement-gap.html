@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>信用卡账单里那笔预授权和实际扣款金额为什么对不上</title>
+  <meta name="description" content="AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者的金额、出现时间甚至笔数都可能不一致，容易让人误以为被平台多扣了一次钱。本文讲清授权与结算是支付网络里两个独立阶段、怎么在账单App里区分待处理和已入账状态、预授权自动释放通常需要多久，以及迟迟不释放时该联系发卡行还是商户。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="信用卡账单里那笔预授权和实际扣款金额为什么对不上">
+  <meta property="og:description" content="AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者的金额、出现时间甚至笔数都可能不一致，容易让人误以为被平台多扣了一次钱。本文讲清授权与结算是支付网络里两个独立阶段、怎么在账单App里区分待处理和已入账状态、预授权自动释放通常需要多久，以及迟迟不释放时该联系发卡行还是商户。">
+  <meta property="og:url" content="https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html">
+  <meta property="article:published_time" content="2026-08-28T16:50:00+08:00">
+  <meta property="article:modified_time" content="2026-08-28T16:50:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="信用卡账单里那笔预授权和实际扣款金额为什么对不上">
+  <meta name="twitter:description" content="AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者的金额、出现时间甚至笔数都可能不一致，容易让人误以为被平台多扣了一次钱。本文讲清授权与结算是支付网络里两个独立阶段、怎么在账单App里区分待处理和已入账状态、预授权自动释放通常需要多久，以及迟迟不释放时该联系发卡行还是商户。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-authorization-hold-settlement-gap.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="信用卡账单里那笔预授权和实际扣款金额为什么对不上封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-authorization-hold-settlement-gap.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#primaryimage", "url": "https://ponr.org/img/cover-authorization-hold-settlement-gap.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#webpage", "url": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html", "name": "信用卡账单里那笔预授权和实际扣款金额为什么对不上", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "信用卡账单里那笔预授权和实际扣款金额为什么对不上", "item": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html" }
+    ] },
+    { "@type": "Article", "headline": "信用卡账单里那笔预授权和实际扣款金额为什么对不上", "description": "AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者的金额、出现时间甚至笔数都可能不一致，容易让人误以为被平台多扣了一次钱。本文讲清授权与结算是支付网络里两个独立阶段、怎么在账单App里区分待处理和已入账状态、预授权自动释放通常需要多久，以及迟迟不释放时该联系发卡行还是商户。", "image": "https://ponr.org/img/cover-authorization-hold-settlement-gap.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-28T16:50:00+08:00", "dateModified": "2026-08-28T16:50:00+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["预授权", "Authorization Hold", "结算", "账单待处理", "信用卡扣款"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/ai-subscription-authorization-hold-settlement-gap.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>信用卡账单里那笔预授权和实际扣款金额为什么对不上</h1>
+          <p class="article-summary">开通、续费或试用AI订阅的瞬间，很多人会在银行卡账单App里先看到一笔"预授权"（Authorization Hold）记录，过一会儿或过几天，才又看到一笔真正的扣款；两笔金额有时相同、有时不同，甚至预授权本身还会莫名其妙消失。这不是被多扣了钱，而是几乎所有信用卡、借记卡交易背后都存在的两阶段机制——授权（Authorization）先冻结额度，结算/捕获（Settlement/Capture）才是真正划走的钱，中间隔着一段不确定的时间差。本文讲清这两个阶段各自是什么、账单App里该怎么区分、预授权通常多久自动释放，以及释放迟迟没发生时该找谁。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-28T16:50:00+08:00">2026-08-28 16:50:00</time> · 官方文档最后核验于 2026-08-28</p>
+        </header>
+        <img class="article-cover" src="/img/cover-authorization-hold-settlement-gap.svg" width="800" height="400" alt="信用卡账单里那笔预授权和实际扣款金额为什么对不上封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>打开银行App里这笔记录的详情，看它标的是"待处理/Pending"还是"已入账/Posted"，两种状态含义完全不同</li>
+            <li><span class="article-verify-check">✓</span>对比预授权金额和后续正式扣款金额是否一致，如果不一致，具体差额是多少、是偏高还是偏低</li>
+            <li><span class="article-verify-check">✓</span>数一下账单里这次订阅操作对应出现了几条记录，确认是"预授权+结算各出现一条"，还是真的出现了两条独立扣款</li>
+            <li><span class="article-verify-check">✓</span>如果已经取消订阅或退出试用，检查这笔预授权是否已经超过发卡行说明的释放周期还没消失</li>
+            <li><span class="article-verify-check">✓</span>如果预授权迟迟不释放，是否已经直接联系发卡行客服核实，而不是先去找AI平台或商户</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：账单里先冒出一笔"预授权"，之后又跳出一笔"正式扣款"</h2>
+          <p>开通AI订阅、续费或结束免费试用转正式付费的那一刻，打开银行卡的账单App，常常能看到一条状态为"待处理"或"Pending"的记录先出现，标注的金额有时候正好等于订阅费本身，有时候只是一个明显偏小的验证性金额（比如1美元左右），有时候又比最终订阅费略高一些。过一会儿——可能是几分钟，也可能是一两天——账单里会再出现一条状态变成"已入账"或"Posted"的记录，这才是真正划走钱的那一笔，金额可能和前面那笔"预授权"完全一致，也可能不完全一致。不少人第一次注意到这个现象时会紧张：是不是被扣了两次钱？会不会是平台故意先扣一笔小钱试探卡片有没有效，之后再偷偷多扣？这种担心可以理解，但背后其实是几乎所有卡组织交易都会经历的标准两阶段流程，不是AI平台特有的行为，也不是被多扣钱的证据。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 机制拆解：授权（Authorization）和结算（Settlement/Capture）是两个独立阶段</h2>
+          <p>一笔卡片交易在支付网络里通常分两步走。第一步叫"授权"：商户的支付网关向发卡行发起请求，核实这张卡是否有效、额度是否充足，发卡行同意后，会把这笔金额从"可用额度"里临时冻结出来——这就是账单App里看到的"预授权"或"待处理"记录，本质是一种临时冻结，钱并没有真的离开账户，只是暂时不能被用于其他消费。第二步叫"结算"或"捕获"（Settlement / Capture）：商户（这里是AI平台或其支付服务商）在稍后的时间点，向发卡行正式提交这笔交易要求实际扣款，发卡行才会把钱真正划转，账单状态也从"待处理"变成"已入账"。Visa官方面向商户的《Authorization and Reversal Processing Best Practices》文档明确区分了这两个阶段，并提醒商户：授权本该及时被结算，如果长期"授权了却不结算"，会导致持卡人的资金被无谓占用、进而引发投诉。Visa Acceptance Support关于"Authorization Reversal"的说明也确认，只有交易完成结算之后才谈得上退款；结算之前，能做的只是撤销授权、释放冻结的额度。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 为什么两笔金额会不一样：验证性小额授权、以及预留税费/汇率浮动空间</h2>
+          <p>预授权金额和最终结算金额不完全一致，常见于以下几种情况，都不代表出错。第一种是"验证性授权"：部分AI平台或其支付服务商在绑定新卡、开启免费试用时，只发起一笔象征性的小额授权（常见的是1美元左右）来确认卡片确实有效、能被扣款，这笔小额授权本身并不是真正的订阅费用，之后真正的订阅费用会在结算阶段单独扣取，或者这笔小额授权干脆在验证完成后就被撤销，从头到尾都不会变成真实扣款。第二种是"预留浮动空间"：如果订阅费用涉及跨境交易，卡组织和收单机构在计算最终应付金额时可能涉及汇率折算、预估税费等浮动因素，商户为了避免结算时金额超过已授权范围导致交易失败，会在授权阶段主动申请一个略高于预期费用的额度，最终结算时再按实际发生的费用来扣款，结算金额通常会低于或等于预授权金额。不管是哪种情况，只要最终入账的金额和你在AI平台账单页看到的订阅价格核对得上，就不是异常；如果结算金额明显高于平台标示的订阅价格，才需要按下一节的路径去核实。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 怎么在银行App里区分"待处理"和"已入账"，别把两条记录误判成两次扣款</h2>
+          <p>几乎所有银行和信用卡机构的App在展示交易记录时，都会用"待处理/Pending"和"已入账/Posted"（或类似措辞，比如"处理中"和"交易成功"）两种明确不同的标签区分这两类状态，通常还会用不同的字体颜色、图标或分组区块来做视觉区分。Chase银行官方关于"Pending Transactions"的说明页面里提到，待处理状态意味着这笔钱已经被商户方"承诺"用于这笔交易、正在两个账户之间流转，但尚未真正从账户余额里扣除，只是从"可用余额"里先行占用；这也是为什么有的银行App会分别显示"账户余额"和"可用余额"两个不同数字，待处理交易会拉低可用余额、但不影响账户余额，直到真正结算入账。核实的具体做法是：打开这笔交易的详情页，看清楚状态字段到底写的是什么，如果同一笔订阅只对应一条从"待处理"变成"已入账"的记录（金额可能有细微调整），这就是正常的授权到结算流程，不是被扣了两次；只有当账单里确实出现了两条各自独立、各自都最终变成"已入账"状态的记录时，才需要按被重复扣款处理，去联系发卡行或平台客服核实。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 预授权要多久才会自动释放：没有统一天数，以发卡行政策为准</h2>
+          <p>如果商户方一直没有把授权提交结算（比如免费试用最终没有转化为付费、或者交易在结算前被取消），这笔预授权并不会永远占用额度，发卡行会在一段时间之后自动释放这笔冻结的额度，释放之后这笔钱会重新回到可用余额里，账单App里对应的"待处理"记录通常也会随之消失。需要如实说明的是：这个自动释放的具体天数，不同发卡行、不同卡组织（Visa、Mastercard等）、不同交易类型（比如酒店预订类交易的预授权释放规则往往比普通消费更长）之间存在差异，公开资料里能查到的具体天数并不统一——行业内常见的说法是"几天到最长30天不等"，具体以持卡人自己发卡行的官方政策为准，本文不对某个固定天数下断言。如果这笔预授权明显超出了合理等待时间还没有消失，最直接的做法是主动联系发卡行客服，说明这是一笔迟迟未释放的预授权记录，让发卡行核实处理，而不是被动等待。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 取消订阅或试用期内取消后，这笔预授权记录该找谁</h2>
+          <p>不少人在取消AI订阅或者在免费试用期内提前取消之后，发现账单App里之前那笔预授权记录并没有立刻消失，容易误以为"取消没有真正生效"。实际上，取消订阅这个动作本身，通常只是让平台这一端停止未来的续费计划，并不会、也没有办法直接"撤销"一笔已经存在于发卡行系统里的预授权记录——预授权的释放是发卡行侧的自动机制或者需要发卡行手动处理，商户端能做的最多是主动发起一次"authorization reversal"（撤销未结算的授权）请求，但最终是否、以及何时释放，权限和时间表都在发卡行手里，不受商户或用户的直接控制。所以如果取消订阅后，这笔预授权仍然显示在账单里，第一步不是去找AI平台的客服反复确认"是否真的取消了"（可以先在平台账户设置页确认订阅状态确实显示为已取消或已到期），第二步是直接联系发卡行，说明情况、提供这笔预授权的交易信息，让发卡行核实这笔记录的状态、是否需要人工介入释放，这是比联系商户更直接有效的路径。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 小结</h2>
+          <p>信用卡账单里同时出现的"预授权"和"正式扣款"，本质是几乎所有卡片交易都会经历的授权与结算两个独立阶段，中间隔着一段不确定的时间差，金额也可能因为验证性小额授权或税费/汇率浮动预留而不完全一致——这本身不代表被多扣钱。核实的关键是在银行App里区分清楚"待处理"和"已入账"两种状态、确认同一笔交易只对应一条记录而非两条独立扣款；预授权自动释放需要多久没有统一的行业标准，只能以自己发卡行的政策为准；如果释放迟迟没有发生，无论是否已经取消订阅，联系发卡行核实都比联系AI平台或商户更直接有效。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：账单里先冒出一笔"预授权"，之后又跳出一笔"正式扣款"</a></li>
+          <li><a href="#sec-2">2. 机制拆解：授权（Authorization）和结算（Settlement/Capture）是两个独立阶段</a></li>
+          <li><a href="#sec-3">3. 为什么两笔金额会不一样：验证性小额授权、以及预留税费/汇率浮动空间</a></li>
+          <li><a href="#sec-4">4. 怎么在银行App里区分"待处理"和"已入账"，别把两条记录误判成两次扣款</a></li>
+          <li><a href="#sec-5">5. 预授权要多久才会自动释放：没有统一天数，以发卡行政策为准</a></li>
+          <li><a href="#sec-6">6. 取消订阅或试用期内取消后，这笔预授权记录该找谁</a></li>
+          <li><a href="#sec-7">7. 小结</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/authorization-and-reversal-processing-best-practices-for-merchants.pdf" target="_blank" rel="noopener nofollow">Visa 官方文档：Authorization and Reversal Processing Best Practices for Merchants</a>：面向商户说明授权与结算是两个独立步骤、授权应及时结算，否则会造成持卡人资金被无谓占用，对应本文第2节</li>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/knowledgearticle/?code=000002054" target="_blank" rel="noopener nofollow">Visa Acceptance Support：Authorization Reversal 说明</a>：解释授权撤销、结算捕获与退款三者的区别，以及预授权只能通过自动过期或撤销请求释放，对应本文第2、5、6节</li>
+            <li><a href="https://www.chase.com/personal/credit-cards/education/basics/pending-transactions" target="_blank" rel="noopener nofollow">Chase 官方说明：What are Pending Transactions on a Credit Card</a>：说明待处理交易会先占用可用余额、但尚未真正入账，以及金额可能随最终结算调整，对应本文第1、4节</li>
+          </ul>
+          <p class="ref-note">预授权自动释放的具体天数、结算发生的具体时间点，不同发卡行与卡组织的政策可能不同，也可能随时间调整，请以你实际使用发卡行的官方说明与客服核实结果为准，本文不对统一天数或具体规则作出断言。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/ai-subscription-zombie-charge.html">明明点了取消，AI订阅账单为什么还在扣钱</a></li>
+          <li><a href="/articles/overseas-ai-renewal-3ds-mit-exemption.html">首次扣款要验证码，续费凭什么又弹一次——3DS豁免为什么会失效</a></li>
+          <li><a href="/articles/ai-subscription-currency-mismatch.html">账单写的是美元，卡里却按欧元扣款：AI订阅里的货币陷阱</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=3bf1937330"></script>
+</body>
+</html>
