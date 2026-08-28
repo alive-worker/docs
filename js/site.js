@@ -15,6 +15,21 @@
     };
   }
 
+  // Some Windows IME setups commit composed text into an <input> without firing ANY
+  // DOM event at all (confirmed via a real user's MutationObserver log: the input's
+  // value changed but zero 'input'/'compositionend' events followed) — so event
+  // listeners alone can't be relied on. Poll the value as an unconditional safety net;
+  // 200ms is fast enough to feel instant but cheap enough to run indefinitely.
+  function watchValue(input, onChange) {
+    var last = input.value;
+    setInterval(function () {
+      if (input.value !== last) {
+        last = input.value;
+        onChange();
+      }
+    }, 200);
+  }
+
   // --- i18n: the /en/ tree shares this exact script with the zh-CN pages, so every
   // user-facing string it injects at runtime is looked up by language here. ---
   var IS_EN = location.pathname.indexOf('/en/') === 0;
@@ -551,6 +566,7 @@
       var debouncedApplySearch = debounce(applySearch, 120);
       searchInput.addEventListener('input', debouncedApplySearch);
       searchInput.addEventListener('compositionend', debouncedApplySearch);
+      watchValue(searchInput, debouncedApplySearch);
       if (searchClear) {
         searchClear.addEventListener('click', function () {
           searchInput.value = '';
@@ -671,6 +687,7 @@
       var debouncedApplyArchiveSearch = debounce(applyArchiveSearch, 120);
       searchInput2.addEventListener('input', debouncedApplyArchiveSearch);
       searchInput2.addEventListener('compositionend', debouncedApplyArchiveSearch);
+      watchValue(searchInput2, debouncedApplyArchiveSearch);
       if (searchClear2) {
         searchClear2.addEventListener('click', function () {
           searchInput2.value = '';
