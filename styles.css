@@ -594,8 +594,11 @@ h1 {
 
 .featured-article { max-width: 860px; margin: 0 auto 48px; }
 /* While a homepage search is active, collapse the hero/featured sections so the
-   filtered results grid sits right under the search box. */
-body.is-searching .hero-centered,
+   filtered results grid sits right under the search box. Hero-centered holds the
+   inline search box itself (.search-bar--inline) as one of its children, so hiding
+   the whole section would hide the very input the visitor just typed into — only
+   hide its other children (title/lede/stats) and keep the search box on screen. */
+body.is-searching .hero-centered > *:not(.search-bar--inline),
 body.is-searching .featured-article { display: none; }
 /* Homepage teaser grid keeps a tidy 3×3 (9 cards): any overflow card past the grid
    is hidden by default so nothing sticks out on its own row, but stays in the DOM so
