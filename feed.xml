@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 28 Aug 2026 11:13:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 13:58:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[高峰期调用DeepSeek、文心一言，接口返回的真是你指定的模型吗]]></title>
+    <link>https://ponr.org/articles/ai-domestic-model-routing-downgrade.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-domestic-model-routing-downgrade.html</guid>
+    <pubDate>Fri, 28 Aug 2026 13:58:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[调用DeepSeek、文心一言这类国内大模型API，高峰期返回的是否还是你指定的完整版模型？部分厂商可能启用路由降级换成更弱的小模型，且未必显眼提示，本文讲清该核查响应体model字段、怎么做高峰对比测试，以及企业用户该怎么在SLA里核实模型版本一致性条款。]]></description>
+  </item>
   <item>
     <title><![CDATA[员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟]]></title>
     <link>https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</link>

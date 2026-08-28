@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Is DeepSeek Quietly Swapping Your Model at Peak Hours?</title>
+  <meta name="description" content="At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-domestic-model-routing-downgrade.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-domestic-model-routing-downgrade.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Is DeepSeek Quietly Swapping Your Model at Peak Hours?">
+  <meta property="og:description" content="At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.">
+  <meta property="og:url" content="https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html">
+  <meta property="article:published_time" content="2026-08-28T13:58:00+08:00">
+  <meta property="article:modified_time" content="2026-08-28T13:58:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Domestic AI Models">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Is DeepSeek Quietly Swapping Your Model at Peak Hours?">
+  <meta name="twitter:description" content="At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-model-routing-downgrade.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Is DeepSeek Quietly Swapping Your Model at Peak Hours? cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-model-routing-downgrade.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=894a032968">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/en/#org", "name": "AI Access Guide", "url": "https://ponr.org/en/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"], "sameAs": ["https://ponr.org/"] },
+    { "@type": "Person", "@id": "https://ponr.org/en/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/en/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflow research", "worksFor": { "@id": "https://ponr.org/en/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/en/#website", "url": "https://ponr.org/en/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/en/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-model-routing-downgrade.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#webpage", "url": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html", "name": "Is DeepSeek Quietly Swapping Your Model at Peak Hours?", "isPartOf": { "@id": "https://ponr.org/en/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Is DeepSeek Quietly Swapping Your Model at Peak Hours?", "item": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html" }
+    ] },
+    { "@type": "Article", "headline": "Is DeepSeek Quietly Swapping Your Model at Peak Hours?", "description": "At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.", "image": "https://ponr.org/img/cover-domestic-ai-model-routing-downgrade.png", "author": { "@id": "https://ponr.org/en/about.html#author" }, "publisher": { "@id": "https://ponr.org/en/#org" }, "datePublished": "2026-08-28T13:58:00+08:00", "dateModified": "2026-08-28T13:58:00+08:00", "inLanguage": "en", "articleSection": "Domestic AI Models", "keywords": ["model routing", "model downgrade", "DeepSeek API", "SLA verification", "domestic LLM"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/en/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/ai-domestic-model-routing-downgrade.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Is DeepSeek Quietly Swapping Your Model at Peak Hours?</h1>
+          <p class="article-summary">To cope with compute pressure under heavy concurrent load, some domestic LLM providers may enable load-balancing/degradation strategies during peak traffic windows, routing a portion of requests to a smaller, faster, weaker model or a lightweight variant instead of the full model you explicitly specified in your request parameters. This is a completely different mechanism from the content-moderation truncation issue covered elsewhere on this site — that piece is about content being blocked and returned empty or cut short; this one is about the model itself possibly being quietly swapped for a weaker version while the output remains complete and fluent, only degraded in quality — which is harder for users to notice. Whether this happens, and under what conditions, may vary by vendor. This piece focuses on concrete, hands-on ways developers and enterprise users can verify it themselves, rather than a vague reminder to "watch out for model quality."</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-08-28T13:58:00+08:00">2026-08-28 13:58:00</time> · Official docs last verified 2026-08-28</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-model-routing-downgrade.svg" width="800" height="400" alt="Is DeepSeek Quietly Swapping Your Model at Peak Hours? cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does the response JSON include a model field, and does its value exactly match the model parameter you specified in the request (e.g. you requested deepseek-v4-pro but the response shows deepseek-v4-flash or a similar lightweight identifier)</li>
+            <li><span class="article-verify-check">✓</span>Have you run the exact same prompt during Beijing-time daytime peak hours and again during late night/weekend off-peak hours multiple times, and compared whether output depth, reasoning quality, and formatting show a consistent, repeatable difference</li>
+            <li><span class="article-verify-check">✓</span>Have you actually checked the vendor's official SLA or service terms for a clause that explicitly states "no undisclosed model substitution" or, conversely, that model switching may occur under resource pressure — rather than assuming either way</li>
+            <li><span class="article-verify-check">✓</span>If your use case requires strong model version consistency (reproducible evaluation, audit, or compliance scenarios), have you confirmed this specifically with the vendor's enterprise support channel rather than relying only on public documentation</li>
+            <li><span class="article-verify-check">✓</span>If you have purchased or are considering a dedicated capacity/reserved throughput plan (provisioned throughput, dedicated instances — naming varies by vendor), have you confirmed whether its official terms explicitly rule out model routing/downgrade, or only cover concurrency and rate guarantees</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The symptom: slower responses and "phoned-in" output at peak hours — is the model actually being swapped</h2>
+          <p>Many developers using DeepSeek, Ernie Bot, and similar domestic LLM APIs for production workloads share a similar gut feeling: the same prompt run during daytime working hours feels slower and produces terser, more perfunctory output; run the same thing late at night or on a weekend and the output is noticeably more complete and better organized. This perceived difference could have several entirely different root causes — plain network latency variance, longer response times from concurrency queuing, or simply the model's own sampling randomness producing output variance can all create a similar impression. But there's another possibility that's easy to overlook and worth taking seriously: to cope with compute pressure under high concurrency, a provider's load-balancing/traffic-scheduling logic may route some requests to a smaller, faster, weaker model or a lightweight variant instead of the exact model you specified in the request. If this switching exists, it typically isn't flagged to the user with a pop-up or a prominent response field — the output remains a complete, coherent block of text, just degraded in quality and capability, which makes it harder to spot at a glance than an issue like "HTTP 200 with empty content" caused by moderation truncation.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Technical signal one: the model field in the response body is your first piece of hard evidence</h2>
+          <p>Mainstream domestic LLM APIs are broadly OpenAI-compatible, requiring an explicit model parameter in the request (e.g. "deepseek-chat", "deepseek-reasoner", or Baidu Qianfan's "ernie-3.5-8k"), as shown in both DeepSeek's official API documentation and Baidu Qianfan's official quick-start guide. What matters is the response side: DeepSeek's official "Create Chat Completion" documentation defines a required model field in the response body, described as "The model used for the chat completion" — in other words, whichever model actually processed the request should be reflected in this field. The first, most direct verification step: take a complete response JSON from a real call and check whether the model field's value exactly matches the model parameter you sent (note that some providers give lightweight variants their own distinct identifiers, such as a xxx-flash, xxx-turbo, or xxx-lite suffix, rather than reusing the exact name you requested — in that case a mismatch would be immediately visible). If the values don't match, that's the most direct technical evidence available today. If they do match, that still doesn't fully rule out a provider internally routing to a lighter model while continuing to report the original model name externally — which is why the cross-check in the next section matters too.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Technical signal two: run the same prompt at peak and off-peak hours and look for a repeatable pattern</h2>
+          <p>Even if the model field checks out consistently, it's worth running a second cross-check: pick a few prompts that clearly reveal differences in model capability (a multi-step math problem, a complex writing task requiring long-form organization, a structured-output task requiring precise instruction following), and run the identical input three to five times during Beijing-time weekday daytime peak hours (roughly 9am–12pm and 2pm–6pm — see this site's other piece, "DeepSeek Off-Peak Pricing," for how peak windows are typically defined) and again during late night or weekend off-peak hours. Compare the level of detail, whether reasoning steps are complete, formatting consistency, and whether outputs tend toward a terser or truncated-feeling close. If the same prompt consistently shows shorter, shallower output at peak hours and consistently fuller, deeper output off-peak, with a pattern that repeats rather than being a one-off fluke, that's a second technical signal worth raising with the vendor's official support channel. It's worth noting that output variance can also come purely from the model's own sampling randomness (temperature and related parameters) — a single test proves nothing; only a repeated, statistically consistent pattern across multiple runs is meaningful evidence.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. What public documentation does and doesn't confirm</h2>
+          <p>In fairness, when checking DeepSeek's official API documentation for this piece, no explicit clause was found either stating that "model downgrade routing may occur at peak hours" or, conversely, guaranteeing "no model substitution ever occurs." The only resource-related field found in the public documentation is one value of the response's finish_reason field, "insufficient_system_resource," officially described as indicating the request was interrupted due to insufficient inference system resources — which confirms the vendor's public documentation acknowledges requests can be interrupted under resource pressure, but says nothing about whether a more subtle form of degradation (rerouting to a weaker model that then completes and returns normally) exists. No public documentation from Baidu's Ernie Bot/Qianfan platform addressing this specific mechanism was found either. In short, there is currently no reliable public source confirming or ruling out whether any specific vendor implements model routing degradation, or under what conditions — actual practices likely vary by vendor and may change over time. This piece does not assert that any specific vendor engages in this behavior; it only offers a method for developers and enterprise users to verify it themselves.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. What enterprise users should verify in their service agreement/SLA</h2>
+          <p>If your use case has a strong requirement for model version consistency (an automated evaluation pipeline needing reproducible results, an auditable compliance scenario, or a service you offer externally with committed model capabilities), it's worth going directly to the vendor's enterprise support or account team before purchase or renewal and asking for three specific confirmations, rather than guessing: first, whether the service agreement or SLA explicitly states that the model identifier returned in the response is the actual model that processed the request, with no undisclosed substitution; second, if the provider's load-balancing mechanism can route to a different model under load, whether there's a clause describing the trigger conditions, whether such routing is disclosed in the response, and whether an option exists to request "this exact model only, no routing"; third, whether there's a queryable, appealable process letting an enterprise submit a specific request ID for the vendor to investigate if a substitution is suspected. SLA terms vary significantly by vendor — defer to the actual agreement you've signed, and this piece does not assert a uniform industry standard.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. Can a dedicated capacity/reserved throughput plan avoid this problem</h2>
+          <p>Some vendors offer enterprise customers dedicated capacity plans with fixed reserved throughput (naming varies — reserved instances, dedicated deployments, or concepts similar to Provisioned Throughput Units). As this site's other piece on API rate-limit tier billing notes, these plans typically address concurrency throttling and response-latency stability — guaranteeing you won't be rate-limited or queued within your contracted throughput. Whether such a plan's official terms also explicitly rule out model routing/degradation is a separate question that needs its own verification — don't assume that paying for dedicated capacity automatically means the model version is fixed. Reserved throughput guarantees a resource quota; model routing degradation, if it exists, is a separate scheduling layer that isn't necessarily tied to it. The way to verify this is the same: ask the vendor's enterprise support directly whether the plan's terms state the model version is fixed under dedicated capacity and will never be routed elsewhere, or whether the plan only covers concurrency/rate guarantees — commitments vary by vendor and need to be confirmed individually.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Takeaway</h2>
+          <p>Whether a domestic LLM API quietly routes requests to a weaker model at peak hours is currently a question without a uniform public answer — and it's a completely different mechanism from the content-moderation truncation issue already covered on this site: that one blocks content and returns it empty or cut short, while this one, if it happens, still returns complete output, just degraded in quality, which makes it harder to notice. The two hands-on technical checks developers can run themselves are: comparing the response's model field against the requested model, and running the same prompt repeatedly across peak and off-peak hours to look for a consistent pattern. Enterprise users with a strong need for model version consistency should go directly to the vendor's SLA or service agreement text to check for explicit clauses on model substitution/downgrade, and separately confirm whether a dedicated capacity plan actually covers this — not assume it from guesswork.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The symptom: slower responses and "phoned-in" output at peak hours — is the model actually being swapped</a></li>
+          <li><a href="#sec-2">2. Technical signal one: the model field in the response body is your first piece of hard evidence</a></li>
+          <li><a href="#sec-3">3. Technical signal two: run the same prompt at peak and off-peak hours and look for a repeatable pattern</a></li>
+          <li><a href="#sec-4">4. What public documentation does and doesn't confirm</a></li>
+          <li><a href="#sec-5">5. What enterprise users should verify in their service agreement/SLA</a></li>
+          <li><a href="#sec-6">6. Can a dedicated capacity/reserved throughput plan avoid this problem</a></li>
+          <li><a href="#sec-7">7. Takeaway</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/api/create-chat-completion" target="_blank" rel="noopener nofollow">DeepSeek Official API Docs: Create Chat Completion</a>: defines the response's model field as required, meaning the model actually used, and lists insufficient_system_resource as a finish_reason value, referenced in Sections 2 and 4</li>
+            <li><a href="https://api-docs.deepseek.com/api/list-models" target="_blank" rel="noopener nofollow">DeepSeek Official API Docs: Lists Models</a>: describes how to programmatically query the currently available models and their ownership, referenced in the model-identifier verification method</li>
+            <li><a href="https://cloud.baidu.com/doc/qianfan/s/rmh4stn9m" target="_blank" rel="noopener nofollow">Baidu AI Cloud Qianfan Official Docs: Model Service Quick Start</a>: shows the OpenAI-compatible request format explicitly specifying the model parameter, referenced in Section 2's verification method</li>
+          </ul>
+          <p class="ref-note">Whether a model routing/downgrade mechanism exists, its trigger conditions, and whether it's disclosed in the response may vary by vendor and change over time. Defer to your actual vendor's current official API documentation and SLA/service agreement, and confirm directly with enterprise support when needed. This article does not assert that any specific vendor engages in model downgrading; it is for reference only.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/ai-domestic-model-off-peak-pricing.html">DeepSeek Off-Peak Pricing: The Compute Economics Behind Cheaper Late-Night Calls</a></li>
+          <li><a href="/en/articles/domestic-ai-content-moderation-truncation.html">HTTP 200 With Empty Content: Which Field to Check for DeepSeek/Qwen Moderation Truncation</a></li>
+          <li><a href="/en/articles/ai-api-rate-limit-tier-billing.html">Why Your AI API Bill Never Matches the Official Per-Token Price</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI service subscriptions, payment channels, virtual cards, and account security, for anyone using AI services today.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Cases &amp; Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Billing</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>This site provides general information; pricing, regional availability, and policies are subject to change per each AI platform's or payment provider's official terms.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=fbe1551828"></script>
+</body>
+</html>

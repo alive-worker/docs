@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 28 Aug 2026 11:13:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 28 Aug 2026 13:58:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Is DeepSeek Quietly Swapping Your Model at Peak Hours?]]></title>
+    <link>https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html</guid>
+    <pubDate>Fri, 28 Aug 2026 13:58:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why ChatGPT or Claude Access Outlives SSO Offboarding]]></title>
     <link>https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</link>

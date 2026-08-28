@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="高峰期请求被路由分叉，从大模型悄悄换成小模型示意图">
+  <defs>
+    <linearGradient id="bgGradRoute" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#161326"/>
+      <stop offset="1" stop-color="#241a34"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradRoute)"/>
+
+  <!-- incoming request node -->
+  <g transform="translate(110,200)">
+    <rect x="-52" y="-30" width="104" height="60" rx="12" fill="#1e2a44" stroke="#8fb2ea" stroke-width="2.5"/>
+    <text x="0" y="-4" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#dbe6fb">请求</text>
+    <text x="0" y="16" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#8fb2ea">model=pro</text>
+  </g>
+
+  <!-- routing fork lines -->
+  <g stroke="#7ba7ec" stroke-width="2.6" fill="none" opacity="0.85">
+    <path d="M162 200 C 250 200 260 108 360 108"/>
+    <path d="M162 200 C 250 200 260 292 360 292"/>
+  </g>
+  <!-- fork node dot -->
+  <circle cx="200" cy="200" r="5" fill="#f2b84a"/>
+
+  <!-- top branch: full model (dashed/expected, not actually taken at peak) -->
+  <g transform="translate(430,108)" opacity="0.55">
+    <rect x="-70" y="-34" width="140" height="68" rx="14" fill="none" stroke="#8fb2ea" stroke-width="2.5" stroke-dasharray="6 7"/>
+    <text x="0" y="-6" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#c8d6f5">完整版大模型</text>
+    <text x="0" y="16" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#8fb2ea">deepseek-v4-pro</text>
+  </g>
+
+  <!-- bottom branch: small/downgraded model (highlighted, actually served at peak) -->
+  <g transform="translate(430,292)">
+    <rect x="-70" y="-34" width="140" height="68" rx="14" fill="#3a2038" stroke="#e8698f" stroke-width="3"/>
+    <text x="0" y="-6" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#f6d3de">精简小模型</text>
+    <text x="0" y="16" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#f2a5bf">deepseek-v4-flash?</text>
+  </g>
+
+  <!-- warning triangle near bottom branch -->
+  <g transform="translate(560,258)">
+    <path d="M0 -20 L18 14 L-18 14 Z" fill="#3a2c1a" stroke="#f2b84a" stroke-width="2.5" stroke-linejoin="round"/>
+    <line x1="0" y1="-9" x2="0" y2="2" stroke="#f2b84a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="8" r="1.8" fill="#f2b84a"/>
+  </g>
+
+  <!-- magnifier over response model field, top-right -->
+  <g transform="translate(672,108)">
+    <rect x="-64" y="-30" width="128" height="60" rx="10" fill="#182338" stroke="#7ba7ec" stroke-width="2"/>
+    <text x="-4" y="-6" text-anchor="middle" font-family="Consolas,'SF Mono',monospace" font-size="11" font-weight="700" fill="#8fb2ea">"model":</text>
+    <text x="-4" y="14" text-anchor="middle" font-family="Consolas,'SF Mono',monospace" font-size="11" font-weight="700" fill="#f2a5bf">"...-flash"</text>
+    <circle cx="52" cy="18" r="14" fill="none" stroke="#f2b84a" stroke-width="3"/>
+    <line x1="62" y1="28" x2="72" y2="38" stroke="#f2b84a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <text x="60" y="330" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" font-weight="700" fill="#eef2fb">模型路由 · 高峰降级</text>
+  <text x="62" y="360" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#8fb2ea">MODEL ROUTING &amp; PEAK-HOUR DOWNGRADE</text>
+  <text x="736" y="60" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#8fb2ea" opacity="0.85">AI服务指南</text>
+</svg>
