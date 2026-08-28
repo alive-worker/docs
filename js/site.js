@@ -531,7 +531,12 @@
         if (sidebarHeading) sidebarHeading.textContent = STR.searchHeading;
       };
 
+      // Some IME/browser combinations (notably Chinese Pinyin input on Windows Chrome)
+      // don't reliably fire a final 'input' event once composition commits a character,
+      // leaving the filter stuck on whatever partial pinyin string was mid-composition.
+      // compositionend guarantees one more pass with the true committed value.
       searchInput.addEventListener('input', applySearch);
+      searchInput.addEventListener('compositionend', applySearch);
       if (searchClear) {
         searchClear.addEventListener('click', function () {
           searchInput.value = '';
@@ -647,7 +652,11 @@
         applyArchiveSearch(); // sets up the initial full pagination
       }
 
+      // See the matching compositionend note on searchInput above — same IME edge case
+      // applies here (homepage inline box and the archive/topic-page sidebar box share
+      // this same filter function).
       searchInput2.addEventListener('input', applyArchiveSearch);
+      searchInput2.addEventListener('compositionend', applyArchiveSearch);
       if (searchClear2) {
         searchClear2.addEventListener('click', function () {
           searchInput2.value = '';
