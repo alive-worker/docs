@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-level-protection-assessment.html</loc>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/domestic-ai-level-protection-assessment.html</loc>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html</loc>
@@ -506,11 +514,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-08-28T16:50:00+08:00</lastmod>
+    <lastmod>2026-08-29T11:20:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>

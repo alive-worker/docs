@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="等保测评与生成式AI服务备案是两套独立合规体系示意图">
+  <defs>
+    <linearGradient id="bgGradLp" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradLp)"/>
+
+  <!-- central shield representing the information system itself being protected -->
+  <g transform="translate(260,180)">
+    <path d="M0 -70 L58 -46 L58 10 C58 56 30 82 0 96 C-30 82 -58 56 -58 10 L-58 -46 Z" fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <path d="M-24 4 L-6 22 L26 -18" fill="none" stroke="#7be8b8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="-84" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#8fd6b6">信息系统安全防护</text>
+  </g>
+
+  <!-- tier stars, abstract level markers, no official emblem -->
+  <g transform="translate(260,300)" fill="#f2d18a">
+    <polygon points="-70,0 -64,-8 -58,0 -64,-16" opacity="0.55"/>
+    <text x="-56" y="6" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#f2d18a">一级</text>
+    <polygon points="-10,0 -4,-8 2,0 -4,-16" opacity="0.75"/>
+    <text x="6" y="6" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#f2d18a">二级</text>
+    <polygon points="60,0 66,-10 72,0 66,-20"/>
+    <text x="76" y="6" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#f2d18a">三级+</text>
+  </g>
+  <text x="90" y="330" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#b6d6c8" opacity="0.85">定级以官方测评指引为准</text>
+
+  <!-- right side: two separate classification folders, filing vs assessment -->
+  <g transform="translate(560,140)">
+    <path d="M-70 -30 L-30 -30 L-18 -14 L70 -14 L70 60 L-70 60 Z" fill="#2a2038" stroke="#c98be0" stroke-width="2.5"/>
+    <text x="0" y="12" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#e6c4f7">生成式AI</text>
+    <text x="0" y="30" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#e6c4f7">服务备案</text>
+  </g>
+  <g transform="translate(560,250)">
+    <path d="M-70 -30 L-30 -30 L-18 -14 L70 -14 L70 60 L-70 60 Z" fill="#20342f" stroke="#4fae8a" stroke-width="2.5"/>
+    <text x="0" y="12" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#9fe6c4">等保测评</text>
+    <text x="0" y="30" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#9fe6c4">独立体系</text>
+  </g>
+  <text x="490" y="90" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#8fd6b6">两套义务 · 互不替代</text>
+
+  <!-- dashed divider showing independence -->
+  <g stroke="#4fae8a" stroke-width="2" stroke-dasharray="5 6" fill="none" opacity="0.5">
+    <path d="M420 60 L420 340"/>
+  </g>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700" fill="#eef2fb">等保测评 · 另一笔合规账</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

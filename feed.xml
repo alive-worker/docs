@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 28 Aug 2026 16:50:00 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 29 Aug 2026 11:20:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账]]></title>
+    <link>https://ponr.org/articles/domestic-ai-level-protection-assessment.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-level-protection-assessment.html</guid>
+    <pubDate>Sat, 29 Aug 2026 11:20:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。]]></description>
+  </item>
   <item>
     <title><![CDATA[信用卡账单里那笔预授权和实际扣款金额为什么对不上]]></title>
     <link>https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html</link>

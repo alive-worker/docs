@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</title>
+  <meta name="description" content="很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关，由公安机关主管、独立机构测评。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-level-protection-assessment.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-level-protection-assessment.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-level-protection-assessment.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-level-protection-assessment.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账">
+  <meta property="og:description" content="很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关，由公安机关主管、独立机构测评。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-level-protection-assessment.html">
+  <meta property="article:published_time" content="2026-08-29T11:20:00+08:00">
+  <meta property="article:modified_time" content="2026-08-29T11:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账">
+  <meta name="twitter:description" content="很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关，由公安机关主管、独立机构测评。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-level-protection.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-level-protection.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-level-protection.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#webpage", "url": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html", "name": "接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账", "item": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html" }
+    ] },
+    { "@type": "Article", "headline": "接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账", "description": "很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关，由公安机关主管、独立机构测评。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。", "image": "https://ponr.org/img/cover-domestic-ai-level-protection.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-29T11:20:00+08:00", "dateModified": "2026-08-29T11:20:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["网络安全等级保护测评", "等保测评", "生成式人工智能服务备案", "网络安全法", "合规义务"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-level-protection-assessment.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-level-protection-assessment.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</h1>
+          <p class="article-summary">本站之前一篇文章讲过ICP备案和生成式人工智能服务备案是两件不同的事，很多调用DeepSeek、通义千问等大模型API做对外产品的开发者，办完这两件事之后就以为合规义务全都办齐了。但还有第三套体系经常被漏掉：网络安全等级保护测评（等保测评），这是《网络安全法》要求的、跟AI本身没有直接关系的通用信息系统安全合规义务——只要你的对外服务系统达到相应重要程度，不管有没有调用AI，都可能需要单独定级、备案并完成测评。本文讲清等保测评具体测什么、级别怎么划定、接入大模型API会不会让定级要求变高，以及开发者最容易搞混的两个方向性错误。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-29T11:20:00+08:00">2026-08-29 11:20:00</time> · 官方文档最后核验于 2026-08-29</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-level-protection.svg" width="800" height="400" alt="接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>自己对外提供服务的这套系统，是否已经完成过等保定级备案，还是从来没有走过这个流程</li>
+            <li><span class="article-verify-check">✓</span>是否把"完成了生成式AI服务备案"或"完成了ICP备案"当成了等保测评已经办过，因而漏掉了另一件独立的事</li>
+            <li><span class="article-verify-check">✓</span>系统的具体定级依据，是自己拍板定的，还是找过有资质的测评机构或公安机关网安部门核实过</li>
+            <li><span class="article-verify-check">✓</span>如果业务里涉及用户实名信息、支付数据或大规模用户数据，是否评估过这些数据本身是否会拉高系统的定级要求</li>
+            <li><span class="article-verify-check">✓</span>调用大模型API这件事，有没有被简单当成"不涉及等保"或者反过来"必须升一级"的一刀切结论，而没有结合具体业务场景判断</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：备案办完了，等保测评是不是也顺带做了</h2>
+          <p>本站此前一篇文章讲过，很多开发者调用DeepSeek、豆包这类大模型API做对外产品时，容易把ICP备案和生成式人工智能服务备案混为一谈，实际上是网信部门和工信部门分别主管的两件事。这次要讲的是又一套经常被漏掉的合规义务：网络安全等级保护测评，业内通常简称"等保"或"等保测评"。跟前面两件事不同，等保测评的法律依据是《中华人民共和国网络安全法》，它跟你的产品是不是AI服务没有必然关系——不管系统里有没有调用大模型，只要这套对外提供服务的信息系统达到一定重要程度，运营者就需要依法完成定级、备案和测评。开发者容易犯的第一个错误，就是办完前两件"备案"之后，默认等保这件事也顺带解决了，实际上它是完全独立的第三套体系，需要单独启动、单独完成。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 等保测评具体测的是什么：信息系统本身的安全防护能力，不是生成内容</h2>
+          <p>需要先厘清一个容易搞反的边界：生成式人工智能服务备案关注的是算法机制机理、训练数据来源、生成内容是否安全合规这类"内容侧"问题，主管机关是网信部门；而网络安全等级保护测评关注的是承载这项服务的信息系统本身的安全防护能力，包括网络架构、主机安全、应用系统安全、数据安全等技术和管理层面的措施是否达标，跟AI生成出来的具体内容合不合规基本无关，主管机关是公安机关网络安全保卫部门，具体测评工作由有资质的第三方测评机构实施。换句话说，就算你的AI生成内容完全合规、生成式AI备案也顺利办下来了，只要承载这项服务的服务器、数据库、应用系统本身没有按等保要求完成定级、备案和测评，这套系统在网络安全等级保护这个维度上仍然是不合规的——两者考核的对象根本不是同一层面的东西。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 级别怎么划定：没有一刀切的数字，以官方测评指引为准</h2>
+          <p>关于等保具体应该定几级、什么样的系统对应什么级别，需要如实说明：这类具体定级标准涉及的技术细节较多，不同行业、不同系统的重要程度、服务对象规模、数据敏感程度都会影响最终结论，公开资料里能查到的是原则性的分级框架，但具体到某一个系统该定几级，不能靠本文或者任何一篇科普文章给出一刀切的答案。实践中，定级通常由系统的运营、使用单位按照相关标准先行自主定级，再向有资质的测评机构或者当地公安机关网络安全保卫部门核实、备案，最终以公安机关审核认可的结果为准。如果你不确定自己的系统应该定几级，最直接的做法是联系当地公安机关网络安全保卫部门，或者委托专业的等级测评机构做初步评估，而不是照搬网上某篇文章或者其他公司系统的定级结果。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 调用大模型API会不会让定级要求变高：需要结合具体业务场景判断</h2>
+          <p>这是一个经常被追问、但同样不能给出统一答案的问题。调用DeepSeek、通义千问这类大模型API本身，只是让你的系统多了一个对外请求的接口和一段数据流转链路，这件事本身既不天然导致系统等级"必须升高"，也不意味着"接了API就不用管等保"。真正影响定级结论的，是这套系统整体承载的业务重要程度和数据敏感程度——比如是否处理大规模用户实名信息、是否涉及支付或金融数据、是否属于某个行业主管部门认定的重点保护对象，这些因素本来就会影响定级，而调用大模型API这件事，只有在它确实改变了系统处理的数据类型或者业务重要程度时，才可能间接影响定级结论。如实的说法是：这件事需要结合你自己系统的具体业务场景由专业测评机构或公安机关判断，不存在"调了AI API就自动升一级"或者"调了AI API就不用管"这种普遍适用的统一规则，本文不对此作出一刀切断言。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 开发者最容易犯的两个方向性错误</h2>
+          <p>结合前面几节，实践中最常见的两个误区正好是相反的方向。第一种是"以为做了生成式AI服务备案就不用管等保"：由于两者都带着"备案"两个字，很容易被默认成同一件事的两个步骤，实际上它们的法律依据、主管机关、考核对象完全不同，做了前者完全不能替代后者。第二种是反过来，"以为做了等保测评就不用管生成式AI服务备案"：等保测评合格证明的是系统本身的安全防护能力达标，并不涉及你的AI服务是否具有舆论属性或社会动员能力、是否需要单独完成算法备案这类内容侧的合规判断，等保测评合格的系统里跑着一个没有完成必要备案的生成式AI服务，仍然是不合规的。把这次讲的等保测评，和本站之前文章里提到的ICP备案、算法推荐备案、生成式AI服务备案放在一起，正好是开发者最容易混淆的四类合规义务，彼此独立、互不替代，需要分别核实、分别完成。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 小结</h2>
+          <p>网络安全等级保护测评是《网络安全法》要求的通用信息系统安全合规义务，跟你的对外服务是不是AI产品没有必然关系，也不会因为完成了生成式人工智能服务备案或者ICP备案而被自动免除。它考核的是承载服务的信息系统本身的安全防护能力，具体定级需要结合业务重要程度和数据敏感程度、以官方测评指引和公安机关核实结果为准，调用大模型API是否影响定级同样需要个案判断，不存在统一的一刀切答案。开发者最该做的，是先弄清楚自己的系统到底有没有走过等保定级备案这个流程，而不是默认"备案办了就都办了"。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：备案办完了，等保测评是不是也顺带做了</a></li>
+          <li><a href="#sec-2">2. 等保测评具体测的是什么：信息系统本身的安全防护能力，不是生成内容</a></li>
+          <li><a href="#sec-3">3. 级别怎么划定：没有一刀切的数字，以官方测评指引为准</a></li>
+          <li><a href="#sec-4">4. 调用大模型API会不会让定级要求变高：需要结合具体业务场景判断</a></li>
+          <li><a href="#sec-5">5. 开发者最容易犯的两个方向性错误</a></li>
+          <li><a href="#sec-6">6. 小结</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.cac.gov.cn/2025-12/29/c_1768735112911946.htm" target="_blank" rel="noopener nofollow">中央网络安全和信息化委员会办公室：《中华人民共和国网络安全法》官方文本</a>：确立国家实行网络安全等级保护制度，网络运营者应当依法履行相应安全保护义务，对应本文第1、2节</li>
+            <li><a href="https://www.cspec.org.cn/" target="_blank" rel="noopener nofollow">公安部网络安全等级保护评估中心官网</a>：等级测评相关权威机构入口，可用于核实测评资质与流程，对应本文第2、3节</li>
+            <li><a href="https://beian.mps.gov.cn/" target="_blank" rel="noopener nofollow">全国互联网安全管理服务平台（公安部网络安全保卫局主管）</a>：网络安全等级保护备案等公安联网备案业务的官方入口，对应本文第1、3节</li>
+          </ul>
+          <p class="ref-note">具体定级标准、备案材料清单与测评流程涉及技术细节较多，不同行业、不同系统可能对应不同要求，且规则可能随时间调整，请以公安机关及具备资质的测评机构的官方指引和实际核实结果为准，本文不对统一定级标准作出断言。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-generative-filing-vs-icp.html">接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规</a></li>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">国内AI大模型订阅入门：怎么选、怎么开通</a></li>
+          <li><a href="/articles/domestic-ai-api-training-data-clause.html">给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2c2cb01713"></script>
+</body>
+</html>
