@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 29 Aug 2026 11:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 29 Aug 2026 13:55:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[同一张虚拟卡绑几个AI订阅，一冻结为什么全部续费同时失败]]></title>
+    <link>https://ponr.org/articles/overseas-ai-virtual-card-concentration-risk.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-concentration-risk.html</guid>
+    <pubDate>Sat, 29 Aug 2026 13:55:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[不少人图省心，用同一张虚拟卡支付多个AI订阅，账单集中好对账，但这张卡因此成了单点故障：一旦被风控冻结或拒付，绑在它上面的所有订阅会同时续费失败。本文讲清一卡多商户为何更容易触发风控识别信号，以及该怎么按订阅数量拆分开卡分散集中度风险。]]></description>
+  </item>
   <item>
     <title><![CDATA[接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账]]></title>
     <link>https://ponr.org/articles/domestic-ai-level-protection-assessment.html</link>

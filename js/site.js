@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-virtual-card-concentration-risk.html': '2026-08-29 13:55:00',
+    '/en/articles/virtual-card-concentration-risk-guide.html': '2026-08-29 13:55:00',
     '/articles/domestic-ai-level-protection-assessment.html': '2026-08-29 11:20:00',
     '/en/articles/domestic-ai-level-protection-assessment.html': '2026-08-29 11:20:00',
     '/articles/ai-subscription-authorization-hold-settlement-gap.html': '2026-08-28 16:50:00',
