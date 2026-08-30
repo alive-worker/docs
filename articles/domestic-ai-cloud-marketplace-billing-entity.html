@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</title>
+  <meta name="description" content="很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道，而非直接找模型厂商官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺，都可能不同，采购前要核实合同主体、发票开具方与技术支持渠道，不能默认云平台采购等同官方直签。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样">
+  <meta property="og:description" content="很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道，而非直接找模型厂商官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺，都可能不同，采购前要核实合同主体、发票开具方与技术支持渠道，不能默认云平台采购等同官方直签。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html">
+  <meta property="article:published_time" content="2026-08-30T13:15:00+08:00">
+  <meta property="article:modified_time" content="2026-08-30T13:15:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样">
+  <meta name="twitter:description" content="很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道，而非直接找模型厂商官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺，都可能不同，采购前要核实合同主体、发票开具方与技术支持渠道，不能默认云平台采购等同官方直签。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-cloud-marketplace-billing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="阿里云腾讯云市场调用DeepSeek通义千问和官方直签API区别封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-cloud-marketplace-billing.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-cloud-marketplace-billing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#webpage", "url": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html", "name": "阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样", "item": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html" }
+    ] },
+    { "@type": "Article", "headline": "阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样", "description": "很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道，而非直接找模型厂商官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺，都可能不同，采购前要核实合同主体、发票开具方与技术支持渠道，不能默认云平台采购等同官方直签。", "image": "https://ponr.org/img/cover-domestic-ai-cloud-marketplace-billing.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-30T13:15:00+08:00", "dateModified": "2026-08-30T13:15:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["阿里云百炼", "腾讯云模型广场", "DeepSeek API", "通义千问API", "云市场转售", "计费主体"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-cloud-marketplace-billing-entity.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</h1>
+          <p class="article-summary">很多企业接入DeepSeek、通义千问这类国内大模型API，并不是直接找模型厂商本身签约，而是通过阿里云、腾讯云、华为云这类云服务商的"模型市场/云市场"转售渠道购买——云厂商在这层关系里其实是渠道分销/资源转售方。这跟直接找模型厂商官方签约，在计费主体、技术支持responsibility边界、价格与SLA条款几个具体维度上可能不一样，采购前该核实哪些点，本文讲清楚。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-30T13:15:00+08:00">2026-08-30 13:15:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-cloud-marketplace-billing.svg" width="800" height="400" alt="阿里云腾讯云市场调用DeepSeek通义千问和官方直签API区别封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>合同和发票的开具方到底是云服务商（阿里云/腾讯云主体）还是模型厂商本身，去采购合同和最近一张发票上核对公司抬头</li>
+            <li><span class="article-verify-check">✓</span>出问题时技术支持入口是云平台的工单系统，还是能直接联系到模型厂商自己的支持渠道，提前问清楚响应时限承诺分别是多少</li>
+            <li><span class="article-verify-check">✓</span>拿到的价格是不是云市场渠道价，跟模型厂商官网/开放平台公示的单价逐项核对，看是否存在加价，或者反而有云厂商专属折扣</li>
+            <li><span class="article-verify-check">✓</span>合同或服务说明里引用的SLA，是云服务商自己的服务等级协议，还是模型厂商原始SLA的直接转授，两者的赔付条款可能不同</li>
+            <li><span class="article-verify-check">✓</span>不要凭"大厂云平台买的"这个印象就默认等同官方直签，把上面几项作为采购前的必答清单逐条问采购经理或云厂商客户经理</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：云市场买的DeepSeek，账单开票方可能不是DeepSeek</h2>
+          <p>不少企业接入DeepSeek、通义千问这类国内大模型API时，走的路径是登录阿里云百炼、腾讯云的知识引擎原子能力这类"模型市场/云市场"控制台，选中模型、开通服务、按量付费——整个流程体验上跟直接用云厂商自己的产品没什么区别，很容易让人默认这就是"官方渠道"。但需要厘清一个具体事实：在这类云市场里，云服务商很多时候扮演的是渠道分销/资源转售的角色，模型厂商是实际的模型提供方，两者是不同的法律主体。这意味着采购这份API服务的账单开票方，到底是阿里云/腾讯云的对应公司主体，还是模型厂商本身，是需要在合同和发票上明确核实的第一件事，不能想当然地假设。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 计费主体：账单开票方直接影响财务报销和合同关系</h2>
+          <p>计费主体不同，首先影响的是财务报销流程和合同关系的认定。如果账单是云服务商开具的，报销、对账、纳税凭证的抬头都是云服务商的公司名称，合同关系（包括后续的争议、退款、续约）对应的也是与云服务商之间的约定；如果账单实际是模型厂商开具（或者云市场只是导流入口、结算环节切回模型厂商自己的账户体系），那对应的合同主体和售后责任方就完全是另一回事。这一点在企业财务做付款审批、税务做进项票核验时尤其容易卡壳——如果采购人员一开始没有确认清楚，财务可能会拿着一张与预期公司主体不符的发票来回确认，拖慢报销周期。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 技术支持责任边界：出问题该找云平台工单还是模型厂商自己</h2>
+          <p>第二个容易被忽略的维度是技术支持的responsibility边界。调用API出现异常（比如返回错误码、限流、模型响应不符合预期）时，该走云服务商自己的工单/客服系统，还是能够直接联系到模型厂商自己的技术支持团队，这两条路径的响应速度和排查深度可能有明显差异——云平台的工单系统通常需要先由云厂商的技术支持判断问题是出在云平台侧的调用封装、网络链路，还是模型本身的行为，如果属于模型本身的问题，还可能需要云厂商再向模型厂商转达，链路上多了一层，响应时间和沟通成本自然会增加。反过来，如果合同/服务说明里明确了可以直接对接模型厂商的技术支持通道，遇到模型层面的问题时排查效率通常会更高。这个入口在采购前就该问清楚，而不是等真出问题的时候才发现要多绕一层。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 价格：云市场渠道价不一定等于官网单价，需要自己逐项核对</h2>
+          <p>价格是第三个容易被想当然的地方。云市场渠道价可能包含云厂商自己在转售环节里加的价，也可能因为云厂商拿到了批量采购折扣或者用自己的节省计划/资源包机制反而给出比模型厂商官网更低的价格——这两种情况都存在，不能简单假设"云市场价=官网价"或者"云市场一定更贵/更便宜"。比较务实的做法是采购前把云市场控制台公示的单价，和模型厂商官方开放平台/官网公示的单价逐项对照，同一模型、同样的输入输出token单价、是否支持批量调用折扣、是否有阶梯计费或错峰定价这些维度都对一遍，而不是凭印象判断。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. SLA条款：合同引用的是谁的服务等级承诺</h2>
+          <p>第四个维度是SLA（服务等级协议）。企业采购API服务时，合同或服务说明里对可用性、响应时延、赔付条款的承诺，引用的到底是云服务商自己制定的SLA，还是模型厂商原始SLA的直接转授，这两者不一定是一回事。云服务商自己的SLA可能覆盖的是云平台基础设施层面的可用性（比如控制台、网关、计费系统的可用性），而未必对模型本身的响应质量、内容一致性做出等同于模型厂商原始承诺的赔付条款。采购合同签署前，值得让对方明确写清楚SLA具体对应的是哪一份文本、赔付触发条件与上限，而不是笼统写"参照行业标准"这类模糊表述。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 采购前该做的事：不要默认"大厂云平台=官方直签"</h2>
+          <p>把以上几点归纳成企业采购前的实操动作：第一，明确问清楚合同主体和发票开具方是云服务商还是模型厂商；第二，明确出问题后的技术支持入口，以及云平台和模型厂商各自的响应时限承诺；第三，把云市场价格和模型厂商官网价格逐项核对，确认是否存在渠道加价或者专属折扣；第四，明确SLA条款具体引用的是哪一方的服务等级协议、赔付条款是什么。这几件事都不复杂，但很容易被"反正是通过阿里云/腾讯云这种大厂平台买的，应该没问题"这种默认假设跳过。云市场渠道本身并非不可靠，只是它跟官方直签在合同结构上确实存在这几处具体差异，采购前逐项核实清楚，比事后出问题再去追责成本低得多。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 如实说明：具体条款因厂商、因时间而异，以签约合同为准</h2>
+          <p>这里需要如实说明一点：本文讲的是这几个采购决策点本身值得核实，但具体到某个云厂商在某个时间点对某个模型的计费主体安排、价格是否有加价或折扣、SLA条款的具体文本，会随云厂商与模型厂商之间的商业合作条款调整而变化，不同渠道、不同时间点可能不同，不存在一个放之四海而皆准的行业统一规律。本文不对阿里云、腾讯云或其他任何具体云厂商的转售政策作统一性断言，具体计费主体、价格及SLA条款请以采购时双方实际签署的合同、开具的发票与服务说明为准。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：云市场买的DeepSeek，账单开票方可能不是DeepSeek</a></li>
+          <li><a href="#sec-2">2. 计费主体：账单开票方直接影响财务报销和合同关系</a></li>
+          <li><a href="#sec-3">3. 技术支持责任边界：出问题该找云平台工单还是模型厂商自己</a></li>
+          <li><a href="#sec-4">4. 价格：云市场渠道价不一定等于官网单价，需要自己逐项核对</a></li>
+          <li><a href="#sec-5">5. SLA条款：合同引用的是谁的服务等级承诺</a></li>
+          <li><a href="#sec-6">6. 采购前该做的事：不要默认"大厂云平台=官方直签"</a></li>
+          <li><a href="#sec-7">7. 如实说明：具体条款因厂商、因时间而异，以签约合同为准</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener nofollow">阿里云百炼官方：模型价格说明</a>：阿里云百炼平台上DeepSeek、通义千问等模型的官方计费页面，对应本文第4节"云市场价格需要逐项核对"</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/deepseek-api" target="_blank" rel="noopener nofollow">阿里云百炼官方：DeepSeek API 接入说明</a>：阿里云百炼平台接入DeepSeek系列模型的官方文档，对应本文第1节"云市场里的DeepSeek接入方式"</li>
+            <li><a href="https://cloud.tencent.com/document/product/1772/116385" target="_blank" rel="noopener nofollow">腾讯云官方：知识引擎原子能力DeepSeek API价格计费说明</a>：腾讯云关于DeepSeek API计费规则与后付费机制的官方文档，对应本文第2、4节</li>
+          </ul>
+          <p class="ref-note">文中提及的具体计费主体、价格是否含渠道加价或折扣，以及SLA条款文本，会随云厂商与模型厂商之间的商业合作条款调整而变化，不同渠道、不同时间可能不同，请以采购时双方实际签署的合同、发票与服务说明为准。本文仅供学习与参考，不构成任何采购或法律建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/domestic-ai-level-protection-assessment.html">接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</a></li>
+          <li><a href="/articles/ai-domestic-model-off-peak-pricing.html">DeepSeek凌晨调用更便宜：错峰定价背后的算力账</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=00d75a9d76"></script>
+</body>
+</html>

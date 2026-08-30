@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 29 Aug 2026 13:55:00 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 30 Aug 2026 13:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Buying DeepSeek via Aliyun or Tencent Cloud vs. Direct API]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html</guid>
+    <pubDate>Sun, 30 Aug 2026 13:15:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[Many firms buy DeepSeek or Qwen API access through Aliyun or Tencent Cloud marketplace resale rather than a direct vendor contract. Billing entity, support channel, pricing markups, and SLA terms can all differ — verify each before signing.]]></description>
+  </item>
   <item>
     <title><![CDATA[One Virtual Card for Every AI Subscription? Read This First]]></title>
     <link>https://ponr.org/en/articles/virtual-card-concentration-risk-guide.html</link>
