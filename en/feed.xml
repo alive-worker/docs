@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 30 Aug 2026 13:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 30 Aug 2026 16:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why AVS Address Checks Can Decline AI Subscriptions]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html</guid>
+    <pubDate>Sun, 30 Aug 2026 16:10:00 +0800</pubDate>
+    <category>Overseas AI Subscriptions</category>
+    <description><![CDATA[Many US and European card issuers run an AVS check comparing only the house number and ZIP code of the billing address entered at checkout against the address on file, a completely different mechanism from 3D Secure identity verification. Filling in your current residence instead of the issuer address on file can decline an AI subscription charge even with sufficient funds.]]></description>
+  </item>
   <item>
     <title><![CDATA[Buying DeepSeek via Aliyun or Tencent Cloud vs. Direct API]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html</link>

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 30 Aug 2026 13:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 30 Aug 2026 16:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制]]></title>
+    <link>https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html</guid>
+    <pubDate>Sun, 30 Aug 2026 16:10:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[很多欧美发卡行会用AVS地址验证系统核对结账时填写的账单地址，实际只核对门牌号数字和邮编这两项，并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事。若填的是当前居住地而非发卡行登记地址，哪怕余额充足也可能被拒或标记为高风险交易，本文讲清AVS具体核对规则与排查思路。]]></description>
+  </item>
   <item>
     <title><![CDATA[阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样]]></title>
     <link>https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html</link>

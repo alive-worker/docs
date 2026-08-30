@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制</title>
+  <meta name="description" content="很多欧美发卡行会用AVS（地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致，但AVS实际只核对门牌号数字和邮编这两项、并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事，AI订阅账单地址填错了实际居住地而非发卡行登记地址，哪怕卡内余额充足也可能被拒或被标记为高风险交易。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制">
+  <meta property="og:description" content="很多欧美发卡行会用AVS（地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致，但AVS实际只核对门牌号数字和邮编这两项、并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事，AI订阅账单地址填错了实际居住地而非发卡行登记地址，哪怕卡内余额充足也可能被拒或被标记为高风险交易。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html">
+  <meta property="article:published_time" content="2026-08-30T16:10:00+08:00">
+  <meta property="article:modified_time" content="2026-08-30T16:10:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制">
+  <meta name="twitter:description" content="很多欧美发卡行会用AVS（地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致，但AVS实际只核对门牌号数字和邮编这两项、并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事，AI订阅账单地址填错了实际居住地而非发卡行登记地址，哪怕卡内余额充足也可能被拒或被标记为高风险交易。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-avs-billing-address-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="AVS地址验证只核对门牌号与邮编，跟3D Secure是两套机制封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-avs-billing-address-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#primaryimage", "url": "https://ponr.org/img/cover-avs-billing-address-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#webpage", "url": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html", "name": "AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制", "item": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html" }
+    ] },
+    { "@type": "Article", "headline": "AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制", "description": "很多欧美发卡行会用AVS（地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致，但AVS实际只核对门牌号数字和邮编这两项、并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事，AI订阅账单地址填错了实际居住地而非发卡行登记地址，哪怕卡内余额充足也可能被拒或被标记为高风险交易。", "image": "https://ponr.org/img/cover-avs-billing-address-mismatch.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-30T16:10:00+08:00", "dateModified": "2026-08-30T16:10:00+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["AVS", "地址验证系统", "账单地址", "3D Secure", "信用卡拒付", "AI订阅扣款"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/overseas-ai-avs-billing-address-mismatch.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制</h1>
+          <p class="article-summary">很多欧美发卡行和支付网关会用AVS（Address Verification System，地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致——但AVS具体核对的只是门牌号数字和邮编这两项，不是完整的地址文字，这跟验证"是不是持卡人本人"的3D Secure是完全不同的两套机制，很多人分不清这两者，导致账单地址填错时排查方向就错了。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-30T16:10:00+08:00">2026-08-30 16:10:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-avs-billing-address-mismatch.svg" width="800" height="400" alt="AVS地址验证只核对门牌号与邮编，跟3D Secure是两套机制封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>结账时填写的账单地址（billing address），门牌号数字和邮编是否跟发卡行系统里登记的地址完全一致——这两项是AVS实际核对的内容，完整街道名拼写反而不是重点</li>
+            <li><span class="article-verify-check">✓</span>最近是否搬过家、换过住址，但还没有联系发卡行更新账单地址记录，导致填的是新地址、发卡行档案里还是旧地址</li>
+            <li><span class="article-verify-check">✓</span>是否用的是亲友的信用卡，但结账时填了自己的居住地址而不是持卡人本人在发卡行登记的账单地址</li>
+            <li><span class="article-verify-check">✓</span>扣款失败提示是身份验证失败（3D Secure弹窗/验证码）还是账单信息不匹配/风险标记，这两种失败原因对应的排查方向完全不同，不要混着查</li>
+            <li><span class="article-verify-check">✓</span>如果确认地址没填错，问题可能出在商户或支付网关自己设置的AVS风险容忍度上，可以换一种支付方式或联系客服确认具体拒绝原因</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：卡里有钱、身份验证也通过，AI订阅还是扣款被拒</h2>
+          <p>不少用户在订阅ChatGPT、Claude、Midjourney这类海外AI服务时会遇到一种让人费解的情况：信用卡余额充足，输入验证码或完成App确认这类身份验证步骤也顺利通过，但订阅扣款还是被直接拒绝，或者交易被标记为异常需要人工审核。排查一圈发现，问题往往出在一个容易被忽略的环节——结账页面填写的账单地址（billing address），跟这张卡在发卡行系统里登记的账单地址不一致，触发了AVS（Address Verification System，地址验证系统）的核对失败。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. AVS具体核对什么：只看门牌号数字和邮编，不是完整地址文字</h2>
+          <p>这是很多人不知道的一个技术细节：AVS并不会逐字核对用户填写的完整街道地址文字，它实际比对的通常只是地址里的两项数字信息——门牌号（street number）和邮编（ZIP/postal code）。根据Mastercard Gateway官方文档，AVS会把持卡人结账时提交的账单地址与发卡行档案记录进行比对，返回一个AVS响应代码，指示地址匹配的程度；即使街道名称拼写方式不同、大小写不同、有没有加"Apt"这类单元号后缀，只要门牌号数字和邮编这两项数字对得上，AVS通常仍判定为匹配。反过来，哪怕整条街道地址文字写得一字不差，如果门牌号或邮编数字有出入（比如把公寓单元号误填成门牌号本身），也可能被判定为不匹配。这也是为什么公寓单元号常常成为AVS误判的高发点。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. AVS和3D Secure是两套完全不同的机制，容易被混淆</h2>
+          <p>很多人把"扣款被拒"统一理解成"身份验证没通过"，但AVS和3D Secure（3DS，弹验证码或App确认那套流程）验证的其实是两件完全不同的事：3D Secure验证的是"提交这笔交易的人是不是持卡人本人"，靠的是发送到手机的一次性验证码、银行App里的推送确认等手段；AVS验证的是"用户提供的账单地址信息，是否跟这张卡片本身在发卡行注册时登记的账单地址匹配"，跟"是不是本人在操作"没有直接关系。也就是说，持卡人本人亲自输入验证码、亲自确认了这笔交易（3DS通过），但如果结账时随手填的是当前居住地址而不是信用卡账单登记地址，AVS核对依然可能失败，扣款还是可能被拒或被标记为高风险交易——这正是本文开头那种"身份验证通过了，扣款还是被拒"现象的技术成因。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 账单地址应该填哪里：发卡行登记的地址，不是收货地址或当前住址</h2>
+          <p>结账页面的"账单地址"这一栏，正确的填法是信用卡对应的发卡行档案里登记的地址，不是这次要收货的地址（AI订阅这类虚拟商品通常没有收货地址概念），也不是用户当前实际居住的地址——这两者在很多场景下并不是同一个地址。常见的触发场景包括：搬家之后没有主动联系发卡行更新账单地址记录，结账时习惯性填了新的居住地；或者用的是家人、朋友名下的信用卡，结账时填了自己的地址而不是持卡人本人在发卡行登记的地址。这两种情况下，即便卡片本身没有任何异常、余额也充足，AVS核对依然可能因为地址对不上而失败。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 商户对AVS失败的处理策略不统一：有的直接拒绝，有的只标记放行</h2>
+          <p>需要如实说明一点：AVS核对失败之后，具体是直接拒绝这笔交易，还是只是打上风险标记但仍然放行，取决于处理这笔交易的商户或支付网关自己设置的风控策略，不存在一个所有平台统一遵循的处理规则。根据Stripe官方文档的说明，AVS核对结果可以配置成不同严格程度的规则，商户可以选择只拦截明确判定为不匹配的交易，也可以选择更严格的策略去阻断更多存在风险的交易；同时Stripe官方也承认，合法的正常交易也可能触发AVS核对失败——比如用户单纯填错了地址，或者搬家后没有及时通知发卡行更新记录，都会造成"人是真实持卡人，交易却因地址核对不通过而受阻"的情况。所以遇到这个问题时，不能默认"只要是AVS问题就一定是被系统拒绝"，具体表现要看该AI服务商所用的支付渠道设置了怎样的风险容忍度。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 遇到AVS拒付该怎么排查：先核对地址，再联系发卡行</h2>
+          <p>如果怀疑扣款被拒是AVS地址不匹配导致的，比较务实的排查顺序是：第一步，翻出信用卡账单或者登录网银App，核对发卡行系统里当前登记的账单地址，跟结账时填写的地址逐项比对门牌号和邮编这两项数字是否一致；第二步，如果发现确实是登记地址和填写地址不一样（比如最近搬过家），直接联系发卡行客服更新账单地址记录，这是最直接的解决办法；第三步，如果核对下来地址信息本身没有问题，那问题更可能出在该AI服务商所用支付网关的风控规则本身，可以尝试更换一张卡、换一种支付方式，或者联系客服询问具体的拒绝原因代码。不建议在没有核实清楚具体原因之前，反复用同一张卡重试扣款，这类重复失败尝试本身也可能进一步提高账户被判定为高风险的概率。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 如实说明：具体AVS核对规则与失败处理策略因发卡行/支付网关而异</h2>
+          <p>这里需要如实说明一点：AVS的具体核对逻辑（比如是否支持街道地址核对、对国际卡的支持程度）以及核对失败后的具体处理策略（直接拒绝还是仅标记风险），因发卡行、卡组织（Visa/Mastercard等）、支付网关和商户自身设置的不同而存在差异，不存在一套所有场景统一适用的标准规则。比如AVS在美国、加拿大、英国等地区的支持和使用惯例本身就不完全相同，部分国际发卡行甚至不支持AVS核对。本文不对某一具体发卡行或支付网关的AVS判定规则作统一性断言，遇到实际扣款被拒的情况，请以该笔交易对应的发卡行、商户或支付网关给出的具体说明为准。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：卡里有钱、身份验证也通过，AI订阅还是扣款被拒</a></li>
+          <li><a href="#sec-2">2. AVS具体核对什么：只看门牌号数字和邮编，不是完整地址文字</a></li>
+          <li><a href="#sec-3">3. AVS和3D Secure是两套完全不同的机制，容易被混淆</a></li>
+          <li><a href="#sec-4">4. 账单地址应该填哪里：发卡行登记的地址，不是收货地址或当前住址</a></li>
+          <li><a href="#sec-5">5. 商户对AVS失败的处理策略不统一：有的直接拒绝，有的只标记放行</a></li>
+          <li><a href="#sec-6">6. 遇到AVS拒付该怎么排查：先核对地址，再联系发卡行</a></li>
+          <li><a href="#sec-7">7. 如实说明：具体AVS核对规则与失败处理策略因发卡行/支付网关而异</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://docs.stripe.com/disputes/prevention/verification" target="_blank" rel="noopener nofollow">Stripe官方：卡验证检查（AVS与CVC）说明</a>：Stripe关于AVS核对规则、失败原因与风控拦截配置的官方文档，对应本文第5节"商户对AVS失败的处理策略不统一"</li>
+            <li><a href="https://support.visaacceptance.com/knowledgebase/Knowledgearticle/?code=000003111" target="_blank" rel="noopener nofollow">Visa Acceptance Solutions官方：AVS结果代码说明</a>：解释AVS如何比对账单地址与发卡行档案、街道地址与邮编匹配情况的官方知识库文章，对应本文第2节"AVS具体核对什么"</li>
+            <li><a href="https://developer.mastercard.com/mastercard-gateway/documentation/security-and-fraud/risk-management/address-verification-service/" target="_blank" rel="noopener nofollow">Mastercard Gateway官方：地址验证服务（AVS）文档</a>：Mastercard关于AVS将账单地址与发卡行记录比对、返回响应代码机制的官方说明，对应本文第1、2节</li>
+          </ul>
+          <p class="ref-note">文中提及的AVS具体核对规则、失败后的处理策略（拒绝或仅标记），会因发卡行、卡组织、支付网关与商户设置的不同而存在差异，请以实际交易对应渠道的官方说明为准。本文仅供学习与参考，不构成任何支付或法律建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-renewal-3ds-mit-exemption.html">首次扣款要验证码，续费凭什么又弹一次——3DS豁免为什么会失效</a></li>
+          <li><a href="/articles/ai-subscription-authorization-hold-settlement-gap.html">信用卡账单里那笔预授权和实际扣款金额为什么对不上</a></li>
+          <li><a href="/articles/ai-subscription-fraud-flag.html">家人的卡明明没被冻结，AI订阅续费却总被风控拦下</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=d3ac37848f"></script>
+</body>
+</html>
