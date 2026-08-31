@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepSeek API Under Your Own ID? Invoicing Gets Stuck</title>
+  <meta name="description" content="A DeepSeek or Qwen API account verified under personal ID can block a company invoice: identity and invoice payee must match; fixing it varies by platform.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="DeepSeek API Under Your Own ID? Invoicing Gets Stuck">
+  <meta property="og:description" content="A DeepSeek or Qwen API account verified under personal ID can block a company invoice: identity and invoice payee must match; fixing it varies by platform.">
+  <meta property="og:url" content="https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html">
+  <meta property="article:published_time" content="2026-08-31T10:10:00+08:00">
+  <meta property="article:modified_time" content="2026-08-31T10:10:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Domestic AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DeepSeek API Under Your Own ID? Invoicing Gets Stuck">
+  <meta name="twitter:description" content="A DeepSeek or Qwen API account verified under personal ID can block a company invoice: identity and invoice payee must match; fixing it varies by platform.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Personal-ID real-name account versus enterprise invoice payee mismatch illustration">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#webpage", "url": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html", "name": "DeepSeek API Under Your Own ID? Invoicing Gets Stuck", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "DeepSeek API Under Your Own ID? Invoicing Gets Stuck", "item": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html" }
+    ] },
+    { "@type": "Article", "headline": "DeepSeek API Under Your Own ID? Invoicing Gets Stuck", "description": "A DeepSeek or Qwen API account verified under personal ID can block a company invoice: identity and invoice payee must match; fixing it varies by platform.", "image": "https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-31T10:10:00+08:00", "dateModified": "2026-08-31T10:10:00+08:00", "inLanguage": "en", "articleSection": "Domestic AI", "keywords": ["real-name verification", "invoice payee", "DeepSeek", "Qwen", "corporate invoice", "account entity change"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price Hike Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-invoice-entity-mismatch.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>DeepSeek API Under Your Own ID? Invoicing Gets Stuck</h1>
+          <p class="article-summary">Chinese LLM API platforms generally require account real-name verification — either a personal ID or a business license. Many individual developers verify with a personal ID to get started quickly, then discover later, when the company wants to reimburse the bill and needs a corporate invoice, that the verified identity and the invoice payee are two different things: most platforms require the invoice payee to match the verified identity, and personal accounts often can't issue enterprise invoices at all.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-08-31T10:10:00+08:00">2026-08-31 10:10:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-invoice-entity-mismatch.svg" width="800" height="400" alt="Personal-ID real-name account versus enterprise invoice payee mismatch illustration" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Check the account center / real-name verification page to confirm whether this API account was verified with a personal ID or a business license — don't rely on memory</li>
+            <li><span class="article-verify-check">✓</span>If you need a corporate invoice, check the platform's invoice/payee management page for whether an "enterprise" payee matching your company name and tax ID already exists, or only a default personal payee</li>
+            <li><span class="article-verify-check">✓</span>Have you already contacted the platform's official support or checked its help docs to confirm whether an entity change (personal to enterprise) or usage migration is possible, what materials it requires, and how long approval takes</li>
+            <li><span class="article-verify-check">✓</span>If the platform offers a lighter-weight path — applying for an enterprise invoice payee without changing the account's verification type — check whether you can meet its required documentation (business registration, proof of affiliation, etc.)</li>
+            <li><span class="article-verify-check">✓</span>If neither an entity change nor a payee application is workable, have you weighed the cost of registering a fresh enterprise-verified account and migrating new usage there, instead of forcing reimbursement through the old account</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The scenario: sign up with a personal ID, then hit a wall at reimbursement time</h2>
+          <p>Platforms like DeepSeek and Qwen (Alibaba Cloud Model Studio / DashScope) generally require real-name verification before an account can be used — it's a hard compliance gate; without it, you often can't even create an API key or top up the account. Many individual developers, when first getting started, complete real-name verification with their own personal ID because it's the fastest path, and start making small payments right away. Only later, once a project is underway and the company wants to formally reimburse the API charges, does the problem surface: finance needs a corporate invoice made out to the company with a tax ID, but when the account applies for an invoice, the payee information still reflects the personal identity registered at verification — no enterprise invoice can be issued, or there's no path to one at all.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. The root cause: verified identity and invoice payee are bound together</h2>
+          <p>What many people miss is that an account's "verified identity" and the "invoice payee" it can use are not two independent, freely mixable things on most platforms — they're bound together. An account verified with a personal ID defaults to a personal invoice payee; typing a company name and tax ID into the invoice request form doesn't automatically produce an enterprise invoice, because there's usually a review or identity-change step in between. That's why "verification passed, account works fine" and "can this account issue a corporate invoice" are two different questions: the first is just the gate to using the API, the second depends on the entity type registered on the account itself.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. What publicly documented platform rules actually say</h2>
+          <p>Take Alibaba Cloud Model Studio (the official platform behind the Qwen API) as an example: Alibaba Cloud's help center states plainly that the invoice payee must match the account's verified identity, and a personally verified account defaults to personal-payee invoices only. Alibaba Cloud offers two paths: one is to change the account's verification type from personal to enterprise outright, but the official documentation specifically warns this is irreversible — "once enterprise verification is completed, the account's verification type cannot be changed back to personal." The other path, which doesn't touch the account's verification type at all, is applying through the invoice/payee page for an additional enterprise payee ("apply for enterprise payee › individual applying for enterprise payee"), submitting business registration materials for review; once approved, the account can issue invoices under that enterprise payee as well. DeepSeek's Open Platform Terms of Service similarly states that account verification splits into personal and enterprise types, that "an account can correspond to only one legal entity," and that enterprise users need to supplement their entity verification information before they can issue invoices or make corporate bank transfers, with the invoice payee required to match the verified identity. The specifics differ between these two platforms, but the common thread is the same: verified identity and invoice payee are linked, not a free-text field on an invoice request form.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. To be clear: support for entity changes and usage migration varies by platform</h2>
+          <p>It's worth stating plainly here: whether a specific platform lets a personal account convert directly to an enterprise entity, or lets usage or balance already accrued on a personal account migrate to a newly registered enterprise account, can differ significantly between platforms — this article makes no uniform claim about any specific platform's policy. As described above, Alibaba Cloud Model Studio supports both "changing the verification type" and "applying for an enterprise payee," but changing the verification type is irreversible once done; on DeepSeek's Open Platform, the publicly available terms tie the verification type to a single legal entity, and whether a personal account can later convert to enterprise, or how accrued usage migrates, needs to be confirmed against whatever the platform's official support or help documentation says at the time you actually attempt it. Don't assume any platform "definitely supports" or "definitely doesn't support" this based on one article or another developer's isolated experience — confirming with the platform's official support is the safest route.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. The right approach: verify with an enterprise identity from day one for company use</h2>
+          <p>The more fundamental fix isn't patching things up at reimbursement time — it's deciding upfront, at account registration, whether this API account will be reimbursed by the company through a corporate process or used and paid for purely by an individual. If it's meant for a company project, verify with the enterprise identity (business license) from the start, rather than verifying with a personal ID for convenience and figuring "I'll deal with it later if needed." The reason is straightforward: once an account is verified as an enterprise entity, issuing corporate invoices and using corporate transfer channels afterward just follows the platform's standard enterprise-user process — no entity change or migration gamble required.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. If you've already registered with a personal ID, what to do now</h2>
+          <p>If the account is already verified under a personal ID and has already racked up charges that need reimbursement, a practical order of operations looks like this: first, log into the platform's account center / real-name verification page and confirm the currently registered verification type and identity details. Second, check the platform's invoice/payee management page to see whether it offers a lighter-weight channel to add an enterprise payee without changing the account's verification type (similar to Alibaba Cloud's "individual applying for enterprise payee"). Third, if no such lightweight channel exists, or the required documentation doesn't pass review, weigh whether to go through with an irreversible "change verification type to enterprise" step, and carefully consider whether that change affects historical data, API keys, or already-purchased usage. Fourth, if none of these paths work, or the migration cost is too high, registering a fresh enterprise-verified account may end up cheaper than fighting with the old one — you'll just need to reconfigure API keys and confirm whether any balance or usage can transfer between the old and new accounts.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. Takeaway: verification isn't just a usage gate — it decides your invoicing options too</h2>
+          <p>Real-name verification on a Chinese LLM API account is usually treated as just a gate to "can I use this," but it also quietly decides "can this ever issue me a corporate invoice." Binding the verified identity to the invoice payee is the common approach across most platforms, and a personally verified account that wants an enterprise invoice usually needs an entity change or a payee application — whether that's supported and how it works varies by platform, and official support or help documentation should be the final word. Deciding upfront that an account is for company use, and verifying with the enterprise identity from registration onward, avoids this entire remediation process later.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The scenario: sign up with a personal ID, then hit a wall at reimbursement time</a></li>
+          <li><a href="#sec-2">2. The root cause: verified identity and invoice payee are bound together</a></li>
+          <li><a href="#sec-3">3. What publicly documented platform rules actually say</a></li>
+          <li><a href="#sec-4">4. To be clear: support for entity changes and usage migration varies by platform</a></li>
+          <li><a href="#sec-5">5. The right approach: verify with an enterprise identity from day one for company use</a></li>
+          <li><a href="#sec-6">6. If you've already registered with a personal ID, what to do now</a></li>
+          <li><a href="#sec-7">7. Takeaway: verification isn't just a usage gate — it decides your invoicing options too</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek Open Platform Terms of Service</a>: Official terms describing personal vs. enterprise account verification types, the "one account, one legal entity" rule, and enterprise invoicing requirements, referenced in Section 3</li>
+            <li><a href="https://help.aliyun.com/zh/account/verify-your-identity-enterprise-account/" target="_blank" rel="noopener nofollow">Alibaba Cloud Help Center: Completing enterprise real-name verification</a>: Official documentation explaining that enterprise verification is a prerequisite for issuing enterprise invoices, and that the verification type cannot be changed back to personal afterward, referenced in Sections 3 and 4</li>
+            <li><a href="https://help.aliyun.com/zh/user-center/request-an-invoice" target="_blank" rel="noopener nofollow">Alibaba Cloud Help Center: Requesting an Alibaba Cloud invoice</a>: Official documentation explaining that the invoice payee must match the verified identity, and the specific process for the "individual applying for enterprise payee" review channel, referenced in Sections 3 and 6</li>
+          </ul>
+          <p class="ref-note">The verification and invoicing rules, and the exact support for account entity changes or usage migration, described here can change over time and by platform or product version. Defer to the official support or help documentation of the specific platform you use. This article is for informational purposes only and does not constitute tax, financial, or legal advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/domestic-ai-subscription-guide.html">Subscribing to Domestic AI Tools in China: A Quick Guide</a></li>
+          <li><a href="/en/articles/domestic-ai-level-protection-assessment.html">DeepSeek API in Production? Level Protection Is Separate</a></li>
+          <li><a href="/en/articles/domestic-ai-cloud-marketplace-billing-entity.html">Buying DeepSeek via Aliyun or Tencent Cloud vs. Direct API</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to summary home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI service subscriptions, payment rails, virtual cards, and account security — written from hands-on experience, for anyone else navigating AI tools.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Payment Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payment Proxy</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>This site shares informational content; pricing, regional availability, and policies are subject to the official information of the respective AI platforms and payment services.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=dd4cc409d7"></script>
+</body>
+</html>

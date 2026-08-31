@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票</title>
+  <meta name="description" content="很多个人开发者图方便，先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始试用付费，后来公司想报销这笔费用、需要开对公发票时才发现，账号实名认证主体和发票抬头其实是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异，需自行核实。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票">
+  <meta property="og:description" content="很多个人开发者图方便，先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始试用付费，后来公司想报销这笔费用、需要开对公发票时才发现，账号实名认证主体和发票抬头其实是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异，需自行核实。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html">
+  <meta property="article:published_time" content="2026-08-31T10:10:00+08:00">
+  <meta property="article:modified_time" content="2026-08-31T10:10:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票">
+  <meta name="twitter:description" content="很多个人开发者图方便，先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始试用付费，后来公司想报销这笔费用、需要开对公发票时才发现，账号实名认证主体和发票抬头其实是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异，需自行核实。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="个人实名认证账号与企业发票抬头主体不一致示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#webpage", "url": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html", "name": "用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票", "item": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html" }
+    ] },
+    { "@type": "Article", "headline": "用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票", "description": "很多个人开发者图方便，先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始试用付费，后来公司想报销这笔费用、需要开对公发票时才发现，账号实名认证主体和发票抬头其实是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异，需自行核实。", "image": "https://ponr.org/img/cover-domestic-ai-invoice-entity-mismatch.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-31T10:10:00+08:00", "dateModified": "2026-08-31T10:10:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["实名认证", "发票抬头", "DeepSeek", "通义千问", "对公发票", "账号主体变更"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-invoice-entity-mismatch.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票</h1>
+          <p class="article-summary">国内大模型API平台普遍要求账号完成实名认证——个人身份证或企业营业执照二选一，很多个人开发者图省事先用身份证实名注册、开始试用付费，等到公司要报销这笔支出、需要开具对公发票时才发现问题：账号的实名认证主体和发票抬头要求的开票主体压根不是一回事，很多平台的规则是发票抬头必须跟实名认证主体一致，个人认证账号往往开不出企业发票。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-31T10:10:00+08:00">2026-08-31 10:10:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-invoice-entity-mismatch.svg" width="800" height="400" alt="个人实名认证账号与企业发票抬头主体不一致示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>当初注册这个API账号时做的实名认证，用的是个人身份证还是企业营业执照，先登录账号中心/实名认证页面查清楚，不要凭记忆判断</li>
+            <li><span class="article-verify-check">✓</span>如果需要开对公发票，平台的发票信息（抬头）页面里，是否已经存在跟公司名称、税号一致的"企业"类型抬头，还是只有默认的个人抬头</li>
+            <li><span class="article-verify-check">✓</span>是否已经联系过该平台官方客服或查过帮助文档，确认账号主体变更（个人转企业）或额度迁移这条路径是否可行、需要哪些材料、审批周期多长</li>
+            <li><span class="article-verify-check">✓</span>如果平台支持"个人账号申请企业抬头"这类不改变账号实名类型本身的开票通道，是否符合它要求的审核材料（比如工商信息、关联证明）</li>
+            <li><span class="article-verify-check">✓</span>如果确认主体变更或迁移都不可行，是否已经评估过重新注册一个企业实名账号、把新增用量迁移过去的成本，而不是继续拿旧账号硬报销</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：先用个人身份证注册试用，公司报销时才发现开不出发票</h2>
+          <p>DeepSeek、通义千问（阿里云百炼/DashScope）这类国内大模型API平台，注册和使用之前通常都要求账号完成实名认证——这是硬性的合规前提，不完成实名认证甚至无法创建API Key或对账户充值。很多个人开发者图方便，第一次接触时就直接用自己的身份证信息做了个人实名认证，账号很快能用，也顺手小额付费试用了起来。等到项目做起来、公司想把这笔API调用费用正式报销时，才发现走不通：财务需要一张抬头是公司名称、带税号的对公发票，但账号申请开票时，系统给出的抬头信息还是实名认证时登记的个人身份，开不出企业发票，或者干脆没有开企业发票的入口。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 根子问题：实名认证主体和发票抬头，是绑定在一起的两件事</h2>
+          <p>很多人没有意识到的一点是：账号的"实名认证主体"和开票时能选择的"发票抬头"，在大多数平台的规则里并不是两件互相独立、可以随便搭配的事情，而是绑定在一起的。也就是说，账号用个人身份证做的实名认证，对应的默认开票抬头类型就是"个人"，不会因为你在开票申请表里手动填了公司名称和税号，平台就自动给你开一张抬头为企业的发票——这中间往往还隔着一道审核或身份变更的流程。这也是为什么"实名认证通过、账号能正常使用"和"能不能开对公发票"其实是两个不完全相关的问题：前者只是使用API的门槛，后者还取决于账号本身登记的主体类型。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 以公开可查的平台规则为例：认证类型和发票抬头如何绑定</h2>
+          <p>以阿里云百炼（通义千问API的官方平台）为例，阿里云帮助中心明确说明发票抬头必须与账号的实名认证主体一致；如果账号是个人实名认证，默认只能开具个人抬头的发票。阿里云同时提供了两条路径：第一条是直接把账号的实名认证类型从个人变更为企业，但官方文档特别提示这个操作不可逆——"完成企业实名认证后，账号实名认证类型不可变更为个人"；第二条是不改变账号实名认证类型本身，走"发票信息（抬头）"页面里"申请企业抬头 › 个人申请企业抬头"这条审核通道，提交工商材料后由平台审批，通过后账号可以额外开具企业抬头的发票。DeepSeek开放平台的服务协议里也明确账号认证分个人和企业两类，"一个账号仅能对应唯一的法律主体"，企业用户需要补充主体认证信息之后才能开具发票、进行对公汇款，且发票抬头要求与实名认证信息一致。这两个平台的具体规则细节不同，但共同点是：实名认证主体和发票抬头挂钩，不是开票申请表上随手填的一个字段。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 如实说明：不同平台对"账号主体变更/额度迁移"的支持程度不同</h2>
+          <p>这里必须如实说明一点：具体某个平台是否支持个人账号直接转企业主体、是否支持把个人账号已经产生的用量或充值余额迁移到新注册的企业账号上，不同大模型API平台的策略可能完全不同，本文不对某一具体平台的统一政策作断言。如上一节所述，阿里云百炼支持"变更实名认证类型"和"个人申请企业抬头"两条路径，但变更实名认证类型这条路径一旦执行就不可逆；DeepSeek开放平台的公开信息里，账号认证类型与法律主体是绑定的，具体是否支持个人账号事后转为企业账号、如何迁移已产生的额度，需要以平台官方客服或帮助文档在你实际操作时给出的说明为准。遇到这类问题，不要凭一篇文章或者其他开发者的个例经验去假设某个平台"肯定支持"或"肯定不支持"，直接找平台官方客服确认最保险。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 正确做法：企业内部使用API从一开始就用企业身份实名注册</h2>
+          <p>比较根本的解决办法不是等到报销环节才补救，而是在注册账号这一步就想清楚：这个API账号未来是要由公司报销、走对公流程，还是纯粹个人自用、自己承担费用。如果确定是给公司项目用，从一开始就应该用企业身份（营业执照）完成实名认证，而不是图眼前方便先用个人身份证认证、想着"以后有需要再说"。原因很简单：认证账号是企业主体之后，后续开对公发票、走对公汇款渠道，走的都是平台为企业用户设计的常规流程，不需要额外的主体变更或迁移操作，也不用赌平台是否支持"事后补救"这条路径。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 已经用个人身份注册了，具体该怎么办</h2>
+          <p>如果账号已经用个人身份证实名认证注册、也已经产生了需要报销的费用，比较务实的处理顺序是：第一步，登录平台的实名认证/账号中心页面，确认当前登记的认证类型和主体信息；第二步，查该平台的发票管理/发票抬头页面，看是否已经支持不改变账号实名类型、只申请追加企业抬头这类相对轻量的通道（类似阿里云的"个人申请企业抬头"）；第三步，如果这类轻量通道不存在或者材料审核不通过，再评估是否要走"变更实名认证类型为企业"这种不可逆操作，权衡清楚变更后是否会影响账号历史数据、API Key、已购额度的可用性；第四步，如果以上路径都不可行，或者迁移成本过高，直接注册一个新的企业实名账号可能比死磕旧账号更划算，只是需要重新配置API Key并核实新旧账号之间的额度、余额是否支持迁移。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 小结：实名认证不只是使用门槛，也决定了未来能不能开对公发票</h2>
+          <p>国内大模型API账号的实名认证，很多人只把它当成"能不能用起来"的门槛，容易忽略它同时也决定了"未来能不能顺利开对公发票"这件事。实名认证主体和发票抬头绑定在一起，是多数平台的通行做法，个人认证账号想要拿到企业发票，通常需要额外走主体变更或申请企业抬头这类流程，具体是否支持、流程如何，因平台而异，需要以官方客服或帮助文档的说明为准。如果一开始就明确这个账号是给公司用的，从注册那一刻起就用企业身份完成实名认证，能省掉后面这一整套补救流程。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：先用个人身份证注册试用，公司报销时才发现开不出发票</a></li>
+          <li><a href="#sec-2">2. 根子问题：实名认证主体和发票抬头，是绑定在一起的两件事</a></li>
+          <li><a href="#sec-3">3. 以公开可查的平台规则为例：认证类型和发票抬头如何绑定</a></li>
+          <li><a href="#sec-4">4. 如实说明：不同平台对"账号主体变更/额度迁移"的支持程度不同</a></li>
+          <li><a href="#sec-5">5. 正确做法：企业内部使用API从一开始就用企业身份实名注册</a></li>
+          <li><a href="#sec-6">6. 已经用个人身份注册了，具体该怎么办</a></li>
+          <li><a href="#sec-7">7. 小结：实名认证不只是使用门槛，也决定了未来能不能开对公发票</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek开放平台服务协议</a>：官方协议中关于账号认证分个人/企业两类、"一个账号仅能对应唯一的法律主体"、企业用户开票要求的原始条款，对应本文第3节</li>
+            <li><a href="https://help.aliyun.com/zh/account/verify-your-identity-enterprise-account/" target="_blank" rel="noopener nofollow">阿里云帮助中心：如何完成企业实名认证</a>：阿里云官方文档，说明企业实名认证是开具企业发票等功能的前提，且认证后账号类型不可变更回个人，对应本文第3、4节</li>
+            <li><a href="https://help.aliyun.com/zh/user-center/request-an-invoice" target="_blank" rel="noopener nofollow">阿里云帮助中心：开具阿里云发票</a>：阿里云官方文档，说明发票抬头须与实名认证主体一致，以及"个人申请企业抬头"审核通道的具体流程，对应本文第3、6节</li>
+          </ul>
+          <p class="ref-note">文中提及的实名认证与开票规则、账号主体变更/额度迁移的具体支持程度，会因平台、产品版本与政策调整而变化，请以你实际使用的平台官方客服或帮助文档最新说明为准。本文仅供学习与参考，不构成税务、财务或法律建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-subscription-guide.html">DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门</a></li>
+          <li><a href="/articles/domestic-ai-level-protection-assessment.html">接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</a></li>
+          <li><a href="/articles/domestic-ai-cloud-marketplace-billing-entity.html">阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=dd4cc409d7"></script>
+</body>
+</html>

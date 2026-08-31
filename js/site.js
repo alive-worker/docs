@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-invoice-entity-mismatch.html': '2026-08-31 10:10:00',
+    '/en/articles/domestic-ai-invoice-entity-mismatch.html': '2026-08-31 10:10:00',
     '/articles/overseas-ai-avs-billing-address-mismatch.html': '2026-08-30 16:10:00',
     '/en/articles/overseas-ai-avs-billing-address-mismatch.html': '2026-08-30 16:10:00',
     '/articles/domestic-ai-cloud-marketplace-billing-entity.html': '2026-08-30 13:15:00',

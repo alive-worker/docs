@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 30 Aug 2026 16:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 31 Aug 2026 10:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票]]></title>
+    <link>https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html</guid>
+    <pubDate>Mon, 31 Aug 2026 10:10:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[很多个人开发者图方便先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始付费，后来公司要报销需要开对公发票时才发现，实名认证主体和发票抬头是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制]]></title>
     <link>https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html</link>

@@ -1,0 +1,43 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="个人实名认证账号与企业发票抬头主体不一致示意图">
+  <defs>
+    <linearGradient id="bgGradInv" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradInv)"/>
+
+  <!-- left: personal ID card -->
+  <g transform="translate(210,190)">
+    <rect x="-110" y="-70" width="220" height="140" rx="16" fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <circle cx="-58" cy="-14" r="26" fill="none" stroke="#7be8b8" stroke-width="4"/>
+    <path d="M-84 40 C-84 14 -34 14 -34 40" fill="none" stroke="#7be8b8" stroke-width="4" stroke-linecap="round"/>
+    <rect x="8" y="-34" width="86" height="10" rx="5" fill="#7be8b8" opacity="0.85"/>
+    <rect x="8" y="-8" width="86" height="10" rx="5" fill="#7be8b8" opacity="0.55"/>
+    <rect x="8" y="18" width="60" height="10" rx="5" fill="#7be8b8" opacity="0.4"/>
+    <text x="0" y="-90" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#8fd6b6">个人身份证实名</text>
+  </g>
+
+  <!-- right: enterprise invoice -->
+  <g transform="translate(590,190)">
+    <path d="M-90 -80 L60 -80 L90 -50 L90 80 L-90 80 Z" fill="#2a2038" stroke="#c98be0" stroke-width="2.5"/>
+    <path d="M60 -80 L60 -50 L90 -50 Z" fill="#1d1730"/>
+    <rect x="-64" y="-30" width="120" height="8" rx="4" fill="#e6c4f7" opacity="0.85"/>
+    <rect x="-64" y="-8" width="120" height="8" rx="4" fill="#e6c4f7" opacity="0.6"/>
+    <rect x="-64" y="14" width="90" height="8" rx="4" fill="#e6c4f7" opacity="0.45"/>
+    <circle cx="40" cy="46" r="26" fill="none" stroke="#f2d18a" stroke-width="3"/>
+    <text x="40" y="51" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#f2d18a">章</text>
+    <text x="0" y="-100" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#e6c4f7">企业对公发票</text>
+  </g>
+
+  <!-- center mismatch mark -->
+  <g transform="translate(400,190)">
+    <circle r="34" fill="#241a1a" stroke="#e08b8b" stroke-width="3"/>
+    <path d="M-14 -14 L14 14 M14 -14 L-14 14" stroke="#e08b8b" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <path d="M320 190 L366 190 M434 190 L480 190" stroke="#e08b8b" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.7"/>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700" fill="#eef2fb">实名主体 ≠ 开票主体</text>
+  <text x="60" y="340" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#b6d6c8" opacity="0.85">具体变更/迁移流程以平台官方说明为准</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

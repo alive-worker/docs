@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 30 Aug 2026 16:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 31 Aug 2026 10:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[DeepSeek API Under Your Own ID? Invoicing Gets Stuck]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html</guid>
+    <pubDate>Mon, 31 Aug 2026 10:10:00 +0800</pubDate>
+    <category>Domestic AI</category>
+    <description><![CDATA[Many developers verify a DeepSeek or Qwen API account with a personal ID for convenience, then discover at reimbursement time that verified identity and invoice payee must match — personal accounts often can't issue enterprise invoices, and entity change or migration support varies by platform.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why AVS Address Checks Can Decline AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html</link>
