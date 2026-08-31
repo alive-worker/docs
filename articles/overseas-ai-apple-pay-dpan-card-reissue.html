@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制</title>
+  <meta name="description" content="用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN（Device Primary Account Number）；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制">
+  <meta property="og:description" content="用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN（Device Primary Account Number）；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <meta property="article:published_time" content="2026-08-31T14:05:00+08:00">
+  <meta property="article:modified_time" content="2026-08-31T14:05:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制">
+  <meta name="twitter:description" content="用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN（Device Primary Account Number）；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="设备安全芯片里的DPAN令牌通过账户更新服务自动同步换卡信息封面图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#primaryimage", "url": "https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#webpage", "url": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html", "name": "换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制", "item": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html" }
+    ] },
+    { "@type": "Article", "headline": "换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制", "description": "用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN（Device Primary Account Number）；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。", "image": "https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-31T14:05:00+08:00", "dateModified": "2026-08-31T14:05:00+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["DPAN", "设备账号号", "Apple Pay", "Google Pay", "账户更新服务", "Account Updater", "token化"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制</h1>
+          <p class="article-summary">用Apple Pay或Google Pay绑定ChatGPT、Claude这类AI订阅时，商户实际拿到并用于扣款的并不是银行卡上印着的真实卡号，而是设备安全芯片里生成的一串"设备账号号"（DPAN，Device Primary Account Number），是绑定这台设备和这个钱包的token化替代卡号。银行换发新实体卡之后，只要新旧卡背后关联的是同一个持卡人账户，卡组织的账户更新服务通常会自动把这个变化同步过去，订阅本身不需要手动操作——这和把银行卡真实卡号手动填进网页、换卡后必须逐个订阅手动改的传统方式完全是两回事。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-08-31T14:05:00+08:00">2026-08-31 14:05:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-apple-pay-dpan-card-reissue.svg" width="800" height="400" alt="设备安全芯片里的DPAN令牌通过账户更新服务自动同步换卡信息封面图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>换了新实体卡之后，是否需要手动打开Apple Pay/Google Pay检查这笔AI订阅对应的支付方式是否还显示为正常可用状态，而不是想当然认为"肯定没事"</li>
+            <li><span class="article-verify-check">✓</span>如果这次换卡是换了发卡行（不是同一家银行内部重新签发新卡号），账户更新服务是否还能覆盖这种跨发卡行场景——这跟同一家银行内部换卡是不同情况，要单独核实，不能一概而论</li>
+            <li><span class="article-verify-check">✓</span>这笔AI订阅本身是不是直接用Apple Pay/Google Pay支付的，还是走的普通网页信用卡表单——只有前者才涉及DPAN这套设备令牌机制，后者换卡后该怎么处理是完全不同的问题</li>
+            <li><span class="article-verify-check">✓</span>换卡后的头几天如果续费真的失败了，先确认失败原因是账户更新没同步到位，还是余额、额度、AVS地址验证等其他原因，不要一发现续费失败就默认是"换卡没同步"</li>
+            <li><span class="article-verify-check">✓</span>不要把这篇讲的"设备令牌自动更新"和本站此前讲过的"虚拟卡在多个订阅间怎么分配""预授权和结算金额对不上"这两个话题混为一谈，三者是完全不同技术层面的机制</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：银行换了新卡，Apple Pay里的AI订阅却完全没受影响</h2>
+          <p>不少人有过这样的体验：信用卡到期换发了新卡，或者因为疑似盗刷银行主动重新签发了新卡号，本以为绑定Apple Pay或Google Pay支付的ChatGPT Plus、Claude Pro这类AI订阅会因此续费失败，结果打开钱包App一看，订阅状态照常显示正常，到了续费日也顺利扣款，完全没有收到任何"请更新支付方式"的提醒。这和另一种常见场景形成鲜明对比——如果订阅走的是把银行卡号直接手动填进网页结账表单的传统方式，换卡后往往必须自己逐个登录每个订阅平台，手动把新卡号、有效期、安全码重新填一遍，漏掉哪个订阅平台就会导致哪个订阅续费失败。这种差异背后，是两套完全不同的支付凭证机制。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. DPAN是什么：Apple Pay/Google Pay里真正拿去扣款的不是银行卡真实卡号</h2>
+          <p>根据Apple官方"Apple Pay安全性与隐私权概览"支持文档，当一张银行卡被添加进Apple Pay时，发卡行或其授权的服务商会为这台具体设备生成一个专属的"设备账号号"（Device Account Number，即DPAN），经过加密后存放在设备的安全芯片（Secure Element）里；这个号码本身既不会被Apple解密读取，也从不会被存储在Apple服务器或备份到iCloud。也就是说，DPAN不是银行卡上印着的那串真实卡号（业内也称为FPAN，Funding Primary Account Number），而是绑定"这台设备+这个钱包"的一个token化替代号码——同一张实体卡装进另一台设备，生成的DPAN也会是不同的号码。Google官方博客对Google Wallet的"设备令牌"（device token）机制也做了类似说明：每添加一张卡，Google Wallet都会生成一个设备专属的虚拟账号，真实卡号既不存储在设备上，也不会分享给商户。商户在这类支付里实际收到并用来发起扣款的，正是这个token化的设备账号，而不是银行卡的真实卡号。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 换卡之后谁来同步：卡组织的账户更新服务在背后起作用</h2>
+          <p>DPAN虽然绑定在设备上，但它和银行卡真实账户之间存在对应关系，这个对应关系由发卡行和卡组织在后台维护。根据Visa官方开发者文档对Visa账户更新服务（Visa Account Updater，VAU）的说明，当参与该服务的发卡行重新签发一张卡（比如卡片到期换新、或者因盗刷风险重新签发新卡号）时，发卡行会把新的账号信息和有效期提交给VAU；已注册这项服务的商户，可以通过其收单机构查询到更新后的卡片信息。这套机制原本是为传统的"商户保留卡号"（card-on-file）场景设计的，用来减少因卡片信息过期导致的续费失败；对于走token化路径的Apple Pay/Google Pay订阅，只要新旧卡背后对应的是同一个持卡人账户，发卡行和卡组织之间的这类信息同步通常也能让设备端保存的token继续有效，不需要用户本人重新在Apple Pay/Google Pay里手动删除旧卡、添加新卡。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 这跟"手动填卡号"的传统续费方式完全是两回事</h2>
+          <p>这里需要讲清楚两种模式的本质区别：如果一个AI订阅走的是最传统的方式——用户在结账页面手动输入银行卡的16位真实卡号、有效期和安全码——那么商户数据库里保存的就是这张卡的真实凭证（或者商户自己申请的、跟具体这张实体卡绑定的token）。银行换发新卡号后，这类保存的凭证会直接失效，商户续费扣款必然失败，用户必须自己重新登录该订阅平台，手动把新卡信息填一遍。而走Apple Pay/Google Pay支付的订阅，商户从一开始拿到的就是设备专属的DPAN，这个DPAN本身通常不会因为换卡而立即失效——它依赖的是前面提到的、发卡行和卡组织之间的账户更新同步机制在背后把"这张卡背后的账户没变"这个信息传递过去，而不是要求用户去手动操作。简单说：传统方式让用户自己去"追"每一次换卡带来的信息变化，token化支付方式则是把这个"追"的工作转交给了发卡行和卡组织之间的后台同步流程。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 如实说明：账户更新服务不是100%生效，具体覆盖率因发卡行而异</h2>
+          <p>需要如实说明一点：账户更新服务能不能生效，前提是发卡行本身参与了这项服务，且新旧卡片确实对应同一个持卡人账户——如果这次换卡同时换了发卡银行（比如从A银行的信用卡换成B银行的信用卡），而不是同一家银行内部重新签发卡号，账户更新服务通常不会生效，因为这已经不是"同一账户换了新卡号"，而是变成了完全不同的一个账户。此外，各家发卡行、各个卡组织实际参与这项服务的覆盖范围、信息同步的及时程度，并没有一个所有机构统一公开、可以直接引用的具体百分比数字——Visa、Mastercard等卡组织官方文档只说明了服务的机制和参与流程，并未对外公布覆盖率或生效成功率的统一数据。本文不对某个具体的覆盖率或成功率数字作断言，具体是否生效，请以实际换卡后订阅是否正常续费为准，如遇续费失败仍建议按核验清单里的步骤逐项排查，而不是默认"这套机制一定会兜底"。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 跟本站此前讲过的虚拟卡分配、预授权对不上，是完全不同的技术层面</h2>
+          <p>这里有必要跟本站此前发布过的几篇相关文章做一个区分，避免读者把不同技术层面的机制混在一起理解。本文讲的DPAN与账户更新服务，解决的是"实体卡换了新卡号之后，token化支付方式下订阅怎么不受影响"这个问题，发生在支付凭证层面。而虚拟卡在多个AI订阅之间怎么分配（是共用一张卡还是按订阅数量拆分开卡），关注的是虚拟卡这类支付工具本身的额度、风控与资金管理策略，和实体卡换卡后的token同步完全是另一个话题。信用卡账单里预授权金额和实际扣款金额为什么对不上，讲的则是支付网络里"授权"和"结算"这两个独立阶段之间的时间差与金额差，跟卡号本身是否变化没有直接关系。这三者分别对应支付流程里不同的技术环节，不能互相替代对方的解释，遇到具体问题时要先分清楚自己遇到的到底是哪一类。</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. 如实说明：具体token化与账户更新的技术细节因平台/发卡行而异</h2>
+          <p>最后需要如实说明：Apple Pay、Google Pay具体如何为不同类型的银行卡生成和管理DPAN、以及各家发卡行、各个卡组织具体参与账户更新服务的方式和覆盖范围，会因平台、地区、发卡行和卡组织的不同而存在差异，不存在一套所有场景统一适用的规则。本文引用的Apple、Google官方说明与Visa官方开发者文档，均为截至发文时可公开访问验证的官方资料，具体实现细节以对应平台、发卡行公布的最新信息为准，本文不对具体某家发卡行的账户更新服务生效情况作统一性断言。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：银行换了新卡，Apple Pay里的AI订阅却完全没受影响</a></li>
+          <li><a href="#sec-2">2. DPAN是什么：Apple Pay/Google Pay里真正拿去扣款的不是银行卡真实卡号</a></li>
+          <li><a href="#sec-3">3. 换卡之后谁来同步：卡组织的账户更新服务在背后起作用</a></li>
+          <li><a href="#sec-4">4. 这跟"手动填卡号"的传统续费方式完全是两回事</a></li>
+          <li><a href="#sec-5">5. 如实说明：账户更新服务不是100%生效，具体覆盖率因发卡行而异</a></li>
+          <li><a href="#sec-6">6. 跟本站此前讲过的虚拟卡分配、预授权对不上，是完全不同的技术层面</a></li>
+          <li><a href="#sec-7">7. 如实说明：具体token化与账户更新的技术细节因平台/发卡行而异</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-us/101554" target="_blank" rel="noopener nofollow">Apple官方：Apple Pay安全性与隐私权概览</a>：Apple关于设备账号号（Device Account Number/DPAN）生成、加密存储于安全芯片的官方说明，对应本文第2节</li>
+            <li><a href="https://blog.google/products/google-pay/device-tokens-google-wallet/" target="_blank" rel="noopener nofollow">Google官方博客：Google Wallet的设备令牌机制说明</a>：Google关于为每张卡生成设备专属虚拟账号、真实卡号不存储不共享的官方说明，对应本文第2节</li>
+            <li><a href="https://developer.visa.com/capabilities/vau/overview" target="_blank" rel="noopener nofollow">Visa开发者官网：Visa账户更新服务（VAU）概览</a>：Visa关于发卡行重新签发卡片后如何向商户/收单机构同步更新信息的官方机制说明，对应本文第3、5节</li>
+          </ul>
+          <p class="ref-note">文中提及的DPAN生成规则、账户更新服务具体覆盖范围与生效情况，会因支付平台、发卡行、卡组织与地区的不同而存在差异，请以官方最新信息为准。本文仅供学习与参考，不构成任何支付或法律建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/overseas-ai-virtual-card-concentration-risk.html">同一张虚拟卡绑几个AI订阅，一冻结为什么全部续费同时失败</a></li>
+          <li><a href="/articles/ai-subscription-authorization-hold-settlement-gap.html">信用卡账单里那笔预授权和实际扣款金额为什么对不上</a></li>
+          <li><a href="/articles/overseas-ai-avs-billing-address-mismatch.html">AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=d53b83612a"></script>
+</body>
+</html>

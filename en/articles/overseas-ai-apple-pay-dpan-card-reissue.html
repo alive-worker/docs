@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Your Apple Pay AI Subscription Survives a Card Reissue</title>
+  <meta name="description" content="Apple Pay/Google Pay use a device DPAN token, not your real card number. Account Updater can sync a reissued card automatically, but coverage varies by issuer.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why Your Apple Pay AI Subscription Survives a Card Reissue">
+  <meta property="og:description" content="Apple Pay/Google Pay use a device DPAN token, not your real card number. Account Updater can sync a reissued card automatically, but coverage varies by issuer.">
+  <meta property="og:url" content="https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html">
+  <meta property="article:published_time" content="2026-08-31T14:05:00+08:00">
+  <meta property="article:modified_time" content="2026-08-31T14:05:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Overseas AI Subscriptions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Your Apple Pay AI Subscription Survives a Card Reissue">
+  <meta name="twitter:description" content="Apple Pay/Google Pay use a device DPAN token, not your real card number. Account Updater can sync a reissued card automatically, but coverage varies by issuer.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A device Secure Element's DPAN token synced automatically via card network Account Updater cover image">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#primaryimage", "url": "https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#webpage", "url": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html", "name": "Why Your Apple Pay AI Subscription Survives a Card Reissue", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Why Your Apple Pay AI Subscription Survives a Card Reissue", "item": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html" }
+    ] },
+    { "@type": "Article", "headline": "Why Your Apple Pay AI Subscription Survives a Card Reissue", "description": "Apple Pay/Google Pay use a device DPAN token, not your real card number. Account Updater can sync a reissued card automatically, but coverage varies by issuer.", "image": "https://ponr.org/img/cover-apple-pay-dpan-card-reissue.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-08-31T14:05:00+08:00", "dateModified": "2026-08-31T14:05:00+08:00", "inLanguage": "en", "articleSection": "Overseas AI Subscriptions", "keywords": ["DPAN", "Device Primary Account Number", "Apple Pay", "Google Pay", "Account Updater", "tokenization"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price Hike Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-apple-pay-dpan-card-reissue.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why Your Apple Pay AI Subscription Survives a Card Reissue</h1>
+          <p class="article-summary">When you bind an AI subscription like ChatGPT Plus or Claude Pro to Apple Pay or Google Pay, the merchant never actually receives your card's real number — it receives a "Device Account Number" (DPAN, Device Primary Account Number), a tokenized stand-in generated inside the device's secure chip and tied to that specific device and wallet. When your bank reissues a new physical card, as long as the new card is linked to the same underlying cardholder account, the card network's Account Updater service typically syncs that change automatically, with no manual action needed on the subscription itself — a sharp contrast to typing a real card number directly into a checkout form, where a reissued card means manually updating every single subscription by hand.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-08-31T14:05:00+08:00">2026-08-31 14:05:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-apple-pay-dpan-card-reissue.svg" width="800" height="400" alt="A device Secure Element's DPAN token synced automatically via card network Account Updater cover image" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>After a card reissue, do you still need to manually open Apple Pay/Google Pay to confirm this AI subscription's payment method still shows as active, instead of assuming everything is automatically fine</li>
+            <li><span class="article-verify-check">✓</span>If the reissue also switched issuing banks (not just a new card number from the same bank), does Account Updater still cover that scenario — this is a different case from a same-bank reissue and needs separate confirmation</li>
+            <li><span class="article-verify-check">✓</span>Is this AI subscription actually paid through Apple Pay/Google Pay directly, or through a regular web card form — only the former involves the DPAN device-token mechanism described here; the latter needs a different fix after a card reissue</li>
+            <li><span class="article-verify-check">✓</span>If renewal actually fails in the days after a card reissue, confirm whether the cause is an Account Updater sync gap or something else (balance, limit, AVS address mismatch) rather than assuming it's automatically the reissue</li>
+            <li><span class="article-verify-check">✓</span>Don't conflate this article's "device token auto-update" mechanism with two other topics covered on this site — how a virtual card is allocated across multiple subscriptions, and why an authorization hold doesn't match the final settlement — all three sit at different technical layers</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. The scenario: the bank reissues a card, and nothing changes in Apple Pay</h2>
+          <p>A common experience: a credit card expires and gets reissued, or the bank proactively reissues a new card number after a suspected fraud incident. Many users expect their AI subscriptions (ChatGPT Plus, Claude Pro) bound to Apple Pay or Google Pay to fail on renewal — but opening the wallet app shows the subscription still active, and the renewal charge goes through on schedule with no "update your payment method" prompt in sight. Compare that with a subscription paid through a traditional flow — typing the card's real 16-digit number directly into a checkout form — where a card reissue almost always means logging into every subscription individually and re-entering the new number, expiry, and CVV by hand; miss one and that subscription's renewal fails. The gap between these two experiences comes down to two entirely different payment credential mechanisms.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. What DPAN is: the token Apple Pay/Google Pay actually charge, not your real card number</h2>
+          <p>According to Apple's official "Apple Pay security and privacy overview" support page, when a card is added to Apple Pay, the card issuer or its authorized service provider creates a device-specific "Device Account Number" (DPAN), encrypts it, and stores it in the device's Secure Element — a number that can't be decrypted by Apple and is never stored on Apple's servers or backed up to iCloud. In other words, DPAN is not the actual card number printed on the physical card (sometimes called the FPAN, Funding Primary Account Number) — it's a tokenized substitute tied to "this device plus this wallet." The same physical card added to a different device generates a different DPAN. Google's official blog describes a similar mechanism for Google Wallet's "device tokens": for every card added, Google Wallet generates a device-specific virtual account number, and the real card number is never stored on the device or shared with the merchant. What a merchant actually receives and charges against, in either case, is this tokenized device account number — not the real card number.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Who syncs the change after a reissue: the card network's Account Updater working in the background</h2>
+          <p>Although a DPAN is tied to a device, it still maps back to the real underlying cardholder account, and that mapping is maintained by the card issuer and the card network. According to Visa's official developer documentation for Visa Account Updater (VAU), when a participating issuer reissues a card — whether due to expiry or a fraud-triggered reissue — the issuer submits the new account number and expiration date to VAU, and enrolled merchants can retrieve the updated card information through their acquirer. This mechanism was originally built for traditional card-on-file merchants, to reduce renewal failures caused by outdated card data. For Apple Pay/Google Pay subscriptions using tokenization, as long as the new and old card map to the same underlying cardholder account, this same issuer-to-network sync typically keeps the device-side token valid too — without the cardholder having to manually delete the old card and re-add the new one in Apple Pay/Google Pay.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. This is fundamentally different from manually typing in a card number</h2>
+          <p>It's worth being precise about the distinction between the two models. If an AI subscription uses the traditional route — a user typing the card's real 16-digit number, expiry, and CVV into a checkout page — the merchant's database stores that card's real credential (or a token the merchant generated that's tied to that specific physical card). Once the bank reissues a new card number, that stored credential simply stops working, the renewal charge fails, and the user has to log back into that platform and re-enter the new card details. With Apple Pay/Google Pay, the merchant received a device-specific DPAN from the start — a token that typically doesn't immediately break on a card reissue, because it relies on the issuer-to-network sync described above to relay the fact that "the underlying account hasn't changed," rather than requiring manual user action. Put simply: the traditional model puts the burden of chasing every card change on the user; the tokenized model shifts that burden to the background sync between the card issuer and the card network.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. To be clear: Account Updater isn't a 100% guarantee, and coverage varies by issuer</h2>
+          <p>One point worth stating plainly: Account Updater only works if the card issuer actually participates in the service, and if the new and old cards truly map to the same cardholder account — if this reissue also switched issuing banks entirely (say, from Bank A's card to Bank B's card) rather than just a new card number from the same bank, Account Updater generally won't apply, because that's no longer "the same account with a new card number" but a genuinely different account. Beyond that, there is no single, uniformly published percentage figure covering exactly how many issuers and card networks participate, or how promptly the sync actually happens — Visa's and Mastercard's official documentation describes the mechanism and enrollment process but does not publish a unified coverage or success-rate statistic. This article makes no specific claim about any particular coverage or success rate; whether it actually worked for your card is best confirmed by whether the subscription renewed normally after the reissue, and if renewal does fail, work through the verification checklist above rather than assuming this mechanism is a guaranteed fallback.</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. How this differs from the virtual-card allocation and authorization-hold topics covered elsewhere on this site</h2>
+          <p>It's worth distinguishing this from a couple of related articles already published here, so the different technical layers don't get blurred together. This article covers what happens at the payment-credential layer when a physical card is reissued under a tokenized payment method — why the subscription itself doesn't need manual intervention. How a virtual card gets allocated across multiple AI subscriptions (one shared card versus splitting cards per subscription) is about the risk-management and limit strategy of the virtual-card tool itself, an entirely separate question from token syncing after a physical card reissue. Why a credit card statement shows an authorization hold that doesn't match the final settlement amount is about the gap between the "authorization" and "settlement" stages of a payment network — unrelated to whether the underlying card number changed at all. These three sit at different stages of the payment pipeline and shouldn't be used to explain one another; when you hit an actual issue, first work out which of these three categories it actually falls into.</p>
+        </section>
+        <section id="sec-7">
+          <h2>7. To be clear: exact tokenization and Account Updater mechanics vary by platform and issuer</h2>
+          <p>Finally, to state this plainly: the exact way Apple Pay and Google Pay generate and manage DPANs for different card types, and exactly how each issuer and card network participates in Account Updater and what it covers, varies by platform, region, issuer, and card network — there is no single rule that applies uniformly across every scenario. The Apple and Google documentation and the Visa developer documentation cited in this article were publicly accessible and verified as of publication; defer to the latest official information from the relevant platform or issuer for exact implementation details. This article makes no uniform claim about how any specific issuer's Account Updater service performs in practice.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. The scenario: the bank reissues a card, and nothing changes in Apple Pay</a></li>
+          <li><a href="#sec-2">2. What DPAN is: the token Apple Pay/Google Pay actually charge, not your real card number</a></li>
+          <li><a href="#sec-3">3. Who syncs the change after a reissue: the card network's Account Updater working in the background</a></li>
+          <li><a href="#sec-4">4. This is fundamentally different from manually typing in a card number</a></li>
+          <li><a href="#sec-5">5. To be clear: Account Updater isn't a 100% guarantee, and coverage varies by issuer</a></li>
+          <li><a href="#sec-6">6. How this differs from the virtual-card allocation and authorization-hold topics covered elsewhere on this site</a></li>
+          <li><a href="#sec-7">7. To be clear: exact tokenization and Account Updater mechanics vary by platform and issuer</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-us/101554" target="_blank" rel="noopener nofollow">Apple official: Apple Pay security and privacy overview</a>: Apple's official documentation on how the Device Account Number (DPAN) is generated and stored encrypted in the Secure Element, referenced in Section 2</li>
+            <li><a href="https://blog.google/products/google-pay/device-tokens-google-wallet/" target="_blank" rel="noopener nofollow">Google official blog: How device tokens work in Google Wallet</a>: Google's official explanation of generating a device-specific virtual account number per card, with the real card number never stored or shared, referenced in Section 2</li>
+            <li><a href="https://developer.visa.com/capabilities/vau/overview" target="_blank" rel="noopener nofollow">Visa Developer: Visa Account Updater (VAU) overview</a>: Visa's official documentation on how issuers sync updated card information to merchants/acquirers after a reissue, referenced in Sections 3 and 5</li>
+          </ul>
+          <p class="ref-note">The exact DPAN generation rules and Account Updater coverage and reliability described here vary by payment platform, card issuer, card network, and region. Defer to the latest official information. This article is for informational purposes only and does not constitute payment or legal advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/virtual-card-concentration-risk-guide.html">One Virtual Card for Every AI Subscription? Read This First</a></li>
+          <li><a href="/en/articles/ai-subscription-authorization-hold-settlement-gap.html">Card Bill Shows a Hold, Then a Different Final Charge</a></li>
+          <li><a href="/en/articles/overseas-ai-avs-billing-address-mismatch.html">Why AVS Address Checks Can Decline AI Subscriptions</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to summary home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI service subscriptions, payment rails, virtual cards, and account security — written from hands-on experience, for anyone else navigating AI tools.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Payment Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partner Links</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payment Proxy</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>This site shares informational content; pricing, regional availability, and policies are subject to the official information of the respective AI platforms and payment services.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=d53b83612a"></script>
+</body>
+</html>

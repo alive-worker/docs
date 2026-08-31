@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 31 Aug 2026 10:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 31 Aug 2026 14:05:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制]]></title>
+    <link>https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html</guid>
+    <pubDate>Mon, 31 Aug 2026 14:05:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。]]></description>
+  </item>
   <item>
     <title><![CDATA[用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票]]></title>
     <link>https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html</link>

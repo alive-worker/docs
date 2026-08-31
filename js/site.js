@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-apple-pay-dpan-card-reissue.html': '2026-08-31 14:05:00',
+    '/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html': '2026-08-31 14:05:00',
     '/articles/domestic-ai-invoice-entity-mismatch.html': '2026-08-31 10:10:00',
     '/en/articles/domestic-ai-invoice-entity-mismatch.html': '2026-08-31 10:10:00',
     '/articles/overseas-ai-avs-billing-address-mismatch.html': '2026-08-30 16:10:00',
