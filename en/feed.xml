@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 01 Sep 2026 10:35:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Multi-Currency Card FX: Authorization vs Settlement Date]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html</guid>
+    <pubDate>Tue, 01 Sep 2026 14:20:00 +0800</pubDate>
+    <category>Overseas AI</category>
+    <description><![CDATA[Wise or Revolut billing an AI subscription? The checkout rate is an estimate; the real charge follows settlement days later, monthly amounts can drift with FX.]]></description>
+  </item>
   <item>
     <title><![CDATA[Is DeepSeek-R1 reasoning_content Chain-of-Thought Billed?]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-reasoning-token-billing.html</link>

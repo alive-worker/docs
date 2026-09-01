@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 01 Sep 2026 10:35:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率]]></title>
+    <link>https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html</guid>
+    <pubDate>Tue, 01 Sep 2026 14:20:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。]]></description>
+  </item>
   <item>
     <title><![CDATA[调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱]]></title>
     <link>https://ponr.org/articles/domestic-ai-reasoning-token-billing.html</link>

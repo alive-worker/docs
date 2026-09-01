@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率</title>
+  <meta name="description" content="Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率">
+  <meta property="og:description" content="Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html">
+  <meta property="article:published_time" content="2026-09-01T14:20:00+08:00">
+  <meta property="article:modified_time" content="2026-09-01T14:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="海外AI订阅">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率">
+  <meta name="twitter:description" content="Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-multicurrency-fx-settlement-date.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="多币种卡授权日与清算日汇率差异示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-multicurrency-fx-settlement-date.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#primaryimage", "url": "https://ponr.org/img/cover-multicurrency-fx-settlement-date.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#webpage", "url": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html", "name": "Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率", "item": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html" }
+    ] },
+    { "@type": "Article", "headline": "Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率", "description": "Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。", "image": "https://ponr.org/img/cover-multicurrency-fx-settlement-date.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-01T14:20:00+08:00", "dateModified": "2026-09-01T14:20:00+08:00", "inLanguage": "zh-CN", "articleSection": "海外AI订阅", "keywords": ["Wise", "Revolut", "多币种卡", "汇率", "授权日", "清算日", "AI订阅"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/overseas-ai-multicurrency-fx-settlement-date.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率</h1>
+          <p class="article-summary">用Wise、Revolut这类多币种账户/卡付海外AI订阅时，下单那一刻页面上弹出的汇率只是一个预估值——真正从你账户里扣掉多少本币，往往要等到资金清算（Settlement）那天才最终确定，而清算通常发生在授权（Authorization）之后的1到3个工作日。这中间如果汇率发生波动，最终扣款金额就可能比下单时看到的预估多一点或少一点。本文讲清楚授权日和清算日这两个环节谁通常决定实际汇率、为什么多币种账户不能保证"看到的汇率=最终扣款汇率"，以及订阅这种会员月月自动扣款的场景下，这种波动是会反复出现的，而不是发生一次就完了。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-01T14:20:00+08:00">2026-09-01 14:20:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-multicurrency-fx-settlement-date.svg" width="800" height="400" alt="多币种卡授权日与清算日汇率差异示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>打开这笔AI订阅扣款在Wise或Revolut App里的交易详情，看看它标注的汇率对应的日期，是下单当天的日期，还是比下单晚1-3天的另一个日期</li>
+            <li><span class="article-verify-check">✓</span>对比连续两三个月同一个订阅的扣款记录，本币扣款金额是不是完全固定的整数，还是每个月都有小幅度的浮动——如果订阅本身计价货币和金额没变，浮动大概率就来自汇率</li>
+            <li><span class="article-verify-check">✓</span>下单那一刻App里显示的"预估汇率/预估金额"，跟交易最终显示"已完成"之后的实际扣款金额，是否完全一致，差多少</li>
+            <li><span class="article-verify-check">✓</span>是否已经查过自己这张卡/账户所属机构（Wise、Revolut或传统发卡行）官方页面里，关于卡交易清算需要几天、汇率按哪个环节确定的具体说明，而不是假设所有机构都一样</li>
+            <li><span class="article-verify-check">✓</span>如果这笔AI订阅是每月自动续费的，是否已经意识到汇率波动是每个月都可能发生的重复事件，而不是只在第一次下单时需要关注一次</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：下单时看到的汇率，和最终扣款用的汇率可能是两回事</h2>
+          <p>用Wise、Revolut这类多币种账户或多币种卡付海外AI订阅（比如ChatGPT Plus、Claude Pro这类以美元或欧元计价的订阅）时，很多人习惯在下单那一刻打开App看一眼汇率换算，觉得这就是最终会扣掉的本币金额。但实际情况是：下单那一刻App里显示的换算结果，只是基于当前实时汇率做的一个预估，真正决定最终扣款金额的汇率，可能是几天之后才确定下来的另一个数字。这也是为什么有些用户会发现，同一个订阅、同样的计价货币和金额，不同月份从账户里划走的本币金额却不完全一样，哪怕订阅价格本身根本没有变过。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 机制：授权（Authorization）和结算（Settlement）是支付流程里的两个不同时间点</h2>
+          <p>要理解这个现象，得先分清跨境卡支付里两个关键环节：一个是授权（Authorization），也就是你下单那一刻，商户/收单方/卡组织实时核对你的账户是否有足够额度、能否完成这笔交易，这一步会立刻给出一个预估的换算结果；另一个是结算（Settlement），也就是资金真正在机构之间划转、清算完成的时点，这一步通常发生在授权之后的1到3个工作日，具体天数因发卡机构、卡组织和账户类型而异，没有统一固定的数字。跨境多币种交易里，如果这两个时间点之间外汇市场发生了波动，授权时预估的换算金额和结算时实际扣除的本币金额就可能出现差异——这跟本站此前讲过的"预授权与结算金额不一致"并不是同一回事：那种情况通常发生在同一种货币下，是因为税费、小费、加油站预扣等原因导致预授权和结算的金额数字本身不同；而这里讨论的是即使商户端本地货币金额完全没变，只因为换算成你账户货币时用的汇率日期不同，最终从你账户扣除的本币数字也会不一样。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 谁的规则说了算：清算日汇率通常是决定因素，但具体以发卡机构说明为准</h2>
+          <p>那么最终扣款到底按哪一天的汇率算？根据Visa、Mastercard官方对外汇转换机制的说明，两大卡组织的做法都是按处理/清算日期而不是消费当天来确定适用汇率——也就是说，就算你是周二刷的卡，如果这笔交易要到周四才完成清算处理，用的通常是周四对应的汇率，而不是周二看到的那个。Wise、Revolut这类新型多币种账户在这一点上，实际清算路径和传统银行卡不完全相同：它们各自的智能转换、实时换汇技术在很多场景下能让消费当下就锁定汇率并完成换汇，但涉及某些商户清算路径、或者账户暂时没有对应币种余额需要自动换汇的情形时，具体是按哪个时点的汇率结算，还是要以对应机构官方帮助页面和你自己账户里显示的实际交易明细为准——不同机构、不同交易类型之间的规则和清算速度确实存在差异，不能一概而论。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 影响有多大：单次波动通常不多，但订阅场景会反复出现</h2>
+          <p>单次交易里，授权日和清算日之间1到3天的汇率波动，多数情况下幅度并不夸张——除非恰好碰上市场剧烈波动的时间窗口。但AI订阅这类场景的特殊之处在于：它不是一次性消费，而是每个月甚至更频繁地自动重复扣款，这意味着授权日与清算日汇率不一致这件事，不是"发生一次就翻篇"，而是每个计费周期都可能重新发生一次。长期订阅下来，即使订阅本身的计价货币价格从未上涨，用户实际支付的本币总成本也会随着这种月度小波动累积出一定的不确定性，这跟一次性购物时"多几毛钱"的影响不是一个量级的问题，值得长期订阅用户留意。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 实际能做什么：核对交易明细日期，别只信下单那一刻的预估数字</h2>
+          <p>比较务实的做法是：不要把下单那一刻App里弹出的换算金额当成板上钉钉的最终扣款数字，而是等交易状态变成"已完成/已入账"之后，去交易详情里核对它实际使用的汇率对应哪一天、和预估值差了多少。如果发现每个月的本币扣款金额都有小幅波动，先不要急着怀疑账单出错或者平台悄悄涨价，可以先对照当月的交易明细日期自查一遍，确认是不是汇率清算时点的正常差异；如果差异幅度明显超出正常汇率波动范围，再联系发卡机构客服核实清算规则和具体扣款依据。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 小结：多币种账户能省手续费，但省不掉汇率波动本身</h2>
+          <p>Wise、Revolut这类多币种账户和卡的核心优势在于省掉传统银行动态货币转换（DCC）那种明显的加点和额外手续费，但它们没有办法，也没有承诺过能消除汇率波动本身——只要授权和清算之间存在时间差，最终扣款汇率就有可能和下单时看到的预估不完全一致。具体哪个环节最终决定汇率、清算通常要几天，因发卡行、卡组织和账户类型而异，没有一个全站通用的固定答案，建议以自己账户所属机构的官方说明和实际交易明细为准。对于AI订阅这种会持续按月自动扣款的场景，这种波动不是一次性事件，而是会随着每个计费周期反复出现的常态，提前了解机制比事后纠结某一次扣款金额更有意义。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：下单时看到的汇率，和最终扣款用的汇率可能是两回事</a></li>
+          <li><a href="#sec-2">2. 机制：授权（Authorization）和结算（Settlement）是支付流程里的两个不同时间点</a></li>
+          <li><a href="#sec-3">3. 谁的规则说了算：清算日汇率通常是决定因素，但具体以发卡机构说明为准</a></li>
+          <li><a href="#sec-4">4. 影响有多大：单次波动通常不多，但订阅场景会反复出现</a></li>
+          <li><a href="#sec-5">5. 实际能做什么：核对交易明细日期，别只信下单那一刻的预估数字</a></li>
+          <li><a href="#sec-6">6. 小结：多币种账户能省手续费，但省不掉汇率波动本身</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://developer.visa.com/capabilities/foreign_exchange/overview" target="_blank" rel="noopener nofollow">Visa Developer：Foreign Exchange Rates 官方说明</a>：Visa关于外汇转换汇率如何按处理日确定的官方文档，对应本文第3节</li>
+            <li><a href="https://wise.com/help/articles/2932395/whats-the-mid-market-exchange-rate" target="_blank" rel="noopener nofollow">Wise官方帮助中心：What's the mid-market exchange rate?</a>：Wise官方说明其换汇采用的中间价机制与实时更新方式，对应本文第1、3节</li>
+            <li><a href="https://help.revolut.com/en-US/help/making-payments/paying-by-card/issues-with-card-payments/exchange-rate-for-my-card-payment-is-wrong" target="_blank" rel="noopener nofollow">Revolut官方帮助中心：Exchange rate for my card payment is wrong</a>：Revolut官方说明卡交易汇率可能与预期不同的原因，对应本文第1、4节</li>
+          </ul>
+          <p class="ref-note">不同发卡机构、卡组织和账户类型的清算周期与汇率确定规则可能不同，且会随时间调整，本文核实于发布当日，具体请以你实际使用机构的官方最新说明和交易明细为准。本文仅供学习与参考，不构成财务建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/ai-subscription-currency-mismatch.html">账单写的是美元，卡里却按欧元扣款：AI订阅里的货币陷阱</a></li>
+          <li><a href="/articles/ai-subscription-authorization-hold-settlement-gap.html">信用卡账单里那笔预授权和实际扣款金额为什么对不上</a></li>
+          <li><a href="/articles/overseas-ai-exchange-rate-fees.html">海外AI到底多贵：汇率加点与手续费全拆解</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=15381d3c23"></script>
+</body>
+</html>
