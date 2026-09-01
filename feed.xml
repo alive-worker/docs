@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 31 Aug 2026 14:05:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 10:35:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱]]></title>
+    <link>https://ponr.org/articles/domestic-ai-reasoning-token-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-reasoning-token-billing.html</guid>
+    <pubDate>Tue, 01 Sep 2026 10:35:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[DeepSeek-R1这类推理模型会先输出reasoning_content思维链再给最终答案，思维链是否计费、单价是否与答案一致、账单里reasoning_tokens和completion_tokens怎么区分，本文核对官方API文档说法，并提醒思维链常比答案长得多，只看答案字数估算成本会大幅低估真实花费。]]></description>
+  </item>
   <item>
     <title><![CDATA[换了实体卡，Apple Pay里的AI订阅续费为什么完全不用管——DPAN与账户更新机制]]></title>
     <link>https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html</link>

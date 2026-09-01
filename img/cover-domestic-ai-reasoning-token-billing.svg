@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="reasoning_content思维链token计费机制示意图">
+  <defs>
+    <linearGradient id="bgGradReason" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradReason)"/>
+
+  <!-- left: brain / thinking process cloud -->
+  <g transform="translate(230,190)">
+    <path d="M-96 -10 C-118 -46 -80 -78 -42 -68 C-24 -92 22 -92 40 -66 C82 -72 108 -34 90 -2 C110 22 92 62 54 64 C40 84 -6 86 -24 66 C-64 70 -100 42 -96 4 Z"
+          fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <path d="M-58 -18 q16 -20 34 -2 q16 -18 32 0 q14 16 -2 30 q4 20 -18 24 q-8 16 -28 6 q-20 8 -26 -12 q-18 -4 -14 -24 q-6 -14 22 -22 Z"
+          fill="none" stroke="#7be8b8" stroke-width="2.5" opacity="0.85"/>
+    <text x="0" y="-104" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#8fd6b6">推理过程 reasoning_content</text>
+  </g>
+
+  <!-- hidden token stream flowing out, small dim tokens (large volume, hidden) -->
+  <g fill="#7be8b8" opacity="0.55">
+    <rect x="358" y="150" width="20" height="14" rx="4"/>
+    <rect x="386" y="164" width="20" height="14" rx="4"/>
+    <rect x="358" y="178" width="20" height="14" rx="4"/>
+    <rect x="386" y="192" width="20" height="14" rx="4"/>
+    <rect x="358" y="206" width="20" height="14" rx="4"/>
+    <rect x="386" y="220" width="20" height="14" rx="4"/>
+    <rect x="358" y="234" width="20" height="14" rx="4"/>
+  </g>
+  <text x="373" y="132" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="700" fill="#b6d6c8" opacity="0.85">大量隐藏token</text>
+
+  <path d="M300 190 L344 190" stroke="#7be8b8" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.7"/>
+  <path d="M410 190 L456 190" stroke="#f2d18a" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- right: final answer + bill/receipt -->
+  <g transform="translate(590,190)">
+    <path d="M-90 -80 L60 -80 L90 -50 L90 80 L-90 80 Z" fill="#2a2038" stroke="#c98be0" stroke-width="2.5"/>
+    <path d="M60 -80 L60 -50 L90 -50 Z" fill="#1d1730"/>
+    <rect x="-64" y="-30" width="120" height="8" rx="4" fill="#e6c4f7" opacity="0.85"/>
+    <rect x="-64" y="-8" width="120" height="8" rx="4" fill="#e6c4f7" opacity="0.6"/>
+    <rect x="-64" y="14" width="70" height="8" rx="4" fill="#e6c4f7" opacity="0.45"/>
+    <circle cx="40" cy="46" r="24" fill="none" stroke="#f2d18a" stroke-width="3"/>
+    <text x="40" y="51" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#f2d18a">¥</text>
+    <text x="0" y="-100" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#e6c4f7">最终答案 + 账单</text>
+  </g>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="27" font-weight="700" fill="#eef2fb">思维链算不算输出token？</text>
+  <text x="60" y="340" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#b6d6c8" opacity="0.85">具体计费字段与费率以官方API文档为准</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>
