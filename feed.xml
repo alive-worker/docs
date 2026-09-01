@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 01 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 19:54:20 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token]]></title>
+    <link>https://ponr.org/articles/domestic-ai-vision-token-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-vision-token-billing.html</guid>
+    <pubDate>Tue, 01 Sep 2026 19:54:20 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[DeepSeek、通义千问等国内大模型的图片理解API会把一张图先折算成一定数量的token再计费，折算通常与分辨率、尺寸、是否开启高精度模式有关，具体公式各厂商、各版本可能不同，批量处理截图或扫描件类应用上线前应先用少量样本实测账单消耗，再按业务量级推算总成本，而非假设图片和等量文字token消耗一致。]]></description>
+  </item>
   <item>
     <title><![CDATA[Wise、Revolut多币种卡扣AI订阅费，用的是下单当天还是入账那天的汇率]]></title>
     <link>https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>

@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-vision-token-billing.html': '2026-09-01 19:54:20',
+    '/en/articles/domestic-ai-vision-token-billing.html': '2026-09-01 19:54:20',
     '/articles/overseas-ai-multicurrency-fx-settlement-date.html': '2026-09-01 14:20:00',
     '/en/articles/overseas-ai-multicurrency-fx-settlement-date.html': '2026-09-01 14:20:00',
     '/articles/domestic-ai-reasoning-token-billing.html': '2026-09-01 10:35:00',

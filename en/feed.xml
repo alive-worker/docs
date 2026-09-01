@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 01 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 19:54:20 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[How Many Tokens Does One Image Cost in Vision APIs?]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-vision-token-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-vision-token-billing.html</guid>
+    <pubDate>Tue, 01 Sep 2026 19:54:20 +0800</pubDate>
+    <category>Domestic AI</category>
+    <description><![CDATA[DeepSeek and Qwen vision APIs convert images to tokens by resolution and mode, not text math. Formulas vary by vendor; test real bills on samples first.]]></description>
+  </item>
   <item>
     <title><![CDATA[Multi-Currency Card FX: Authorization vs Settlement Date]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>

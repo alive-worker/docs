@@ -1,0 +1,61 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1d"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+    <linearGradient id="imgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6fd6a6"/>
+      <stop offset="1" stop-color="#2f8f63"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- left: image made of pixel blocks -->
+  <g transform="translate(80,90)">
+    <rect x="0" y="0" width="220" height="220" rx="14" fill="#0c2116" stroke="#3fae7c" stroke-width="2"/>
+    <g fill="url(#imgGrad)" opacity="0.9">
+      <rect x="14" y="14" width="46" height="46" rx="4"/>
+      <rect x="66" y="14" width="46" height="46" rx="4" opacity="0.75"/>
+      <rect x="118" y="14" width="46" height="46" rx="4"/>
+      <rect x="160" y="14" width="46" height="46" rx="4" opacity="0.6"/>
+      <rect x="14" y="66" width="46" height="46" rx="4" opacity="0.6"/>
+      <rect x="66" y="66" width="46" height="46" rx="4"/>
+      <rect x="118" y="66" width="46" height="46" rx="4" opacity="0.75"/>
+      <rect x="160" y="66" width="46" height="46" rx="4"/>
+      <rect x="14" y="118" width="46" height="46" rx="4"/>
+      <rect x="66" y="118" width="46" height="46" rx="4" opacity="0.6"/>
+      <rect x="118" y="118" width="46" height="46" rx="4" opacity="0.75"/>
+      <rect x="160" y="118" width="46" height="46" rx="4"/>
+      <rect x="14" y="160" width="46" height="46" rx="4" opacity="0.75"/>
+      <rect x="66" y="160" width="46" height="46" rx="4"/>
+      <rect x="118" y="160" width="46" height="46" rx="4" opacity="0.6"/>
+      <rect x="160" y="160" width="46" height="46" rx="4"/>
+    </g>
+    <text x="110" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#bfe9d3">分辨率越高</text>
+  </g>
+
+  <!-- arrow -->
+  <g transform="translate(330,190)">
+    <line x1="0" y1="10" x2="90" y2="10" stroke="#e8c67a" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="90,0 112,10 90,20" fill="#e8c67a"/>
+  </g>
+
+  <!-- right: token count / bill -->
+  <g transform="translate(470,70)">
+    <rect x="0" y="0" width="250" height="260" rx="16" fill="#0c2116" stroke="#e8c67a" stroke-width="2"/>
+    <text x="125" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#f4e3ae" font-weight="bold">TOKEN 账单</text>
+    <line x1="24" y1="66" x2="226" y2="66" stroke="#3fae7c" stroke-width="1.5"/>
+    <text x="24" y="100" font-family="Arial, sans-serif" font-size="15" fill="#bfe9d3">低精度模式</text>
+    <text x="226" y="100" text-anchor="end" font-family="monospace" font-size="15" fill="#6fd6a6">85 tok</text>
+    <text x="24" y="134" font-family="Arial, sans-serif" font-size="15" fill="#bfe9d3">高精度模式</text>
+    <text x="226" y="134" text-anchor="end" font-family="monospace" font-size="15" fill="#f4e3ae">340 tok</text>
+    <text x="24" y="168" font-family="Arial, sans-serif" font-size="15" fill="#bfe9d3">大尺寸原图</text>
+    <text x="226" y="168" text-anchor="end" font-family="monospace" font-size="15" fill="#f4e3ae">612 tok</text>
+    <line x1="24" y1="188" x2="226" y2="188" stroke="#3fae7c" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="24" y="222" font-family="Arial, sans-serif" font-size="14" fill="#8fbfa5">具体折算以官方文档为准</text>
+    <text x="24" y="244" font-family="Arial, sans-serif" font-size="14" fill="#8fbfa5">不同厂商不完全相同</text>
+  </g>
+
+  <text x="400" y="368" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#7fae90">图片理解API：一张图折算成多少token，因分辨率与精度模式而异</text>
+</svg>
