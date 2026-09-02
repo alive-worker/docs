@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 01 Sep 2026 19:54:20 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 10:35:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI订阅退款说"原路退回"，虚拟卡已注销或过期，钱最后去哪了]]></title>
+    <link>https://ponr.org/articles/overseas-ai-refund-closed-virtual-card.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-refund-closed-virtual-card.html</guid>
+    <pubDate>Wed, 02 Sep 2026 10:35:00 +0800</pubDate>
+    <category>海外AI订阅</category>
+    <description><![CDATA[申请AI订阅退款时，退款通常只能发起到原支付方式（原路退回），但虚拟卡如果已经注销或过期，退款能否到账取决于虚拟卡服务商内部处理规则：可能被卡组织拒收退回商户，也可能记入账户余额，各家结果并不统一，遇到这种情况应先联系虚拟卡服务商核实而非原商户，注销卡片前需先确认名下没有正在处理中的退款或纠纷单据。]]></description>
+  </item>
   <item>
     <title><![CDATA[调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token]]></title>
     <link>https://ponr.org/articles/domestic-ai-vision-token-billing.html</link>
