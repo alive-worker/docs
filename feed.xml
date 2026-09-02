@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 02 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 16:50:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[用苹果礼品卡充值付AI订阅，退款为什么只能回到余额里，拿不到现金]]></title>
+    <link>https://ponr.org/articles/overseas-ai-giftcard-balance-refund-lockin.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-giftcard-balance-refund-lockin.html</guid>
+    <pubDate>Wed, 02 Sep 2026 16:50:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[用Apple礼品卡充值到Apple ID余额、再用余额支付ChatGPT等AI订阅时，申请退款默认按原支付方式退回：原路径是余额，退款也只回到余额，只能在苹果生态内消费、不能提现或转入银行卡，这跟用信用卡直接支付、退款能退回信用卡的资金路径完全不同，申请退款前务必先想清楚自己要的是现金还是能接受生态内余额。]]></description>
+  </item>
   <item>
     <title><![CDATA[调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到]]></title>
     <link>https://ponr.org/articles/domestic-ai-sla-compensation.html</link>
