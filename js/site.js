@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-sla-compensation.html': '2026-09-02 14:20:00',
+    '/en/articles/domestic-ai-sla-compensation.html': '2026-09-02 14:20:00',
     '/articles/overseas-ai-refund-closed-virtual-card.html': '2026-09-02 10:35:00',
     '/en/articles/refund-closed-virtual-card-guide.html': '2026-09-02 10:35:00',
     '/articles/domestic-ai-vision-token-billing.html': '2026-09-01 19:54:20',

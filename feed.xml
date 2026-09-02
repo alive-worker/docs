@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 02 Sep 2026 10:35:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 02 Sep 2026 14:20:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到]]></title>
+    <link>https://ponr.org/articles/domestic-ai-sla-compensation.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-sla-compensation.html</guid>
+    <pubDate>Wed, 02 Sep 2026 14:20:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI订阅退款说"原路退回"，虚拟卡已注销或过期，钱最后去哪了]]></title>
     <link>https://ponr.org/articles/overseas-ai-refund-closed-virtual-card.html</link>

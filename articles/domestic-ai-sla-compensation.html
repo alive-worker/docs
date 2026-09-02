@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到</title>
+  <meta name="description" content="企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-sla-compensation.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-sla-compensation.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-sla-compensation.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-sla-compensation.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到">
+  <meta property="og:description" content="企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-sla-compensation.html">
+  <meta property="article:published_time" content="2026-09-02T14:20:00+08:00">
+  <meta property="article:modified_time" content="2026-09-02T14:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到">
+  <meta name="twitter:description" content="企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-sla-compensation.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="SLA服务等级协议只覆盖服务可用性，赔偿以代金券折抵而非生成内容质量示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-sla-compensation.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-sla-compensation.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#webpage", "url": "https://ponr.org/articles/domestic-ai-sla-compensation.html", "name": "调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到", "item": "https://ponr.org/articles/domestic-ai-sla-compensation.html" }
+    ] },
+    { "@type": "Article", "headline": "调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到", "description": "企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。", "image": "https://ponr.org/img/cover-domestic-ai-sla-compensation.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-02T14:20:00+08:00", "dateModified": "2026-09-02T14:20:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["SLA", "服务等级协议", "服务可用性", "赔偿代金券", "调用日志"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-sla-compensation.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-sla-compensation.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到</h1>
+          <p class="article-summary">企业采购DeepSeek、通义千问这类国内大模型API时，服务协议里通常都会附一份SLA（服务级别协议），承诺一个可用性百分比、约定服务不达标时的赔偿方式。但真到接口大面积超时或报错的那天，很多企业才发现自己既不清楚这份SLA到底承诺了什么，也没有留下能拿去申请赔偿的证据。本文讲清楚SLA条款到底覆盖哪个维度、企业最容易踩的一个认知误区，以及平时应该做哪些具体记录，才能在真正需要的时候把赔偿申请下来。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-02T14:20:00+08:00">2026-09-02 14:20:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-sla-compensation.svg" width="800" height="400" alt="SLA服务等级协议只覆盖服务可用性，赔偿以代金券折抵而非生成内容质量示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>自己签的这份API服务协议里，SLA条款覆盖的具体范围是"服务可用性/响应时间"，还是也包含了生成内容的质量或准确性——两者不要混为一谈</li>
+            <li><span class="article-verify-check">✓</span>服务出现明显中断或大面积超时报错时，是否第一时间记录下了中断的起止时间、具体错误码，而不是等事后再凭印象回忆</li>
+            <li><span class="article-verify-check">✓</span>自己这边的调用日志（请求时间戳、HTTP状态码、错误信息）是否有留存机制，能不能在申请赔偿时作为独立证据提交，而不是只依赖厂商自己的状态页</li>
+            <li><span class="article-verify-check">✓</span>是否已经确认赔偿需要用户主动提交申请、并且有申请时限（比如自然月内或月份结束后一定期限内），而不是厂商发现中断后会自动补偿</li>
+            <li><span class="article-verify-check">✓</span>具体的可用性承诺百分比、计算周期、赔偿比例，是否已经去对应厂商的官方SLA文档核实过，而不是套用别的产品或别的厂商的数字</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：接口大面积报错之后，企业才想起来问"能不能赔"</h2>
+          <p>企业接入DeepSeek、通义千问这类国内大模型API做对外产品或内部工具，平时很少会去翻服务协议里那份SLA（Service Level Agreement，服务级别协议）条款，直到真的遇到接口大面积超时、频繁5xx报错，甚至连续一段时间完全连不上的情况，才想起来问一句"这种情况是不是该有赔偿"。这时候常见的两个卡点是：第一，不清楚这份SLA条款到底承诺了什么、能不能覆盖眼前这次中断；第二，就算想申请，手上也拿不出能证明"服务确实中断了多久"的具体证据，只能凭一句"当时确实用不了"去找客服，往往得不到实质性回应。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. SLA到底覆盖什么：服务可用性与响应时间，不是生成内容质量</h2>
+          <p>要理解SLA能不能赔，先得弄清楚SLA条款到底承诺了什么维度。国内主流大模型厂商公开的SLA文档，承诺和计算的通常是"服务可用性"（接口在约定周期内能不能正常响应、错误率是否超过阈值）和"响应时间"（请求返回是否在约定的延迟范围内），这是两个纯技术层面的、可以按调用记录客观统计的指标。开发者容易产生的一个误解是：以为模型某次回答"答非所问"、生成内容质量不理想，也算SLA意义上的"服务不达标"。但SLA条款覆盖的从来不是生成内容本身的质量或准确性——接口正常返回了200状态码、在承诺时延内给出了响应，无论这次回答内容让人满不满意，从SLA的角度看这次调用都是"正常"的。这是两个完全不同的维度，一个管的是"接口通不通、快不快"，一个是模型生成能力本身，服务协议里的免责条款通常也会单独说明不对生成内容的准确性作保证。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 赔偿是怎么算的：按服务费用比例折算的代金券，不是现金</h2>
+          <p>确认这次中断确实属于SLA覆盖的"可用性不达标"之后，下一个要弄清楚的是赔偿到底以什么形式发放。国内云厂商公开的SLA体系里，常见的做法是把一个统计周期（比如自然月）内的服务可用性算出一个百分比，再按这个百分比落在哪个区间，对应到不同比例的赔偿额度，赔偿通常以服务积分或代金券的形式发放、用于折抵后续账单，而不是直接退还现金。需要特别说明的是：具体的可用性承诺百分比、统计周期长短、赔偿对应的比例区间，不同厂商、甚至同一厂商不同产品线或订阅层级（比如个人版和企业版）的规定都可能不一样，这里不存在一个所有厂商通用的统一标准，实际数字必须以你采购的这个具体产品的官方SLA文档为准，不能拿别的产品或别的厂商的公开数字直接套用。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 厂商不会主动补偿：赔偿需要用户自己主动申请</h2>
+          <p>另一个容易被忽略的现实是：SLA赔偿几乎都需要用户自己主动发起申请，厂商的系统不会因为后台监控到某次可用性没达标，就自动给账户加发代金券。这意味着，如果企业自己没有留意到中断发生、或者没有在规定的申请时限内提交材料，即使这次中断在客观上确实达到了SLA承诺的赔偿条件，这笔赔偿大概率也不会主动落到账户上。申请通常需要在一个限定的时间窗口内完成（比如中断发生的自然月内，或者该月结束后的一到两个月内），逾期未申请，很多厂商的规则里会直接视为放弃这次赔偿资格。这也是为什么"知道SLA条款存在"和"能真正拿到赔偿"之间，还差着一步主动申请的动作。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 想真的用上SLA赔偿，平时该留哪些证据</h2>
+          <p>与其等中断发生之后再手忙脚乱去找证据，更务实的做法是把日常的调用监控当成一项基础工作提前做好。具体建议：第一，把每次API调用的请求时间戳、返回的HTTP状态码、具体错误信息（比如超时、5xx、限流拒绝）记录进自己的日志系统，不要只依赖厂商自己的服务状态页——厂商状态页更新是否及时、是否完整覆盖了你实际遇到的那次异常，本身就存在不确定性。第二，一旦观察到明显的异常波动（比如错误率短时间内明显升高、大量请求超时），主动截图或导出当时的监控面板、日志片段留存，方便后续核对具体的中断起止时间。第三，提前找到自己所用产品官方SLA文档里关于"如何申请赔偿"的具体入口和时限要求，出问题时才不会临时抱佛脚。这些调用失败日志和时间戳，就是申请SLA赔偿时最直接、最有说服力的证据。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 小结：SLA是可用性的账，不是内容质量的账</h2>
+          <p>企业采购DeepSeek、通义千问这类国内大模型API时，服务协议里的SLA条款保的是服务可用性和响应时间，不是生成内容的质量或准确性，这是判断"这次中断算不算SLA违约"的第一道分界线。赔偿通常按服务费用的一定比例折算成代金券而非现金，具体的可用性承诺百分比、统计周期与赔偿比例因厂商、产品线、订阅层级而异，不存在统一的行业标准，一切以官方SLA文档为准。更关键的是，赔偿几乎都需要用户主动申请、并在规定时限内提供中断证据，厂商不会主动补偿——平时留好自己的调用失败日志和时间戳，才是真正能把SLA赔偿落到实处的前提。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：接口大面积报错之后，企业才想起来问"能不能赔"</a></li>
+          <li><a href="#sec-2">2. SLA到底覆盖什么：服务可用性与响应时间，不是生成内容质量</a></li>
+          <li><a href="#sec-3">3. 赔偿是怎么算的：按服务费用比例折算的代金券，不是现金</a></li>
+          <li><a href="#sec-4">4. 厂商不会主动补偿：赔偿需要用户自己主动申请</a></li>
+          <li><a href="#sec-5">5. 想真的用上SLA赔偿，平时该留哪些证据</a></li>
+          <li><a href="#sec-6">6. 小结：SLA是可用性的账，不是内容质量的账</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/model-studio/related-agreements" target="_blank" rel="noopener nofollow">阿里云百炼（Model Studio）相关协议页面</a>：列出《阿里云百炼模型推理服务等级协议（SLA）》等官方协议文档入口，对应本文第2、3节</li>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek 开放平台服务协议</a>：说明服务以"现状"提供、不保证不中断不出错，且赔偿合计不超过过往十二个月实际消耗的服务费用总额，对应本文第2、4节</li>
+            <li><a href="https://help.aliyun.com/zh/document_detail/421630.html" target="_blank" rel="noopener nofollow">阿里云帮助文档：SLA服务等级协议定义的服务可用性与赔偿方案</a>：说明服务可用性的通用计算方式，以及按可用性区间对应不同比例代金券赔偿的典型结构，对应本文第3节</li>
+          </ul>
+          <p class="ref-note">不同厂商、不同产品线或订阅层级的具体可用性承诺百分比、计算周期与赔偿比例并不完全一致，本文列出的是可查证的官方通用说明与示例结构，具体到你实际采购的产品，请直接查阅其官方SLA文档，本文核实于发布当日，仅供学习与参考，不构成法律或合规建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-level-protection-assessment.html">接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</a></li>
+          <li><a href="/articles/domestic-ai-cloud-marketplace-billing-entity.html">阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</a></li>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=a4d8d81f56"></script>
+</body>
+</html>
