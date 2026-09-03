@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-context-cache-billing.html': '2026-09-03 10:20:00',
+    '/en/articles/domestic-ai-context-cache-billing.html': '2026-09-03 10:20:00',
     '/articles/overseas-ai-giftcard-balance-refund-lockin.html': '2026-09-02 16:50:00',
     '/en/articles/overseas-ai-giftcard-balance-refund-lockin.html': '2026-09-02 16:50:00',
     '/articles/domestic-ai-sla-compensation.html': '2026-09-02 14:20:00',

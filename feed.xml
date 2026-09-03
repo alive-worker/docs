@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 02 Sep 2026 16:50:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 03 Sep 2026 10:20:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗]]></title>
+    <link>https://ponr.org/articles/domestic-ai-context-cache-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-context-cache-billing.html</guid>
+    <pubDate>Thu, 03 Sep 2026 10:20:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。]]></description>
+  </item>
   <item>
     <title><![CDATA[用苹果礼品卡充值付AI订阅，退款为什么只能回到余额里，拿不到现金]]></title>
     <link>https://ponr.org/articles/overseas-ai-giftcard-balance-refund-lockin.html</link>

@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="prompt固定前缀命中缓存打折、可变后缀原价计费示意图">
+  <defs>
+    <linearGradient id="bgGradCache" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradCache)"/>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="27" font-weight="700" fill="#eef2fb">重复前缀能省钱吗？</text>
+
+  <!-- prompt bar: fixed prefix + variable suffix -->
+  <g transform="translate(60,140)">
+    <rect x="0" y="0" width="430" height="86" rx="10" fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <text x="215" y="34" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#8fd6b6">固定前缀</text>
+    <text x="215" y="58" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#b6d6c8" opacity="0.85">角色设定 / 长文档背景</text>
+    <text x="215" y="76" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#7be8b8" opacity="0.9">每次调用字节不变</text>
+
+    <rect x="450" y="0" width="230" height="86" rx="10" fill="#2a2038" stroke="#c98be0" stroke-width="3"/>
+    <text x="565" y="34" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#e6c4f7">可变后缀</text>
+    <text x="565" y="58" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#d9b8ec" opacity="0.85">用户当次输入</text>
+    <text x="565" y="76" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12.5" fill="#f2d18a" opacity="0.9">每次都不同</text>
+  </g>
+
+  <!-- arrows down to billing tags -->
+  <path d="M275 226 L275 262" stroke="#7be8b8" stroke-width="2.5" stroke-dasharray="4 6" opacity="0.8"/>
+  <path d="M565 226 L565 262" stroke="#f2d18a" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- left tag: cache hit discount -->
+  <g transform="translate(105,300)">
+    <path d="M-45 -26 h150 a18 18 0 0 1 18 18 v16 a18 18 0 0 1 -18 18 h-150 a10 10 0 0 1 -10 -10 v-32 a10 10 0 0 1 10 -10 Z" fill="#173a2c" stroke="#7be8b8" stroke-width="2.5"/>
+    <circle cx="-24" cy="0" r="6" fill="#0f241c"/>
+    <text x="60" y="7" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#7be8b8">命中缓存 · 折扣价</text>
+  </g>
+
+  <!-- right tag: cache miss full price -->
+  <g transform="translate(475,300)">
+    <path d="M-45 -26 h150 a18 18 0 0 1 18 18 v16 a18 18 0 0 1 -18 18 h-150 a10 10 0 0 1 -10 -10 v-32 a10 10 0 0 1 10 -10 Z" fill="#3a2a17" stroke="#f2d18a" stroke-width="2.5"/>
+    <circle cx="-24" cy="0" r="6" fill="#241c0f"/>
+    <text x="60" y="7" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#f2d18a">未命中 · 原价</text>
+  </g>
+
+  <text x="60" y="360" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#b6d6c8" opacity="0.85">具体命中规则、折扣比例以各厂商官方文档为准</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

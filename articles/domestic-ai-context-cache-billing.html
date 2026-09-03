@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</title>
+  <meta name="description" content="调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-context-cache-billing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-context-cache-billing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-context-cache-billing.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-context-cache-billing.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗">
+  <meta property="og:description" content="调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-context-cache-billing.html">
+  <meta property="article:published_time" content="2026-09-03T10:20:00+08:00">
+  <meta property="article:modified_time" content="2026-09-03T10:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗">
+  <meta name="twitter:description" content="调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-context-cache-billing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="prompt固定前缀命中缓存打折、可变后缀原价计费示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-context-cache-billing.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-context-cache-billing.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#webpage", "url": "https://ponr.org/articles/domestic-ai-context-cache-billing.html", "name": "调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗", "item": "https://ponr.org/articles/domestic-ai-context-cache-billing.html" }
+    ] },
+    { "@type": "Article", "headline": "调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗", "description": "调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。", "image": "https://ponr.org/img/cover-domestic-ai-context-cache-billing.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-03T10:20:00+08:00", "dateModified": "2026-09-03T10:20:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["上下文缓存", "Context Caching", "Prompt Caching", "DeepSeek", "通义千问", "token计费"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-context-cache-billing.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-context-cache-billing.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</h1>
+          <p class="article-summary">如果你的应用每次调用DeepSeek、通义千问这类国内大模型API时，system prompt里都带着一大段固定不变的角色设定或长文档背景，这部分内容其实不用每次都按全价付费——各家API都提供了某种"上下文缓存"机制，检测本次请求的前缀是否与之前调用重复，命中的那部分token会按更低价格计费。本文讲清楚这套机制的基本原理、prompt该怎么设计才更容易命中缓存、账单里去哪核对命中和未命中的token量，以及哪些具体数字必须以官方文档为准、不能凭印象套用。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-03T10:20:00+08:00">2026-09-03 10:20:00</time> · 价格与规则信息最后核验于 2026-09-03</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-context-cache-billing.svg" width="800" height="400" alt="prompt固定前缀命中缓存打折、可变后缀原价计费示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>检查自己调用API时，system prompt里不变的角色设定、固定长文档背景是不是放在了整个prompt最前面，用户当次输入是不是放在最后面</li>
+            <li><span class="article-verify-check">✓</span>查看账单明细或控制台是否有区分缓存命中/未命中token用量的字段，确认自己有没有在实际消耗这部分折扣</li>
+            <li><span class="article-verify-check">✓</span>核对自己调用的具体模型、接口协议（OpenAI兼容/原生SDK等）对应哪个字段名——不同协议下命中token的字段名不同，认错字段等于白核对</li>
+            <li><span class="article-verify-check">✓</span>如果厂商提供显式缓存（需要主动声明的缓存模式），确认自己是不是真的按文档要求加了对应参数，而不是想当然以为"没配置也能命中"</li>
+            <li><span class="article-verify-check">✓</span>不要凭这篇文章或任何第三方文章里的具体折扣比例、有效期数字去做成本预算，下单前务必打开对应厂商官方计费文档核对当天的真实数字</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 现象：同样的system prompt，为什么有的调用便宜、有的调用贵</h2>
+          <p>很多接入DeepSeek、通义千问API做应用的开发者会发现一件事：账单里同样字数的一次调用，有时候花的钱明显比预期少。原因往往不是模型突然降价，而是这次请求命中了"上下文缓存"——如果本次请求的开头一段内容跟之前某次调用完全一致，重复的那部分不用重新计算，按更低的价格计费；如果这次请求的内容跟之前调用没有重复，或者重复的部分没有被系统识别出来，那就只能按标准价格全额计费。很多开发者一开始并不知道这套机制的存在，也就没有针对性地设计自己的prompt结构，实际上是在白白错过一笔本可以省下来的费用。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 机制原理：检测前缀重复，命中部分按更低价格计费</h2>
+          <p>上下文缓存的核心逻辑是：每次请求进来，系统会检测这次请求的内容前缀是否与之前某次调用留存下来的缓存内容重复。如果重复，重复的这部分token不需要重新走一遍完整的推理计算，可以直接从缓存里取用，因此计费时会按一个更低的单价结算，这部分单价通常明显低于标准输入token单价；没有命中缓存、或者本身就是全新内容的部分，仍然按标准价格计费。这套机制通常是自动生效的，不需要额外开关；但也有厂商提供"主动声明缓存"的模式，需要开发者在请求里显式加上特定参数，换取更确定的命中率。具体是自动命中还是需要主动声明、命中的判定条件是什么、缓存能保留多久，各家实现细节并不一样，必须以调用的那个具体厂商、具体模型的官方API文档为准。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. prompt结构设计：固定部分放最前面，可变部分放最后面</h2>
+          <p>这套缓存机制之所以能生效，前提是"前缀"要能完全匹配——大多数实现方式是从prompt的最开头开始逐段比对，只要中间某个位置开始出现差异，后面的内容即便碰巧重复也可能无法计入这次的连续前缀匹配。这就决定了一个很直接的工程建议：把每次调用都不变的内容——比如system角色设定、长文档背景、few-shot示例——放在整个prompt的最前面，保证这部分内容在不同调用之间逐字节完全一致；把每次调用都会变化的内容——比如用户当次输入的问题、当前时间戳、随机生成的会话ID——放在prompt的最后面。如果把这两类内容的顺序颠倒，或者中间插入了任何哪怕一个字符的可变内容，前面本该重复的那部分很可能就无法被识别为同一个前缀，命中率会明显下降，即便账面上看整段prompt的重复字数完全一样。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 去哪核对账单里缓存命中和未命中的token量</h2>
+          <p>不同厂商、不同接口协议下，返回结果里标注缓存命中量的字段名并不统一，不能凭记忆套用同一个字段名去解析所有调用。实际操作上，应该先查阅自己调用的那个具体接口（比如OpenAI兼容协议、厂商自己的原生SDK协议）对应的官方文档，确认响应体里到底叫什么字段名、这个字段算不算在总输入token量里、是单独报告还是包含在内。除了单次调用返回的字段，多数平台的控制台/账单详情页也会提供按"缓存命中"分类的用量统计入口，方便按天或按月核对整体的命中比例，而不用自己一条条把日志里的字段加总。建议在正式大规模调用前，先用少量真实请求实测一遍，确认自己真的看懂了返回结果里哪部分是缓存命中、哪部分是未命中，再据此推算整体成本，而不是假设文档描述的理想命中率就是自己业务场景下的真实命中率。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 如实说明：具体命中规则、折扣比例、缓存有效期以官方文档为准</h2>
+          <p>需要特别提醒的是，这篇文章只讲清楚"存在这套机制、原理是什么、该怎么设计prompt、去哪核对账单"这几件事本身不会变的道理，但具体的命中判定条件（比如最小可缓存的token长度、前缀匹配的颗粒度）、缓存命中之后打几折、缓存内容能保留多长时间、是否需要额外声明参数——这些数字在不同厂商之间差异很大，同一家厂商也可能随时间调整定价和规则。不同厂商对"隐式自动缓存"和"显式主动声明缓存"的实现方式也不完全相同，有的可能是两种模式并存、优惠幅度不同，也有的只提供其中一种。这篇文章不会写出具体的折扣比例或有效期数字，因为这类会过期的具体数字一旦写死在文章里，很容易在厂商调整定价后变成误导读者的过期信息；正确做法永远是打开自己实际调用的那家厂商当天的官方计费文档，核对当下真实生效的规则。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 小结：结构决定命中率，具体折扣看官方文档</h2>
+          <p>上下文缓存本质上是"重复内容不用重复付费"的一套计费优化机制，是否真能帮你省钱，很大程度上取决于你的prompt结构设计是否符合"固定部分在前、可变部分在后"这个原则，而不是取决于你有没有主动做什么复杂配置。把这个结构原则落地、定期去账单和控制台核对实际命中比例，是眼下能确定拿到手的收益；至于具体能省多少钱、命中规则细到什么程度，这些会随时间变化的数字，永远以调用的那个具体厂商官方文档当天写的为准。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 现象：同样的system prompt，为什么有的调用便宜、有的调用贵</a></li>
+          <li><a href="#sec-2">2. 机制原理：检测前缀重复，命中部分按更低价格计费</a></li>
+          <li><a href="#sec-3">3. prompt结构设计：固定部分放最前面，可变部分放最后面</a></li>
+          <li><a href="#sec-4">4. 去哪核对账单里缓存命中和未命中的token量</a></li>
+          <li><a href="#sec-5">5. 如实说明：具体命中规则、折扣比例、缓存有效期以官方文档为准</a></li>
+          <li><a href="#sec-6">6. 小结：结构决定命中率，具体折扣看官方文档</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/guides/kv_cache/" target="_blank" rel="noopener nofollow">DeepSeek官方文档：Context Caching</a>：说明磁盘上下文缓存的匹配单位、命中判定条件，以及响应体里区分缓存命中/未命中token的字段名，对应本文第2、4节</li>
+            <li><a href="https://api-docs.deepseek.com/news/news0802/" target="_blank" rel="noopener nofollow">DeepSeek官方公告：Context Caching on Disk上线说明</a>：说明该机制默认对所有用户生效、无需额外配置，命中与未命中部分分别对应不同单价，对应本文第2节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/context-cache" target="_blank" rel="noopener nofollow">阿里云百炼官方文档：千问模型的Context Cache功能</a>：说明隐式缓存与显式缓存两种模式的触发方式、最小前缀长度、有效期，以及在控制台账单详情里按缓存命中类型筛选的入口，对应本文第2、4节</li>
+          </ul>
+          <p class="ref-note">上下文缓存的命中判定规则、折扣比例、缓存有效期等具体数字会随各厂商产品迭代和定价调整而变化，本文核实于发布当日，具体以调用当天的官方最新文档为准，仅供学习与参考，不构成成本核算建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a></li>
+          <li><a href="/articles/domestic-ai-vision-token-billing.html">调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token</a></li>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=468ff93726"></script>
+</body>
+</html>
