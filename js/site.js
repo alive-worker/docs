@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-bnpl-installment-renewal-mismatch.html': '2026-09-03 14:10:00',
+    '/en/articles/overseas-ai-bnpl-installment-renewal-mismatch.html': '2026-09-03 14:10:00',
     '/articles/domestic-ai-context-cache-billing.html': '2026-09-03 10:20:00',
     '/en/articles/domestic-ai-context-cache-billing.html': '2026-09-03 10:20:00',
     '/articles/overseas-ai-giftcard-balance-refund-lockin.html': '2026-09-02 16:50:00',

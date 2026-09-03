@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2419"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- Track 1: BNPL installment clock -->
+  <line x1="80" y1="150" x2="720" y2="150" stroke="#4fd1a5" stroke-width="3"/>
+  <circle cx="140" cy="150" r="9" fill="#4fd1a5"/>
+  <circle cx="260" cy="150" r="9" fill="#4fd1a5"/>
+  <circle cx="380" cy="150" r="9" fill="#4fd1a5"/>
+  <circle cx="500" cy="150" r="9" fill="#4fd1a5"/>
+  <text x="140" y="130" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">1期</text>
+  <text x="260" y="130" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">2期</text>
+  <text x="380" y="130" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">3期</text>
+  <text x="500" y="130" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">4期</text>
+  <text x="80" y="180" fill="#9fd8c0" font-family="Georgia, serif" font-size="15">BNPL 分期账单（约6周）</text>
+
+  <!-- Track 2: annual subscription renewal clock -->
+  <line x1="80" y1="270" x2="720" y2="270" stroke="#e8b45a" stroke-width="3"/>
+  <circle cx="140" cy="270" r="9" fill="#e8b45a"/>
+  <circle cx="640" cy="270" r="11" fill="#e8b45a"/>
+  <text x="140" y="250" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">下单</text>
+  <text x="640" y="250" fill="#e8f5ef" font-family="Georgia, serif" font-size="16" text-anchor="middle">次年续费</text>
+  <text x="80" y="300" fill="#f2d9a8" font-family="Georgia, serif" font-size="15">AI订阅自动续费（一整年）</text>
+
+  <!-- Crossing marker showing the two clocks don't sync -->
+  <path d="M500 150 L520 210" stroke="#ff8c69" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M640 270 L620 210" stroke="#ff8c69" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="565" cy="210" r="5" fill="#ff8c69"/>
+  <text x="565" y="195" fill="#ffb99a" font-family="Georgia, serif" font-size="14" text-anchor="middle">互不同步</text>
+
+  <text x="400" y="60" fill="#ffffff" font-family="Georgia, serif" font-size="26" font-weight="600" text-anchor="middle">分期账单 vs. 订阅续费</text>
+  <text x="400" y="90" fill="#c7e6d8" font-family="Georgia, serif" font-size="16" text-anchor="middle">两条各自独立运作的时间线</text>
+</svg>

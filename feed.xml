@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 03 Sep 2026 10:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 03 Sep 2026 14:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[用PayPal Pay in 4分期付AI订阅年费，退订之后分期账单为什么还得接着还]]></title>
+    <link>https://ponr.org/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</guid>
+    <pubDate>Thu, 03 Sep 2026 14:10:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[用PayPal Pay in 4、Klarna这类先买后付工具把AI订阅年费拆成4期，分期扣款和订阅按年自动续费是两条互相独立的时间线；提前退订通常拿不回已通过分期支付给商户的整笔年费，只有商户批准退款后分期公司才会调整后续账期，下单前务必确认商户退款政策是否覆盖分期金额、分期期限是否跨过下次续费日。]]></description>
+  </item>
   <item>
     <title><![CDATA[调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗]]></title>
     <link>https://ponr.org/articles/domestic-ai-context-cache-billing.html</link>
