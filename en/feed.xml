@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 03 Sep 2026 14:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 11:52:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why an API Key Leak Doesn't Trigger a Login Alert]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-api-key-credential-split.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-api-key-credential-split.html</guid>
+    <pubDate>Fri, 04 Sep 2026 11:52:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[A leaked DeepSeek or Qwen API key lets attackers run up charges while your login stays clean, since password and key are separate; revoke the key to fix it.]]></description>
+  </item>
   <item>
     <title><![CDATA[PayPal Pay in 4 for AI Subscriptions: Two Separate Clocks]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</link>

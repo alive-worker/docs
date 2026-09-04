@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 03 Sep 2026 14:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 11:52:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[DeepSeek、通义千问API Key被盗刷，账号登录密码为什么完全没事]]></title>
+    <link>https://ponr.org/articles/domestic-ai-api-key-credential-split.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-key-credential-split.html</guid>
+    <pubDate>Fri, 04 Sep 2026 11:52:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[开发者的DeepSeek、通义千问API Key被硬编码提交到公开仓库后遭盗刷，账号登录密码却毫无异常——因为登录密码与API Key是两套彼此独立的凭证体系，前者管登录控制台看账单，后者管代码里调用付费接口，攻击者拿Key调用根本不需要登录；本文讲清楚为什么必须去控制台单独吊销Key，以及日常怎么避免硬编码泄露。]]></description>
+  </item>
   <item>
     <title><![CDATA[用PayPal Pay in 4分期付AI订阅年费，退订之后分期账单为什么还得接着还]]></title>
     <link>https://ponr.org/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</link>
