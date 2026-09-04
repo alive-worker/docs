@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 04 Sep 2026 11:52:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 13:56:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[CVV自动填错却反复点提交，这张卡可能真的被风控锁了]]></title>
+    <link>https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</guid>
+    <pubDate>Fri, 04 Sep 2026 13:56:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。]]></description>
+  </item>
   <item>
     <title><![CDATA[DeepSeek、通义千问API Key被盗刷，账号登录密码为什么完全没事]]></title>
     <link>https://ponr.org/articles/domestic-ai-api-key-credential-split.html</link>

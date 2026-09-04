@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 04 Sep 2026 11:52:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 13:56:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[A Wrong Autofilled CVV Can Get Your Card Locked]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</guid>
+    <pubDate>Fri, 04 Sep 2026 13:56:00 +0800</pubDate>
+    <category>Overseas AI Services</category>
+    <description><![CDATA[Browsers rarely autofill CVV, so typos happen; retrying submit repeatedly looks like fraud probing and can get your card locked, even as the real cardholder.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why an API Key Leak Doesn't Trigger a Login Alert]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-api-key-credential-split.html</link>

@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1d"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- payment form card -->
+  <rect x="70" y="70" width="360" height="260" rx="14" fill="#12331f" stroke="#2f5f43" stroke-width="2"/>
+  <text x="98" y="108" font-family="Arial, sans-serif" font-size="16" fill="#bfe4cd">结账信息 / Checkout</text>
+
+  <!-- card number field -->
+  <rect x="98" y="130" width="304" height="34" rx="6" fill="#0c2417" stroke="#3a6b4d" stroke-width="1.5"/>
+  <text x="110" y="152" font-family="monospace" font-size="15" fill="#9fd6b3">4242 4242 4242 4242</text>
+
+  <!-- expiry field -->
+  <rect x="98" y="176" width="130" height="34" rx="6" fill="#0c2417" stroke="#3a6b4d" stroke-width="1.5"/>
+  <text x="110" y="198" font-family="monospace" font-size="15" fill="#9fd6b3">08 / 29</text>
+
+  <!-- CVV field highlighted red -->
+  <rect x="242" y="176" width="160" height="34" rx="6" fill="#3a1414" stroke="#e2544a" stroke-width="2.5"/>
+  <text x="254" y="198" font-family="monospace" font-size="15" fill="#ffb3ab">CVV: 9 1 7</text>
+  <text x="254" y="164" font-family="Arial, sans-serif" font-size="11" fill="#ff8a7d"></text>
+
+  <!-- submit button -->
+  <rect x="98" y="228" width="200" height="38" rx="8" fill="#2f6b46"/>
+  <text x="130" y="253" font-family="Arial, sans-serif" font-size="15" fill="#eafff0">提交 Submit</text>
+
+  <!-- error text under form -->
+  <text x="98" y="292" font-family="Arial, sans-serif" font-size="13" fill="#ff8a7d">✕ 安全码错误 · Invalid CVV</text>
+
+  <!-- retry loop arrow escalating -->
+  <g transform="translate(470,90)">
+    <path d="M0 60 A60 60 0 1 1 60 120" fill="none" stroke="#e2544a" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="52,112 72,118 60,132" fill="#e2544a"/>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" fill="#ffcfc8">1×</text>
+    <text x="90" y="55" font-family="Arial, sans-serif" font-size="14" fill="#ffcfc8">2×</text>
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="14" fill="#ffcfc8">3×...</text>
+  </g>
+
+  <!-- lock/alert icon -->
+  <g transform="translate(600,150)">
+    <circle cx="60" cy="60" r="66" fill="#4a1414" stroke="#ff6a5c" stroke-width="3"/>
+    <rect x="35" y="55" width="50" height="38" rx="6" fill="#ffdad4"/>
+    <path d="M42 55 v-14 a18 18 0 0 1 36 0 v14" fill="none" stroke="#ffdad4" stroke-width="7"/>
+    <circle cx="60" cy="74" r="6" fill="#4a1414"/>
+    <rect x="57" y="76" width="6" height="12" fill="#4a1414"/>
+  </g>
+  <text x="558" y="250" font-family="Arial, sans-serif" font-size="15" fill="#ffb3ab" text-anchor="middle">风控临时锁卡</text>
+  <text x="558" y="270" font-family="Arial, sans-serif" font-size="12" fill="#e8b7b0" text-anchor="middle">Fraud lock triggered</text>
+</svg>

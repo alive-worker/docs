@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CVV自动填错却反复点提交，这张卡可能真的被风控锁了</title>
+  <meta name="description" content="银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="CVV自动填错却反复点提交，这张卡可能真的被风控锁了">
+  <meta property="og:description" content="银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html">
+  <meta property="article:published_time" content="2026-09-04T13:56:00+08:00">
+  <meta property="article:modified_time" content="2026-09-04T13:56:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="特殊场景与账户管理">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CVV自动填错却反复点提交，这张卡可能真的被风控锁了">
+  <meta name="twitter:description" content="银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-cvv-autofill-lockout-risk.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="结账表单CVV字段被高亮标红、反复点提交触发风控锁定示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-cvv-autofill-lockout-risk.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#primaryimage", "url": "https://ponr.org/img/cover-overseas-ai-cvv-autofill-lockout-risk.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#webpage", "url": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html", "name": "CVV自动填错却反复点提交，这张卡可能真的被风控锁了", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "CVV自动填错却反复点提交，这张卡可能真的被风控锁了", "item": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html" }
+    ] },
+    { "@type": "Article", "headline": "CVV自动填错却反复点提交，这张卡可能真的被风控锁了", "description": "银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。", "image": "https://ponr.org/img/cover-overseas-ai-cvv-autofill-lockout-risk.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-04T13:56:00+08:00", "dateModified": "2026-09-04T13:56:00+08:00", "inLanguage": "zh-CN", "articleSection": "特殊场景与账户管理", "keywords": ["CVV自动填充", "浏览器自动填表", "风控锁卡", "结账失败", "信用卡安全码", "AI订阅支付"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/overseas-ai-cvv-autofill-lockout-risk.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>CVV自动填错却反复点提交，这张卡可能真的被风控锁了</h1>
+          <p class="article-summary">在AI订阅结账页浏览器帮忙自动填好了卡号和有效期，CVV安全码却填错了或者干脆是空的，很多人的下意识反应是不管三七二十一直接连点几次提交，指望蒙对一次算一次。但CVV本身在设计上大多数浏览器根本不会自动填充保存，填错并不是系统故障，而是很正常的现象；真正会带来麻烦的是"填错了却不核对、反而反复点提交重试"这套行为——在发卡行的风控系统看来，短时间内针对同一张卡连续多次CVV校验失败，特征上和"拿着盗刷来的卡号试探正确CVV"高度相似，确实可能触发临时锁卡，哪怕操作的自始至终都是持卡人本人。本文讲清楚为什么会填错、为什么反复重试危险，以及填错后和真被锁卡后分别该怎么处理。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-04T13:56:00+08:00">2026-09-04 13:56:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-cvv-autofill-lockout-risk.svg" width="800" height="400" alt="结账表单CVV字段被高亮标红、反复点提交触发风控锁定示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>结账页自动填好卡号和有效期后，CVV字段是不是浏览器自动填的，还是需要自己手动核对着卡片背面重新输入</li>
+            <li><span class="article-verify-check">✓</span>同一张银行卡号下如果保存了多张相似卡（比如同名副卡、旧卡换新卡），自动填充调出来的卡号是不是确实对应这次要用的这张实体卡</li>
+            <li><span class="article-verify-check">✓</span>第一次提交提示CVV错误后，是清空重新逐字核对输入，还是没看清楚就直接又点了一次提交</li>
+            <li><span class="article-verify-check">✓</span>连续两次以上CVV校验失败时，是不是已经停下来换个方式核实（比如打开银行APP看卡片信息），而不是继续第三次第四次提交</li>
+            <li><span class="article-verify-check">✓</span>如果这张卡已经提示锁定或后续交易反复被拒，是不是第一时间联系了发卡行客服说明情况，而不是换个页面继续尝试支付</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. CVV为什么经常自动填错：浏览器本来就很少存它</h2>
+          <p>在AI订阅这类结账页填卡信息时，Chrome、Safari、Edge这些主流浏览器对信用卡自动填充的处理方式并不统一：卡号、持卡人姓名、有效期这几项通常都会被浏览器保存并自动填入，但CVV（也叫CVV2、CVC、安全码，通常是卡片背面的3位数字，AmEx正面4位）出于安全考虑，大多数浏览器默认并不持久化保存这个字段——Apple官方帮助文档就明确写到，出于安全考虑Safari不会保存信用卡的安全码，每次使用都需要手动输入；Chrome官方帮助文档里描述的CVV自动填充能力，目前也只针对极少数官方合作的支付卡片和地区场景开放，不是通用能力。这意味着大多数情况下，即便卡号和有效期都被自动填得整整齐齐，CVV这一栏要么是空的要么是上次残留的旧值，需要自己重新对着实体卡输入；如果同一个浏览器账号下保存了好几张卡（比如主卡、副卡、旧卡换新卡后忘记删旧记录），自动填充还可能把卡号填成了另一张卡的，CVV却没跟着换，看起来"填了"实际上是错的组合。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 为什么反复点提交重试，在风控系统眼里像盗刷试探</h2>
+          <p>问题的关键不在"填错一次"，而在"填错之后怎么反应"。发卡行和卡组织的风控系统天然会重点监控CVV校验失败这类信号，因为CVV从设计上就是用来验证"发起交易的人是否真的拿着这张实体卡"的机制，正常持卡人一旦输入错误，通常会停下来核对再重新输入；而盗刷者往往只掌握了卡号和有效期（比如从数据泄露或钓鱼渠道拿到），CVV是靠猜测或穷举试出来的，必然会在短时间内对同一张卡连续多次提交不同的CVV组合，这种"高频率、短间隔、针对同一张卡反复提交不同验证码"的行为特征，正是风控系统用来识别所谓"卡片试探攻击"（card testing / enumeration attack）的核心信号之一。也就是说，如果自己因为自动填错了又没意识到，下意识地一遍遍点提交重试，这个操作序列在系统层面呈现出来的特征，和真正的盗刷试探几乎无法区分——风控系统不会去判断"背后操作的人是不是本人"，它只看得到"这张卡短时间内连续校验失败"这一个事实，出于保护持卡人资金安全的目的，触发临时限制或锁卡是完全可能的处理结果。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 具体连续失败几次会被锁：没有统一公开的标准数字</h2>
+          <p>需要明确说明的是，"连续失败几次会触发锁卡"并没有一个各家发卡行统一对外公开的具体阈值——不同银行、不同卡组织（Visa、Mastercard等）、不同风控系统的具体规则各不相同，也不会把这类反欺诈的具体触发逻辑公开披露，网上流传的"3次""5次"这类具体数字大多缺乏官方信源支撑，本文不采用任何未经官方确认的具体次数说法。可以确认的公开信息是：卡组织确实要求发卡行对CVV校验失败等信号保持监控并建立相应风控规则，用于识别所谓的"卡片试探/枚举攻击"，这类攻击本身就是以短时间内大量尝试不同CVV或卡号组合为特征；至于具体是几次触发、锁定多久解除，需要以自己发卡行的实际政策为准，不同银行、不同卡种可能完全不同。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 正确的处理方式：核对清楚再填，而不是反复点提交</h2>
+          <p>遇到CVV自动填错或结账页提示"安全码错误"，正确的第一反应应该是停下来，先把CVV输入框清空，拿出实体卡片核对卡片背面（AmEx是正面）印着的那串数字，逐字比对确认无误后再重新输入提交，而不是在没核对的情况下、抱着"再试一次说不定就对了"的心态连续点提交。如果结账页面上同一浏览器还保存着好几张相似的卡，最好也顺手确认一下自动填出来的卡号本身是否就是这次真正要用的那张卡——串卡填错的情况下，CVV即使输对了也会因为卡号对不上而报错，容易被误以为是CVV的问题继续反复重试。总的原则是：每一次提交都应该建立在"已经核对过、确认没问题"的基础上，而不是把提交按钮当成试错工具反复点。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 万一已经触发锁卡：联系发卡行，而不是继续尝试</h2>
+          <p>如果确实已经出现交易被反复拒绝、银行APP弹出安全提醒，或者干脆收到"卡片已临时锁定"的通知，这时候正确的做法是立即停止在结账页继续尝试付款，转而直接联系发卡行客服（银行APP在线客服、客服电话，或者信用卡背面印的客服号码），如实说明是因为在某个网站结账时CVV输入有误、之后又多次提交导致触发了风控限制，请客服核实确认并协助解锁。继续在原页面反复重试不仅解决不了问题，反而会让风控系统收到更多"连续失败"的信号，可能让锁定状态持续更久或升级为更严格的限制；主动联系发卡行说明情况，通常是解除这类临时限制最直接有效的路径。</p>
+        </section>
+        <section id="sec-6">
+          <h2>6. 小结：CVV填错是常态，反复重试才是真正的风险点</h2>
+          <p>CVV因为安全设计原因很少被浏览器自动填充，填错本身是结账过程中很常见的小插曲，不必紧张；真正需要警惕的是填错之后不核对就反复点提交这个行为模式，因为它在发卡行风控系统眼里和盗刷试探的特征高度重合，可能带来临时锁卡这种原本不必要的后果。记住两条：第一次失败就停下来核对再填，而不是靠反复尝试蒙对；万一已经锁卡，第一时间联系发卡行说明情况，而不是继续在结账页碰运气。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. CVV为什么经常自动填错：浏览器本来就很少存它</a></li>
+          <li><a href="#sec-2">2. 为什么反复点提交重试，在风控系统眼里像盗刷试探</a></li>
+          <li><a href="#sec-3">3. 具体连续失败几次会被锁：没有统一公开的标准数字</a></li>
+          <li><a href="#sec-4">4. 正确的处理方式：核对清楚再填，而不是反复点提交</a></li>
+          <li><a href="#sec-5">5. 万一已经触发锁卡：联系发卡行，而不是继续尝试</a></li>
+          <li><a href="#sec-6">6. 小结：CVV填错是常态，反复重试才是真正的风险点</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://support.apple.com/en-gb/guide/safari/ibrw1103/15.1/mac/12.0" target="_blank" rel="noopener nofollow">Apple官方支持文档：在Mac版Safari中自动填充信用卡信息</a>：官方说明出于安全考虑Safari不会保存信用卡安全码，每次使用需手动输入，对应本文第1节</li>
+            <li><a href="https://support.google.com/chrome/answer/142893" target="_blank" rel="noopener nofollow">Chrome官方帮助文档：管理自动填充设置与已保存信息</a>：官方说明Chrome的CVV自动填充目前仅面向少数官方合作卡片与地区场景开放，并非通用能力，对应本文第1节</li>
+            <li><a href="https://usa.visa.com/content/dam/VCOM/global/support-legal/documents/visa-guidance-to-guard-against-enumeration-attacks.pdf" target="_blank" rel="noopener nofollow">Visa官方文档：Visa Guidance to Guard Against Enumeration Attacks and Account Testing Schemes</a>：Visa官方就卡组织如何监控短时间内大量CVV/卡号试探行为、识别卡片试探攻击给发卡行与商户的风控指引，对应本文第2、3节</li>
+          </ul>
+          <p class="ref-note">各发卡行、卡组织具体的风控触发阈值与解锁流程可能因银行、卡种、地区不同而有差异，且不对外公开具体规则，请以自己发卡行的实际政策与客服说明为准；本文核实于发布当日，仅供学习与参考，不构成安全操作建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/ai-subscription-fraud-flag.html">AI订阅扣款突然被银行标记为可疑交易，是怎么回事</a></li>
+          <li><a href="/articles/overseas-ai-avs-billing-address-mismatch.html">账单地址填得明明没错，AI订阅支付却总是被拒</a></li>
+          <li><a href="/articles/ai-subscription-authorization-hold-settlement-gap.html">信用卡账单上那笔AI订阅预授权，为什么迟迟没变成正式扣款</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=424b497928"></script>
+</body>
+</html>

@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-cvv-autofill-lockout-risk.html': '2026-09-04 13:56:00',
+    '/en/articles/overseas-ai-cvv-autofill-lockout-risk.html': '2026-09-04 13:56:00',
     '/articles/domestic-ai-api-key-credential-split.html': '2026-09-04 11:52:00',
     '/en/articles/domestic-ai-api-key-credential-split.html': '2026-09-04 11:52:00',
     '/articles/overseas-ai-bnpl-installment-renewal-mismatch.html': '2026-09-03 14:10:00',
