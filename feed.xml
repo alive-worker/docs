@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 04 Sep 2026 13:56:00 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 05 Sep 2026 14:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[企业买的大模型API资源包用不完，能退钱还是能转给别的账号]]></title>
+    <link>https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</guid>
+    <pubDate>Sat, 05 Sep 2026 14:30:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[企业采购国内大模型API预付费资源包，通常比按量付费更划算，但预算规划失误或业务调整导致用不完的情况相当常见；用不完能不能申请退款、能不能转让给公司内其他关联主体或子账号继续使用，答案完全取决于具体厂商自己的服务协议条款而非行业统一惯例，采购前当面问清楚这两点，远比资源包买完之后再去和厂商协商要容易得多。]]></description>
+  </item>
   <item>
     <title><![CDATA[CVV自动填错却反复点提交，这张卡可能真的被风控锁了]]></title>
     <link>https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>

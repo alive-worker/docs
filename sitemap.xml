@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-09-04T11:52:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-09-04T11:52:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</loc>
@@ -15,6 +15,14 @@
   <url>
     <loc>https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</loc>
     <lastmod>2026-09-04T13:56:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</loc>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</loc>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/domestic-ai-api-key-credential-split.html</loc>
@@ -634,11 +642,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-09-04T11:52:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-09-04T11:52:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -858,7 +866,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/basics/</loc>
-    <lastmod>2026-09-02T14:20:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/topics/virtual-card/</loc>
@@ -874,7 +882,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
-    <lastmod>2026-09-02T14:20:00+08:00</lastmod>
+    <lastmod>2026-09-05T14:30:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/virtual-card/</loc>

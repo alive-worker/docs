@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 04 Sep 2026 13:56:00 +0800</lastBuildDate>
+  <lastBuildDate>Sat, 05 Sep 2026 14:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Unused Prepaid API Credits: Refundable or Transferable?]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</guid>
+    <pubDate>Sat, 05 Sep 2026 14:30:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[Prepaid LLM API credits cost less than pay-as-you-go, but leftover balance is common; refunds and transfers depend on each vendor's contract, not a shared norm.]]></description>
+  </item>
   <item>
     <title><![CDATA[A Wrong Autofilled CVV Can Get Your Card Locked]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>
