@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sat, 05 Sep 2026 14:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 07 Sep 2026 15:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[ChatGPT、Claude团队席位账号，主账号注销后其他人还能登录吗]]></title>
+    <link>https://ponr.org/articles/overseas-ai-team-seat-account-transfer.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-team-seat-account-transfer.html</guid>
+    <pubDate>Mon, 07 Sep 2026 15:30:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[ChatGPT Team、Claude Team、Gemini Advanced等海外AI订阅的团队席位由邀请你加入的主账号创建并付费，所有权始终归主账号所有而非每个被邀请的席位使用者；主账号注销或取消订阅后，其他席位的访问权限通常会立即或短期内失效，宽限期因平台而异，建议提前问清楚交接流程并自行导出重要对话记录留存。]]></description>
+  </item>
   <item>
     <title><![CDATA[企业买的大模型API资源包用不完，能退钱还是能转给别的账号]]></title>
     <link>https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</link>

@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="团队席位账号所有权归属主账号，注销后席位访问权限断开示意图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2318"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+    <linearGradient id="ownerCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8c26b"/>
+      <stop offset="1" stop-color="#c99a3e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- owner account node -->
+  <g transform="translate(140,110)">
+    <circle cx="0" cy="0" r="46" fill="url(#ownerCard)"/>
+    <path d="M-16 8c0-13 32-13 32 0" stroke="#3b2a08" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="-10" r="12" fill="#3b2a08"/>
+    <text x="0" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#f3ead2" font-weight="700">主账号</text>
+    <text x="0" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#c9d9cd">付费 · 所有权</text>
+  </g>
+
+  <!-- seat nodes -->
+  <g>
+    <g transform="translate(420,60)">
+      <circle cx="0" cy="0" r="30" fill="#3f6b52" stroke="#8fd6ab" stroke-width="2"/>
+      <path d="M-11 6c0-9 22-9 22 0" stroke="#eafff2" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="0" cy="-7" r="8" fill="#eafff2"/>
+      <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#dcefe2">席位 A</text>
+    </g>
+    <g transform="translate(420,150)">
+      <circle cx="0" cy="0" r="30" fill="#3f6b52" stroke="#8fd6ab" stroke-width="2"/>
+      <path d="M-11 6c0-9 22-9 22 0" stroke="#eafff2" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="0" cy="-7" r="8" fill="#eafff2"/>
+      <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#dcefe2">席位 B</text>
+    </g>
+    <g transform="translate(420,240)">
+      <circle cx="0" cy="0" r="30" fill="#3f6b52" stroke="#8fd6ab" stroke-width="2"/>
+      <path d="M-11 6c0-9 22-9 22 0" stroke="#eafff2" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="0" cy="-7" r="8" fill="#eafff2"/>
+      <text x="0" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#dcefe2">席位 C</text>
+    </g>
+  </g>
+
+  <!-- links from owner to seats, one broken -->
+  <path d="M184 110 L390 60" stroke="#8fd6ab" stroke-width="3" fill="none"/>
+  <path d="M184 118 L390 150" stroke="#e0667a" stroke-width="3" fill="none" stroke-dasharray="8 8"/>
+  <path d="M184 126 L390 240" stroke="#8fd6ab" stroke-width="3" fill="none"/>
+
+  <!-- broken link X mark -->
+  <g transform="translate(287,133)">
+    <circle r="16" fill="#e0667a"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="#2a1015" stroke-width="3" stroke-linecap="round"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="#2a1015" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- cancel icon on owner -->
+  <g transform="translate(140,110)">
+    <circle cx="60" cy="-58" r="18" fill="#e0667a" stroke="#2a1015" stroke-width="2"/>
+    <path d="M52 -66l16 16M68 -66l-16 16" stroke="#2a1015" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- right side text block -->
+  <g font-family="Arial, sans-serif">
+    <text x="560" y="90" font-size="22" fill="#f3ead2" font-weight="700">团队席位</text>
+    <text x="560" y="118" font-size="22" fill="#f3ead2" font-weight="700">主账号注销</text>
+    <text x="560" y="146" font-size="22" fill="#e0667a" font-weight="700">权限即断</text>
+    <text x="560" y="180" font-size="14" fill="#c9d9cd">ChatGPT · Claude · Gemini</text>
+    <text x="560" y="202" font-size="14" fill="#c9d9cd">宽限期因平台而异</text>
+  </g>
+
+  <rect x="60" y="330" width="680" height="2" fill="#2f4a3a"/>
+  <text x="400" y="368" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#9fb6a6">所有权归创建并付费的主账号，被邀请席位不等于共同所有</text>
+</svg>

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 05 Sep 2026 14:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 07 Sep 2026 15:30:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[If the Owner Cancels, Do Team-Seat AI Accounts Still Work?]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-team-seat-account-transfer.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-team-seat-account-transfer.html</guid>
+    <pubDate>Mon, 07 Sep 2026 15:30:00 +0800</pubDate>
+    <category>Overseas AI Services</category>
+    <description><![CDATA[Team seats on ChatGPT, Claude, Gemini belong to whoever pays, not invitees. Cancel that account and others lose access fast, timing varies, confirm handoff.]]></description>
+  </item>
   <item>
     <title><![CDATA[Unused Prepaid API Credits: Refundable or Transferable?]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</link>
