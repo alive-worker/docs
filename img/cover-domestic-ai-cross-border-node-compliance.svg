@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="同一厂商国内节点与海外节点数据落地位置和合规框架可能不同示意图">
+  <defs>
+    <linearGradient id="bgGradNode" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#141d24"/>
+      <stop offset="1" stop-color="#1c2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradNode)"/>
+
+  <!-- left: domestic node pin over an abstract map grid -->
+  <g transform="translate(230,190)">
+    <g opacity="0.35" stroke="#3f5a52" stroke-width="1">
+      <line x1="-90" y1="-70" x2="90" y2="-70"/>
+      <line x1="-90" y1="-20" x2="90" y2="-20"/>
+      <line x1="-90" y1="30" x2="90" y2="30"/>
+      <line x1="-90" y1="80" x2="90" y2="80"/>
+      <line x1="-60" y1="-100" x2="-60" y2="110"/>
+      <line x1="0" y1="-100" x2="0" y2="110"/>
+      <line x1="60" y1="-100" x2="60" y2="110"/>
+    </g>
+    <path d="M0 -58 C28 -58 46 -38 46 -14 C46 18 8 52 0 68 C-8 52 -46 18 -46 -14 C-46 -38 -28 -58 0 -58 Z" fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <circle cx="0" cy="-14" r="15" fill="#7be8b8"/>
+    <text x="0" y="-88" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#8fd6b6">国内节点</text>
+    <text x="0" y="100" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#9fc9bd">境内运营数据</text>
+  </g>
+
+  <!-- right: overseas node pin -->
+  <g transform="translate(560,190)">
+    <g opacity="0.35" stroke="#4a4066" stroke-width="1">
+      <line x1="-90" y1="-70" x2="90" y2="-70"/>
+      <line x1="-90" y1="-20" x2="90" y2="-20"/>
+      <line x1="-90" y1="30" x2="90" y2="30"/>
+      <line x1="-90" y1="80" x2="90" y2="80"/>
+      <line x1="-60" y1="-100" x2="-60" y2="110"/>
+      <line x1="0" y1="-100" x2="0" y2="110"/>
+      <line x1="60" y1="-100" x2="60" y2="110"/>
+    </g>
+    <path d="M0 -58 C28 -58 46 -38 46 -14 C46 18 8 52 0 68 C-8 52 -46 18 -46 -14 C-46 -38 -28 -58 0 -58 Z" fill="#2a2038" stroke="#c98be0" stroke-width="3"/>
+    <circle cx="0" cy="-14" r="15" fill="#e6c4f7"/>
+    <text x="0" y="-88" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#e6c4f7">海外节点</text>
+    <text x="0" y="100" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#cbb3da">境外接收方处理</text>
+  </g>
+
+  <!-- center: divergent compliance link between the two nodes -->
+  <g stroke-width="2.5" fill="none">
+    <path d="M270 150 C 340 110, 460 110, 530 150" stroke="#f2d18a" stroke-dasharray="6 6"/>
+  </g>
+  <g transform="translate(400,108)">
+    <rect x="-56" y="-20" width="112" height="34" rx="8" fill="#241d14" stroke="#f2d18a" stroke-width="2"/>
+    <text x="0" y="2" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="700" fill="#f2d18a">同一厂商 ≠ 同一规则</text>
+  </g>
+
+  <text x="400" y="330" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#8fd6b6">数据落地位置 · 适用合规框架 · 逐项问清楚</text>
+  <text x="400" y="356" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#9fb8b0" opacity="0.85">具体规则以厂商服务协议与官方文档为准</text>
+</svg>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事</title>
+  <meta name="description" content="企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-cross-border-node-compliance.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事">
+  <meta property="og:description" content="企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html">
+  <meta property="article:published_time" content="2026-09-08T10:40:00+08:00">
+  <meta property="article:modified_time" content="2026-09-08T10:40:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="特殊场景与账户管理">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事">
+  <meta name="twitter:description" content="企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-cross-border-node-compliance.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="同一厂商国内节点与海外节点数据落地位置和合规框架可能不同示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-cross-border-node-compliance.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-cross-border-node-compliance.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#webpage", "url": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html", "name": "给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事", "item": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html" }
+    ] },
+    { "@type": "Article", "headline": "给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事", "description": "企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。", "image": "https://ponr.org/img/cover-domestic-ai-cross-border-node-compliance.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-08T10:40:00+08:00", "dateModified": "2026-09-08T10:40:00+08:00", "inLanguage": "zh-CN", "articleSection": "特殊场景与账户管理", "keywords": ["数据出境合规", "国内大模型API", "DeepSeek", "通义千问", "数据节点", "跨境数据处理"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-cross-border-node-compliance.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事</h1>
+          <p class="article-summary">不少企业在业务里用DeepSeek、通义千问、豆包这类国内大模型的API，如果客户群体里有境外用户，或者公司本身有海外分支需要调用同一套模型能力，很容易想当然地觉得"反正是同一家厂商的产品，合规逻辑肯定一样"。但同一个大模型厂商，其面向国内客户的默认节点和面向海外开发者的国际版/海外节点，数据处理与存储的物理位置、适用的合规框架很可能完全不同——一个可能受《数据出境安全评估办法》约束，一个可能要考虑GDPR之类境外规则，不能一概而论。本文讲清楚这个容易被忽视的分歧点，以及企业采购前该具体问清楚哪几件事。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-08T10:40:00+08:00">2026-09-08 10:40:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-cross-border-node-compliance.svg" width="800" height="400" alt="同一厂商国内节点与海外节点数据落地位置和合规框架可能不同示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否问清楚了自己业务实际调用的具体是哪个数据节点/区域，而不是想当然认为跟官网首页宣传的是同一套</li>
+            <li><span class="article-verify-check">✓</span>如果业务范围以后从国内扩展到海外（或反过来），是否确认过能否无缝切换节点，切换时会不会产生新的合规缺口</li>
+            <li><span class="article-verify-check">✓</span>厂商的服务协议或数据处理协议（DPA）里，对数据出境、数据存储位置是否有可以书面引用的明确条款，而不是只有销售的口头承诺</li>
+            <li><span class="article-verify-check">✓</span>涉及境外个人信息或重要数据出境时，是否核对过自己的数据规模是否触发《数据出境安全评估办法》规定的申报情形</li>
+            <li><span class="article-verify-check">✓</span>是否留存了厂商官方文档或合同条款的截图/存档，作为日后合规审计或监管问询时的书面依据</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. "同一家厂商的产品" 不等于 "同一套合规逻辑"</h2>
+          <p>企业用国内大模型API做产品，最常见的采购心态是：选定DeepSeek、通义千问或豆包之后，默认这家厂商所有对外提供的API入口、无论是国内控制台还是面向海外开发者的国际版页面，背后走的都是同一套数据处理规则。这个假设在很多场景下是错的。大模型厂商为了同时服务国内客户和拓展海外市场，通常会分别搭建面向不同地区的产品入口——一个是主要服务境内企业和开发者的默认节点，另一个是专门面向海外开发者、按国际计费和访问习惯设计的国际版或海外站点。这两个入口即便调用的是同一个模型能力、界面看起来相似，其数据实际落地处理的机房位置、适用的隐私与数据保护法规、甚至运营主体，都可能是完全独立的两套体系。企业如果只看"是不是同一家厂商"就下结论，跳过了对具体节点的核实，等于把合规判断建立在一个不成立的假设上。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 国内节点：可能受《数据出境安全评估办法》约束</h2>
+          <p>如果企业业务的数据处理确实落在国内大模型厂商的境内节点（比如以阿里云百炼平台调用DeepSeek系列模型为例，据官方帮助文档说明，目前该服务节点部署在华北2北京地域，需要用对应地域的API Key），那么只要这批数据是在中华人民共和国境内运营中收集和产生的，一旦企业需要把这些数据再传输给境外接收方（比如境外总部、境外合作方、境外的客户支持系统），就要对照国家网信办发布的《数据出境安全评估办法》来判断是否需要申报安全评估。该办法规定，数据处理者向境外提供重要数据，或作为关键信息基础设施运营者、处理100万人以上个人信息的数据处理者向境外提供个人信息，或自上年1月1日起累计向境外提供10万人个人信息或1万人敏感个人信息，都属于应当申报评估的情形。这套规则约束的是"数据从境内流向境外"这个动作本身，跟你调用的模型是哪家厂商的关系不大，但前提是你得先确认清楚，你的业务数据到底是不是在这个受约束的境内节点上处理的。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 海外节点：适用规则因厂商而异，没有统一答案</h2>
+          <p>如果企业调用的是厂商面向海外开发者的国际版节点，情况又不一样：这类节点服务的对象本来就以境外用户为主，其数据处理位置、是否适用GDPR等境外数据保护框架、是否会把数据回传至境内，完全取决于该厂商自己的产品架构和服务协议，没有一个所有国内大模型厂商都统一遵循的规则。这里必须如实说明：不同厂商的公开信息披露程度差异很大，本文没有查到某个覆盖全行业、统一适用的"海外节点数据处理规则"，也不会替某家厂商编造一个具体的存储地点或合规认证清单。企业能做的是要求厂商在服务协议或数据处理协议（DPA）里，用书面条款写清楚海外节点的数据处理位置和适用法规，而不是仅凭销售人员口头介绍或官网营销页面的笼统表述就下采购决定。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 业务跨境扩展时，节点能否无缝切换是另一个容易漏掉的问题</h2>
+          <p>很多企业在最初采购时，业务范围还只覆盖国内，自然而然选了国内节点；但企业发展是动态的，如果后续业务扩展到海外市场，或者反过来，海外业务收缩回归国内，此时能否把调用切换到对应地区的节点，切换过程中原有数据会不会需要重新做一次合规评估，是采购阶段就该问清楚、而不是等业务扩展了才发现的问题。同样，如果企业本身既有境内团队又有境外分支，两边团队各自调用同一厂商的不同节点去处理同一批客户数据，也需要明确这种"混合调用"场景下，数据是否会在国内节点和海外节点之间产生非预期的跨境流转，这类边界情况往往是合规审计里最容易被忽视、却最容易出问题的地方。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 小结：把"具体调用的是哪个节点"列为采购前的必答题</h2>
+          <p>企业用国内大模型API处理客户数据时，"用的是哪家厂商"和"数据实际落在哪个节点、适用哪套合规框架"是两个层面完全不同的问题，不能因为前者相同就默认后者也相同。采购前该问清楚的三件事很具体：自己的业务数据实际调用的是哪个节点/区域；业务范围未来从国内扩展到海外（或反过来）时，能否无缝切换节点而不产生新的合规缺口；厂商的服务协议里对数据出境是否有明确可引用的书面条款，而不是依赖销售的口头承诺。这三件事问清楚、留存好书面依据，远比等到监管问询或客户审计时才临时补材料要主动得多。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. "同一家厂商的产品" 不等于 "同一套合规逻辑"</a></li>
+          <li><a href="#sec-2">2. 国内节点：可能受《数据出境安全评估办法》约束</a></li>
+          <li><a href="#sec-3">3. 海外节点：适用规则因厂商而异，没有统一答案</a></li>
+          <li><a href="#sec-4">4. 业务跨境扩展时，节点能否无缝切换是另一个容易漏掉的问题</a></li>
+          <li><a href="#sec-5">5. 小结：把"具体调用的是哪个节点"列为采购前的必答题</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://www.cac.gov.cn/2022-07/07/c_1658811536594644.htm" target="_blank" rel="noopener nofollow">国家互联网信息办公室：《数据出境安全评估办法》公布全文</a>：规定应申报数据出境安全评估的具体情形与流程，对应本文第2节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/deepseek-api" target="_blank" rel="noopener nofollow">阿里云百炼帮助中心：DeepSeek API 服务说明</a>：说明该平台调用DeepSeek系列模型目前限定在华北2（北京）地域，需用对应地域API Key，对应本文第2节</li>
+            <li><a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy-2025-02-14.html" target="_blank" rel="noopener nofollow">DeepSeek官方隐私政策</a>：披露其服务器位于中华人民共和国境内、用户数据可能在境内服务器处理存储，对应本文第1、3节</li>
+          </ul>
+          <p class="ref-note">以上信息核实于发布当日，各厂商国内节点与海外节点的具体数据处理规则会随产品迭代调整，实际情况请以你所用厂商当时的服务协议、数据处理协议（DPA）或官方文档公示为准，本文仅供学习与参考，不构成合规建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-level-protection-assessment.html">接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账</a></li>
+          <li><a href="/articles/domestic-ai-api-training-data-clause.html">给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型</a></li>
+          <li><a href="/articles/domestic-ai-cloud-marketplace-billing-entity.html">阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=5623a6fe9c"></script>
+</body>
+</html>

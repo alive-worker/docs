@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 07 Sep 2026 15:30:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 08 Sep 2026 10:40:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事]]></title>
+    <link>https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html</guid>
+    <pubDate>Tue, 08 Sep 2026 10:40:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。]]></description>
+  </item>
   <item>
     <title><![CDATA[ChatGPT、Claude团队席位账号，主账号注销后其他人还能登录吗]]></title>
     <link>https://ponr.org/articles/overseas-ai-team-seat-account-transfer.html</link>
