@@ -223,8 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
-    '/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 10:40:00',
-    '/en/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 10:40:00',
+    '/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 09:38:00',
+    '/en/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 09:38:00',
     '/articles/overseas-ai-team-seat-account-transfer.html': '2026-09-07 15:30:00',
     '/en/articles/overseas-ai-team-seat-account-transfer.html': '2026-09-07 15:30:00',
     '/articles/domestic-ai-prepaid-package-refund-transfer.html': '2026-09-05 14:30:00',
