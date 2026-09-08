@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-09-07T15:30:00+08:00</lastmod>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-09-07T15:30:00+08:00</lastmod>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</loc>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/en/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</loc>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</loc>
@@ -658,11 +666,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-09-07T15:30:00+08:00</lastmod>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-09-07T15:30:00+08:00</lastmod>
+    <lastmod>2026-09-08T14:15:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>

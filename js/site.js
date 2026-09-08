@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-billing-descriptor-chargeback-lockout.html': '2026-09-08 14:15:00',
+    '/en/articles/overseas-ai-billing-descriptor-chargeback-lockout.html': '2026-09-08 14:15:00',
     '/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 09:38:00',
     '/en/articles/domestic-ai-cross-border-node-compliance.html': '2026-09-08 09:38:00',
     '/articles/overseas-ai-team-seat-account-transfer.html': '2026-09-07 15:30:00',

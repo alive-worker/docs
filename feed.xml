@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 08 Sep 2026 09:38:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 08 Sep 2026 14:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[账单里冒出个不认识的收款方名字，别急着找银行拒付AI订阅]]></title>
+    <link>https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</guid>
+    <pubDate>Tue, 08 Sep 2026 14:15:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[很多海外AI订阅信用卡账单上的收款方名称，跟ChatGPT、Claude这类产品名字完全对不上，这其实是支付处理链路里很常见的正常现象，不是骗局；但一旦误判成盗刷、直接向银行发起拒付，反而可能被服务商标记为欺诈账户并封停订阅，解封流程通常比主动取消订阅更慢更麻烦，建议先核对订阅记录再决定是否联系银行。]]></description>
+  </item>
   <item>
     <title><![CDATA[给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事]]></title>
     <link>https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html</link>
