@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同</title>
+  <meta name="description" content="国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同">
+  <meta property="og:description" content="国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <meta property="article:published_time" content="2026-09-08T18:52:00+08:00">
+  <meta property="article:modified_time" content="2026-09-08T18:52:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="入门与基础">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同">
+  <meta name="twitter:description" content="国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-model-version-deprecation.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="模型版本号旁边一个倒计时时钟，指向API切换箭头示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-model-version-deprecation.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-model-version-deprecation.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#webpage", "url": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html", "name": "接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同", "item": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html" }
+    ] },
+    { "@type": "Article", "headline": "接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同", "description": "国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。", "image": "https://ponr.org/img/cover-domestic-ai-model-version-deprecation.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-08T18:52:00+08:00", "dateModified": "2026-09-08T18:52:00+08:00", "inLanguage": "zh-CN", "articleSection": "入门与基础", "keywords": ["模型版本下线", "API兼容期", "模型别名", "DeepSeek", "通义千问", "模型迁移测试"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-model-version-deprecation.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-model-version-deprecation.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同</h1>
+          <p class="article-summary">国内大模型厂商迭代速度非常快，DeepSeek、通义千问、豆包这类平台经常几个月就推出新一代模型，同时逐步收回旧版本模型的API访问权限。企业接入时如果在业务代码里硬编码了具体的模型版本号（比如带日期后缀的快照版本），而不是使用厂商提供的「最新版」别名，一旦收到某个旧版本模型即将下线的公告，就必须在有限时间内完成新模型的输出差异测试、prompt适配调整乃至定价核对，业务量大、测试不充分时仓促切换很容易出现效果回归。本文讲清楚"锁版本号"与"用别名"这两种完全不同的风险取舍、下线通知提前期为什么因厂商而异、以及企业该如何建立内部模型版本监控而不是被动等公告邮件。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-08T18:52:00+08:00">2026-09-08 18:52:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-model-version-deprecation.svg" width="800" height="400" alt="模型版本号旁边一个倒计时时钟，指向API切换箭头示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>业务代码里调用模型时传的参数，是具体的带日期版本号（如某年某月的快照版本），还是厂商提供的"最新版/通用版"别名，两者哪个都要先弄清楚</li>
+            <li><span class="article-verify-check">✓</span>是否知道自己接入的厂商对模型下线的最短提前通知期是多久——这个数字因厂商而异，甚至同一厂商的快照版本和主线版本通知期都可能不同</li>
+            <li><span class="article-verify-check">✓</span>是否订阅了厂商的模型更新公告渠道（站内信、邮件、开发者群），而不是只在业务报错之后才发现某个模型版本已经停止响应</li>
+            <li><span class="article-verify-check">✓</span>如果选择使用「最新版」别名而非锁定版本号，是否建立了定期抽样核对模型输出、监控输出格式或质量突变的机制</li>
+            <li><span class="article-verify-check">✓</span>收到模型下线公告后，是否预留了在真正下线前完成新版本对比测试和灰度切换的时间窗口，而不是等到最后几天才开始测试</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 国内大模型迭代快，旧版本API的下线是常态而非意外</h2>
+          <p>相比海外大模型厂商相对较慢的版本更新节奏，国内DeepSeek、通义千问、豆包等平台的模型迭代速度明显更快，往往几个月就会推出新一代旗舰或轻量版模型。伴随新版本上线，厂商通常会安排旧版本模型逐步下线——这不是偶发事件，而是国内大模型行业的常态运营节奏。对企业接入方来说，问题不在于"会不会下线"，而在于"下线的时候，自己的业务准备好了没有"。如果业务在API调用参数里写死了具体的模型版本标识（比如带日期后缀的快照版本号），那么每一次厂商的版本下线公告，本质上都是一次强制的、有截止日期的迁移任务。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 锁定版本号 vs 用「最新版」别名，是两种完全不同的风险取舍</h2>
+          <p>多数国内大模型平台的API都同时提供两种调用方式：一种是指向具体版本的固定标识（类似阿里云百炼里带日期的快照模型，或DeepSeek官方定价页上列出的带版本后缀的模型ID）；另一种是厂商维护的「最新版」别名（调用参数写的是一个通用名称，厂商在后台把这个别名指向的底层模型悄悄升级为新版本，调用方不用改一行代码）。这两种方式对应两种完全不同的风险取舍：锁定具体版本号，好处是模型行为在你主动升级之前完全稳定、不会有意外的输出变化，但代价是你必须自己盯紧厂商的下线公告，版本到期不迁移接口就直接报错或不可用；使用「最新版」别名，好处是不用操心下线问题、厂商升级底层模型时自动生效，但代价是模型的输出风格、格式、能力边界可能在没有任何代码变更的情况下悄悄改变，如果业务对输出稳定性要求高（比如结构化解析、固定格式的下游处理），这种静默变化本身就是风险。企业接入前应该明确自己的业务更看重哪一种确定性，而不是随手选一个默认选项。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 下线提前期没有统一标准，因厂商而异，必须接入前问清楚</h2>
+          <p>不同厂商对模型下线的提前通知机制差异很大，没有行业统一规定。以阿里云百炼平台公开的模型下线机制说明为例，它把模型分成两类分别处理：带具体日期标识的"快照模型"在正式下线前30天发布通知，而系列模型的核心"主线模型"则提前3个月通知，且下线过程中还会先逐步收紧调用配额（QPM/TPM）作为过渡，而不是一刀切直接停用。这种"快照模型和主线模型提前期不同"的细节本身就说明，同一厂商内部都不是单一规则，更不要说不同厂商之间。企业在选定某个国内大模型API作为业务依赖之前，应该主动去查阅或询问对方是否公开承诺了最短下线通知期、通知渠道覆盖哪些用户（比如只通知近期有调用记录的账号）、以及下线过程中是否有配额收紧这类过渡期——这些细节没有统一答案，只能以具体厂商当时的官方说明为准，不能假设所有平台都按同一套流程走。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 建立内部模型版本监控，而不是被动等厂商邮件</h2>
+          <p>只被动等厂商的下线邮件或站内信通知，风险在于：这类通知渠道往往只覆盖近期确实调用过该模型的账号，如果业务架构复杂、调用方分散在多个团队或子系统里，很可能出现"公司确实收到了通知，但没传达到真正维护该接口的开发者"这种信息断层。更稳妥的做法是企业内部建立一份模型版本清单，记录每个业务模块实际调用的模型标识（版本号还是别名）、对应厂商、以及该厂商已知的下线通知机制，定期（比如每月）主动核对厂商的模型列表页面或更新日志，而不是完全依赖厂商主动推送。对于选择使用「最新版」别名的场景，还应该定期抽样对比模型输出，及时发现底层模型是否已经在没有下线公告的情况下悄悄切换了版本——因为别名指向的具体版本变更，通常不会像"模型下线"那样触发正式公告。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 小结：接入前先问清楚版本策略，比下线公告发出后再手忙脚乱划算得多</h2>
+          <p>国内大模型API的版本迭代快、旧版本下线是常态，企业接入时最容易忽略的不是"会不会下线"，而是"锁版本号还是用别名"这个决策点本身没有被认真评估过。锁版本号换来的是行为稳定但需要自己盯紧下线公告，用别名换来的是省心但要接受模型行为随时可能静默变化——两者都不是免费的确定性。接入前主动问清楚厂商的下线通知机制和提前期，接入后建立内部的模型版本监控清单，远比等到收到一封"模型即将下线"的邮件才开始紧急测试新版本要从容得多。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 国内大模型迭代快，旧版本API的下线是常态而非意外</a></li>
+          <li><a href="#sec-2">2. 锁定版本号 vs 用「最新版」别名，是两种完全不同的风险取舍</a></li>
+          <li><a href="#sec-3">3. 下线提前期没有统一标准，因厂商而异，必须接入前问清楚</a></li>
+          <li><a href="#sec-4">4. 建立内部模型版本监控，而不是被动等厂商邮件</a></li>
+          <li><a href="#sec-5">5. 小结：接入前先问清楚版本策略，比下线公告发出后再手忙脚乱划算得多</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/model-studio/model-depreciation" target="_blank" rel="noopener nofollow">阿里云百炼官方文档：模型下线机制说明</a>：说明快照模型提前30天、主线模型提前3个月发布下线通知，以及下线过程中的限流过渡机制，对应本文第3节</li>
+            <li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener nofollow">DeepSeek API官方文档：Models & Pricing 模型与价格</a>：列出当前带具体版本标识的模型ID及定价，对应本文第2节关于版本号命名的说明</li>
+            <li><a href="https://api-docs.deepseek.com/api/list-models/" target="_blank" rel="noopener nofollow">DeepSeek API官方文档：Lists Models 模型列表接口</a>：官方提供的可编程查询当前可用模型接口，对应本文第4节关于主动核对模型清单的建议</li>
+          </ul>
+          <p class="ref-note">以上信息核实于发布当日，各厂商模型下线通知机制、提前期与配额收紧策略会随产品迭代调整，实际情况请以你所接入平台当时的官方文档与公告为准，本文仅供学习与参考，不构成技术选型建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/ai-domestic-model-routing-downgrade.html">高峰期调用DeepSeek、文心一言，接口返回的真是你指定的模型吗</a></li>
+          <li><a href="/articles/domestic-ai-cloud-marketplace-billing-entity.html">阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</a></li>
+          <li><a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=8dbd25fe20"></script>
+</body>
+</html>

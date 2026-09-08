@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardcoded Model Version vs Alias: Vendor Deprecation Risk</title>
+  <meta name="description" content="Chinese LLM vendors retire old API versions fast. Pin a version and deprecation forces urgent testing; use the latest alias and behavior shifts silently.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-model-version-deprecation.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Hardcoded Model Version vs Alias: Vendor Deprecation Risk">
+  <meta property="og:description" content="Chinese LLM vendors retire old API versions fast. Pin a version and deprecation forces urgent testing; use the latest alias and behavior shifts silently.">
+  <meta property="og:url" content="https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html">
+  <meta property="article:published_time" content="2026-09-08T18:52:00+08:00">
+  <meta property="article:modified_time" content="2026-09-08T18:52:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Basics">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hardcoded Model Version vs Alias: Vendor Deprecation Risk">
+  <meta name="twitter:description" content="Chinese LLM vendors retire old API versions fast. Pin a version and deprecation forces urgent testing; use the latest alias and behavior shifts silently.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-model-version-deprecation-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A model version number next to a countdown clock pointing to an API switch arrow">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-model-version-deprecation-en.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-model-version-deprecation-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#webpage", "url": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html", "name": "Hardcoded Model Version vs Alias: Vendor Deprecation Risk", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Hardcoded Model Version vs Alias: Vendor Deprecation Risk", "item": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html" }
+    ] },
+    { "@type": "Article", "headline": "Hardcoded Model Version vs Alias: Vendor Deprecation Risk", "description": "Chinese LLM vendors retire old API versions fast. Pin a version and deprecation forces urgent testing; use the latest alias and behavior shifts silently.", "image": "https://ponr.org/img/cover-domestic-ai-model-version-deprecation-en.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-08T18:52:00+08:00", "dateModified": "2026-09-08T18:52:00+08:00", "inLanguage": "en", "articleSection": "Basics", "keywords": ["model version deprecation", "API compatibility window", "model alias", "DeepSeek", "Qwen", "model migration testing"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price Hike Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-model-version-deprecation.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Hardcoded Model Version vs Alias: Vendor Deprecation Risk</h1>
+          <p class="article-summary">Chinese LLM vendors like DeepSeek, Qwen, and Doubao iterate fast, often shipping a new generation model within a few months and gradually retiring API access to older versions. If a business hardcodes a specific dated model snapshot instead of the vendor's "latest" alias, every deprecation notice becomes a forced migration with a hard deadline — teams must test the new model's output differences, adjust prompts and output-format handling, and sometimes recheck pricing, all before the cutoff. Rushing that migration under high traffic and thin testing invites quality regressions. This article walks through why pinning a version and using an alias are two genuinely different risk trade-offs, why deprecation notice windows vary by vendor, and how to build an internal model-version watch instead of waiting passively for a deprecation email.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-09-08T18:52:00+08:00">2026-09-08 18:52:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-model-version-deprecation-en.svg" width="800" height="400" alt="A model version number next to a countdown clock pointing to an API switch arrow" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>Does your production code call a specific dated model snapshot, or the vendor's "latest/general" alias — have you actually confirmed which one</li>
+            <li><span class="article-verify-check">✓</span>Do you know the minimum advance notice period your vendor commits to before deprecating a model — this varies by vendor, and even by model type (snapshot vs mainline) within the same vendor</li>
+            <li><span class="article-verify-check">✓</span>Are you subscribed to the vendor's model-update announcement channel (in-app message, email, developer group), rather than only discovering a version is retired when calls start failing</li>
+            <li><span class="article-verify-check">✓</span>If you chose the "latest" alias instead of pinning a version, have you set up periodic sampling to catch silent shifts in output quality or format</li>
+            <li><span class="article-verify-check">✓</span>After receiving a deprecation notice, have you left yourself a real window to run comparison tests and a staged rollout before the cutoff, instead of starting testing in the final days</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. Fast iteration means retiring old model versions is routine, not exceptional</h2>
+          <p>Compared with the relatively slower release cadence of many overseas LLM vendors, platforms like DeepSeek, Qwen, and Doubao ship new flagship or lightweight models much more frequently — often every few months. New releases are typically paired with a scheduled wind-down of older model versions; this isn't an occasional surprise, it's the normal operating rhythm of the domestic LLM industry. For a business integrating one of these APIs, the real question isn't whether a version will eventually be retired — it's whether your systems are ready when it happens. If your integration hardcodes a specific model identifier, such as a dated snapshot version, then every vendor deprecation notice is effectively a mandatory migration task with a fixed deadline.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. Pinning a version vs. using the "latest" alias are two genuinely different trade-offs</h2>
+          <p>Most domestic LLM APIs offer both calling conventions at once: a fixed identifier that points to one specific version (similar to the dated snapshot models on Alibaba Cloud Model Studio, or the version-suffixed model IDs listed on DeepSeek's own pricing page), and a vendor-maintained "latest" alias (a generic name in your request that the vendor quietly repoints to a newer underlying model without requiring any code change on your end). These represent two genuinely different risk trade-offs. Pinning a specific version keeps model behavior completely stable until you choose to upgrade, but the cost is that you must personally track the vendor's deprecation announcements — miss the cutoff and calls simply start failing. Using the "latest" alias means you never have to think about deprecation, since the vendor's upgrade takes effect automatically, but the cost is that output style, formatting, or capability boundaries can shift with no code change at all — and if your business depends on stable output (structured parsing, fixed downstream formats), that silent drift is itself a risk. Decide deliberately which kind of certainty your business actually needs, rather than defaulting to whichever option is easiest to wire up first.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. Deprecation notice windows aren't standardized — they vary by vendor, so ask before you integrate</h2>
+          <p>Advance-notice practices for model deprecation differ significantly across vendors, and there's no industry-wide rule. Alibaba Cloud's Model Studio (Bailian) publishes a concrete example: it treats "snapshot models" (dated identifiers) and "mainline models" (a series' core version) differently — snapshot models get a 30-day advance notice before retirement, while mainline models get three months, and the platform also gradually tightens rate limits (QPM/TPM) during the transition instead of cutting access off abruptly. The fact that notice periods differ even within a single vendor's own policy — let alone across different vendors — is exactly why this can't be assumed. Before committing a business dependency to a specific domestic LLM API, ask the vendor directly whether they publicly commit to a minimum deprecation notice period, which accounts the notification channel actually reaches (some notify only accounts with recent call history), and whether there's a rate-limit tightening phase during the transition. None of this has a universal answer — treat each vendor's current official documentation as the source of truth rather than assuming every platform follows the same process.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Build an internal model-version watch instead of waiting on vendor emails</h2>
+          <p>Relying passively on a vendor's deprecation email or in-app notice carries a real gap: these channels usually only reach accounts with recent call activity for that specific model, and in a larger organization where API calls are spread across multiple teams or subsystems, it's entirely possible the company receives the notice but it never reaches the engineer who actually maintains that integration. A more reliable approach is to maintain an internal inventory of which model identifier — version or alias — each business module actually calls, which vendor it belongs to, and what that vendor's known deprecation-notice practice is, then periodically (say, monthly) proactively check the vendor's model listing or changelog rather than depending entirely on inbound notifications. For integrations using the "latest" alias, add periodic sampling to compare output against a baseline, since a change to what the alias points to typically doesn't trigger a formal deprecation announcement the way retiring a model outright does.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. Bottom line: settle the version strategy before integration, not after the deprecation notice lands</h2>
+          <p>Fast iteration and routine retirement of old versions are just how domestic LLM APIs work; the part teams most often skip isn't "will this get deprecated" but the actual decision of whether to pin a version or use an alias in the first place. Pinning a version buys stable behavior at the cost of tracking deprecation notices yourself; using an alias buys convenience at the cost of accepting that behavior can shift silently at any time — neither is free certainty. Asking the vendor about their deprecation notice mechanism and lead time before integrating, then maintaining an internal model-version watch afterward, beats scrambling to test a new model version the moment a deprecation email arrives.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. Fast iteration means retiring old model versions is routine, not exceptional</a></li>
+          <li><a href="#sec-2">2. Pinning a version vs. using the "latest" alias are two genuinely different trade-offs</a></li>
+          <li><a href="#sec-3">3. Deprecation notice windows aren't standardized — they vary by vendor, so ask before you integrate</a></li>
+          <li><a href="#sec-4">4. Build an internal model-version watch instead of waiting on vendor emails</a></li>
+          <li><a href="#sec-5">5. Bottom line: settle the version strategy before integration, not after the deprecation notice lands</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and Further Reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/model-studio/model-depreciation" target="_blank" rel="noopener nofollow">Alibaba Cloud Model Studio official docs: Model deprecation policy</a>: documents the 30-day notice for snapshot models and 3-month notice for mainline models, plus the rate-limit tightening transition, relevant to Section 3</li>
+            <li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener nofollow">DeepSeek API official docs: Models & Pricing</a>: lists current model IDs with explicit version identifiers and pricing, relevant to Section 2's discussion of version naming</li>
+            <li><a href="https://api-docs.deepseek.com/api/list-models/" target="_blank" rel="noopener nofollow">DeepSeek API official docs: Lists Models endpoint</a>: the official programmatic endpoint for checking currently available models, relevant to Section 4's monitoring recommendation</li>
+          </ul>
+          <p class="ref-note">Information verified on the publish date above. Each vendor's deprecation notice mechanism, lead time, and rate-limit transition policy can change as products evolve; check the official documentation for the platform you actually use. This article is for informational purposes only and does not constitute technical procurement advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/ai-domestic-model-routing-downgrade.html">Is DeepSeek Quietly Swapping Your Model at Peak Hours?</a></li>
+          <li><a href="/en/articles/domestic-ai-cloud-marketplace-billing-entity.html">Buying DeepSeek via Aliyun or Tencent Cloud vs. Direct API</a></li>
+          <li><a href="/en/articles/domestic-ai-reasoning-token-billing.html">Is DeepSeek-R1 reasoning_content Chain-of-Thought Billed?</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI subscriptions, payment channels, virtual cards, and account security, written for people who actually use these services.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios & Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/overseas-ai-virtual-card-solution.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payments</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>Content is for information sharing only; pricing, regional availability, and policies are subject to each AI platform's and payment service's official information.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=8dbd25fe20"></script>
+</body>
+</html>

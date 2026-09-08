@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 08 Sep 2026 14:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Tue, 08 Sep 2026 18:52:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同]]></title>
+    <link>https://ponr.org/articles/domestic-ai-model-version-deprecation.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-model-version-deprecation.html</guid>
+    <pubDate>Tue, 08 Sep 2026 18:52:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。]]></description>
+  </item>
   <item>
     <title><![CDATA[账单里冒出个不认识的收款方名字，别急着找银行拒付AI订阅]]></title>
     <link>https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</link>

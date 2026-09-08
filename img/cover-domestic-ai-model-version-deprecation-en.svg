@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1c"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <text x="40" y="56" font-family="Georgia, serif" font-size="26" fill="#e8f2ea" font-weight="700">Model Deprecation Countdown</text>
+
+  <g transform="translate(70,140)">
+    <rect x="0" y="0" width="240" height="72" rx="12" fill="#1f4a30" stroke="#3f7d55" stroke-width="2"/>
+    <text x="20" y="30" font-family="Consolas, monospace" font-size="16" fill="#9fe3b8">model=</text>
+    <text x="20" y="55" font-family="Consolas, monospace" font-size="18" fill="#ffffff" font-weight="700">deepseek-v3-0324</text>
+  </g>
+
+  <g transform="translate(70,250)">
+    <rect x="0" y="0" width="240" height="72" rx="12" fill="#2a2050" stroke="#5b4a9e" stroke-width="2"/>
+    <text x="20" y="30" font-family="Consolas, monospace" font-size="16" fill="#c6b8f2">model=</text>
+    <text x="20" y="55" font-family="Consolas, monospace" font-size="18" fill="#ffffff" font-weight="700">deepseek-chat (alias)</text>
+  </g>
+
+  <path d="M340 200 L470 200" stroke="#e8b64a" stroke-width="4" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#e8b64a"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(560,140)">
+    <circle cx="70" cy="70" r="68" fill="#20140a" stroke="#e8b64a" stroke-width="4"/>
+    <line x1="70" y1="70" x2="70" y2="28" stroke="#e8b64a" stroke-width="5" stroke-linecap="round"/>
+    <line x1="70" y1="70" x2="102" y2="90" stroke="#e8b64a" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="70" cy="70" r="6" fill="#e8b64a"/>
+    <text x="70" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#f4c86a" font-weight="700">30d / 3mo notice</text>
+  </g>
+
+  <text x="80" y="365" font-family="sans-serif" font-size="16" fill="#b9d8c4">Pin a version, track deprecations yourself. Use an alias, accept silent drift.</text>
+</svg>
