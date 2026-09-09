@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 08 Sep 2026 18:52:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 09:41:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[年付订阅锁的不只是价格，还有退款——中途换月付前该问清楚这两点]]></title>
+    <link>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</guid>
+    <pubDate>Wed, 09 Sep 2026 09:41:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[ChatGPT Plus、Claude Pro、Gemini等海外AI订阅年付通常比月付有折扣，为省钱选年付后半途想换成月付、换低配套餐或干脆退订，退款规则却因平台而异：多数只在购买后7-14天冷静期内可全额或按比例退，过后要么按未使用天数比例退还，要么完全不退，具体比例算法也藏着细节陷阱，下单前务必先问清楚。]]></description>
+  </item>
   <item>
     <title><![CDATA[接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同]]></title>
     <link>https://ponr.org/articles/domestic-ai-model-version-deprecation.html</link>

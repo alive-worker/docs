@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 08 Sep 2026 18:52:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 09:41:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Annual AI Plan Refunds: Cooling-Off vs Prorated vs None]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-annual-plan-refund-proration.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-annual-plan-refund-proration.html</guid>
+    <pubDate>Wed, 09 Sep 2026 09:41:00 +0800</pubDate>
+    <category>Overseas AI Services</category>
+    <description><![CDATA[Annual ChatGPT, Claude, or Gemini plans cut cost, but mid-term refunds differ: cooling-off window, prorated refund, or none, by platform and purchase channel.]]></description>
+  </item>
   <item>
     <title><![CDATA[Hardcoded Model Version vs Alias: Vendor Deprecation Risk]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html</link>
