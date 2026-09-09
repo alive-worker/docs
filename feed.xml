@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 09 Sep 2026 09:41:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 12:53:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」]]></title>
+    <link>https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html</guid>
+    <pubDate>Wed, 09 Sep 2026 12:53:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。]]></description>
+  </item>
   <item>
     <title><![CDATA[年付订阅锁的不只是价格，还有退款——中途换月付前该问清楚这两点]]></title>
     <link>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</link>

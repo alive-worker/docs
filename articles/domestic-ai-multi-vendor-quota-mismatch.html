@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」</title>
+  <meta name="description" content="不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-multi-vendor-quota-mismatch.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」">
+  <meta property="og:description" content="不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html">
+  <meta property="article:published_time" content="2026-09-09T12:53:00+08:00">
+  <meta property="article:modified_time" content="2026-09-09T12:53:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」">
+  <meta name="twitter:description" content="不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-multi-vendor-quota-mismatch.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一张多厂商额度对账表，列出各家生效起点、有效期与用尽后行为，下方三个消耗仪表盘读数不同">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-multi-vendor-quota-mismatch.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-multi-vendor-quota-mismatch.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#webpage", "url": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html", "name": "同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」", "item": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html" }
+    ] },
+    { "@type": "Article", "headline": "同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」", "description": "不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。", "image": "https://ponr.org/img/cover-domestic-ai-multi-vendor-quota-mismatch.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-09T12:53:00+08:00", "dateModified": "2026-09-09T12:53:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["多厂商API", "免费额度", "DeepSeek", "通义千问", "额度对账", "预警监控"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-multi-vendor-quota-mismatch.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」</h1>
+          <p class="article-summary">不少企业为了降低单一厂商依赖风险，或者想横向对比几家国内大模型的效果和成本，会同时接入DeepSeek、通义千问等两三家API做多模型容灾或AB对比。每家厂商注册时基本都会送一笔免费试用额度，但这笔额度从什么时候开始算、能用多久、用完之后是自动转按量付费还是直接报错拒绝调用，各家规则完全不统一。如果财务对账或工程监控没有分厂商把这三件事分别记清楚，某天调用突然报错或者账单突然出现新费用时，很容易先入为主地判断成"系统出故障了"或者"被平台超额扣费"，结果排查方向从一开始就走偏，把本该几分钟能确认的"额度用完了"问题，拖成一场排查半天无果的乌龙。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-09T12:53:00+08:00">2026-09-09 12:53:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-multi-vendor-quota-mismatch.svg" width="800" height="400" alt="一张多厂商额度对账表，列出各家生效起点、有效期与用尽后行为，下方三个消耗仪表盘读数不同" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否已经为每一家接入的大模型厂商，分别在文档里记清楚免费额度的生效起点——是注册账号那一刻就开始计时，还是要等首次调用接口才开始计时</li>
+            <li><span class="article-verify-check">✓</span>是否知道每家免费额度的有效期具体是多少天，过期后是自动作废还是可以一直留着慢慢用完，不同厂商的这条规则不能相互套用</li>
+            <li><span class="article-verify-check">✓</span>是否确认过每家额度用尽后的真实行为——是悄悄自动转成按量付费继续扣钱，还是接口直接返回错误拒绝调用，这两种表现在监控告警里长得完全不一样</li>
+            <li><span class="article-verify-check">✓</span>账号是否完成了厂商要求的企业实名认证——认证状态往往直接决定额度用尽后是"自动按量付费"还是"报错停止"，认证与未认证账号的默认行为可能不同</li>
+            <li><span class="article-verify-check">✓</span>监控系统里是否针对每家厂商的额度消耗单独设了预警阈值，而不是笼统混在一起，等某天调用报错才第一次意识到某家的额度早就见底了</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 为什么企业会同时接入两三家国内大模型API</h2>
+          <p>企业采购国内大模型API时，出于几个现实原因很少会只签一家：一是担心单一厂商出现服务中断、模型下线或价格大幅调整时业务被卡死，想留一条备用链路做容灾切换；二是不同厂商、不同模型在特定任务上的效果、响应速度、价格结构差异不小，接入多家便于用真实业务流量做AB对比，用数据说话而不是只看厂商自己的评测报告；三是有些业务场景干脆按任务类型分流，把成本敏感、精度要求不高的调用路由到便宜的厂商，把关键路径的调用路由到效果更好但更贵的厂商。这些理由都很合理，多云、多厂商本身也是降低供应商锁定风险的常见工程实践。但工程团队在做这类架构决策时，注意力往往全部放在接口兼容性、路由策略、成本对比这些"看得见"的问题上，反而容易漏掉一个不起眼但足够坑人的细节：每家厂商的免费试用额度规则彼此独立，且完全不透明统一。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三个必须分厂商记清楚的具体信息：生效起点、有效期、用尽后行为</h2>
+          <p>免费额度这件事听起来简单，但拆开看至少包含三个各厂商可能给出不同答案的具体信息点，缺一不可。第一，生效起点：额度是从账号注册成功那一刻就开始计时，还是要等到第一次真正调用接口才开始计时，这决定了一个团队如果注册后没有立刻投入使用、隔了几周才开始接入开发，额度会不会已经在开发阶段悄悄流失了一部分。第二，有效期：额度是否设有使用期限，过期是直接作废、不可申请延期或补发，还是没有时间限制、可以一直留到用完为止——以阿里云百炼官方帮助中心的公开说明为例，新人免费额度的有效期是"从开通阿里云百炼、模型发布或模型申请通过之日起计算（以较晚者为准）"的90天，过期后自动失效，不支持补发、延期或重置，这就是一个明确写清楚生效起点和有效期规则的例子。第三，用尽后行为：额度用完后，接口是自动降级、悄悄切换成按量付费继续扣款，还是直接返回错误码拒绝响应——同样以阿里云百炼为例，官方文档说明这一点还会因账号是否完成认证而不同：已认证用户额度用完后自动转为按量付费，未认证用户则无法继续调用，需要完成认证并充值后才能继续按量付费；如果用户额外开启了"用完即停"开关，额度耗尽时还会直接返回HTTP 403错误（错误码AllocationQuota.FreeTierOnly）。这三个信息点，每一个都可能因厂商而异，也可能像阿里云这样，同一厂商内部又因账号认证状态、是否开启某个功能开关而进一步分叉，不能靠"应该都差不多"来假设。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 规则不统一为什么会让"额度用完"被误判成"系统故障"或"超额扣费"</h2>
+          <p>问题出在哪：当企业只用一个统一的调用监控面板盯着"接口报错率"或者只用一张笼统的账单核对"本月总支出"，而没有分厂商拆开记录这三条规则时，某个厂商的免费额度耗尽会以两种完全不同、但都容易被误读的方式表现出来。如果这家厂商的默认行为是用尽后直接报错拒绝调用，工程团队看到的现象就是接口突然大面积返回错误码，第一反应往往是怀疑厂商服务出故障、网络链路有问题，甚至怀疑自己的代码在某次发布后引入了bug，却唯独没往"是不是免费额度用完了"这个方向想，因为团队根本没人记得这家账号的额度还剩多少、什么时候到期。反过来，如果这家厂商的默认行为是用尽后自动降级为按量付费，财务或运维人员在核对月度账单时，会突然看到一笔从未出现过的费用条目，因为在此之前这家厂商的调用一直被免费额度覆盖、账单金额长期是零或很低；这种从零到有的账单突变，很容易被第一反应判断为"被超额扣费"甚至怀疑账号被盗用异常调用，而不是"免费额度到期后系统按设计自动转入按量付费"这个最朴素的解释。两种误判方向不同，但根源是同一个：没有为每家厂商单独维护这三条具体规则，导致真实发生的额度耗尽被系统性地误认为异常事件，排查团队会把时间花在核查网络、核查代码、甚至联系厂商客服申诉"莫名其妙的扣费"，而不是打开后台一看便知的额度使用记录。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 应对办法：为每家厂商单独建档，并在监控里按厂商设独立预警</h2>
+          <p>解决这个问题不需要复杂的架构改动，核心是把"多厂商免费额度规则不统一"当成一个已知的、需要主动管理的运维事项，而不是等出问题才临时排查。具体做两件事：第一，为接入的每一家大模型厂商单独建一份简单的台账，逐条记录前面提到的三个信息——生效起点、有效期、用尽后的具体行为（自动按量付费还是报错，以及是否受账号认证状态影响）——这份台账在签约或首次接入时花十分钟核实清楚就能一次性解决，比出问题后再翻厂商官方文档现查要快得多。第二，在现有的调用监控或成本监控系统里，不要只设一个笼统的"总调用量"或"总费用"告警，而是按厂商分别设置额度消耗的预警阈值，比如某厂商的免费额度消耗到80%时就触发一次通知，而不是等额度真正耗尽、接口开始报错或账单开始变化时才第一次意识到问题。这样即便某家厂商的额度真的快要用完，团队也能提前几天主动决定是切换到备用厂商、临时接受按量付费，还是就此降低这条链路的调用量，而不是被动等着某天早上被一堆报错或一笔陌生账单打个措手不及。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 小结：多厂商接入省下了单点依赖风险，也添了一笔容易被忽略的对账细活</h2>
+          <p>同时接入多家国内大模型API做容灾或效果对比，本身是合理且常见的工程决策，但这个决策附带了一项容易被忽视的运维成本：每家厂商的免费额度生效起点、有效期、用尽后行为都可能不一样，且这些规则通常分散在各家自己的官方文档或帮助中心里，没有行业统一标准可以套用。真正实用的做法是把这三个具体信息点当成接入清单里跟API Key、计费方式同等重要的一项，逐家厂商核实记录清楚，并且在监控系统里为每家单独设置消耗预警——而不是等到某天调用突然报错或者账单里冒出一笔陌生费用时，才手忙脚乱地去猜到底是系统故障、被盗刷，还是仅仅只是免费额度到期了这么简单的一件事。具体规则请始终以你实际接入厂商当时的官方文档为准，本文不代表任何厂商当前的完整计费政策。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 为什么企业会同时接入两三家国内大模型API</a></li>
+          <li><a href="#sec-2">2. 三个必须分厂商记清楚的具体信息：生效起点、有效期、用尽后行为</a></li>
+          <li><a href="#sec-3">3. 规则不统一为什么会让"额度用完"被误判成"系统故障"或"超额扣费"</a></li>
+          <li><a href="#sec-4">4. 应对办法：为每家厂商单独建档，并在监控里按厂商设独立预警</a></li>
+          <li><a href="#sec-5">5. 小结：多厂商接入省下了单点依赖风险，也添了一笔容易被忽略的对账细活</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/model-studio/new-free-quota" target="_blank" rel="noopener nofollow">阿里云百炼官方帮助中心：新人免费额度获取及用完即停开关规则</a>：说明免费额度90天有效期的起算方式、过期不补发不延期，以及已认证/未认证账号用尽后自动按量付费或报错的不同行为，对应本文第2、3节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/new-free-quota-validity-adjustment" target="_blank" rel="noopener nofollow">阿里云百炼官方帮助中心：新人免费额度有效期调整通知</a>：说明免费额度有效期规则本身会随官方公告调整，且新老用户适用规则可能不同，对应本文第2节</li>
+            <li><a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener nofollow">DeepSeek开放平台官方文档：定价与快速开始</a>：DeepSeek官方计费与接入说明入口，免费额度与用尽后具体规则请以该文档当前版本为准</li>
+          </ul>
+          <p class="ref-note">以上信息核实于发布当日，各厂商的免费额度生效起点、有效期时长与用尽后行为会随官方政策调整，且可能因账号认证状态、地域、产品线而进一步细分，实际情况请以你接入厂商当时的官方文档为准，本文仅供工程与财务对账参考，不构成计费纠纷处理建议。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-model-version-deprecation.html">接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同</a></li>
+          <li><a href="/articles/domestic-ai-cross-border-node-compliance.html">给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事</a></li>
+          <li><a href="/articles/domestic-ai-cloud-marketplace-billing-entity.html">阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=b28936af42"></script>
+</body>
+</html>

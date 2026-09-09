@@ -1,0 +1,56 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1d"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <text x="400" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#f4efe4" font-weight="700">Multi-Vendor Quota Reconciliation</text>
+
+  <!-- table header -->
+  <rect x="90" y="82" width="620" height="40" rx="8" fill="#1f4a34" stroke="#7fbf9b" stroke-width="1.5"/>
+  <text x="150" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#eaf3ec" font-weight="700">Vendor</text>
+  <text x="330" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#eaf3ec" font-weight="700">Start Date</text>
+  <text x="490" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#eaf3ec" font-weight="700">Validity</text>
+  <text x="640" y="107" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#eaf3ec" font-weight="700">After Depleted</text>
+
+  <!-- row A -->
+  <rect x="90" y="130" width="620" height="46" rx="6" fill="#f4efe4" opacity="0.95"/>
+  <text x="150" y="159" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#163825" font-weight="700">DeepSeek</text>
+  <text x="330" y="159" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">on sign-up</text>
+  <text x="490" y="159" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">see vendor notice</text>
+  <text x="640" y="159" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">? error / fallback</text>
+
+  <!-- row B -->
+  <rect x="90" y="184" width="620" height="46" rx="6" fill="#f4efe4" opacity="0.95"/>
+  <text x="150" y="213" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#163825" font-weight="700">Qwen</text>
+  <text x="330" y="213" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">90d from first call</text>
+  <text x="490" y="213" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">expires, no reset</text>
+  <text x="640" y="213" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4d6a58">varies by verify status</text>
+
+  <!-- gauges row -->
+  <g transform="translate(210,300)">
+    <circle r="46" fill="none" stroke="#2c5a41" stroke-width="10"/>
+    <circle r="46" fill="none" stroke="#e5c25c" stroke-width="10" stroke-dasharray="180 300" stroke-linecap="round" transform="rotate(-90)"/>
+    <text y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#f4efe4" font-weight="700">62%</text>
+  </g>
+  <g transform="translate(400,300)">
+    <circle r="46" fill="none" stroke="#2c5a41" stroke-width="10"/>
+    <circle r="46" fill="none" stroke="#d76a5a" stroke-width="10" stroke-dasharray="284 300" stroke-linecap="round" transform="rotate(-90)"/>
+    <text y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#f4efe4" font-weight="700">94%</text>
+  </g>
+  <g transform="translate(590,300)">
+    <circle r="46" fill="none" stroke="#2c5a41" stroke-width="10"/>
+    <circle r="46" fill="none" stroke="#7fbf9b" stroke-width="10" stroke-dasharray="90 300" stroke-linecap="round" transform="rotate(-90)"/>
+    <text y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#f4efe4" font-weight="700">30%</text>
+  </g>
+  <text x="210" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#a9c9b6">Vendor A usage</text>
+  <text x="400" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#a9c9b6">Vendor B usage</text>
+  <text x="590" y="366" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#a9c9b6">Vendor C usage</text>
+
+  <circle cx="60" cy="60" r="3" fill="#7fbf9b" opacity="0.5"/>
+  <circle cx="740" cy="60" r="3" fill="#7fbf9b" opacity="0.5"/>
+  <circle cx="60" cy="340" r="3" fill="#7fbf9b" opacity="0.5"/>
+  <circle cx="740" cy="340" r="3" fill="#7fbf9b" opacity="0.5"/>
+</svg>
