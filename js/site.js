@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-student-verify-lapse-renewal.html': '2026-09-09 19:05:00',
+    '/en/articles/overseas-ai-student-verify-lapse-renewal.html': '2026-09-09 19:05:00',
     '/articles/domestic-ai-multi-vendor-quota-mismatch.html': '2026-09-09 12:53:00',
     '/en/articles/domestic-ai-multi-vendor-quota-mismatch.html': '2026-09-09 12:53:00',
     '/articles/overseas-ai-annual-plan-refund-proration.html': '2026-09-09 09:41:00',

@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1c"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+
+  <!-- graduation cap -->
+  <g transform="translate(180,90)">
+    <polygon points="0,0 110,32 0,64 -110,32" fill="#f4d35e"/>
+    <rect x="-14" y="30" width="28" height="46" rx="4" fill="#1f4a30"/>
+    <circle cx="0" cy="76" r="7" fill="#f4d35e"/>
+    <line x1="70" y1="18" x2="88" y2="86" stroke="#f4d35e" stroke-width="3"/>
+    <circle cx="88" cy="90" r="6" fill="#f4d35e"/>
+  </g>
+
+  <!-- student ID card -->
+  <g transform="translate(90,220)">
+    <rect width="220" height="130" rx="14" fill="#e9f5ee" stroke="#9fd8b6" stroke-width="3"/>
+    <circle cx="50" cy="55" r="26" fill="#bfe3cc"/>
+    <rect x="20" y="90" width="60" height="10" rx="5" fill="#7fb894"/>
+    <rect x="100" y="34" width="100" height="10" rx="5" fill="#2f6b45"/>
+    <rect x="100" y="54" width="90" height="8" rx="4" fill="#7fb894"/>
+    <rect x="100" y="70" width="70" height="8" rx="4" fill="#7fb894"/>
+    <rect x="18" y="108" width="184" height="6" rx="3" fill="#c9e9d5"/>
+  </g>
+
+  <!-- envelope marked expired -->
+  <g transform="translate(400,225)">
+    <rect width="200" height="130" rx="12" fill="#2a4636" stroke="#5c8a6c" stroke-width="3"/>
+    <polyline points="0,10 100,90 200,10" fill="none" stroke="#5c8a6c" stroke-width="3"/>
+    <text x="100" y="75" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#f2b8b8" text-anchor="middle" transform="rotate(-8 100 75)">EXPIRED</text>
+  </g>
+
+  <!-- fork arrow -->
+  <g transform="translate(650,150)" stroke="#f4d35e" stroke-width="4" fill="none" stroke-linecap="round">
+    <line x1="0" y1="0" x2="0" y2="40"/>
+    <line x1="0" y1="40" x2="-45" y2="90"/>
+    <line x1="0" y1="40" x2="45" y2="90"/>
+  </g>
+  <text x="595" y="115" font-family="Arial, sans-serif" font-size="15" fill="#cfe9db">Reverify</text>
+  <text x="675" y="115" font-family="Arial, sans-serif" font-size="15" fill="#cfe9db">Full price</text>
+
+  <text x="400" y="40" font-family="Georgia, 'Songti SC', serif" font-size="24" font-weight="700" fill="#f4f8f5" text-anchor="middle">学生优惠续订：验证还是原价？</text>
+</svg>

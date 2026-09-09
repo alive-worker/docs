@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 09 Sep 2026 12:53:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 19:05:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[学生优惠续订踩坑：教育邮箱一失效，是重新验证还是直接按原价扣款]]></title>
+    <link>https://ponr.org/articles/overseas-ai-student-verify-lapse-renewal.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-student-verify-lapse-renewal.html</guid>
+    <pubDate>Wed, 09 Sep 2026 19:05:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[ChatGPT Plus、Perplexity Pro等海外AI的学生折扣，验证机制并非“验证一次终身生效”：有的平台每年要求通过SheerID等服务重新验证学生身份，教育邮箱一旦因毕业、转学、休学而失效，续订时验证不通过，有的平台会直接按原价自动扣款，有的先暂停订阅等待补验证，具体规则因平台而异，订阅前务必确认清楚。]]></description>
+  </item>
   <item>
     <title><![CDATA[同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」]]></title>
     <link>https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html</link>

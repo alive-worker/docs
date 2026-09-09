@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 09 Sep 2026 12:53:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 09 Sep 2026 19:05:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Student Discount Renewal: Reverify or Full Price?]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-student-verify-lapse-renewal.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-student-verify-lapse-renewal.html</guid>
+    <pubDate>Wed, 09 Sep 2026 19:05:00 +0800</pubDate>
+    <category>Overseas AI Subscriptions</category>
+    <description><![CDATA[ChatGPT Plus, Perplexity student discounts aren't verify-once-forever: some need yearly reverification, and a lapsed .edu email can mean full price on renewal.]]></description>
+  </item>
   <item>
     <title><![CDATA[Multi-Vendor AI API Quotas: Depleted vs Overbilled]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-multi-vendor-quota-mismatch.html</link>
