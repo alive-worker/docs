@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的</title>
+  <meta name="description" content="企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的">
+  <meta property="og:description" content="企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html">
+  <meta property="article:published_time" content="2026-09-10T10:15:00+08:00">
+  <meta property="article:modified_time" content="2026-09-10T10:15:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI合规">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的">
+  <meta name="twitter:description" content="企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-generated-content-infringement-liability.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一份服务协议文档上标出知识产权与责任限制章节，旁边一个天平一端是版权符号一端是企业图标，责任箭头在两者间悬而未决">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-generated-content-infringement-liability.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-generated-content-infringement-liability.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#webpage", "url": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html", "name": "接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的", "item": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html" }
+    ] },
+    { "@type": "Article", "headline": "接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的", "description": "企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。", "image": "https://ponr.org/img/cover-domestic-ai-generated-content-infringement-liability.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-10T10:15:00+08:00", "dateModified": "2026-09-10T10:15:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI合规", "keywords": ["生成内容侵权", "责任归属", "服务协议免责条款", "DeepSeek", "通义千问", "知识产权"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-generated-content-infringement-liability.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的</h1>
+          <p class="article-summary">越来越多企业把DeepSeek、通义千问、豆包这类国内大模型API集成进自己的产品，用来批量生成营销文案、配图甚至代码片段，对外发布或直接卖给客户。但很少有人在接入前认真读过服务协议里"知识产权与责任限制"那一章——一旦生成内容被第三方指控侵权（文案抄袭了别人的表达、生成图片跟已有作品高度相似、生成代码里混进了他人版权片段），企业最关心的一件事其实是：这笔责任到底算厂商的还是算自己的，厂商有没有赔偿限额或者干脆写明由用户自行承担。这条条款往往埋在协议很靠后的位置，采购时忙着比价格、比额度，很少有人翻到这一段细读，等真出了纠纷才发现早就被写进了免责条款。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-10T10:15:00+08:00">2026-09-10 10:15:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-generated-content-infringement-liability.svg" width="800" height="400" alt="一份服务协议文档上标出知识产权与责任限制章节，旁边一个天平一端是版权符号一端是企业图标，责任箭头在两者间悬而未决" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>是否翻到过所用厂商服务协议里"知识产权与责任限制"章节，逐字读过关于生成内容侵权责任归属的具体表述，而不是凭印象猜</li>
+            <li><span class="article-verify-check">✓</span>是否确认过协议里有没有约定厂商在生成内容引发侵权纠纷时的赔偿限额（比如封顶在过去12个月实付服务费总额之内）</li>
+            <li><span class="article-verify-check">✓</span>如果生成内容要对外商用发布（营销文案、宣传配图、面向客户的产品文案），是否已经在发布流程里加了一道人工审核环节，而不是把模型输出原样发出去</li>
+            <li><span class="article-verify-check">✓</span>是否清楚一旦被第三方追究侵权，企业作为对外发布主体本身要不要独立承担法律责任，不能假设厂商会代为出面处理</li>
+            <li><span class="article-verify-check">✓</span>是否核实的是当前实际使用的这家厂商的协议原文（而非其他厂商的条款或网上流传的通用说法），因为具体表述因厂商、因产品线而异</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. 企业接入大模型API时最容易漏看的一段协议</h2>
+          <p>企业把DeepSeek、通义千问、豆包这类国内大模型API集成进自己的产品或对外发布的内容生产流程里，采购决策阶段关注的重点通常是模型效果、调用价格、并发额度、SLA这些直接影响业务运行的条款，服务协议里"知识产权与责任限制"这一段往往被放在很靠后的位置，条款本身又写得比较抽象、法律化，忙着上线的技术团队和采购团队很少有人会逐字读完。问题在于，这一段恰恰是决定"出事之后谁来担责"的关键条款——一旦企业用大模型批量生成的营销文案、宣传配图或者代码片段被第三方指控侵权，第一个要面对的问题就是：厂商服务协议有没有替企业兜底这部分责任，还是早就把这块责任划给了调用方自己。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 三类典型场景：文案、图片、代码都可能踩雷</h2>
+          <p>生成内容引发的侵权纠纷并不是抽象的假设，具体到企业实际使用场景，大致有三类：一是用大模型批量生成营销文案、产品介绍、新闻稿之类的文本内容，如果生成结果在表达方式上跟已发表的某篇文章高度雷同，可能构成文字作品的著作权侵权；二是用文生图能力批量生成配图、海报、商品图，如果生成图片跟某个已有的美术作品或摄影作品在构图、细节上高度相似，同样可能被认定为侵权；三是用代码生成能力辅助写业务代码，如果生成的代码片段里混进了某个开源项目或商业代码库里受版权保护、且许可协议要求署名或限制商用的片段，企业直接拿去商用可能踩到版权或开源协议合规的雷区。这三类场景的共同点是：生成内容本身是不是侵权，往往连企业自己事前都很难百分之百确定，风险是概率性的，而不是"用了大模型就一定会摊上官司"。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. "生成内容合规性由用户自行判断和承担"是行业普遍设计，不是某一家特殊</h2>
+          <p>不少企业会想当然地认为，既然是厂商的模型生成的内容，出了侵权问题应该由厂商担责，但这并不是行业里普遍的责任划分方式。以DeepSeek开放平台服务协议为例，协议明确要求开发者作为深度合成/生成式人工智能服务提供者，按照相关法律法规承担在提供生成式人工智能服务中的相应法律责任，且协议约定除非另有约定，任何一方均不负担偶然的、附带的、惩罚性的、特殊的、间接的损失或损害，赔偿责任合计不超过用户就该服务过往十二个月所实际消耗的服务费用总额——也就是说厂商的赔偿责任本身就有明确上限，并非无限兜底。阿里云百炼的服务特别说明里也写明，如因第三方模型、服务或技术引发的任何纠纷，应由该第三方负责解决，阿里云百炼不承担任何责任，"我们不对外部第三方工具的任何陈述、承诺或行为承担责任"。可以看到，"生成内容的合规性由用户自行判断和承担"这类免责表述在国内大模型服务协议里相当常见，是行业普遍的条款设计思路，不是某一家厂商特别严苛，但具体的赔偿限额、免责范围和触发条件，每家厂商的协议原文表述并不完全相同，不能拿一家的条款套用到另一家身上。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 接入前该具体确认的两点，而不是笼统地"注意知识产权风险"</h2>
+          <p>与其泛泛地提醒"接入大模型要注意知识产权风险"，不如具体确认两件事。第一，把服务协议里免责条款的具体表述找出来读一遍，重点看清楚三点：厂商对生成内容侵权是否有任何形式的责任承担或协助处理机制、赔偿责任有没有上限、上限具体怎么计算（是按服务费用总额封顶，还是完全排除赔偿责任）。第二，如果生成内容的用途是对外商用发布——比如直接生成的营销文案要发到官网或社交媒体、生成的图片要用作产品包装或广告素材——要评估现有的内容发布流程里有没有一道人工审核环节作为风险缓释手段，而不是让模型输出未经任何检查就直接对外发布。人工审核不能完全杜绝侵权风险（毕竟审核人员也很难百分百识别出所有雷同），但至少能拦下一部分明显高风险的内容，也能在真出问题时证明企业尽到了合理的注意义务。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 不能指望厂商的服务协议本身替企业兜底法律责任</h2>
+          <p>说到底，厂商的服务协议是厂商用来界定自身责任边界的商业文件，它的存在目的不是替调用方兜底法律责任，而是尽可能明确、缩小厂商自己需要承担的部分。企业如果只是简单假设"用的是大厂模型，出问题厂商会负责"，一旦真的被第三方追究侵权，很可能发现协议早已把生成内容的合规判断责任划给了自己，厂商即便有赔偿义务也大概率设有上限，覆盖不了实际的商业损失。更稳妥的做法是把"生成内容侵权谁负责"当成企业自己内部风险管理的一部分来对待：接入前读清楚协议、评估好业务场景的侵权风险等级、该加人工审核的环节加上，必要时再单独考虑购买覆盖AI生成内容风险的商业保险或者在与厂商签订的补充协议里争取更明确的责任条款，而不是把这件事完全交给一份自己都没细看过的标准服务协议来兜底。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. 企业接入大模型API时最容易漏看的一段协议</a></li>
+          <li><a href="#sec-2">2. 三类典型场景：文案、图片、代码都可能踩雷</a></li>
+          <li><a href="#sec-3">3. "生成内容合规性由用户自行判断和承担"是行业普遍设计，不是某一家特殊</a></li>
+          <li><a href="#sec-4">4. 接入前该具体确认的两点，而不是笼统地"注意知识产权风险"</a></li>
+          <li><a href="#sec-5">5. 不能指望厂商的服务协议本身替企业兜底法律责任</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek开放平台服务协议</a>：明确开发者需按法律法规承担生成式人工智能服务提供中的相应法律责任，并约定赔偿责任合计不超过过往十二个月实际消耗的服务费用总额，对应本文第3节</li>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-terms-of-use.html" target="_blank" rel="noopener nofollow">DeepSeek用户协议</a>：说明用户根据输出内容作出的判断或后续操作所带来的后果和责任均由用户自行承担，以及知识产权投诉的具体反馈渠道，对应本文第2、5节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/bailian-service-notes" target="_blank" rel="noopener nofollow">阿里云百炼服务特别说明</a>：说明如因第三方模型、服务或技术引发的纠纷应由该第三方负责解决、平台不承担相应责任，对应本文第3节</li>
+          </ul>
+          <p class="ref-note">以上信息核实于发布当日，各厂商服务协议里关于生成内容侵权责任、赔偿限额的具体条款会随官方政策调整，且可能因产品线、接入方式（API调用与网页体验）而不同，实际责任划分请以你所用产品当时的官方协议原文为准，本文不代表任何厂商当前的完整责任条款，也不构成法律意见。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-multi-vendor-quota-mismatch.html">同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」</a></li>
+          <li><a href="/articles/domestic-ai-cross-border-node-compliance.html">给DeepSeek、通义千问API传境外客户数据，国内节点和海外节点的合规账不是一回事</a></li>
+          <li><a href="/articles/domestic-ai-api-training-data-clause.html">企业调用大模型API，你的数据会不会被拿去训练模型：协议条款怎么看</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=cf678c8c65"></script>
+</body>
+</html>

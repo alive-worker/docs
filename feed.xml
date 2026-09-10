@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 09 Sep 2026 19:05:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的]]></title>
+    <link>https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html</guid>
+    <pubDate>Thu, 10 Sep 2026 10:15:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。]]></description>
+  </item>
   <item>
     <title><![CDATA[学生优惠续订踩坑：教育邮箱一失效，是重新验证还是直接按原价扣款]]></title>
     <link>https://ponr.org/articles/overseas-ai-student-verify-lapse-renewal.html</link>

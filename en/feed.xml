@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 09 Sep 2026 19:05:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Chinese LLM Output Gets Sued: Vendor or You Liable?]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html</guid>
+    <pubDate>Thu, 10 Sep 2026 10:15:00 +0800</pubDate>
+    <category>Domestic AI Compliance</category>
+    <description><![CDATA[If DeepSeek or Qwen API output gets flagged for copying text or images, liability and payout caps sit in an agreement clause few companies read closely.]]></description>
+  </item>
   <item>
     <title><![CDATA[Student Discount Renewal: Reverify or Full Price?]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-student-verify-lapse-renewal.html</link>

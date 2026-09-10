@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1d"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- document -->
+  <g>
+    <rect x="90" y="70" width="230" height="290" rx="10" fill="#f4f1e8"/>
+    <rect x="90" y="70" width="230" height="290" rx="10" fill="none" stroke="#d8c9a0" stroke-width="2"/>
+    <rect x="115" y="100" width="150" height="14" rx="3" fill="#8a7a4f"/>
+    <rect x="115" y="128" width="180" height="8" rx="3" fill="#cfc3a3"/>
+    <rect x="115" y="146" width="180" height="8" rx="3" fill="#cfc3a3"/>
+    <rect x="115" y="164" width="130" height="8" rx="3" fill="#cfc3a3"/>
+    <rect x="115" y="196" width="180" height="10" rx="3" fill="#b8874f"/>
+    <rect x="115" y="216" width="180" height="8" rx="3" fill="#e0a95f"/>
+    <rect x="115" y="234" width="180" height="8" rx="3" fill="#e0a95f"/>
+    <rect x="115" y="252" width="150" height="8" rx="3" fill="#e0a95f"/>
+    <rect x="115" y="284" width="120" height="8" rx="3" fill="#cfc3a3"/>
+    <rect x="115" y="302" width="150" height="8" rx="3" fill="#cfc3a3"/>
+    <text x="115" y="212" font-family="Georgia, serif" font-size="13" fill="#7a4a1f" font-weight="bold">知识产权与责任限制</text>
+  </g>
+  <!-- balance scale -->
+  <g transform="translate(520,110)">
+    <line x1="0" y1="0" x2="0" y2="160" stroke="#e8dcc0" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-110" y1="20" x2="110" y2="20" stroke="#e8dcc0" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="0" cy="20" r="8" fill="#e8dcc0"/>
+    <!-- left pan: copyright -->
+    <line x1="-110" y1="20" x2="-110" y2="80" stroke="#c9a24a" stroke-width="3"/>
+    <path d="M-160 80 Q-110 120 -60 80 Z" fill="none" stroke="#c9a24a" stroke-width="4"/>
+    <circle cx="-110" cy="60" r="26" fill="#1b4430" stroke="#c9a24a" stroke-width="3"/>
+    <text x="-110" y="69" font-family="Georgia, serif" font-size="30" fill="#f4e6b8" text-anchor="middle">©</text>
+    <!-- right pan: company -->
+    <line x1="110" y1="20" x2="110" y2="100" stroke="#7fb89a" stroke-width="3"/>
+    <path d="M60 100 Q110 140 160 100 Z" fill="none" stroke="#7fb89a" stroke-width="4"/>
+    <rect x="88" y="76" width="44" height="36" rx="4" fill="#1b4430" stroke="#7fb89a" stroke-width="3"/>
+    <rect x="96" y="84" width="8" height="8" fill="#7fb89a"/>
+    <rect x="112" y="84" width="8" height="8" fill="#7fb89a"/>
+    <rect x="96" y="98" width="8" height="8" fill="#7fb89a"/>
+    <rect x="112" y="98" width="8" height="8" fill="#7fb89a"/>
+    <!-- base -->
+    <path d="M-30 160 L30 160 L18 190 L-18 190 Z" fill="#e8dcc0"/>
+    <rect x="-40" y="188" width="80" height="10" rx="3" fill="#e8dcc0"/>
+  </g>
+  <!-- undecided arrow -->
+  <g transform="translate(520,250)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" fill="#f4e6b8" text-anchor="middle" font-weight="bold">？</text>
+  </g>
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="15" fill="#cfe3d6" text-anchor="middle" opacity="0.85">Who is liable when generated content infringes</text>
+</svg>

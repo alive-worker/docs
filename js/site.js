@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-generated-content-infringement-liability.html': '2026-09-10 10:15:00',
+    '/en/articles/domestic-ai-generated-content-infringement-liability.html': '2026-09-10 10:15:00',
     '/articles/overseas-ai-student-verify-lapse-renewal.html': '2026-09-09 19:05:00',
     '/en/articles/overseas-ai-student-verify-lapse-renewal.html': '2026-09-09 19:05:00',
     '/articles/domestic-ai-multi-vendor-quota-mismatch.html': '2026-09-09 12:53:00',
