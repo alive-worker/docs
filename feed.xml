@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 10 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 14:27:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[App Store订阅的ChatGPT Plus想退款，为什么找OpenAI客服没用]]></title>
+    <link>https://ponr.org/articles/overseas-ai-iap-refund-channel-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-iap-refund-channel-mismatch.html</guid>
+    <pubDate>Thu, 10 Sep 2026 14:27:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[通过iOS App Store或Google Play应用内购买订阅ChatGPT Plus这类AI服务时，实际扣款方是苹果或谷歌而不是AI服务商本身，退款申请的正确入口是平台各自的报告问题页面，而不是AI服务商官网客服，找错入口申请退款通常只会被引导回平台重新提交，来回一折腾往往要白白耽误好几天时间。]]></description>
+  </item>
   <item>
     <title><![CDATA[接入DeepSeek、通义千问生成内容被指侵权，这笔责任算厂商的还是自己的]]></title>
     <link>https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html</link>

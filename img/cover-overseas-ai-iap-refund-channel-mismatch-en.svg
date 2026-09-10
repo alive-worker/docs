@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1c"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <text x="40" y="56" font-family="Georgia, serif" font-size="24" fill="#e8f2ea" font-weight="700">Refund Goes to the Platform, Not the Vendor</text>
+
+  <!-- phone with app store icon -->
+  <g transform="translate(70,120)">
+    <rect x="0" y="0" width="150" height="220" rx="18" fill="#0e1f14" stroke="#3f7d55" stroke-width="3"/>
+    <rect x="14" y="24" width="122" height="150" rx="10" fill="#1f4a30"/>
+    <circle cx="75" cy="99" r="42" fill="#2a2050" stroke="#5b4a9e" stroke-width="2"/>
+    <path d="M75 78 a21 21 0 1 0 0.1 0" fill="none" stroke="#c6b8f2" stroke-width="4"/>
+    <text x="75" y="106" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#ffffff" font-weight="700">App</text>
+    <circle cx="75" cy="196" r="10" fill="#3f7d55"/>
+  </g>
+
+  <!-- split chain: user -> platform -> vendor -->
+  <g font-family="Arial, sans-serif" font-size="14" fill="#e8f2ea">
+    <rect x="255" y="150" width="120" height="56" rx="10" fill="#1f4a30" stroke="#3f7d55" stroke-width="2"/>
+    <text x="315" y="183" text-anchor="middle" font-weight="700">Apple / Google</text>
+
+    <rect x="425" y="150" width="115" height="56" rx="10" fill="#20140a" stroke="#e8b64a" stroke-width="2"/>
+    <text x="482" y="183" text-anchor="middle" font-weight="700" fill="#f4c86a">AI Vendor</text>
+
+    <path d="M375 178 L423 178" stroke="#e8b64a" stroke-width="4" marker-end="url(#arrow2)"/>
+  </g>
+  <defs>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#e8b64a"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#e2665a"/>
+    </marker>
+  </defs>
+
+  <!-- refund arrow back to platform -->
+  <g>
+    <path d="M540 240 C 480 280, 380 280, 320 240" stroke="#e2665a" stroke-width="4" fill="none" marker-end="url(#arrowRed)"/>
+    <text x="430" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#f2a89f" font-weight="700">Refund route ✓</text>
+  </g>
+
+  <g opacity="0.55">
+    <path d="M482 206 L482 235" stroke="#8892a0" stroke-width="3" stroke-dasharray="4,4"/>
+    <text x="605" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9fb0a6">vendor can't refund directly</text>
+  </g>
+
+  <text x="620" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#c6b8f2">reportaproblem.apple.com</text>
+  <text x="620" y="352" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#c6b8f2">Google Play refund request</text>
+
+  <text x="80" y="365" font-family="Arial, sans-serif" font-size="15" fill="#b9d8c4">In-app purchases bill through the platform, not the AI vendor</text>
+</svg>

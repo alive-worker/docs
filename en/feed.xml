@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 10 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 14:27:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Your ChatGPT App Store Subscription: Refund Goes to Apple]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-iap-refund-channel-mismatch.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-iap-refund-channel-mismatch.html</guid>
+    <pubDate>Thu, 10 Sep 2026 14:27:00 +0800</pubDate>
+    <category>Overseas AI Subscriptions</category>
+    <description><![CDATA[ChatGPT Plus billed via App Store or Google Play? Apple or Google collects payment, not the vendor, so refunds route through the platform, not vendor support.]]></description>
+  </item>
   <item>
     <title><![CDATA[Chinese LLM Output Gets Sued: Vendor or You Liable?]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html</link>
