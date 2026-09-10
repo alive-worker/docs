@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 10 Sep 2026 14:27:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 17:36:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长]]></title>
+    <link>https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html</guid>
+    <pubDate>Thu, 10 Sep 2026 17:36:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。]]></description>
+  </item>
   <item>
     <title><![CDATA[App Store订阅的ChatGPT Plus想退款，为什么找OpenAI客服没用]]></title>
     <link>https://ponr.org/articles/overseas-ai-iap-refund-channel-mismatch.html</link>

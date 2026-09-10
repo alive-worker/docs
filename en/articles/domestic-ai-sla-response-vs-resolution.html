@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SLA Response Time vs Resolution Time for AI API Tickets</title>
+  <meta name="description" content="When an enterprise AI API batch-errors, filing a support ticket only guarantees an SLA response time, not the resolution time when service is actually restored.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="SLA Response Time vs Resolution Time for AI API Tickets">
+  <meta property="og:description" content="When an enterprise AI API batch-errors, filing a support ticket only guarantees an SLA response time, not the resolution time when service is actually restored.">
+  <meta property="og:url" content="https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html">
+  <meta property="article:published_time" content="2026-09-10T17:36:00+08:00">
+  <meta property="article:modified_time" content="2026-09-10T17:36:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Domestic AI Models">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SLA Response Time vs Resolution Time for AI API Tickets">
+  <meta name="twitter:description" content="When an enterprise AI API batch-errors, filing a support ticket only guarantees an SLA response time, not the resolution time when service is actually restored.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A ticket clock pointing at response time, next to two progress bars comparing a completed response bar against a still-in-progress resolution bar">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution-en.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI Access Guide", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["Overseas AI subscriptions", "Cross-border payments", "Virtual cards", "Stablecoin payments"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 years of full-stack development experience, focused on AI automation workflows", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI Access Guide", "inLanguage": "en", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution-en.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#webpage", "url": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html", "name": "SLA Response Time vs Resolution Time for AI API Tickets", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#breadcrumb" }, "inLanguage": "en" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "SLA Response Time vs Resolution Time for AI API Tickets", "item": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html" }
+    ] },
+    { "@type": "Article", "headline": "SLA Response Time vs Resolution Time for AI API Tickets", "description": "When an enterprise AI API batch-errors, filing a support ticket only guarantees an SLA response time, not the resolution time when service is actually restored.", "image": "https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution-en.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-10T17:36:00+08:00", "dateModified": "2026-09-10T17:36:00+08:00", "inLanguage": "en", "articleSection": "Domestic AI Models", "keywords": ["domestic AI API", "SLA response time", "ticket response", "resolution time", "incident response plan", "enterprise API procurement"], "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price Hike Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-sla-response-vs-resolution.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>SLA Response Time vs Resolution Time for AI API Tickets</h1>
+          <p class="article-summary">Enterprises running batch jobs against domestic AI model APIs like DeepSeek or Qwen occasionally hit a window where a large share of requests come back as 500 errors or timeouts. The first move is usually to file a support ticket per the service agreement. Most commercial or enterprise-tier packages spell out a ticket "response time" commitment in the service agreement or business contract — say, response within 30 minutes or within 2 hours — and that number looks like a clean anchor, so it's tempting to plug it straight into the business's own incident response plan as "the most we'll wait before service is back." But response time and resolution time are two entirely different things: response time is when support first replies and starts working the ticket, not when the root cause is actually fixed and the service is genuinely back to normal. The latter almost never comes with a quantified SLA — it depends on how complex the underlying issue is, and can take anywhere from tens of minutes to several hours. Missing that distinction is exactly what throws an incident plan off its own timeline.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial · Published <time datetime="2026-09-10T17:36:00+08:00">2026-09-10 17:36:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-sla-response-vs-resolution-en.svg" width="800" height="400" alt="A ticket clock pointing at response time, next to two progress bars comparing a completed response bar against a still-in-progress resolution bar" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">Verification Checklist</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>When buying a commercial/enterprise-tier package for a domestic AI model API, did you confirm whether "response time" and "resolution time" are two separately worded clauses in the service agreement, rather than assuming a stated response time also implies a resolution-time promise</li>
+            <li><span class="article-verify-check">✓</span>Does the contract or agreement quantify "resolution time" at all (a specific number of minutes or hours), or does it only use language like "best effort" / "depends on the complexity of the issue" with no firm commitment</li>
+            <li><span class="article-verify-check">✓</span>Does your team's incident response plan directly reuse the vendor's "response time" figure to size the fallback trigger window, instead of re-deriving that window from the fact that response time only marks when support starts working the ticket</li>
+            <li><span class="article-verify-check">✓</span>Have you independently prepared a fallback plan that doesn't depend on the vendor's resolution speed (switching to a backup vendor's API, falling back to a locally hosted model), rather than assuming the vendor will fully fix a batch-error incident within the response window</li>
+            <li><span class="article-verify-check">✓</span>When filing the ticket, did you log the exact error window, sample requests, and error codes, so you can later compare the vendor's actual resolution time against your plan's assumptions and recalibrate the fallback window next time</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. Response time and resolution time: the two terms most easily confused in a service agreement</h2>
+          <p>Enterprise-tier technical support agreements from domestic AI model vendors typically spell out a ticket "response time" (sometimes called first-response time) — the commitment that support or a technical engineer will contact the customer by phone, ticketing system, or a dedicated support group within a set window after a ticket is filed, to confirm the symptoms. That's a process metric: it measures whether the vendor got back to you promptly, not whether the problem got fixed. What actually restores normal service is the separate work of root-causing and fixing (or working around) the issue — the "resolution time," sometimes called processing time or repair time internally — and that stretch is driven by the technical complexity of the issue, its blast radius, and whether cross-team coordination is needed, so it swings far more than response time does. Many vendors explicitly state in their agreements or help documentation that they do not make an absolute commitment on when processing will be complete. Both terms sound like they're about "handling the ticket," which makes them easy to conflate, but in the actual clauses of a service agreement they're two independent timelines that may have no fixed relationship to each other at all.</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. After filing a ticket for batch errors, the vendor's work actually happens in two stages: respond first, then fix</h2>
+          <p>A batch of requests returning 500 errors or timeouts within a given window is a fairly typical failure pattern for enterprises calling an API at scale. After filing a ticket describing the error window, sample requests, and error codes, a vendor's process usually runs in two stages: first, response — support or an on-call engineer verifies the ticket, confirms the symptoms, and gives an initial reply, which is what the agreement's response-time clause actually covers. Second comes the real diagnosis and fix — checking backend service health, scaling, switching nodes, patching code, or whatever the specific remedy turns out to be — and this stage has no uniform completion time; the same vendor can take wildly different amounts of time to resolve different incidents. Getting a "we've received your ticket and are working on it" reply only means stage one is done — it doesn't mean the issue has entered a countdown to resolution. That gap is exactly the part that's easy to overlook.</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. The most common incident-plan mistake: treating response time as an estimated recovery time for the fallback window</h2>
+          <p>Plenty of enterprises reference the vendor's contractual response-time number when drafting their incident response plan, treating it as an estimate of "how long the outage can possibly last" — for example, seeing "response within 2 hours" in the contract and assuming from that "service will be back to normal within roughly 2 hours." Based on that assumption, they either set the fallback trigger window at 2 hours or skip a fallback plan altogether and simply wait on the vendor. If the actual diagnosis and fix take far longer than that — say response did land within 2 hours as promised, but the underlying issue itself took 6 hours to fully resolve — the incident timeline built around a 2-hour window gets thrown off entirely: the point where the team should have switched to a backup plan has already passed, yet the team is still waiting on the vendor's outcome, and the actual business disruption ends up running much longer than the plan anticipated, amplifying the impact. The root of this mistake is treating two differently defined time concepts as if they were the same number.</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. Two things to confirm before purchasing a support package: is response time contractual, is resolution time quantified</h2>
+          <p>Before purchasing a commercial or enterprise-tier technical support package for a domestic AI model API, it's worth asking sales or the technical support team two specific questions directly. First, does the service agreement or business contract contain an explicit, quantified clause for ticket response time (often broken down by issue severity, with a specific number of minutes or hours for each tier) — most vendors do provide concrete numbers here. Second, is there any quantified commitment at all for resolution time (the point at which the issue is actually fixed and service is genuinely restored), or is it handled only with non-binding language like "best effort" or "depends on the specific situation" — as of this writing there's no publicly documented, unified quantified standard for resolution time across major domestic vendors; this varies by vendor and by support tier, so treat the actual service agreement text you receive at purchase as the source of truth rather than assuming the numbers from a different product line or a different vendor apply here too.</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. How to actually write your incident plan: don't assume the vendor will resolve the issue within the response window</h2>
+          <p>The more reliable approach is for a business's own incident response plan to avoid resting on the assumption that "the vendor will fix the problem within the response-time window" at all. Treat response time purely as the point when the vendor starts working the ticket, and independently prepare a fallback plan that doesn't depend on how fast the vendor resolves things — for example, keeping a backup vendor's API pre-configured as a failover target, or having a locally hosted model ready to step in temporarily. Once a batch-error incident runs past whatever disruption window the business can actually tolerate, trigger the fallback based on your own judgment rather than passively waiting for the vendor to declare the issue resolved. At the same time, log the error window, sample requests, and error codes clearly when filing the ticket — that makes it possible to later compare the vendor's actual resolution time against your plan's assumptions, and use that real data to recalibrate the next incident plan's timing instead of continuing to estimate by feel.</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="Table of contents">
+          <h2>Table of Contents</h2>
+          <ol>
+          <li><a href="#sec-1">1. Response time and resolution time: the two terms most easily confused in a service agreement</a></li>
+          <li><a href="#sec-2">2. After filing a ticket for batch errors, the vendor's work actually happens in two stages: respond first, then fix</a></li>
+          <li><a href="#sec-3">3. The most common incident-plan mistake: treating response time as an estimated recovery time for the fallback window</a></li>
+          <li><a href="#sec-4">4. Two things to confirm before purchasing a support package: is response time contractual, is resolution time quantified</a></li>
+          <li><a href="#sec-5">5. How to actually write your incident plan: don't assume the vendor will resolve the issue within the response window</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="Sources and further reading">
+          <h2>Sources and Further Reading</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/document_detail/2928938.html" target="_blank" rel="noopener nofollow">Alibaba Cloud Help Center: What is the Alibaba Cloud Support Plan</a>: explains that Alibaba Cloud commits to a first-response time under its support plans, but does not make an absolute commitment on when an issue's actual processing (repair) will be complete, relevant to sections 1 and 4</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/related-agreements" target="_blank" rel="noopener nofollow">Alibaba Cloud Model Studio (Bailian): Related Agreements</a>: lists the official "Alibaba Cloud Bailian Model Inference Service Level Agreement (SLA)" document entry; specific response and resolution commitments are governed by the agreement text, relevant to section 4</li>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek Open Platform Terms of Service</a>: states the service is provided "as is" with no guarantee against interruption or error, and that technical support is provided "within a necessary scope," without quantifying response or resolution timelines, relevant to sections 1 and 4</li>
+          </ul>
+          <p class="ref-note">Specific commitments on response time and resolution time vary by vendor, product line, and support tier. This article cites verifiable official general statements and example structures; for an actual purchase, consult the specific vendor's service agreement or support plan documentation directly. Verified as of the publish date above, for informational purposes only, and not legal or compliance advice.</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="Related articles">
+          <h2>Related Articles</h2>
+          <ul>
+          <li><a href="/en/articles/domestic-ai-sla-compensation.html">DeepSeek, Qwen Enterprise API Down: Can You Claim SLA Credit</a></li>
+          <li><a href="/en/articles/domestic-ai-multi-vendor-quota-mismatch.html">Multi-Vendor AI API Quotas: Depleted vs Overbilled</a></li>
+          <li><a href="/en/articles/domestic-ai-model-version-deprecation.html">Hardcoded Model Version vs Alias: Vendor Deprecation Risk</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI subscriptions, payment channels, virtual cards, and account security, written for people who actually use these services.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios & Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payments</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>Content is for information sharing only; pricing, regional availability, and policies are subject to each AI platform's and payment service's official information.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2a4939bd1d"></script>
+</body>
+</html>

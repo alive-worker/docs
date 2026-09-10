@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="工单时钟指向响应，两条进度条对比响应时长已完成与解决时长仍在进行中示意图">
+  <defs>
+    <linearGradient id="bgGradRvr" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14201d"/>
+      <stop offset="1" stop-color="#1a2a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgGradRvr)"/>
+
+  <!-- left: ticket clock -->
+  <g transform="translate(150,150)">
+    <rect x="-70" y="-90" width="140" height="34" rx="8" fill="#20342f" stroke="#4fae8a" stroke-width="3"/>
+    <text x="0" y="-67" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="700" fill="#9fe6c4">工单 #500</text>
+    <circle cx="0" cy="20" r="68" fill="#1c2c28" stroke="#7be8b8" stroke-width="4"/>
+    <line x1="0" y1="20" x2="0" y2="-24" stroke="#eef2fb" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="20" x2="34" y2="20" stroke="#f2d18a" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="20" r="5" fill="#eef2fb"/>
+  </g>
+  <text x="150" y="290" text-anchor="middle" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#b6d6c8" opacity="0.85">批量报错，工单已提交</text>
+
+  <!-- right: two progress bars -->
+  <g transform="translate(430,110)">
+    <text x="0" y="-14" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#eef2fb">响应时长</text>
+    <rect x="0" y="0" width="300" height="26" rx="13" fill="#20342f" stroke="#2a4038" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="26" rx="13" fill="#4fae8a"/>
+    <text x="310" y="19" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#7be8b8">已响应</text>
+  </g>
+  <g transform="translate(430,190)">
+    <text x="0" y="-14" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#eef2fb">解决时长</text>
+    <rect x="0" y="0" width="300" height="26" rx="13" fill="#20342f" stroke="#2a4038" stroke-width="2"/>
+    <rect x="0" y="0" width="95" height="26" rx="13" fill="#f2d18a"/>
+    <text x="310" y="19" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#f2d18a">处理中？</text>
+  </g>
+  <text x="430" y="270" font-family="-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#b6d6c8" opacity="0.85">响应≠解决，具体时长以服务协议为准</text>
+
+  <text x="60" y="60" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700" fill="#eef2fb">工单"响应"了，故障还没"解决"</text>
+  <text x="736" y="34" text-anchor="end" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

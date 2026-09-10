@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长</title>
+  <meta name="description" content="企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长">
+  <meta property="og:description" content="企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html">
+  <meta property="article:published_time" content="2026-09-10T17:36:00+08:00">
+  <meta property="article:modified_time" content="2026-09-10T17:36:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="国内AI大模型">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长">
+  <meta name="twitter:description" content="企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="工单时钟指向响应，两条进度条对比响应时长已完成与解决时长仍在进行中示意图">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://ponr.org/#org", "name": "AI服务指南", "url": "https://ponr.org/", "email": "mailto:llf.worker@gmail.com", "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 }, "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" }, "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"] },
+    { "@type": "Person", "@id": "https://ponr.org/about.html#author", "name": "ipfsWeb", "url": "https://ponr.org/about.html#author", "sameAs": ["https://github.com/alive-worker"], "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究", "worksFor": { "@id": "https://ponr.org/#org" } },
+    { "@type": "WebSite", "@id": "https://ponr.org/#website", "url": "https://ponr.org/", "name": "AI服务指南", "inLanguage": "zh-CN", "publisher": { "@id": "https://ponr.org/#org" }, "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+    { "@type": "ImageObject", "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#primaryimage", "url": "https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution.png", "width": 800, "height": 400 },
+    { "@type": "WebPage", "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#webpage", "url": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html", "name": "调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长", "isPartOf": { "@id": "https://ponr.org/#website" }, "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#primaryimage" }, "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#breadcrumb" }, "inLanguage": "zh-CN" },
+    { "@type": "BreadcrumbList", "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#breadcrumb", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长", "item": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html" }
+    ] },
+    { "@type": "Article", "headline": "调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长", "description": "企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。", "image": "https://ponr.org/img/cover-domestic-ai-sla-response-vs-resolution.png", "author": { "@id": "https://ponr.org/about.html#author" }, "publisher": { "@id": "https://ponr.org/#org" }, "datePublished": "2026-09-10T17:36:00+08:00", "dateModified": "2026-09-10T17:36:00+08:00", "inLanguage": "zh-CN", "articleSection": "国内AI大模型", "keywords": ["国内大模型API", "SLA响应时长", "工单响应", "解决时长", "应急预案", "企业API采购"], "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html#webpage" }, "isPartOf": { "@id": "https://ponr.org/#website" } }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/domestic-ai-sla-response-vs-resolution.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长</h1>
+          <p class="article-summary">企业接入DeepSeek、通义千问这类国内大模型API做批量任务时，偶尔会遇到某个时间段内大量请求集中返回500错误或超时，第一反应通常是按服务协议提交工单找技术支持。多数企业采购的商业版/企业版套餐里，服务协议或商务合同上确实会写明工单的"响应时长"承诺——比如30分钟内响应、2小时内响应——这条承诺看起来像是给了一个明确的时间锚点，于是很自然地被套进自己的业务应急预案里，当成"最多等这么久业务就能恢复"的依据。但"响应时长"和"解决时长"是完全不同的两个概念，响应指的是客服或技术支持人员开始处理工单、给出第一次回复的时间，不等于故障排查完成、服务真正恢复正常调用的时间——后者往往没有量化的SLA承诺，取决于问题本身的复杂程度，可能几十分钟就能恢复，也可能拖到数小时以后，这个落差如果没有提前想清楚，会直接打乱企业自己的应急节奏。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-10T17:36:00+08:00">2026-09-10 17:36:00</time></p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-sla-response-vs-resolution.svg" width="800" height="400" alt="工单时钟指向响应，两条进度条对比响应时长已完成与解决时长仍在进行中示意图" fetchpriority="high">
+
+        <div class="article-columns">
+        <div class="article-body">
+
+        <div class="article-verify-panel">
+          <p class="article-verify-title">核验清单</p>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span>采购国内大模型API商业版/企业版套餐时，是否问清楚了服务协议或商务合同里，"响应时长"和"解决时长"是不是两个分开写的独立条款，而不是想当然地认为写了响应时长就等于承诺了解决时长</li>
+            <li><span class="article-verify-check">✓</span>合同或协议里对"解决时长"是否有任何量化承诺（比如具体分钟/小时数），还是只写了"尽力而为""视问题复杂程度而定"这类不作绝对承诺的表述</li>
+            <li><span class="article-verify-check">✓</span>自己团队的业务应急预案里，降级方案的触发时间窗口是不是直接套用了厂商的"响应时长"数字来估算，而不是按"响应时长只是客服开始处理的时间起点"这个事实重新核算</li>
+            <li><span class="article-verify-check">✓</span>是否已经独立准备了不依赖厂商解决时效的降级方案（比如切换备用厂商API、降级到本地部署的模型），而不是假设厂商能在响应时长内就把批量报错问题彻底解决</li>
+            <li><span class="article-verify-check">✓</span>提交工单时是否记录了报错的具体时间段、请求样本和错误码，方便后续核对厂商实际处理耗时与自己应急预案假设之间的差距，为下次调整预案窗口留存依据</li>
+          </ul>
+        </div>
+
+        <section id="sec-1">
+          <h2>1. "响应时长"和"解决时长"，服务协议里最容易被混为一谈的两个词</h2>
+          <p>国内大模型厂商的企业级技术支持服务协议里，通常会明确写出工单的"响应时限"（也叫首次响应时间），指的是客服或技术支持工程师接到工单后，通过电话、工单系统或专属服务群第一次联系用户、确认问题现象的时间承诺；这是一个流程性的时间指标，衡量的是"厂商有没有及时理你"，而不是"问题有没有被解决"。而真正让业务恢复正常调用的，是排查定位、修复或规避故障的"解决时长"（有的厂商内部也叫"处理时限"或"抢修时限"），这一段时间受问题本身的技术复杂度、影响范围、是否需要跨团队协作等因素影响，波动幅度远大于响应时长，很多厂商在服务协议或帮助文档里也明确说明不对处理完成时间作绝对承诺。这两个词字面上都带着"处理工单"的意思，很容易被当成一回事，但在服务协议的实际条款里，它们是两条独立甚至可能完全没有对应关系的时间线。</p>
+        </section>
+        <section id="sec-2">
+          <h2>2. 批量调用报错提工单后，厂商的动作实际分两段：先响应，后处理</h2>
+          <p>企业批量调用API的场景下，某个时间段内大量请求集中返回500错误或超时是比较典型的故障表现，提交工单说明报错时间段、请求样本、错误码之后，厂商这边的处理流程通常分两个阶段：第一阶段是响应，客服或值班工程师核实工单信息、确认故障现象、给出初步反馈，这一步对应服务协议里写明的响应时限；第二阶段才是真正的故障排查与修复，可能涉及查看后端服务状态、扩容、切换节点、代码修复等具体动作，这一步没有统一的完成时间，同一家厂商在不同故障场景下花费的实际处理时间可能差出好几倍。企业提交工单后，收到"已收到您的工单，正在处理"这类首次回复，只代表第一阶段完成，不代表问题已经进入即将解决的倒计时，这中间的落差正是容易被忽略的地方。</p>
+        </section>
+        <section id="sec-3">
+          <h2>3. 应急预案最常踩的坑：把"响应时长"当成"预计恢复时长"来估算降级窗口</h2>
+          <p>不少企业在制定业务应急预案时，会参考厂商合同里写明的响应时长数字，直接当成"故障最多持续这么久"的预估依据，比如看到合同写"2小时内响应"，就在应急预案里假设"最多2小时业务就能恢复正常调用"，据此设定降级方案的触发窗口或者干脆不设降级方案、单纯等厂商处理。一旦实际故障的排查和修复时间大幅超出这个预期——比如响应时长确实在2小时内兑现了，但故障本身用了6小时才彻底解决——原本按2小时窗口设计的应急节奏就会被打乱：该切换备用方案的时间点早就过了，团队却还在等厂商的处理结果，业务持续中断的时间比预案里设想的长得多，造成的影响也随之放大。这个坑的根源就是把两个不同定义的时间概念划了等号。</p>
+        </section>
+        <section id="sec-4">
+          <h2>4. 采购套餐时该问清楚的两件事：响应时长有没有条款，解决时长有没有量化承诺</h2>
+          <p>企业在采购国内大模型API的商业版/企业版技术支持套餐前，建议直接向销售或技术支持团队问清楚两件具体的事：第一，服务协议或商务合同里对工单响应时长是否有明确的量化条款（比如按问题严重级别分别写明多少分钟或小时内响应），这部分通常各厂商都会给出具体数字；第二，对解决时长（即问题实际修复、服务恢复正常调用）是否有任何量化承诺，还是仅以"尽力而为""视具体情况而定"这类不作绝对时限承诺的表述处理——目前没有搜到国内主流厂商对解决时长有统一的公开量化标准，这方面因厂商、因套餐等级而异，需要以自己实际采购时拿到的服务协议原文条款为准，不要凭印象套用其他产品线或其他厂商的经验数字。</p>
+        </section>
+        <section id="sec-5">
+          <h2>5. 自己的应急预案该怎么写：不假设厂商能在响应时长内解决问题</h2>
+          <p>更稳妥的做法是，企业自己的业务应急预案不应该建立在"厂商会在响应时长内把问题解决"这个假设之上，而应该把响应时长单纯理解为"厂商开始处理的时间点"，据此独立准备好不依赖厂商解决时效的降级方案——比如提前配置好备用厂商的API作为容灾切换对象、或者准备一套可以临时顶上的本地部署模型，一旦批量报错的故障持续超过团队能接受的业务影响时间，就按照自己的判断触发降级，而不是被动地一直等厂商给出"已解决"的通知。同时，提交工单时把报错时间段、请求样本、错误码这些信息记录清楚，也方便日后核对厂商实际处理耗时和自己预案假设之间的差距，用真实数据反过来校准下一次应急预案的时间窗口设定，而不是继续凭感觉估算。</p>
+        </section>
+        </div>
+        <div class="article-sidebar">
+        <nav class="toc" aria-label="本文目录">
+          <h2>本文目录</h2>
+          <ol>
+          <li><a href="#sec-1">1. "响应时长"和"解决时长"，服务协议里最容易被混为一谈的两个词</a></li>
+          <li><a href="#sec-2">2. 批量调用报错提工单后，厂商的动作实际分两段：先响应，后处理</a></li>
+          <li><a href="#sec-3">3. 应急预案最常踩的坑：把"响应时长"当成"预计恢复时长"来估算降级窗口</a></li>
+          <li><a href="#sec-4">4. 采购套餐时该问清楚的两件事：响应时长有没有条款，解决时长有没有量化承诺</a></li>
+          <li><a href="#sec-5">5. 自己的应急预案该怎么写：不假设厂商能在响应时长内解决问题</a></li>
+          </ol>
+        </nav>
+        <aside class="references" aria-label="资料来源与延伸阅读">
+          <h2>资料来源与延伸阅读</h2>
+          <ul>
+            <li><a href="https://help.aliyun.com/zh/document_detail/2928938.html" target="_blank" rel="noopener nofollow">阿里云帮助中心：什么是阿里云支持计划</a>：说明阿里云按支持计划承诺工单首次响应时限，但对问题实际处理（抢修完成）时限不作绝对承诺，对应本文第1、4节</li>
+            <li><a href="https://help.aliyun.com/zh/model-studio/related-agreements" target="_blank" rel="noopener nofollow">阿里云百炼（Model Studio）相关协议页面</a>：列出《阿里云百炼模型推理服务等级协议（SLA）》等官方协议文档入口，具体响应与解决承诺以协议原文为准，对应本文第4节</li>
+            <li><a href="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener nofollow">DeepSeek 开放平台服务协议</a>：说明服务以"现状"提供、不保证不中断不出错，技术支持在必要范围内提供，未对响应或解决时限作出量化保证，对应本文第1、4节</li>
+          </ul>
+          <p class="ref-note">不同厂商、不同产品线或支持套餐等级的响应时长、解决时长具体承诺并不完全一致，本文列出的是可查证的官方通用说明与示例结构，实际采购时请直接查阅对应厂商的服务协议或支持计划文档原文，本文核实于发布当日，仅供学习与参考，不构成法律或合规意见。</p>
+        </aside>
+        </div>
+        </div>
+        <aside class="related" aria-label="相关文章">
+          <h2>相关文章</h2>
+          <ul>
+          <li><a href="/articles/domestic-ai-sla-compensation.html">调用DeepSeek、通义千问企业API突然中断，SLA赔偿凭什么申请不到</a></li>
+          <li><a href="/articles/domestic-ai-multi-vendor-quota-mismatch.html">同时接了DeepSeek和通义千问的免费额度，别把「用完了」当成「被超额扣费」</a></li>
+          <li><a href="/articles/domestic-ai-model-version-deprecation.html">接口代码锁的是模型版本号还是「最新版」别名，厂商公告下线时处境完全不同</a></li>
+          </ul>
+        </aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=2a4939bd1d"></script>
+</body>
+</html>
