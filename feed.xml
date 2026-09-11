@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 11 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 15:45:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[员工离职流程走完，RAM子账号里的DeepSeek/通义千问API Key为什么还能继续扣费]]></title>
+    <link>https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</guid>
+    <pubDate>Fri, 11 Sep 2026 15:45:00 +0800</pubDate>
+    <category>国内AI大模型</category>
+    <description><![CDATA[员工离职当天HR系统账号可能已被禁用，但企业开给他的阿里云RAM子账号、DeepSeek或通义千问API Key往往仍能正常调用扣费——权限收回和HR离职流程走的是两条不同步的线，靠每月账单对账才发现异常时费用早已产生，企业应把子账号权限收回列入离职当天必须完成的IT交接清单，而不是事后翻账单才发现。]]></description>
+  </item>
   <item>
     <title><![CDATA[临时聊天真的不留痕迹吗？触发安全审核后ChatGPT、Claude可能仍会记录]]></title>
     <link>https://ponr.org/articles/overseas-ai-temporary-chat-moderation-gap.html</link>

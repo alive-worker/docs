@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 11 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 15:45:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Offboarding Ends, But the LLM API Sub-Account Keeps Billing]]></title>
+    <link>https://ponr.org/en/articles/domestic-ai-subaccount-offboarding-gap.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-subaccount-offboarding-gap.html</guid>
+    <pubDate>Fri, 11 Sep 2026 15:45:00 +0800</pubDate>
+    <category>Domestic AI Models</category>
+    <description><![CDATA[Offboarding disables HR accounts same day, but the RAM sub-account and DeepSeek or Qwen API key often keep billing since HR and IT run separate timelines.]]></description>
+  </item>
   <item>
     <title><![CDATA[Temporary Chat Isn't Untraceable: The Moderation Exception]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-temporary-chat-moderation-gap.html</link>
