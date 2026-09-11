@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-temporary-chat-moderation-gap.html': '2026-09-11 10:15:00',
+    '/en/articles/overseas-ai-temporary-chat-moderation-gap.html': '2026-09-11 10:15:00',
     '/articles/domestic-ai-sla-response-vs-resolution.html': '2026-09-10 17:36:00',
     '/en/articles/domestic-ai-sla-response-vs-resolution.html': '2026-09-10 17:36:00',
     '/articles/overseas-ai-iap-refund-channel-mismatch.html': '2026-09-10 14:27:00',

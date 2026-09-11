@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2a1f"/>
+      <stop offset="1" stop-color="#163825"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f5ec" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#8fd6a8" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <g transform="translate(190,150)">
+    <path d="M0 90 C0 20 30 -30 95 -30 C160 -30 190 20 190 90 L190 130 C190 140 182 148 172 148 L164 148 C158 148 154 143 154 137 L154 122 C154 116 149 111 143 111 C137 111 132 116 132 122 L132 140 C132 146 127 151 121 151 L69 151 C63 151 58 146 58 140 L58 122 C58 116 53 111 47 111 C41 111 36 116 36 122 L36 137 C36 143 32 148 26 148 L18 148 C8 148 0 140 0 130 Z" fill="#e8f5ec" opacity="0.92"/>
+    <circle cx="60" cy="60" r="14" fill="#163825"/>
+    <circle cx="130" cy="60" r="14" fill="#163825"/>
+    <circle cx="60" cy="60" r="5" fill="#e8f5ec"/>
+    <circle cx="130" cy="60" r="5" fill="#e8f5ec"/>
+  </g>
+  <g transform="translate(430,110)">
+    <circle cx="70" cy="70" r="66" fill="url(#lens)" stroke="#e8f5ec" stroke-width="6"/>
+    <circle cx="70" cy="70" r="66" fill="none" stroke="#f4c563" stroke-width="3" stroke-dasharray="4 10"/>
+    <rect x="118" y="118" width="26" height="96" rx="12" transform="rotate(45 118 118)" fill="#e8f5ec"/>
+    <path d="M40 70a30 30 0 0 1 30-30" stroke="#163825" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M55 45 L85 95 M85 45 L55 95" stroke="#c0453f" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="60" y="330" font-family="Georgia, 'Fraunces', serif" font-size="27" fill="#f4f4f0" font-weight="600">Temporary Chat Isn't Untraceable</text>
+  <text x="60" y="365" font-family="Arial, sans-serif" font-size="17" fill="#c7d9cd">Flagged content can still be logged for safety review</text>
+</svg>

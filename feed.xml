@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 10 Sep 2026 17:36:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[临时聊天真的不留痕迹吗？触发安全审核后ChatGPT、Claude可能仍会记录]]></title>
+    <link>https://ponr.org/articles/overseas-ai-temporary-chat-moderation-gap.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-temporary-chat-moderation-gap.html</guid>
+    <pubDate>Fri, 11 Sep 2026 10:15:00 +0800</pubDate>
+    <category>海外AI服务</category>
+    <description><![CDATA[ChatGPT的Temporary Chat、Claude的无痕对话功能承诺不进历史记录、不用于训练模型，但隐私政策里通常留了安全审核例外：一旦对话内容被自动化系统标记为可能违规，即使是临时对话，平台仍可能记录、留存甚至转交人工审核，具体留存时长因平台而异，不能把无痕模式简单等同于绝对不会留下任何痕迹。]]></description>
+  </item>
   <item>
     <title><![CDATA[调用国内大模型API批量报错提工单，SLA承诺的是响应时长不是解决时长]]></title>
     <link>https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html</link>

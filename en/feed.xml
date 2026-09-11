@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 10 Sep 2026 17:36:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 11 Sep 2026 10:15:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Temporary Chat Isn't Untraceable: The Moderation Exception]]></title>
+    <link>https://ponr.org/en/articles/overseas-ai-temporary-chat-moderation-gap.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-temporary-chat-moderation-gap.html</guid>
+    <pubDate>Fri, 11 Sep 2026 10:15:00 +0800</pubDate>
+    <category>Overseas AI Subscriptions</category>
+    <description><![CDATA[ChatGPT Temporary Chat and Claude incognito chats skip history and training, but flagged content may still be retained for safety review, per platform policy.]]></description>
+  </item>
   <item>
     <title><![CDATA[SLA Response Time vs Resolution Time for AI API Tickets]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html</link>
