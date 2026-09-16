@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</loc>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/ai-service-cost-per-accepted-result.html</loc>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</loc>
     <lastmod>2026-09-11T15:45:00+08:00</lastmod>
   </url>
@@ -58,11 +66,11 @@
   </url>
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</loc>
@@ -506,23 +514,23 @@
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-tool-evaluation-framework.html</loc>
-    <lastmod>2026-08-17T11:26:58+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-tool-evaluation-framework.html</loc>
-    <lastmod>2026-08-17T11:26:58+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-subscription-payment-economics.html</loc>
-    <lastmod>2026-08-17T11:26:58+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-subscription-payment-economics.html</loc>
-    <lastmod>2026-08-17T11:26:58+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-application-scenarios-deep-dive.html</loc>
-    <lastmod>2026-08-13T11:07:02+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/ai-tool-cost-virtual-card-tutorial.html</loc>
@@ -738,15 +746,15 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
-    <lastmod>2026-08-13T11:07:02+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-tool-cost-virtual-card-tutorial.html</loc>
@@ -962,7 +970,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/basics/</loc>
-    <lastmod>2026-09-10T17:36:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/topics/virtual-card/</loc>
@@ -978,7 +986,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
-    <lastmod>2026-09-10T17:36:00+08:00</lastmod>
+    <lastmod>2026-09-16T15:14:33+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/virtual-card/</loc>

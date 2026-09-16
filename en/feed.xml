@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 11 Sep 2026 15:45:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 16 Sep 2026 15:14:33 +0800</lastBuildDate>
+  <item>
+    <title>AI Service Costs: Pay Attention to Accepted Results</title>
+    <link>https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</guid>
+    <pubDate>Wed, 16 Sep 2026 15:14:33 +0800</pubDate>
+    <category>AI Service Costs</category>
+    <description>Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.</description>
+  </item>
   <item>
     <title><![CDATA[Offboarding Ends, But the LLM API Sub-Account Keeps Billing]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-subaccount-offboarding-gap.html</link>

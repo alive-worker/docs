@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Service Costs: Pay Attention to Accepted Results</title>
+  <meta name="description" content="Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/ai-service-cost-per-accepted-result.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/ai-service-cost-per-accepted-result.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="AI Service Costs: Pay Attention to Accepted Results">
+  <meta property="og:description" content="Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.">
+  <meta property="og:url" content="https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html">
+  <meta property="article:published_time" content="2026-09-16T15:14:33+08:00">
+  <meta property="article:modified_time" content="2026-09-16T15:14:33+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="AI Service Costs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Service Costs: Pay Attention to Accepted Results">
+  <meta name="twitter:description" content="Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-ai-service-cost-per-accepted-result-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="AI service costs: requests, review and rework divided by accepted results">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-ai-service-cost-per-accepted-result-en.png">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ponr.org/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "llf.worker@gmail.com",
+        "contactType": "editorial"
+      },
+      "knowsAbout": [
+        "Overseas AI subscriptions",
+        "Cross-border payments",
+        "Virtual cards",
+        "Stablecoin payments"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": [
+        "https://github.com/alive-worker"
+      ],
+      "description": "15 years of full-stack development experience, focused on AI automation workflows",
+      "worksFor": {
+        "@id": "https://ponr.org/#org"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://ponr.org/#org"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#primaryimage",
+      "url": "https://ponr.org/img/cover-ai-service-cost-per-accepted-result-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#webpage",
+      "url": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html",
+      "name": "AI Service Costs: Pay Attention to Accepted Results",
+      "isPartOf": {
+        "@id": "https://ponr.org/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#breadcrumb"
+      },
+      "inLanguage": "en",
+      "datePublished": "2026-09-16T15:14:33+08:00",
+      "dateModified": "2026-09-16T15:14:33+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ponr.org/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Articles",
+          "item": "https://ponr.org/en/articles.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Service Costs: Pay Attention to Accepted Results",
+          "item": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "AI Service Costs: Pay Attention to Accepted Results",
+      "description": "Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.",
+      "image": "https://ponr.org/img/cover-ai-service-cost-per-accepted-result-en.png",
+      "author": {
+        "@id": "https://ponr.org/about.html#author"
+      },
+      "publisher": {
+        "@id": "https://ponr.org/#org"
+      },
+      "datePublished": "2026-09-16T15:14:33+08:00",
+      "dateModified": "2026-09-16T15:14:33+08:00",
+      "inLanguage": "en",
+      "articleSection": "AI Service Costs",
+      "keywords": [
+        "AI service costs",
+        "cost per accepted result",
+        "human review",
+        "AI evaluation",
+        "AI subscriptions",
+        "RDVCC"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://ponr.org/#website"
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price Hike Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/ai-service-cost-per-accepted-result.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+<header class="article-head">
+          <h1>AI Service Costs: Pay Attention to Accepted Results</h1>
+          <p class="article-summary">Seats, tokens and requests describe what an AI vendor sells. Accepted task results describe what your team needs. A fast response that requires extensive checking or rewriting may save waiting time while adding work elsewhere. Evaluate the entire delivery process before deciding that an AI service is cheap.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-09-16T15:14:33+08:00">2026-09-16 15:14:33</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-ai-service-cost-per-accepted-result-en.svg" width="800" height="400" alt="AI service costs: requests, review and rework divided by accepted results" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Verification Checklist</p>
+              <ul class="article-verify-list"><li><span class="article-verify-check">✓</span>Choose sanitized real tasks and define correctness, completeness and delivery deadlines before comparing services.</li>
+<li><span class="article-verify-check">✓</span>Include spending on failed tasks, retries and human handling in total cost.</li>
+<li><span class="article-verify-check">✓</span>Record first-pass acceptance, final acceptance, review minutes and failure reasons separately.</li>
+<li><span class="article-verify-check">✓</span>Before renewal, reconcile service and payment charges with accepted task counts and explicit handoff thresholds.</li></ul>
+            </div>
+            <section id="sec-1"><h2>1. Define completion before comparing models</h2><p>A support summary should preserve essential facts without inventing details. A code change should meet the requirement and pass relevant tests. A research note needs sources that support its claims. These tasks require different acceptance rules. Anthropic’s <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener">agent evaluation article</a> distinguishes the execution record from the final outcome: reporting completion does not prove that the intended change actually happened. Inspect deliverables during a trial, not just an impressive demonstration.</p></section>
+<section id="sec-2"><h2>2. Calculate the cost of an accepted result</h2><p>A useful internal metric is <strong>total batch cost divided by the number of finally accepted tasks</strong>. Include allocated subscriptions, requests, retries, human review and rework. Failed tasks still contribute to the numerator. Allocate shared subscriptions consistently across workflows without counting the same expense twice. If no task passes, the batch has produced no usable result; its unit cost cannot be reported as zero.</p><p>Consider two hypothetical batches of 100 comparable tasks. These amounts are illustrative currency units, not vendor prices or measured performance. Service A costs 20 for usage and 180 for human handling, with 80 accepted tasks: 200 / 80 = 2.50 per result. Service B costs 60 for usage and 60 for human handling, with 90 accepted tasks: 120 / 90 ≈ 1.33. B has three times the service fee but a lower delivery cost. Procurement can move expenses into employee time when it optimizes the API price alone.</p></section>
+<section id="sec-3"><h2>3. Keep failures in the trial and define when to stop</h2><p>Use sanitized examples covering ordinary work, difficult inputs and missing information, alongside a manual baseline. Compare services on the same tasks and acceptance rules. Check required fields automatically; sample factual claims and citations with human reviewers. Google Cloud’s <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview" target="_blank" rel="noopener">evaluation documentation</a> distinguishes rating rubrics from the metrics that measure performance against them, a useful basis for turning subjective impressions into explicit checks.</p><p>A small trial can expose problems without proving production reliability. Preserve failed examples, cap retries and task spending, and define a timeout handoff. After changing a model or prompt, rerun the retained tasks. Track first-pass acceptance, final acceptance and review time together rather than hiding repeated attempts behind a final success.</p></section>
+<section id="sec-4"><h2>4. Route by difficulty only when failures are detectable</h2><p>Start verifiable, repetitive tasks with a lower-cost service and escalate difficult cases when external checks indicate trouble: missing fields, inaccessible citations, contradictory answers or failing tests. The model’s own confidence is insufficient evidence for automatic delivery. Where reliable checks are unavailable, human confirmation may be easier to justify than adding another model as a judge.</p><p>Routing adds classification calls, latency and maintenance. At low volume, one service with human review may cost less. First require acceptable quality and turnaround time; then compare unit costs among the qualifying options.</p></section>
+<section id="sec-5"><h2>5. Connect the payment ledger to the outcome ledger</h2><p>For overseas AI subscriptions, visit <a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC virtual cards</a> to review its card and subscription payment options, then verify applicable card types, fees and refund rules against your intended merchant. This is a promotional link. A payment service handles the billing layer; it cannot improve model accuracy or guarantee merchant acceptance.</p><p>Assign each subscription an owner, renewal date, actual spending and accepted-task count. Include payment charges in the same cost calculation. At renewal, ask whether unit cost and human workload improved. Freezing or replacing a card is a separate action from cancelling a subscription. If requests keep increasing without more accepted output, revise the workflow before purchasing additional capacity.</p></section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol><li><a href="#sec-1">Define completion before comparing models</a></li>
+<li><a href="#sec-2">Calculate the cost of an accepted result</a></li>
+<li><a href="#sec-3">Keep failures in the trial and define when to stop</a></li>
+<li><a href="#sec-4">Route by difficulty only when failures are detectable</a></li>
+<li><a href="#sec-5">Connect the payment ledger to the outcome ledger</a></li></ol></nav>
+            <aside class="references" aria-label="Sources and Further Reading"><h2>Sources and Further Reading</h2><ul><li><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener nofollow">Anthropic: Demystifying evals for AI agents</a> — Distinguishes execution traces from actual outcomes when evaluating agents.</li>
+<li><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview" target="_blank" rel="noopener nofollow">Google Cloud: Gen AI evaluation service overview</a> — Explains rubrics and metrics for repeatable output assessment.</li></ul><p class="ref-note">Sources checked on September 16, 2026. The cost formula, hypothetical example and procurement recommendations are our analysis, not vendor performance claims. Current service and payment terms take precedence.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related Articles"><h2>Related Articles</h2><ul><li><a href="/en/articles/ai-tool-evaluation-framework.html">AI Tool Comparisons: Judge by Retention, Not Spec Sheets</a></li>
+<li><a href="/en/articles/ai-application-scenarios-deep-dive.html">How AI Use Cases Shift From Novelty to Daily Workflow</a></li>
+<li><a href="/en/articles/ai-subscription-payment-economics.html">Where AI Subscription Money Actually Goes: Accounts, FX, Cards</a></li></ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form guides on AI subscriptions, payment channels, virtual cards, and account security, written for people who actually use these services.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Popular Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Cards</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Accounts</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All Articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual Card Guide</a></li>
+          <li><a href="/en/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Partners</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI Payments</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Chain Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">Virtual Cards</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Going Global</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI Notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI Services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI News</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For informational purposes only</p>
+      <p>Content is for information sharing only; pricing, regional availability, and policies are subject to each AI platform's and payment service's official information.</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=e7eeafa01e"></script>
+</body>
+</html>

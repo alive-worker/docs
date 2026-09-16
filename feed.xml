@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 11 Sep 2026 15:45:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 16 Sep 2026 15:14:33 +0800</lastBuildDate>
+  <item>
+    <title>AI 服务值不值得买？算清每个合格结果的真实成本</title>
+    <link>https://ponr.org/articles/ai-service-cost-per-accepted-result.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-service-cost-per-accepted-result.html</guid>
+    <pubDate>Wed, 16 Sep 2026 15:14:33 +0800</pubDate>
+    <category>AI服务成本</category>
+    <description>AI服务单次调用便宜，为什么团队总支出反而增加？本文从每个合格结果的成本出发，拆解订阅、重试、人工复核与失败返工四笔账，用可复算的假设案例解释低价模型未必省钱，并给出真实任务验收、分层路由、人工接管和续费复盘方法，帮助个人与团队把预算花在可交付的结果上，同时说明RDVCC虚拟卡在海外订阅支付中的作用与边界。</description>
+  </item>
   <item>
     <title><![CDATA[员工离职流程走完，RAM子账号里的DeepSeek/通义千问API Key为什么还能继续扣费]]></title>
     <link>https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</link>
