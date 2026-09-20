@@ -56,6 +56,13 @@ const { execSync } = require('child_process');
 
 const root = path.resolve(__dirname, '..');
 
+function assertThisSite() {
+  const index = fs.readFileSync(path.join(root, 'index.html'), 'utf-8');
+  if (!index.includes('https://ponr.org/') || index.includes('coin.ponr.org')) {
+    throw new Error('This publish-article.js is for ponr.org (docs). Do not run it in docs-coin.');
+  }
+}
+
 // ---------------------------------------------------------------------------
 // CONFIG — fill this in for each new article, then run the script.
 // ---------------------------------------------------------------------------
@@ -478,6 +485,7 @@ function rebuildAndPropagateHashes() {
 
 // ---------------------------------------------------------------------------
 function main() {
+  assertThisSite();
   if (CONFIG.zhSlug.startsWith('REPLACE-ME') || CONFIG.enSlug.startsWith('REPLACE-ME')) {
     console.error('Fill in CONFIG at the top of this script before running.');
     process.exit(1);
@@ -496,6 +504,7 @@ function main() {
   regenerateFeeds(articles);
   updateSiteJsDates();
   rebuildAndPropagateHashes();
+  execSync('node tools/verify-site.js', { cwd: root, stdio: 'inherit' });
   console.log('\nDone. Now: (1) spot-check JSON-LD validity and tag balance on the touched files,');
   console.log('(2) verify in the browser (featured card, archive list, dark-mode tag colors),');
   console.log('(3) run the SEO audit script.');
