@@ -258,11 +258,19 @@ function insertArchiveItem(lang) {
 function updateHomepage(lang, articles) {
   const file = lang === 'en' ? 'en/index.html' : 'index.html';
   const slug = lang === 'en' ? CONFIG.enSlug : CONFIG.zhSlug;
+  const artPrefix = lang === 'en' ? '/en/articles/' : '/articles/';
   let t = readFile(file);
-  if (t.includes(`${slug}.html`)) { console.log(`  [homepage-${lang}] already updated, skip`); return; }
+  // Only skip if this slug is already the first carousel slide.
+  // ItemList / grid / hotpicks also contain article slugs — that is NOT pinned.
+  const pinRe = new RegExp(
+    `carousel-slide-info" data-index="0"[\\s\\S]{0,1200}${artPrefix}${slug}\\.html`
+  );
+  if (pinRe.test(t)) {
+    console.log(`  [homepage-${lang}] already first carousel slide, skip`);
+    return;
+  }
 
   const cfgLang = lang === 'en' ? CONFIG.en : CONFIG.zh;
-  const artPrefix = lang === 'en' ? '/en/articles/' : '/articles/';
   const coverPrefix = lang === 'en' ? `cover-${CONFIG.zhSlug.replace(/^overseas-ai-/, '')}-en` : `cover-${CONFIG.zhSlug.replace(/^overseas-ai-/, '')}`;
 
   // bump the literal article-count hero-stat only ("个主题"/"Topics" tracks a
@@ -275,7 +283,9 @@ function updateHomepage(lang, articles) {
 
   const featuredRe = /<section class="featured-article"[\s\S]*?<\/section>/;
   const oldFeaturedMatch = t.match(featuredRe);
-  if (!oldFeaturedMatch) throw new Error(`[homepage-${lang}] featured-article section not found`);
+  if (!oldFeaturedMatch) {
+    throw new Error(`[homepage-${lang}] homepage is carousel-based; ${slug} is not the first slide. Pin carousel/hotpicks/grid manually — ItemList presence is not a pin.`);
+  }
   const oldBlock = oldFeaturedMatch[0];
 
   if (CONFIG.promoteToFeatured) {

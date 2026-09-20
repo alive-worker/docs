@@ -105,6 +105,92 @@ for (const [topic, hub] of Object.entries(TOPIC_HUB)) {
 }
 check('topic hubs list every archive item of that topic', hubMissing === 0, `missing=${hubMissing}`);
 
+function decodeEntities(s) {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&mdash;/g, '\u2014')
+    .replace(/&ndash;/g, '\u2013');
+}
+function jsonString(html, key) {
+  const m = html.match(new RegExp(`"${key}":\\s*"((?:\\\\.|[^"\\\\])*)"`));
+  if (!m) return '';
+  try {
+    return JSON.parse(`"${m[1]}"`);
+  } catch (e) {
+    return decodeEntities(m[1].replace(/\\"/g, '"'));
+  }
+}
+function webPageName(html) {
+  const m = html.match(/"@type":\s*"WebPage"[\s\S]*?"name":\s*"((?:\\.|[^"\\])*)"/);
+  if (!m) return '';
+  try {
+    return JSON.parse(`"${m[1]}"`);
+  } catch (e) {
+    return decodeEntities(m[1].replace(/\\"/g, '"'));
+  }
+}
+
+let titleH1Bad = 0;
+let headlineBad = 0;
+let webPageBad = 0;
+let brandSuffix = 0;
+let descBad = 0;
+let jsonLdBad = 0;
+const articleFiles = [
+  ...zhSlugs.map((s) => ({ rel: `articles/${s}.html`, lang: 'zh' })),
+  ...enSlugs.map((s) => ({ rel: `en/articles/${s}.html`, lang: 'en' })),
+];
+for (const { rel, lang } of articleFiles) {
+  const html = read(rel);
+  const title = decodeEntities(((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '').trim());
+  const h1 = decodeEntities(((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '').replace(/<[^>]+>/g, '').trim());
+  if (title !== h1) {
+    titleH1Bad++;
+    if (titleH1Bad <= 8) console.log(`  title≠h1 ${rel}`);
+  }
+  const headline = jsonString(html, 'headline');
+  if (headline !== title) {
+    headlineBad++;
+    if (headlineBad <= 8) console.log(`  headline≠title ${rel}`);
+  }
+  const wp = webPageName(html);
+  if (wp !== title || / - AI(?:服务指南| Access Guide)$/.test(wp)) {
+    webPageBad++;
+    if (webPageBad <= 8) console.log(`  webpage.name ${rel}`);
+  }
+  if (/ - AI服务指南$/.test(title) || / - AI Access Guide$/.test(title)) brandSuffix++;
+  const descRaw = ((html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
+  const decodedLen = [...decodeEntities(descRaw)].length;
+  const literalLen = descRaw.length;
+  const min = lang === 'zh' ? 150 : 140;
+  const max = 160;
+  if (decodedLen < min || decodedLen > max || literalLen < min || literalLen > max) {
+    descBad++;
+    if (descBad <= 8) console.log(`  desc ${rel} literal=${literalLen} decoded=${decodedLen}`);
+  }
+  const ld = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if (!ld) {
+    jsonLdBad++;
+  } else {
+    try {
+      JSON.parse(ld[1]);
+    } catch (e) {
+      jsonLdBad++;
+    }
+  }
+}
+check('article title equals H1 (decoded)', titleH1Bad === 0, `mismatch=${titleH1Bad}`);
+check('article JSON-LD headline equals title', headlineBad === 0, `mismatch=${headlineBad}`);
+check('article WebPage.name equals title, no brand suffix', webPageBad === 0, `bad=${webPageBad}`);
+check('article title has no brand suffix', brandSuffix === 0, `bad=${brandSuffix}`);
+check('article description length (literal and decoded)', descBad === 0, `outOfRange=${descBad}`);
+check('article JSON-LD parses', jsonLdBad === 0, `bad=${jsonLdBad}`);
+
 let pass = 0;
 let fail = 0;
 for (const [label, ok, detail] of checks) {

@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 20 Sep 2026 13:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 16:07:01 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Chat Stopped, Knowledge Base Still Bills]]></title>
+    <link>https://ponr.org/en/articles/rag-knowledge-base-still-bills.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/rag-knowledge-base-still-bills.html</guid>
+    <pubDate>Sun, 20 Sep 2026 16:07:01 +0800</pubDate>
+    <category>Knowledge Base</category>
+    <description><![CDATA[Closing chat does not stop KB spec hours. Aliyun splits spec from embedding/rerank; free hours cover standard spec only. Volcengine: delete the KB to stop.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why ChatGPT Charges but Claude API Declines]]></title>
     <link>https://ponr.org/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html</link>
@@ -528,7 +536,7 @@
     <description><![CDATA[Free AI trials default to auto-renewal, not cancellation. This piece covers trial dark patterns, why renewal dates slip, and how a virtual card caps the risk.]]></description>
   </item>
   <item>
-    <title><![CDATA[Where AI Subscription Money Actually Goes: Accounts, FX, Cards]]></title>
+    <title><![CDATA[Where AI Subscription Money Goes: Accounts, FX & Cards]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-payment-economics.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-payment-economics.html</guid>
     <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
@@ -808,7 +816,7 @@
     <description><![CDATA[Stablecoin payments scatter small balances across chains — too little anywhere to renew with. How to inventory, consolidate, and avoid common mistakes.]]></description>
   </item>
   <item>
-    <title><![CDATA[Stablecoin Payment Failed? A Troubleshooting Guide for AI Subscriptions]]></title>
+    <title><![CDATA[Stablecoin Payment Failed? Troubleshooting Guide]]></title>
     <link>https://ponr.org/en/articles/stablecoin-payment-troubleshooting-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/stablecoin-payment-troubleshooting-guide.html</guid>
     <pubDate>Wed, 08 Jul 2026 15:01:37 +0800</pubDate>
@@ -816,7 +824,7 @@
     <description><![CDATA[A stablecoin payment stuck pending, confirmed but unrecognized, or failed — each needs a different fix. Check the transaction hash, then follow this order.]]></description>
   </item>
   <item>
-    <title><![CDATA[The Stablecoin Cross-Chain Swap Tool Guide for AI Subscriptions]]></title>
+    <title><![CDATA[Best Stablecoin Cross-Chain Swap Tools for AI Subs]]></title>
     <link>https://ponr.org/en/articles/stablecoin-swap-tools-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/stablecoin-swap-tools-guide.html</guid>
     <pubDate>Wed, 08 Jul 2026 14:15:55 +0800</pubDate>
@@ -824,7 +832,7 @@
     <description><![CDATA[Holding the wrong chain's stablecoin is a common reason payments get stuck. What to check in a swap tool — quotes, fees, settlement speed, and custody.]]></description>
   </item>
   <item>
-    <title><![CDATA[Choosing the Right Tools for Overseas AI Subscriptions: Payments, Network &amp; Account Management]]></title>
+    <title><![CDATA[Best Tools for Overseas AI Subscriptions (2026)]]></title>
     <link>https://ponr.org/en/articles/tool-selection-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/tool-selection-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 16:00:49 +0800</pubDate>
@@ -832,7 +840,7 @@
     <description><![CDATA[Payments, network, and account tools for overseas AI subscriptions keep multiplying. How to tell if a tool is reliable, and why hands-on reviews beat marketing.]]></description>
   </item>
   <item>
-    <title><![CDATA[Sent Stablecoins to the Wrong Chain? A Recovery Guide for AI Subscriptions]]></title>
+    <title><![CDATA[Sent Stablecoins to the Wrong Chain? Recovery Guide]]></title>
     <link>https://ponr.org/en/articles/cross-chain-recovery-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/cross-chain-recovery-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 15:39:43 +0800</pubDate>
@@ -840,7 +848,7 @@
     <description><![CDATA[Sent a stablecoin to the wrong chain? What actually happens to your funds, what to check first, common mix-ups, and how to recover and consolidate assets.]]></description>
   </item>
   <item>
-    <title><![CDATA[Virtual Card Declined? A Troubleshooting Guide for AI Subscriptions]]></title>
+    <title><![CDATA[Virtual Card Declined? AI Subscription Fix Guide]]></title>
     <link>https://ponr.org/en/articles/virtual-card-troubleshooting-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-troubleshooting-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:29:26 +0800</pubDate>
@@ -848,7 +856,7 @@
     <description><![CDATA[Balance is there but your card still got declined? AVS mismatches, failed 3DS checks, flagged card ranges, and limit issues — the four causes and fixes.]]></description>
   </item>
   <item>
-    <title><![CDATA[Fund Reserve &amp; On-Chain Asset Management for AI Subscriptions]]></title>
+    <title><![CDATA[Fund Reserve &amp; On-Chain Asset Management Guide]]></title>
     <link>https://ponr.org/en/articles/fund-reserve-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/fund-reserve-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:15:45 +0800</pubDate>
@@ -856,7 +864,7 @@
     <description><![CDATA[Plan ahead instead of scrambling after a failed renewal: how much reserve to keep, what form to hold it in, picking the right chain, and consolidating assets.]]></description>
   </item>
   <item>
-    <title><![CDATA[Family &amp; Shared Plans for AI Subscriptions: A Practical Guide]]></title>
+    <title><![CDATA[Family &amp; Shared Plans for AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/family-plan-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/family-plan-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 11:26:04 +0800</pubDate>
@@ -864,7 +872,7 @@
     <description><![CDATA[Splitting ChatGPT Plus or Claude Pro across a household? How family plans differ from team plans, who pays, and what happens when someone leaves.]]></description>
   </item>
   <item>
-    <title><![CDATA[Invoices &amp; Expense Reports for AI Subscriptions: A Reimbursement Guide]]></title>
+    <title><![CDATA[Invoices &amp; Expense Reports for AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/invoice-reimbursement-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/invoice-reimbursement-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 10:30:00 +0800</pubDate>
@@ -872,7 +880,7 @@
     <description><![CDATA[Need to expense a ChatGPT Plus or Claude subscription? Getting official receipts, backing up card or stablecoin payments, and avoiding finance rejections.]]></description>
   </item>
   <item>
-    <title><![CDATA[Student &amp; Education Discounts for AI Subscriptions: Verification Guide]]></title>
+    <title><![CDATA[Student &amp; Education Discounts for AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/student-discount-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/student-discount-guide.html</guid>
     <pubDate>Tue, 07 Jul 2026 09:40:00 +0800</pubDate>
@@ -880,7 +888,7 @@
     <description><![CDATA[ChatGPT Plus, Gemini, and Perplexity offer student discounts, but verification often stalls. Education-email and third-party verification paths, explained.]]></description>
   </item>
   <item>
-    <title><![CDATA[The Real Cost of Paying for an AI Subscription From Abroad: Exchange Rates, Fees &amp; Markups]]></title>
+    <title><![CDATA[The Real Cost of Paying for AI Subscriptions Abroad]]></title>
     <link>https://ponr.org/en/articles/exchange-rate-fees-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/exchange-rate-fees-guide.html</guid>
     <pubDate>Mon, 06 Jul 2026 13:35:00 +0800</pubDate>
@@ -888,7 +896,7 @@
     <description><![CDATA[Cards, virtual cards, and stablecoins can leave very different amounts leaving your pocket. Currency conversion traps, FX fees, and network costs explained.]]></description>
   </item>
   <item>
-    <title><![CDATA[Canceling or Getting a Refund on an AI Subscription: Downgrades, Pauses &amp; Refund Requests]]></title>
+    <title><![CDATA[Canceling &amp; Refunding an AI Subscription: Full Guide]]></title>
     <link>https://ponr.org/en/articles/cancellation-refund-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/cancellation-refund-guide.html</guid>
     <pubDate>Mon, 06 Jul 2026 10:58:00 +0800</pubDate>
@@ -896,7 +904,7 @@
     <description><![CDATA[How to cancel, downgrade, or get a refund on ChatGPT, Claude, or Gemini — official policies, refund timing, and how card and stablecoin refunds differ.]]></description>
   </item>
   <item>
-    <title><![CDATA[AI Subscription Account Security: Two-Factor Auth, Suspicious Logins &amp; Account Recovery]]></title>
+    <title><![CDATA[AI Subscription Account Security &amp; Recovery Guide]]></title>
     <link>https://ponr.org/en/articles/account-security-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/account-security-guide.html</guid>
     <pubDate>Fri, 03 Jul 2026 10:11:23 +0800</pubDate>
@@ -904,7 +912,7 @@
     <description><![CDATA[How to secure your ChatGPT, Claude, or Gemini account: two-factor auth, password hygiene, team permission limits, and recovering a restricted account.]]></description>
   </item>
   <item>
-    <title><![CDATA[AI Subscription Renewal Failed? Emergency Recovery Guide]]></title>
+    <title><![CDATA[AI Subscription Renewal Failed? Emergency Guide]]></title>
     <link>https://ponr.org/en/articles/renewal-failure-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/renewal-failure-guide.html</guid>
     <pubDate>Thu, 02 Jul 2026 18:20:00 +0800</pubDate>
@@ -912,7 +920,7 @@
     <description><![CDATA[ChatGPT or Claude renewal suddenly failed? How to diagnose the cause, two recovery paths, and how to top up funds fast with crypto you already hold.]]></description>
   </item>
   <item>
-    <title><![CDATA[Network &amp; Region Check Before You Subscribe: Stable Connections, Consistent Billing Regions]]></title>
+    <title><![CDATA[Network &amp; Region Check Before You Subscribe to AI]]></title>
     <link>https://ponr.org/en/articles/network-region-check.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/network-region-check.html</guid>
     <pubDate>Thu, 02 Jul 2026 15:45:00 +0800</pubDate>
@@ -920,7 +928,7 @@
     <description><![CDATA[Before subscribing to ChatGPT, Claude, or Gemini, check your connection stability and billing-region consistency to avoid failed sign-ups and re-verification.]]></description>
   </item>
   <item>
-    <title><![CDATA[Paying for AI Subscriptions with Stablecoins: USDT/USDC Chain Selection &amp; Bridging Guide]]></title>
+    <title><![CDATA[Paying for AI Subscriptions with Stablecoins]]></title>
     <link>https://ponr.org/en/articles/stablecoin-payment-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/stablecoin-payment-guide.html</guid>
     <pubDate>Thu, 02 Jul 2026 09:30:09 +0800</pubDate>
@@ -928,7 +936,7 @@
     <description><![CDATA[A practical guide to stablecoin payments: why USDT/USDC work, picking the right chain, bridging scattered assets into the coin you need, and avoiding mistakes.]]></description>
   </item>
   <item>
-    <title><![CDATA[Using Virtual Cards for AI Subscriptions: Choosing, Funding &amp; Keeping Renewals Stable]]></title>
+    <title><![CDATA[Using Virtual Cards for AI Subscriptions: Full Guide]]></title>
     <link>https://ponr.org/en/articles/virtual-card-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-guide.html</guid>
     <pubDate>Wed, 01 Jul 2026 22:34:44 +0800</pubDate>
@@ -936,7 +944,7 @@
     <description><![CDATA[How to pick a reliable virtual card for ChatGPT or Claude, fund it with USDT, pass AVS and 3DS checks, and keep auto-renewal running long-term.]]></description>
   </item>
   <item>
-    <title><![CDATA[Managing AI Subscriptions for Teams &amp; Multiple Accounts: Cost, Renewals &amp; Reconciliation]]></title>
+    <title><![CDATA[Managing AI Subscriptions for Teams: Full Guide]]></title>
     <link>https://ponr.org/en/articles/team-subscription-management.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/team-subscription-management.html</guid>
     <pubDate>Wed, 01 Jul 2026 17:33:12 +0800</pubDate>
@@ -944,7 +952,7 @@
     <description><![CDATA[A practical guide for teams juggling multiple AI subscriptions: seat planning, renewal stability, funding, and reconciliation, avoiding unused seats.]]></description>
   </item>
   <item>
-    <title><![CDATA[AI Subscription Payment Methods Compared: Cards, Virtual Cards &amp; Stablecoins]]></title>
+    <title><![CDATA[AI Subscription Payment Methods Compared]]></title>
     <link>https://ponr.org/en/articles/payment-methods-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/payment-methods-guide.html</guid>
     <pubDate>Wed, 01 Jul 2026 16:25:22 +0800</pubDate>
@@ -952,7 +960,7 @@
     <description><![CDATA[A side-by-side comparison of cards, virtual cards, and stablecoins for AI subscriptions — cost, success rate, address matching, and renewal reliability.]]></description>
   </item>
   <item>
-    <title><![CDATA[The Complete Guide to Subscribing to ChatGPT, Claude, Gemini &amp; More]]></title>
+    <title><![CDATA[Complete Guide to Subscribing to ChatGPT &amp; Claude]]></title>
     <link>https://ponr.org/en/articles/subscription-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/subscription-guide.html</guid>
     <pubDate>Wed, 01 Jul 2026 14:30:45 +0800</pubDate>

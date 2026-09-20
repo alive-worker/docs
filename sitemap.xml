@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/rag-knowledge-base-still-bills.html</loc>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-knowledge-base-idle-billing.html</loc>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html</loc>
     <lastmod>2026-09-20T13:10:00+08:00</lastmod>
   </url>
@@ -82,11 +90,11 @@
   </url>
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-09-20T13:10:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-09-20T13:10:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</loc>
@@ -762,11 +770,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-09-20T13:10:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-09-20T13:10:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -998,7 +1006,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -1014,7 +1022,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-09-11T15:45:00+08:00</lastmod>
+    <lastmod>2026-09-20T16:07:01+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/tools/price-hike-calculator.html</loc>

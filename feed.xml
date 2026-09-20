@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 20 Sep 2026 13:10:00 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 16:07:01 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[对话早就停了，知识库为什么还在按小时扣费？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-knowledge-base-idle-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-knowledge-base-idle-billing.html</guid>
+    <pubDate>Sun, 20 Sep 2026 16:07:01 +0800</pubDate>
+    <category>知识库账单</category>
+    <description><![CDATA[对话窗口关了，国内知识库仍可能按规格小时在扣。阿里云百炼把规格费与向量、排序、问答模型拆开，免费时长只抵标准版规格、不抵模型调用；应用挂多个库检索时，向量化和排序还会按库数加倍消耗。火山侧创建并上传即预留计算资源，删文档不停表，必须删库才停。停对话不等于停账单，财务只看token、工程只看对话，都会漏掉时长费。]]></description>
+  </item>
   <item>
     <title><![CDATA[同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html</link>
