@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html': '2026-09-20 13:10:00',
+    '/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html': '2026-09-20 13:10:00',
     '/articles/ai-service-continuity-layer.html': '2026-09-20 10:36:47',
     '/en/articles/ai-service-continuity-layer.html': '2026-09-20 10:36:47',
     '/articles/ai-service-cost-per-accepted-result.html': '2026-09-16 15:14:33',

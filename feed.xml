@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 20 Sep 2026 10:36:47 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 13:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html</guid>
+    <pubDate>Sun, 20 Sep 2026 13:10:00 +0800</pubDate>
+    <category>账单通道</category>
+    <description><![CDATA[同一张虚拟卡能付ChatGPT Plus，却买不了Claude或OpenAI的API积分，多半不是卡里没钱。OpenAI把订阅和API分账，并写明预付卡不能买API积分；Claude Console走预付积分，还要求账单地址与发卡国一致。把订阅通道和API通道拆开核验，别拿换模型去修被拒的卡，先看账本。]]></description>
+  </item>
   <item>
     <title><![CDATA[AI 服务突然不能用？先查到账，再怪模型]]></title>
     <link>https://ponr.org/articles/ai-service-continuity-layer.html</link>
@@ -16,19 +24,19 @@
     <description><![CDATA[AI服务突然不能用，往往不是模型挂了。本文把AI服务拆成能力、数据和到账三层，对照OpenAI续费失败说明、ChatGPT与API分账以及Claude用量限制，给出账单核验、工作区导出和稳定币提前到账方法，说明跨链兑换只解决资金到位，并给出可执行核验清单，避免用换模型去修被拒的卡，也别把额度用尽当成宕机。]]></description>
   </item>
   <item>
-    <title>AI 服务值不值得买？算清每个合格结果的真实成本</title>
+    <title><![CDATA[AI 服务值不值得买？算清每个合格结果的真实成本]]></title>
     <link>https://ponr.org/articles/ai-service-cost-per-accepted-result.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-service-cost-per-accepted-result.html</guid>
     <pubDate>Wed, 16 Sep 2026 15:14:33 +0800</pubDate>
     <category>AI服务成本</category>
-    <description>AI服务单次调用便宜，为什么团队总支出反而增加？本文从每个合格结果的成本出发，拆解订阅、重试、人工复核与失败返工四笔账，用可复算的假设案例解释低价模型未必省钱，并给出真实任务验收、分层路由、人工接管和续费复盘方法，帮助个人与团队把预算花在可交付的结果上，同时说明RDVCC虚拟卡在海外订阅支付中的作用与边界。</description>
+    <description><![CDATA[AI服务单次调用便宜，为什么团队总支出反而增加？本文从每个合格结果的成本出发，拆解订阅、重试、人工复核与失败返工四笔账，用可复算的假设案例解释低价模型未必省钱，并给出真实任务验收、分层路由、人工接管和续费复盘方法，帮助个人与团队把预算花在可交付的结果上，同时说明RDVCC虚拟卡在海外订阅支付中的作用与边界。]]></description>
   </item>
   <item>
     <title><![CDATA[员工离职流程走完，RAM子账号里的DeepSeek/通义千问API Key为什么还能继续扣费]]></title>
     <link>https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-subaccount-offboarding-gap.html</guid>
     <pubDate>Fri, 11 Sep 2026 15:45:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>离职时间差</category>
     <description><![CDATA[员工离职当天HR系统账号可能已被禁用，但企业开给他的阿里云RAM子账号、DeepSeek或通义千问API Key往往仍能正常调用扣费——权限收回和HR离职流程走的是两条不同步的线，靠每月账单对账才发现异常时费用早已产生，企业应把子账号权限收回列入离职当天必须完成的IT交接清单，而不是事后翻账单才发现。]]></description>
   </item>
   <item>
@@ -36,7 +44,7 @@
     <link>https://ponr.org/articles/overseas-ai-temporary-chat-moderation-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-temporary-chat-moderation-gap.html</guid>
     <pubDate>Fri, 11 Sep 2026 10:15:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>隐私落差</category>
     <description><![CDATA[ChatGPT的Temporary Chat、Claude的无痕对话功能承诺不进历史记录、不用于训练模型，但隐私政策里通常留了安全审核例外：一旦对话内容被自动化系统标记为可能违规，即使是临时对话，平台仍可能记录、留存甚至转交人工审核，具体留存时长因平台而异，不能把无痕模式简单等同于绝对不会留下任何痕迹。]]></description>
   </item>
   <item>
@@ -44,7 +52,7 @@
     <link>https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-sla-response-vs-resolution.html</guid>
     <pubDate>Thu, 10 Sep 2026 17:36:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>响应≠解决</category>
     <description><![CDATA[企业采购国内大模型API遇到批量调用报错提交工单后，厂商SLA承诺的响应时长指客服开始处理并首次回复的时间，不等于问题被实际解决、服务真正恢复正常调用的解决时长；把两者混淆容易打乱企业自己应急预案里降级窗口的时间估算，具体解决时长厂商通常不作绝对承诺，需以服务协议原文条款为准，采购时务必主动问清楚这两个概念。]]></description>
   </item>
   <item>
@@ -52,7 +60,7 @@
     <link>https://ponr.org/articles/overseas-ai-iap-refund-channel-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-iap-refund-channel-mismatch.html</guid>
     <pubDate>Thu, 10 Sep 2026 14:27:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>退款入口</category>
     <description><![CDATA[通过iOS App Store或Google Play应用内购买订阅ChatGPT Plus这类AI服务时，实际扣款方是苹果或谷歌而不是AI服务商本身，退款申请的正确入口是平台各自的报告问题页面，而不是AI服务商官网客服，找错入口申请退款通常只会被引导回平台重新提交，来回一折腾往往要白白耽误好几天时间。]]></description>
   </item>
   <item>
@@ -60,7 +68,7 @@
     <link>https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-generated-content-infringement-liability.html</guid>
     <pubDate>Thu, 10 Sep 2026 10:15:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>责任归属</category>
     <description><![CDATA[企业把DeepSeek、通义千问、豆包等国内大模型API接入产品做内容生产，生成的营销文案、宣传配图、代码若被第三方指控抄袭或侵权，责任算厂商的还是调用企业自己的、赔偿有没有明确限额，这类条款往往藏在服务协议靠后的知识产权与责任限制章节，多数企业采购接入时根本没细看，真出了侵权纠纷才发现早被免责条款推给了自己。]]></description>
   </item>
   <item>
@@ -68,7 +76,7 @@
     <link>https://ponr.org/articles/overseas-ai-student-verify-lapse-renewal.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-student-verify-lapse-renewal.html</guid>
     <pubDate>Wed, 09 Sep 2026 19:05:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>学生优惠</category>
     <description><![CDATA[ChatGPT Plus、Perplexity Pro等海外AI的学生折扣，验证机制并非“验证一次终身生效”：有的平台每年要求通过SheerID等服务重新验证学生身份，教育邮箱一旦因毕业、转学、休学而失效，续订时验证不通过，有的平台会直接按原价自动扣款，有的先暂停订阅等待补验证，具体规则因平台而异，订阅前务必确认清楚。]]></description>
   </item>
   <item>
@@ -76,7 +84,7 @@
     <link>https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-multi-vendor-quota-mismatch.html</guid>
     <pubDate>Wed, 09 Sep 2026 12:53:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>额度对账</category>
     <description><![CDATA[不少企业为分散单一厂商依赖风险，会同时接入DeepSeek、通义千问等多家国内大模型API做多模型容灾或效果成本对比，但各家免费试用额度的生效起点、有效期、用尽后自动转按量付费还是直接报错拒绝调用完全不统一，账单或工程监控若不分厂商记清楚这三点，很容易把额度耗尽误判成系统故障或被超额扣费，排查方向完全走偏。]]></description>
   </item>
   <item>
@@ -84,7 +92,7 @@
     <link>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</guid>
     <pubDate>Wed, 09 Sep 2026 09:41:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>年付退款</category>
     <description><![CDATA[ChatGPT Plus、Claude Pro、Gemini等海外AI订阅年付通常比月付有折扣，为省钱选年付后半途想换成月付、换低配套餐或干脆退订，退款规则却因平台而异：多数只在购买后7-14天冷静期内可全额或按比例退，过后要么按未使用天数比例退还，要么完全不退，具体比例算法也藏着细节陷阱，下单前务必先问清楚。]]></description>
   </item>
   <item>
@@ -92,7 +100,7 @@
     <link>https://ponr.org/articles/domestic-ai-model-version-deprecation.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-model-version-deprecation.html</guid>
     <pubDate>Tue, 08 Sep 2026 18:52:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>版本下线</category>
     <description><![CDATA[国内大模型厂商迭代很快，常常几个月就推出新一代模型，同时逐步下线旧版本API访问权限；业务代码如果写死具体模型版本号而不是厂商提供的最新版别名，一旦厂商公告某旧模型即将下线，就必须紧急测试新模型输出差异并完成迁移。下线通知提前期因厂商而异，接入时应问清楚这套机制，并建立内部版本监控，而不是被动等官方邮件通知。]]></description>
   </item>
   <item>
@@ -100,7 +108,7 @@
     <link>https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</guid>
     <pubDate>Tue, 08 Sep 2026 14:15:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>账单误判</category>
     <description><![CDATA[很多海外AI订阅信用卡账单上的收款方名称，跟ChatGPT、Claude这类产品名字完全对不上，这其实是支付处理链路里很常见的正常现象，不是骗局；但一旦误判成盗刷、直接向银行发起拒付，反而可能被服务商标记为欺诈账户并封停订阅，解封流程通常比主动取消订阅更慢更麻烦，建议先核对订阅记录再决定是否联系银行。]]></description>
   </item>
   <item>
@@ -108,7 +116,7 @@
     <link>https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-cross-border-node-compliance.html</guid>
     <pubDate>Tue, 08 Sep 2026 09:38:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>节点合规</category>
     <description><![CDATA[企业调用DeepSeek、通义千问等国内大模型API处理境外客户数据，容易误以为国内版和面向海外开发者的国际版节点适用同一套合规逻辑；实际上两者的数据处理落地位置、适用的合规框架可能完全不同，采购前务必问清楚业务实际调用的是哪个具体节点，以及跨境扩展时能否无缝切换而不产生新的合规缺口，别只听销售口头承诺。]]></description>
   </item>
   <item>
@@ -116,7 +124,7 @@
     <link>https://ponr.org/articles/overseas-ai-team-seat-account-transfer.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-team-seat-account-transfer.html</guid>
     <pubDate>Mon, 07 Sep 2026 15:30:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>团队席位</category>
     <description><![CDATA[ChatGPT Team、Claude Team、Gemini Advanced等海外AI订阅的团队席位由邀请你加入的主账号创建并付费，所有权始终归主账号所有而非每个被邀请的席位使用者；主账号注销或取消订阅后，其他席位的访问权限通常会立即或短期内失效，宽限期因平台而异，建议提前问清楚交接流程并自行导出重要对话记录留存。]]></description>
   </item>
   <item>
@@ -124,7 +132,7 @@
     <link>https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-prepaid-package-refund-transfer.html</guid>
     <pubDate>Sat, 05 Sep 2026 14:30:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>资源包退款</category>
     <description><![CDATA[企业采购国内大模型API预付费资源包，通常比按量付费更划算，但预算规划失误或业务调整导致用不完的情况相当常见；用不完能不能申请退款、能不能转让给公司内其他关联主体或子账号继续使用，答案完全取决于具体厂商自己的服务协议条款而非行业统一惯例，采购前当面问清楚这两点，远比资源包买完之后再去和厂商协商要容易得多。]]></description>
   </item>
   <item>
@@ -132,7 +140,7 @@
     <link>https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-cvv-autofill-lockout-risk.html</guid>
     <pubDate>Fri, 04 Sep 2026 13:56:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>CVV误填</category>
     <description><![CDATA[银行卡结账页的CVV通常不会被Chrome、Safari浏览器自动填充保存，卡号和有效期即使填对也常需要手动补填CVV，同名下存着多张卡时还容易被自动填错串到另一张卡；填错后若不核对反而反复点提交重试，这种连续校验失败又反复提交的行为，在发卡行风控系统眼里很像盗刷试探，可能触发临时锁卡，哪怕操作的确实是持卡人本人。]]></description>
   </item>
   <item>
@@ -140,7 +148,7 @@
     <link>https://ponr.org/articles/domestic-ai-api-key-credential-split.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-key-credential-split.html</guid>
     <pubDate>Fri, 04 Sep 2026 11:52:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>凭证分离</category>
     <description><![CDATA[开发者的DeepSeek、通义千问API Key被硬编码提交到公开仓库后遭盗刷，账号登录密码却毫无异常——因为登录密码与API Key是两套彼此独立的凭证体系，前者管登录控制台看账单，后者管代码里调用付费接口，攻击者拿Key调用根本不需要登录；本文讲清楚为什么必须去控制台单独吊销Key，以及日常怎么避免硬编码泄露。]]></description>
   </item>
   <item>
@@ -148,7 +156,7 @@
     <link>https://ponr.org/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</guid>
     <pubDate>Thu, 03 Sep 2026 14:10:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>分期错位</category>
     <description><![CDATA[用PayPal Pay in 4、Klarna这类先买后付工具把AI订阅年费拆成4期，分期扣款和订阅按年自动续费是两条互相独立的时间线；提前退订通常拿不回已通过分期支付给商户的整笔年费，只有商户批准退款后分期公司才会调整后续账期，下单前务必确认商户退款政策是否覆盖分期金额、分期期限是否跨过下次续费日。]]></description>
   </item>
   <item>
@@ -156,7 +164,7 @@
     <link>https://ponr.org/articles/domestic-ai-context-cache-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-context-cache-billing.html</guid>
     <pubDate>Thu, 03 Sep 2026 10:20:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>上下文缓存</category>
     <description><![CDATA[调用DeepSeek、通义千问等API时，系统会检测本次请求前缀是否与之前调用重复，命中缓存的那部分token按更低价格计费；把不变的角色设定、固定长文档背景放在prompt最前面、把每次都变的用户输入放在后面，能明显提高命中率，具体命中判定规则、折扣比例与缓存有效期以各厂商官方文档为准，不同厂商实现细节并不完全相同。]]></description>
   </item>
   <item>
@@ -164,7 +172,7 @@
     <link>https://ponr.org/articles/overseas-ai-giftcard-balance-refund-lockin.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-giftcard-balance-refund-lockin.html</guid>
     <pubDate>Wed, 02 Sep 2026 16:50:00 +0800</pubDate>
-    <category>海外AI服务</category>
+    <category>余额退款</category>
     <description><![CDATA[用Apple礼品卡充值到Apple ID余额、再用余额支付ChatGPT等AI订阅时，申请退款默认按原支付方式退回：原路径是余额，退款也只回到余额，只能在苹果生态内消费、不能提现或转入银行卡，这跟用信用卡直接支付、退款能退回信用卡的资金路径完全不同，申请退款前务必先想清楚自己要的是现金还是能接受生态内余额。]]></description>
   </item>
   <item>
@@ -172,7 +180,7 @@
     <link>https://ponr.org/articles/domestic-ai-sla-compensation.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-sla-compensation.html</guid>
     <pubDate>Wed, 02 Sep 2026 14:20:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>SLA赔偿</category>
     <description><![CDATA[企业采购DeepSeek、通义千问等国内大模型API时，服务协议里的SLA条款只承诺服务可用性和响应时间，不覆盖生成内容质量或准确性，这两个维度容易被混淆；赔偿通常按服务费用一定比例折算成代金券，且需要用户主动申请、提供中断时间与调用错误日志作为证据，具体可用性承诺与赔偿比例以各厂商官方SLA文档为准。]]></description>
   </item>
   <item>
@@ -180,7 +188,7 @@
     <link>https://ponr.org/articles/overseas-ai-refund-closed-virtual-card.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-refund-closed-virtual-card.html</guid>
     <pubDate>Wed, 02 Sep 2026 10:35:00 +0800</pubDate>
-    <category>海外AI订阅</category>
+    <category>退款路由</category>
     <description><![CDATA[申请AI订阅退款时，退款通常只能发起到原支付方式（原路退回），但虚拟卡如果已经注销或过期，退款能否到账取决于虚拟卡服务商内部处理规则：可能被卡组织拒收退回商户，也可能记入账户余额，各家结果并不统一，遇到这种情况应先联系虚拟卡服务商核实而非原商户，注销卡片前需先确认名下没有正在处理中的退款或纠纷单据。]]></description>
   </item>
   <item>
@@ -188,7 +196,7 @@
     <link>https://ponr.org/articles/domestic-ai-vision-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-vision-token-billing.html</guid>
     <pubDate>Tue, 01 Sep 2026 19:54:20 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>图片token计费</category>
     <description><![CDATA[DeepSeek、通义千问等国内大模型的图片理解API会把一张图先折算成一定数量的token再计费，折算通常与分辨率、尺寸、是否开启高精度模式有关，具体公式各厂商、各版本可能不同，批量处理截图或扫描件类应用上线前应先用少量样本实测账单消耗，再按业务量级推算总成本，而非假设图片和等量文字token消耗一致。]]></description>
   </item>
   <item>
@@ -196,7 +204,7 @@
     <link>https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-multicurrency-fx-settlement-date.html</guid>
     <pubDate>Tue, 01 Sep 2026 14:20:00 +0800</pubDate>
-    <category>海外AI订阅</category>
+    <category>汇率清算日</category>
     <description><![CDATA[Wise、Revolut等多币种卡付海外AI订阅时，下单弹窗看到的汇率只是实时预估，真正扣款用哪一天的汇率，通常取决于卡组织清算日而不是下单当天的授权日，中间常有1到3个工作日的时间差，期间汇率波动会让每月订阅扣款的本币金额悄悄小幅浮动，并非订阅涨价，具体清算天数与规则以发卡机构官方说明为准，不同机构可能不同。]]></description>
   </item>
   <item>
@@ -204,7 +212,7 @@
     <link>https://ponr.org/articles/domestic-ai-reasoning-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-reasoning-token-billing.html</guid>
     <pubDate>Tue, 01 Sep 2026 10:35:00 +0800</pubDate>
-    <category>国内AI大模型</category>
+    <category>推理token计费</category>
     <description><![CDATA[DeepSeek-R1这类推理模型会先输出reasoning_content思维链再给最终答案，思维链是否计费、单价是否与答案一致、账单里reasoning_tokens和completion_tokens怎么区分，本文核对官方API文档说法，并提醒思维链常比答案长得多，只看答案字数估算成本会大幅低估真实花费。]]></description>
   </item>
   <item>
@@ -212,159 +220,159 @@
     <link>https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-apple-pay-dpan-card-reissue.html</guid>
     <pubDate>Mon, 31 Aug 2026 14:05:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。]]></description>
+    <category>DPAN与换卡</category>
+    <description><![CDATA[用Apple Pay或Google Pay绑定AI订阅时，商户实际扣款用的不是银行卡真实卡号，而是设备安全芯片生成的设备账号号DPAN（Device Primary Account Number）；银行换发新实体卡后，只要背后账户不变，卡组织的账户更新服务通常会自动同步，续费不用手动改设置，但具体覆盖率因发卡行而异。]]></description>
   </item>
   <item>
     <title><![CDATA[用个人身份证实名认证的DeepSeek、通义千问API账号，公司报销时为什么开不出对公发票]]></title>
     <link>https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-invoice-entity-mismatch.html</guid>
     <pubDate>Mon, 31 Aug 2026 10:10:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[很多个人开发者图方便先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始付费，后来公司要报销需要开对公发票时才发现，实名认证主体和发票抬头是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异。]]></description>
+    <category>实名开票主体</category>
+    <description><![CDATA[很多个人开发者图方便，先用个人身份证实名认证注册DeepSeek、通义千问API账号并开始试用付费，后来公司想报销这笔费用、需要开对公发票时才发现，账号实名认证主体和发票抬头其实是绑定在一起的两件事，个人认证账号往往开不出企业发票，需要走账号主体变更或迁移额度等流程，具体是否支持因平台而异，需自行核实。]]></description>
   </item>
   <item>
     <title><![CDATA[AI订阅账单地址填错门牌号或邮编，扣款为什么会被直接拒绝：AVS地址验证机制]]></title>
     <link>https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-avs-billing-address-mismatch.html</guid>
     <pubDate>Sun, 30 Aug 2026 16:10:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[很多欧美发卡行会用AVS地址验证系统核对结账时填写的账单地址，实际只核对门牌号数字和邮编这两项，并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事。若填的是当前居住地而非发卡行登记地址，哪怕余额充足也可能被拒或标记为高风险交易，本文讲清AVS具体核对规则与排查思路。]]></description>
+    <category>AVS地址核对</category>
+    <description><![CDATA[很多欧美发卡行会用AVS（地址验证系统）核对结账时填写的账单地址是否跟发卡行登记的地址一致，但AVS实际只核对门牌号数字和邮编这两项、并不核对完整地址文字，这跟验证持卡人身份的3D Secure完全是两回事，AI订阅账单地址填错了实际居住地而非发卡行登记地址，哪怕卡内余额充足也可能被拒或被标记为高风险交易。]]></description>
   </item>
   <item>
     <title><![CDATA[阿里云、腾讯云市场里调用DeepSeek、通义千问，跟官方直签API有什么不一样]]></title>
     <link>https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-cloud-marketplace-billing-entity.html</guid>
     <pubDate>Sun, 30 Aug 2026 13:15:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道而非直接官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺都可能不同。本文讲清采购前该核实合同主体、发票开具方、技术支持渠道与价格对照，不能默认云平台采购就等同官方直签。]]></description>
+    <category>云市场转售</category>
+    <description><![CDATA[很多企业接入DeepSeek、通义千问这类国内大模型API时，走的是阿里云、腾讯云等云市场转售渠道，而非直接找模型厂商官方签约，账单开票方、技术支持入口、价格是否含渠道加价，以及SLA条款引用哪一方的服务等级承诺，都可能不同，采购前要核实合同主体、发票开具方与技术支持渠道，不能默认云平台采购等同官方直签。]]></description>
   </item>
   <item>
     <title><![CDATA[同一张虚拟卡绑几个AI订阅，一冻结为什么全部续费同时失败]]></title>
     <link>https://ponr.org/articles/overseas-ai-virtual-card-concentration-risk.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-concentration-risk.html</guid>
     <pubDate>Sat, 29 Aug 2026 13:55:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[不少人图省心，用同一张虚拟卡支付多个AI订阅，账单集中好对账，但这张卡因此成了单点故障：一旦被风控冻结或拒付，绑在它上面的所有订阅会同时续费失败。本文讲清一卡多商户为何更容易触发风控识别信号，以及该怎么按订阅数量拆分开卡分散集中度风险。]]></description>
+    <category>扣款集中度</category>
+    <description><![CDATA[不少人图省心，用同一张虚拟卡支付ChatGPT、Claude、Midjourney等多个AI订阅，账单集中好对账，但这张卡因此成了单点故障：一旦被风控冻结或拒付，绑在它上面的所有订阅会在各自续费周期里同时失败。本文讲清一卡多商户为何更容易触发风控识别信号，以及该怎么按订阅数量拆分开卡来分散这种扣款集中度风险。]]></description>
   </item>
   <item>
     <title><![CDATA[接了DeepSeek、通义千问API对外服务，等保测评算不算另一笔合规账]]></title>
     <link>https://ponr.org/articles/domestic-ai-level-protection-assessment.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-level-protection-assessment.html</guid>
     <pubDate>Sat, 29 Aug 2026 11:20:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。]]></description>
+    <category>等保测评</category>
+    <description><![CDATA[很多开发者以为完成生成式人工智能服务备案，合规义务就算办齐了，但网络安全等级保护测评是《网络安全法》要求的另一套体系，测的是信息系统本身的安全防护能力，跟生成内容是否合规无关，由公安机关主管、独立机构测评。本文讲清等保测什么、定级由谁判定、接入大模型API是否会拉高定级要求，以及两类备案容易被混为一谈的常见误区。]]></description>
   </item>
   <item>
     <title><![CDATA[信用卡账单里那笔预授权和实际扣款金额为什么对不上]]></title>
     <link>https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-authorization-hold-settlement-gap.html</guid>
     <pubDate>Fri, 28 Aug 2026 16:50:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者金额、时间甚至笔数都可能不一致。本文讲清授权与结算是两个独立阶段、怎么区分待处理和已入账、预授权自动释放通常需要多久，以及迟迟不释放该联系发卡行还是商户。]]></description>
+    <category>预授权对不上</category>
+    <description><![CDATA[AI订阅开通、续费或试用时，银行账单App里常先出现一笔预授权记录，随后才是正式扣款，两者的金额、出现时间甚至笔数都可能不一致，容易让人误以为被平台多扣了一次钱。本文讲清授权与结算是支付网络里两个独立阶段、怎么在账单App里区分待处理和已入账状态、预授权自动释放通常需要多久，以及迟迟不释放时该联系发卡行还是商户。]]></description>
   </item>
   <item>
     <title><![CDATA[高峰期调用DeepSeek、文心一言，接口返回的真是你指定的模型吗]]></title>
     <link>https://ponr.org/articles/ai-domestic-model-routing-downgrade.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-domestic-model-routing-downgrade.html</guid>
     <pubDate>Fri, 28 Aug 2026 13:58:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[调用DeepSeek、文心一言这类国内大模型API，高峰期返回的是否还是你指定的完整版模型？部分厂商可能启用路由降级换成更弱的小模型，且未必显眼提示，本文讲清该核查响应体model字段、怎么做高峰对比测试，以及企业用户该怎么在SLA里核实模型版本一致性条款。]]></description>
+    <category>模型降级</category>
+    <description><![CDATA[调用DeepSeek、文心一言这类国内大模型API，高峰期返回的是否还是你指定的完整版模型？部分厂商可能启用路由降级，把请求转发到能力更弱的小模型，且未必在响应里显眼提示，本文讲清该核查响应体model字段、怎么用同一prompt做高峰对比测试，以及企业用户该怎么在SLA里核实模型版本一致性条款与专属算力方案。]]></description>
   </item>
   <item>
     <title><![CDATA[员工离职当天，ChatGPT、Claude企业账号为什么还能登录：SCIM同步延迟]]></title>
     <link>https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-sso-scim-offboarding-lag.html</guid>
     <pubDate>Fri, 28 Aug 2026 11:13:00 +0800</pubDate>
-    <category>特殊场景与账户管理</category>
-    <description><![CDATA[企业用SSO统一管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步是否有批量延迟、活跃会话是否被强制登出，这三点没核实，访问权限可能滞后于账号禁用，本文讲清具体该核实什么。]]></description>
+    <category>SCIM延迟</category>
+    <description><![CDATA[企业用Okta、Azure AD等SSO管理员工对ChatGPT、Claude账号的访问权限，离职当天HR触发SSO禁用，但订阅层级是否支持SCIM自动收权、同步任务是否存在批量延迟、禁用前建立的活跃会话是否已被强制登出，这三点没逐一核实，实际访问权限很可能滞后于账号禁用状态，本文讲清具体该核实什么。]]></description>
   </item>
   <item>
     <title><![CDATA[给DeepSeek、通义千问API传业务数据，会不会被顺手拿去训练模型]]></title>
     <link>https://ponr.org/articles/domestic-ai-api-training-data-clause.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-training-data-clause.html</guid>
     <pubDate>Thu, 27 Aug 2026 15:55:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[企业和开发者调用DeepSeek、通义千问等国内大模型API处理业务数据时，最关心输入内容会不会被拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且不用于训练不等于不会为安全审核留存数据，本文讲清该去协议哪个章节核对。]]></description>
+    <category>训练数据条款</category>
+    <description><![CDATA[企业和开发者调用DeepSeek、通义千问等国内大模型API处理客户对话、合同文档这类业务数据时，最关心输入内容会不会被厂商拿去训练后续模型；答案通常写在服务协议的数据使用条款里，免费版和企业付费版承诺可能不同，且承诺不用于训练不等于不会为安全审核留存数据，这是两件不同的事，本文讲清该去协议哪个章节核对。]]></description>
   </item>
   <item>
     <title><![CDATA[点了取消AI订阅，PayPal里这笔"自动付款"为什么还显示活跃]]></title>
     <link>https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-paypal-cancel-still-active.html</guid>
     <pubDate>Thu, 27 Aug 2026 13:47:26 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[许多AI服务靠PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，这是PayPal账户里独立维护的授权记录，跟平台数据库的订阅状态是两套系统；平台取消若没调用PayPal接口终止协议，会出现平台已取消、PayPal自动付款仍活跃的分裂，本文讲清机制与怎么去PayPal自查并手动终止。]]></description>
+    <category>PayPal分裂</category>
+    <description><![CDATA[AI服务常用PayPal账单协议（Billing Agreement，即自动付款）代扣订阅费，是PayPal账户里独立的授权记录，跟平台数据库订阅状态是两套系统；平台点取消若没调用PayPal接口终止，会出现平台已取消、PayPal自动付款仍活跃的分裂，商户再扣款可能照常放行，本文讲怎么去PayPal自查并手动终止。]]></description>
   </item>
   <item>
     <title><![CDATA[接口返回200却是空内容：DeepSeek、通义千问API的审核截断该查哪个字段]]></title>
     <link>https://ponr.org/articles/domestic-ai-content-moderation-truncation.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-content-moderation-truncation.html</guid>
     <pubDate>Thu, 27 Aug 2026 10:45:00 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，本文讲清该查响应体哪个字段区分生成完毕与被截断，以及流式截断与审核豁免申请渠道。]]></description>
+    <category>内容审核</category>
+    <description><![CDATA[调用DeepSeek、通义千问等国内大模型API时，HTTP状态码200且正常计费，返回内容却是空字符串或半路被截断，这通常不是接口故障，而是模型自身对齐拒答或独立内容安全审核在拦截，不同厂商标记方式不同，本文讲清该查响应体哪个字段区分生成完毕与被截断，流式场景断流怎么判断，以及企业内部工具的审核豁免申请渠道。]]></description>
   </item>
   <item>
     <title><![CDATA[首次扣款要验证码，续费凭什么又弹一次——3DS豁免为什么会失效]]></title>
     <link>https://ponr.org/articles/overseas-ai-renewal-3ds-mit-exemption.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-renewal-3ds-mit-exemption.html</guid>
     <pubDate>Wed, 26 Aug 2026 13:58:00 +0800</pubDate>
-    <category>支付风控</category>
-    <description><![CDATA[AI订阅首次扣款按PSD2要求完成3D Secure强客户认证后，自动续费本该作为商户发起交易（MIT）豁免验证，但支付网关没传对MIT标识，或发卡行风控主动升级验证，续费在无人操作时挑战失败，本文讲清豁免机制、失效原因与应对办法。]]></description>
+    <category>3DS验证</category>
+    <description><![CDATA[AI订阅首次扣款按PSD2要求完成3D Secure强客户认证后，自动续费本该作为商户发起交易（MIT）豁免验证，但支付网关没传对Stored Credential/MIT标识，或发卡行风控主动升级验证，续费在无人操作时挑战失败，本文讲清豁免机制、失效原因、验证短信与扣款失败通知的区别，以及能否给商户设信任白名单。]]></description>
   </item>
   <item>
     <title><![CDATA[接入DeepSeek、豆包做对外产品，ICP备案通过为什么还不算合规]]></title>
     <link>https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-generative-filing-vs-icp.html</guid>
     <pubDate>Wed, 26 Aug 2026 10:00:01 +0800</pubDate>
-    <category>国内AI大模型</category>
-    <description><![CDATA[很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力的生成式AI服务需单独完成算法备案，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。]]></description>
+    <category>生成式备案</category>
+    <description><![CDATA[很多开发者调用DeepSeek、豆包等大模型API做网站或App，以为ICP备案通过就合规，但按《生成式人工智能服务管理暂行办法》，具有舆论属性或社会动员能力、面向境内公众的生成式AI服务需单独完成算法备案，这是网信办备案系统里区别于ICP的另一套流程，调用API不代表厂商已代办，本文讲清三种备案的区别与查询入口。]]></description>
   </item>
   <item>
     <title><![CDATA[Agent模式改代码，为什么几分钟就把整月请求额度刷没了]]></title>
     <link>https://ponr.org/articles/ai-coding-agent-request-quota-burn.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-coding-agent-request-quota-burn.html</guid>
     <pubDate>Tue, 25 Aug 2026 18:05:02 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单补全消耗很少，Agent模式下每一步读文件、跑测试、多轮修改都可能各算一次请求，账单只显示笼统总数，本文讲清计费机制与怎么按任务类型控用量。]]></description>
+    <category>额度速耗</category>
+    <description><![CDATA[Cursor、GitHub Copilot、Windsurf按高级请求数计费封顶，简单代码补全消耗很少甚至不计入额度，但Agent模式下读文件、跑测试、多轮修改每一步都可能各算一次请求，账单只显示笼统总数，几分钟就能耗光平时几天的额度，本文讲清计费机制、怎么看请求细分、按任务选补全还是Agent模式控用量。]]></description>
   </item>
   <item>
     <title><![CDATA[DeepSeek凌晨调用更便宜：错峰定价背后的算力账]]></title>
     <link>https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-domestic-model-off-peak-pricing.html</guid>
     <pubDate>Tue, 25 Aug 2026 15:42:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API折扣逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛。]]></description>
+    <category>错峰定价</category>
+    <description><![CDATA[DeepSeek等国内大模型API近期推出错峰/峰谷定价，北京时间白天高峰时段价格是空闲时段的两倍，本质是用价格杠杆把批量处理、模型微调等非实时任务引导到夜间空闲算力上，这跟海外批量API按接口类型给折扣的逻辑相似但触发条件不同，实名认证与并发额度申请是另一套独立门槛，本文给出错峰调度思路与实名材料清单。]]></description>
   </item>
   <item>
     <title><![CDATA[换个网络登录AI账号，为什么突然要过一遍验证码]]></title>
     <link>https://ponr.org/articles/ai-account-login-risk-device-fingerprint.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-account-login-risk-device-fingerprint.html</guid>
     <pubDate>Tue, 25 Aug 2026 13:15:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[出差换了酒店Wi-Fi或切换VPN节点登录AI账号，密码没输错，却突然被要求补一次邮箱验证码、图形人机验证，严重时账号还会被直接临时锁定，这是登录风控系统在识别设备指纹突变、IP地理位置跳跃与登录时段异常，和拦截续费扣款的支付风控完全是两套独立系统，本文拆解三类触发信号、锁号后的申诉流程与预防方法。]]></description>
+    <category>登录风控</category>
+    <description><![CDATA[出差换了酒店Wi-Fi或切换VPN节点登录AI账号，密码没输错，却突然被要求补一次邮箱验证码、图形人机验证，严重时账号还会被直接临时锁定——这是登录风控系统在识别设备指纹突变、IP地理位置跳跃与登录时段异常，和拦截续费扣款的支付风控完全是两套独立系统，本文拆解三类触发信号、锁号后的申诉流程与预防方法。]]></description>
   </item>
   <item>
     <title><![CDATA[按官方单价心算的AI API账单，为什么总是差着一截]]></title>
     <link>https://ponr.org/articles/ai-api-rate-limit-tier-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-api-rate-limit-tier-billing.html</guid>
     <pubDate>Tue, 25 Aug 2026 10:41:45 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[很多开发者按官方公示的每千token单价心算AI API账单，但实际扣款常常更高：并发/速率限制层级费、突发流量被计入更贵的按需层级而非预留吞吐量、批量接口打折而同步请求不打折，这篇拆解背后机制与可以直接核对的具体步骤。]]></description>
+    <category>并发计费</category>
+    <description><![CDATA[很多开发者按官方公示的每千token单价心算AI API月度账单，但实际扣款常常更高：账单明细里可能出现独立于token用量之外、按并发或速率限制层级收取的费用行，突发流量也可能被计入更贵的按需层级而非预留吞吐量层级本身，本文拆解背后具体机制，并给出可以直接核对账单明细与请求日志的具体排查步骤和优化建议。]]></description>
   </item>
   <item>
     <title><![CDATA[支付服务商悄悄换了，AI订阅为什么突然扣款失败]]></title>
     <link>https://ponr.org/articles/ai-subscription-psp-migration-failure.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-psp-migration-failure.html</guid>
     <pubDate>Mon, 24 Aug 2026 17:26:30 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI服务商更换支付处理商(PSP)后，绑定的网络令牌未必被正确迁移过去，续费失败邮件措辞变含糊、账单收款方名称突然改变、卡里余额充足却仍被拒付，这篇拆解背后机制与可以立即核对的具体步骤。]]></description>
+    <category>迁移失效</category>
+    <description><![CDATA[AI服务商更换支付处理商(PSP)，比如从Stripe迁移到Braintree或Paddle，绑定的网络令牌（tokenized card）未必被正确迁移过去：续费失败邮件措辞变得含糊、账单收款方名称突然改变、卡里余额充足却仍被拒付，这三类信号能帮你先判断问题出在支付通道迁移而非银行卡本身，再给出可照做的核对步骤。]]></description>
   </item>
   <item>
     <title><![CDATA[跨链兑换到账的钱，为什么和报价对不上]]></title>
     <link>https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-swap-slippage.html</guid>
     <pubDate>Mon, 24 Aug 2026 15:03:12 +0800</pubDate>
-    <category>稳定币支付</category>
+    <category>滑点机制</category>
     <description><![CDATA[跨链兑换页面显示的报价只是下单瞬间的价格快照，真正成交发生在稍后的链上结算环节，做市商的实时报价会随行情持续波动漂移，部分兑换工具提供可自行设置的滑点容忍度参数，未设置的工具可能悄悄按结算时的新价格成交，网络拥堵还会进一步拉大报价与实际到账金额之间的差距，本文拆解背后具体机制及付款前后该核对哪些数值。]]></description>
   </item>
   <item>
@@ -372,200 +380,200 @@
     <link>https://ponr.org/articles/ai-subscription-pause-not-cancel.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-pause-not-cancel.html</guid>
     <pubDate>Mon, 24 Aug 2026 13:32:27 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[订阅平台悄悄上线的"暂停"按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，这篇文章逐条拆解暂停按钮背后真正发生的事情。]]></description>
+    <category>暂停机制</category>
+    <description><![CDATA[订阅平台悄悄上线的&quot;暂停&quot;按钮，看起来比取消更温和，但续费的计费时钟到底是停了还是只是没扣款、历史聊天记录和用量数据能保留多少、账号锁定的优惠价会不会因此永久作废，这些细节往往和取消、降级完全不是一回事，还可能藏着暂停期满自动恢复扣款却不再重新确认的隐藏风险，这篇文章逐条拆解暂停按钮背后真正发生的事情。]]></description>
   </item>
   <item>
     <title><![CDATA[银行悄悄换了卡号，AI订阅账号为什么会被锁]]></title>
     <link>https://ponr.org/articles/ai-subscription-card-reissue-lockout.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-card-reissue-lockout.html</guid>
     <pubDate>Sun, 23 Aug 2026 13:37:55 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[发卡行批量重发、BIN迁移换了新卡号，账户更新器没覆盖到的AI订阅平台还在用旧令牌扣款，返回的是静默失败而非拒付提示，宽限期一过触发的是账户安全锁定而不是降级，这篇拆解背后的覆盖盲区与解锁路径。]]></description>
+    <category>换卡锁定</category>
+    <description><![CDATA[发卡行因批量重发、BIN迁移换了新卡号，卡片账户更新器没覆盖到的AI订阅平台还在用旧卡号扣款，返回的是静默失败而非拒付提示，宽限期一过触发的不是降级而是安全锁定，这篇拆解账户更新器覆盖盲区、静默失败识别方法与解锁重新验证的实操路径，用户手里旧卡还能用，问题出在商户存的支付令牌没跟着更新，物理卡片本身完全没有任何异常。]]></description>
   </item>
   <item>
     <title><![CDATA[优惠码到期那个月，AI订阅账单为什么突然变贵一截]]></title>
     <link>https://ponr.org/articles/ai-subscription-promo-price-revert.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-promo-price-revert.html</guid>
     <pubDate>Sun, 23 Aug 2026 11:07:52 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[优惠码续费给出的低价通常只绑定固定期数，到期后系统按普通续费流程自动恢复原价，不会单独发一封改价提醒邮件，这篇拆解优惠码生效逻辑与被按原价扣款后怎么申诉补差价。]]></description>
+    <category>折扣消失</category>
+    <description><![CDATA[优惠码续费给出的低价通常只绑定固定期数，到期后计费系统按普通续费流程自动恢复原价，因为架构上这只是一次正常续费而非改价事件，不会单独触发一封提醒邮件，账单格式、发件地址和往期一模一样，唯一线索只有金额那一行，这篇拆解优惠码在计费系统里的生效与到期逻辑，以及提前记录到期月份、被按原价扣款后怎么申诉补差价的具体做法。]]></description>
   </item>
   <item>
     <title><![CDATA[把AI账户删了，为什么订阅还在扣钱]]></title>
     <link>https://ponr.org/articles/ai-subscription-delete-not-cancel.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-delete-not-cancel.html</guid>
     <pubDate>Sat, 22 Aug 2026 19:19:39 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[多数AI平台把删除账户和取消订阅设计成两个互不联动的独立按钮，删号只清空登录和数据，真正管扣款的计费系统需要单独关闭，这篇拆解背后原因与删号前必须先做的核对步骤。]]></description>
+    <category>删号≠取消</category>
+    <description><![CDATA[点了&quot;删除账户&quot;以为订阅也会跟着终止，下个月信用卡账单却照常出现同一笔扣款——多数AI平台把删除账户和取消订阅设计成两个互不联动的独立按钮，删号只清空登录凭证和个人数据，真正控制扣款的计费系统需要单独关闭，这篇拆解两者为什么被分开设计、删号前必须先做的核对步骤，以及号已经删了却还在被扣款时该怎么处理。]]></description>
   </item>
   <item>
     <title><![CDATA[团队里退了一个人，AI订阅账单为什么本月还是没变]]></title>
     <link>https://ponr.org/articles/ai-subscription-seat-removal-lag.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-seat-removal-lag.html</guid>
     <pubDate>Sat, 22 Aug 2026 16:11:41 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[团队AI订阅移除一个席位，不少平台并不会当场退还这个席位当月的费用，而是把它锁在系统里，等到下一个账单周期开始才会真正生效并减少扣款，这篇拆解席位计费锁定窗口的具体规则与查账方法。]]></description>
+    <category>席位锁定</category>
+    <description><![CDATA[团队AI订阅移除一个席位，不少平台并不会当场退还这个席位当月的费用，而是把它锁在系统里当成一张“周期开始时的快照”，等到下一个账单周期开始才会真正生效并减少扣款，界面上的“已移除”不代表账单里的“已减免”，这篇拆解席位计费锁定窗口的具体规则与查账方法，团队人员流动越频繁这个锁定窗口被放大得越明显，管理员最容易踩这个坑。]]></description>
   </item>
   <item>
     <title><![CDATA[昨天还能问50次，今天变成20次：AI免费额度为什么说降就降]]></title>
     <link>https://ponr.org/articles/ai-subscription-free-tier-throttle.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-free-tier-throttle.html</guid>
     <pubDate>Fri, 21 Aug 2026 16:01:22 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[免费档用量上限不是写死的固定值，而是平台按实时算力成本、并发压力动态调整的柔性阈值，这篇拆解限流引擎背后的运作逻辑，以及额度缩水后该怎么判断原因、该怎么应对。]]></description>
+    <category>额度限流</category>
+    <description><![CDATA[昨天还能问50次，今天变成20次：免费档用量上限不是写死的固定值，而是按实时算力成本、并发压力动态调整的柔性阈值，额度缩水可能是临时限流、基线永久下调，也可能被悄悄路由到参数更小的轻量模型，平台几乎从不提前公告这类调整，这篇拆解怎么判断三种情况、怎么应对，平台在成本模型上优先保证付费队列的吞吐量，判断错误容易导致误判。]]></description>
   </item>
   <item>
     <title><![CDATA[家人的卡明明没被冻结，AI订阅续费却总被风控拦下]]></title>
     <link>https://ponr.org/articles/ai-subscription-fraud-flag.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-fraud-flag.html</guid>
     <pubDate>Fri, 21 Aug 2026 13:38:00 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[持卡人姓名、账单地址与登录地和账户注册信息不一致，最容易触发AI平台自己的风控引擎误判为盗刷而自动拦截续费，这篇拆解风控评分逻辑与申诉复核的实操路径。]]></description>
+    <category>风控误判</category>
+    <description><![CDATA[持卡人姓名、账单地址与登录地不一致，或同一张卡24小时内被多个账号尝试使用，容易触发AVS地址验证与风控引擎误判为盗刷而自动拦截续费，很多平台把AVS不匹配当硬性拒绝条件，设备指纹与登录地漂移比扣款金额本身更敏感，这篇拆解申诉复核路径与提前排查方法，子女异地用自己网络续费恰好复刻了可疑作案模式，系统只认特征不认人情。]]></description>
   </item>
   <item>
     <title><![CDATA[用不完的AI生成额度，为什么一到期就清零]]></title>
     <link>https://ponr.org/articles/ai-subscription-credit-expiry.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-credit-expiry.html</guid>
     <pubDate>Fri, 21 Aug 2026 11:14:41 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[API token、生成次数这类用量额度按账单周期清零、账户注销后的预付余额不退，本质是平台把“未来服务承诺”包装成了看似能攒的余额，这篇拆解背后的计费逻辑与能做的事。]]></description>
+    <category>额度清零</category>
+    <description><![CDATA[API token、生成次数这类用量额度按账单周期清零、账户注销后预付余额不退，消耗顺序默认“先扣先到期的”却很少公开说明，两者法律性质不同、退款权利也不一样，容易让付费额度先被悄悄吃掉，这篇拆解背后的计费与收入确认逻辑，以及能做的事，能查到具体消耗记录的平台追溯争议远比只显示剩余次数的容易，先弄清额度类型再申诉。]]></description>
   </item>
   <item>
     <title><![CDATA[月付AI订阅续费时，为什么会被换成年付方案]]></title>
     <link>https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-billing-cycle-switch.html</guid>
     <pubDate>Fri, 21 Aug 2026 10:06:22 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[续费提醒里一个默认勾选的“升级到年付更划算”选项，或者试用期结束时的自动转档，都可能在你没留意的情况下把月付订阅换成年付，这篇拆解几种常见触发场景与补救方法。]]></description>
+    <category>周期切换</category>
+    <description><![CDATA[月付AI订阅续费时，为什么会被换成年付方案？续费提醒里默认勾选的“升级到年付更划算”选项、试用转正默认值，甚至客服对话里一句“行吧”或账单页“立省30%”按钮，都可能一键完成周期切换和扣款且没有二次确认页面，这篇拆解常见触发场景、核对扣款记录方法与投诉举证技巧，怀疑被切换后先查扣款记录里的方案变更时间点。]]></description>
   </item>
   <item>
     <title><![CDATA[合租的AI订阅，为什么房主一张卡失效全员就掉线]]></title>
     <link>https://ponr.org/articles/ai-subscription-shared-plan-payment-failure.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-shared-plan-payment-failure.html</guid>
     <pubDate>Thu, 20 Aug 2026 16:43:49 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[合租、家庭或团队AI订阅往往只绑定房主一张卡，房主的卡过期、被风控冻结或换卡没同步更新，会让所有成员在同一天一起掉线，这几处提前排查能省下不少来回折腾的时间。]]></description>
+    <category>合租断供</category>
+    <description><![CDATA[合租、家庭或团队AI订阅往往只绑定房主一张卡，房主换卡忘同步、卡被风控冻结，会让全体成员同一天收到“订阅已过期”提示集体掉线，而成员通常没权限自己修复付款方式、只能干等房主发现问题登录后台处理，这几处提前排查能省下不少来回折腾的时间，房主出差或换手机号时问题往往拖得更久，成员往往先于房主发现服务已经中断。]]></description>
   </item>
   <item>
     <title><![CDATA[AI工具被另一家公司收购后，账单商户名突然变了是怎么回事]]></title>
     <link>https://ponr.org/articles/ai-subscription-company-acquisition.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-company-acquisition.html</guid>
     <pubDate>Thu, 20 Aug 2026 14:17:08 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI工具被另一家公司收购后，账单商户名、计费货币甚至订阅条款都可能悄悄改变，虚拟卡自动扣款容易被风控系统误判为欺诈而拒付，这几处续订前必须重新核对清楚。]]></description>
+    <category>并购变更</category>
+    <description><![CDATA[AI工具被另一家公司收购后，账单商户名、计费货币甚至订阅条款都可能悄悄改变——原按美元计费的订阅可能被并入欧洲主体后改欧元结算，虚拟卡因商户白名单不匹配被风控误判拒付而不是钱不够，发票抬头也可能需要重新申请，续订前必须重新核对这几处容易被忽视的细节，很多人误以为陌生商户名是盗刷反而弄断正常订阅，计费主体已悄悄换了一遍。]]></description>
   </item>
   <item>
     <title><![CDATA[续费账单突然变长，AI订阅里的插件费是怎么加进来的]]></title>
     <link>https://ponr.org/articles/ai-subscription-addon-bundle-upsell.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-addon-bundle-upsell.html</guid>
     <pubDate>Thu, 20 Aug 2026 11:39:31 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI订阅续费时，云存储、优先客服、算力额度这类插件常被默认勾选顺带加购，账单没人提醒就悄悄变长，续费前这几处明细必须逐一核对清楚，别等到月底才发现多扣了钱。]]></description>
+    <category>插件加购</category>
+    <description><![CDATA[AI订阅续费时，云存储、优先客服、算力额度这类插件常以默认勾选、“限时价+$X/月”弹窗，甚至用量逼近阈值时自动开通“避免服务中断”，账单只显示一个总金额、明细往往藏在“账单历史”这类不常点的二级页面，续费前必须逐项打开明细逐一核对，避免被悄悄多扣一笔钱，账单变长的具体原因很难靠一个总数字反推出来。]]></description>
   </item>
   <item>
     <title><![CDATA[把AI订阅从Pro降级到免费档，历史数据还留得住吗]]></title>
     <link>https://ponr.org/articles/ai-subscription-downgrade-data-loss.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-downgrade-data-loss.html</guid>
     <pubDate>Thu, 20 Aug 2026 10:09:14 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[把付费AI订阅从高级档降级到免费档看似省钱，但聊天记录、项目文件和导出权限常常藏着隐藏的保留期限，过期就直接清空找不回，降级前这几点必须先弄清楚。]]></description>
+    <category>降级清空</category>
+    <description><![CDATA[把AI订阅从Pro降级到免费档看似省钱，但导出数据这个功能本身常是付费档专属，降级后入口可能直接从设置页消失，聊天记录、项目文件也各自藏着不同的隐藏保留期限，正确顺序应该是先在付费档确认导出可用再执行降级，这几点必须先弄清楚再操作，避免抢救数据的通道被顺带关掉，保留期限通常分散在账户设置与服务条款里查找。]]></description>
   </item>
   <item>
     <title><![CDATA[明明点了取消，AI订阅账单为什么还在扣钱]]></title>
     <link>https://ponr.org/articles/ai-subscription-zombie-charge.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-zombie-charge.html</guid>
     <pubDate>Wed, 19 Aug 2026 14:24:25 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[明明已经点了取消，AI订阅账单下个月还是照常扣款？拆解第三方计费平台和应用商店订阅状态脱节导致的僵尸扣款，教你怎么核实取消是否真生效，用虚拟卡从源头掐断扣款。]]></description>
+    <category>僵尸扣款</category>
+    <description><![CDATA[明明已经点了取消，AI订阅账单下个月还是照常扣款？前端更新了“已取消”状态，却没同步给Stripe这类背后独立的第三方计费系统，网页订阅和App内购两条通道并行时尤其容易踩雷、平台可能各自生成一条独立记录，拆解怎么核实取消是否真生效，用虚拟卡从源头掐断扣款，webhook通知丢失或接口调用失败是常见诱因。]]></description>
   </item>
   <item>
     <title><![CDATA[账单写的是美元，卡里却按欧元扣款：AI订阅里的货币陷阱]]></title>
     <link>https://ponr.org/articles/ai-subscription-currency-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-currency-mismatch.html</guid>
     <pubDate>Wed, 19 Aug 2026 10:42:27 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI订阅账单标价美元，实际却按欧元或英镑扣款，中间多花的钱去哪了？拆解动态货币转换（DCC）套路，教你用虚拟卡锁定计价货币，避免被多扣一道汇兑费。]]></description>
+    <category>货币陷阱</category>
+    <description><![CDATA[AI订阅账单标价美元，实际却按欧元或英镑扣款，DCC动态货币转换暗藏约5%额外加价——20美元可能变成18.4欧元，比发卡行直接换汇还贵，收单方默认按持卡地区货币结算、选项常常不会主动展示给你，两道加点叠在一起更贵，教你用美元虚拟卡锁定计价货币，避免账单货币和实际扣款货币悄悄脱节，页面弹出选项时优先选原始计价货币结算。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 订阅扣款申诉拒付前，这三步不能跳过]]></title>
     <link>https://ponr.org/articles/ai-subscription-chargeback-dispute.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-chargeback-dispute.html</guid>
     <pubDate>Tue, 18 Aug 2026 17:48:18 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[对 AI 订阅扣款有异议想直接拒付？银行流程走错顺序，账号可能先被封、退款却迟迟拿不到，这篇拆解拒付前该先做的三件事，以及虚拟卡怎么把纠纷限制在一张卡里。]]></description>
+    <category>拒付纠纷</category>
+    <description><![CDATA[对 AI 订阅扣款有异议想直接拒付？多数发卡行要求扣款后60–120天内提出申请，跳过先联系客服协商这一步，走错顺序账号可能先被标记高风险甚至封禁、退款却迟迟拿不到，证据要在问题发生第一时间收集而非事后回忆，这篇拆解拒付前该做的三件事与是否值得动手的判断标准，一次成功的拒付本身也不是没有代价的操作。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 订阅涨价从不提前通知？账单变贵先查这三个地方]]></title>
     <link>https://ponr.org/articles/ai-subscription-price-hike-notice.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-price-hike-notice.html</guid>
     <pubDate>Tue, 18 Aug 2026 14:00:06 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI 工具悄悄涨价却没收到邮件提醒，账单为什么会突然变贵？拆解涨价常见套路、怎么第一时间发现差额，以及用虚拟卡设额度上限、按需换汇提前锁住成本。]]></description>
+    <category>涨价预警</category>
+    <description><![CDATA[AI 工具悄悄涨价却没收到邮件提醒，账单为什么会突然变贵？服务条款早写好“可能随时调价”这句免责话，拆解直接调价、套餐重组、额度悄悄缩水三种隐蔽路径，信用卡账单汇总加汇率波动的噪音又常常盖过涨价那几美元，用虚拟卡设额度上限、超额直接拒付锁住成本，虚拟卡的额度上限本身就是一种免费预警，差额常攒上三五个月才被发现。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 创业公司说关就关：订阅费和数据还能要回来吗]]></title>
     <link>https://ponr.org/articles/ai-startup-shutdown-data-refund.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-startup-shutdown-data-refund.html</guid>
     <pubDate>Tue, 18 Aug 2026 13:57:44 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[小型 AI 工具说关就关、被收购换条款也很常见：订阅费还能退多少、账号数据能不能导出，这篇拆解预警信号、退款路径，以及用虚拟卡、稳定币把损失提前锁小。]]></description>
+    <category>关站应对</category>
+    <description><![CDATA[小型 AI 工具说关就关、被收购换条款也很常见：客服变慢、changelog停更、社区退款帖是三大预警信号，关站后数据导出窗口常只有一两周，公司主体注销后拒付往往比追讨退款更现实，这篇拆解退款路径与用虚拟卡稳定币锁小损失的具体方法，按月付费而不是一次性充年费是控制风险最简单的方法，走拒付流程往往比追讨退款更现实。]]></description>
   </item>
   <item>
     <title><![CDATA[免费试用到期就自动扣款？AI 订阅续费陷阱怎么防]]></title>
     <link>https://ponr.org/articles/free-trial-auto-renewal-trap.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/free-trial-auto-renewal-trap.html</guid>
     <pubDate>Tue, 18 Aug 2026 11:26:56 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[AI 工具免费试用为什么总在你没留意时变成整月扣款？拆解暗模式设计、试用到期日怎么追踪，以及怎么用虚拟卡锁定额度、稳定币按需充值把续费风险控制住。]]></description>
-  </item>
-  <item>
-    <title><![CDATA[选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法]]></title>
-    <link>https://ponr.org/articles/ai-tool-evaluation-framework.html</link>
-    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-evaluation-framework.html</guid>
-    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[功能清单、跑分榜单都比不出真答案。这篇拆解为什么该比嵌入成本而非参数、选择过多时怎么做减法，以及三个月后的留存复盘怎么做，附虚拟卡收拢订阅实操。]]></description>
+    <category>续费防坑</category>
+    <description><![CDATA[AI 工具免费试用为什么总在你没留意时变成整月扣款？取消按钮常藏在设置三四层深处，部分平台还先按低价体验价计费、到期悄悄跳回原价，注册时要求先填卡号本质是提前拿到扣款权限而非验证身份，拆解这几种暗模式设计，用虚拟卡锁定试用期额度控制续费风险，把风险控制放在支付这一端比逼自己记日期更现实，识别暗模式能多留个心眼。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 订阅的钱是怎么花没的：账户结构、汇率与虚拟卡实战账本]]></title>
     <link>https://ponr.org/articles/ai-subscription-payment-economics.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-subscription-payment-economics.html</guid>
     <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[一份 AI 订阅支付的账户经济学笔记：从订阅制怎么重塑用 AI 的方式，到账户该开几个、汇率手续费藏在哪、扣款失败怎么防，最后用虚拟卡与稳定币收拢账单。]]></description>
+    <category>支付方案</category>
+    <description><![CDATA[一份 AI 订阅支付的账户经济学笔记：账户不是越多越安全，按工作、个人、团队三类用途分组更合理，同一张卡反复绑定五六个平台还容易触发发卡行风控被一锅端，2到3个“账号+卡”组合对大多数个人用户就够用，最后用虚拟卡与稳定币收拢账单、按平台隔离风险的实操思路，绝大多数个人用户其实不需要开更多账号，同用途工具可复用邮箱和卡。]]></description>
+  </item>
+  <item>
+    <title><![CDATA[选 AI 工具别只看参数表：一套用三个月后还打开吗倒推的挑选法]]></title>
+    <link>https://ponr.org/articles/ai-tool-evaluation-framework.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-tool-evaluation-framework.html</guid>
+    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
+    <category>工具对比</category>
+    <description><![CDATA[功能清单、跑分榜单都比不出真答案，跑分好看的题目未必和你的实际任务相关。这篇拆解为什么该比嵌入成本而非参数、迁移成本和免费额度背后的付费墙博弈这两笔隐藏账怎么算，团队场景比的是能否被可靠地重复使用，可选项过多时怎么果断做减法，附虚拟卡收拢订阅实操方法，真实的活儿也很少靠单个工具跑完、组合能力更重要。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 应用场景正在悄悄换挡：从尝鲜工具走向嵌入日常工作流]]></title>
     <link>https://ponr.org/articles/ai-application-scenarios-deep-dive.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-application-scenarios-deep-dive.html</guid>
     <pubDate>Thu, 13 Aug 2026 11:07:02 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[真正改变生产力的从不是某个爆款工具，而是 AI 应用场景与工作流的重组。这篇聊聊个人和团队的场景差异、哪些跑通了哪些还是噱头，以及落地绕不开的支付门槛。]]></description>
+    <category>应用场景</category>
+    <description><![CDATA[真正改变生产力的从不是某个爆款工具，而是 AI 应用场景与工作流的重组。代码补全、会议纪要属于跑通的场景，任务边界清晰、人还留在回路里，“全自动决策”多还是噱头，这篇聊聊个人和团队差异，数据散乱、操作习惯难改、账号支付卡壳这三道隐性门槛，以及落地绕不开的支付门槛，多工具协作场景里单点好用不等于整体场景好用。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 工具费用怎么算？手把手用一张虚拟卡从零付清所有订阅]]></title>
     <link>https://ponr.org/articles/ai-tool-cost-virtual-card-tutorial.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-tool-cost-virtual-card-tutorial.html</guid>
-    <pubDate>Tue, 12 Aug 2026 12:39:53 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[订阅了好几个 AI 工具却算不清月费总额，又没有能付海外订阅的信用卡？这份 AI 工具费用虚拟卡教程手把手教你估算月成本，再从零开卡、充值、绑定订阅，附扣款失败排查。]]></description>
+    <pubDate>Wed, 12 Aug 2026 12:39:53 +0800</pubDate>
+    <category>支付方案</category>
+    <description><![CDATA[订阅了好几个 AI 工具却算不清月费总额？ChatGPT Plus、Claude Pro固定20美元一档，按固定月费、档位、用量三类分别估算，API按官方单价乘以估计用量再留30%缓冲，最后总额外加15%–20%缓冲覆盖汇率波动，教程手把手教你开卡充值绑定所有订阅，年付但摊到每月的订阅也别漏算进固定月费里。]]></description>
   </item>
   <item>
     <title><![CDATA[2026年AI应用场景全览：写作/编程/绘图/视频/搜索/语音工具费用与支付实操]]></title>
     <link>https://ponr.org/articles/ai-application-scenarios-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-application-scenarios-guide.html</guid>
     <pubDate>Tue, 11 Aug 2026 12:50:25 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[从写作、编程、绘图到视频、搜索、语音，梳理2026年六大主流AI应用场景的代表工具、真实费用结构与虚拟卡统一支付方式。]]></description>
+    <category>入门与基础</category>
+    <description><![CDATA[从写作、编程、绘图到视频、搜索、语音，横向梳理2026年六大主流AI应用场景代表工具与费用结构——Jasper月费约$39、Copilot按席位$10起、Notion AI每用户约$10，免费额度只够体验、正式使用后月费叠加相当可观，先实测一个月用量再决定升档，以及怎么用虚拟信用卡统一支付这些账单。]]></description>
   </item>
   <item>
     <title><![CDATA[ChatGPT、Claude 还是 Midjourney：AI 工具对比后怎么统一付款]]></title>
     <link>https://ponr.org/articles/ai-tool-subscription-compare.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/ai-tool-subscription-compare.html</guid>
     <pubDate>Mon, 10 Aug 2026 12:33:19 +0800</pubDate>
-    <category>海外AI订阅</category>
-    <description><![CDATA[手里同时订阅几个 AI 工具，账单却越来越乱？拆解怎么按场景对比选出真正需要的工具，再用一张虚拟卡把所有扣款并到一处，账单一眼看懂，续费也更少失败。]]></description>
+    <category>支付方案</category>
+    <description><![CDATA[手里同时订阅几个 AI 工具，账单却越来越乱？同样20美元档位实际生成量能差好几倍，先分清对话、生成、编程三类场景再折算出真正的单位成本，而不是只看订阅页面最显眼的数字，免费额度够用就先别急着订阅，再用一张虚拟卡把所有扣款并到一处看懂账单，账单反而可能因为订阅组合更精准而更零散，先分清场景能省掉大半重复订阅的钱。]]></description>
   </item>
   <item>
     <title><![CDATA[Khanmigo 怎么样？效果、费用与订阅方式全解析]]></title>
@@ -573,7 +581,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/ai-education-equity.html</guid>
     <pubDate>Fri, 07 Aug 2026 14:20:29 +0800</pubDate>
     <category>AI 与社会</category>
-    <description><![CDATA[AI 家教真能缩小教育鸿沟吗？从可汗学院 Khanmigo 数百万学生实测数据、教师工作量变化到偏远地区网络与设备门槛，本文拆解 AI 教育普惠的真实进展与局限。]]></description>
+    <description><![CDATA[AI 家教真能缩小教育鸿沟吗？可汗学院 Khanmigo 已进入美国数千所学校、注册账号数百万，试点数据显示学生数学概念理解进步幅度明显高于对照组，但皮尤2021年调查显示低收入家庭学生仍面临作业鸿沟，本文拆解AI教育普惠的真实进展与局限，教师侧反馈显示AI助教承担了大量重复性答疑批改工作，反馈成本远低于真人家教。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 陪伴机器人哪个好？2026 年热门产品功能与价格对比]]></title>
@@ -581,7 +589,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/ai-companionship-trust.html</guid>
     <pubDate>Fri, 07 Aug 2026 11:17:02 +0800</pubDate>
     <category>AI 与社会</category>
-    <description><![CDATA[AI 陪伴机器人真的能缓解孤独吗？从数千万活跃用户规模、情感依赖争议到未成年人安全事件，本文拆解陪伴类 AI 提供的真实价值，以及信任与安全边界该怎么划。]]></description>
+    <description><![CDATA[AI 陪伴机器人真的能缓解孤独吗？Character.AI 月活破两千万、Replika注册超千万且斯坦福2023年调查显示三分之一用户称对话减少了自杀念头，美国卫生总署把长期孤独等同于每天吸15支烟的健康风险，本文拆解陪伴类AI真实用户规模、信任与安全边界，这不代表能替代真实连接，但也不该因不够严肃就否定它。]]></description>
   </item>
   <item>
     <title><![CDATA[老人看护 AI 工具推荐：跌倒监测/远程监控/认知陪伴全汇总]]></title>
@@ -589,7 +597,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/ai-elderly-care.html</guid>
     <pubDate>Thu, 06 Aug 2026 16:45:00 +0800</pubDate>
     <category>AI 养老场景</category>
-    <description><![CDATA[AI 真能照顾独居老人吗？从几秒内分辨摔倒的智能监测，到像家人一样陪聊天的认知陪伴机器人，再到提前预警心衰恶化的远程健康监测，本文用真实产品和数据说清 AI 养老能做到什么，又有哪些地方还做不到。]]></description>
+    <description><![CDATA[AI 真能照顾独居老人吗？从几秒内分辨摔倒、误报率大幅降低的智能监测，到像家人一样陪聊天的认知陪伴机器人，再到提前预警心衰恶化的远程健康监测，跌倒后一小时内获救预后明显更好，本文用真实产品和数据说清 AI 养老能做到什么，又有哪些地方还做不到，确认再通知的设计能避免误报太多导致家人干脆关掉功能，误报太多家人会关掉功能。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 在医疗领域的应用：心理援助/智能假肢/灾后搜救案例盘点]]></title>
@@ -597,7 +605,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/ai-saves-lives.html</guid>
     <pubDate>Thu, 06 Aug 2026 14:30:00 +0800</pubDate>
     <category>AI 救命场景</category>
-    <description><![CDATA[AI 到底能不能救命？从获 FDA 认定的心理援助聊天机器人，到让截肢者重新抓握的智能假肢，再到提升灾后搜救效率的无人机集群，本文用真实证据回答这个问题，也说清它做不到的地方。]]></description>
+    <description><![CDATA[AI 到底能不能救命？从获FDA突破性医疗器械认定、用于慢性疼痛抑郁焦虑管理的心理援助聊天机器人Wysa，到让截肢者重新抓握触觉反馈的智能假肢，再到覆盖灾后黄金72小时的无人机搜救集群，本文逐项核实监管认定、临床数据与实战案例，说清能与不能的边界，遇到用户表达明确自杀意图时系统设计原则是引导转介而非自行处理。]]></description>
   </item>
   <item>
     <title><![CDATA[2026 年 AI 应用场景盘点：医疗/教育/养老/救灾全解析]]></title>
@@ -605,7 +613,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/ai-serving-humanity.html</guid>
     <pubDate>Wed, 05 Aug 2026 15:30:00 +0800</pubDate>
     <category>AI 向善</category>
-    <description><![CDATA[从辅助诊断、实时字幕无障碍到洪水野火预警系统，AI 已经在医疗、教育与灾害响应等多个真实场景中落地，本文梳理具体案例、带来的价值与仍需正视的边界。]]></description>
+    <description><![CDATA[从2018年FDA历史上首次批准的自主决策型糖尿病视网膜病变AI筛查系统IDx-DR、离线实时字幕无障碍功能到社区洪水提前预警系统，AI已在医疗、教育与灾害响应等真实场景落地，受益对象往往不是掏钱订阅的客户而是间接被覆盖的普通人，本文梳理具体案例与仍需正视的边界与局限，价值判断标准也从好不好用变成有没有更多人被帮到。]]></description>
   </item>
   <item>
     <title><![CDATA[Jasper vs Copy.ai 对比：哪个 AI 写作工具更值得订阅？]]></title>
@@ -613,7 +621,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-writing-assistant-billing-guide.html</guid>
     <pubDate>Tue, 04 Aug 2026 11:00:00 +0800</pubDate>
     <category>AI 写作助手</category>
-    <description><![CDATA[Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但计费按词数或积分拆解方式不同，本文对比档位差异、怎么估算月成本，以及怎么用虚拟卡或稳定币付款。]]></description>
+    <description><![CDATA[Jasper 和 Copy.ai 都是订阅制 AI 写作助手，但Jasper按生成词数计费、Copy.ai按工作流复杂度扣积分，两种逻辑差别很大、同样月费换算出的实际产出量不能直接类比，本文对比档位差异、估算月成本与虚拟卡/稳定币付款方法，官方模板案例库以英文场景为主、中文输出仍需自行调整提示词，中文输出仍需自行调整。]]></description>
   </item>
   <item>
     <title><![CDATA[Perplexity Pro 订阅全攻略：费用、支付方式与 You.com 对比]]></title>
@@ -621,7 +629,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-search-engine-billing-guide.html</guid>
     <pubDate>Mon, 03 Aug 2026 15:20:00 +0800</pubDate>
     <category>AI 搜索引擎</category>
-    <description><![CDATA[Perplexity 和 You.com 都是订阅制 AI 搜索问答工具，但档位划分和额度规则不同，拆解怎么估算实际花费、个人和团队怎么选，以及怎么用虚拟卡或稳定币付款。]]></description>
+    <description><![CDATA[Perplexity 和 You.com 都是“固定月费+额度封顶”计费，不按调用量另计，档位规则却不同，高级模型达到当日上限后会自动降级为基础模型继续用，建议先用免费版观察1-2周实际使用频率再决定，拆解怎么选档位、怎么用虚拟卡或稳定币付款，避免一上来就为用不完的额度买单，频繁触发降级基础模型提示就是该升级的信号。]]></description>
   </item>
   <item>
     <title><![CDATA[用 USDT 充虚拟卡会被追踪吗？链上侦查原理解析]]></title>
@@ -629,7 +637,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-onchain-forensics.html</guid>
     <pubDate>Fri, 31 Jul 2026 10:30:00 +0800</pubDate>
     <category>链上侦查</category>
-    <description><![CDATA[区块链账本公开透明，每一笔转账都永久留痕。拆解链上取证机构怎么用地址聚类、资金流图谱定位可疑转账，交易所反洗钱协作机制，以及普通用户该留意的隐私边界。]]></description>
+    <description><![CDATA[用USDT充值虚拟卡，链上记录真的会被追踪到身份吗？区块链是“伪匿名”而非匿名，转账金额、时间戳、收发地址永久写入公开账本，哪怕只在交易所KYC过一次，五年前的转账记录也能被完整关联回溯且几乎不可能删除，拆解地址聚类等链上取证手段与隐私应对方法，理解这一点才能判断隐私到底暴露了多少，链上关联不会随时间推移而自然衰减。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币支付安全吗？闪电贷攻击原理与风险防范]]></title>
@@ -637,7 +645,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-flash-loan-attack.html</guid>
     <pubDate>Thu, 30 Jul 2026 14:20:00 +0800</pubDate>
     <category>闪电贷攻击</category>
-    <description><![CDATA[闪电贷让任何人无需抵押就能借入巨额资金，只要在同一笔交易内还清。拆解攻击者怎么用这笔钱操纵价格、左右治理投票，以及协议侧现有的防御手段和普通用户应注意的风险信号。]]></description>
+    <description><![CDATA[用稳定币支付虚拟卡、订阅海外AI服务安全吗？AAVE 2020年上线的闪电贷凭“原子性”机制零抵押借出数百万美元资金，借款、操作、还款打包进同一笔交易，任何一步失败整体都会被回滚，拆解这种DeFi攻击手法的原理和真实案例，帮你判断哪些平台更值得信赖，普通用户很少直接成为目标但了解原理有助判断风险，风险几乎为零。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币充值滑点怎么回事？MEV 与三明治攻击解析]]></title>
@@ -645,7 +653,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-mev-sandwich.html</guid>
     <pubDate>Wed, 29 Jul 2026 14:24:25 +0800</pubDate>
     <category>MEV 与三明治攻击</category>
-    <description><![CDATA[MEV 机器人靠抢跑和三明治攻击，每年从普通交易者身上吃掉数亿美元滑点。拆解三明治攻击原理、MEV 供应链结构，及普通用户能用上的自保方法。]]></description>
+    <description><![CDATA[给虚拟卡充值USDT的时候，为什么实际到账金额会莫名变少？大额单、滑点容差设成5%以上、流动性浅的代币池最容易被MEV机器人用三明治攻击吃掉差价，攻击者靠抢在你前面买入抬价、随后反向卖出锁定价差、风险几乎为零，拆解攻击原理与减少滑点损失的实操方法，全程只需极小资金占用、几个区块时间就能完成，机器人靠监听公开交易池实现。]]></description>
   </item>
   <item>
     <title><![CDATA[跨链充值虚拟卡安全吗？跨链桥风险与避坑指南]]></title>
@@ -653,7 +661,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-bridge-security.html</guid>
     <pubDate>Tue, 28 Jul 2026 14:05:15 +0800</pubDate>
     <category>跨链桥安全</category>
-    <description><![CDATA[跨链桥近几年是加密货币安全事件的高发区，Ronin、Wormhole、Poly Network 累计损失超过 15 亿美元。拆解三种托管模式的共同弱点，及普通用户跨链前怎么自查风险。]]></description>
+    <description><![CDATA[跨链桥给虚拟卡充值安全吗？Ronin桥被盗6.25亿美元、Wormhole被盗3.25亿美元，两起都是史上最大加密安全事件之一，拆解多签托管、轻客户端验证与预言机验证三类模式各自的安全假设，攻破签名门槛数量的私钥就能伪造铸造指令，帮你判断这个桥该不该信，理解验证者是谁、门槛多高，才看得懂桥安不安全。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡充值用 USDT 还是 USDC？稳定性与安全性对比]]></title>
@@ -661,7 +669,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-reserve-transparency.html</guid>
     <pubDate>Mon, 27 Jul 2026 15:53:05 +0800</pubDate>
     <category>储备透明度</category>
-    <description><![CDATA[USDT、USDC 宣称 1:1 锚定美元，靠的是什么资产储备、谁来验证、脱锚又是怎么发生的。拆解储备构成、审计与链上验证工具，及对稳定币支付的实际影响。]]></description>
+    <description><![CDATA[给虚拟卡充值时该选USDT还是USDC更安全？Tether曾因储备不透明被纽约总检办公室调查确认储备不足，Circle则按月发布第三方审计报告，2022年UST崩盘正是算法稳定币脱离真实资产支撑的典型教训，拆解两者储备资产构成与历史脱锚风险差异，看懂这层资金中转层建立在什么基础上很重要，极端行情才会暴露储备是否真实。]]></description>
   </item>
   <item>
     <title><![CDATA[OpenAI API 价格详解：token 计费规则与用量估算方法]]></title>
@@ -669,7 +677,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-token-billing.html</guid>
     <pubDate>Fri, 24 Jul 2026 02:39:52 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[调用 AI 大模型 API 按 token 用量计费，输入和输出单价不同。拆解 token 怎么算、上下文越长为什么越贵、如何估算月成本，以及怎么用稳定币充值。]]></description>
+    <description><![CDATA[调用 AI 大模型 API 按 token 用量计费，输出单价常是输入的三到五倍，因为输出需要逐个生成计算成本更高、输入可以并行处理，中文一个汉字通常消耗1-2个token、比英文更费token，拆解怎么算、上下文越长为什么越贵、如何估算月成本与稳定币充值，批量任务上线前先用真实样本跑一遍token计数更靠谱。]]></description>
   </item>
   <item>
     <title><![CDATA[ElevenLabs vs Suno 对比：AI 配音与音乐生成哪个更值得订？]]></title>
@@ -677,7 +685,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-voice-music-billing-guide.html</guid>
     <pubDate>Thu, 23 Jul 2026 18:01:04 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[ElevenLabs 按字符数计费，Suno 按订阅加生成次数计费，拆解 AI 配音克隆与音乐生成工具怎么选档位、常见踩坑，以及怎么用稳定币统一付款。]]></description>
+    <description><![CDATA[ElevenLabs 按字符数计费、和音频时长音色复杂度关系不大，Suno 按订阅加生成次数计费更接近Midjourney那套逻辑，声音克隆功能通常只在中高档位才开放、免费档无法上传自己声音做克隆，商用授权范围也各档不同，拆解怎么选档位、常见踩坑与稳定币统一付款方法，先用一集内容试算实际字符消耗再倒推需要的档位。]]></description>
   </item>
   <item>
     <title><![CDATA[Runway vs Luma AI 对比：AI 视频生成工具哪个好？费用全解析]]></title>
@@ -685,7 +693,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-video-gen-billing-guide.html</guid>
     <pubDate>Thu, 23 Jul 2026 13:34:38 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[Runway 和 Luma AI 都按算力积分计费，但计费单位和套餐结构不一样，拆解两款 AI 视频生成工具怎么选档位、怎么估算实际花费，以及怎么用稳定币统一付款。]]></description>
+    <description><![CDATA[Runway 和 Luma AI 都按算力积分计费，但计费单位和套餐结构不一样，视频时长、分辨率、生成模式都会叠加影响实际扣费，拆解怎么选档位、怎么估算实际花费，团队场景规划重点同样是选积分档位而非买账号数，以及怎么用稳定币统一付款，建议先用入门档位试跑一两周观察实际积分消耗速度，先试跑一两周观察积分消耗。]]></description>
   </item>
   <item>
     <title><![CDATA[Midjourney 订阅档位怎么选：算力时长怎么算]]></title>
@@ -693,7 +701,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-image-gen-billing-guide.html</guid>
     <pubDate>Mon, 20 Jul 2026 10:07:43 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[Midjourney 分 Basic、Standard、Pro、Mega 四档，Fast 和 Relax 模式算力扣费方式也不同，拆解怎么选档位、怎么用稳定币或虚拟卡付款。]]></description>
+    <description><![CDATA[Midjourney 分 Basic、Standard、Pro、Mega 四档，Basic仅含3.3小时Fast时长，Standard以上自带无限Relax模式，只是速度变慢常被新用户误解为要加钱，拆解怎么选档位、怎么用稳定币或虚拟卡付款，团队场景规划重点同样是选算力档位而非买账号数，隐身模式是Pro档的卖点。]]></description>
   </item>
   <item>
     <title><![CDATA[Copilot 还是 Cursor：AI 编程订阅怎么挑]]></title>
@@ -701,7 +709,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-coding-assistant-guide.html</guid>
     <pubDate>Thu, 16 Jul 2026 09:58:03 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[GitHub Copilot 按席位收费，Cursor 按订阅加用量计费，个人开发者和团队该怎么选，怎样用稳定币或虚拟卡统一支付这两类订阅费用。]]></description>
+    <description><![CDATA[GitHub Copilot 按席位收费，Cursor 按订阅加用量计费，Cursor高级模型超额后按量购买很容易产生远超订阅费的额外扣款，个人和团队该怎么选、团队按人头买满员编制是最常见的浪费来源，先给核心成员开通观察实际用量，以及怎样用稳定币或虚拟卡统一支付，两者并不互斥，不少开发者会同时保留对比试用。]]></description>
   </item>
   <item>
     <title><![CDATA[AI 服务不止聊天机器人：编程、绘图、视频工具怎么订阅]]></title>
@@ -709,7 +717,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-service-categories.html</guid>
     <pubDate>Wed, 15 Jul 2026 17:53:35 +0800</pubDate>
     <category>入门与基础</category>
-    <description><![CDATA[GitHub Copilot、Midjourney、Runway 等编程、绘图、视频类 AI 工具，订阅逻辑和 ChatGPT 类似，稳定币也能统一支付，拆解怎么选、怎么开通。]]></description>
+    <description><![CDATA[GitHub Copilot、Midjourney、Runway 等编程绘图视频类AI工具，免费额度耗尽后部分产品会自动跳档到更高付费套餐，容易产生意外扣款，订阅逻辑和聊天类AI高度相似、都以美元计价并叠加了订阅费加用量计费的混合模式，拆解订阅逻辑与稳定币统一支付方法，本站此前的开通逻辑基本可以直接套用到这几类工具。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟信用卡支付方案：一张卡搞定海外AI账单]]></title>
@@ -717,7 +725,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-solution.html</guid>
     <pubDate>Tue, 14 Jul 2026 14:19:48 +0800</pubDate>
     <category>支付方案</category>
-    <description><![CDATA[独立虚拟卡是订阅海外 AI 服务最省心的支付方案：为什么要单独开卡、稳定币怎么充值到卡内、选服务商要核对哪些硬指标，以及常见踩坑一次讲清楚。]]></description>
+    <description><![CDATA[独立虚拟卡是订阅海外 AI 服务最省心的一种支付方案：为什么要单独开卡与主卡消费分离、稳定币怎么充值到卡内余额、小额闲置余额可能被收管理费应及时注销掉，挑选服务商要核对订阅场景成功率、费用结构透明度等硬指标，常见踩坑一次讲清楚，把AI工具开销和日常消费彻底分开管理，非托管跨链兑换聚合器可用于前置的资产兑换。]]></description>
   </item>
   <item>
     <title><![CDATA[DeepSeek、豆包、Kimi怎么开通：国内AI大模型入门]]></title>
@@ -725,7 +733,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-subscription-guide.html</guid>
     <pubDate>Tue, 14 Jul 2026 11:07:41 +0800</pubDate>
     <category>国内AI</category>
-    <description><![CDATA[DeepSeek、豆包、Kimi等国内AI工具，用支付宝或微信直接付费就能开通，不需要虚拟卡也不用跨境支付。拆解怎么选、怎么开通，以及什么时候还需要搭配海外AI。]]></description>
+    <description><![CDATA[DeepSeek、豆包、Kimi等国内AI工具用支付宝或微信直接付费即可开通，但需要手机号实名甚至人脸核身，不涉及跨境支付，拆解DeepSeek、豆包、Kimi怎么选、怎么开通，免费版与付费版在上下文长度、消息条数等维度的差异，以及超长上下文等场景何时还需搭配海外AI，实名认证是硬性合规要求，和账号是否付费无关。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡有效期设多久合适：太短续订失败，太长风险大]]></title>
@@ -733,7 +741,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-validity.html</guid>
     <pubDate>Mon, 13 Jul 2026 17:43:43 +0800</pubDate>
     <category>有效期设置</category>
-    <description><![CDATA[虚拟卡有效期设太短，订阅还没到期卡就先失效，续费直接被拒；设太长，闲置卡片被盗用的时间窗口也更大。拆解怎么按订阅周期估算合适的有效期区间，附实操建议。]]></description>
+    <description><![CDATA[虚拟卡有效期设太短，比如包年订阅却图省事只设三个月有效期，一年后续费时卡片早已提前过期导致续费失败；设太长，闲置卡片一旦泄露被盗用的时间窗口也更大。拆解怎么按订阅周期加1-2个月缓冲估算合适的有效期区间，附实操建议与常见踩坑场景，覆盖节假日或平台结算延迟带来的日期波动，节假日或平台结算延迟都可能让续费日期后移。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡类型、额度、分配一次理清：7篇经验汇总]]></title>
@@ -741,7 +749,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-hub.html</guid>
     <pubDate>Fri, 10 Jul 2026 16:10:40 +0800</pubDate>
     <category>决策指南</category>
-    <description><![CDATA[同时要决定卡型、服务商、额度和分配方式，四个问题分开看容易顾此失彼。这篇把 7 篇虚拟卡专题的结论汇总成一张决策表，按场景直接给出配置建议。]]></description>
+    <description><![CDATA[开一张虚拟卡看似一步操作，实际要同时决定卡型、服务商、额度和分配方式这四个互相影响的问题，分开看容易顾此失彼。这篇把七篇虚拟卡专题的核心结论汇总成一张决策表，按使用场景直接给出配置建议，并点出汇率波动等三个在各篇里反复出现的通用坑，不用再从头把每篇文章重新读一遍找结论，想先看简洁说明可参考入门指南那篇。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡额度设多少合适：太低会失败，太高不安全]]></title>
@@ -749,7 +757,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-limit.html</guid>
     <pubDate>Fri, 10 Jul 2026 15:33:23 +0800</pubDate>
     <category>额度设置</category>
-    <description><![CDATA[虚拟卡额度设太低，订阅续费金额一上涨就容易被拒付；设太高，一旦被盗刷或误扣的损失也更大。拆解怎么估算出既不容易失败、风险也可控的额度区间，附实操建议。]]></description>
+    <description><![CDATA[虚拟卡额度设太低，订阅一涨价或汇率波动几个百分点就容易被拒付，且往往没有提前预警只能等订阅中断才发现；设太高，一旦被盗刷或商户误扣的损失敞口也更大。拆解怎么按实际扣款金额加约20%缓冲估算出既不容易失败、风险也可控的额度区间，附实操建议，额度不是设完不用管，订阅变化要跟着调整，缓冲比例不需要精确到个位数但要留出容错空。]]></description>
   </item>
   <item>
     <title><![CDATA[共用一张卡还是分开办卡：多个AI订阅怎么分配]]></title>
@@ -757,7 +765,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-allocation.html</guid>
     <pubDate>Fri, 10 Jul 2026 15:02:17 +0800</pubDate>
     <category>卡片分配</category>
-    <description><![CDATA[同时订阅 ChatGPT、Claude、Gemini 时，用一张虚拟卡管所有订阅省心，还是每个订阅单独开卡更安全？拆解两种分配方式的利弊与折中思路。]]></description>
+    <description><![CDATA[同时订阅 ChatGPT、Claude、Gemini 时，用一张虚拟卡管所有订阅省心，还是每个订阅单独开卡更安全？共用卡一旦被风控标记，多个平台可能同一天续费全失败，按订阅重要性分组而非在两个极端里非此即彼，拆解两种分配方式的利弊与折中思路和实操建议，不需要在全共用和全分开两个极端里选一个，最依赖的订阅单独配卡最实用。]]></description>
   </item>
   <item>
     <title><![CDATA[一次性虚拟卡还是长期卡：该怎么选更划算]]></title>
@@ -765,7 +773,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-type.html</guid>
     <pubDate>Fri, 10 Jul 2026 11:30:56 +0800</pubDate>
     <category>卡型选择</category>
-    <description><![CDATA[一次性虚拟卡开一次用一次、到期即弃；长期虚拟卡适合稳定续费、省去反复开卡的麻烦。拆解两种卡型各自的适用场景和优缺点，以及混合使用的实操思路。]]></description>
+    <description><![CDATA[一次性虚拟卡开一次用一次、到期即弃，扣款成功后立即失效，下个计费周期自动续费必然被拒导致订阅被动中断、还得手动重新开卡；长期虚拟卡适合稳定续费但一旦被风控标记所有绑定订阅同时受影响，拆解两种卡型的适用场景和优缺点，以及混合使用的实操思路，选错类型比选错发卡服务商更容易在续费时翻车，试用期用一次性、长期订阅换长期卡。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币要不要都放一条链：海外AI资金分散策略]]></title>
@@ -773,7 +781,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-diversification.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:48:37 +0800</pubDate>
     <category>分散策略</category>
-    <description><![CDATA[多条链上都留了稳定币储备，续费时该集中到一条链省手续费，还是分散放着更抗风险？拆解集中与分散两种策略的成本、风险与各自适用的订阅规模和支付场景。]]></description>
+    <description><![CDATA[多条链上都留了稳定币储备，续费时该集中到一条链省手续费，还是分散到两三条主流链更抗风险？集中一旦遇到网络拥堵或跨链桥故障就可能短期没法续费，规模越小渠道越单一越适合集中、规模越大越值得分散，拆解两种策略的成本、风险与各自适用场景，没有绝对更优解、只有更适合自己的取舍，折中方案是主链储备加少量备用链余量。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡服务商怎么选：审核门槛与长期稳定性]]></title>
@@ -781,7 +789,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-provider.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:35:25 +0800</pubDate>
     <category>服务商选择</category>
-    <description><![CDATA[虚拟卡不是随便开一张就行，服务商的审核门槛、支付成功率与长期稳定性差异很大。整理挑选服务商时该看的几项关键指标，以及选错后的排查与补救思路。]]></description>
+    <description><![CDATA[虚拟卡不是随便开一张就行，审核越松的服务商往往越容易被平台风控盯上，只需邮箱手机号秒批的卡尤其如此。整理挑选服务商时该看的运营时长、AVS/3DS验证支持、手续费结构与客服响应速度等关键指标，以及选到不靠谱服务商后的补救思路，别为省几块钱手续费牺牲长期续费稳定性，不要一上来就往新服务商里充值大额资金试用。]]></description>
   </item>
   <item>
     <title><![CDATA[包年更省钱还是包月更灵活：海外AI怎么选]]></title>
@@ -789,7 +797,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-billing-cycle.html</guid>
     <pubDate>Fri, 10 Jul 2026 10:09:17 +0800</pubDate>
     <category>订阅管理</category>
-    <description><![CDATA[包年更省钱还是包月更灵活？拆解各平台常见的折扣区间、退款条款差异与实际需求变化频率，帮你判断该直接锁定年付，还是先按月观察一段时间再决定，并附上换算对比的实用思路。]]></description>
+    <description><![CDATA[包年更省钱还是包月更灵活？主流服务包年价格通常相当于10-12个月月付总价、也就是打八到九折上下，折扣力度并不算夸张，稳定使用超过3个月且现金流无压力再锁年付更划算，包月贵的差价买的其实是随时能停的灵活性，拆解退款政策差异与实际需求变化频率，帮你换算对比，先包月观察一两个月再决定要不要锁年费更稳妥。]]></description>
   </item>
   <item>
     <title><![CDATA[USDT/USDC散落多条链：海外AI资产归集实操]]></title>
@@ -797,7 +805,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-consolidation.html</guid>
     <pubDate>Thu, 09 Jul 2026 17:09:19 +0800</pubDate>
     <category>资产归集</category>
-    <description><![CDATA[多次用稳定币付款后，各条链上常常散落着几笔零钱，续费时才发现凑不出一整份。整理归集思路：先盘点分布，再用跨链兑换工具批量汇总到一条主链，形成可直接续费的储备金。]]></description>
+    <description><![CDATA[多次用稳定币付款后，各条链上常散落着几笔零钱，续费时才发现凑不出一整份。归集目标应是支付渠道实际认可的那条链（比如只认TRC20-USDT），而非余额最多的链，目的地址或内存标签填错是归集时代价最高的坑，整理盘点与批量归集的具体思路和步骤，按链分批操作而非一次性混着转更容易排查问题，先做一次全链盘点再动手。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币扣款失败怎么办：海外AI支付故障排查手册]]></title>
@@ -805,7 +813,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-troubleshooting.html</guid>
     <pubDate>Wed, 08 Jul 2026 15:01:37 +0800</pubDate>
     <category>支付故障</category>
-    <description><![CDATA[稳定币付款卡在待确认、商户显示未到账、或者直接失败，三种情况的处理方式完全不同。整理排查顺序：先看交易哈希和链上状态，再判断该等待、该找客服还是该换支付方式。]]></description>
+    <description><![CDATA[稳定币付款卡在待确认、商户显示未到账、或者直接失败，三种情况的处理方式完全不同。待确认多因矿工费设低了排在队列后面，内存标签缺失则会让资产到账却无法识别归属，地址格式错误的交易通常会自动退回原地址，整理排查顺序与该找客服还是换支付方式，遇到问题先查清楚状态再决定下一步动作，三种状态混在一起处理只会越弄越乱。]]></description>
   </item>
   <item>
     <title><![CDATA[跨链兑换工具怎么挑：海外AI稳定币兑换避坑]]></title>
@@ -813,7 +821,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-swap-tools.html</guid>
     <pubDate>Wed, 08 Jul 2026 14:15:55 +0800</pubDate>
     <category>跨链兑换</category>
-    <description><![CDATA[稳定币不在需要的链上，是海外 AI 订阅最常见的“卡壳”原因之一。整理跨链兑换工具该看哪些指标——报价机制、手续费构成、到账速度、是否托管资产，并给出从选币到到账的实操流程。]]></description>
+    <description><![CDATA[稳定币不在需要的链上，是海外 AI 订阅最常见的“卡壳”原因之一。整理跨链兑换工具该看哪些指标——报价机制、滑点、网络手续费、到账速度，以及为什么非托管型比需要注册KYC的托管型更适合单次续费兑换，不存在平台跑路导致账户余额无法提现的风险，报价页面把价差、滑点、网络费拆得越清楚越靠谱，非托管型全程不碰账户余额。]]></description>
   </item>
   <item>
     <title><![CDATA[工具怎么选不踩坑：海外AI支付与网络避坑手册]]></title>
@@ -821,7 +829,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-tool-selection.html</guid>
     <pubDate>Tue, 07 Jul 2026 16:00:49 +0800</pubDate>
     <category>工具选型</category>
-    <description><![CDATA[支付、网络、账号安全……围绕海外AI订阅需要用到的各类工具越来越多，怎么判断一个工具是否靠谱？拆解支付、网络、账号管理三类工具的筛选思路，以及为什么独立测评比官网自我介绍更值得参考。]]></description>
+    <description><![CDATA[支付、网络、账号安全……海外AI订阅需要用到的工具越来越多，怎么判断一个工具是否靠谱？支付类要看是否明确支持所需服务商BIN段与3DS/AVS验证，网络类稳定性比节点数量更重要，账号安全类要看是否支持标准TOTP协议，拆解三类工具的筛选思路与独立测评的价值，选错任何一环都可能导致续费失败或账号异常。]]></description>
   </item>
   <item>
     <title><![CDATA[USDT转错链别慌：海外AI付款资产找回实操]]></title>
@@ -829,7 +837,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-cross-chain-recovery.html</guid>
     <pubDate>Tue, 07 Jul 2026 15:39:43 +0800</pubDate>
     <category>跨链纠错</category>
-    <description><![CDATA[稳定币转错链是加密支付里最容易踩的坑之一。拆解转错后资产的真实状态、第一时间该做什么、常见转错场景，以及怎么用跨链兑换工具把资产找回并归集到正确的链上。]]></description>
+    <description><![CDATA[稳定币转错链是加密支付里最容易踩的坑之一。EVM兼容链之间转错通常还能找回，地址格式完全不兼容则大概率永久丢失，拆解常见转错场景、第一步该核对的交易哈希（TxID）与目标地址链上活动记录，以及怎么归集到正确的链、切勿病急乱投医把私钥交给陌生人，信息越详细、找回的可能性也就越高，切勿把私钥或助记词提供给陌生客服。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟卡支付被拒怎么办：海外AI故障排查手册]]></title>
@@ -837,7 +845,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-troubleshooting.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:29:26 +0800</pubDate>
     <category>支付排查</category>
-    <description><![CDATA[用虚拟卡订阅 ChatGPT、Claude 却被拒付？拆解 AVS、3DS 验证失败、BIN 风控、额度状态四类常见原因，以及拒付后的排查顺序和选服务商的思路。]]></description>
+    <description><![CDATA[用虚拟卡订阅 ChatGPT、Claude 却被拒付？支付时应严格按虚拟卡平台提供的默认账单地址填写而非自己的真实地址，这是最容易被忽略也最容易解决的一类拒付原因，拆解AVS地址验证、3DS验证失败、BIN卡段被风控、额度与有效期四类常见原因及排查顺序，笼统换一张卡再试效率很低，先定位问题在哪一环。]]></description>
   </item>
   <item>
     <title><![CDATA[稳定币留多少才够用：海外AI资金储备规划]]></title>
@@ -845,7 +853,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-fund-reserve.html</guid>
     <pubDate>Tue, 07 Jul 2026 12:15:45 +0800</pubDate>
     <category>资金储备</category>
-    <description><![CDATA[与其等续费失败再手忙脚乱，不如提前做好资金储备。拆解应该储备多少、以什么形式持有、怎么选对链，以及资产分散在多条链时怎么提前归集到正确的稳定币。]]></description>
+    <description><![CDATA[与其等续费失败再手忙脚乱临时兑换踩坑，不如提前做好资金储备——月付订阅建议预留2-3个月费用作缓冲，团队或家庭场景可以更宽松一些。拆解应该以法币账户、虚拟卡余额还是稳定币形式持有更贴近“即插即用”，怎么选对链，以及分散资产怎么归集到正确的稳定币，提前规划的成本远低于出事后手忙脚乱补救，储备太多也占用资金流动性。]]></description>
   </item>
   <item>
     <title><![CDATA[家庭共享套餐怎么拼：海外AI多人合租避坑]]></title>
@@ -853,7 +861,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-family-plan.html</guid>
     <pubDate>Tue, 07 Jul 2026 11:26:04 +0800</pubDate>
     <category>家庭共享</category>
-    <description><![CDATA[海外 AI 服务的家庭/多人共享套餐怎么选、怎么邀请家人加入？拆解家庭套餐与团队套餐的区别、付款责任归属、成员隐私边界，以及成员退出时的处理办法。]]></description>
+    <description><![CDATA[海外 AI 服务的家庭/多人共享套餐怎么选、怎么邀请家人加入？被邀请成员通常无法更换付款方式或移除其他人，管理权限只归主账号持有人，这篇拆解家庭套餐、团队套餐与各自单独订阅三种方式的核心区别、付款责任归属与成员退出办法，帮你判断更适合哪一种，具体支持多少成员、价格如何请以官网说明为准，邀请成员一般仍用各自独立账号登录。]]></description>
   </item>
   <item>
     <title><![CDATA[海外AI消费怎么报销：发票与境外收据换算实操]]></title>
@@ -861,7 +869,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-invoice-reimbursement.html</guid>
     <pubDate>Tue, 07 Jul 2026 10:30:00 +0800</pubDate>
     <category>发票报销</category>
-    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅怎么开发票、怎么报销？拆解官方渠道账单下载、应用商店内购收据获取，虚拟卡/稳定币支付场景下的报销凭证补充办法，以及财务最常打回的几类问题。]]></description>
+    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅怎么开发票、怎么报销？账单币种没注明换算汇率来源是财务最常打回的问题之一，App内购收据往往只显示“App内购买”字样不够详细，拆解官方渠道账单下载、应用商店内购收据获取与虚拟卡/稳定币场景下的凭证补充办法，虚拟卡与稳定币场景建议同时保留多份佐证材料。]]></description>
   </item>
   <item>
     <title><![CDATA[学生优惠怎么领：海外AI教育认证申请全流程]]></title>
@@ -869,7 +877,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-student-discount.html</guid>
     <pubDate>Tue, 07 Jul 2026 09:40:00 +0800</pubDate>
     <category>学生优惠</category>
-    <description><![CDATA[ChatGPT Plus、Gemini 等海外 AI 服务的学生优惠怎么申请？拆解教育邮箱与第三方验证两种方式，没有教育邮箱时的思路，以及验证失败、到期转正价的常见问题。]]></description>
+    <description><![CDATA[ChatGPT Plus、Gemini 等海外 AI 服务的学生优惠怎么申请？拆解.edu教育邮箱验证与SheerID等第三方身份验证服务两种方式、没有教育邮箱时的替代思路，验证材料必须真实有效、伪造在读证明存在风险，以及验证失败、优惠到期转正价的常见问题处理，具体折扣力度和覆盖档位请以官方页面说明为准。]]></description>
   </item>
   <item>
     <title><![CDATA[海外AI到底多贵：汇率加点与手续费全拆解]]></title>
@@ -877,7 +885,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-exchange-rate-fees.html</guid>
     <pubDate>Mon, 06 Jul 2026 13:35:00 +0800</pubDate>
     <category>汇率费用</category>
-    <description><![CDATA[用信用卡、虚拟卡还是稳定币支付海外 AI 订阅，实际到手成本可能差很多。拆解动态货币转换（DCC）陷阱、境外交易手续费、虚拟卡的汇率加价，以及稳定币兑换损耗，教你算清楚一份订阅真正花了多少钱。]]></description>
+    <description><![CDATA[用信用卡、虚拟卡还是稳定币支付海外 AI 订阅，实际到手成本可能差很多。拆解动态货币转换（DCC）陷阱、1.5%到3%的境外交易手续费、虚拟卡的汇率加价，以及稳定币兑换损耗，正确做法是页面弹出选择时一律选原始计价货币结算，教你算清楚一份订阅真正花了多少钱，几个百分点看着不起眼、按月叠加下来并不少，长年算下来能省不少钱。]]></description>
   </item>
   <item>
     <title><![CDATA[怎么取消海外AI订阅：降级、暂停与退款全流程]]></title>
@@ -885,7 +893,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-cancellation-refund.html</guid>
     <pubDate>Mon, 06 Jul 2026 10:58:00 +0800</pubDate>
     <category>取消退款</category>
-    <description><![CDATA[ChatGPT、Claude、Gemini 等海外 AI 订阅想取消、降级或退款该怎么操作？拆解官方入口、退款政策与三种支付方式下的退款差异，以及误扣费后的补救办法。]]></description>
+    <description><![CDATA[ChatGPT、Claude、Gemini 等海外 AI 订阅想取消、降级或退款该怎么操作？取消、暂停、降级是三种不完全一样的操作，降级通常要等当前周期结束才生效且不退差价，App Store/Google Play内购取消入口在手机系统里，这篇拆解官方入口与退款政策差异，退款政策分散在各家条款里。]]></description>
   </item>
   <item>
     <title><![CDATA[两步验证、异常登录、账号找回：海外AI账号安全实操]]></title>
@@ -893,7 +901,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-account-security.html</guid>
     <pubDate>Fri, 03 Jul 2026 10:11:23 +0800</pubDate>
     <category>账号安全</category>
-    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅账号如何加固安全？拆解两步验证设置、密码管理、团队权限边界，以及遇到异常登录或账号被限制时的处理与找回流程。]]></description>
+    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅账号如何加固安全？密码复用一旦某平台发生数据泄露就会被批量撞库尝试登录，拆解两步验证、密码管理、团队权限边界，验证器 App 通常比短信验证码更稳定，以及异常登录被限制时的处理、找回与申诉流程详解，团队或多人共用账号时权限边界尤其容易出问题，恢复码要存放在安全离线处。]]></description>
   </item>
   <item>
     <title><![CDATA[续费突然失败别慌：海外AI账号恢复应急流程]]></title>
@@ -901,7 +909,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-renewal-emergency.html</guid>
     <pubDate>Thu, 02 Jul 2026 18:20:00 +0800</pubDate>
     <category>续费应急</category>
-    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅续费失败怎么办？拆解排查思路、应急恢复的两条路径，以及如何用手头的加密资产快速补足续费所需资金。]]></description>
+    <description><![CDATA[ChatGPT、Claude 等海外 AI 订阅续费失败怎么办？多数平台会给几天到一两周宽限期、期间会重试扣款，期满先降级免费版而非直接封禁，拆解支付工具、账号与网络地区一致性、平台提示信息三步排查思路，以及用加密资产快速补足续费资金的应急路径，收到失败提醒后尽快处理比等宽限期结束更稳妥，以账户页面实际显示信息为准。]]></description>
   </item>
   <item>
     <title><![CDATA[连不上、总掉线：海外AI网络环境自查清单]]></title>
@@ -909,7 +917,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-network-environment.html</guid>
     <pubDate>Thu, 02 Jul 2026 15:45:00 +0800</pubDate>
     <category>网络环境</category>
-    <description><![CDATA[订阅 ChatGPT、Claude 等海外 AI 服务前，如何自查网络环境的稳定性、真实性与地区一致性，减少注册失败、扣款异常与频繁二次验证的问题。]]></description>
+    <description><![CDATA[订阅 ChatGPT、Claude 等海外 AI 服务前，如何自查网络环境？连接稳定性、IP是否被判定为数据中心节点或高风险代理、网络与账号支付地区是否吻合，这三个维度决定注册失败与扣款异常概率，续费当天网络环境异常也可能连带影响自动扣款验证流程，本文只讲怎样保持真实稳定，不涉及规避风控，资料地区长期矛盾风险更高。]]></description>
   </item>
   <item>
     <title><![CDATA[用USDT/USDC付海外AI：选链与到账实操]]></title>
@@ -917,7 +925,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-stablecoin-payment.html</guid>
     <pubDate>Thu, 02 Jul 2026 09:30:09 +0800</pubDate>
     <category>稳定币</category>
-    <description><![CDATA[聚焦稳定币支付路径：为什么用 USDT/USDC、如何选对公链（TRC20/ERC20/Solana）、把零散资产跨链兑换成支付所需的目标稳定币，以及地址核对与到账避坑。]]></description>
+    <description><![CDATA[聚焦稳定币支付路径：为什么用 USDT/USDC、如何选对公链——TRC20手续费低确认快、以太坊拥堵时手续费明显偏高，把零散资产跨链兑换成支付所需的目标稳定币，不同支付渠道往往只认某一条特定公链上的稳定币而非通用，转错链风险大，地址核对避坑要点，选错链轻则要额外兑换、重则资产滞留难到账，可先理解成链上美元入门。]]></description>
   </item>
   <item>
     <title><![CDATA[虚拟信用卡怎么开：选卡、充值与稳定续费实操]]></title>
@@ -925,7 +933,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-virtual-card-guide.html</guid>
     <pubDate>Wed, 01 Jul 2026 22:34:44 +0800</pubDate>
     <category>虚拟卡</category>
-    <description><![CDATA[聚焦虚拟信用卡（VCC）路径：如何为 ChatGPT、Claude 等海外 AI 订阅挑选合规稳定的虚拟卡、用 USDT 充值开卡、通过 AVS 与 3DS 验证并保持长期稳定的自动续费。]]></description>
+    <description><![CDATA[聚焦虚拟信用卡（VCC）路径：如何挑选合规稳定的虚拟卡——避开BIN段常被风控、不支持3DS验证的匿名预付卡，正规持牌虚拟卡与俗称机房卡的匿名预付卡稳定性差别很大，用 USDT 充值开卡、通过 AVS 与 3DS 验证并保持长期稳定的自动续费，开卡快、可按订阅逐张建卡、能用USDT充值，价格与政策以各平台官方信息为准。]]></description>
   </item>
   <item>
     <title><![CDATA[团队多账号怎么管：海外AI成本与续费实践]]></title>
@@ -933,7 +941,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-subscription-team.html</guid>
     <pubDate>Wed, 01 Jul 2026 17:33:12 +0800</pubDate>
     <category>团队</category>
-    <description><![CDATA[面向团队与多账号场景，讨论海外 AI 订阅的席位规划、续费稳定性、汇率与资金管理、对账合规与权限边界划分，帮助团队构建一套可长期沿用的订阅治理方案。]]></description>
+    <description><![CDATA[面向团队与多账号场景，讨论海外 AI 订阅的席位规划——按高频、中频、低频三档来合理分配席位，避免按人头买满员编制造成的常见浪费，超过三到五人时改用团队版能统一发票和权限管理，帮助团队构建可长期沿用的订阅治理方案与台账，也要留意汇率与币种不统一带来的核算成本，建议维护集中台账记录服务名称与扣费周期等信息。]]></description>
   </item>
   <item>
     <title><![CDATA[实体卡、虚拟卡、稳定币：海外AI三条支付路径对比]]></title>
@@ -941,7 +949,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-payment-methods.html</guid>
     <pubDate>Wed, 01 Jul 2026 16:25:22 +0800</pubDate>
     <category>支付</category>
-    <description><![CDATA[对比海外 AI 订阅的信用卡、虚拟卡与加密货币稳定币三类支付通道，分析开通门槛、成本、成功率、资料一致性与换币准备，附三类通道的适用场景建议，帮助你选择长期稳定的付款方式。]]></description>
+    <description><![CDATA[对比海外 AI 订阅的信用卡、虚拟卡与稳定币三类支付通道，拆解背后的AVS地址验证与3DS身份确认机制如何影响成功率，分析开通门槛、成本与账单资料一致性，帮助你按自身情况选出长期稳定、能顺利合规完成真实订阅支出的付款方式组合，如实填写资料而非随意编造是通过风控的前提，本文只讨论如何合规稳定完成真实支出，不涉及规避风控。]]></description>
   </item>
   <item>
     <title><![CDATA[ChatGPT、Claude、Gemini怎么开通：海外AI订阅全景图]]></title>
@@ -949,7 +957,7 @@
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-subscription-guide.html</guid>
     <pubDate>Wed, 01 Jul 2026 14:30:45 +0800</pubDate>
     <category>指南</category>
-    <description><![CDATA[梳理 ChatGPT、Claude、Gemini、Perplexity 等海外 AI 服务的订阅档位、区域限制与开通流程，帮助个人与团队顺利完成海外 AI 订阅。]]></description>
+    <description><![CDATA[梳理 ChatGPT、Claude、Gemini、Perplexity 的订阅档位——ChatGPT Plus约20美元、面向重度用户的Pro约200美元一月，团队版通常按席位收费并附带集中计费与成员权限管理，以及各家的区域限制与开通流程，帮助个人和团队顺利完成订阅，具体价格与政策请以各平台官方页面公布信息为准。]]></description>
   </item>
 </channel>
 </rss>

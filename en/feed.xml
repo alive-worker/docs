@@ -6,29 +6,37 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 20 Sep 2026 10:36:47 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 13:10:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why ChatGPT Charges but Claude API Declines]]></title>
+    <link>https://ponr.org/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html</guid>
+    <pubDate>Sun, 20 Sep 2026 13:10:00 +0800</pubDate>
+    <category>Billing Rails</category>
+    <description><![CDATA[Card pays ChatGPT Plus but fails API credits. OpenAI splits bills and blocks prepaid cards for credits; Claude needs matching billing country. Split rails first]]></description>
+  </item>
   <item>
     <title><![CDATA[When AI Services Stop, Check Billing First]]></title>
     <link>https://ponr.org/en/articles/ai-service-continuity-layer.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-service-continuity-layer.html</guid>
     <pubDate>Sun, 20 Sep 2026 10:36:47 +0800</pubDate>
-    <category>Payment Path</category>
+    <category>到账链路</category>
     <description><![CDATA[When an AI service stops, check billing before the model. OpenAI renewal failures, separate ChatGPT/API bills, Claude usage limits, and a stablecoin check.]]></description>
   </item>
   <item>
-    <title>AI Service Costs: Pay Attention to Accepted Results</title>
+    <title><![CDATA[AI Service Costs: Pay Attention to Accepted Results]]></title>
     <link>https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</guid>
     <pubDate>Wed, 16 Sep 2026 15:14:33 +0800</pubDate>
-    <category>AI Service Costs</category>
-    <description>Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.</description>
+    <category>AI服务成本</category>
+    <description><![CDATA[Measure AI service costs per accepted result, including retries and human review. Use a worked example, clear acceptance checks, and a practical renewal review.]]></description>
   </item>
   <item>
     <title><![CDATA[Offboarding Ends, But the LLM API Sub-Account Keeps Billing]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-subaccount-offboarding-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-subaccount-offboarding-gap.html</guid>
     <pubDate>Fri, 11 Sep 2026 15:45:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>离职时间差</category>
     <description><![CDATA[Offboarding disables HR accounts same day, but the RAM sub-account and DeepSeek or Qwen API key often keep billing since HR and IT run separate timelines.]]></description>
   </item>
   <item>
@@ -36,7 +44,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-temporary-chat-moderation-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-temporary-chat-moderation-gap.html</guid>
     <pubDate>Fri, 11 Sep 2026 10:15:00 +0800</pubDate>
-    <category>Overseas AI Subscriptions</category>
+    <category>隐私落差</category>
     <description><![CDATA[ChatGPT Temporary Chat and Claude incognito chats skip history and training, but flagged content may still be retained for safety review, per platform policy.]]></description>
   </item>
   <item>
@@ -44,7 +52,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-sla-response-vs-resolution.html</guid>
     <pubDate>Thu, 10 Sep 2026 17:36:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>响应≠解决</category>
     <description><![CDATA[When an enterprise AI API batch-errors, filing a support ticket only guarantees an SLA response time, not the resolution time when service is actually restored.]]></description>
   </item>
   <item>
@@ -52,7 +60,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-iap-refund-channel-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-iap-refund-channel-mismatch.html</guid>
     <pubDate>Thu, 10 Sep 2026 14:27:00 +0800</pubDate>
-    <category>Overseas AI Subscriptions</category>
+    <category>退款入口</category>
     <description><![CDATA[ChatGPT Plus billed via App Store or Google Play? Apple or Google collects payment, not the vendor, so refunds route through the platform, not vendor support.]]></description>
   </item>
   <item>
@@ -60,15 +68,15 @@
     <link>https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-generated-content-infringement-liability.html</guid>
     <pubDate>Thu, 10 Sep 2026 10:15:00 +0800</pubDate>
-    <category>Domestic AI Compliance</category>
-    <description><![CDATA[If DeepSeek or Qwen API output gets flagged for copying text or images, liability and payout caps sit in an agreement clause few companies read closely.]]></description>
+    <category>责任归属</category>
+    <description><![CDATA[If DeepSeek or Qwen API output gets flagged for copying text or images, liability and payout caps sit in an agreement clause few companies read closely]]></description>
   </item>
   <item>
     <title><![CDATA[Student Discount Renewal: Reverify or Full Price?]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-student-verify-lapse-renewal.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-student-verify-lapse-renewal.html</guid>
     <pubDate>Wed, 09 Sep 2026 19:05:00 +0800</pubDate>
-    <category>Overseas AI Subscriptions</category>
+    <category>学生优惠</category>
     <description><![CDATA[ChatGPT Plus, Perplexity student discounts aren't verify-once-forever: some need yearly reverification, and a lapsed .edu email can mean full price on renewal.]]></description>
   </item>
   <item>
@@ -76,7 +84,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-multi-vendor-quota-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-multi-vendor-quota-mismatch.html</guid>
     <pubDate>Wed, 09 Sep 2026 12:53:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>额度对账</category>
     <description><![CDATA[Firms running DeepSeek and Qwen together find each vendors quota start date, validity, and post-depletion rule differ, so depleted quota reads as an outage.]]></description>
   </item>
   <item>
@@ -84,7 +92,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-annual-plan-refund-proration.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-annual-plan-refund-proration.html</guid>
     <pubDate>Wed, 09 Sep 2026 09:41:00 +0800</pubDate>
-    <category>Overseas AI Services</category>
+    <category>年付退款</category>
     <description><![CDATA[Annual ChatGPT, Claude, or Gemini plans cut cost, but mid-term refunds differ: cooling-off window, prorated refund, or none, by platform and purchase channel.]]></description>
   </item>
   <item>
@@ -92,7 +100,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-model-version-deprecation.html</guid>
     <pubDate>Tue, 08 Sep 2026 18:52:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>版本下线</category>
     <description><![CDATA[Chinese LLM vendors retire old API versions fast. Pin a version and deprecation forces urgent testing; use the latest alias and behavior shifts silently.]]></description>
   </item>
   <item>
@@ -100,7 +108,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-billing-descriptor-chargeback-lockout.html</guid>
     <pubDate>Tue, 08 Sep 2026 14:15:00 +0800</pubDate>
-    <category>Overseas AI Services</category>
+    <category>账单误判</category>
     <description><![CDATA[Many overseas AI subscriptions bill under a name unlike ChatGPT or Claude; disputing it as fraud can flag and ban the account, slower to fix than cancelling.]]></description>
   </item>
   <item>
@@ -108,7 +116,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-cross-border-node-compliance.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-cross-border-node-compliance.html</guid>
     <pubDate>Tue, 08 Sep 2026 09:38:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>节点合规</category>
     <description><![CDATA[Enterprises sending overseas data to DeepSeek or Qwen APIs assume domestic and overseas nodes share one rule set, but node location and rules can differ.]]></description>
   </item>
   <item>
@@ -116,7 +124,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-team-seat-account-transfer.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-team-seat-account-transfer.html</guid>
     <pubDate>Mon, 07 Sep 2026 15:30:00 +0800</pubDate>
-    <category>Overseas AI Services</category>
+    <category>团队席位</category>
     <description><![CDATA[Team seats on ChatGPT, Claude, Gemini belong to whoever pays, not invitees. Cancel that account and others lose access fast, timing varies, confirm handoff.]]></description>
   </item>
   <item>
@@ -124,7 +132,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-prepaid-package-refund-transfer.html</guid>
     <pubDate>Sat, 05 Sep 2026 14:30:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>资源包退款</category>
     <description><![CDATA[Prepaid LLM API credits cost less than pay-as-you-go, but leftover balance is common; refunds and transfers depend on each vendor's contract, not a shared norm.]]></description>
   </item>
   <item>
@@ -132,7 +140,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-cvv-autofill-lockout-risk.html</guid>
     <pubDate>Fri, 04 Sep 2026 13:56:00 +0800</pubDate>
-    <category>Overseas AI Services</category>
+    <category>CVV误填</category>
     <description><![CDATA[Browsers rarely autofill CVV, so typos happen; retrying submit repeatedly looks like fraud probing and can get your card locked, even as the real cardholder.]]></description>
   </item>
   <item>
@@ -140,7 +148,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-api-key-credential-split.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-api-key-credential-split.html</guid>
     <pubDate>Fri, 04 Sep 2026 11:52:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>凭证分离</category>
     <description><![CDATA[A leaked DeepSeek or Qwen API key lets attackers run up charges while your login stays clean, since password and key are separate; revoke the key to fix it.]]></description>
   </item>
   <item>
@@ -148,7 +156,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-bnpl-installment-renewal-mismatch.html</guid>
     <pubDate>Thu, 03 Sep 2026 14:10:00 +0800</pubDate>
-    <category>Overseas AI Services</category>
+    <category>分期错位</category>
     <description><![CDATA[BNPL installments and yearly renewal run on two clocks. Cancel early and you may not get back what Pay in 4 paid the merchant; verify refund policy first.]]></description>
   </item>
   <item>
@@ -156,7 +164,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-context-cache-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-context-cache-billing.html</guid>
     <pubDate>Thu, 03 Sep 2026 10:20:00 +0800</pubDate>
-    <category>Domestic Chinese AI Models</category>
+    <category>上下文缓存</category>
     <description><![CDATA[DeepSeek and Qwen bill matched cached prefixes at a lower rate. Put fixed setup first, variable input last, to raise cache hits; exact rules vary by vendor.]]></description>
   </item>
   <item>
@@ -164,7 +172,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-giftcard-balance-refund-lockin.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-giftcard-balance-refund-lockin.html</guid>
     <pubDate>Wed, 02 Sep 2026 16:50:00 +0800</pubDate>
-    <category>Overseas AI</category>
+    <category>余额退款</category>
     <description><![CDATA[Top up Apple ID balance via gift card, pay an AI subscription: refunds return to balance, not cash or a bank card, unlike paying by credit card directly.]]></description>
   </item>
   <item>
@@ -172,7 +180,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-sla-compensation.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-sla-compensation.html</guid>
     <pubDate>Wed, 02 Sep 2026 14:20:00 +0800</pubDate>
-    <category>Domestic AI</category>
+    <category>SLA赔偿</category>
     <description><![CDATA[DeepSeek and Qwen API SLA clauses cover uptime and latency only, not output quality; credit needs an active claim with outage logs, exact rates vary by vendor.]]></description>
   </item>
   <item>
@@ -180,15 +188,15 @@
     <link>https://ponr.org/en/articles/refund-closed-virtual-card-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/refund-closed-virtual-card-guide.html</guid>
     <pubDate>Wed, 02 Sep 2026 10:35:00 +0800</pubDate>
-    <category>Overseas AI</category>
-    <description><![CDATA[An AI refund goes to the original card; a closed virtual card means outcome depends on the provider, not the merchant. Contact the provider first, confirm no pending refunds before closing one.]]></description>
+    <category>退款路由</category>
+    <description><![CDATA[An AI refund goes to the original card; a closed virtual card means the outcome depends on the provider, not the merchant—confirm no pending refunds first.]]></description>
   </item>
   <item>
     <title><![CDATA[How Many Tokens Does One Image Cost in Vision APIs?]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-vision-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-vision-token-billing.html</guid>
     <pubDate>Tue, 01 Sep 2026 19:54:20 +0800</pubDate>
-    <category>Domestic AI</category>
+    <category>图片token计费</category>
     <description><![CDATA[DeepSeek and Qwen vision APIs convert images to tokens by resolution and mode, not text math. Formulas vary by vendor; test real bills on samples first.]]></description>
   </item>
   <item>
@@ -196,7 +204,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-multicurrency-fx-settlement-date.html</guid>
     <pubDate>Tue, 01 Sep 2026 14:20:00 +0800</pubDate>
-    <category>Overseas AI</category>
+    <category>汇率清算日</category>
     <description><![CDATA[Wise or Revolut billing an AI subscription? The checkout rate is an estimate; the real charge follows settlement days later, monthly amounts can drift with FX.]]></description>
   </item>
   <item>
@@ -204,7 +212,7 @@
     <link>https://ponr.org/en/articles/domestic-ai-reasoning-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-reasoning-token-billing.html</guid>
     <pubDate>Tue, 01 Sep 2026 10:35:00 +0800</pubDate>
-    <category>Domestic AI</category>
+    <category>推理token计费</category>
     <description><![CDATA[DeepSeek-R1 reasoning_content is billed as output tokens per DeepSeek docs. Check reasoning_tokens vs completion_tokens on your bill or underestimate real cost.]]></description>
   </item>
   <item>
@@ -212,7 +220,7 @@
     <link>https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-apple-pay-dpan-card-reissue.html</guid>
     <pubDate>Mon, 31 Aug 2026 14:05:00 +0800</pubDate>
-    <category>Overseas AI</category>
+    <category>DPAN与换卡</category>
     <description><![CDATA[Apple Pay/Google Pay use a device DPAN token, not your real card number. Account Updater can sync a reissued card automatically, but coverage varies by issuer.]]></description>
   </item>
   <item>
@@ -220,39 +228,39 @@
     <link>https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-invoice-entity-mismatch.html</guid>
     <pubDate>Mon, 31 Aug 2026 10:10:00 +0800</pubDate>
-    <category>Domestic AI</category>
-    <description><![CDATA[Many developers verify a DeepSeek or Qwen API account with a personal ID for convenience, then discover at reimbursement time that verified identity and invoice payee must match — personal accounts often can't issue enterprise invoices, and entity change or migration support varies by platform.]]></description>
+    <category>实名开票主体</category>
+    <description><![CDATA[A DeepSeek or Qwen API account verified under personal ID can block a company invoice: identity and invoice payee must match; fixing it varies by platform.]]></description>
   </item>
   <item>
     <title><![CDATA[Why AVS Address Checks Can Decline AI Subscriptions]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-avs-billing-address-mismatch.html</guid>
     <pubDate>Sun, 30 Aug 2026 16:10:00 +0800</pubDate>
-    <category>Overseas AI Subscriptions</category>
-    <description><![CDATA[Many US and European card issuers run an AVS check comparing only the house number and ZIP code of the billing address entered at checkout against the address on file, a completely different mechanism from 3D Secure identity verification. Filling in your current residence instead of the issuer address on file can decline an AI subscription charge even with sufficient funds.]]></description>
+    <category>AVS地址核对</category>
+    <description><![CDATA[AVS checks match only your house number and ZIP, unlike 3D Secure identity checks; a mismatch can decline AI subscription charges despite sufficient funds.]]></description>
   </item>
   <item>
     <title><![CDATA[Buying DeepSeek via Aliyun or Tencent Cloud vs. Direct API]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-cloud-marketplace-billing-entity.html</guid>
     <pubDate>Sun, 30 Aug 2026 13:15:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
-    <description><![CDATA[Many firms buy DeepSeek or Qwen API access through Aliyun or Tencent Cloud marketplace resale rather than a direct vendor contract. Billing entity, support channel, pricing markups, and SLA terms can all differ — verify each before signing.]]></description>
+    <category>云市场转售</category>
+    <description><![CDATA[Buying DeepSeek via Aliyun or Tencent Cloud resale differs from a direct deal: billing entity, support, pricing, and SLA terms can vary - verify before signing.]]></description>
   </item>
   <item>
     <title><![CDATA[One Virtual Card for Every AI Subscription? Read This First]]></title>
     <link>https://ponr.org/en/articles/virtual-card-concentration-risk-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/virtual-card-concentration-risk-guide.html</guid>
     <pubDate>Sat, 29 Aug 2026 13:55:00 +0800</pubDate>
-    <category>Overseas AI</category>
-    <description><![CDATA[One card for several AI subscriptions is tidy for billing, but it's a single point of failure: one risk freeze can fail every subscription the same day. Why one card, many merchants reads as risky, and how to split cards by subscription count.]]></description>
+    <category>扣款集中度</category>
+    <description><![CDATA[One card for ChatGPT, Claude, and Midjourney is tidy for billing, but it becomes a single point of failure: one freeze fails every subscription the same day.]]></description>
   </item>
   <item>
     <title><![CDATA[DeepSeek API in Production? Level Protection Is Separate]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-level-protection-assessment.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-level-protection-assessment.html</guid>
     <pubDate>Sat, 29 Aug 2026 11:20:00 +0800</pubDate>
-    <category>Domestic AI</category>
+    <category>等保测评</category>
     <description><![CDATA[Generative AI filing is not level protection assessment, a separate law regime for system security, not content. Tiers, API impact, filing mix-ups explained.]]></description>
   </item>
   <item>
@@ -260,7 +268,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-authorization-hold-settlement-gap.html</guid>
     <pubDate>Fri, 28 Aug 2026 16:50:00 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>预授权对不上</category>
     <description><![CDATA[An AI subscription bill can show a pending hold, then a separate charge. Here's the authorization vs settlement mechanism, and who releases the hold.]]></description>
   </item>
   <item>
@@ -268,7 +276,7 @@
     <link>https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-domestic-model-routing-downgrade.html</guid>
     <pubDate>Fri, 28 Aug 2026 13:58:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
+    <category>模型降级</category>
     <description><![CDATA[At peak hours the model behind a DeepSeek or Ernie Bot call may quietly differ from what you asked for. Check the model field, retest, verify SLA clauses.]]></description>
   </item>
   <item>
@@ -276,7 +284,7 @@
     <link>https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-sso-scim-offboarding-lag.html</guid>
     <pubDate>Fri, 28 Aug 2026 11:13:00 +0800</pubDate>
-    <category>Special Cases &amp; Accounts</category>
+    <category>SCIM延迟</category>
     <description><![CDATA[Disabling SSO at offboarding does not revoke ChatGPT or Claude access instantly: tier SCIM support, sync delay, and live sessions can leave accounts logged in.]]></description>
   </item>
   <item>
@@ -284,103 +292,103 @@
     <link>https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-api-training-data-clause.html</guid>
     <pubDate>Thu, 27 Aug 2026 15:55:00 +0800</pubDate>
-    <category>Domestic AI</category>
-    <description><![CDATA[Enterprises calling DeepSeek or Qwen APIs on business data want to know if inputs train future models. The answer sits in provider data-use terms; free vs paid tiers can differ, and no training isn't the same as no retention for abuse review.]]></description>
+    <category>训练数据条款</category>
+    <description><![CDATA[Calling DeepSeek or Qwen APIs with company data? Whether inputs train models sits in the terms; free vs paid tiers differ, and no training isn't no retention.]]></description>
   </item>
   <item>
     <title><![CDATA[AI Subscription Canceled, PayPal Still Shows It Active]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-paypal-cancel-still-active.html</guid>
     <pubDate>Thu, 27 Aug 2026 13:47:26 +0800</pubDate>
-    <category>Overseas AI Subscriptions</category>
-    <description><![CDATA[Many AI services bill via a PayPal Billing Agreement, an authorization record PayPal keeps independent of the platform's own database; if in-app cancel skips PayPal's API, the agreement stays active and a later charge can still go through. This article covers the mechanism and how to check and end it yourself in PayPal.]]></description>
+    <category>PayPal分裂</category>
+    <description><![CDATA[AI subscriptions charge via a PayPal Billing Agreement kept separate from the platform's status; skip PayPal's cancel API and it stays active for later charges.]]></description>
   </item>
   <item>
     <title><![CDATA[Why a China LLM API Returns 200 OK With Empty Content]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-content-moderation-truncation.html</guid>
     <pubDate>Thu, 27 Aug 2026 10:45:00 +0800</pubDate>
-    <category>Domestic AI Models</category>
-    <description><![CDATA[A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which response field reveals why, how streaming truncation looks, and the official exemption request channel.]]></description>
+    <category>内容审核</category>
+    <description><![CDATA[A DeepSeek or Qwen API call can return 200 OK with empty or truncated content -- moderation, not a bug. Which field to check, streaming included.]]></description>
   </item>
   <item>
     <title><![CDATA[Why Your AI Subscription Renewal Still Needs 3DS]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-renewal-3ds-mit-exemption.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-renewal-3ds-mit-exemption.html</guid>
     <pubDate>Wed, 26 Aug 2026 13:58:00 +0800</pubDate>
-    <category>Payment Risk Control</category>
-    <description><![CDATA[AI renewals should skip 3D Secure as merchant-initiated transactions under PSD2, but the exemption often fails silently when the MIT flag isn't passed correctly or the issuer challenges anyway.]]></description>
+    <category>3DS验证</category>
+    <description><![CDATA[AI renewals should skip 3D Secure under PSD2's merchant-initiated exemption, but it often fails silently. Here's why, and what the failure signals mean.]]></description>
   </item>
   <item>
     <title><![CDATA[ICP Filing Alone Won't Cover Your China LLM API Product]]></title>
     <link>https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/domestic-ai-generative-filing-vs-icp.html</guid>
     <pubDate>Wed, 26 Aug 2026 10:00:01 +0800</pubDate>
-    <category>Domestic AI</category>
-    <description><![CDATA[Calling DeepSeek or Doubao's API doesn't meet China's generative AI filing rule beyond ICP registration, since providers with public-opinion attributes or social mobilization capability need a separate algorithm filing.]]></description>
+    <category>生成式备案</category>
+    <description><![CDATA[Calling DeepSeek or Doubao's API doesn't meet China's generative AI filing rule beyond ICP registration. Here's the difference and where to check yours.]]></description>
   </item>
   <item>
     <title><![CDATA[Why Agent Mode Burns Your Coding Plan's Quota Fast]]></title>
     <link>https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-coding-agent-request-quota-burn.html</guid>
     <pubDate>Tue, 25 Aug 2026 18:05:02 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[Cursor, Copilot, and Windsurf cap plans by premium requests, but agent mode bills each file read, test, or edit step as its own request while the bill shows only one blunt total, burning quota fast.]]></description>
+    <category>额度速耗</category>
+    <description><![CDATA[Cursor, Copilot, and Windsurf cap plans by premium requests. Agent mode bills each file read, test or edit step on its own, draining a month's quota in minutes.]]></description>
   </item>
   <item>
     <title><![CDATA[Why DeepSeek's API Is Cheaper After Midnight]]></title>
     <link>https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-domestic-model-off-peak-pricing.html</guid>
     <pubDate>Tue, 25 Aug 2026 15:42:00 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night, similar in spirit to overseas batch-API discounts but triggered differently.]]></description>
+    <category>错峰定价</category>
+    <description><![CDATA[DeepSeek and other Chinese model APIs now charge more at Beijing daytime peak hours and less overnight, shifting batch jobs onto idle GPU capacity at night.]]></description>
   </item>
   <item>
     <title><![CDATA[Why a New Network Locks You Out of Your AI Account]]></title>
     <link>https://ponr.org/en/articles/ai-account-login-risk-device-fingerprint.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-account-login-risk-device-fingerprint.html</guid>
     <pubDate>Tue, 25 Aug 2026 13:15:00 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[Switching networks or devices can trigger step-up verification or a temporary lock on an AI account. Login risk detection flags device fingerprint changes, IP geolocation jumps, and odd login timing, a system entirely separate from payment risk control.]]></description>
+    <category>登录风控</category>
+    <description><![CDATA[Switching networks can trigger step-up checks on an AI account. Login risk detection flags device fingerprint and IP jumps, separate from payment risk control.]]></description>
   </item>
   <item>
     <title><![CDATA[Why Your AI API Bill Costs More Than the Per-Token Math]]></title>
     <link>https://ponr.org/en/articles/ai-api-rate-limit-tier-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-api-rate-limit-tier-billing.html</guid>
     <pubDate>Tue, 25 Aug 2026 10:41:45 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[AI API bills often exceed per-token math because of rate-limit tier surcharges, burst traffic billed at pricier on-demand rates instead of provisioned throughput, and batch discounts that don't apply to synchronous calls.]]></description>
+    <category>并发计费</category>
+    <description><![CDATA[AI API bills often exceed per-token math: rate-limit tier fees, burst traffic billed as pricier on-demand rates, and batch-only discounts explain the gap.]]></description>
   </item>
   <item>
     <title><![CDATA[Your AI Subscription Failed After a Silent PSP Switch]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-psp-migration-failure.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-psp-migration-failure.html</guid>
     <pubDate>Mon, 24 Aug 2026 17:26:30 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[After an AI provider swaps payment processors, old card tokens may not carry over. A vague decline email, a changed billing name, or a decline despite balance are the signs to check.]]></description>
+    <category>迁移失效</category>
+    <description><![CDATA[AI providers swap processors; card tokens may not carry over. A vague decline email, changed billing name, or decline despite balance are the signs to check.]]></description>
   </item>
   <item>
     <title><![CDATA[Why the Swap Quote and the Amount That Arrives Don't Match]]></title>
     <link>https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/overseas-ai-stablecoin-swap-slippage.html</guid>
     <pubDate>Mon, 24 Aug 2026 15:03:12 +0800</pubDate>
-    <category>Stablecoin Payments</category>
-    <description><![CDATA[A swap quote is a snapshot at request time — settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.]]></description>
+    <category>滑点机制</category>
+    <description><![CDATA[A swap quote is a snapshot at request time &mdash; settlement runs later against a moving price. Some tools let you set slippage tolerance; congestion widens the gap.]]></description>
   </item>
   <item>
     <title><![CDATA[Pausing an AI Subscription Isn't the Same as Cancelling]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-pause-not-cancel.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-pause-not-cancel.html</guid>
     <pubDate>Mon, 24 Aug 2026 13:32:27 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[Many AI platforms quietly added a "pause" option, distinct from cancel or downgrade — it may freeze your renewal clock, trim data, or void locked-in pricing.]]></description>
+    <category>暂停机制</category>
+    <description><![CDATA[Many AI platforms quietly added a &quot;pause&quot; option, distinct from cancel or downgrade — it may freeze your renewal clock, trim data, or void locked-in pricing.]]></description>
   </item>
   <item>
     <title><![CDATA[Your Card Was Reissued — Your AI Account Just Got Locked]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-card-reissue-lockout.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-card-reissue-lockout.html</guid>
     <pubDate>Sun, 23 Aug 2026 13:37:55 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>换卡锁定</category>
     <description><![CDATA[A bank-side card reissue that skips your AI platform's account updater fails silently, and the grace period ends in a security lockout instead of a downgrade.]]></description>
   </item>
   <item>
@@ -388,7 +396,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-promo-price-revert.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-promo-price-revert.html</guid>
     <pubDate>Sun, 23 Aug 2026 11:07:52 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>折扣消失</category>
     <description><![CDATA[A promo code is bound to a fixed number of cycles, not the plan. When it lapses, price reverts to full with no separate alert, just an ordinary renewal receipt.]]></description>
   </item>
   <item>
@@ -396,15 +404,15 @@
     <link>https://ponr.org/en/articles/ai-subscription-delete-not-cancel.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-delete-not-cancel.html</guid>
     <pubDate>Sat, 22 Aug 2026 19:19:39 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[Many AI platforms treat account deletion and subscription cancellation as two unrelated buttons — deletion only clears login and data, while billing keeps running unless cancelled separately.]]></description>
+    <category>删号≠取消</category>
+    <description><![CDATA[Deleted your AI account, then got billed anyway? Deletion and cancellation are separate systems on many platforms — here's why, and what to check first.]]></description>
   </item>
   <item>
     <title><![CDATA[You Removed a Seat, So Why Is the Bill Still the Same?]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-seat-removal-lag.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-seat-removal-lag.html</guid>
     <pubDate>Sat, 22 Aug 2026 16:11:41 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>席位锁定</category>
     <description><![CDATA[Removing a seat from a team AI plan rarely lowers the bill right away. Most platforms lock the seat count until the next cycle starts, billing an unused spot.]]></description>
   </item>
   <item>
@@ -412,7 +420,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-free-tier-throttle.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-free-tier-throttle.html</guid>
     <pubDate>Fri, 21 Aug 2026 16:01:22 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>额度限流</category>
     <description><![CDATA[A free-tier usage cap isn't fixed — platforms flex it against real-time compute load. Here's how the throttling engine works and what to do as limits shrink.]]></description>
   </item>
   <item>
@@ -420,7 +428,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-fraud-flag.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-fraud-flag.html</guid>
     <pubDate>Fri, 21 Aug 2026 13:38:00 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>风控误判</category>
     <description><![CDATA[A mismatched name, address, or login location can trip an AI platform's fraud engine into blocking a real renewal — the scoring logic and how to appeal it.]]></description>
   </item>
   <item>
@@ -428,7 +436,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-credit-expiry.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-credit-expiry.html</guid>
     <pubDate>Fri, 21 Aug 2026 11:14:41 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>额度清零</category>
     <description><![CDATA[Unused API tokens and generation credits reset to zero each cycle, and closing an account forfeits prepaid balance too — why platforms design it this way.]]></description>
   </item>
   <item>
@@ -436,7 +444,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-billing-cycle-switch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-billing-cycle-switch.html</guid>
     <pubDate>Fri, 21 Aug 2026 10:06:22 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>周期切换</category>
     <description><![CDATA[A pre-checked upsell, a trial-to-paid default, or one casual line to support can quietly flip a monthly AI plan to annual billing without clear consent.]]></description>
   </item>
   <item>
@@ -444,7 +452,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-shared-plan-payment-failure.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-shared-plan-payment-failure.html</guid>
     <pubDate>Thu, 20 Aug 2026 16:43:49 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>合租断供</category>
     <description><![CDATA[In a shared or family AI plan, only the owner's card is on file. When it fails and no one updates it, every member loses access the same day.]]></description>
   </item>
   <item>
@@ -452,7 +460,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-company-acquisition.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-company-acquisition.html</guid>
     <pubDate>Thu, 20 Aug 2026 14:17:08 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>并购变更</category>
     <description><![CDATA[When an AI tool gets acquired, its billing entity, currency, and terms can change overnight, and your card issuer may flag the new merchant as fraud.]]></description>
   </item>
   <item>
@@ -460,7 +468,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-addon-bundle-upsell.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-addon-bundle-upsell.html</guid>
     <pubDate>Thu, 20 Aug 2026 11:39:31 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>插件加购</category>
     <description><![CDATA[AI subscription renewals often bundle paid add-ons like storage or usage credits into checkout, quietly inflating your bill unless you check every line first.]]></description>
   </item>
   <item>
@@ -468,7 +476,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-downgrade-data-loss.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-downgrade-data-loss.html</guid>
     <pubDate>Thu, 20 Aug 2026 10:09:14 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>降级清空</category>
     <description><![CDATA[Downgrade a paid AI plan to free, and retention limits kick in quietly: chat history, projects and exports get purged after a grace period unless you act first.]]></description>
   </item>
   <item>
@@ -476,7 +484,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-zombie-charge.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-zombie-charge.html</guid>
     <pubDate>Wed, 19 Aug 2026 14:24:25 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>僵尸扣款</category>
     <description><![CDATA[Cancelled an AI subscription but still got billed? Zombie charges often mean cancellation never reached the real processor. How to verify it and stop them.]]></description>
   </item>
   <item>
@@ -484,7 +492,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-currency-mismatch.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-currency-mismatch.html</guid>
     <pubDate>Wed, 19 Aug 2026 10:42:27 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>货币陷阱</category>
     <description><![CDATA[AI bills say USD but your card gets charged in EUR or GBP? That swap can quietly add a hidden markup. Here is how to spot it and lock in one billing currency.]]></description>
   </item>
   <item>
@@ -492,7 +500,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-chargeback-dispute.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-chargeback-dispute.html</guid>
     <pubDate>Tue, 18 Aug 2026 17:48:18 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>拒付纠纷</category>
     <description><![CDATA[Filing a chargeback too soon can get your AI subscription banned before the refund lands. Contact support first, keep evidence, then dispute if it fails.]]></description>
   </item>
   <item>
@@ -500,7 +508,7 @@
     <link>https://ponr.org/en/articles/ai-subscription-price-hike-notice.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-price-hike-notice.html</guid>
     <pubDate>Tue, 18 Aug 2026 14:00:06 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>涨价预警</category>
     <description><![CDATA[AI subscriptions rarely announce a price hike; the new rate appears on the next charge. Here's how to catch it early with a virtual card and stablecoin funding.]]></description>
   </item>
   <item>
@@ -508,7 +516,7 @@
     <link>https://ponr.org/en/articles/ai-startup-shutdown-data-refund.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-startup-shutdown-data-refund.html</guid>
     <pubDate>Tue, 18 Aug 2026 13:57:44 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>关站应对</category>
     <description><![CDATA[Small AI startups shut down or get acquired often. Learn the warning signs, what refund rights you have, and how a virtual card limits the fallout.]]></description>
   </item>
   <item>
@@ -516,55 +524,55 @@
     <link>https://ponr.org/en/articles/free-trial-auto-renewal-trap.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/free-trial-auto-renewal-trap.html</guid>
     <pubDate>Tue, 18 Aug 2026 11:26:56 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>续费防坑</category>
     <description><![CDATA[Free AI trials default to auto-renewal, not cancellation. This piece covers trial dark patterns, why renewal dates slip, and how a virtual card caps the risk.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[AI Tool Comparisons: Judge by Retention, Not Spec Sheets]]></title>
-    <link>https://ponr.org/en/articles/ai-tool-evaluation-framework.html</link>
-    <guid isPermaLink="true">https://ponr.org/en/articles/ai-tool-evaluation-framework.html</guid>
-    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[Feature tables and benchmarks rarely predict what you'll still use. A framework built on embedding cost, choice overload, and a 90-day retention check.]]></description>
   </item>
   <item>
     <title><![CDATA[Where AI Subscription Money Actually Goes: Accounts, FX, Cards]]></title>
     <link>https://ponr.org/en/articles/ai-subscription-payment-economics.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-subscription-payment-economics.html</guid>
     <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>支付方案</category>
     <description><![CDATA[Account structure, FX markups, and failed charges shape AI subscription payment economics. How to split accounts, and consolidate billing with one virtual card.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[AI Tool Comparisons: Judge by Retention, Not Spec Sheets]]></title>
+    <link>https://ponr.org/en/articles/ai-tool-evaluation-framework.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-tool-evaluation-framework.html</guid>
+    <pubDate>Mon, 17 Aug 2026 11:26:58 +0800</pubDate>
+    <category>工具对比</category>
+    <description><![CDATA[Feature tables and benchmarks rarely predict what you'll still use. A framework built on embedding cost, choice overload, and a 90-day retention check.]]></description>
   </item>
   <item>
     <title><![CDATA[How AI Use Cases Shift From Novelty to Daily Workflow]]></title>
     <link>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</guid>
     <pubDate>Thu, 13 Aug 2026 11:07:02 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>应用场景</category>
     <description><![CDATA[What really moves productivity is not one hit app but the rebuild of AI use cases and workflows: solo vs team scenarios, real wins, hype, and payment hurdles.]]></description>
   </item>
   <item>
     <title><![CDATA[AI Tool Costs: Pay Every Subscription With One Virtual Card]]></title>
     <link>https://ponr.org/en/articles/ai-tool-cost-virtual-card-tutorial.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-tool-cost-virtual-card-tutorial.html</guid>
-    <pubDate>Tue, 12 Aug 2026 12:39:53 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <pubDate>Wed, 12 Aug 2026 12:39:53 +0800</pubDate>
+    <category>支付方案</category>
     <description><![CDATA[Subscribed to several AI tools but cannot total the cost, with no card for overseas billing? Estimate the spend, then open, fund, and bind one virtual card.]]></description>
   </item>
   <item>
-    <title><![CDATA[AI Use Cases in 2026: Tools, Real Costs & How to Pay]]></title>
+    <title><![CDATA[AI Use Cases in 2026: Tools, Real Costs &amp; How to Pay]]></title>
     <link>https://ponr.org/en/articles/ai-application-scenarios-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-application-scenarios-guide.html</guid>
     <pubDate>Tue, 11 Aug 2026 12:50:25 +0800</pubDate>
-    <category>AI Subscriptions</category>
-    <description><![CDATA[A full breakdown of the six major AI use case categories in 2026 — writing, coding, image, video, search, and voice — covering representative tools, real pricing structures, and how to pay with a virtual card.]]></description>
+    <category>入门与基础</category>
+    <description><![CDATA[The six major AI use cases in 2026 — writing, coding, image, video, search and voice — with representative tools, real pricing, and how to pay by virtual card.]]></description>
   </item>
   <item>
     <title><![CDATA[Comparing AI Tools? Here's How to Pay for Them All]]></title>
     <link>https://ponr.org/en/articles/ai-tool-subscription-compare-guide.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-tool-subscription-compare-guide.html</guid>
     <pubDate>Mon, 10 Aug 2026 12:33:19 +0800</pubDate>
-    <category>AI Subscriptions</category>
+    <category>支付方案</category>
     <description><![CDATA[Juggling AI subscriptions with charges you can't track? Compare tools by real use case, then use one virtual card to fold every AI bill into a single statement.]]></description>
   </item>
   <item>
@@ -572,7 +580,7 @@
     <link>https://ponr.org/en/articles/ai-education-equity.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-education-equity.html</guid>
     <pubDate>Fri, 07 Aug 2026 14:20:29 +0800</pubDate>
-    <category>AI &amp; Society</category>
+    <category>AI 与社会</category>
     <description><![CDATA[Khan Academy's Khanmigo reaches millions of students. This piece examines the real data on AI tutoring outcomes, and where access barriers still block equity.]]></description>
   </item>
   <item>
@@ -580,7 +588,7 @@
     <link>https://ponr.org/en/articles/ai-companionship-trust.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-companionship-trust.html</guid>
     <pubDate>Fri, 07 Aug 2026 11:17:02 +0800</pubDate>
-    <category>AI &amp; Society</category>
+    <category>AI 与社会</category>
     <description><![CDATA[AI companion apps have tens of millions of users seeking connection. This piece examines what support they provide, and where safety risks stay unresolved.]]></description>
   </item>
   <item>
@@ -588,7 +596,7 @@
     <link>https://ponr.org/en/articles/ai-elderly-care.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/ai-elderly-care.html</guid>
     <pubDate>Thu, 06 Aug 2026 16:45:00 +0800</pubDate>
-    <category>AI Eldercare</category>
+    <category>AI 养老场景</category>
     <description><![CDATA[Can AI care for elderly people living alone? Fall sensors, companion robots and health monitors show real progress, and where eldercare AI still falls short.]]></description>
   </item>
   <item>

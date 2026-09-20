@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？</title>
+  <meta name="description" content="同一张虚拟卡能付ChatGPT Plus，却买不了Claude或OpenAI的API积分，多半不是卡里没钱。OpenAI把订阅和API分账，并写明预付卡不能买API积分；Claude Console走预付积分，还要求账单地址与发卡国一致。把订阅通道和API通道拆开核验，别拿换模型去修被拒的卡，先看账本。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？">
+  <meta property="og:description" content="同一张虚拟卡能付ChatGPT Plus，却买不了Claude或OpenAI的API积分，多半不是卡里没钱。OpenAI把订阅和API分账，并写明预付卡不能买API积分；Claude Console走预付积分，还要求账单地址与发卡国一致。把订阅通道和API通道拆开核验，别拿换模型去修被拒的卡，先看账本。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html">
+  <meta property="article:published_time" content="2026-09-20T13:10:00+08:00">
+  <meta property="article:modified_time" content="2026-09-20T13:10:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="账单通道">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？">
+  <meta name="twitter:description" content="同一张虚拟卡能付ChatGPT Plus，却买不了Claude或OpenAI的API积分，多半不是卡里没钱。OpenAI把订阅和API分账，并写明预付卡不能买API积分；Claude Console走预付积分，还要求账单地址与发卡国一致。把订阅通道和API通道拆开核验，别拿换模型去修被拒的卡，先看账本。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-virtual-card-subscription-vs-api-decline.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="同一张虚拟卡分成订阅通道和API积分通道，一边扣款成功一边被拒">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-virtual-card-subscription-vs-api-decline.png">
+  <link rel="dns-prefetch" href="https://rdvcc.com">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ponr.org/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "llf.worker@gmail.com",
+        "contactType": "editorial"
+      },
+      "knowsAbout": [
+        "海外 AI 服务订阅",
+        "跨境支付",
+        "虚拟信用卡",
+        "加密货币稳定币支付"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": [
+        "https://github.com/alive-worker"
+      ],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": {
+        "@id": "https://ponr.org/#org"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://ponr.org/#org"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-virtual-card-subscription-vs-api-decline.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html",
+      "name": "同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？",
+      "isPartOf": {
+        "@id": "https://ponr.org/#website"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#breadcrumb"
+      },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-09-20T13:10:00+08:00",
+      "dateModified": "2026-09-20T13:10:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ponr.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "全部文章",
+          "item": "https://ponr.org/articles.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？",
+          "item": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？",
+      "description": "同一张虚拟卡能付ChatGPT Plus，却买不了Claude或OpenAI的API积分，多半不是卡里没钱。OpenAI把订阅和API分账，并写明预付卡不能买API积分；Claude Console走预付积分，还要求账单地址与发卡国一致。把订阅通道和API通道拆开核验，别拿换模型去修被拒的卡，先看账本。",
+      "image": "https://ponr.org/img/cover-overseas-ai-virtual-card-subscription-vs-api-decline.png",
+      "author": {
+        "@id": "https://ponr.org/about.html#author"
+      },
+      "publisher": {
+        "@id": "https://ponr.org/#org"
+      },
+      "datePublished": "2026-09-20T13:10:00+08:00",
+      "dateModified": "2026-09-20T13:10:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "账单通道",
+      "keywords": [
+        "AI服务",
+        "虚拟卡",
+        "ChatGPT Plus",
+        "Claude API",
+        "预付卡",
+        "账单通道"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ponr.org/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://ponr.org/#website"
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/virtual-card-chatgpt-plus-vs-api-decline.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+<header class="article-head">
+          <h1>同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？</h1>
+          <p class="article-summary">卡里明明有钱，ChatGPT Plus 续费成功了，同一张卡去买 Claude 或 OpenAI 的 API 积分却被拒。这通常不是「AI 服务不稳定」，而是订阅通道和 API 通道走了两套完全不同的收单规则。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-09-20T13:10:00+08:00">2026-09-20 13:10:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-virtual-card-subscription-vs-api-decline.svg" width="800" height="400" alt="同一张虚拟卡分成订阅通道和API积分通道，一边扣款成功一边被拒" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开 ChatGPT 网页账单和 API 平台账单，确认这次成功/失败分别落在哪一套账本，不要只看聊天窗口。</li>
+                <li><span class="article-verify-check">✓</span>在发卡行或虚拟卡后台核对卡种：是标准贷记/借记，还是预付卡 BIN。OpenAI 写明预付卡不能购买 API 积分。</li>
+                <li><span class="article-verify-check">✓</span>对照 Claude Console 的 Settings &gt; Billing：失败发生在「Buy credits」还是席位订阅，账单地址国家是否与发卡国一致。</li>
+                <li><span class="article-verify-check">✓</span>看发卡行流水是授权成功、预授权冻结，还是根本没有记录——没有记录时，问题多半在 3DS/地区，而不是余额。</li>
+                <li><span class="article-verify-check">✓</span>订阅通道和 API 通道不要共用一张卡；拒付后先换通道，不要先换模型。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 同一张卡的两次扣款，根本不是同一种交易</h2>
+              <p>很多人把「虚拟卡能不能付 AI」当成一个是非题。实测里更常见的是半对半错：ChatGPT Plus 每月能扣上，同一张卡去 Claude Console 买积分、或去 OpenAI API 平台充值，却弹出卡片被拒。这两种失败在对话框里看起来很像「服务连不上」，根源却在收单层。</p>
+              <p>OpenAI 把这件事写进了官方说明：<a href="https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform" target="_blank" rel="noopener">ChatGPT 与 API 平台是两套独立账单</a>。Plus 扣成功，只证明订阅通道的支付方式可用；它不证明 API 组织有预付余额，也不证明这张卡被 API 通道接受。Claude 一侧同样把网页订阅和 Console 积分分开：<a href="https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage" target="_blank" rel="noopener">API / Playground / Claude Code 默认走预付积分</a>，失败请求不扣费，积分购买是一次性（或自动补额）交易，不是 Plus 那种商户发起的循环扣款。</p>
+              <p>循环扣款（MIT）和一次性购积分，在发卡行风控里权重不同。前者可能已经完成过 3DS，后续续费走商户凭证；后者每次都可能重新要 SCA、要账单地址、要卡种白名单。把两次结果当成「这张卡到底行不行」的一次抽样，会得出错误结论。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. OpenAI 明文：预付卡买不了 API 积分</h2>
+              <p>比「风控心情不好」更硬的一条，写在 OpenAI 的拒卡说明里：<a href="https://help.openai.com/en/articles/7232916-why-was-my-credit-card-declined" target="_blank" rel="noopener">Prepaid cards cannot be used to purchase API credits</a>，API 积分只接受标准贷记卡或借记卡。许多虚拟卡走预付 BIN，对 Plus 订阅也许能过，对 API 充值会在收单侧直接拒绝。发卡行后台甚至看不到一笔失败记录，因为请求在卡组织/收单行就被挡下了。</p>
+              <p>同一页还列出银行拦截跨境或在线交易、账单地址不一致、3DS/SCA 弹窗被拦截、以及你或发卡机构不在支持地区。这些原因 OpenAI 通常拿不到详细拒付码，所以客服只能让你去问银行。正确动作是：先确认失败发生在 API 账单而不是 ChatGPT 账单，再查卡种是否预付，再看流水有没有授权记录。流水空白时，加余额、换模型、反复点支付，都解决不了。</p>
+              <p>Anthropic 的拒卡说明走另一条约束：<a href="https://support.claude.com/en/articles/9402418-why-was-my-card-declined" target="_blank" rel="noopener">账单地址必须与卡的开户国一致</a>，且自助 API 账户不接受 PayPal / Venmo。虚拟卡填的是发行商注册地址，人在另一国，AVS 对不上就会拒。Claude.ai 席位能扣、Console 买积分失败，优先核这一条，而不是先怀疑「Claude 比 ChatGPT 更挑卡」。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 企业套餐还要把席位费和用量费拆开</h2>
+              <p>团队场景会再拆一层。Anthropic 写明：Enterprise 的用量不包含在席位费里，token 按 API 价另计；自助套餐用量用预付积分，售罄即停，直到有 Billing 权限的人再买。<a href="https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan" target="_blank" rel="noopener">席位发票和用量/积分是两条支付</a>。财务说「这个月 AI 已经付过了」，工程侧仍可能看到 Console 积分为零。</p>
+              <p>采购台账至少记下四项：产品（ChatGPT / Claude.ai / API）、通道（网页订阅、应用商店还是 Console 积分）、卡种（贷记/借记/预付）、账单国家。四项对不上，就不要先加席位或换更贵的模型。应用商店那条订阅还要单独看：网页卡换成功，不等于 App Store 的自动续费已经停。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 订阅卡和 API 卡拆开，比「再开一张万能卡」更有效</h2>
+              <p>核验顺序应当是：分清账本 → 核对卡种 → 核对账单国家与 3DS → 再决定换卡还是换通道。订阅续费用一张长期卡，API 积分用一张被收单行接受的标准卡，失败面会被切开。一卡打天下看起来省事，实际是把 Plus 续费、API 充值、3DS 和预付 BIN 限制绑死在同一个拒付点上。</p>
+              <p>如果需要给 ChatGPT Plus、Claude.ai 这类订阅单独隔离一张可设额度、可独立有效期的卡，可以用虚拟卡服务商 <a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a> 按订阅开卡，把单笔限额卡在略高于月费，避免 API 自动补额把余额一次抽干。这是推广入口，不是「预付虚拟卡一定能买 API 积分」的承诺——OpenAI 已经把预付卡排除在 API 积分之外。API 充值仍应准备符合官方卡种要求的支付方式，并先小额试扣。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 月度复盘只问三句话，才会少做无效动作</h2>
+              <p>复盘时不要问「这张卡到底行不行」。问这三句：这次失败发生在哪一套账单？发卡行看不看得到授权？卡种和账单国家是否满足该通道的硬规则？答得出来，动作才分得清：换卡、改地址、换通道，或等 3DS 完成。答不出来就去换模型，等于用能力层去修收单层。</p>
+              <p>AI 服务能稳定用，靠的不是某张卡的运气，而是通道被拆开管理。订阅 Continuity 和 API 产能是两笔生意，也是两套风控。把它们当成同一笔「AI 月费」，才会在半边成功、半边被拒时，误判成产品本身抽风。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+<li><a href="#sec-1">同一张卡的两次扣款，根本不是同一种交易</a></li>
+<li><a href="#sec-2">OpenAI 明文：预付卡买不了 API 积分</a></li>
+<li><a href="#sec-3">企业套餐还要把席位费和用量费拆开</a></li>
+<li><a href="#sec-4">订阅卡和 API 卡拆开，比「再开一张万能卡」更有效</a></li>
+<li><a href="#sec-5">月度复盘只问三句话，才会少做无效动作</a></li>
+</ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+<li><a href="https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform" target="_blank" rel="noopener nofollow">OpenAI：Managing billing for ChatGPT and the API platform</a> — 明确 ChatGPT 订阅与 API 平台分账，支持「一张卡两边结果不同」这一判断。</li>
+<li><a href="https://help.openai.com/en/articles/7232916-why-was-my-credit-card-declined" target="_blank" rel="noopener nofollow">OpenAI：Why was my credit card declined</a> — 写明预付卡不能购买 API 积分，并列出 3DS、地区与账单地址等拒付原因。</li>
+<li><a href="https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage" target="_blank" rel="noopener nofollow">Anthropic：How do I pay for my Claude API usage</a> — Console API 默认预付积分，与网页订阅不是同一条扣款。</li>
+<li><a href="https://support.claude.com/en/articles/9402418-why-was-my-card-declined" target="_blank" rel="noopener nofollow">Anthropic：Why was my card declined</a> — 账单地址须与发卡国一致，自助账户不接受 PayPal/Venmo。</li>
+</ul><p class="ref-note">资料核验于2026年9月20日。通道拆分、卡种判断与采购建议为本站分析，并非上述厂商的可用性或收单承诺；卡种限制、支持地区与条款以各平台最新信息为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+<li><a href="/articles/ai-service-continuity-layer.html">AI 服务突然不能用？先查到账，再怪模型</a></li>
+<li><a href="/articles/overseas-ai-virtual-card-concentration-risk.html">同一张虚拟卡绑几个AI订阅，一冻结为什么全部续费同时失败</a></li>
+<li><a href="/articles/overseas-ai-virtual-card-troubleshooting.html">虚拟卡支付被拒怎么办：海外AI故障排查手册</a></li>
+</ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS 订阅</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友情链接</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">链兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">虚拟卡</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 内容仅供参考</p>
+      <p>本站为信息分享，内容仅供参考；价格、区域可用性与政策以各 AI 平台及支付服务的官方信息为准。</p>
+    </div>
+  </footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=4eaa8c53e6"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-labelledby="title desc">
+  <title id="title">同一张虚拟卡，为什么 ChatGPT 能扣、Claude API 却被拒？</title>
+  <desc id="desc">同一张虚拟卡分成订阅通道和API积分通道，一边扣款成功一边被拒</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#2a1a08"/><stop offset="1" stop-color="#0f1c24"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <circle cx="720" cy="70" r="170" fill="#c48a2a" opacity=".18"/>
+  <g font-family="Segoe UI, Microsoft YaHei, sans-serif">
+    <text x="44" y="48" font-size="14" fill="#f0c57a" letter-spacing="3">BILLING RAILS / 2026</text>
+    <text x="44" y="108" font-size="32" fill="#f5f4ea" font-weight="700">同一张卡，两套收单</text>
+    <text x="44" y="146" font-size="18" fill="#d5c4a1">Plus 扣上，不代表 API 积分也能过。</text>
+    <rect x="44" y="188" width="340" height="90" rx="12" fill="#2b2212" stroke="#c49a48"/>
+    <text x="66" y="222" font-size="12" fill="#f0c57a">01 订阅通道</text>
+    <text x="66" y="254" font-size="22" fill="#fff">ChatGPT Plus · MIT</text>
+    <rect x="416" y="188" width="340" height="90" rx="12" fill="#2b2212" stroke="#8a5a32"/>
+    <text x="438" y="222" font-size="12" fill="#e8b48a">02 API 积分</text>
+    <text x="438" y="254" font-size="22" fill="#fff">预付充值 · 被拒</text>
+    <path d="M44 304h712" stroke="#8a6a3a"/>
+    <text x="44" y="342" font-size="22" fill="#f5d28b">先拆账单，再决定换卡</text>
+    <text x="44" y="375" font-size="13" fill="#c4b496">预付 BIN、3DS 与账单国家，会把一张卡拆成两种结果。</text>
+  </g>
+</svg>
