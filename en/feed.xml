@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 16 Sep 2026 15:14:33 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 10:36:47 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[When AI Services Stop, Check Billing First]]></title>
+    <link>https://ponr.org/en/articles/ai-service-continuity-layer.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/ai-service-continuity-layer.html</guid>
+    <pubDate>Sun, 20 Sep 2026 10:36:47 +0800</pubDate>
+    <category>Payment Path</category>
+    <description><![CDATA[When an AI service stops, check billing before the model. OpenAI renewal failures, separate ChatGPT/API bills, Claude usage limits, and a stablecoin check.]]></description>
+  </item>
   <item>
     <title>AI Service Costs: Pay Attention to Accepted Results</title>
     <link>https://ponr.org/en/articles/ai-service-cost-per-accepted-result.html</link>

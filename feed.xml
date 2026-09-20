@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Wed, 16 Sep 2026 15:14:33 +0800</lastBuildDate>
+  <lastBuildDate>Sun, 20 Sep 2026 10:36:47 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[AI 服务突然不能用？先查到账，再怪模型]]></title>
+    <link>https://ponr.org/articles/ai-service-continuity-layer.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/ai-service-continuity-layer.html</guid>
+    <pubDate>Sun, 20 Sep 2026 10:36:47 +0800</pubDate>
+    <category>到账链路</category>
+    <description><![CDATA[AI服务突然不能用，往往不是模型挂了。本文把AI服务拆成能力、数据和到账三层，对照OpenAI续费失败说明、ChatGPT与API分账以及Claude用量限制，给出账单核验、工作区导出和稳定币提前到账方法，说明跨链兑换只解决资金到位，并给出可执行核验清单，避免用换模型去修被拒的卡，也别把额度用尽当成宕机。]]></description>
+  </item>
   <item>
     <title>AI 服务值不值得买？算清每个合格结果的真实成本</title>
     <link>https://ponr.org/articles/ai-service-cost-per-accepted-result.html</link>

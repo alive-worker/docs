@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/ai-service-continuity-layer.html': '2026-09-20 10:36:47',
+    '/en/articles/ai-service-continuity-layer.html': '2026-09-20 10:36:47',
     '/articles/ai-service-cost-per-accepted-result.html': '2026-09-16 15:14:33',
     '/en/articles/ai-service-cost-per-accepted-result.html': '2026-09-16 15:14:33',
     '/articles/domestic-ai-subaccount-offboarding-gap.html': '2026-09-11 15:45:00',
