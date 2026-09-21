@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-batch-vs-realtime-api.html': '2026-09-21 10:18:00',
+    '/en/articles/batch-api-half-price-vs-realtime.html': '2026-09-21 10:18:00',
     '/articles/domestic-ai-knowledge-base-idle-billing.html': '2026-09-20 16:07:01',
     '/en/articles/rag-knowledge-base-still-bills.html': '2026-09-20 16:07:01',
     '/articles/overseas-ai-virtual-card-subscription-vs-api-decline.html': '2026-09-20 13:10:00',

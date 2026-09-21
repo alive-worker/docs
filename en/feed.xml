@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 20 Sep 2026 16:07:01 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 10:18:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Same Model, Half Price If You Can Wait 24 Hours]]></title>
+    <link>https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html</guid>
+    <pubDate>Mon, 21 Sep 2026 10:18:00 +0800</pubDate>
+    <category>Batch API</category>
+    <description><![CDATA[Realtime and batch endpoints can share a model. OpenAI Batch is 50% cheaper than the sync API, with a separate rate-limit pool and a 24-hour window; expired jobs bill completed work only. Anthropic Message Batches charge 50% on input and output and can stack with prompt caching. Keep user-facing chat realtime; move evals and embeddings to batch.]]></description>
+  </item>
   <item>
     <title><![CDATA[Chat Stopped, Knowledge Base Still Bills]]></title>
     <link>https://ponr.org/en/articles/rag-knowledge-base-still-bills.html</link>

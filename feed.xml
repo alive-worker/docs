@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Sun, 20 Sep 2026 16:07:01 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 10:18:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[同样的模型，为什么实时接口比批量接口贵一倍？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-batch-vs-realtime-api.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-batch-vs-realtime-api.html</guid>
+    <pubDate>Mon, 21 Sep 2026 10:18:00 +0800</pubDate>
+    <category>批量接口</category>
+    <description><![CDATA[实时接口和批量接口可以跑同一套模型，贵的是延迟承诺。OpenAI Batch 比同步 API 便宜 50%，独立限流池、24 小时窗口，过期只收已完成请求；Anthropic Message Batches 对输入输出都按标准价一半收，还可叠缓存折扣。夜间评测、分类、向量化不该走聊天接口。账单要拆同步与批量两列，别把厂商单价当成一条。]]></description>
+  </item>
   <item>
     <title><![CDATA[对话早就停了，知识库为什么还在按小时扣费？]]></title>
     <link>https://ponr.org/articles/domestic-ai-knowledge-base-idle-billing.html</link>

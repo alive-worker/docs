@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Same Model, Half Price If You Can Wait 24 Hours</title>
+  <meta name="description" content="OpenAI Batch is 50% cheaper than the sync API, 24h window, separate rate limits. Expired jobs bill completed work only. Anthropic batches also charge 50%.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-batch-vs-realtime-api.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-batch-vs-realtime-api.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Same Model, Half Price If You Can Wait 24 Hours">
+  <meta property="og:description" content="OpenAI Batch is 50% cheaper than the sync API, 24h window, separate rate limits. Expired jobs bill completed work only. Anthropic batches also charge 50%.">
+  <meta property="og:url" content="https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html">
+  <meta property="article:published_time" content="2026-09-21T10:18:00+08:00">
+  <meta property="article:modified_time" content="2026-09-21T10:18:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Batch API">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Same Model, Half Price If You Can Wait 24 Hours">
+  <meta name="twitter:description" content="OpenAI Batch is 50% cheaper than the sync API, 24h window, separate rate limits. Expired jobs bill completed work only. Anthropic batches also charge 50%.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-batch-vs-realtime-api-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Realtime API costs full price, batch API half price, same model two lanes">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-batch-vs-realtime-api-en.png">
+  <link rel="dns-prefetch" href="https://rdvcc.com">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack development experience, focused on AI automation workflow research",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-batch-vs-realtime-api-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#webpage",
+      "url": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html",
+      "name": "Same Model, Half Price If You Can Wait 24 Hours",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-09-21T10:18:00+08:00",
+      "dateModified": "2026-09-21T10:18:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Same Model, Half Price If You Can Wait 24 Hours", "item": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Same Model, Half Price If You Can Wait 24 Hours",
+      "description": "OpenAI Batch is 50% cheaper than the sync API, 24h window, separate rate limits. Expired jobs bill completed work only. Anthropic batches also charge 50%.",
+      "image": "https://ponr.org/img/cover-overseas-ai-batch-vs-realtime-api-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-09-21T10:18:00+08:00",
+      "dateModified": "2026-09-21T10:18:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Batch API",
+      "keywords": ["AI services", "Batch API", "realtime API", "OpenAI", "Anthropic", "token billing"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/batch-api-half-price-vs-realtime.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-batch-vs-realtime-api.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Same Model, Half Price If You Can Wait 24 Hours</h1>
+          <p class="article-summary">Finance treats OpenAI or Anthropic as one API unit price. Engineering is buying two latency classes: answers now, or answers within 24 hours. The weights can be the same. The multiplier is not. Running nightly evals on the chat endpoint pays for interactive capacity you do not use.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide Editorial Team · Published <time datetime="2026-09-21T10:18:00+08:00">2026-09-21 10:18:00</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-batch-vs-realtime-api-en.svg" width="800" height="400" alt="Realtime API costs full price, batch API half price, same model two lanes" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Verification Checklist</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>On the OpenAI usage page, split Chat Completions or Responses tokens from Batch tokens. Do not read only the monthly OpenAI total.</li>
+                <li><span class="article-verify-check">✓</span>For nightly evals, classification, or embeddings, confirm whether jobs hit the sync endpoint or <code>/v1/batches</code>, which should finish inside the 24-hour window.</li>
+                <li><span class="article-verify-check">✓</span>Check expired batches: unfinished requests are cancelled; completed work is still billed. Do not assume the whole job is free or the whole job failed.</li>
+                <li><span class="article-verify-check">✓</span>On Anthropic, confirm Message Batches bills both input and output at 50% of standard prices, not a discount on input only.</li>
+                <li><span class="article-verify-check">✓</span>Keep user-facing chat, support seats, and IDE completion on the realtime path. Do not wait on a batch to save 50%.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. You are paying for “now”, not a smarter model</h2>
+              <p>Realtime and batch endpoints often share a model name on the same price sheet. That looks like double charging. What you buy is a latency promise. Sync APIs must answer inside this HTTP request, so the vendor reserves live capacity. Batch APIs may queue work for up to 24 hours and fill spare capacity.</p>
+              <p>OpenAI’s <a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener">Batch API docs</a> state the discount in plain language: 50% cheaper than synchronous APIs, a separate and higher rate-limit pool, and a 24-hour completion window. The listed jobs are ones that can wait: evaluations, classifying large datasets, embedding content libraries, offline video work.</p>
+              <p>The usual finance miss is reading “gpt-x costs $X per million tokens” and routing nightly regression evals through the same sync client the product uses for chat. The model did not get more expensive. The multiplier did.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Batch is not “slow realtime”: limits and expiry differ</h2>
+              <p>Batch rate limits are separate from per-model realtime limits. OpenAI says Batch usage does not consume tokens from the standard per-model pool. Hitting the live cap does not mean “this model is done for today”. Evals can change channel instead of changing model or raising the tier.</p>
+              <p>When the window closes, the batch moves to <code>expired</code>. Unfinished requests are cancelled. Completed responses land in the output file, and <strong>completed work is still billed</strong>. Treating Batch as all-or-nothing produces a half-finished invoice and a false “overcharge” ticket. That is the window rule, not a bug.</p>
+              <p>Submission is different too: upload JSONL, one request per line with a unique <code>custom_id</code>, then create the batch. A successful create only means queued. Download the output after the job ends. A tight loop against the sync SDK will not pick up the batch price by accident.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Anthropic: 50% on input and output, and cache can stack</h2>
+              <p>Claude’s <a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener">Message Batches</a> is shorter: async Messages requests at 50% of standard API prices, higher throughput, most jobs finish in under an hour, still capped at 24 hours. The official <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">pricing page</a> repeats that both input and output tokens take the batch rate.</p>
+              <p>One difference matters: Anthropic says Prompt Caching discounts can stack with Message Batches. A stable system prompt written to cache, then a batch of overnight jobs, can land below “batch only, full-price prefix every time”. If every batch line mutates the prefix, the 50% applies to a full uncached prompt, and cache writes can cost more.</p>
+              <p>Do not treat the two 50% figures as interchangeable implementations. One side uses JSONL files; the other posts a request array. One stresses a separate rate-limit pool; the other stresses stacking with cache. Shared rule: can this wait.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. What must be realtime, and what should not</h2>
+              <p>Anything a user is staring at must stay realtime: support replies, editor completion, the next turn in a chat product. Moving those to Batch trades half price for an unusable product. OpenAI limits Batch to jobs that do not need an immediate response.</p>
+              <p>The other pile is where money leaks: daily eval sets, document embeddings, offline moderation, bulk rewrites, regression tests. Their deadline is “before tomorrow’s standup”, not “in 200 milliseconds”. Sync capacity is what you pay for, not a better answer.</p>
+              <p>Mixing both in one script is the expensive case. Daytime chat on realtime, then the same client, same model name, same “official unit price” spreadsheet for a hundred thousand evals at night: rate limits break first, the bill second. Two clients and two budget columns beat switching to a cheaper model.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. Split the invoice; do not bind the card to web seats</h2>
+              <p>Reconcile at least two columns: sync tokens and batch tokens. Which column grew tells you the action: interactive traffic, or wait-tolerant jobs dumped into the live pool. Folding them into “OpenAI was expensive this month” sends people to downgrade a model that should have used Batch.</p>
+              <p>API prepaid credits and ChatGPT Plus remain separate ledgers, and they should not share a card. Isolate web-seat renewals on a virtual card with a cap, such as <a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a>, so subscription renewals cannot drain eval credits. That is not a claim that a card makes Batch cheaper. The discount is the endpoint. The card only keeps seat renewals from colliding with metered API spend.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Paying for now, not a smarter model</a></li>
+              <li><a href="#sec-2">Batch is not slow realtime</a></li>
+              <li><a href="#sec-3">Anthropic: 50% on input and output</a></li>
+              <li><a href="#sec-4">What must stay realtime</a></li>
+              <li><a href="#sec-5">Split the invoice</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources and further reading"><h2>Sources and Further Reading</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener nofollow">OpenAI: Batch API</a> — 50% cheaper than sync APIs, separate rate-limit pool, 24-hour window; expired batches cancel unfinished requests and still bill completed work.</li>
+              <li><a href="https://platform.claude.com/docs/en/build-with-claude/batch-processing" target="_blank" rel="noopener nofollow">Anthropic: Message Batches</a> — async Messages at 50% of standard prices, often under an hour, 24-hour cap; can stack with Prompt Caching.</li>
+              <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener nofollow">Anthropic: Pricing</a> — official table stating batch input and output are half of standard token prices.</li>
+            </ul><p class="ref-note">Sources checked on 21 Sep 2026. Latency-class split and reconciliation advice are this site’s analysis, not a vendor promise. Discounts, windows and rate limits follow each platform’s latest docs.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/token-billing-guide.html">How AI API Token Billing Works: Input vs Output Costs</a></li>
+          <li><a href="/en/articles/ai-api-rate-limit-tier-billing.html">Why Your AI API Bill Costs More Than the Per-Token Math</a></li>
+          <li><a href="/en/articles/ai-service-cost-per-accepted-result.html">AI Service Costs: Pay Attention to Accepted Results</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to homepage</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=fc31587772"></script>
+</body>
+</html>
