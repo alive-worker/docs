@@ -1,0 +1,20 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="百炼免费额度用尽后，未实名停调用、已实名默认转按量">
+  <rect width="800" height="400" fill="#14201d"/>
+  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#eef2fb">免费额度用完，为什么还扣费？</text>
+  <g transform="translate(48,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2214" stroke="#e2b15a" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">未实名</text>
+    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">用完即停 · 强制开启</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">额度耗尽即停调用</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">不转按量</text>
+  </g>
+  <g transform="translate(422,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#173a2c" stroke="#7be8b8" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#8fd6b6">已实名</text>
+    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">用完即停 · 默认关闭</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">继续调用走账户余额</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#7be8b8">转按量</text>
+  </g>
+  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">实名打开的是按量通道，不是继续免费</text>
+  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI服务指南</text>
+</svg>

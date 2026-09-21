@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 21 Sep 2026 10:18:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 14:24:00 +0800</lastBuildDate>
+    <item>
+    <title><![CDATA[实名过后，百炼免费额度用完为什么还会扣费？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-free-quota-payg-switch.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-free-quota-payg-switch.html</guid>
+    <pubDate>Mon, 21 Sep 2026 14:24:00 +0800</pubDate>
+    <category>免费额度</category>
+    <description><![CDATA[未实名时百炼免费额度用完即停；实名后该开关默认关，超出按量从账户扣，可能欠费。额度只抵华北2实时推理，Batch、调优和Token Plan专属Key不抵。主账号与RAM共享。火山Agent Plan超额后付费默认关。对账先看开关和渠道。]]></description>
+  </item>
   <item>
     <title><![CDATA[同样的模型，为什么实时接口比批量接口贵一倍？]]></title>
     <link>https://ponr.org/articles/overseas-ai-batch-vs-realtime-api.html</link>

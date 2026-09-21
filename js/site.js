@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-free-quota-payg-switch.html': '2026-09-21 14:24:00',
+    '/en/articles/free-quota-ends-payg-starts.html': '2026-09-21 14:24:00',
     '/articles/overseas-ai-batch-vs-realtime-api.html': '2026-09-21 10:18:00',
     '/en/articles/batch-api-half-price-vs-realtime.html': '2026-09-21 10:18:00',
     '/articles/domestic-ai-knowledge-base-idle-billing.html': '2026-09-20 16:07:01',
