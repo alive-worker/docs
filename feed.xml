@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Mon, 21 Sep 2026 14:24:00 +0800</lastBuildDate>
-    <item>
+  <lastBuildDate>Fri, 09 Oct 2026 10:34:00 +0800</lastBuildDate>
+      <item>
+    <title><![CDATA[你指定了 Fast，为什么按标准价出账？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html</guid>
+    <pubDate>Fri, 09 Oct 2026 10:34:00 +0800</pubDate>
+    <category>服务档位</category>
+    <description><![CDATA[同一个 Responses 或 Chat Completions 请求，service_tier 把单价拆成 Flex、标准档和 Fast。Flex 按 Batch 价，容量不足的 429 不计费；Fast 是加价档，流量爬太快会被降回 default 并按标准价出账。返回字段才是实付档。不写参数走的是项目默认，不是标准价。]]></description>
+  </item>
+  <item>
     <title><![CDATA[实名过后，百炼免费额度用完为什么还会扣费？]]></title>
     <link>https://ponr.org/articles/domestic-ai-free-quota-payg-switch.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-free-quota-payg-switch.html</guid>

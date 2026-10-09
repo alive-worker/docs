@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>你指定了 Fast，为什么按标准价出账？</title>
+  <meta name="description" content="同一个请求的 service_tier 可以是 flex、default 或 fast。Flex 按 Batch 价，容量不足的 429 不计费；Fast 加价，爬坡过快会降回 default 并按标准价收。返回里的 service_tier 才是实付档。不写参数走项目默认，不是标准价。对账看返回字段。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/flex-vs-fast-service-tier.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="你指定了 Fast，为什么按标准价出账？">
+  <meta property="og:description" content="同一个请求的 service_tier 可以是 flex、default 或 fast。Flex 按 Batch 价，容量不足的 429 不计费；Fast 加价，爬坡过快会降回 default 并按标准价收。返回里的 service_tier 才是实付档。不写参数走项目默认，不是标准价。对账看返回字段。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html">
+  <meta property="article:published_time" content="2026-10-09T10:34:00+08:00">
+  <meta property="article:modified_time" content="2026-10-09T10:34:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="服务档位">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="你指定了 Fast，为什么按标准价出账？">
+  <meta name="twitter:description" content="同一个请求的 service_tier 可以是 flex、default 或 fast。Flex 按 Batch 价，容量不足的 429 不计费；Fast 加价，爬坡过快会降回 default 并按标准价收。返回里的 service_tier 才是实付档。不写参数走项目默认，不是标准价。对账看返回字段。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-service-tier-flex-vs-fast.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="同一接口三档价：Flex 按批量价，Fast 加价但可能被降回标准价">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-service-tier-flex-vs-fast.png">
+  <link rel="dns-prefetch" href="https://rdvcc.com">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-service-tier-flex-vs-fast.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html",
+      "name": "你指定了 Fast，为什么按标准价出账？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-09T10:34:00+08:00",
+      "dateModified": "2026-10-09T10:34:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "你指定了 Fast，为什么按标准价出账？", "item": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "你指定了 Fast，为什么按标准价出账？",
+      "description": "同一个请求的 service_tier 可以是 flex、default 或 fast。Flex 按 Batch 价，容量不足的 429 不计费；Fast 加价，爬坡过快会降回 default 并按标准价收。返回里的 service_tier 才是实付档。不写参数走项目默认，不是标准价。对账看返回字段。",
+      "image": "https://ponr.org/img/cover-overseas-ai-service-tier-flex-vs-fast.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-09T10:34:00+08:00",
+      "dateModified": "2026-10-09T10:34:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "服务档位",
+      "keywords": ["AI服务", "OpenAI", "service_tier", "Flex", "Fast", "token计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/flex-vs-fast-service-tier.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>你指定了 Fast，为什么按标准价出账？</h1>
+          <p class="article-summary">同一个模型、同一条 Responses 或 Chat Completions 请求，单价可以差一倍。差别不在模型名，在 <code>service_tier</code>。Flex 用 Batch 价，但容量不够会 429 且不计费；Fast 是加价档，流量爬太快会被降回 default，请求成功，账单按标准价。你发出去的参数不是发票。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-09T10:34:00+08:00">2026-10-09 10:34:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-service-tier-flex-vs-fast.svg" width="800" height="400" alt="同一接口三档价：Flex 按批量价，Fast 加价但可能被降回标准价" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开用量页，把 Responses 或 Chat Completions 按 service tier 分组，不要只看模型名合计。</li>
+                <li><span class="article-verify-check">✓</span>对账时读响应体里的 <code>service_tier</code>，不要只存请求参数。返回 <code>default</code> 就是按标准价，即使请求写了 <code>fast</code>。</li>
+                <li><span class="article-verify-check">✓</span>查项目设置里的 Project Service Tier。代码没写 <code>service_tier</code> 时走的是项目默认，不是「标准价」。</li>
+                <li><span class="article-verify-check">✓</span>Flex 的 <code>429 Resource Unavailable</code> 不应出现在账单里。若重试时删掉了 <code>service_tier</code>，下一笔可能已经离开 Flex 价。</li>
+                <li><span class="article-verify-check">✓</span>旧模型用量里 Fast 可能显示成 <code>priority</code>。按 <code>fast</code> 这个字符串筛账单，会把同一档漏掉一半。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 贵的不是换接口，是同一条请求上的延迟档</h2>
+              <p>上一档容易和 Batch API 搞混。Batch 是另一条路径：上传 JSONL，最多等 24 小时，折扣写在那条端点上。Flex 和 Fast 不是这条路径。它们仍是 Responses 或 Chat Completions 的同步请求，只是多了一个 <code>service_tier</code>。</p>
+              <p>OpenAI 把处理档写成三层。不写参数或写成 <code>auto</code>，用的是项目设置里的档；项目没改过，默认是 <code>default</code>，也就是标准价、标准延迟。写成 <code>flex</code>，token 按 Batch API 的价格，还可以再叠 prompt caching 折扣，代价是更慢，而且容量不够。写成 <code>fast</code>（旧名 <code>priority</code>，两个值等价），买的是更低、更稳的延迟，按 token 加价。</p>
+              <p>模型名可以完全一样。财务若只按「这个月 gpt 多少钱」对账，会把半价的离线任务和翻倍的在线对话揉成一条单价，然后去换模型。该换的是档位，不是权重。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Flex 便宜，是因为失败可以免费</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/flex-processing" target="_blank" rel="noopener">Flex 文档</a>写得很直：适合评测、数据补充、异步作业，不适合要立刻返回的生产对话。价格对齐 Batch，但请求还在这次 HTTP 里等结果。官方 SDK 默认超时 10 分钟；Flex 示例把超时拉到 15 分钟。超时返回 408 时，SDK 会自动重试两次再抛错。</p>
+              <p>容量不够时返回 <code>429 Resource Unavailable</code>，<strong>这次不计费</strong>。这是 Flex 和「慢一点的标准请求」的分界。标准请求慢，仍然按标准价；Flex 没排上容量，账单上不该有这一笔。</p>
+              <p>重试策略会把折扣吃回去。文档给了两条路：指数退避，继续 Flex，等容量回来，单价不变；或者把 <code>service_tier</code> 改成 <code>auto</code>，或干脆删掉这个参数，改走项目默认档。第二条不是「再试一次还是半价」。项目若被改成 Fast，这次「便宜重试」会按加价档出去。日志里只记了「Flex 失败后重试成功」，对不上账单。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Fast 成功了，不代表你按 Fast 付了钱</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/fast-mode" target="_blank" rel="noopener">Fast 文档</a>写明：2026 年 7 月 30 日 Priority 更名为 Fast，请求里 <code>priority</code> 和 <code>fast</code> 是同一档。响应里的 <code>service_tier</code> 才是实际用来处理这次请求的档。GPT-5.6 及更早的模型，无论你写 <code>fast</code> 还是 <code>priority</code>，返回值都是 <code>priority</code>。用量页按 service tier 分组时，这些请求也显示成 <code>priority</code>。</p>
+              <p>加价不是一张统一的「两倍券」。文档给的例子是 GPT-5.6 Sol 的 Fast 为对应标准价的两倍，短上下文输入 8 美元/百万 token、输出 40 美元，长上下文输入 16、输出 60，促销价至少维持到 2026 年 11 月 21 日。别的模型乘数以定价页为准。缓存输入的折扣在 Fast 上仍然有效。微调模型和 embeddings 不支持 Fast。</p>
+              <p>更隐蔽的是降档。流量爬得太快时，系统可以把一部分 Fast 请求降回标准速度，并按标准价收费，响应里变成 <code>service_tier: "default"</code>。官方的经验值：到了每分钟 100 万输入 token 之后，每 15 分钟增幅不要超过 50%，实际阈值还随模型和当时容量变。爬坡限制按组织算，不是按单个项目。换模型、换快照、把整晚 ETL 丢进 Fast，都会踩到。</p>
+              <p>降档的请求是成功的。监控如果只看 4xx/5xx，什么都不会响。用户觉得「今天 Fast 没那么快」，财务看到同一模型两条单价。两边都不会先去读响应字段。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 项目默认、限流池和 Scale 是三本账</h2>
+              <p>项目设置里可以把 Project Service Tier 改成 Fast。此后没写 <code>service_tier</code> 的请求会逐步切到 Fast，不是立刻全部切换。代码审查看不到 diff，账单会在几小时里变贵。反过来，项目若禁止某一档，<a href="https://developers.openai.com/api/docs/guides/error-codes" target="_blank" rel="noopener">错误码说明</a>写明：请求显式指定、或 <code>auto</code>/省略参数最终落到不允许的档，都会 400，<code>param</code> 是 <code>service_tier</code>。<code>fast</code> 在这套项目策略里按 <code>priority</code> 评估。Scale Tier 不在这套限制里。</p>
+              <p>Fast 和标准档共用同一套按模型的限流，不另开池。这和 Batch API「独立限流池」相反。买 Fast 买不到额外 TPM。Scale Tier 又是另一本账：Fast 的费用单独算，不扣你买下的 Scale TPM；Scale 溢出的流量也不会自动改走 Fast。</p>
+              <p>GPT-6 Astra 的 Fast 没有延迟 SLA。更早模型的 Fast 与 Scale 走同一套 SLA 口径，企业合同里才可能有未达标的服务积分。付了加价、没有延迟承诺，这在最新模型上是写明的，不是客服口误。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 对账拆档位，席位续费不要和 API 额度绑一张卡</h2>
+              <p>复盘至少留三列：请求参数、响应里的 <code>service_tier</code>、用量页按 service tier 的金额。三列不一致时，先信响应和用量页。参数写 <code>fast</code>、响应是 <code>default</code>，是降档，不是丢单。用量显示 <code>priority</code>、代码写 <code>fast</code>，是别名，不是另一笔消费。</p>
+              <p>API 预付积分和 ChatGPT 网页席位仍是两本账。档位折扣发生在 <code>service_tier</code> 上，不发生在卡 BIN 上。网页席位续费用可设额度的虚拟卡隔开，例如 <a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a>，避免订阅自动续费和 API 充值抢同一条卡。虚拟卡改变不了 Flex 的 429，也改变不了 Fast 被降回标准价。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">同一条请求上的延迟档</a></li>
+              <li><a href="#sec-2">Flex 便宜，是因为失败可以免费</a></li>
+              <li><a href="#sec-3">Fast 成功不等于按 Fast 付钱</a></li>
+              <li><a href="#sec-4">项目默认、限流和 Scale</a></li>
+              <li><a href="#sec-5">对账拆档位</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/flex-processing" target="_blank" rel="noopener nofollow">OpenAI：Flex processing</a> — 同步请求按 Batch 价计费，可叠缓存折扣；容量不足返回 429 且不计费；重试时可改回项目默认档。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/fast-mode" target="_blank" rel="noopener nofollow">OpenAI：Fast mode</a> — Priority 已更名为 Fast；流量爬太快会降回 default 并按标准价收费；响应字段才是实际档位；与标准档共用限流。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/error-codes" target="_blank" rel="noopener nofollow">OpenAI：Error codes</a> — 项目不允许的 service_tier（含省略参数后落到的档）返回 400，fast 按 priority 评估。</li>
+            </ul><p class="ref-note">资料核验于2026年10月9日。档位划分、对账建议为本站分析，并非厂商效果承诺；价格乘数、支持模型和限流以 OpenAI 最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-batch-vs-realtime-api.html">同样的模型，为什么实时接口比批量接口贵一倍？</a></li>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          <li><a href="/articles/overseas-ai-token-billing.html">OpenAI API 价格详解：token 计费规则与用量估算方法</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=175e497a4f"></script>
+</body>
+</html>

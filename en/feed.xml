@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 21 Sep 2026 14:24:00 +0800</lastBuildDate>
-    <item>
+  <lastBuildDate>Fri, 09 Oct 2026 10:34:00 +0800</lastBuildDate>
+      <item>
+    <title><![CDATA[You Set Fast. The Invoice Says default]]></title>
+    <link>https://ponr.org/en/articles/flex-vs-fast-service-tier.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/flex-vs-fast-service-tier.html</guid>
+    <pubDate>Fri, 09 Oct 2026 10:34:00 +0800</pubDate>
+    <category>Service tier</category>
+    <description><![CDATA[On one Responses or Chat Completions call, service_tier splits the price into Flex, standard, and Fast. Flex bills at Batch rates and a capacity 429 is free. Fast is a premium that can fall back to default and bill standard. The response field is the tier you paid.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Why Bailian Keeps Charging After Free Tokens Run Out]]></title>
     <link>https://ponr.org/en/articles/free-quota-ends-payg-starts.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/free-quota-ends-payg-starts.html</guid>
