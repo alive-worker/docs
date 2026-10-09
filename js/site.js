@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-web-search-separate-meter.html': '2026-10-09 14:05:00',
+    '/en/articles/web-search-bills-beside-tokens.html': '2026-10-09 14:05:00',
     '/articles/overseas-ai-service-tier-flex-vs-fast.html': '2026-10-09 10:34:00',
     '/en/articles/flex-vs-fast-service-tier.html': '2026-10-09 10:34:00',
     '/articles/domestic-ai-free-quota-payg-switch.html': '2026-09-21 14:24:00',

@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 09 Oct 2026 10:34:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 09 Oct 2026 14:05:00 +0800</lastBuildDate>
       <item>
+    <title><![CDATA[The Model Bill Matches. Search Still Charges.]]></title>
+    <link>https://ponr.org/en/articles/web-search-bills-beside-tokens.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/web-search-bills-beside-tokens.html</guid>
+    <pubDate>Fri, 09 Oct 2026 14:05:00 +0800</pubDate>
+    <category>Web search</category>
+    <description><![CDATA[Built-in Bailian web search has no free calls. Strategy fees are a separate per-call line, and retrieved pages also add model input tokens. enable_search left in code keeps charging with the console closed. MCP search is another meter; its first 2,000 free calls do not pay for built-in search. Above 15 RPS the API does not error, and search is skipped. Reconcile plugins, not the token total alone.]]></description>
+  </item>
+  <item>
     <title><![CDATA[You Set Fast. The Invoice Says default]]></title>
     <link>https://ponr.org/en/articles/flex-vs-fast-service-tier.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/flex-vs-fast-service-tier.html</guid>

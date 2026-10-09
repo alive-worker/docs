@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 09 Oct 2026 10:34:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 09 Oct 2026 14:05:00 +0800</lastBuildDate>
       <item>
+    <title><![CDATA[模型账单对上了，搜索费为什么还在扣？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-web-search-separate-meter.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-web-search-separate-meter.html</guid>
+    <pubDate>Fri, 09 Oct 2026 14:05:00 +0800</pubDate>
+    <category>联网搜索</category>
+    <description><![CDATA[百炼内置联网搜索没有免费次数。策略费按次单列，检索网页还会拼进提示词按模型输入价再计一笔。enable_search 留在代码里，控制台不打开也会继续扣。MCP 搜索是另一本账，前 2000 次免费不能抵内置搜索。超 15 RPS 时接口不报错但会跳过搜索。对账看 plugins，别只看模型 token。]]></description>
+  </item>
+  <item>
     <title><![CDATA[你指定了 Fast，为什么按标准价出账？]]></title>
     <link>https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-service-tier-flex-vs-fast.html</guid>
