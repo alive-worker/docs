@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Fri, 09 Oct 2026 14:05:00 +0800</lastBuildDate>
-      <item>
+  <lastBuildDate>Tue, 13 Oct 2026 13:41:00 +0800</lastBuildDate>
+            <item>
+    <title><![CDATA[你设了月度上限，为什么 API 还在扣？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-prepaid-reload-vs-spend-limit.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-prepaid-reload-vs-spend-limit.html</guid>
+    <pubDate>Tue, 13 Oct 2026 13:41:00 +0800</pubDate>
+    <category>预充上限</category>
+    <description><![CDATA[月度充值上限只限制自动买积分，手动购买不算进去，也不阻止花掉已有积分。花费告警不停调用。硬限额必须另开开关，而且不会瞬间掐断。余额见底还可能记成负数，从下一笔购买扣除。对账先看 error.code，不要只看 HTTP 429。]]></description>
+  </item>
+  <item>
     <title><![CDATA[模型账单对上了，搜索费为什么还在扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-web-search-separate-meter.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-web-search-separate-meter.html</guid>

@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 09 Oct 2026 14:05:00 +0800</lastBuildDate>
-      <item>
+  <lastBuildDate>Tue, 13 Oct 2026 13:41:00 +0800</lastBuildDate>
+            <item>
+    <title><![CDATA[Your Reload Limit Does Not Stop the API]]></title>
+    <link>https://ponr.org/en/articles/reload-limit-is-not-a-spend-cap.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/reload-limit-is-not-a-spend-cap.html</guid>
+    <pubDate>Tue, 13 Oct 2026 13:41:00 +0800</pubDate>
+    <category>Reload cap</category>
+    <description><![CDATA[Auto-reload starts on. A monthly reload cap limits automatic credit buys, not credits you already hold. Alerts do not stop traffic. A hard limit is a separate switch and is not instant. A zero balance can post negative. Read error.code before you retry a 429.]]></description>
+  </item>
+  <item>
     <title><![CDATA[The Model Bill Matches. Search Still Charges.]]></title>
     <link>https://ponr.org/en/articles/web-search-bills-beside-tokens.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/web-search-bills-beside-tokens.html</guid>
