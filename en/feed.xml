@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 13 Oct 2026 13:41:00 +0800</lastBuildDate>
-            <item>
+  <lastBuildDate>Thu, 15 Oct 2026 15:07:00 +0800</lastBuildDate>
+                  <item>
+    <title><![CDATA[The API Is Idle. The Deployment Still Bills.]]></title>
+    <link>https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html</guid>
+    <pubDate>Thu, 15 Oct 2026 15:07:00 +0800</pubDate>
+    <category>Dedicated deploy</category>
+    <description><![CDATA[Dedicated capacity bills while running, even with no calls. Deleting a key does not stop the clock. Bailian PTU bills bought capacity, and default overflow can add token charges. Volcengine model units keep billing until you unsubscribe.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Your Reload Limit Does Not Stop the API]]></title>
     <link>https://ponr.org/en/articles/reload-limit-is-not-a-spend-cap.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/reload-limit-is-not-a-spend-cap.html</guid>

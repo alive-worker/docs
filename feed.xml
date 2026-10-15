@@ -6,8 +6,16 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Tue, 13 Oct 2026 13:41:00 +0800</lastBuildDate>
-            <item>
+  <lastBuildDate>Thu, 15 Oct 2026 15:07:00 +0800</lastBuildDate>
+                  <item>
+    <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</guid>
+    <pubDate>Thu, 15 Oct 2026 15:07:00 +0800</pubDate>
+    <category>专属部署</category>
+    <description><![CDATA[专属部署变成运行中就按小时计费，不调用也扣。删 API Key 停不了这口时钟，要下线或退订。百炼吞吐预留按购买容量收费，默认溢出会再按 token 计。火山模型单元按秒持续计费，欠费后大约两小时仍可用且继续扣。]]></description>
+  </item>
+  <item>
     <title><![CDATA[你设了月度上限，为什么 API 还在扣？]]></title>
     <link>https://ponr.org/articles/overseas-ai-prepaid-reload-vs-spend-limit.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-prepaid-reload-vs-spend-limit.html</guid>

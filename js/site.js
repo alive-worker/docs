@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-dedicated-deploy-idle-billing.html': '2026-10-15 15:07:00',
+    '/en/articles/dedicated-capacity-bills-while-idle.html': '2026-10-15 15:07:00',
     '/articles/overseas-ai-prepaid-reload-vs-spend-limit.html': '2026-10-13 13:41:00',
     '/en/articles/reload-limit-is-not-a-spend-cap.html': '2026-10-13 13:41:00',
     '/articles/domestic-ai-web-search-separate-meter.html': '2026-10-09 14:05:00',

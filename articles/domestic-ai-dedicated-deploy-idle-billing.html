@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接口停了，专属部署为什么还在按小时扣？</title>
+  <meta name="description" content="专属部署变成运行中就按小时计费，不调用也扣。删 API Key 停不了这口时钟，要下线或退订。百炼吞吐预留按购买容量收费，默认溢出会再按 token 计。火山模型单元按秒持续计费，欠费后大约两小时仍可用且继续扣。到期是否立刻停，以控制台状态为准。自动续费常常默认开启。未到期退订不能全额退。对账看状态。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接口停了，专属部署为什么还在按小时扣？">
+  <meta property="og:description" content="专属部署变成运行中就按小时计费，不调用也扣。删 API Key 停不了这口时钟，要下线或退订。百炼吞吐预留按购买容量收费，默认溢出会再按 token 计。火山模型单元按秒持续计费，欠费后大约两小时仍可用且继续扣。到期是否立刻停，以控制台状态为准。自动续费常常默认开启。未到期退订不能全额退。对账看状态。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <meta property="article:published_time" content="2026-10-15T15:07:00+08:00">
+  <meta property="article:modified_time" content="2026-10-15T15:07:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="专属部署">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接口停了，专属部署为什么还在按小时扣？">
+  <meta name="twitter:description" content="专属部署变成运行中就按小时计费，不调用也扣。删 API Key 停不了这口时钟，要下线或退订。百炼吞吐预留按购买容量收费，默认溢出会再按 token 计。火山模型单元按秒持续计费，欠费后大约两小时仍可用且继续扣。到期是否立刻停，以控制台状态为准。自动续费常常默认开启。未到期退订不能全额退。对账看状态。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="按 token 不调用不计费，专属部署运行中仍按小时扣">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html",
+      "name": "接口停了，专属部署为什么还在按小时扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-15T15:07:00+08:00",
+      "dateModified": "2026-10-15T15:07:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "接口停了，专属部署为什么还在按小时扣？", "item": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "接口停了，专属部署为什么还在按小时扣？",
+      "description": "专属部署变成运行中就按小时计费，不调用也扣。删 API Key 停不了这口时钟，要下线或退订。百炼吞吐预留按购买容量收费，默认溢出会再按 token 计。火山模型单元按秒持续计费，欠费后大约两小时仍可用且继续扣。到期是否立刻停，以控制台状态为准。自动续费常常默认开启。未到期退订不能全额退。对账看状态。",
+      "image": "https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-15T15:07:00+08:00",
+      "dateModified": "2026-10-15T15:07:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "专属部署",
+      "keywords": ["AI服务", "百炼", "火山方舟", "模型单元", "吞吐预留", "按小时计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/dedicated-capacity-bills-while-idle.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接口停了，专属部署为什么还在按小时扣？</h1>
+          <p class="article-summary">按 token 的在线推理可以不调用不计费。百炼专属部署和火山方舟的模型单元、TPM 保障包买的是时长或容量：状态变成运行中、或者下单成功之后，时钟就在走。删 API Key 停的是意外调用，不是这口表。吞吐预留默认还会把超出的请求再按 token 计一笔。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-15T15:07:00+08:00">2026-10-15 15:07:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-dedicated-deploy-idle-billing.svg" width="800" height="400" alt="按 token 不调用不计费，专属部署运行中仍按小时扣" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开百炼专属部署或火山接入点，看状态是不是仍为运行中或健康。运行中就在计时长，token 调用次数为 0 不能证明没在扣。</li>
+                <li><span class="article-verify-check">✓</span>按计费方式停表：百炼按时长的后付费要下线部署；预付费吞吐预留要下线后再退订。删 API Key 只防止意外的 token 调用。</li>
+                <li><span class="article-verify-check">✓</span>看溢出策略。默认「自动溢出」时，响应头 <code>x-dashscope-ptu-overflow: true</code> 表示这笔已离开预留价，按模型调用的 token 价另计。</li>
+                <li><span class="article-verify-check">✓</span>火山模型单元在接入点详情页退订才停表。没开智能唤醒与休眠时，最小单元数不能为 0，缩到最小仍然在计费。</li>
+                <li><span class="article-verify-check">✓</span>欠费不要混用两家规则。火山按 token 欠费超过约 1 分钟会关停；模型单元和 TPM 保障包欠费后大约 2 小时仍可用，而且继续扣。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 调用次数归零，只证明 token 那一列停了</h2>
+              <p>火山方舟把在线推理分成三列，写在<a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener">模型服务计费说明</a>里。按 token 后付费：不调用不计费。TPM 保障包和模型单元：按购买时长计费，不调用也会收费。前一列看的是 <code>prompt_token</code> 和 <code>completion_token</code>。后两列看的是你买下的额度还在不在、单元还退没退订。财务若只导出「模型调用 token」，会把一台还在跑的专属算力看成零消费。</p>
+              <p>百炼这边，<a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener">账单与停计费说明</a>写得更直：模型部署按使用时长计费，状态变为运行中就开始收，不依赖 API 调用。没人打这只模型，只要部署还是运行中，费用继续走。<a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener">训练与部署计费</a>的问答补了一刀：部署中、欠费、部署失败不计部署费；运行中才计。包月预付费从运行中开始消耗包月时间。所以「部署失败」和「部署成功但没人用」不是同一笔账。失败不计；成功闲置，计。</p>
+              <p>这和知识库空闲计费不是同一口表。知识库扣的是规格小时、向量和排序。这里扣的是为某个模型独占或预留的推理容量。对话窗口关了、脚本停了、甚至 Key 删了，容量时钟可以还在走。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 吞吐预留买的是容量，用不用都按购买量收</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/tpm-reservation-billing" target="_blank" rel="noopener">吞吐预留</a>写明：创建成功即开始计费。预留容量内的调用不另收 token 费，容量费按购买量计，不因实际用量减免。利用率低不是折扣。你买了 1 万 TPM 却只打了几百，账单仍按那 1 万算。自动续费默认开启，到期前 1 天扣款，当天 8:20 到 20:00 最多试 4 次。关掉得在到期前，不是到期当天才发现又被续上一天。</p>
+              <p>超出容量不是「免费排队」。默认策略是自动溢出：超出的请求降级成该模型的标准按量，服务不中断，不再走预留价。响应头会出现 <code>x-dashscope-ptu-overflow: true</code>。改成「仅使用预留容量」，超出返回 429，超出部分不另收费。还有一条容易漏：自动溢出下，单次输入超过模型最长输入 token，这一笔也会转成按量。预留没满，超长输入仍然可以在 token 账单上再出现一行。</p>
+              <p>退订不是按剩余天数原价退。已使用不超过 30 天，已结算部分按 1.2 倍惩罚系数；超过 30 天按 1.0。用得越久，剩余越少，退款可以是 0。账单页对预付费吞吐预留的停表顺序是：先下线已部署模型，再在退订管理里退实例。只删 API Key，停的是按 token 的意外调用，不停按时长或按容量的那一列。</p>
+              <p>到期之后到底停不停，两页官方说明并不一样。训练与部署计费页写：预付费到期后延后 2 小时停止服务，停止后再保留 14 小时才释放。吞吐预留常见问题写：到期后立即停用并释放，专属模型 Code 失效，不可恢复。对账不要用日历上的 23:59 代替控制台状态。Code 还在、状态仍是运行中，就还没停；Code 已经失效，调用失败也不等于时长费已经结清。后付费欠费时，部署计费页写资源不再可用且不计费，缴清后恢复。这和下一节火山的欠费宽限不是同一条规则。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 火山的表从下单成功起算，退订才停</h2>
+              <p><a href="https://ark.volcengine.com/region:cn-beijing/docs/model-unit-overview" target="_blank" rel="noopener">模型单元概述</a>把后付费写成按实际购买时长、精确到秒，不足一秒按一秒。购买后持续计费，停止的动作是在接入点详情页退订，不是把调用量打到零。文档里的例子：16:00 下单成功，18:20:31 退订成功，计费时长是 2 小时 20 分 31 秒。中间如果一次请求都没有，时长照算。出账按小时，通常在计费周期结束后 1 到 2 小时。16:00 到 17:00 的账，大约 18:00 到 19:00 才出现。当小时账单还是空的，不能当成已经停表。</p>
+              <p>欠费规则从 2025-07-16 起改过，而且把模型单元和 TPM 保障包排除在外。按 token 的服务，欠费超过约 1 分钟就关停（仍有资源包的，用完资源包再关）。按小时后付费的模型单元和 TPM 保障包，欠费后还有大约 2 小时的「欠费-关停」阶段，具体以通知为准。这 2 小时里资源仍可用，费用仍在产生。确定不用，要去接入点详情页退订，不能干等关停。预付费按月购买后按自然日生效；到期时间是到期自然日加 1 天的中午 12 点，回收再加 24 小时。文档举例：4 月 13 日上午 9 点买一个月，到期是 5 月 14 日中午 12 点，回收是 5 月 15 日中午 12 点。回收期结束就不能续费，得新建推理接入点。未到期退订有惩罚系数，不能按剩余时间全额退；模型单元按实例组绑定，续费和退订要一起发起。</p>
+              <p>弹性伸缩也停不了「最小还大于零」的那一档。<a href="https://ark.volcengine.com/region:cn-beijing/docs/create-model-units" target="_blank" rel="noopener">创建模型单元</a>写明：没开智能唤醒与休眠时，最小单元数不能为 0。缩到最小，时钟还在。智能唤醒与休眠目前是邀测。开了之后才能把最小设为 0，无流量后缩到零才停止计费；从 0 拉回 1 要冷启动，可能要几分钟。最小为 0 的部署，7 天没有流量会被自动删除。没开这项功能就去把副本数调到最小，省下的不是整口表。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 三件看起来像停机的事，都不是退订</h2>
+              <p>第一件是把业务流量切走。按 token 的列会归零，时长列不会。百炼按量付费还是预占加月结：调用后几分钟出账，不等于次月初才扣的那笔已经结清，更不等于部署时长费不存在。免费额度、资源包、节省计划进的是按量抵扣顺序，抵不了已经按容量或按时长买下的那一列。欠费期间，百炼即使还剩免费额度也不能继续按量调用，要先结清。这救不了仍在运行中的部署，也解释不了「token 是 0、总账还在涨」。</p>
+              <p>第二件是删 API Key。账单页把两条路拆开：按 token 的后付费，下线部署，或删 Key 防止意外调用；按模型单元或算力时长的后付费，要下线部署；预付费吞吐预留，下线之后还要退订。删 Key 是一把锁，不是退订按钮。Key 没了，别人偷调不了，你买的单元还在。</p>
+              <p>第三件是看 429 就重试。仅使用预留容量时，429 是容量墙，重试不会把这笔变成按量，也不会把容量时钟停掉。自动溢出时，请求是成功的，贵的是它已经离开预留价。日志里只存了 HTTP 200，看不出头里的 <code>x-dashscope-ptu-overflow</code>。把溢出流量当成「还在预留额度里」，月结时才发现 token 列和容量列各有一笔。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 给云账户充值，停不了已经跑起来的单元</h2>
+              <p>对账列四列。第一列是部署或接入点状态：运行中、健康、调度中、已下线，还是已退订。第二列是计费方式：按 token、吞吐预留，还是模型单元，溢出策略是自动还是 429。第三列是到期、自动续费和回收时刻，百炼两页文档对「到期后是否立刻停」写法不一致，以控制台为准。第四列是欠费规则落在哪一类：火山按 token 大约 1 分钟关停，模型单元和保障包大约再扣 2 小时；百炼后付费部署欠费后，文档写不再可用且不计费。</p>
+              <p>给云账户充值是第五本账。链上把稳定币换成能充进云账号的资产，发生在阿里云或火山引擎入账之前，不改变部署状态，也不等于模型单元已经退订。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。运行中的专属部署该下线还得下线，该退订还得退订。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">调用归零只停 token 那一列</a></li>
+              <li><a href="#sec-2">吞吐预留按购买容量收</a></li>
+              <li><a href="#sec-3">火山从下单成功起算</a></li>
+              <li><a href="#sec-4">删 Key 不是退订</a></li>
+              <li><a href="#sec-5">充值停不了单元</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener nofollow">阿里云百炼：账单查询与停止计费</a> — 部署在运行中就按时长计费，不依赖 API 调用；按 token 可删 Key 防意外调用，按时长要下线，预付费吞吐预留还要退订，已使用部分按 1.2 倍结算。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/tpm-reservation-billing" target="_blank" rel="noopener nofollow">阿里云百炼：吞吐预留计费</a> — 创建成功即按购买容量计费，不因实际用量减免；默认溢出按 token 另计并带 x-dashscope-ptu-overflow；自动续费默认开启。同站<a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener nofollow">训练与部署计费</a>对预付费到期后是延后 2 小时停还是立即释放，写法不同。</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener nofollow">火山方舟：模型服务计费说明</a> — 按 token 不调用不计费；TPM 保障包和模型单元按购买时长计费，不调用也收费。欠费超过约 1 分钟关停按 token 服务，模型单元和保障包除外，大约再计 2 小时。<a href="https://ark.volcengine.com/region:cn-beijing/docs/model-unit-overview" target="_blank" rel="noopener nofollow">模型单元概述</a>写明按秒计、退订才停。</li>
+            </ul><p class="ref-note">资料核验于2026年10月15日。四列对账顺序为本站分析，并非厂商效果承诺；单价、惩罚系数、到期宽限和邀测功能以百炼、火山方舟控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+          <li><a href="/articles/domestic-ai-free-quota-payg-switch.html">实名过后，百炼免费额度用完为什么还会扣费？</a></li>
+          <li><a href="/articles/domestic-ai-context-cache-billing.html">调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=64fae6a0a9"></script>
+</body>
+</html>

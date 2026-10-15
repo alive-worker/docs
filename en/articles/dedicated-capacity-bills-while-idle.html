@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The API Is Idle. The Deployment Still Bills.</title>
+  <meta name="description" content="Dedicated capacity bills while running, even with no calls. Deleting a key does not stop it. Bailian PTU bills bought capacity. Overflow can add token charges.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="The API Is Idle. The Deployment Still Bills.">
+  <meta property="og:description" content="Dedicated capacity bills while running, even with no calls. Deleting a key does not stop it. Bailian PTU bills bought capacity. Overflow can add token charges.">
+  <meta property="og:url" content="https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html">
+  <meta property="article:published_time" content="2026-10-15T15:07:00+08:00">
+  <meta property="article:modified_time" content="2026-10-15T15:07:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Dedicated deploy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The API Is Idle. The Deployment Still Bills.">
+  <meta name="twitter:description" content="Dedicated capacity bills while running, even with no calls. Deleting a key does not stop it. Bailian PTU bills bought capacity. Overflow can add token charges.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Token billing stops with no calls; a running dedicated deployment still bills by the hour">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack development experience, focused on AI automation workflow research",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#webpage",
+      "url": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html",
+      "name": "The API Is Idle. The Deployment Still Bills.",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-10-15T15:07:00+08:00",
+      "dateModified": "2026-10-15T15:07:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "The API Is Idle. The Deployment Still Bills.", "item": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "The API Is Idle. The Deployment Still Bills.",
+      "description": "Dedicated capacity bills while running, even with no calls. Deleting a key does not stop it. Bailian PTU bills bought capacity. Overflow can add token charges.",
+      "image": "https://ponr.org/img/cover-domestic-ai-dedicated-deploy-idle-billing-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-10-15T15:07:00+08:00",
+      "dateModified": "2026-10-15T15:07:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Dedicated deploy",
+      "keywords": ["AI services", "Bailian", "Volcengine Ark", "model unit", "provisioned throughput", "hourly billing"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-dedicated-deploy-idle-billing.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>The API Is Idle. The Deployment Still Bills.</h1>
+          <p class="article-summary">Token-metered inference can cost nothing when nobody calls it. Bailian dedicated deployments, and Volcengine Ark model units or TPM packs, sell time or capacity. The clock starts when the deployment is running, or when the order succeeds. Deleting an API key stops surprise calls. It does not stop that clock. Default PTU overflow can add a second, token-priced line.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-10-15T15:07:00+08:00">2026-10-15 15:07:00</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-dedicated-deploy-idle-billing-en.svg" width="800" height="400" alt="Token billing stops with no calls; a running dedicated deployment still bills by the hour" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">What to check</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>On Bailian dedicated deploy, or a Volcengine endpoint, check whether status is still running or healthy. A zero token count does not prove the clock stopped.</li>
+                <li><span class="article-verify-check">✓</span>Stop the meter by billing type. Postpaid duration needs the deployment taken offline. Prepaid PTU also needs an unsubscribe. Deleting the API key only blocks surprise token calls.</li>
+                <li><span class="article-verify-check">✓</span>Read the overflow policy. With automatic overflow, response header <code>x-dashscope-ptu-overflow: true</code> means that call left the reserved price and billed as tokens.</li>
+                <li><span class="article-verify-check">✓</span>A Volcengine model unit stops when you unsubscribe on the endpoint page. Without smart wake, the minimum unit count cannot be 0, so the floor still bills.</li>
+                <li><span class="article-verify-check">✓</span>Do not mix arrears rules. Volcengine token services shut off after about a minute overdue. Model units and TPM packs stay up for about two hours and keep charging.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. A zero call count only closes the token column</h2>
+              <p>Volcengine Ark splits online inference into three columns on its <a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener">model service billing page</a>. Postpaid tokens: no calls, no charge. A TPM assurance pack and a model unit: billed for the time you bought, including time with no calls. The first column is <code>prompt_token</code> and <code>completion_token</code>. The other two are whether the reservation is still held and whether the unit was unsubscribed. An export of “model call tokens” will show a live dedicated pool as zero spend.</p>
+              <p>On Bailian, the <a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener">bill and stop-billing guide</a> is blunt. Deployment fees follow duration. They start when status becomes running, and they do not depend on API calls. Nobody hitting that model does not matter while the deployment stays running. The <a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener">training and deployment billing</a> FAQ adds the boundary: deploying, in arrears, or failed does not bill the deployment fee. Running does. A monthly prepaid term starts consuming its term once status is running. A failed deploy and a successful idle deploy are not the same invoice line. Failure is free. Success while idle is not.</p>
+              <p>This is not the knowledge-base clock. That one bills spec hours, embeddings, and rerank. This one bills inference capacity reserved for a model. Closing the chat, stopping the script, even deleting the key, can leave the capacity clock running.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Provisioned throughput bills the capacity you bought</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/tpm-reservation-billing" target="_blank" rel="noopener">PTU billing</a> says charges start when creation succeeds. Calls inside the reserved capacity do not add a token fee. The capacity fee follows what you bought, not what you used. Low utilization is not a discount. Buying 10,000 TPM and sending a few hundred still bills the 10,000. Auto-renewal is on by default. It charges one day before expiry, with up to four attempts between 08:20 and 20:00 that day. Turn it off before the expiry date, not after the renewal has already landed.</p>
+              <p>Traffic past the reservation is not a free queue. The default policy is automatic overflow: the extra request drops to that model’s standard token price, the call still succeeds, and it no longer uses the reserved rate. The response carries <code>x-dashscope-ptu-overflow: true</code>. Switch to “reserved capacity only” and the extra request returns 429, with no extra charge. One more edge: under automatic overflow, a single input longer than the model’s max input tokens also flips that call to token pricing. The reservation can be under its cap and the token column can still grow.</p>
+              <p>Unsubscribe is not a pro-rata refund at list price. Used time of 30 days or less settles at a 1.2 penalty coefficient. Past 30 days the coefficient is 1.0. The longer it has run, the smaller the remainder, and the refund can be zero. The stop path for prepaid PTU is: take the deployment offline, then unsubscribe the instance. Deleting the API key stops surprise token calls. It does not stop the duration or capacity column.</p>
+              <p>What happens at expiry is not the same sentence on two official pages. The training and deployment page says a prepaid order keeps serving for two hours after expiry, then holds the resource another 14 hours before release. The PTU FAQ says expiry stops and releases immediately, and the dedicated model code is gone and cannot be restored. Do not treat 23:59 on the calendar as the console status. If the code still exists and status is still running, the meter has not stopped. If the code is already dead, a failed call does not prove the duration fee has settled. For postpaid arrears, the deployment billing page says the resource becomes unavailable and stops billing until you pay. That is not Volcengine’s grace window in the next section.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Ark starts the clock at a successful order</h2>
+              <p>The <a href="https://ark.volcengine.com/region:cn-beijing/docs/model-unit-overview" target="_blank" rel="noopener">model unit overview</a> bills postpaid units for purchased time, down to the second, and a fraction of a second rounds up to one second. Billing continues after purchase. The stop action is unsubscribe on the endpoint detail page, not driving call volume to zero. The documented example runs from 16:00, when the order succeeds, to 18:20:31, when unsubscribe succeeds: 2 hours, 20 minutes, 31 seconds. Zero requests in between still count. Bills are hourly and usually appear one to two hours after the period. The 16:00–17:00 window shows up around 18:00–19:00. An empty current hour is not proof the meter stopped.</p>
+              <p>Arrears rules changed on 16 July 2025, and they exclude model units and TPM packs. Token services shut off after about a minute overdue, unless a resource pack is still available, in which case they run until that pack is gone. Postpaid hourly model units and TPM packs get an arrears-to-shutdown stage of about two hours, with the exact window in the notice. During those two hours the resource still serves and still bills. If you are done, unsubscribe on the endpoint page. Do not wait for shutdown. Monthly prepaid units take effect on the calendar day of purchase. Expiry is noon on the day after the term’s calendar end, and reclamation is 24 hours after that. The docs’ example: buy at 09:00 on 13 April for one month, expiry is noon on 14 May, reclamation is noon on 15 May. After reclamation you cannot renew. You create a new endpoint. Unsubscribing before expiry applies a penalty coefficient, not a full refund of unused time. Units are bought as an instance group, so renewal and unsubscribe have to be issued together.</p>
+              <p>Autoscaling does not stop a floor above zero. <a href="https://ark.volcengine.com/region:cn-beijing/docs/create-model-units" target="_blank" rel="noopener">Creating a model unit</a> says the minimum count cannot be 0 unless smart wake and sleep is on. Scaling to the minimum still bills. Smart wake is an invited preview. With it on, the minimum can be 0, and scaling to zero after idle time stops billing. Waking from 0 to 1 is a cold start of several minutes. A deployment whose minimum is 0 is deleted after seven days with no traffic. Turning the replica count down without that feature does not zero the clock.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. Three things that look like shutdown are not an unsubscribe</h2>
+              <p>The first is moving traffic away. The token column goes to zero. The duration column does not. Bailian token postpay is a hold plus a monthly settlement: a bill a few minutes after the call is not the same event as the debit early next month, and neither event is the deployment duration fee. Free quota, resource packs, and savings plans sit in the token-deduction order. They do not pay for capacity or time you already bought. During arrears, leftover Bailian free quota still cannot place token calls until the balance is cleared. That does not retire a deployment that is still running, and it does not explain a zero token line next to a rising total.</p>
+              <p>The second is deleting the API key. The bill page splits the paths. Token postpay: take the deployment offline, or delete the key to block surprise calls. Model-unit or compute-duration postpay: take the deployment offline. Prepaid PTU: offline, then unsubscribe. The key is a lock, not an unsubscribe button. After the key is gone, nobody can steal calls. The unit you bought is still there.</p>
+              <p>The third is retrying a 429. Under reserved-capacity-only, a 429 is the wall. Retries do not convert the call to token pricing, and they do not stop the capacity clock. Under automatic overflow the call succeeds, and the expensive part is that it already left the reserved rate. A log that stored only HTTP 200 will not show <code>x-dashscope-ptu-overflow</code>. Treating overflow as “still inside the reservation” is how the monthly close shows one line for capacity and another for tokens.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. Topping up the cloud account does not release the unit</h2>
+              <p>Reconcile four columns. First, deployment or endpoint status: running, healthy, scheduling, offline, or unsubscribed. Second, the billing mode: tokens, PTU, or model unit, and whether overflow is automatic or a 429. Third, expiry, auto-renewal, and reclamation time. Bailian’s two pages do not agree on whether expiry stops immediately, so use the console. Fourth, which arrears rule applies: Volcengine token services shut off after about a minute, while model units and TPM packs keep billing for about two hours; Bailian’s postpaid deployment page says arrears makes the resource unavailable and stops that fee.</p>
+              <p>Funding the cloud account is a fifth ledger. Moving stablecoins on-chain into assets that can top up Alibaba Cloud or Volcengine happens before that credit lands. It does not change deployment status, and it is not an unsubscribe. When that funding step is what you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> is a no-signup, non-custodial swap. A completed swap means the assets moved. A running dedicated deployment still has to be taken offline, and a model unit still has to be unsubscribed.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Zero calls close only tokens</a></li>
+              <li><a href="#sec-2">PTU bills bought capacity</a></li>
+              <li><a href="#sec-3">Ark starts at the order</a></li>
+              <li><a href="#sec-4">Deleting a key is not unsubscribe</a></li>
+              <li><a href="#sec-5">A top-up does not release the unit</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources and further reading"><h2>Sources and further reading</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener nofollow">Alibaba Bailian: bills and how to stop charges</a> — A running deployment bills by duration with no API calls. Deleting a key blocks surprise token calls. Duration billing needs the deployment offline, and prepaid PTU also needs an unsubscribe, with used time settled at 1.2.</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/tpm-reservation-billing" target="_blank" rel="noopener nofollow">Alibaba Bailian: provisioned throughput billing</a> — Charges start at creation and follow bought capacity, not usage. Default overflow adds token pricing and sets x-dashscope-ptu-overflow. Auto-renewal is on by default. The site’s <a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener nofollow">training and deployment billing</a> page describes a two-hour delay after prepaid expiry, which the PTU FAQ does not.</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener nofollow">Volcengine Ark: model service billing</a> — Token postpay does not charge without calls. TPM packs and model units charge for purchased time even with no calls. Token services shut off after about a minute overdue. Model units and packs are excluded and keep billing for about two hours. The <a href="https://ark.volcengine.com/region:cn-beijing/docs/model-unit-overview" target="_blank" rel="noopener nofollow">model unit overview</a> bills by the second until you unsubscribe.</li>
+            </ul><p class="ref-note">Sources checked on 15 Oct 2026. The four-column reconciliation order is this site’s analysis, not a vendor performance claim. Unit prices, penalty coefficients, expiry grace, and preview features follow Bailian and Volcengine Ark consoles and their latest docs.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/rag-knowledge-base-still-bills.html">Chat Stopped, Knowledge Base Still Bills</a></li>
+          <li><a href="/en/articles/free-quota-ends-payg-starts.html">Why Bailian Keeps Charging After Free Tokens Run Out</a></li>
+          <li><a href="/en/articles/domestic-ai-context-cache-billing.html">Does Context Caching Cut Your DeepSeek or Qwen API Bill?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=64fae6a0a9"></script>
+</body>
+</html>
