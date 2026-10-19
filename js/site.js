@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-prompt-cache-write-premium.html': '2026-10-19 10:07:00',
+    '/en/articles/cache-write-costs-more-than-input.html': '2026-10-19 10:07:00',
     '/articles/domestic-ai-dedicated-deploy-idle-billing.html': '2026-10-15 15:07:00',
     '/en/articles/dedicated-capacity-bills-while-idle.html': '2026-10-15 15:07:00',
     '/articles/overseas-ai-prepaid-reload-vs-spend-limit.html': '2026-10-13 13:41:00',

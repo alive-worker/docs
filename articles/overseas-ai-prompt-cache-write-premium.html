@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>开了提示缓存，为什么第一笔比不开还贵？</title>
+  <meta name="description" content="开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算，长回复会把窗口吃掉。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。两家用量字段不能混算。没在时限内复用，写入就是白付。对账看写入和读取分开的token。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/cache-write-costs-more-than-input.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="开了提示缓存，为什么第一笔比不开还贵？">
+  <meta property="og:description" content="开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算，长回复会把窗口吃掉。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。两家用量字段不能混算。没在时限内复用，写入就是白付。对账看写入和读取分开的token。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <meta property="article:published_time" content="2026-10-19T10:07:00+08:00">
+  <meta property="article:modified_time" content="2026-10-19T10:07:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="提示缓存">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="开了提示缓存，为什么第一笔比不开还贵？">
+  <meta name="twitter:description" content="开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算，长回复会把窗口吃掉。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。两家用量字段不能混算。没在时限内复用，写入就是白付。对账看写入和读取分开的token。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="提示缓存命中按折扣计，写入按1.25倍或2倍计">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html",
+      "name": "开了提示缓存，为什么第一笔比不开还贵？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-19T10:07:00+08:00",
+      "dateModified": "2026-10-19T10:07:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "开了提示缓存，为什么第一笔比不开还贵？", "item": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "开了提示缓存，为什么第一笔比不开还贵？",
+      "description": "开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算，长回复会把窗口吃掉。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。两家用量字段不能混算。没在时限内复用，写入就是白付。对账看写入和读取分开的token。",
+      "image": "https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-19T10:07:00+08:00",
+      "dateModified": "2026-10-19T10:07:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "提示缓存",
+      "keywords": ["提示缓存", "prompt caching", "cache write", "Claude", "OpenAI", "token计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/cache-write-costs-more-than-input.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>开了提示缓存，为什么第一笔比不开还贵？</h1>
+          <p class="article-summary">提示缓存的折扣在命中上，不在写入上。Claude 把 5 分钟写入定成普通输入的 1.25 倍，1 小时写入定成 2 倍。OpenAI 从 GPT-5.6 起也对写入收 1.25 倍，更早的模型没有这笔加价。断点放在每轮都会变的内容上，等于每次都付写入。时限内没有第二次请求，这笔加价不会自己变回折扣。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-19T10:07:00+08:00">2026-10-19 10:07:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-prompt-cache-write-premium.svg" width="800" height="400" alt="提示缓存命中按折扣计，写入按1.25倍或2倍计" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>看这次响应里的 <code>cache_creation_input_tokens</code> 和 <code>cache_read_input_tokens</code>。两个都是 0，前缀没过该模型的最低长度，或缓存被跳过，你付的是普通输入，不是折扣。</li>
+                <li><span class="article-verify-check">✓</span>如果每次写入 token 都很大、读取一直是 0，断点在会变的内容上，或者下一次请求已经出了时限。把断点挪到跨请求不变的最后一块，再看读取是否出现。</li>
+                <li><span class="article-verify-check">✓</span>Claude 的 5 分钟从这次请求开始算，不从回答结束算。流式回答自己占了大半窗口，跟进请求可能已经是新的写入。</li>
+                <li><span class="article-verify-check">✓</span>不要把 Claude 的三项相加和 OpenAI 的减法混用。GPT-5.6 起，写入价替代普通输入价，不是在 1 倍之外再加 1.25 倍。</li>
+                <li><span class="article-verify-check">✓</span>Claude 的 1 小时档要数窗口里有没有两次命中。一次命中覆盖不了 2 倍写入。5 分钟档一次完整复用就能把 1.25 倍拉回到比发两次更便宜。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 命中便宜，写入不便宜</h2>
+              <p>很多人把提示缓存理解成「同一段前缀，第二次自动打折」。Claude 和 OpenAI 现在的价目都不是这个意思。命中（cache read）确实远低于普通输入。写入（cache write）在现行的多数模型上比普通输入更贵。只看「cached」这个词，会把第一笔加价当成平台算错。</p>
+              <p><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude 定价页</a>把乘数写在提示缓存一节：5 分钟缓存写入是基础输入价的 1.25 倍，1 小时写入是 2 倍。命中和刷新，多数模型是 0.1 倍；Claude Opus 5.5 和 Sonnet 5.5 是 0.05 倍；Fable 5.1 和 Mythos 5.1 是 0.025 倍。官方给的回本账是：5 分钟档，写入 1.25 再加一次命中 0.1，合计 1.35，对照不缓存时把同一段发两次的 2 倍，第一次完整复用就回本。1 小时档写入已经是 2 倍，要两次命中（2 + 0.2 = 2.2，对照三次不缓存的 3）才划算。只写一次、窗口里没有第二次请求，你付的是加价，不是折扣。具体单价以定价页为准，这里只核对乘数。</p>
+              <p><a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener">OpenAI 提示缓存说明</a>从 GPT-5.6 起把写入也改成普通未缓存输入的 1.25 倍，读取多数是 0.1 倍，GPT-6.1 Sol 是 0.05 倍。文档算过同一笔：按 0.1 倍读取，写一次再完整读一次是 1.35 倍，不缓存发两次是 2 倍；写一次再读九次是 2.15 倍，不缓存发十次是 10 倍。更早的模型没有写入加价，只有各自的缓存读取折扣。把 2024 年「自动对半」的记忆套到 GPT-5.6 上，第一笔会对不上。写入价是替代，不是附加：同一批 token 走未缓存输入、缓存读取、缓存写入三者之一，不会在 1 倍之外再加 1.25。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 时钟从请求开始走，不从回答结束走</h2>
+              <p><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Claude 提示缓存</a>默认 5 分钟。寿命从写入或读取这次请求的开始时刻算，不从回答结束算。文档里的例子：流式回答用了 4 分钟，下一次要复用同一前缀，必须在这次回答结束后大约 1 分钟内发出。生成时间吃的是缓存寿命，不是免费附送的等待。命中会刷新寿命，这次刷新不再另收一笔写入费。你付的是命中本身的读取价。「刷新不再另收写入」不是「命中变成 0」。</p>
+              <p>1 小时档要显式把 TTL 设成 1 小时，写入按 2 倍。它买的是更长的窗口，不是更便宜的命中。自动缓存默认仍是 5 分钟。顶层 <code>cache_control</code> 和块上已有的断点 TTL 不一致，接口返回 400；已经放满 4 个显式断点再加自动缓存，也是 400。缓存被静默跳过时则不报错，见下一节的用量字段。</p>
+              <p>并发还有一个坑：缓存条目要等第一次响应开始之后，后续请求才能读到。一批并行请求同时打出去，各自看不到别人正在写的缓存，于是各自付一笔写入。要命中，得等第一笔响应开始，再发后面的。</p>
+              <p>OpenAI 在 GPT-5.6 及之后，<code>prompt_cache_options.ttl</code> 目前只支持 <code>30m</code>，这也是默认值。最近一次写入或复用之后至少 30 分钟可再用，复用刷新寿命，不再收写入费；平台可能留得更久，不能把「可能更久」当成账单承诺。更早的模型用 <code>prompt_cache_retention</code>：<code>in_memory</code> 大约闲置 5 到 10 分钟、最长一小时；<code>24h</code> 通常大约 30 分钟可用、最长可留 24 小时。两种都支持时，组织没开 Zero Data Retention，默认 <code>24h</code>；开了则默认 <code>in_memory</code>。短窗口不是接口故障，是保留策略。缓存不跨组织，也不跨处理区域。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 断点放在会变的那一块，等于每次都付写入</h2>
+              <p>Claude 只在标了 <code>cache_control</code> 的断点上写一条缓存。哈希覆盖断点之前的整个前缀，顺序是 <code>tools</code>、<code>system</code>、<code>messages</code>。断点前面任何一个块变了，哈希就变，下一次是新的写入。读取会从断点往回找以前写过的条目，最多看 20 个位置。它找的是以前的写入，不是「这段看起来很稳定，所以自动缓存」。自动缓存把断点放在最后一个可缓存块上。如果最后一块是每轮都变的用户消息，每一轮都在写，读不到上一轮。断点要放在跨请求保持不变的最后一块上。对话在长，但每轮新增不到 20 块时，把断点留在末尾仍能回看到上一轮的写入；一旦超出这 20 块的回看窗口，上一轮的条目就在窗外，需要更靠前的第二个断点事先写过。</p>
+              <p>断点个数本身不加价，最多 4 个。加价只看实际写入和读取的 token。前缀短于该模型的最低长度时，请求照常处理，不报错，也不缓存。用量里 <code>cache_creation_input_tokens</code> 和 <code>cache_read_input_tokens</code> 都是 0，就是没进缓存。最低长度按模型不同，文档列出 512、1024、2048、4096 几档，以提示缓存页里你这个模型的那一行为准。用别的模型的门槛去解释自己的 0，会对错原因。</p>
+              <p>失效顺着层级走。改工具定义，tools、system、messages 全部失效。开关联网搜索、引用，或在 <code>speed: "fast"</code> 和标准速度之间切换，system 和 messages 失效。改 <code>tool_choice</code>、增删图片，messages 失效。这些变化不会报错，下一笔只是重新按写入价计。思考块不能单独标断点，但出现在之前的助手回合里时可以跟着别的内容被缓存；从缓存读出时，它们计入输入 token。</p>
+              <p>OpenAI 在 GPT-5.6 及之后可以显式断点。<code>prompt_cache_options.mode</code> 设成 <code>explicit</code> 且一个断点都不放，这次请求不使用提示缓存，也不产生写入。断点之后的内容按未缓存输入计，不收写入费。这是避开「把会变的尾巴写进缓存」的办法。隐式模式会把断点放在最近一条合格消息的末尾，那条消息如果每轮都变，写入就会跟着变。更早的模型只有隐式断点，报告的 <code>cached_tokens</code> 还会扣掉隐藏的系统 token，再向下取整到 128 的倍数，所以用量数字可以小于你心算的前缀长度。缓存落在单台机器上。同一组织、同一区域里，流量高过大约每分钟 15 次，可能被分流到没有这份缓存的机器，于是未命中。<code>prompt_cache_key</code> 在 GPT-5.6 之前影响路由，不能保证命中；在 GPT-5.6 及之后，路由由平台处理，这个 key 用来把不同客户的缓存账分开，也不是命中开关。GPT-5.6 起最低可缓存前缀是 1024 个可见输入 token，隐藏的系统内容不计入这个门槛。更早的模型门槛还跟工具、图片、输出格式和推理强度有关。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 两家的用量字段不是同一本账</h2>
+              <p>Claude 的 <code>input_tokens</code> 只统计最后一个断点之后的 token，不是你发出去的全部输入。总输入是 <code>cache_read_input_tokens</code> + <code>cache_creation_input_tokens</code> + <code>input_tokens</code>。把 <code>input_tokens</code> 当成全部输入再乘基础单价，会把命中和写入都漏掉，账单看起来像平台多收了。流式响应里这三项在 <code>message_start</code> 的 usage 里，不在最后一条文本事件里。</p>
+              <p>OpenAI 在 <code>usage.input_tokens_details</code> 里给 <code>cached_tokens</code> 和 <code>cache_write_tokens</code>。普通输入等于 <code>input_tokens</code> 减去这两项。写入的那些 token 用 1.25 倍，不在此之外再乘 1 倍。用 Claude 的三项相加去套 OpenAI，或者用 OpenAI 的减法去套 Claude，都会得到一笔不存在的重复收费，或一笔不存在的折扣。诊断接口报的 cache miss 计数可以和 usage 不一致，计费以当次响应的 usage 为准。诊断本身不加价，但为了对比而额外打出的基线请求或重试，仍按那些请求自己的 token 计。</p>
+              <p>乘数还会叠别的修饰。Claude 写明缓存乘数与 Batch 折扣、长上下文定价、数据驻留叠加。Claude 4.6 及之后，用 <code>inference_geo</code> 指定仅美国推理，输入、输出、写入、读取都再乘 1.1。Haiku 5.5 按提示长度分档，提示超过 10 万 token 走更高单价，缓存读取和写入都计入这次提示长度。一次请求超了线，即使其中一部分是命中，也按更高档计；更早的短请求保持当时的价格。这和国内 DeepSeek、通义千问的上下文缓存不是同一口表。那边是前缀命中折扣。这边在现行 Claude 和 GPT-5.6 之后，第一笔写入可以比不开缓存更贵。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 给 API 账户充值，补不回一次未命中</h2>
+              <p>对账先拆四列。第一列是这次 usage：写入 token、读取 token、断点之后的普通输入，各乘各的乘数，不要加总后再乘一个价。第二列是时限：Claude 从请求开始算 5 分钟或 1 小时；OpenAI GPT-5.6 起至少 30 分钟，更早的模型看 <code>in_memory</code> 还是 <code>24h</code>，以及组织有没有开 Zero Data Retention。第三列是前缀是否真的相同：工具定义、system、消息顺序，有没有在 fast 和标准速度之间切过。第四列是请求是不是抢在第一次响应开始之前并行发出去的。</p>
+              <p>给平台账户充值是第五本账。链上把稳定币换成能充进 API 账户的资产，发生在余额入账之前。它不制造缓存命中，也不把已经按 1.25 倍或 2 倍记下的写入改成折扣。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。断点、时限和用量字段该改还得改。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">命中便宜，写入不便宜</a></li>
+              <li><a href="#sec-2">时钟从请求开始走</a></li>
+              <li><a href="#sec-3">断点放错就每次写入</a></li>
+              <li><a href="#sec-4">两家用量字段不能混算</a></li>
+              <li><a href="#sec-5">充值补不回未命中</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener nofollow">Anthropic：Prompt caching</a> — 默认 5 分钟从请求开始算；写入只发生在断点；回看最多 20 块；低于最低长度不报错也不缓存；<code>input_tokens</code> 只计断点之后。</li>
+              <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener nofollow">Anthropic：Pricing</a> — 5 分钟写入 1.25 倍、1 小时写入 2 倍；命中多数 0.1 倍，Opus 5.5 与 Sonnet 5.5 为 0.05 倍，Fable 5.1 与 Mythos 5.1 为 0.025 倍。5 分钟档一次复用回本，1 小时档要两次。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener nofollow">OpenAI：Prompt caching</a> — GPT-5.6 起写入 1.25 倍且替代而非附加普通输入价，读取多数 0.1 倍；更早模型无写入加价。显式模式不放断点则不写入。缓存按机器隔离，key 不保证命中。</li>
+            </ul><p class="ref-note">资料核验于2026年10月19日。四列对账顺序为本站分析，并非厂商效果承诺。单价、命中乘数例外、最低长度和保留时长以 Claude 与 OpenAI 最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-token-billing.html">OpenAI API 价格详解：token 计费规则与用量估算方法</a></li>
+          <li><a href="/articles/overseas-ai-service-tier-flex-vs-fast.html">你指定了 Fast，为什么按标准价出账？</a></li>
+          <li><a href="/articles/domestic-ai-context-cache-billing.html">调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f8d1d8facc"></script>
+</body>
+</html>

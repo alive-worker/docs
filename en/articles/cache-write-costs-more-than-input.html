@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cache Hit Is Cheap. The Write Is Not.</title>
+  <meta name="description" content="Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too. Check usage.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/cache-write-costs-more-than-input.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/cache-write-costs-more-than-input.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="The Cache Hit Is Cheap. The Write Is Not.">
+  <meta property="og:description" content="Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too. Check usage.">
+  <meta property="og:url" content="https://ponr.org/en/articles/cache-write-costs-more-than-input.html">
+  <meta property="article:published_time" content="2026-10-19T10:07:00+08:00">
+  <meta property="article:modified_time" content="2026-10-19T10:07:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Prompt cache">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Cache Hit Is Cheap. The Write Is Not.">
+  <meta name="twitter:description" content="Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too. Check usage.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Cache hits are discounted; a cache write costs 1.25x or 2x">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack development experience, focused on AI automation workflow research",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#webpage",
+      "url": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html",
+      "name": "The Cache Hit Is Cheap. The Write Is Not.",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-10-19T10:07:00+08:00",
+      "dateModified": "2026-10-19T10:07:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "The Cache Hit Is Cheap. The Write Is Not.", "item": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "The Cache Hit Is Cheap. The Write Is Not.",
+      "description": "Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too. Check usage.",
+      "image": "https://ponr.org/img/cover-overseas-ai-prompt-cache-write-premium-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-10-19T10:07:00+08:00",
+      "dateModified": "2026-10-19T10:07:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Prompt cache",
+      "keywords": ["prompt caching", "cache write", "Claude", "OpenAI", "token billing"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/cache-write-costs-more-than-input.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-prompt-cache-write-premium.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>The Cache Hit Is Cheap. The Write Is Not.</h1>
+          <p class="article-summary">The discount sits on the cache hit, not on the write. Claude prices a five-minute write at 1.25 times base input and a one-hour write at 2 times. From GPT-5.6, OpenAI also charges 1.25 times for a write. Earlier OpenAI models do not. A breakpoint on text that changes every call is a write every call. If nothing reuses the prefix inside the TTL, the premium does not turn into a discount by itself.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-10-19T10:07:00+08:00">2026-10-19 10:07:00</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-prompt-cache-write-premium-en.svg" width="800" height="400" alt="Cache hits are discounted; a cache write costs 1.25x or 2x" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">What to check</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>On this response, read <code>cache_creation_input_tokens</code> and <code>cache_read_input_tokens</code>. If both are 0, the prefix missed the model minimum or caching was skipped. You paid normal input, not a discount.</li>
+                <li><span class="article-verify-check">✓</span>If creation stays large and reads stay at 0, the breakpoint is on content that changes, or the next call started after the TTL. Move the breakpoint to the last block that stays identical, then look for a read.</li>
+                <li><span class="article-verify-check">✓</span>Claude’s five minutes start when the request starts, not when the answer ends. A long stream can eat the window, so the follow-up is a new write.</li>
+                <li><span class="article-verify-check">✓</span>Do not add Claude’s three fields with OpenAI’s subtraction. On GPT-5.6 and later, the write rate replaces the normal input rate. It is not added on top.</li>
+                <li><span class="article-verify-check">✓</span>For a one-hour Claude cache, count two hits inside the window. One hit does not recover a 2x write. A five-minute cache pays off on the first full reuse.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The hit is the discount. The write is a premium.</h2>
+              <p>Prompt caching is often described as “send the same prefix twice and the second call is cheaper.” That is the hit, not the write. On current Claude models, and on OpenAI from GPT-5.6, writing the prefix costs more than sending it as ordinary input. A bill that looks expensive on the first cached call is often the write rate doing what the pricing page says.</p>
+              <p>The <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude pricing page</a> states the multipliers. A five-minute cache write is 1.25 times base input. A one-hour write is 2 times. Hits and refreshes are 0.1 times on most models, 0.05 times on Claude Opus 5.5 and Sonnet 5.5, and 0.025 times on Fable 5.1 and Mythos 5.1. The same page does the break-even math: one five-minute write plus one hit is 1.35, against 2 for sending the prefix twice with no cache, so the first full reuse pays it back. A one-hour write is already 2. It needs two hits (2 + 0.2 = 2.2, against 3 for three uncached sends). One write and no second request inside the window is a premium. Unit prices move. The multipliers are what to reconcile, and the pricing page is where to recheck them.</p>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener">OpenAI prompt caching guide</a> prices writes at 1.25 times uncached input from GPT-5.6 onward. Reads are 0.1 times on most of those models and 0.05 times on GPT-6.1 Sol. At the 0.1 read rate, one write plus one full read is 1.35 times the prefix, against 2 times for two uncached sends. One write and nine full reads is 2.15, against 10. Models before GPT-5.6 have no extra write charge. They only discount the cached read, at a rate that depends on the model. The 2024 “automatic half price” memory does not describe a GPT-5.6 write. The write rate replaces the normal input rate for those tokens. It is not added on top of it.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. The clock starts with the request</h2>
+              <p><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Claude’s prompt caching docs</a> default to five minutes. Lifetime is measured from the start of the request that writes or reads the entry, not from the end of the response. Their example: if a response streams for four minutes, a follow-up that wants the same prefix must start within about a minute of that response finishing. Generation time counts against the cache. A hit refreshes the lifetime and does not add another write charge. You still pay the read price for that hit. “No extra write” does not mean the hit is free.</p>
+              <p>The one-hour TTL is explicit, and the write is 2 times base input. It buys a longer window, not a cheaper hit. Automatic caching stays on five minutes unless you set the longer TTL. A top-level <code>cache_control</code> whose TTL disagrees with an explicit breakpoint on the last block returns 400. So does adding automatic caching when four explicit breakpoints already exist. Falling under the minimum length does not error. It just skips the cache. The usage fields in the next section are how you tell those cases apart.</p>
+              <p>A cache entry becomes readable only after the first response begins. Parallel requests sent together cannot see a write that has not started its response yet, so each of them pays a write. Wait for the first response to begin, then send the rest, if the point was a hit.</p>
+              <p>On GPT-5.6 and later, <code>prompt_cache_options.ttl</code> supports only <code>30m</code>, and that is the default. A prefix stays eligible for at least 30 minutes after the latest write or reuse. Reuse refreshes that lifetime without another write charge. OpenAI may keep the entry longer. “May” is not a billing promise. Earlier models use <code>prompt_cache_retention</code>. <code>in_memory</code> typically lasts about 5 to 10 minutes of inactivity, up to an hour. <code>24h</code> typically stays available around 30 minutes and can last up to 24 hours. Where both exist, organizations without Zero Data Retention default to <code>24h</code>. Organizations with it default to <code>in_memory</code>. A short window is the retention policy, not a failed request. Caches are not shared across organizations or processing regions.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. A breakpoint on changing text writes every time</h2>
+              <p>Claude writes one cache entry at the block you mark with <code>cache_control</code>. The hash covers the whole prefix up to that block, in order: <code>tools</code>, then <code>system</code>, then <code>messages</code>. Change any block at or before the breakpoint and the next request is a new write. Reads walk backward from the breakpoint looking for entries earlier requests already wrote, at most 20 positions. The walk does not discover stable text sitting behind a suffix you forgot to mark. Automatic caching puts the breakpoint on the last cacheable block. If that block is the user message that changes every turn, every turn is a write. Put the breakpoint on the last block that stays identical across the calls you want to share. In a growing conversation, the final block still works while each turn adds fewer than 20 blocks. Past that lookback, the previous write sits outside the window, and you need a second breakpoint closer to it, written before you need the hit.</p>
+              <p>Breakpoints themselves are not a fee. You can place up to four. You pay for tokens written and tokens read. A prefix shorter than the model minimum is processed without caching and without an error. If both <code>cache_creation_input_tokens</code> and <code>cache_read_input_tokens</code> are 0, the prompt was not cached. The docs list minimums of 512, 1024, 2048, and 4096 tokens depending on the model. Use the row for the model you called. Another model’s threshold will send you looking for the wrong bug.</p>
+              <p>Invalidation follows the same order. Editing tool definitions invalidates tools, system, and messages. Toggling web search or citations, or switching <code>speed</code> between <code>fast</code> and standard, invalidates system and messages. Changing <code>tool_choice</code> or adding and removing images invalidates messages. None of that returns an error. The next call is simply priced as a write. Thinking blocks cannot carry <code>cache_control</code> by themselves. They can be cached as part of an earlier assistant turn, and when they are read back they count as input tokens.</p>
+              <p>From GPT-5.6, OpenAI lets you place explicit breakpoints. Set <code>prompt_cache_options.mode</code> to <code>explicit</code> and place none, and the request does not use prompt caching and does not create a write. Tokens after the last breakpoint are ordinary input, with no write charge. That is how you keep a changing tail out of the write. Implicit mode puts a breakpoint at the end of the latest eligible message. If that message changes every turn, the write follows it. Earlier models are implicit only. Reported <code>cached_tokens</code> drop hidden system tokens and then round down to a multiple of 128, so the usage figure can be shorter than the prefix you think you sent. Entries live on a machine. Above about 15 requests a minute, traffic can overflow onto a machine that does not hold the entry, and the call misses. Before GPT-5.6, <code>prompt_cache_key</code> influences routing. It does not guarantee a hit. On GPT-5.6 and later, routing is automatic and the key separates cache accounting between customers. It is still not a hit switch. The minimum cacheable prefix on GPT-5.6 and later is 1,024 visible input tokens. Hidden system content does not count. On earlier models the minimum also depends on tools, images, output schema, and reasoning effort.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. The two usage objects are not the same ledger</h2>
+              <p>Claude’s <code>input_tokens</code> counts only tokens after the last breakpoint, not the whole prompt you sent. Total input is <code>cache_read_input_tokens</code> plus <code>cache_creation_input_tokens</code> plus <code>input_tokens</code>. Multiply <code>input_tokens</code> by the base rate and you drop both the hit and the write, then the invoice looks like an overcharge. On a stream, those three fields are on the <code>message_start</code> usage object, not on the last text event.</p>
+              <p>OpenAI reports <code>cached_tokens</code> and <code>cache_write_tokens</code> under <code>usage.input_tokens_details</code>. Ordinary input is <code>input_tokens</code> minus those two. Write tokens take the 1.25 rate instead of the base rate, not in addition to it. Adding Claude’s three fields onto an OpenAI response, or subtracting OpenAI’s two details from a Claude response, invents either a double charge or a discount that was never priced. Diagnostic miss counts can disagree with usage. Bill from the usage on this response. Diagnostics add no fee of their own, but extra baseline or retry requests you send for the comparison are billed as those requests.</p>
+              <p>Multipliers stack. Claude applies cache multipliers on top of the Batch discount, long-context pricing, and data residency. On Claude 4.6 and later, <code>inference_geo</code> set to US-only inference adds 1.1 times to input, output, writes, and reads. Claude Haiku 5.5 prices a prompt over 100,000 tokens on a higher schedule, and cache reads and writes count toward that length. A request over the line pays the higher prices even when part of it is a hit. Shorter earlier requests keep the price they were billed at. This is not the DeepSeek or Qwen context-cache discount. That meter cuts a repeated prefix. Here, on current Claude and on OpenAI from GPT-5.6, the first write can cost more than leaving caching off.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. Topping up the API account does not create a hit</h2>
+              <p>Reconcile four columns. First, this response’s usage: write tokens, read tokens, and ordinary input after the breakpoint, each at its own multiplier. Do not sum them and multiply once. Second, the clock: Claude counts five minutes or one hour from the start of the request; OpenAI from GPT-5.6 keeps a prefix at least 30 minutes, and earlier models follow <code>in_memory</code> or <code>24h</code>, including whether the organization has Zero Data Retention. Third, whether the prefix is actually the same: tool definitions, system text, message order, and whether speed flipped between fast and standard. Fourth, whether later calls left before the first response began.</p>
+              <p>Funding the API account is a fifth ledger. Moving stablecoins on-chain into assets that can top up the platform happens before that credit lands. It does not create a cache hit, and it does not reprice a write that was already recorded at 1.25 or 2 times. When that funding step is what you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> swaps on-chain without registration and without custody. A completed swap only means the assets changed hands. The breakpoint, the TTL, and the usage fields still have to be fixed on the request.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">The hit is the discount</a></li>
+              <li><a href="#sec-2">The clock starts with the request</a></li>
+              <li><a href="#sec-3">A bad breakpoint writes every time</a></li>
+              <li><a href="#sec-4">Two usage objects, two ledgers</a></li>
+              <li><a href="#sec-5">A top-up does not create a hit</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources and further reading"><h2>Sources and further reading</h2><ul>
+              <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener nofollow">Anthropic: Prompt caching</a> — The default five minutes start at the request. Writes happen only at a breakpoint. Lookback is 20 blocks. Below the minimum, caching is skipped with no error. <code>input_tokens</code> counts only past the breakpoint.</li>
+              <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener nofollow">Anthropic: Pricing</a> — Five-minute writes are 1.25x and one-hour writes are 2x. Hits are 0.1x on most models, 0.05x on Opus 5.5 and Sonnet 5.5, and 0.025x on Fable 5.1 and Mythos 5.1. One reuse pays back the five-minute write. The one-hour write needs two.</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener nofollow">OpenAI: Prompt caching</a> — From GPT-5.6, writes are 1.25x and replace the base input rate. Reads are 0.1x on most of those models. Earlier models have no write premium. Explicit mode with no breakpoint does not write. A cache key does not guarantee a hit.</li>
+            </ul><p class="ref-note">Sources checked on 19 Oct 2026. The four-column reconciliation order is this site’s analysis, not a vendor performance claim. Unit prices, hit-rate exceptions, minimum lengths, and retention follow the latest Claude and OpenAI docs.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/token-billing-guide.html">How AI API Token Billing Works: Input vs Output Costs</a></li>
+          <li><a href="/en/articles/flex-vs-fast-service-tier.html">You Set Fast. The Invoice Says default</a></li>
+          <li><a href="/en/articles/domestic-ai-context-cache-billing.html">Does Context Caching Cut Your DeepSeek or Qwen API Bill?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f8d1d8facc"></script>
+</body>
+</html>
