@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>对话停了，显式缓存为什么还在按小时扣？</title>
+  <meta name="description" content="显式缓存从创建起按自然小时收存储费，不调用也扣，删掉或到期才停。创建当小时就会出账。不足一小时按一小时。隐式缓存不收存储费，命中也不保证。再用不会刷新过期时间。删掉中间一轮，后面按新输入重算并重新存。前缀不满256个token会直接报错。对账看缓存存储这一列。命中折扣抵不了存储。两页口径不同，以账单为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="对话停了，显式缓存为什么还在按小时扣？">
+  <meta property="og:description" content="显式缓存从创建起按自然小时收存储费，不调用也扣，删掉或到期才停。创建当小时就会出账。不足一小时按一小时。隐式缓存不收存储费，命中也不保证。再用不会刷新过期时间。删掉中间一轮，后面按新输入重算并重新存。前缀不满256个token会直接报错。对账看缓存存储这一列。命中折扣抵不了存储。两页口径不同，以账单为准。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <meta property="article:published_time" content="2026-10-21T14:21:00+08:00">
+  <meta property="article:modified_time" content="2026-10-21T14:21:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="显式缓存">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="对话停了，显式缓存为什么还在按小时扣？">
+  <meta name="twitter:description" content="显式缓存从创建起按自然小时收存储费，不调用也扣，删掉或到期才停。创建当小时就会出账。不足一小时按一小时。隐式缓存不收存储费，命中也不保证。再用不会刷新过期时间。删掉中间一轮，后面按新输入重算并重新存。前缀不满256个token会直接报错。对账看缓存存储这一列。命中折扣抵不了存储。两页口径不同，以账单为准。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="命中按折扣计，显式缓存存储从创建起按小时扣">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html",
+      "name": "对话停了，显式缓存为什么还在按小时扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-21T14:21:00+08:00",
+      "dateModified": "2026-10-21T14:21:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "对话停了，显式缓存为什么还在按小时扣？", "item": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "对话停了，显式缓存为什么还在按小时扣？",
+      "description": "显式缓存从创建起按自然小时收存储费，不调用也扣，删掉或到期才停。创建当小时就会出账。不足一小时按一小时。隐式缓存不收存储费，命中也不保证。再用不会刷新过期时间。删掉中间一轮，后面按新输入重算并重新存。前缀不满256个token会直接报错。对账看缓存存储这一列。命中折扣抵不了存储。两页口径不同，以账单为准。",
+      "image": "https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-21T14:21:00+08:00",
+      "dateModified": "2026-10-21T14:21:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "显式缓存",
+      "keywords": ["AI服务", "火山方舟", "显式缓存", "隐式缓存", "缓存存储", "按小时计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/explicit-cache-storage-bills-by-the-hour.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>对话停了，显式缓存为什么还在按小时扣？</h1>
+          <p class="article-summary">火山方舟的隐式缓存不收存储费，但命中不保证。显式缓存命中更可控，存储却从创建那一刻按自然小时计，不调用也扣，手动删除或到期才停。不足一小时按一小时。再用不会把过期时间刷新。这口表不是知识库规格小时，也不是专属部署时长，更不是海外提示缓存的写入加价。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-21T14:21:00+08:00">2026-10-21 14:21:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-explicit-cache-storage-hour.svg" width="800" height="400" alt="命中按折扣计，显式缓存存储从创建起按小时扣" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>看返回里的 <code>usage.prompt_tokens_details.cached_tokens</code>。大于 0 才是命中，等于 0 就是没进。隐式缓存不保证命中，存储也不计费。</li>
+                <li><span class="article-verify-check">✓</span>只有请求里写了 <code>"caching": {"type": "enabled"}</code> 才产生存储费。存储从创建起算，手动按 ID 删除或 <code>expire_at</code> 到期才停。不调用不能证明这列是 0。</li>
+                <li><span class="article-verify-check">✓</span><code>expire_at</code> 最长 7 天，等于当前 UTC 时间加 604800 秒。再用、再命中都不会把这个时刻往后推。过期后要重新创建。</li>
+                <li><span class="article-verify-check">✓</span>前缀缓存创建时输入少于 256 token，或 <code>stream</code> 为 true，会直接报错，不是静默跳过。创建那一笔 <code>output_tokens</code> 恒为 0，零输出不等于没花钱。</li>
+                <li><span class="article-verify-check">✓</span>删掉中间一轮之后，后面几轮在下一次请求时按新输入重算并重新存储。版本切换期间命中失败，存储费仍在产生。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 命中折扣和存储时钟是两列</h2>
+              <p>火山方舟把上下文缓存拆成两条路，写在现行的<a href="https://ark.volcengine.com/region:cn-beijing/docs/context-cache" target="_blank" rel="noopener">上下文缓存</a>页上。隐式缓存自动开启，不能关闭。它不保证命中，存储不计费。判断只看 <code>cached_tokens</code>：大于 0 按缓存命中单价，等于 0 按正常输入单价，输出仍按正常输出。命中单价还会随输入长度换档，同一只模型在 32K 以内和 128K 以上不是一个价。门槛也按模型变，常见默认是 1024，有的 256，有的 2048，个别到八千以上。把型号清单背成价目表没有意义，页上改了以页为准；<code>cached_tokens</code> 为 0，就是这一笔没进缓存。</p>
+              <p>显式缓存要你自己创建。文档写明它命中率更高、更可控，代价是多一列存储。计费四项：输入、缓存输入、缓存存储、输出。缓存输入的费率明显低于新输入。存储按「元/千 token/小时」走，和命中折扣不是加减关系。请求一旦使用显式缓存，隐式缓存就不再生效，两条路不能叠在同一次调用上。使用前还要在开通管理页打开该模型的「推理（缓存）定价」，否则不是「自动帮你省」，而是这口能力根本没开。</p>
+              <p>这四列不要和站里已经写过的三口表混。知识库空闲计的是规格小时、向量和排序，删对话不停，删库才停。专属部署和模型单元计的是容量或时长，运行中或下单成功之后时钟就在走。DeepSeek、通义的上下文缓存是前缀命中折扣，没有火山这口按小时的存储表。Claude 和 OpenAI 的提示缓存是写入加价：命中便宜，把内容写进缓存的那一笔比普通输入更贵，时限过了要重写，但没有「创建之后每个自然小时继续收存储」这一列。方舟显式缓存反过来：写入本身不一定加价，贵的是缓存还活着的每一个小时。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 存储从创建起算，再用也不会续期</h2>
+              <p>上下文缓存页把存储写得很硬：费用在缓存创建时就产生，直到手动删除或过期才停。每个自然小时整点出账，不足 1 小时按 1 小时。对话停了、脚本停了、这一小时一次请求都没有，只要缓存还在，这一列不会因为调用次数归零而消失。创建在 13:50，14:00 整点就会把这不到一小时收成一小时。当小时账单还是空的，只能说明按小时的那一列还没出账，不能当成已经停表。</p>
+              <p><code>expire_at</code> 同时管 <code>store</code> 和 <code>caching</code>。当前最大可存 7 天，也就是当前 UTC Unix 时间戳加 604800。过了这个时刻，存储过期，而且不会因为你又命中了一次、又调用了一次就把生命周期重置。过期之后必须用 Responses API 重新创建。这和海外提示缓存里「窗口内再命中就刷新时限」不是同一套机制。方舟这里的 7 天是上限，不是「常用就一直续」。一个长期挂着的会话，如果没人去改 <code>expire_at</code>、也没人删除，存储最多走到第 7 天；如果有人把过期时间设得很远却忘了删，中间每个自然小时都在累。</p>
+              <p>两页官方说明对「这一小时按什么量乘单价」并不完全一样。上下文缓存页写：该小时内每一轮新增的缓存 token 累加，存储费是新增内容乘存储单价。模型服务计费说明则写：缓存存储按小时出账，基于每个自然小时内存储的最大 token 数；缓存命中是准实时出账。旧的 Context API 文档已经下线，上面还有「该小时最大标记数」和 TTL 按秒设置的说法，不要拿那一页的字段去对现在的 Responses API 账单。现行两页都同意的部分只有这些：按自然小时、不足 1 小时按 1 小时、创建即计、删除或过期才停。对账以账单上的「缓存存储」行为准，不要用「这小时没调用所以应该是 0」去否定这一行。命中折扣走准实时，存储走整点，两列的出账时间本来就不是同一分钟。</p>
+              <p>版本切换是一个更容易被当成故障的窗口。文档写明：切换过程中，Responses API 请求无法命中缓存，但会继续存储并产生缓存存储费用；切换完成后，才能命中历史轮次。命中率掉到 0，存储列可以还在涨。把「没命中」读成「没在计费」，会把这几个小时的存储费看成异常扣款。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 删一轮不是退订，改一个字段也会让后面重算</h2>
+              <p>按 ID 删除某一轮，停的是那一轮自己的缓存信息，不是整口存储时钟。文档的例子是第 5 轮之后删掉第 3 轮：下一次请求时，后续轮次的缓存会重新计算并重新存储。第 6 轮里，受影响的第 4、5 轮信息按输入计费，不再按缓存输入，直到新的缓存再次建立。删除之后的第一笔，看起来像「缓存失效所以更贵」，贵的原因是那些 token 重新走了新输入，并且又写进了存储。删一轮再继续聊，可能比留着贵，而不是退了一笔存储费。</p>
+              <p>删掉首轮还有一条附带后果。tools 只能在首轮设置，后面的轮次默认携带首轮 tools 的缓存输入，不能再传 tools，否则冲突报错。首轮一旦被删，后续轮次不再携带这份 tools 缓存，也不能再配置 tools。一个带函数调用的会话，删了第一轮不只是少了一段历史，是工具定义那一截缓存也没了，下一轮要么不能再挂工具，要么得整段重建。</p>
+              <p>另外三个字段会让命中和写入一起失败，失败的同时如果缓存还没到期，存储费不会跟着停。thinking 必须和前一轮保持一致：第一轮是 <code>auto</code>，后面也得是 <code>auto</code>；第一轮没设，后面也不能设。本轮如果写了非空的 instructions，这一轮既不能调用已有缓存，也不能把本轮写入缓存。store 默认是 true，写入的前提是存储开着；某一轮没开 <code>"caching": {"type": "enabled"}</code>，后面的轮次就写不进去。前面只要有一轮开了 caching，就不支持 <code>json_schema</code>，<code>json_object</code> 还可以。这些都是「这一笔没打折」，不是「存储已退订」。</p>
+              <p>Prompt Cache Key 更容易被当成开关。它只影响隐式缓存的路由亲和，让同一段前缀尽量打到同一条缓存上。它不是强一致：扩缩容、发布、故障切换、映射过期或保护策略都会重新路由。它不创建显式缓存，也不产生显式存储费，更不能把 <code>cached_tokens</code> 从 0 变成大于 0。给隐式请求加一把 Key，解决不了「显式缓存还在按小时扣」。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 前缀缓存不够 256 会报错，零输出也不等于免费</h2>
+              <p>显式缓存有两种。前缀缓存存的是不变的开头：角色、规则、长文档。首轮要 <code>"store": true</code>（缺省就是 true），再加 <code>"caching": {"type": "enabled", "prefix": true}</code>，后面用 <code>previous_response_id</code> 引用。创建时输入 token 必须大于等于 256，否则报错；<code>stream</code> 不能为 true。这和隐式缓存不同。隐式不够门槛是静默不命中，<code>cached_tokens</code> 为 0，请求仍然成功。前缀缓存不够 256 是创建失败。用 <code>glm-5-3-flash-260828</code> 创建前缀时，role 还必须是 user，否则也建不起来。</p>
+              <p>创建成功的那一笔，返回的 <code>usage</code> 里 <code>total_tokens</code> 等于 <code>input_tokens</code>，<code>output_tokens</code> 始终是 0。财务如果只盯输出，会把这笔看成空调用。输入已经按未命中或缓存输入计过，存储也从这一刻开始按小时走。零输出是前缀创建的正常形状，不是没计费。</p>
+              <p>Session 缓存没有 256 这个下限。它随每一轮更新：本轮写入缓存的是本轮输入，模型回复不直接进缓存；上一轮的回复和思维链会变成下一轮输入的一部分，所以输入 token 会变多。可以用上下文编辑去砍思维链和工具内容，命中的部分是「本轮输入」和「编辑后的缓存」的交集。普通新输入的量用 <code>input_tokens - cached_tokens</code> 算，不要把 <code>input_tokens</code> 整段都当成未命中。存储费只在 <code>"caching": {"type": "enabled"}</code> 时产生。Session 和前缀的差别是门槛和会不会随对话变长，不是「Session 不收存储」。两种显式缓存都在那四列里面。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 给账户充值，停不了已经创建的缓存</h2>
+              <p>对账先分四列。第一列是这条请求走的隐式还是显式：没有 <code>caching.type = enabled</code>，就没有存储费，只有可能出现的命中折扣。第二列是 <code>expire_at</code> 还在不在 7 天窗口里，以及有没有人以为「再用会续期」。第三列是缓存 ID 有没有被删；删了一轮之后，后面是否已经按新输入重算并重新存储。第四列是账单上的缓存存储是不是仍在整点增加。命中列准实时、存储列按小时，当小时为空不能当成停表。版本切换、thinking 或 instructions 被改过，都只能解释命中失败，解释不了存储为什么还在。</p>
+              <p>给火山引擎账户充值是第五本账。链上把稳定币换成能充进云账号的资产，发生在入账之前，不删除缓存 ID，也不改 <code>expire_at</code>。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。显式缓存该按 ID 删还得删，到期之前每个自然小时的存储费该走还在走。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">命中折扣和存储是两列</a></li>
+              <li><a href="#sec-2">创建即计，再用也不续期</a></li>
+              <li><a href="#sec-3">删一轮不是退订</a></li>
+              <li><a href="#sec-4">前缀不够 256 会报错</a></li>
+              <li><a href="#sec-5">充值停不了缓存</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/context-cache" target="_blank" rel="noopener nofollow">火山方舟：上下文缓存</a> — 隐式缓存自动开启、不可关闭、命中不保证、存储不计费；显式缓存与隐式互斥。存储从创建起按自然小时计，不足 1 小时按 1 小时，手动删除或过期才停。expire_at 最长 7 天且不会随使用重置。前缀缓存创建需不少于 256 token 且不能 stream，创建时 output_tokens 恒为 0。</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener nofollow">火山方舟：模型服务计费说明</a> — 在线推理的缓存命中为准实时出账，缓存存储按小时出账，并写成按每个自然小时内存储的最大 token 数。这与上下文缓存页「按该小时新增缓存 token 累加」的写法不完全一致，对账以账单缓存存储行为准。单价见<a href="https://ark.volcengine.com/region:cn-beijing/docs/model-pricing" target="_blank" rel="noopener nofollow">模型价格</a>，本文不引用会变动的具体单价。</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/context-api" target="_blank" rel="noopener nofollow">火山方舟：Context API（已下线）</a> — 旧页用 ttl 秒和「该小时最大标记数」描述前缀缓存。不要用已下线字段去对现行 Responses API 的 expire_at 和缓存存储账单。</li>
+            </ul><p class="ref-note">资料核验于2026年10月21日。四列对账顺序为本站分析，并非厂商效果承诺；存储算法两页口径不同，单价、模型门槛和开通范围以火山方舟控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-dedicated-deploy-idle-billing.html">接口停了，专属部署为什么还在按小时扣？</a></li>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+          <li><a href="/articles/domestic-ai-context-cache-billing.html">调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=6d2a297cd8"></script>
+</body>
+</html>

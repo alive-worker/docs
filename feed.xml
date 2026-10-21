@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[对话停了，显式缓存为什么还在按小时扣？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html</guid>
+    <pubDate>Wed, 21 Oct 2026 14:21:00 +0800</pubDate>
+    <category>显式缓存</category>
+    <description><![CDATA[显式缓存从创建起按自然小时收存储费，不调用也扣，删掉或到期才停。创建当小时就会出账。不足一小时按一小时。隐式缓存不收存储费，命中也不保证。再用不会刷新过期时间。删掉中间一轮，后面按新输入重算并重新存。前缀不满256个token会直接报错。对账看缓存存储这一列。命中折扣抵不了存储。两页口径不同，以账单为准。]]></description>
+  </item>
+  <item>
     <title><![CDATA[开了提示缓存，为什么第一笔比不开还贵？]]></title>
     <link>https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-prompt-cache-write-premium.html</guid>
@@ -14,7 +22,7 @@
     <category>提示缓存</category>
     <description><![CDATA[开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。]]></description>
   </item>
-  <lastBuildDate>Mon, 19 Oct 2026 10:07:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 14:21:00 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>

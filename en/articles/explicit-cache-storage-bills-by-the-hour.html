@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Hit Is Cheap. Storage Still Bills.</title>
+  <meta name="description" content="Explicit cache storage bills hourly once created, with no calls. Delete it or let it expire. Implicit cache has no storage fee. Reuse does not extend expiry.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-explicit-cache-storage-hour.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="The Hit Is Cheap. Storage Still Bills.">
+  <meta property="og:description" content="Explicit cache storage bills hourly once created, with no calls. Delete it or let it expire. Implicit cache has no storage fee. Reuse does not extend expiry.">
+  <meta property="og:url" content="https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html">
+  <meta property="article:published_time" content="2026-10-21T14:21:00+08:00">
+  <meta property="article:modified_time" content="2026-10-21T14:21:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Explicit cache">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Hit Is Cheap. Storage Still Bills.">
+  <meta name="twitter:description" content="Explicit cache storage bills hourly once created, with no calls. Delete it or let it expire. Implicit cache has no storage fee. Reuse does not extend expiry.">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A cache hit is discounted; explicit cache storage still bills by the hour">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack development experience, focused on AI automation workflow research",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#webpage",
+      "url": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html",
+      "name": "The Hit Is Cheap. Storage Still Bills.",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-10-21T14:21:00+08:00",
+      "dateModified": "2026-10-21T14:21:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "The Hit Is Cheap. Storage Still Bills.", "item": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "The Hit Is Cheap. Storage Still Bills.",
+      "description": "Explicit cache storage bills hourly once created, with no calls. Delete it or let it expire. Implicit cache has no storage fee. Reuse does not extend expiry.",
+      "image": "https://ponr.org/img/cover-domestic-ai-explicit-cache-storage-hour-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-10-21T14:21:00+08:00",
+      "dateModified": "2026-10-21T14:21:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Explicit cache",
+      "keywords": ["AI access", "Volcengine Ark", "explicit cache", "implicit cache", "cache storage", "hourly billing"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/explicit-cache-storage-bills-by-the-hour.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Price calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-explicit-cache-storage-hour.html" hreflang="zh-CN" lang="zh-CN">中文</a>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>The Hit Is Cheap. Storage Still Bills.</h1>
+          <p class="article-summary">On Volcengine Ark, implicit cache has no storage fee and no hit guarantee. Explicit cache is the controllable one, and its storage meter starts at creation. It bills by the natural hour with no calls, until you delete it or it expires. Under one hour rounds up to one hour. Using it again does not extend expiry. This is not a knowledge-base spec hour, not dedicated-capacity time, and not the overseas prompt-cache write premium.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-10-21T14:21:00+08:00">2026-10-21 14:21:00</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-explicit-cache-storage-hour-en.svg" width="800" height="400" alt="A cache hit is discounted; explicit cache storage still bills by the hour" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">What to check</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>Read <code>usage.prompt_tokens_details.cached_tokens</code>. Above zero is a hit. Zero means this call missed. Implicit cache does not guarantee a hit, and it does not charge storage.</li>
+                <li><span class="article-verify-check">✓</span>Storage starts only when the request sets <code>"caching": {"type": "enabled"}</code>. It runs from creation until you delete that cache by ID or <code>expire_at</code> passes. Zero calls do not prove the column is zero.</li>
+                <li><span class="article-verify-check">✓</span><code>expire_at</code> tops out at 7 days: current UTC time plus 604800 seconds. Another hit does not push that timestamp forward. After expiry you create the cache again.</li>
+                <li><span class="article-verify-check">✓</span>A prefix cache under 256 input tokens, or with <code>stream</code> true, errors. It does not skip quietly. On create, <code>output_tokens</code> is always 0. Zero output is not a free call.</li>
+                <li><span class="article-verify-check">✓</span>Deleting one turn makes later turns recompute as fresh input and store again on the next request. During a version switch the hit fails and storage still bills.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The discount and the storage clock are different columns</h2>
+              <p>Volcengine Ark splits context cache into two paths on the current <a href="https://ark.volcengine.com/region:cn-beijing/docs/context-cache" target="_blank" rel="noopener">context cache</a> page. Implicit cache turns on by itself and cannot be turned off. A hit is not guaranteed, and storage is free. The only signal is <code>cached_tokens</code>: above zero uses the cache-hit price, zero uses the normal input price, and output stays on the normal output price. The hit price also changes with the input-length band, so the same model is not one rate below 32K and above 128K. The minimum length changes by model. A common default is 1024. Some models use 256, some 2048, and one sits above eight thousand. Memorizing the model list as a price sheet is wasted work. The page wins when it changes. <code>cached_tokens</code> at zero means this call did not enter the cache.</p>
+              <p>Explicit cache is something you create. The docs say the hit rate is higher and the control is tighter, and the cost is a storage column. Four lines: input, cached input, cache storage, and output. Cached input is priced well below new input. Storage is priced per thousand tokens per hour. It does not subtract from the hit discount. Once a request uses explicit cache, implicit cache does not apply. The two paths do not stack on one call. Before any of this, the model’s “inference (cache) pricing” has to be enabled on the activation page. Otherwise this is not automatic savings. The feature is simply off.</p>
+              <p>Do not file these four lines with the other clocks already on this site. A knowledge base bills spec hours, embeddings, and rerank. Closing the chat does not stop it. Deleting the base does. Dedicated deploy and a model unit bill capacity or time, and the clock starts when the deployment is running or the order succeeds. DeepSeek and Qwen context cache is a prefix-hit discount. It does not have Ark’s hourly storage meter. Claude and OpenAI prompt cache is a write premium: the hit is cheap, writing the cache costs more than normal input, and a miss after the window means you pay the write again. There is no column that keeps charging every natural hour after creation. Ark explicit cache runs the other way. The write is not the premium. The expensive part is every hour the cache stays alive.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Storage starts at creation, and reuse does not extend it</h2>
+              <p>The context cache page is blunt about storage. The fee starts when the cache is created and stops only when you delete it or it expires. It settles at each natural-hour boundary, and less than one hour rounds up to one hour. A stopped chat, a stopped script, or an hour with no requests does not zero that column while the cache still exists. Create at 13:50 and the 14:00 boundary bills that fragment as one hour. An empty bill for the current hour only means the hourly line has not posted. It is not proof the meter stopped.</p>
+              <p><code>expire_at</code> covers both <code>store</code> and <code>caching</code>. The current maximum is 7 days, current UTC Unix time plus 604800. Past that moment the store expires, and using the cache again does not reset the lifetime. After expiry you recreate it through the Responses API. That is not the overseas prompt-cache rule where a hit inside the window refreshes the timer. Seven days here is a cap, not “keep using it and it never ends.” A session left alone, with nobody editing <code>expire_at</code> and nobody deleting, runs at most to day seven. A session whose expiry was set far out and then forgotten keeps adding a storage line every natural hour until that timestamp.</p>
+              <p>Two official pages do not describe the quantity inside that hour the same way. The context cache page says each turn’s newly cached tokens in that hour are summed, and storage is those new tokens times the storage price. The model service billing page says cache storage settles hourly from the maximum tokens stored in each natural hour, while a cache hit settles in near real time. The old Context API page is offline. It still talks about a maximum mark count for the hour and a TTL in seconds. Do not reconcile a Responses API bill against those retired fields. What the two current pages agree on is narrower: natural hours, under one hour rounds up to one hour, billing from creation, and a stop only on delete or expiry. Reconcile against the cache-storage line on the bill. Do not argue that line down because the hour had no calls. Hits post in near real time. Storage posts on the hour. They were never the same minute.</p>
+              <p>A version switch is the window most often read as an outage. The docs say that during the switch a Responses API request cannot hit the cache, but storage continues and the storage fee still accrues. After the switch, earlier turns can hit again. A hit rate of zero can sit next to a rising storage line. Reading “no hit” as “not billing” is how those hours get filed as a surprise charge.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Deleting one turn is not an unsubscribe</h2>
+              <p>Deleting one turn by ID removes that turn’s cache record. It does not stop the storage clock for the cache that remains. The documented case deletes turn 3 after turn 5. On the next request, later turns are recomputed and stored again. At turn 6, the affected turns 4 and 5 bill as input, not as cached input, until a new cache exists. The first call after a delete looks like “the cache missed, so it cost more.” The reason is those tokens went through as new input and were written into storage again. Deleting a turn and then continuing the chat can cost more than leaving it, and it is not a storage refund.</p>
+              <p>Deleting the first turn has a second effect. Tools can be set only on the first turn. Later turns carry that tools cache as input and must not send tools again, or the request errors. Once the first turn is deleted, later turns no longer carry the tools cache, and tools cannot be configured again. A function-calling session that loses turn 1 does not just lose history. The tool definitions are gone. The next turn either cannot attach tools, or the cache has to be built from scratch.</p>
+              <p>Three other fields fail the hit and the write together. While the cache has not expired, the storage fee does not stop with them. <code>thinking</code> has to match the previous turn: <code>auto</code> on turn 1 means <code>auto</code> later, and an unset field on turn 1 means later turns stay unset. A non-empty <code>instructions</code> on this turn can neither read the existing cache nor write this turn into it. <code>store</code> defaults to true, and a write requires storage to be on. If any earlier turn omitted <code>"caching": {"type": "enabled"}</code>, later turns cannot write. Once any earlier turn enabled caching, <code>json_schema</code> is unsupported. <code>json_object</code> still is. All of these explain “this call got no discount.” None of them is “storage was unsubscribed.”</p>
+              <p>A prompt cache key is the field most often mistaken for a switch. It only biases implicit-cache routing so the same prefix prefers the same cache. It is not strongly consistent. Scale-out, a release, failover, an expired mapping, or a protection policy can route the request elsewhere. It does not create an explicit cache, it does not create an explicit storage fee, and it cannot move <code>cached_tokens</code> from zero to above zero. Adding a key to an implicit request does not stop an explicit cache that is still billing by the hour.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. A short prefix errors, and zero output is not free</h2>
+              <p>Explicit cache has two shapes. Prefix cache stores a fixed opening: a role, rules, a long document. The first turn needs <code>"store": true</code>, which is already the default, plus <code>"caching": {"type": "enabled", "prefix": true}</code>. Later turns pass <code>previous_response_id</code>. Creation requires at least 256 input tokens or it errors, and <code>stream</code> cannot be true. Implicit cache is the opposite kind of miss. Under its minimum it simply does not hit, <code>cached_tokens</code> stays zero, and the request still succeeds. A prefix under 256 fails creation. Creating a prefix on <code>glm-5-3-flash-260828</code> also requires <code>role</code> to be user.</p>
+              <p>On a successful create, <code>usage.total_tokens</code> equals <code>input_tokens</code>, and <code>output_tokens</code> is always 0. A finance export that watches only output will call this an empty call. Input has already been priced as a miss or as cached input, and storage has started its hourly clock at that moment. Zero output is the normal shape of prefix creation. It is not “not billed.”</p>
+              <p>Session cache has no 256-token floor. It updates every turn. What gets stored is this turn’s input. The model reply is not written straight into the cache. The previous reply and the chain of thought become part of the next turn’s input, so input tokens grow. Context editing can cut the chain of thought and tool content. The hit is the overlap between this turn’s input and the edited cache. New input is <code>input_tokens - cached_tokens</code>. Do not treat the whole <code>input_tokens</code> figure as a miss. Storage accrues only when <code>"caching": {"type": "enabled"}</code>. The difference between session and prefix is the floor and whether the cache grows with the chat. It is not “session cache skips storage.” Both sit inside the same four columns.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. Topping up the account does not delete the cache</h2>
+              <p>Reconcile four columns. First, whether the request was implicit or explicit. Without <code>caching.type = enabled</code> there is no storage fee, only a possible hit discount. Second, whether <code>expire_at</code> is still inside the 7-day cap, and whether anyone assumed another call would extend it. Third, whether the cache ID was deleted. After one turn is removed, later turns may already have been recomputed as new input and stored again. Fourth, whether the cache-storage line on the bill is still increasing at the hour. Hits are near real time. Storage is hourly. An empty current hour is not a stopped meter. A version switch, or a changed <code>thinking</code> or <code>instructions</code> field, explains a miss. It does not explain why storage is still there.</p>
+              <p>Funding the Volcengine account is a fifth ledger. Moving stablecoins on-chain into assets that can top up the cloud account happens before that credit lands. It does not delete a cache ID, and it does not change <code>expire_at</code>. When that funding step is what you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> is a no-signup, non-custodial swap. A completed swap means the assets moved. An explicit cache still has to be deleted by ID, and until expiry the storage fee still posts every natural hour.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Discount and storage are two columns</a></li>
+              <li><a href="#sec-2">Creation starts it; reuse does not extend it</a></li>
+              <li><a href="#sec-3">Deleting a turn is not unsubscribe</a></li>
+              <li><a href="#sec-4">A short prefix errors</a></li>
+              <li><a href="#sec-5">A top-up does not delete the cache</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources and further reading"><h2>Sources and further reading</h2><ul>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/context-cache" target="_blank" rel="noopener nofollow">Volcengine Ark: context cache</a> — Implicit cache is on, cannot be disabled, does not guarantee a hit, and does not charge storage. Explicit cache disables implicit cache on that request. Storage bills by the natural hour from creation, under one hour rounds up to one hour, and it stops only on manual delete or expiry. expire_at tops out at 7 days and does not reset on use. Prefix creation needs at least 256 tokens, cannot stream, and returns output_tokens of 0.</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/model-service-pricing" target="_blank" rel="noopener nofollow">Volcengine Ark: model service billing</a> — Online cache hits settle in near real time. Cache storage settles hourly, described as the maximum tokens stored in each natural hour. That wording does not match the context cache page, which sums newly cached tokens in the hour. Reconcile against the storage line on the bill. Unit prices live on <a href="https://ark.volcengine.com/region:cn-beijing/docs/model-pricing" target="_blank" rel="noopener nofollow">model pricing</a>. This article does not quote rates that move.</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/context-api" target="_blank" rel="noopener nofollow">Volcengine Ark: Context API (retired)</a> — The old page describes prefix cache with a TTL in seconds and a maximum mark count for the hour. Do not reconcile a current Responses API bill, or expire_at, against those retired fields.</li>
+            </ul><p class="ref-note">Sources checked on 21 Oct 2026. The four-column order is this site’s analysis, not a vendor performance claim. The two current pages do not describe the hourly quantity the same way. Unit prices, per-model minimums, and which models are enabled follow the Volcengine Ark console and its latest docs.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/dedicated-capacity-bills-while-idle.html">The API Is Idle. The Deployment Still Bills.</a></li>
+          <li><a href="/en/articles/rag-knowledge-base-still-bills.html">Chat Stopped, Knowledge Base Still Bills</a></li>
+          <li><a href="/en/articles/domestic-ai-context-cache-billing.html">Does Context Caching Cut Your DeepSeek or Qwen API Bill?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=6d2a297cd8"></script>
+</body>
+</html>
