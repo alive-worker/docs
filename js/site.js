@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-reasoning-tokens-invisible-bill.html': '2026-10-22 15:20:00',
+    '/en/articles/invisible-reasoning-still-bills.html': '2026-10-22 15:20:00',
     '/articles/domestic-ai-explicit-cache-storage-hour.html': '2026-10-21 14:21:00',
     '/en/articles/explicit-cache-storage-bills-by-the-hour.html': '2026-10-21 14:21:00',
     '/articles/overseas-ai-prompt-cache-write-premium.html': '2026-10-19 10:07:00',

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>答案很短，推理token为什么还按输出价扣？</title>
+  <meta name="description" content="推理token按输出价计，屏幕上看不到也扣。上限把推理和可见输出算在一起，用完可以返回incomplete且没有正文。reasoning_tokens为0时，格式token仍可能让输出高于可见文本。GPT-5.6默认带上前几轮推理，更早的模型默认不带。effort不是硬上限。对账看usage，别数字数。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/invisible-reasoning-still-bills.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="答案很短，推理token为什么还按输出价扣？">
+  <meta property="og:description" content="推理token按输出价计，屏幕上看不到也扣。上限把推理和可见输出算在一起，用完可以返回incomplete且没有正文。reasoning_tokens为0时，格式token仍可能让输出高于可见文本。GPT-5.6默认带上前几轮推理，更早的模型默认不带。effort不是硬上限。对账看usage，别数字数。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html">
+  <meta property="article:published_time" content="2026-10-22T15:20:00+08:00">
+  <meta property="article:modified_time" content="2026-10-22T15:20:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="推理token">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="答案很短，推理token为什么还按输出价扣？">
+  <meta name="twitter:description" content="推理token按输出价计，屏幕上看不到也扣。上限把推理和可见输出算在一起，用完可以返回incomplete且没有正文。reasoning_tokens为0时，格式token仍可能让输出高于可见文本。GPT-5.6默认带上前几轮推理，更早的模型默认不带。effort不是硬上限。对账看usage，别数字数。">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-reasoning-tokens-invisible-bill.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="可见答案很短，推理token仍按输出价计">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-reasoning-tokens-invisible-bill.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-reasoning-tokens-invisible-bill.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html",
+      "name": "答案很短，推理token为什么还按输出价扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-22T15:20:00+08:00",
+      "dateModified": "2026-10-22T15:20:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "答案很短，推理token为什么还按输出价扣？", "item": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "答案很短，推理token为什么还按输出价扣？",
+      "description": "推理token按输出价计，屏幕上看不到也扣。上限把推理和可见输出算在一起，用完可以返回incomplete且没有正文。reasoning_tokens为0时，格式token仍可能让输出高于可见文本。GPT-5.6默认带上前几轮推理，更早的模型默认不带。effort不是硬上限。对账看usage，别数字数。",
+      "image": "https://ponr.org/img/cover-overseas-ai-reasoning-tokens-invisible-bill.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-22T15:20:00+08:00",
+      "dateModified": "2026-10-22T15:20:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "推理token",
+      "keywords": ["AI服务", "OpenAI", "推理token", "max_output_tokens", "reasoning.context", "输出计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-reasoning-tokens-invisible-bill.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/invisible-reasoning-still-bills.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>答案很短，推理token为什么还按输出价扣？</h1>
+          <p class="article-summary">OpenAI 的推理 token 占上下文，并按输出计费，原始推理默认不出现在答案里。Responses 的 <code>max_output_tokens</code> 和 Chat 的 <code>max_completion_tokens</code> 把推理、可见输出和格式 token 算在同一个上限里。上限用完可以是 <code>incomplete</code>，正文一个字都没有，输入和推理仍要付钱。GPT-5.6 默认把前几轮推理带进下一轮，更早的模型默认不带。把 effort 调低不是把这列锁死。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-22T15:20:00+08:00">2026-10-22 15:20:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-reasoning-tokens-invisible-bill.svg" width="800" height="400" alt="可见答案很短，推理token仍按输出价计" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>看这一笔的 usage。Responses 用 <code>output_tokens</code> 和 <code>output_tokens_details.reasoning_tokens</code>；Chat Completions 用 <code>completion_tokens</code> 和 <code>completion_tokens_details.reasoning_tokens</code>。总输出已经包含推理，不要把明细再加一遍。</li>
+                <li><span class="article-verify-check">✓</span>若 <code>status</code> 是 <code>incomplete</code> 且 <code>incomplete_details.reason</code> 是 <code>max_output_tokens</code>，先看上限，再怪模型没答。这一笔可以没有可见正文，输入和推理仍计费。</li>
+                <li><span class="article-verify-check">✓</span><code>reasoning_tokens</code> 为 0 时，不要用答案字数去对总输出。格式 token 不出现在正文和 <code>logprobs</code> 里，也不一定单独列出。</li>
+                <li><span class="article-verify-check">✓</span>看返回里的 <code>reasoning.context</code>，不要只看你以为的默认值。GPT-5.6 族默认 <code>all_turns</code>，更早的模型默认 <code>current_turn</code>。省略参数等于 <code>auto</code>。</li>
+                <li><span class="article-verify-check">✓</span>多轮若要沿用推理，请求得拿得到上一笔的条目：<code>previous_response_id</code>、conversation，或完整回放。只把可见对话贴回去，不等于把推理带上了。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 看不见的推理，按输出计</h2>
+              <p>OpenAI 的<a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener">推理模型说明</a>把推理 token 写成模型用来拆题、试路径的内部生成。它们通过 API 看不到原文，却占着上下文窗口，并按输出 token 计费。短答案因此可以比屏幕上的字贵。Responses 把总量放在 <code>output_tokens</code>，明细在 <code>output_tokens_details.reasoning_tokens</code>。Chat Completions 的总量叫 <code>completion_tokens</code>，明细在 <code>completion_tokens_details.reasoning_tokens</code>。明细是总量里的一部分，不是总量外面再加的一笔。财务若把两列相加，会把同一次推理算两次。</p>
+              <p>这和 DeepSeek 把思维链放进 <code>reasoning_content</code> 不是同一口返回。那边你能在字段里看到一段文本，并且那段文本按输出计。这边默认不把原始推理还给你。持久化的推理项是不透明的，API 不返回推理原文。想看摘要，得显式打开 <code>summary</code>，<code>auto</code> 会落到该模型当时最细的那一档。摘要写在推理项的 <code>summary</code> 数组里，不开就不会出现。不开摘要，不代表 <code>reasoning_tokens</code> 是 0。打开摘要，看到的也不是原始推理，不能拿摘要的字数去减账单。</p>
+              <p>这列也不是提示缓存的写入加价。缓存写入贵在「把前缀写进缓存」那一笔，命中才打折。推理 token 是这一次生成出来的输出，不管你有没有把断点放对。显式缓存的小时存储更是另一口表：那里不调用也扣，这里是生成发生了才有推理输出。三列可以出现在同一张月账单上，对账时不能用其中一列去解释另外两列。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 上限吃掉的是整段生成，不是可见答案</h2>
+              <p>控制成本的旋钮不是「答案最多几个字」。Responses 用 <code>max_output_tokens</code>，限制的是模型生成的全部 token，包括推理、可见输出，以及不可见的格式 token。<a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener">token 计数说明</a>写明：这两个上限都覆盖非可见 token，可见输出和账单之间没有固定差额，需要留出余量。Chat Completions 对应的字段是 <code>max_completion_tokens</code>，<a href="https://developers.openai.com/api/reference/resources/chat" target="_blank" rel="noopener">接口参考</a>写的是可见输出和推理 token 的上限。旧的 <code>max_tokens</code> 已废弃，而且和 o 系列不兼容。把旧参数留在代码里，推理模型上不是「自动帮你封顶」，是这个参数根本不该用。</p>
+              <p>撞到上下文窗口或你设的 <code>max_output_tokens</code>，返回的 <code>status</code> 是 <code>incomplete</code>，<code>incomplete_details.reason</code> 是 <code>max_output_tokens</code>。文档写明：这可以发生在任何可见输出之前。也就是说，你可能为输入和推理付了钱，答案区是空的。空正文不是免费调用，也不是审核把内容删掉。审核截断要看审核字段。这里要看的是上限和 usage。官方给实验期的建议是，推理和输出至少留 25000 token 的余量，熟悉自己的题目之后再收紧。25000 是缓冲，不是报价，也不是每只模型的硬默认。</p>
+              <p>所以「把 max 设小来省钱」会省错地方。设得太小，模型把额度花在推理上，可见答案还没开始就停了，这笔的单价仍是输出价。设得很大，推理可以走到成千上万 token，答案仍然只有一两句。要对的是 usage 里的推理明细和总输出，不是把 <code>output_text</code> 丢进本地 tokenizer。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. reasoning_tokens 为 0，输出仍可能比正文长</h2>
+              <p>计数页单独写了一条容易漏的账。包括 GPT-5 在内的一些模型，会生成用来分隔通道、工具调用和消息结构的格式 token。这些 token 不出现在消息正文里，也不出现在 <code>logprobs</code> 里，而且不一定在 usage 里单独列出。结果是：报告的输出或 completion token 可以高于可见 token，也可以高于 <code>logprobs</code> 里的 token，即便 <code>reasoning_tokens</code> 是 0。</p>
+              <p>这条把两种误读拆开。第一种是「明细为 0，所以这只模型没在推理，账单应该等于答案字数」。格式 token 可以在推理明细为 0 时仍然把总输出抬高。第二种是「明细很大，所以多出来的全是思维链」。明细只解释推理那一截。总输出减明细，剩下的是可见输出加上没单独列出的格式 token，不是一份可以逐字核对的正文。本地 tokenizer 更对不上，因为它连请求结构里的角色和边界 token 都可能没算进你粘贴的那段纯文本。</p>
+              <p><code>reasoning.effort</code> 也不是把推理 token 锁死的阀门。它引导模型想多少。支持的取值随模型变，可以包括 <code>none</code>、<code>minimal</code>、<code>low</code>、<code>medium</code>、<code>high</code>、<code>xhigh</code>、<code>max</code>，不是每只模型都有全部档位。调低倾向更快、更少 token，调高想得更完整。模型还会按题目自适应：简单题少想，难题多想。默认值同样随模型变，不能把某一只的 <code>medium</code> 写成全系规则。GPT-5.6 和 GPT-6 还有独立的 <code>reasoning.mode</code>：<code>standard</code> 是默认，<code>pro</code> 给更难的任务，可以接受更高延迟和更多 token。模式和 effort 互不替代。省略 effort 时，文档写 GPT-5.6 在两种模式下都默认 <code>medium</code>。把 mode 调成 pro、又没看 usage，短答案旁边可以出现很长的推理明细。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 下一轮带不带上一轮，默认按模型分</h2>
+              <p>对话状态和推理状态不是一件事。把可见消息传下去，模型拿到的是对话历史。持久化推理另外决定：下一轮能不能把已有的、兼容的推理项渲染进下一次采样。文档把默认值写成两档。GPT-5.6 族支持 <code>all_turns</code>，并且默认就是它。更早的模型默认 <code>current_turn</code>。省略 <code>reasoning.context</code>，或显式写成 <code>auto</code>，用的是该模型的默认。返回里的 <code>reasoning.context</code> 才是实际生效的模式，只会是 <code>current_turn</code> 或 <code>all_turns</code>。这个字段不会凭空造出不存在的推理项。</p>
+              <p><code>current_turn</code> 只让当前这一轮的推理可用，不把更早的推理渲染进下一次采样。文档说，回放旧条目时可以用它来减少被渲染的上下文。这是少带，不是把上一笔推理费退掉。<code>all_turns</code> 会把可用且兼容的推理项渲染进去，但只在请求拿得到更早的条目时生效：<code>previous_response_id</code>、挂到 conversation，或手动回放完整历史。第一轮没有更早的推理，两种模式一样。只把用户和助手的可见文本贴回去，推理项不在里面，<code>all_turns</code> 没有东西可渲染，下一轮会重新想。重新想的那一截又是新的输出。</p>
+              <p>推理只能在同一模型族里复用。文档举例：GPT-5.6 族内部可以互用，GPT-5.6 和 GPT-5.5 之间不带。换族时，即使 <code>reasoning.context</code> 是 <code>all_turns</code>，不兼容的推理也会从上下文里拿掉。换模型省下的不是「推理免费了」，是上一段推理没被带上，这一轮可能重新生成。 <code>store</code> 为 false，或组织启用了零数据保留，推理项默认带 <code>encrypted_content</code>。要在无存储模式下使用 <code>all_turns</code>，得自己保留每一个输出项，包括加密推理和助手阶段，再把下一条用户消息接上去整段回放。丢掉加密字段，下一轮就只剩可见对话。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 给账户充值，缩不了已经生成的推理</h2>
+              <p>对账先分四列。第一列是 usage：推理明细和总输出，接口是 Responses 还是 Chat，有没有把明细又加进总量。第二列是 <code>status</code> 和 <code>incomplete_details.reason</code>，空正文要先对上限，而不是对审核。第三列是返回里的 <code>reasoning.context</code>，以及这次请求有没有 <code>previous_response_id</code> 或完整回放。第四列是 effort 和 mode：它们引导生成量，不是硬顶，pro 可以在短答案旁边拉长推理。型号名会变，以这一笔返回的 <code>model</code> 和推理模型页为准，不要用宣传名代替 usage。</p>
+              <p>给 OpenAI 账户充值是第五本账。链上把稳定币换成能充进账户的资产，发生在入账之前，不减少已经生成的推理 token，也不提高这一次请求的 <code>max_output_tokens</code>。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。短答案旁边的推理输出，该出现在 usage 里还是会出现。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">看不见的推理按输出计</a></li>
+              <li><a href="#sec-2">上限吃掉整段生成</a></li>
+              <li><a href="#sec-3">明细为 0 仍可能更长</a></li>
+              <li><a href="#sec-4">下一轮默认按模型分</a></li>
+              <li><a href="#sec-5">充值缩不了推理</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener nofollow">OpenAI：推理模型</a> — 推理 token 不可见，占上下文并按输出计费。撞到 max_output_tokens 可以在可见输出出现前返回 incomplete。GPT-5.6 默认 all_turns，更早的模型默认 current_turn。effort 引导思考量，pro 模式与 effort 独立。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener nofollow">OpenAI：token 计数</a> — 报告的输出包含全部生成 token，不只是可见文本。格式 token 可以在 reasoning_tokens 为 0 时仍让总输出高于正文和 logprobs。max_output_tokens 与 max_completion_tokens 都限制非可见 token。</li>
+              <li><a href="https://developers.openai.com/api/reference/resources/chat" target="_blank" rel="noopener nofollow">OpenAI：Chat Completions 参考</a> — max_completion_tokens 是可见输出和推理 token 的上限。max_tokens 已废弃，且不兼容 o 系列。</li>
+            </ul><p class="ref-note">资料核验于2026年10月22日。四列对账顺序为本站分析，并非厂商效果承诺。型号、默认 effort、推理模式和单价以 OpenAI 控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a></li>
+          <li><a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a></li>
+          <li><a href="/articles/overseas-ai-service-tier-flex-vs-fast.html">你指定了 Fast，为什么按标准价出账？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=0b0a537ba3"></script>
+</body>
+</html>
