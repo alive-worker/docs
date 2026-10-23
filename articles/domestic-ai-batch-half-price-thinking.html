@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>批量写着半价，为什么成功行还是不便宜？</title>
+  <meta name="description" content="百炼批量只对成功行按实时价的50%计输入和输出。失败行、校验失败和窗口到期仍未处理的行不计费，取消前已完成的仍计。qwen3.5到3.8默认开思考，思考token按输出计，结果文件却不带reasoning_content。半价不叠缓存，也不吃新人免费额度。阶梯按整段输入跳档。对账先看渠道，别用免费额度解释。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/batch-half-price-still-bills-thinking.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="批量写着半价，为什么成功行还是不便宜？">
+  <meta property="og:description" content="百炼批量只对成功行按实时价的50%计输入和输出。失败行、校验失败和窗口到期仍未处理的行不计费，取消前已完成的仍计。qwen3.5到3.8默认开思考，思考token按输出计，结果文件却不带reasoning_content。半价不叠缓存，也不吃新人免费额度。阶梯按整段输入跳档。对账先看渠道，别用免费额度解释。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html">
+  <meta property="article:published_time" content="2026-10-23T11:38:00+08:00">
+  <meta property="article:modified_time" content="2026-10-23T11:38:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="批量推理">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="批量写着半价，为什么成功行还是不便宜？">
+  <meta name="twitter:description" content="百炼批量只对成功行按实时价的50%计输入和输出。失败行、校验失败和窗口到期仍未处理的行不计费，取消前已完成的仍计。qwen3.5到3.8默认开思考，思考token按输出计，结果文件却不带reasoning_content。半价不叠缓存，也不吃新人免费额度。阶梯按整段输入跳档。对账先看渠道，别用免费额度解释。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-batch-half-price-thinking.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="成功行按实时价一半计，思考token仍算输出">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-batch-half-price-thinking.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-batch-half-price-thinking.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html",
+      "name": "批量写着半价，为什么成功行还是不便宜？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-23T11:38:00+08:00",
+      "dateModified": "2026-10-23T11:38:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "批量写着半价，为什么成功行还是不便宜？", "item": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "批量写着半价，为什么成功行还是不便宜？",
+      "description": "百炼批量只对成功行按实时价的50%计输入和输出。失败行、校验失败和窗口到期仍未处理的行不计费，取消前已完成的仍计。qwen3.5到3.8默认开思考，思考token按输出计，结果文件却不带reasoning_content。半价不叠缓存，也不吃新人免费额度。阶梯按整段输入跳档。对账先看渠道，别用免费额度解释。",
+      "image": "https://ponr.org/img/cover-domestic-ai-batch-half-price-thinking.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-23T11:38:00+08:00",
+      "dateModified": "2026-10-23T11:38:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "批量推理",
+      "keywords": ["AI服务", "阿里云百炼", "批量推理", "enable_thinking", "思考token", "半价"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-batch-half-price-thinking.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/batch-half-price-still-bills-thinking.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>批量写着半价，为什么成功行还是不便宜？</h1>
+          <p class="article-summary">阿里云百炼的批量推理，只对成功执行的请求按该模型实时推理价格的 50% 计输入和输出 token。文件校验失败、任务失败、行级错误不计费。窗口到期时还没处理的行不再执行，也不计费。取消前已经成功的行照常计。qwen3.5 到 qwen3.8 系列默认开着思考，思考 token 按输出价计，下载的结果文件却不带回 <code>reasoning_content</code>。半价不和上下文缓存叠用，也不吃新人免费额度。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-23T11:38:00+08:00">2026-10-23 11:38:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-batch-half-price-thinking.svg" width="800" height="400" alt="成功行按实时价一半计，思考token仍算输出" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>用结果文件里的 <code>custom_id</code> 对成功行，用错误文件对失败行。失败行、校验失败的整单、窗口到期时仍未处理的行，不应进这一批的 token 费用。取消前已经成功的行仍要计。</li>
+                <li><span class="article-verify-check">✓</span>看 JSONL 里 <code>body</code> 最外层的 <code>enable_thinking</code>，不要看 <code>extra_body</code>。qwen3.5 到 qwen3.8 默认开启。结果文件没有 <code>reasoning_content</code>，不能用 <code>content</code> 的字数去对输出 token。</li>
+                <li><span class="article-verify-check">✓</span>同一文件的 <code>body.model</code> 和思考模式必须一致。混了模型，任务会在校验阶段失败，整单不跑、也不计推理费。</li>
+                <li><span class="article-verify-check">✓</span>账单实例 ID 的调用渠道应是 <code>batch</code>。新人免费额度和上下文缓存解释不了这一列。阶梯价按这一行的输入总量整段跳档，再打五折。</li>
+                <li><span class="article-verify-check">✓</span>任务还在跑时，用量页查不到这批调用。批量按任务结束统计，出账是小时级。提交后几分钟的空账单，不能当成没扣。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 半价只落在成功的行上</h2>
+              <p>百炼<a href="https://help.aliyun.com/zh/model-studio/batch-inference" target="_blank" rel="noopener">批量推理说明</a>把单价写成：成功请求的输入和输出 token，都按对应模型实时推理价格的 50%。这是行级折扣，不是「文件一上传就整包半价」。文件解析失败、任务执行失败、行级错误，都不产生费用。状态停在 <code>validating</code> 然后变成 <code>failed</code>，通常是文件级错误，文档写明此时不会执行任何推理请求，也不会生成结果文件。混了不同模型就会走这条路，错误信息会指出某一行的 <code>model</code> 和批次其余行不一致。</p>
+              <p>取消和过期要拆开看。<a href="https://help.aliyun.com/zh/model-studio/batch-interfaces-compatible-with-openai" target="_blank" rel="noopener">OpenAI 兼容 Batch 接口</a>写明：任务在 <code>completion_window</code> 内没完成，状态变为 <code>expired</code>，未处理的请求不再执行，也不产生费用。被取消的任务里，取消前已经成功完成的请求仍正常计费。控制台把最长等待写成 1 到 14 天；兼容接口把 <code>completion_window</code> 写成最短 24h、最长 336h，只接受整数。窗口用完，已经成功的行留在结果文件里照计，没轮到的行既没有结果也不收费。整单状态写成已终止，不等于这批文件免费。</p>
+              <p>提交成功也还不是成交。多模态行里的图片、视频地址必须是公网 URL。本地路径和内网地址可以让任务提交成功，但不会被处理完成。处理不完就进不了「成功请求」那一档，也就不该按半价出 token 账。对账时先分三堆：结果文件里的 <code>custom_id</code>、错误文件里的 <code>custom_id</code>、窗口到期时根本没出现在这两个文件里的行。只有第一堆进入 50% 的输入和输出。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 半价乘的是思考后的输出</h2>
+              <p>50% 乘的是这一行实际产生的输入和输出，不是可见答案的字数。批量说明写明：qwen3.8、qwen3.7、qwen3.6 和 qwen3.5 系列默认开启思考模式。开启后会产生思考 token，并按输出 token 价格计费。半价因此是「实时输出价的一半，乘上包含思考的输出量」。短答案旁边可以有很长的思考。文档建议在混合思考模型上显式设置 <code>enable_thinking</code>，<code>true</code> 开、<code>false</code> 关。不写这个字段，用的是该模型的默认，当前这几系的默认是开。</p>
+              <p>参数放错地方等于没关。批量说明写明：<code>enable_thinking</code> 和 <code>thinking_budget</code> 必须放在 JSONL 每行 <code>body</code> 的最外层，与 <code>model</code> 同级。放进 <code>extra_body</code> 无效，那是实时推理里 OpenAI Python SDK 透传非标准参数的写法，批量文件不吃。同一文件里的请求还得使用相同模型和相同思考模式。想关思考，每一行的 <code>body</code> 都要带上 <code>enable_thinking: false</code>。<code>thinking_budget</code> 是思考 token 的数量上限，只在你打开思考时用来封顶，不是把已经生成的思考退款。</p>
+              <p>更容易对错账的是结果文件本身。文档写明：批量结果文件不包含 <code>reasoning_content</code>。即便 <code>enable_thinking</code> 为 true，<code>choices[0].message</code> 里也只有 <code>content</code> 和 <code>role</code>。要看思考过程，得改走实时接口。所以批量账单上的输出 token，可以明显大于你下载到的那段答案。拿 <code>content</code> 去做本地 tokenizer，对不上是预期，不是漏单。DeepSeek 把思维链放进可见的 <code>reasoning_content</code> 是另一口返回。这里是付了思考的输出价，下载文件里却没有那段文本。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 半价不叠缓存，阶梯按整段跳</h2>
+              <p>批量是独立计费项。说明里写它支持「AI 通用型节省计划」，同时不支持「预付费（节省计划）」、新人免费额度，以及上下文缓存。两套名字都带「节省计划」，抵扣范围并不相同，不能用其中一套的余额去解释另一套。新人免费额度解释不了渠道为 <code>batch</code> 的这一列。实时推理里能抵的额度，不会自动把批量行变成 0 元。</p>
+              <p><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener">模型价格页</a>把两件折扣写成不能同时生效：模型支持 Batch 时，输入和输出都按实时价的 50%；模型支持上下文缓存时，只是输入享有折扣。批量任务上不要再期待缓存命中把输入再打一层折。价格页还写了阶梯规则：单价取决于单次请求的输入 token 总量，该请求的所有 token 都按对应阶梯结算。文档举例，两档若是不超过 32K 和 32K 到 128K，输入 100K 就整段按第二档，而不是前 32K 走便宜档、超出部分再跳档。批量的 50% 是这一档实时价的一半。输入一跨档，成功行的输入和输出一起变贵，然后再打五折。</p>
+              <p>窗口长度也别拿实时价目表直接套。批量说明写明，qwen3.8-max、qwen3.8-flash、qwen3.7、qwen3.6、qwen3.5 以及列出的全模态模型，在 Batch 场景下单次请求的上下文最大 256K。价目表里同一族模型的实时阶梯可以标到更长。超过批量上限的行，不是按实时长窗口的半价成交。地域表也不一样：华北 2（北京）列出的模型远多于新加坡。模型不在该地域的支持表里，任务会在校验失败，整单不跑。失败单不计推理费，也没有半价结果。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 账单晚到，渠道才写 batch</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener">账单查询说明</a>把出账节奏分开：大模型推理通常 2 到 10 分钟出账，批量推理、模型训练、知识库按小时汇总，高峰还可以再晚。用量页更慢一层。批量说明写明，调用数据以任务结束时间为准，正在运行的任务在完成前查不到，监控还有 1 到 2 小时延迟。提交之后立刻打开费用概览，看到的空档是出账时点，不是免费。</p>
+              <p>对上之后看实例 ID 的调用渠道。账单说明把「资产/资源实例 ID」按分号拆段，其中一段是调用渠道，<code>batch</code> 表示批量推理。同一模型的实时调用渠道是空的，或是控制台、应用、知识库等别的代码。把实时行和批量行加在同一个模型名下，会把 50% 的成功行和全价的实时行混成一笔。免费额度用完即停的标志是另一段，取值 0 或 1。渠道已经是 <code>batch</code> 时，先别用那个开关解释金额。</p>
+              <p>结果文件还有一道和账单不同的时钟。批量说明写明，任务结束超过 30 天，结果和错误文件会自动删除。账单按月留着。过了这 30 天，你还能看到渠道为 <code>batch</code> 的总额，却可能已经没有 <code>custom_id</code> 去区分哪些行成功、哪些行该是 0。要按行对账，得在删除前把两个文件存下来。文件里的 <code>custom_id</code> 最长 256 个字符，更长的标识要放在创建任务时的 <code>metadata</code> 自定义字段里回传，不要硬塞进 <code>custom_id</code>，否则校验失败，整单不跑。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值换不来这一批的半价</h2>
+              <p>对账按五列走。第一列是任务状态：<code>failed</code> 在校验阶段通常整单未跑；<code>expired</code> 只放过已经处理完的行；<code>cancelled</code> 仍要收取消前的成功行。第二列是 <code>enable_thinking</code> 是否写在 <code>body</code> 顶层，以及结果文件有没有 <code>reasoning_content</code>（按当前文档，没有）。第三列是这一行输入落在哪一档，50% 打在那一档上。第四列是实例 ID 里的渠道是不是 <code>batch</code>，以及有没有人拿免费额度或上下文缓存去减它。第五列是结果文件还在不在 30 天里。型号和默认思考会变，以这一笔的 <code>body.model</code> 和批量说明里的支持表为准。</p>
+              <p>给百炼账户充值发生在扣款之前。批量按后付费从余额扣，开通服务后就可以用，不需要另买一个批量套餐。链上把稳定币换成能充进账户的资产，不改变成功行的 50%，也不把思考 token 从输出里拿掉，更不会让失败行突然开始计费。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。成功行里的思考输出，该按实时输出价的一半出现，还是会出现。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">半价只落在成功行</a></li>
+              <li><a href="#sec-2">半价乘的是思考输出</a></li>
+              <li><a href="#sec-3">不叠缓存，阶梯整段跳</a></li>
+              <li><a href="#sec-4">账单晚到，渠道写 batch</a></li>
+              <li><a href="#sec-5">充值换不来半价</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/batch-inference" target="_blank" rel="noopener nofollow">阿里云百炼：批量推理</a> — 成功请求的输入和输出按实时价的 50%。失败与行级错误不计费，取消前已完成的仍计。qwen3.5 到 3.8 默认思考，结果文件不含 reasoning_content。不支持新人免费额度和上下文缓存。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/batch-interfaces-compatible-with-openai" target="_blank" rel="noopener nofollow">阿里云百炼：OpenAI 兼容 Batch</a> — completion_window 最短 24h、最长 336h。到期后未处理的请求不再执行，也不产生费用。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener nofollow">阿里云百炼：模型价格</a> — 阶梯按单次请求的输入总量整段计价。Batch 的 50% 与上下文缓存折扣不能同时生效。</li>
+            </ul><p class="ref-note">资料核验于2026年10月23日。五列对账顺序为本站分析，并非厂商效果承诺。支持的模型、默认思考、阶梯边界和单价以百炼控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-batch-vs-realtime-api.html">同样的模型，为什么实时接口比批量接口贵一倍？</a></li>
+          <li><a href="/articles/domestic-ai-free-quota-payg-switch.html">实名过后，百炼免费额度用完为什么还会扣费？</a></li>
+          <li><a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=aa1755c1d2"></script>
+</body>
+</html>

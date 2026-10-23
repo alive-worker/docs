@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Successful lines are half price; thinking tokens still bill">
+  <rect width="800" height="400" fill="#16141f"/>
+  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#f4f0ea">Half-price batch. Success still costs.</text>
+  <g transform="translate(48,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#1c2430" stroke="#9bb4d4" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#d5e2f2">Failed or unrun</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">Validation and line errors</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">Rows the window never reached</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#d5e2f2">No charge</text>
+  </g>
+  <g transform="translate(422,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2218" stroke="#e2b15a" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">Successful lines</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">Half the realtime price</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">Thinking still counts</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">File omits the chain</text>
+  </g>
+  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#cbbfa8">No cache stack | no new-user free quota | channel reads batch</text>
+  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#cbbfa8" opacity="0.85">AI Access Guide</text>
+</svg>

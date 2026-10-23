@@ -7,6 +7,14 @@
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
   <item>
+    <title><![CDATA[Half-Price Batch. Success Still Costs.]]></title>
+    <link>https://ponr.org/en/articles/batch-half-price-still-bills-thinking.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/batch-half-price-still-bills-thinking.html</guid>
+    <pubDate>Fri, 23 Oct 2026 11:38:00 +0800</pubDate>
+    <category>Batch inference</category>
+    <description><![CDATA[Successful lines are half the realtime price. Default thinking still bills, and the result file leaves it out.]]></description>
+  </item>
+  <item>
     <title><![CDATA[The Answer Is Short. Reasoning Still Bills.]]></title>
     <link>https://ponr.org/en/articles/invisible-reasoning-still-bills.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/invisible-reasoning-still-bills.html</guid>
@@ -30,7 +38,7 @@
     <category>Prompt cache</category>
     <description><![CDATA[Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too.]]></description>
   </item>
-  <lastBuildDate>Thu, 22 Oct 2026 15:20:00 +0800</lastBuildDate>
+  <lastBuildDate>Fri, 23 Oct 2026 11:38:00 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[The API Is Idle. The Deployment Still Bills.]]></title>
     <link>https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html</link>

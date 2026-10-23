@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-batch-half-price-thinking.html': '2026-10-23 11:38:00',
+    '/en/articles/batch-half-price-still-bills-thinking.html': '2026-10-23 11:38:00',
     '/articles/overseas-ai-reasoning-tokens-invisible-bill.html': '2026-10-22 15:20:00',
     '/en/articles/invisible-reasoning-still-bills.html': '2026-10-22 15:20:00',
     '/articles/domestic-ai-explicit-cache-storage-hour.html': '2026-10-21 14:21:00',

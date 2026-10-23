@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="成功行按实时价一半计，思考token仍算输出">
+  <rect width="800" height="400" fill="#16141f"/>
+  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#f4f0ea">批量写着半价，成功行为什么还不便宜？</text>
+  <g transform="translate(48,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#1c2430" stroke="#9bb4d4" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#d5e2f2">失败 · 没跑到</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">校验失败、行级错误</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">窗口内未处理的行</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#d5e2f2">不计费</text>
+  </g>
+  <g transform="translate(422,100)">
+    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2218" stroke="#e2b15a" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">成功行</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">实时价 × 50%</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">思考 token 仍算输出</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">结果文件不带回</text>
+  </g>
+  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#cbbfa8">半价不叠上下文缓存 · 不抵新人免费额度 · 渠道看 batch</text>
+  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#cbbfa8" opacity="0.85">AI服务指南</text>
+</svg>
