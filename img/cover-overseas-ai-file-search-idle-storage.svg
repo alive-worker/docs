@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="零查询仍按天计存储，检索另计调用和输入">
+  <rect width="800" height="400" fill="#141820"/>
+  <text x="48" y="52" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#f4f0ea">文件没人搜，向量库为什么还在按天扣？</text>
+  <g transform="translate(48,100)">
+    <rect width="330" height="200" rx="14" fill="#1c2430" stroke="#8eb4d4" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#d5e2f2">零查询</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#b7c6d8">解析分块 + 嵌入</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#b7c6d8">前 1GB 全库共享</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#d5e2f2">超出仍按天</text>
+  </g>
+  <g transform="translate(422,100)">
+    <rect width="330" height="200" rx="14" fill="#2a2218" stroke="#e2b15a" stroke-width="2.5"/>
+    <text x="165" y="42" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#f2d18a">一次检索</text>
+    <text x="165" y="88" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#e6d3b0">file_search_call 另计</text>
+    <text x="165" y="118" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#e6d3b0">检索文本再算输入</text>
+    <text x="165" y="164" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#f2d18a">少取条数不减调用</text>
+  </g>
+  <text x="48" y="348" font-family="-apple-system, Segoe UI, sans-serif" font-size="14" fill="#cbbfa8">过期删索引才停存储 | 已按天记过的不退 | 调用费看 Responses</text>
+  <text x="752" y="34" text-anchor="end" font-family="-apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#cbbfa8" opacity="0.85">AI服务指南</text>
+</svg>

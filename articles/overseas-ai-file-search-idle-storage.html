@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文件没人搜，向量库为什么还在按天扣？</title>
+  <meta name="description" content="OpenAI文件搜索按全部向量库合计存储，计的是解析后的分块和嵌入，不是原文件。前1GB免费，超出按天计，当天零查询也计。工具调用费只写在Responses API。检索文本再按模型输入计。max_num_results少的是token，不是调用次数。过期删掉索引后，存储费才停。单价以官方定价页为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-file-search-idle-storage.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-file-search-idle-storage.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/idle-vector-store-still-bills.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-file-search-idle-storage.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="文件没人搜，向量库为什么还在按天扣？">
+  <meta property="og:description" content="OpenAI文件搜索按全部向量库合计存储，计的是解析后的分块和嵌入，不是原文件。前1GB免费，超出按天计，当天零查询也计。工具调用费只写在Responses API。检索文本再按模型输入计。max_num_results少的是token，不是调用次数。过期删掉索引后，存储费才停。单价以官方定价页为准。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-file-search-idle-storage.html">
+  <meta property="article:published_time" content="2026-10-23T16:05:00+08:00">
+  <meta property="article:modified_time" content="2026-10-23T16:05:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="文件搜索">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="文件没人搜，向量库为什么还在按天扣？">
+  <meta name="twitter:description" content="OpenAI文件搜索按全部向量库合计存储，计的是解析后的分块和嵌入，不是原文件。前1GB免费，超出按天计，当天零查询也计。工具调用费只写在Responses API。检索文本再按模型输入计。max_num_results少的是token，不是调用次数。过期删掉索引后，存储费才停。单价以官方定价页为准。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-file-search-idle-storage.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="零查询仍按天计存储，检索另计调用和输入">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-file-search-idle-storage.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-file-search-idle-storage.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html",
+      "name": "文件没人搜，向量库为什么还在按天扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-23T16:05:00+08:00",
+      "dateModified": "2026-10-23T16:05:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "文件没人搜，向量库为什么还在按天扣？", "item": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "文件没人搜，向量库为什么还在按天扣？",
+      "description": "OpenAI文件搜索按全部向量库合计存储，计的是解析后的分块和嵌入，不是原文件。前1GB免费，超出按天计，当天零查询也计。工具调用费只写在Responses API。检索文本再按模型输入计。max_num_results少的是token，不是调用次数。过期删掉索引后，存储费才停。单价以官方定价页为准。",
+      "image": "https://ponr.org/img/cover-overseas-ai-file-search-idle-storage.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-23T16:05:00+08:00",
+      "dateModified": "2026-10-23T16:05:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "文件搜索",
+      "keywords": ["AI服务", "OpenAI", "file_search", "向量库", "存储计费", "Responses API"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-file-search-idle-storage.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/idle-vector-store-still-bills.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>文件没人搜，向量库为什么还在按天扣？</h1>
+          <p class="article-summary">OpenAI 的文件搜索把费用拆成三列。存储按全部向量库合计，计的是解析后的分块和对应嵌入，不是你上传的原文件；前 1GB 免费，超出部分按天计，当天一次查询都没有也计。工具调用费写在 Responses API 上，请求里挂了 <code>file_search</code> 不等于已经发生调用。检索回来的文本还要按所选模型的输入价再计一次。<code>max_num_results</code> 少的是送进模型的 token，不是调用次数。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-23T16:05:00+08:00">2026-10-23 16:05:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-file-search-idle-storage.svg" width="800" height="400" alt="零查询仍按天计存储，检索另计调用和输入" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>把全部向量库的用量加在一起，再减免费的 1GB。分库不会各送一份免费额度。计的是解析后的分块和嵌入，用原文件大小去对会偏。</li>
+                <li><span class="article-verify-check">✓</span>零查询的那一天，只要超出免费额度，存储列仍然应该在。不要用「今天没有 <code>file_search_call</code>」去解释存储费。</li>
+                <li><span class="article-verify-check">✓</span>调用次数数返回里的 <code>file_search_call</code> 条目，不要数请求里有没有把工具写进 <code>tools</code>。这条调用费文档写在 Responses API。</li>
+                <li><span class="article-verify-check">✓</span>把 <code>max_num_results</code> 调小之后，对的是模型输入 token 变少，调用那一列不按结果条数打折。</li>
+                <li><span class="article-verify-check">✓</span>要停存储费，确认向量库已经过期或被删除，索引文件不在了。已经按天记过的费用不会因为事后删除而退回。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 存储计的不是你上传的那个文件</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/retrieval" target="_blank" rel="noopener">检索说明</a>把向量库写成语义搜索的容器。文件加进去之后会被自动分块、嵌入、建索引。存储费按全部向量库的合计来算，依据是解析后的分块以及对应嵌入的体积，不是 Files API 里那个原始对象的字节数。同一份 PDF，分块更碎、重叠更多，索引可以比原文件更大。拿上传前的文件大小去除以天数，对不上是预期。</p>
+              <p>免费额度也是合计，不是按库。文档写明：全部向量库加起来，前 1GB 免费，超出部分按天计。核验于 2026-10-23 的定价页把超出部分写成每 GB 每天 0.10 美元，并把这里的 GB 定义成二进制的 2^30 字节。把一个大库拆成五个小库，免费的那 1GB 不会变成 5GB。当天没有任何人调用搜索，只要合计还在免费额度以上，存储列照样走。这口时钟挂在库上，不挂在请求上。</p>
+              <p>对象还要分开。<code>file</code> 是 Files API 里的文件，微调和其他用途也会用它。<code>vector_store.file</code> 才是已经被分块、嵌入、挂进某个向量库的那一层。只上传、没放进向量库，不进入这条存储口径。放进库之后，就算没有任何一次检索，解析结果也占着那 1GB 的合计。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 挂上工具不等于发生了一次调用</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/tools-file-search" target="_blank" rel="noopener">文件搜索说明</a>把它定义成 Responses API 上的托管工具。模型决定要不要用。用了之后，返回里会出现两类输出：一条 <code>file_search_call</code>，以及一条带 <code>file_citation</code> 的 <code>message</code>。请求的 <code>tools</code> 里写了 <code>type: file_search</code>，只说明这个工具可用。对调用费，要数返回里的 <code>file_search_call</code>，不要数你有没有把工具声明写进去。示例里的 <code>queries</code> 是这一次调用带着的查询字符串。文档没有把这个数组的长度写成计费次数，不要用字符串条数去乘单价。</p>
+              <p><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">定价页</a>把文件搜索拆成两行：存储，以及工具调用。核验当日，工具调用写成每 1000 次 2.50 美元，并注明这条调用价只适用于 Responses API。检索说明里另外有直接对向量库做 <code>search</code> 的接口，那是另一条路径。定价页没有把那条路径写成同一档调用价。存储费则跟你用哪条查询路径无关，库还在，合计就在。</p>
+              <p>模型可以在一轮里多次决定搜索，于是返回里有多条 <code>file_search_call</code>。每一条都是一次调用的证据。把工具留在默认工具列表里，模型自己多搜几次，调用列会跟着长。这和「我只问了一句话」不是同一列。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 少取几条，省的是输入 token</h2>
+              <p>文件搜索说明写明，<code>max_num_results</code> 可以减少 token 用量和延迟，代价是答案质量可能下降。这说的是送进模型的检索结果变少，不是调用费按结果条数打折。调成 2，调用那一列仍然按这一次 <code>file_search_call</code> 计。省下来的是后面那截输入。</p>
+              <p>检索说明里的 <code>score_threshold</code> 越高，返回的分块越少，可能丢掉有用结果。分块少了，模型看到的上下文就短。定价页写明：内置工具用掉的 token，按所选模型的输入和输出单价计。检索到的文本是喂给模型的内容，和你自己写的提示加在同一次请求的输入里。回答里的 <code>file_citation</code> 是注释，不是第四种费用。可见的引用很短，输入 token 可以很长，因为被检索进来的分块在注释里并不展开。</p>
+              <p>所以一次检索最少有两列，库还在就有第三列。调用费看 <code>file_search_call</code>。模型费看这次请求的输入和输出，输入里包含检索结果。存储费看全部库的解析体积有没有超过共享的 1GB，跟这一次取了几条无关。三列用同一个「文件搜索」名字，不能加在一起跟模型账单对平。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 过期删的是索引，不是已经记过的账</h2>
+              <p>检索说明允许用 <code>expires_after</code> 给向量库设过期。示例里的锚点是 <code>last_active_at</code>，天数是 7。文档写明：向量库一旦过期，关联的 <code>vector_store.file</code> 会被删除，之后不再为它们计费。锚点叫最近活跃，说明这条策略的时钟不是上传日。文档没有把每一种 API 动作都定义成会刷新 <code>last_active_at</code>，所以不要假设「只有用户提问才算活跃」或「任何列表请求都会续期」。要停这口存储，以库已经过期、索引文件不在为准。</p>
+              <p>手动删除是另一条路。定价按仍存在的向量库合计。删掉库，是把这批解析结果从合计里拿掉。过期文档那句「不再计费」说的是删除之后的存储，不是把已经按天记过的费用退回来。今天删库，今天之前超出 1GB 的那些天还在账单上。</p>
+              <p>分块策略会改变你到底占了多少。重叠越大，同一段文本在索引里出现得越多，解析体积越容易顶过那 1GB。为了召回把 <code>chunk_overlap_tokens</code> 拉高，存储列会变，调用列不会因此变便宜。免费额度用原文件大小估算，经常会低估。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值换不来这三列的合并</h2>
+              <p>对账按三列走。第一列是全部向量库的解析体积减去共享的 1GB，超出部分按天，跟当天有没有查询无关。第二列是 Responses 返回里的 <code>file_search_call</code> 条数，工具声明本身不计。第三列是模型用量，输入里要能对上检索进来的分块，而不是只对回答里那几条引用。单价以定价页为准，核验日是 2026-10-23，之后以控制台和最新文档为准。</p>
+              <p>给 OpenAI 账户充值发生在这三列扣款之前。链上把稳定币换成能充进账户的资产，不会把按天的存储并进 token，也不会让零查询的那一天变成免费，更不会让 <code>max_num_results</code> 开始抵调用费。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。向量库还在，超出免费额度的存储按天还是会出现。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">存储不是原文件大小</a></li>
+              <li><a href="#sec-2">挂上工具还不是调用</a></li>
+              <li><a href="#sec-3">少取几条省的是输入</a></li>
+              <li><a href="#sec-4">过期删索引不退旧账</a></li>
+              <li><a href="#sec-5">充值并不合并三列</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/retrieval" target="_blank" rel="noopener nofollow">OpenAI：检索与向量库</a> — 存储按全部向量库的解析分块和嵌入合计。前 1GB 免费，超出按天计。过期后删除索引文件，并不再为它们计费。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-file-search" target="_blank" rel="noopener nofollow">OpenAI：文件搜索工具</a> — Responses 返回里用 file_search_call 表示一次调用。max_num_results 减少的是 token 和延迟。</li>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI：定价</a> — 工具调用费只写在 Responses API。内置工具的 token 按所选模型单价计。GB 按 2^30 字节。</li>
+            </ul><p class="ref-note">资料核验于2026年10月23日。三列对账顺序为本站分析，并非厂商效果承诺。免费额度、日单价和调用单价以 OpenAI 定价页及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+          <li><a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a></li>
+          <li><a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=6846f70af6"></script>
+</body>
+</html>
