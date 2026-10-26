@@ -149,7 +149,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .brand-logo { flex: none; width: 34px; height: 34px; border-radius: 9px; display: block; }
 .brand-text { display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .brand-name { font-size: 19px; font-weight: 760; letter-spacing: .01em; }
-.site-nav { display: flex; flex-wrap: wrap; gap: 2px; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 2px; align-items: center; }
 .site-nav a {
   display: inline-flex; align-items: center;
   padding: 8px 13px; border-radius: 8px;
@@ -158,12 +158,16 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   transition: background-color .15s ease, color .15s ease;
 }
 .site-nav a:hover { color: var(--accent); background: var(--accent-soft); }
-.lang-switch {
-  margin-left: 4px; padding: 6px 11px !important;
-  border: 1px solid var(--line-strong); border-radius: 999px !important;
-  font-size: 12.5px !important; font-weight: 700 !important;
+/* 语言入口跟主题按钮一样，只露图标，不画描边胶囊。图标是「文 / A」字形。 */
+.site-nav a.lang-switch {
+  margin-left: 4px; width: 32px; height: 32px; padding: 0 !important;
+  border: 0; border-radius: 999px; background: transparent;
+  color: var(--muted); justify-content: center;
 }
-.lang-switch:hover { border-color: var(--accent); }
+.site-nav a.lang-switch:hover {
+  color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.lang-switch svg { width: 16px; height: 16px; display: block; }
 .site-nav a.active, .site-nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
 
 /* --- layout: left article sidebar + main --- */
@@ -497,13 +501,14 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .sidebar-search-empty { margin: 4px 2px 0; padding: 0; font-size: 13px; color: var(--muted); }
 
 .theme-toggle {
-  flex: none; width: 36px; height: 36px;
+  flex: none; width: 32px; height: 32px;
   display: inline-flex; align-items: center; justify-content: center;
-  border: 1px solid var(--line-strong); border-radius: 999px;
-  background: var(--panel); color: var(--muted-2); cursor: pointer;
-  transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+  border: 0; border-radius: 999px;
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: color .15s ease, background-color .15s ease;
 }
-.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
 .theme-icon-sun { display: block; }
 .theme-icon-moon { display: none; }
 [data-theme="light"] .theme-icon-sun { display: none; }
