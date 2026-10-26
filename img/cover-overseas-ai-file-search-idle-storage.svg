@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="零查询仍按天计存储，检索另计调用和输入">
-  <rect width="800" height="400" fill="#141820"/>
-  <text x="48" y="52" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#f4f0ea">文件没人搜，向量库为什么还在按天扣？</text>
-  <g transform="translate(48,100)">
-    <rect width="330" height="200" rx="14" fill="#1c2430" stroke="#8eb4d4" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#d5e2f2">零查询</text>
-    <text x="165" y="88" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#b7c6d8">解析分块 + 嵌入</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#b7c6d8">前 1GB 全库共享</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#d5e2f2">超出仍按天</text>
-  </g>
-  <g transform="translate(422,100)">
-    <rect width="330" height="200" rx="14" fill="#2a2218" stroke="#e2b15a" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#f2d18a">一次检索</text>
-    <text x="165" y="88" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#e6d3b0">file_search_call 另计</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="15" fill="#e6d3b0">检索文本再算输入</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#f2d18a">少取条数不减调用</text>
-  </g>
-  <text x="48" y="348" font-family="-apple-system, Segoe UI, sans-serif" font-size="14" fill="#cbbfa8">过期删索引才停存储 | 已按天记过的不退 | 调用费看 Responses</text>
-  <text x="752" y="34" text-anchor="end" font-family="-apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#cbbfa8" opacity="0.85">AI服务指南</text>
+
+  <rect width="800" height="400" fill="#10161c"/>
+  <text x="40" y="48" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#f4f0ea">没人搜，向量库仍按天计存储</text>
+  <text x="760" y="42" text-anchor="end" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#9bb4d4">AI服务指南</text>
+  <rect x="40" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="86" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周一</text>
+  <text x="86" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="86" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="144" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="190" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周二</text>
+  <text x="190" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="190" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="248" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="294" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周三</text>
+  <text x="294" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="294" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="352" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="398" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周四</text>
+  <text x="398" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="398" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="456" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="502" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周五</text>
+  <text x="502" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="502" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="560" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="606" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周六</text>
+  <text x="606" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="606" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text><rect x="664" y="118" width="92" height="108" rx="10" fill="#1c2430" stroke="#7aa2c4" stroke-width="2"/>
+  <text x="710" y="150" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#d5e2f2">周日</text>
+  <text x="710" y="182" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#f2d18a">存储</text>
+  <text x="710" y="206" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#9bb4d4">查询 0</text>
+  <rect x="40" y="258" width="720" height="52" rx="12" fill="#182028" stroke="#3d5166" stroke-width="2"/>
+  <text x="64" y="290" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" fill="#8aa0b4">搜索</text>
+  <text x="140" y="290" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#f4f0ea">0 次查询</text>
+  <text x="40" y="356" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#b7c6d4">调用费另计。检索到的文本再按输入 token 计。</text>
+
 </svg>

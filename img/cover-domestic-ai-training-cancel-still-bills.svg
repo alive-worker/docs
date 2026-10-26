@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="取消按已消耗token计，其他中断不计训练费">
+
+  <rect width="800" height="400" fill="#14110c"/>
+  <text x="40" y="48" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#f4f0ea">取消只停后半段，已消耗仍计</text>
+  <text x="760" y="42" text-anchor="end" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#cbbfa8">AI服务指南</text>
+  <text x="40" y="118" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" fill="#e6d3b0">训练进度</text>
+  <rect x="40" y="136" width="720" height="46" rx="10" fill="#241c14" stroke="#5a4a32" stroke-width="2"/>
+  <rect x="40" y="136" width="430" height="46" rx="10" fill="#3a2c16" stroke="#e2b15a" stroke-width="2"/>
+  <text x="255" y="165" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#f2d18a">已消耗 token，取消仍计</text>
+  <text x="590" y="165" text-anchor="middle" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" fill="#8d7d68">没跑到</text>
+  <text x="40" y="230" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#f2d18a">主动取消：usage 只计这一截</text>
+  <text x="40" y="268" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#b7d0c4">其他中断：训练费不收</text>
+  <text x="40" y="330" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#cbbfa8">训练成功还不能调用。部署进入运行中，才开始另一笔。</text>
+
+</svg>

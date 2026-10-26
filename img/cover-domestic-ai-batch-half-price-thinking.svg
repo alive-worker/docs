@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="成功行按实时价一半计，思考token仍算输出">
-  <rect width="800" height="400" fill="#16141f"/>
-  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#f4f0ea">批量写着半价，成功行为什么还不便宜？</text>
-  <g transform="translate(48,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#1c2430" stroke="#9bb4d4" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#d5e2f2">失败 · 没跑到</text>
-    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">校验失败、行级错误</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#b7c6d8">窗口内未处理的行</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#d5e2f2">不计费</text>
-  </g>
-  <g transform="translate(422,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2218" stroke="#e2b15a" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">成功行</text>
-    <text x="165" y="88" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">实时价 × 50%</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="15" fill="#e6d3b0">思考 token 仍算输出</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">结果文件不带回</text>
-  </g>
-  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#cbbfa8">半价不叠上下文缓存 · 不抵新人免费额度 · 渠道看 batch</text>
-  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#cbbfa8" opacity="0.85">AI服务指南</text>
+
+  <rect width="800" height="400" fill="#12160f"/>
+  <text x="40" y="48" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#f4f0ea">半价只打在成功的行上</text>
+  <text x="760" y="42" text-anchor="end" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#b7c9a4">AI服务指南</text>
+  <text x="56" y="102" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#8aa080">结果文件</text>
+  <text x="620" y="102" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" fill="#8aa080">这一行</text>
+  <rect x="40" y="116" width="720" height="44" rx="8" fill="#1c2a18" stroke="#7be8b8" stroke-width="2"/>
+  <text x="60" y="144" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#8fd6b6">成功</text>
+  <text x="140" y="144" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#d7ead0">实时价的 50%</text>
+  <text x="620" y="144" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#f2d18a">思考仍按输出</text>
+  <rect x="40" y="170" width="720" height="44" rx="8" fill="#241812"/>
+  <text x="60" y="198" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#c4a27a">失败</text>
+  <text x="140" y="198" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#a89078">不计这一行</text>
+  <text x="620" y="198" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#a89078">0</text>
+  <rect x="40" y="224" width="720" height="44" rx="8" fill="#241812"/>
+  <text x="60" y="252" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" font-weight="700" fill="#c4a27a">窗口没轮到</text>
+  <text x="220" y="252" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#a89078">不执行，也不计费</text>
+  <text x="620" y="252" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#a89078">0</text>
+  <text x="40" y="318" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#f2d18a">结果文件不带回思考文本</text>
+  <text x="40" y="352" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16" fill="#c5d4b8">输出 token 可以比下载到的答案长。不能用字数去对账。</text>
+
 </svg>

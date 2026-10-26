@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-training-cancel-still-bills.html': '2026-10-26 16:34:00',
+    '/en/articles/canceled-training-still-bills.html': '2026-10-26 16:34:00',
     '/articles/overseas-ai-file-search-idle-storage.html': '2026-10-23 16:05:00',
     '/en/articles/idle-vector-store-still-bills.html': '2026-10-23 16:05:00',
     '/articles/domestic-ai-batch-half-price-thinking.html': '2026-10-23 11:38:00',

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>你取消了训练，为什么已消耗的token还在扣？</title>
+  <meta name="description" content="百炼主动取消训练，已消耗的token仍会计费；其他原因导致的中断不计训练费。usage只在任务成功或已取消时返回。文本预估等于数据token加混合token，再乘循环次数，batch_size不在这个公式里。视频单条计费时长有上限。部署要到运行中才另计。账单商品名是百炼大模型训练。对账要看账单详情。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/canceled-training-still-bills.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="你取消了训练，为什么已消耗的token还在扣？">
+  <meta property="og:description" content="百炼主动取消训练，已消耗的token仍会计费；其他原因导致的中断不计训练费。usage只在任务成功或已取消时返回。文本预估等于数据token加混合token，再乘循环次数，batch_size不在这个公式里。视频单条计费时长有上限。部署要到运行中才另计。账单商品名是百炼大模型训练。对账要看账单详情。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html">
+  <meta property="article:published_time" content="2026-10-26T16:34:00+08:00">
+  <meta property="article:modified_time" content="2026-10-26T16:34:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="模型调优">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="你取消了训练，为什么已消耗的token还在扣？">
+  <meta name="twitter:description" content="百炼主动取消训练，已消耗的token仍会计费；其他原因导致的中断不计训练费。usage只在任务成功或已取消时返回。文本预估等于数据token加混合token，再乘循环次数，batch_size不在这个公式里。视频单条计费时长有上限。部署要到运行中才另计。账单商品名是百炼大模型训练。对账要看账单详情。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-training-cancel-still-bills.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="取消按已消耗token计，其他中断不计训练费">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-training-cancel-still-bills.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=8d03489744">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-training-cancel-still-bills.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html",
+      "name": "你取消了训练，为什么已消耗的token还在扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-26T16:34:00+08:00",
+      "dateModified": "2026-10-26T16:34:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "你取消了训练，为什么已消耗的token还在扣？", "item": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "你取消了训练，为什么已消耗的token还在扣？",
+      "description": "百炼主动取消训练，已消耗的token仍会计费；其他原因导致的中断不计训练费。usage只在任务成功或已取消时返回。文本预估等于数据token加混合token，再乘循环次数，batch_size不在这个公式里。视频单条计费时长有上限。部署要到运行中才另计。账单商品名是百炼大模型训练。对账要看账单详情。",
+      "image": "https://ponr.org/img/cover-domestic-ai-training-cancel-still-bills.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-26T16:34:00+08:00",
+      "dateModified": "2026-10-26T16:34:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "模型调优",
+      "keywords": ["AI服务", "阿里云百炼", "模型训练", "usage", "取消计费", "模型部署"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/canceled-training-still-bills.html" hreflang="en" lang="en">EN</a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>你取消了训练，为什么已消耗的token还在扣？</h1>
+          <p class="article-summary">阿里云百炼把训练停掉之后，账单并不按「停了就归零」处理。主动取消时，已经消耗的 token 仍会推送计费，最终以账单为准。其他原因导致的中断，不计训练费。查询任务状态时，<code>usage</code> 只在成功或已取消时返回，失败状态不在这条返回条件里。文本训练的预估是数据 token 加混合训练 token，再乘循环次数；<code>batch_size</code> 不在这个公式里。训练成功也还不能调用，部署要到运行中才开始另一笔。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-26T16:34:00+08:00">2026-10-26 16:34:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-training-cancel-still-bills.svg" width="800" height="400" alt="取消按已消耗token计，其他中断不计训练费" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先看任务状态。主动取消仍按已消耗 token 计；其他原因中断不计训练费。损失曲线变差是效果判断，不是自动退款。</li>
+                <li><span class="article-verify-check">✓</span>对账用状态接口的 <code>usage</code>。它在 <code>SUCCEEDED</code> 或 <code>CANCELED</code> 时返回。不要把控制台预估再乘一遍循环次数。</li>
+                <li><span class="article-verify-check">✓</span>文本公式是数据 token 加混合 token，再乘循环次数。<code>batch_size</code> 不改变这个总量。图像和视频是另一套公式，不要套文本预估。</li>
+                <li><span class="article-verify-check">✓</span>训练成功不等于能调用。部署状态到运行中才开始收部署费。部署中、欠费、部署失败不计这一笔。</li>
+                <li><span class="article-verify-check">✓</span>账单商品名是 <code>百炼大模型训练</code>。实例 ID 用 <code>!</code> 分隔，不是推理账单的分号。费用概览不展示训练，要去账单详情。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 取消和失败不是同一种零</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener">模型训练与部署计费</a>把停掉任务的账单写成两句，不能合成一句「没跑完就不收」。主动取消后，已消耗的 token 仍会推送计费，训练费用按已消耗 token 估算，最终以账单为准。其他原因导致的训练中断，百炼不收取训练费。你在控制台点取消，停的是后半段；前半段已经吃掉的 token 还在。平台自己中断、数据量不足导致任务失败，走的是后一句，训练费按文档不收。</p>
+              <p>状态接口把这两条路分开。<a href="https://help.aliyun.com/zh/model-studio/model-training-api-reference" target="_blank" rel="noopener">模型训练 API</a> 的任务状态包括排队、运行、成功、失败、取消中和已取消。<code>usage</code> 是这次微调消耗的 token 数，文档写明只在状态为 <code>SUCCEEDED</code> 或 <code>CANCELED</code> 时返回。失败不在这条返回条件里。没有这个整数，就不要拿创建时的预估公式给失败单补一笔「应该扣的 token」。取消单相反：<code>usage</code> 就是已消耗的那一截，账单按它收，不是按你当初填的循环次数收满。</p>
+              <p>控制台里还有一种容易看错的「失败」。<a href="https://help.aliyun.com/zh/model-studio/model-training-on-console" target="_blank" rel="noopener">控制台模型调优</a>在看损失曲线时说：训练损失下降、验证损失上升，是过拟合，训练可能失败、效果可能不佳，建议调参后重新训练。这是效果判断，文档没有写已经消耗的 token 会退回来。另一条才是任务失败：SFT 会把超过 <code>max_length</code> 的样本直接丢掉，序列长度设得太大时，真正进训练的行不够，任务会因数据量不足失败。这种失败属于其他原因中断，训练费按计费页不收，但你也没有得到一个模型。日志里的失败原因决定走哪一条。曲线难看，不决定账单归零。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 预估乘了循环次数，usage 不要再乘</h2>
+              <p>千问文本训练的计费公式是：（训练数据 token 总数 + 混合训练数据 token 总数）× 循环次数 × 训练单价，最小单位 1 个 token。控制台底部的预估可以展开，看到 token 总数、循环次数和单价。混合训练那一项经常被漏掉。只拿主数据集的字数去除以一个经验换算，再乘循环次数，会比预估小一截，也会比账单小一截。</p>
+              <p><code>batch_size</code> 不在这个式子里。图像千问的计费说明写得更直：<code>batch_size</code> 不参与计费，不影响训练 token 总量。视频那边给出步数换算 <code>steps = n_epochs × ceil(数据集大小 / batch_size)</code>，计费用的仍是 <code>n_epochs</code>，不是 steps。把 batch 调大，固定循环次数下的步数会变少，token 总量并不因此变便宜，也不因此变贵。反过来，有人先把 steps 当成计费步，再乘一遍循环次数，同一轮就被算了两次。文本预估已经乘过循环次数。状态接口返回的 <code>usage</code> 是实际消耗，账单以它为准。不要把 <code>usage</code> 再乘循环次数。</p>
+              <p><a href="https://help.aliyun.com/zh/model-studio/model-training-overview" target="_blank" rel="noopener">模型调优概览</a>把计费方式也拆开了。控制台可以按 token、按训练单元预付费，或按训练单元后付费。通过 API 创建的训练任务只支持按 token。账户里还剩训练单元，解释不了 API 任务上的 token 行。训练单元和推理资源包也不是同一本账。资源包能不能退、能不能转到别的账号，是另一篇文章的问题，它不会把一次取消的 <code>usage</code> 抹掉。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 图像和视频不吃文本公式</h2>
+              <p>同一页计费文档里，文本、万相图像、千问图像、视频是四套总量，单价表也不能横向套。万相图像是 <code>max_steps × L_step</code>，<code>L_step</code> 近似等于一张表里的 <code>L_max</code>。文生图 1k 和 图生图 2k 不在同一格。用文本的「数据 token × 循环次数」去估一张图的训练，数量级会对不上。</p>
+              <p>千问图像是 <code>n_epochs × 图片数 × (max_pixels / 压缩率) × GPU系数</code>。压缩率按文档是固定的 1024。GPU 系数随调度变化，说明里的 8 只用于演示计算过程。实际 token 以状态接口的 <code>usage</code> 为准，费用以账单为准。把演示表上的金额当成成交价，任务一调度就会偏。</p>
+              <p>视频的总量是各条视频计费时长之和，再乘 <code>max_pixels / 1024</code> 和循环次数。单条计费时长先把秒数四舍五入，再按模型封顶。wan2.7 和 wan2.5 最多按 10 秒，wan2.2 最多按 5 秒。一条 30 秒的素材不会按 30 秒进训练 token。四舍五入发生在封顶之前：10.4 秒先变成 10 秒，再和上限取较小值。数据集只有 1 条且 <code>batch_size</code> 为 1 时，循环次数才等于步数。这条等式不能拿去改视频公式里的循环次数。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 训练成功，还要等部署那口时钟</h2>
+              <p>计费页在文本、图像、视频的说明里都写了同一句：训练完成的新模型要先部署，才能评测或调用。部署费从状态变为运行中才开始收。部署中、欠费、部署失败都不计部署费。包月预付费也是进入运行中之后才开始消耗包月时间。训练单已经是 <code>SUCCEEDED</code>，调用却 404，先看部署状态，不要在训练商品里找这笔调用。</p>
+              <p>部署之后怎么收费，不能用一句总述盖住三种路径。控制台常见问题写：训练好的模型在部署后只收部署费，不收调用费，评测不另收费。计费页又写明，只有对列出的基础模型做了 SFT 高效训练，并且部署时 plan 取 lora，才支持按输入和输出 token 计调用。万相图像的 SFT-LoRA 则写明部署免费，调用按微调前基础模型的标准价。三条同时成立，对的是三种部署。模型单元的空闲小时，是专属部署那篇文章里的另一口时钟。本文只标出交接点：训练费停在任务结束或中断，部署费要等运行中才开始，两笔不要加在同一个商品名下。</p>
+              <p><a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener">账单查询</a>把训练从推理里拆出来。推理通常 2 到 10 分钟出账，训练按小时汇总，高峰可以再晚。出账不等于扣款，按量付费是预占加月结。费用概览页写明只展示大模型推理相关费用，训练和知识库要到账单详情里看。训练账单的实例 ID 用英文感叹号分隔，常见格式是业务空间 ID、地域、训练任务标识。推理账单用分号。商品名称是 <code>百炼大模型训练</code>。对不上任务时，用账单月份和调优页的提交时间去配，不要用推理实例 ID 的渠道字段去解释这一列。没有正在进行的训练任务时，不再产生新的训练费。这句话停的是下一笔，不冲销取消单上已经推送的 <code>usage</code>。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值改不了取消和失败的分界</h2>
+              <p>对账按五列走。第一列是任务状态：已取消看 <code>usage</code>，失败看日志里是不是数据量不足或其他中断，损失曲线不单独决定金额。第二列是公式族：文本、万相图像、千问图像、视频不要混乘。第三列是 <code>usage</code> 有没有被再乘循环次数，以及 <code>batch_size</code> 有没有被当成折扣。第四列是部署是不是已经运行中，以及这次走的是模型单元、lora 的 token，还是图像 LoRA 的按张调用。第五列是账单商品名和分隔符：训练是感叹号和 <code>百炼大模型训练</code>，不在费用概览的推理合计里。</p>
+              <p>给百炼账户充值发生在扣款之前。链上把稳定币换成能充进账户的资产，不会把取消单的已消耗 token 退掉，也不会让失败单开始计训练费，更不会让还在部署中的模型提前按小时计。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。取消单上的 <code>usage</code> 该进 <code>百炼大模型训练</code>，还是会进。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">取消和失败不是同一种零</a></li>
+              <li><a href="#sec-2">usage 不要再乘循环次数</a></li>
+              <li><a href="#sec-3">图像和视频不吃文本公式</a></li>
+              <li><a href="#sec-4">部署要到运行中才另计</a></li>
+              <li><a href="#sec-5">充值改不了这条分界</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing" target="_blank" rel="noopener nofollow">阿里云百炼：模型训练与部署计费</a> — 文本费用是数据 token 加混合 token，再乘循环次数。主动取消仍计已消耗 token，其他中断不计训练费。部署从运行中起计。图像 batch_size 不参与计费。视频计费时长有上限。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-training-api-reference" target="_blank" rel="noopener nofollow">阿里云百炼：模型训练 API</a> — usage 是微调消耗的 token 数，任务状态为 SUCCEEDED 或 CANCELED 时返回。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/bill-query-and-cost-management" target="_blank" rel="noopener nofollow">阿里云百炼：账单查询</a> — 训练按小时出账。商品名是百炼大模型训练。实例 ID 用感叹号分隔。费用概览不展示训练费。</li>
+            </ul><p class="ref-note">资料核验于2026年10月26日。五列对账顺序为本站分析，并非厂商效果承诺。单价、GPU 系数、支持的模型和部署方式以百炼控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-dedicated-deploy-idle-billing.html">接口停了，专属部署为什么还在按小时扣？</a></li>
+          <li><a href="/articles/domestic-ai-batch-half-price-thinking.html">批量写着半价，为什么成功行还是不便宜？</a></li>
+          <li><a href="/articles/domestic-ai-prepaid-package-refund-transfer.html">企业买的大模型API资源包用不完，能退钱还是能转给别的账号</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=6b2d128189"></script>
+</body>
+</html>

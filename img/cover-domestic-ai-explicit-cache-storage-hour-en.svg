@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A cache hit is discounted; explicit cache storage still bills by the hour">
-  <rect width="800" height="400" fill="#14201d"/>
-  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#eef2fb">The chat stopped. Storage did not.</text>
-  <g transform="translate(48,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#173a2c" stroke="#7be8b8" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#8fd6b6">Implicit</text>
-    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">Hit not guaranteed</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">No storage fee</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#7be8b8">cached = 0 misses</text>
+
+  <rect width="800" height="400" fill="#12160f"/>
+  <text x="40" y="48" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700" fill="#f4f0ea">The chat stopped. The hours stay lit.</text>
+  <text x="760" y="42" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#d4c48a">AI Access Guide</text>
+  <circle cx="140" cy="210" r="88" fill="#1c1810" stroke="#e2b15a" stroke-width="3"/>
+  <g stroke="#8a7a58" stroke-width="2">
+    <line x1="140" y1="136" x2="140" y2="148"/>
+    <line x1="140" y1="272" x2="140" y2="284"/>
+    <line x1="66" y1="210" x2="78" y2="210"/>
+    <line x1="202" y1="210" x2="214" y2="210"/>
   </g>
-  <g transform="translate(422,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2214" stroke="#e2b15a" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">Explicit</text>
-    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">From creation</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">Under 1 hour = 1 hour</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">Bills while idle</text>
-  </g>
-  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">Delete or expiry stops it. Reuse does not extend the clock.</text>
-  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI Access Guide</text>
+  <line x1="140" y1="210" x2="140" y2="154" stroke="#f2d18a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="140" y1="210" x2="184" y2="230" stroke="#f4f0ea" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="140" cy="210" r="5" fill="#f2d18a"/>
+  <text x="140" y="328" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#e6d3b0">Explicit cache</text>
+  <rect x="270" y="130" width="490" height="36" rx="8" fill="#3a2e14" stroke="#e2b15a" stroke-width="2"/>
+  <text x="290" y="154" font-family="Segoe UI, sans-serif" font-size="16" fill="#f2d18a">14:00  Created. This hour already stores.</text>
+  <rect x="270" y="178" width="490" height="36" rx="8" fill="#3a2e14" stroke="#e2b15a" stroke-width="2"/>
+  <text x="290" y="202" font-family="Segoe UI, sans-serif" font-size="16" fill="#f2d18a">15:00  Chat stopped. Storage continues.</text>
+  <rect x="270" y="226" width="490" height="36" rx="8" fill="#3a2e14" stroke="#e2b15a" stroke-width="2"/>
+  <text x="290" y="250" font-family="Segoe UI, sans-serif" font-size="16" fill="#f2d18a">16:00  No calls. A partial hour still bills.</text>
+  <text x="270" y="310" font-family="Segoe UI, sans-serif" font-size="15" fill="#cbbfa8">Implicit cache has no storage fee, and a hit is not guaranteed.</text>
+
 </svg>
