@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>接上了上一轮，为什么「继续」还在按整段输入扣？</title>
+  <meta name="description" content="接上 previous_response_id，链上已有的 input tokens 这一轮仍按输入计。store 只决定留存，默认约 30 天，关掉也不免计。顶层 instructions 不跟着走，要重发。对账看 usage.input_tokens，别用新打的几个字估算。缓存命中只改价，不删历史。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-chained-input-still-bills.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-chained-input-still-bills.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/short-follow-up-still-bills-input.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-chained-input-still-bills.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="接上了上一轮，为什么「继续」还在按整段输入扣？">
+  <meta property="og:description" content="接上 previous_response_id，链上已有的 input tokens 这一轮仍按输入计。store 只决定留存，默认约 30 天，关掉也不免计。顶层 instructions 不跟着走，要重发。对账看 usage.input_tokens，别用新打的几个字估算。缓存命中只改价，不删历史。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-chained-input-still-bills.html">
+  <meta property="article:published_time" content="2026-10-28T15:36:00+08:00">
+  <meta property="article:modified_time" content="2026-10-28T15:36:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="多轮输入">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="接上了上一轮，为什么「继续」还在按整段输入扣？">
+  <meta name="twitter:description" content="接上 previous_response_id，链上已有的 input tokens 这一轮仍按输入计。store 只决定留存，默认约 30 天，关掉也不免计。顶层 instructions 不跟着走，要重发。对账看 usage.input_tokens，别用新打的几个字估算。缓存命中只改价，不删历史。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-chained-input-still-bills.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="短句接上长链，先前输入这一轮仍计">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-chained-input-still-bills.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=43e6df1886">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-chained-input-still-bills.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html",
+      "name": "接上了上一轮，为什么「继续」还在按整段输入扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-28T15:36:00+08:00",
+      "dateModified": "2026-10-28T15:36:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "接上了上一轮，为什么「继续」还在按整段输入扣？", "item": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "接上了上一轮，为什么「继续」还在按整段输入扣？",
+      "description": "接上 previous_response_id，链上已有的 input tokens 这一轮仍按输入计。store 只决定留存，默认约 30 天，关掉也不免计。顶层 instructions 不跟着走，要重发。对账看 usage.input_tokens，别用新打的几个字估算。缓存命中只改价，不删历史。",
+      "image": "https://ponr.org/img/cover-overseas-ai-chained-input-still-bills.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-28T15:36:00+08:00",
+      "dateModified": "2026-10-28T15:36:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "多轮输入",
+      "keywords": ["AI服务", "OpenAI", "previous_response_id", "Responses API", "输入token", "store"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-chained-input-still-bills.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/short-follow-up-still-bills-input.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>接上了上一轮，为什么「继续」还在按整段输入扣？</h1>
+          <p class="article-summary">OpenAI 的 Responses API 允许用 <code>previous_response_id</code> 把上一笔响应接上下一笔，你这次可以只送一句新话。对话状态文档写明：即使用了这个字段，链上已有的 input tokens 仍按输入计费。迁移文档把「以为接上 id 就会免掉先前上下文」列成错误假设。<code>store</code> 决定响应对象留不留，默认大约 30 天，关掉它不是免计开关。顶层 <code>instructions</code> 不会跟着链走，稳定说明要每轮重发。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-28T15:36:00+08:00">2026-10-28 15:36:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-chained-input-still-bills.svg" width="800" height="400" alt="短句接上长链，先前输入这一轮仍计" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开这一笔响应的 <code>usage.input_tokens</code>，和你这次新写的那一句分开看。新句子很短、输入却接近整段已有历史，就是链在计，不是接口把两个字数错了。</li>
+                <li><span class="article-verify-check">✓</span>请求里的 <code>previous_response_id</code> 应对着上一笔响应的 id。<code>conversation</code> 是另一个字段，留的是长期对象，不要把两个 id 当成同一种免计。</li>
+                <li><span class="article-verify-check">✓</span>看 <code>store</code>。默认留存大约 30 天。设成 false 只是不再留这份对象供你用 id 取回，不能当成把输入免掉的开关。</li>
+                <li><span class="article-verify-check">✓</span>这一轮如果重发了顶层 <code>instructions</code>，把这段算进你亲手送出的输入。链不会自动带上上一笔的顶层说明，重发也不会被免计。</li>
+                <li><span class="article-verify-check">✓</span>缓存命中看 usage 里的 cached input。它是输入里被改价的一部分，不是从 <code>input_tokens</code> 里删掉。推理 token 在输出列，不要和这条输入链加两次。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 接上 id，计的仍是已有输入</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener">对话状态</a>先把单次生成写成独立、无状态的请求。多轮要自己把先前的消息放进下一次 <code>input</code>，或者让接口替你保管状态。保管有两条：Conversations API 留一个长期对象；<code>previous_response_id</code> 把响应串成链。两条都是少让你手工拼接，不是少计 token。</p>
+              <p>同一页把计费写在留存说明后面，句子很硬：即使用了 <code>previous_response_id</code>，链上已有的 input tokens 仍按输入 token 计费。<a href="https://developers.openai.com/api/docs/guides/migrate-to-responses" target="_blank" rel="noopener">迁移到 Responses</a> 把一种常见假设标成错误：以为这个字段会免掉先前上下文的账单。正确说法是，响应链里已有的输入 token 仍按输入计。所以这一轮只打了「继续」，账单可以对上整段已经送进去过的输入，而不是那两个字。</p>
+              <p>文档用的词是 previous input tokens，也就是链上各笔已经作为输入存在的 token。它没有另写一条「把上一笔的 output 再乘一个系数」的公式。上一句回答会不会出现在这一轮的输入里，以这一笔返回的 <code>usage.input_tokens</code> 为准。用新消息的字数去估，会把整段链看成免费。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. store 决定留不留，不决定计不计</h2>
+              <p>对话状态写明：响应对象默认保存 30 天，可以在控制台日志里看，也可以用接口取回。创建响应时把 <code>store</code> 设为 false，就关掉这份留存。Conversations 里的对象和条目不受这 30 天限制。挂到某个 conversation 上的响应，它的条目会一直留着，没有这个 30 天 TTL。</p>
+              <p>留存和计费写在相邻的两段，读的时候容易并成一件事。关掉 <code>store</code>，是这份对象不再被留下来供你用 id 接着串。它不把已经发生的输入从这一轮的用量里拿掉，也不把上一轮已经记下的账退回。对象不在了，你就得自己把上下文放进下一次 <code>input</code>。亲手放进去的那些 token，仍然是输入。</p>
+              <p>迁移文档还写了零数据保留组织会被强制 <code>store: false</code>。清单里的做法是：无状态或零数据保留的流程，要自己带上加密的推理项，推理上下文才能跨轮继续。那是你送进下一次请求的内容，不是一份免计的附件。WebSocket 模式沿用同一套 <code>previous_response_id</code> 语义。连接上的本地缓存是为了低延迟续传，字段本身仍决定谱系。解析不到那个 id，文档要求把它设为 null，并自己传完整输入。那份完整输入同样进输入列。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 顶层说明不会跟着链走</h2>
+              <p>迁移文档把多轮写成三种做法：用 <code>previous_response_id</code> 让接口保管先前响应的上下文；把上一笔的 output 条目自己放回去，方便你裁剪；或者用 Conversations API 留一个持久对象。第一种有一条容易漏的限制：顶层 <code>instructions</code> 不会被 <code>previous_response_id</code> 带过去。稳定的说明要每一轮重发。</p>
+              <p>重发的那段是你这次亲手送出的输入，会进这一轮的 <code>usage.input_tokens</code>。漏发，是模型看不到你以为还在的规则。重发，也不是把这段说明变成免费。两条都不要靠「已经接上了」去猜。conversation 的 id 和 response 的 id 也不是同一个字段。一个留的是可以跨会话继续用的对象，一个串的是响应链。省下来的是拼接代码，文档没有把其中任何一条写成免计上下文。</p>
+              <p>自己回放时也一样。你把先前的用户消息和助手输出放进 <code>input</code>，这些就是这一次请求的输入。接口替你放，和你自己放，差别在谁保管条目，不在这一轮还计不计已有的输入。要核对你亲手放进去的那一段有多长，可以用<a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener">输入 token 计数</a>。它按 Responses 的输入格式计，包含角色和边界这类格式 token，并且不预测模型会生成多少输出。链被带上之后的总数，仍以这一笔响应里的 usage 为准。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 窗口、缓存、推理不要并进这一列</h2>
+              <p>对话状态把上下文窗口定义成单次请求能用的 token 上限，里面包括输入、输出，以及部分模型的推理 token。生成超出窗口的部分，可能在响应里被截断。截断说的是多出来的生成没有完整回到你手里，不是把已经计入的 input 退掉。怎么把过长的历史裁短，文档指到单独的 compaction 页。阈值以那一页为准。裁掉的是这一轮送进窗口的内容，不是上一笔账单的冲正。</p>
+              <p>提示缓存是另一列。计数说明把 cached input 写成输入里可以被改价的一类，价格可以和未缓存的输入不同，它仍然是输入，不是从 <code>input_tokens</code> 里删除的一段。命中只说明匹配的前缀走了缓存价。链还在，历史就还在这一轮的输入里。写入比普通输入更贵、断点放错等于每次都付写入，那是<a href="/articles/overseas-ai-prompt-cache-write-premium.html">另一篇</a>的规则，这里不重复单价。</p>
+              <p>推理 token 记在输出上，屏幕上的短答案可以比输出用量短得多。那一列的对法在<a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">推理那篇</a>。这一篇的「继续很短」对的是输入被整段链撑大。两列可以出现在同一笔响应里：输入看链，输出看生成。把 cached 明细再加进 <code>input_tokens</code>，或把推理明细再加进总输出，都会把一笔账数成两笔。文件搜索那种按天走的存储，也是第三口时钟，空闲仍可能在计，和这条「每一轮都重新计量已有输入」不是同一个开关。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这条链</h2>
+              <p>对账按这一笔响应走，不按聊天框里最后一行的字数走。第一列是 <code>usage.input_tokens</code>，里面应能看到链上已有的输入，而不只是「继续」。第二列是 <code>store</code>：默认大约留 30 天，false 只解释对象还在不在。第三列是这次有没有重发顶层 <code>instructions</code>。缓存命中单独看 cached input，推理单独看输出明细。四列用的都是同一次调用，不能收成一个「对话很短所以应该便宜」。</p>
+              <p>给 OpenAI 账户充值发生在这些列扣款之前。链上把稳定币换成能充进账户的资产，不会把 <code>previous_response_id</code> 变成只计新句子，不会让 <code>store: false</code> 变成退款，也不会把已经串上的历史从下一轮输入里拿掉。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。链还在，下一句短回复的输入列就还会按整段已有输入计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">接上 id 仍计已有输入</a></li>
+              <li><a href="#sec-2">store 不是免计开关</a></li>
+              <li><a href="#sec-3">说明不会跟着链走</a></li>
+              <li><a href="#sec-4">窗口缓存推理另计</a></li>
+              <li><a href="#sec-5">充值缩不短这条链</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/conversation-state" target="_blank" rel="noopener nofollow">OpenAI：对话状态</a> — 即使用 previous_response_id，链上已有的 input tokens 仍按输入计。响应默认留存 30 天，conversation 的条目不受这 30 天限制。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/migrate-to-responses" target="_blank" rel="noopener nofollow">OpenAI：迁移到 Responses</a> — 顶层 instructions 不会被 previous_response_id 带上。把这个字段当成免计先前上下文，是文档列出的错误假设。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener nofollow">OpenAI：计数 token</a> — 输入计数包含角色和边界等格式 token，并且不预测输出。缓存输入和输出是分开的用量类别。</li>
+            </ul><p class="ref-note">资料核验于2026年10月28日。四列对账顺序为本站分析，并非厂商效果承诺。留存天数、缓存改价和窗口上限以 OpenAI 文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+          <li><a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a></li>
+          <li><a href="/articles/overseas-ai-file-search-idle-storage.html">文件没人搜，向量库为什么还在按天扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/virtual-card-solution-guide.html">虚拟卡指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=4d03274139"></script>
+</body>
+</html>

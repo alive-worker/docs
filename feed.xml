@@ -7,6 +7,15 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[接上了上一轮，为什么「继续」还在按整段输入扣？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-chained-input-still-bills.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-chained-input-still-bills.html</guid>
+    <pubDate>Wed, 28 Oct 2026 15:36:00 +0800</pubDate>
+    <category>多轮输入</category>
+    <description><![CDATA[链上已有输入这一轮仍计。store 只决定留存。新打的几个字不是账单。]]></description>
+  </item>
+
+  <item>
     <title><![CDATA[你取消了训练，为什么已消耗的token还在扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-training-cancel-still-bills.html</guid>
@@ -55,7 +64,7 @@
     <category>提示缓存</category>
     <description><![CDATA[开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。]]></description>
   </item>
-  <lastBuildDate>Mon, 26 Oct 2026 16:34:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 15:36:00 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>
