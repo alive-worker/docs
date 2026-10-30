@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>历史跟着走，为什么这一轮整单按高档计？</title>
+  <meta name="description" content="通义千问接口无状态，不会保存对话历史。多轮必须把历史 messages 再传一遍，这一轮的输入包含整段历史。百炼按单次请求的输入总量分档，过线后该请求的全部 token 按高档结算，不是只给超出的一截加价。缓存命中只改单价。对账看这一轮的输入 token。若控制台只显示新的一句，对不上这一档的账单。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/resent-history-jumps-the-bracket.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="历史跟着走，为什么这一轮整单按高档计？">
+  <meta property="og:description" content="通义千问接口无状态，不会保存对话历史。多轮必须把历史 messages 再传一遍，这一轮的输入包含整段历史。百炼按单次请求的输入总量分档，过线后该请求的全部 token 按高档结算，不是只给超出的一截加价。缓存命中只改单价。对账看这一轮的输入 token。若控制台只显示新的一句，对不上这一档的账单。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html">
+  <meta property="article:published_time" content="2026-10-30T17:47:00+08:00">
+  <meta property="article:modified_time" content="2026-10-30T17:47:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="阶梯计费">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="历史跟着走，为什么这一轮整单按高档计？">
+  <meta name="twitter:description" content="通义千问接口无状态，不会保存对话历史。多轮必须把历史 messages 再传一遍，这一轮的输入包含整段历史。百炼按单次请求的输入总量分档，过线后该请求的全部 token 按高档结算，不是只给超出的一截加价。缓存命中只改单价。对账看这一轮的输入 token。若控制台只显示新的一句，对不上这一档的账单。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-multiturn-history-tier-jump.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="短句贴上长历史，整单输入跳进高档">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-multiturn-history-tier-jump.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=43e6df1886">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-multiturn-history-tier-jump.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html",
+      "name": "历史跟着走，为什么这一轮整单按高档计？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-10-30T17:47:00+08:00",
+      "dateModified": "2026-10-30T17:47:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "历史跟着走，为什么这一轮整单按高档计？", "item": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "历史跟着走，为什么这一轮整单按高档计？",
+      "description": "通义千问接口无状态，不会保存对话历史。多轮必须把历史 messages 再传一遍，这一轮的输入包含整段历史。百炼按单次请求的输入总量分档，过线后该请求的全部 token 按高档结算，不是只给超出的一截加价。缓存命中只改单价。对账看这一轮的输入 token。若控制台只显示新的一句，对不上这一档的账单。",
+      "image": "https://ponr.org/img/cover-domestic-ai-multiturn-history-tier-jump.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-10-30T17:47:00+08:00",
+      "dateModified": "2026-10-30T17:47:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "阶梯计费",
+      "keywords": ["AI服务", "通义千问", "百炼", "阶梯计费", "多轮对话", "messages"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/resent-history-jumps-the-bracket.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>历史跟着走，为什么这一轮整单按高档计？</h1>
+          <p class="article-summary">聊天窗口像是记得上一轮。通义千问的接口不记得。每一轮都要把历史 <code>messages</code> 再交上去，这一次的输入就是整段历史加上新的一句。百炼部分模型按这一次请求的输入总量分档。总量过线之后，该请求的全部 token 按高档结算，不是只把超出的那一截抬价。缓存命中改的是被命中那一段的单价，不把历史从这一轮里删掉。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-10-30T17:47:00+08:00">2026-10-30 17:47:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-multiturn-history-tier-jump.svg" width="800" height="400" alt="短句贴上长历史，整单输入跳进高档" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开这一次请求实际提交的 <code>messages</code>。里面若还有上一轮的用户句和模型回复，输入就不是新打的那一句。</li>
+                <li><span class="article-verify-check">✓</span>用这一次响应里的输入 token 数对分档，不要用聊天框里最后一句的字数。流式调用要打开 <code>include_usage</code>，空 choices 那一块才有 <code>usage</code>。</li>
+                <li><span class="article-verify-check">✓</span>过线之后，按价格页的规则看整单是不是都落在高档。不要只把超过档线的那一截乘高价、线以下仍乘低价。</li>
+                <li><span class="article-verify-check">✓</span>若返回里有缓存命中，只把它当成另一列单价。命中不删除历史，也不等于这一轮还停在低档。</li>
+                <li><span class="article-verify-check">✓</span>滚动摘要是另一次调用。它有自己的输入和输出。不要把它当成上一轮账单的退款。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 窗口记得，接口不记得</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/multi-round-conversation" target="_blank" rel="noopener">通义千问多轮对话</a>把前提写在开头：API 是无状态的，不会保存对话历史。要实现多轮，每次请求都要显式传入历史消息。工作方式是维护一个 <code>messages</code> 数组。每一轮都把用户的新提问和模型的回复追加进去，整份数组成为下一次请求的输入。第二轮看起来只问了一句「导演是谁」，提交给模型的却是第一轮的问题、第一轮的回答，再加上这句新问题。</p>
+              <p>产品界面把这个数组藏起来了。用户看见的是气泡，账单看见的是数组。所以「我只补了一句」和「这一次输入只有一句」不是同一件事。前几轮已经各自结过一次账，那些 token 不会因为你又把它们贴回来而退掉。贴回来的后果发生在这一轮：它们重新成为这一次的输入。文档后文写的是，发起多轮对话时，<code>messages</code> 部分会重复计算并计费。</p>
+              <p>火山方舟的对话接口用另一个字段名说同一类计量。<a href="https://ark.volcengine.com/region:cn-beijing/docs/chat-api" target="_blank" rel="noopener">方舟 Chat API</a> 里 <code>usage.prompt_tokens</code> 是输入给模型处理的内容的 token 数量。你这次把哪些历史放进消息，这一列就按哪些内容计。方舟另有 session 缓存接口，那种模式可以只传最新一轮、用 <code>context_id</code> 指向已经存下的上下文。那是另一条接口。它不把 Chat API 里你亲手贴回去的历史变成免费，缓存输入和存储也不在这一列里抵消。对账先看你实际打的是哪条接口。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 过了线，整单换档</h2>
+              <p>历史变长之后，贵的往往不只是「多出来的那几百 token」。<a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener">百炼模型价格</a>写明，部分模型实行阶梯计费。单价取决于单次请求的输入 token 总量。该请求的所有 token 均按对应阶梯的单价结算。文档自己举的例子是：两档为大于 0 且不超过 32K，以及大于 32K 且不超过 128K。输入 100K 时，因为落在第二档，所有 token 都按第二档单价结算。不是前 32K 仍按低档、只有超出的 68K 按高档。</p>
+              <p>这就是短句把整单抬上去的原因。上一轮结束时，输入也许还在低档。你把那些消息再贴回来，再加一句很短的追问，总量跨过档线。跨过之后，连同本来可以留在低档的那一段历史，这一轮都按高档计。档线本身会随模型改，价格页上的具体边界和单价以控制台为准，本文不把某一款的元价写死。要核对的是规则：分档看的是这一次请求的输入总量，过线作用于这一次请求的全部 token。</p>
+              <p>同一页还写了一条容易和半价搞混的限制。模型若支持批量调用，输入和输出可以按实时推理价格的一半计。模型若支持上下文缓存，折扣只发生在输入。两者不能同时生效。批量那一半是另一篇文章里的成功行和思考 token，不能拿来把已经跨档的这一次实时请求拉回低档。思考链记在输出侧，也不改变「输入总量决定档位」这一句。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 命中改的是单价，不是总量</h2>
+              <p>多轮文档建议优先用支持上下文缓存的模型，并点名 <code>qwen-max</code>、<code>qwen3.8-max</code> 等。它说的是降低成本、提高速度，缓存自动开启，不用改代码。降低不是删除。<code>messages</code> 仍会重复计算并计费。命中的那一段改走缓存单价。价格页写明，价格表里的输入单价不含缓存单价。所以你在表上看到的低档输入价，不能直接乘到命中的那一段上，也不能把命中理解成「这一轮只剩下新打的几个字，所以还在低档」。</p>
+              <p>两列要分开读。第一列是这一次提交的输入总量，用它看落在哪一档。第二列是命中的 token，用它看那一段按缓存单价而不是表上的标准输入价。未命中的部分仍按这一档的输入价。显式缓存还会在创建时按另一套比例计，并且可能另有存储时钟。那些比例、例外模型和按小时的存储，上下文缓存和显式缓存两篇文章已经分开写了。本文只钉住一件事：命中不把历史从 <code>messages</code> 里拿掉，也不把「整单按所在档结算」改成「只结算新的一句」。</p>
+              <p>流式响应更容易把这两列看丢。多轮文档的流式示例要把 <code>include_usage</code> 打开，<code>usage</code> 出现在 choices 为空的那一块。不打开，你只能看见正文，看不见这一次的输入总量，更看不见其中有多少命中。用最后一句的字数去除以一个经验换算，会稳定地小于账单。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 截断和摘要都不是退款</h2>
+              <p>多轮文档给生产环境的办法是管住数组长度，不是让接口开始记性。上下文截断保留最近 N 轮。下一轮提交的输入变短，有机会落回低档。被丢掉的早先几轮不会从已经出账的请求里退出。你失去的是模型还能看见的早期事实，换来的是下一次请求的总量变小。</p>
+              <p>滚动摘要更贵一点，因为它自己就是一次调用。文档的做法是，历史长到上下文上限的大约七成时，把较早的一半单独拿出去，发起一次独立 API 调用，让模型写成记忆摘要，再用这段摘要替换冗长历史，拼上最近几轮。这次摘要调用有自己的输入总量和输出。它可能自己就落在某一档。它缩短的是下一次聊天请求，不是把前面每一轮已经按当时档位结掉的账冲销掉。摘要写丢的细节，下一轮也不会免费想起来。</p>
+              <p>向量召回是第三条路。每轮结束后把对话放进向量库，提问时只检索相关的几段，再和最近的输入拼在一起。拼进去的片段仍然是这一次的输入，仍然计入总量，仍然参与分档。库本身的规格和空闲小时是知识库那篇文章的时钟。召回避免的是把整段线性历史每次都贴回去，它不避免「这一次真正提交的内容要计输入」。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这段历史</h2>
+              <p>对账按四列走。第一列是这一次提交的 <code>messages</code> 里有没有历史，而不只是屏幕上的新句子。第二列是这一次的输入 token 总量落在哪一档，过线后是整单换档，不是只给超出的一截加价。第三列是缓存命中：它改单价，不删除历史，批量半价也不能和它叠在同一次请求上。第四列是你用来缩短下一轮的手段：截断丢掉早期上下文，摘要另计一次调用，召回只把检索到的片段算进这一次输入。</p>
+              <p>给百炼或方舟账户充值，发生在扣款之前。链上把稳定币换成能充进账户的资产，不会把 <code>messages</code> 缩短，也不会把已经越过的分档线拉回来，更不会把一次滚动摘要变成退款。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。这一轮的输入总量该落在哪一档，还是看你交上去的那份历史。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">窗口记得，接口不记得</a></li>
+              <li><a href="#sec-2">过了线，整单换档</a></li>
+              <li><a href="#sec-3">命中改单价，不改总量</a></li>
+              <li><a href="#sec-4">截断和摘要不是退款</a></li>
+              <li><a href="#sec-5">充值缩不短这段历史</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/multi-round-conversation" target="_blank" rel="noopener nofollow">阿里云百炼：通义千问多轮对话</a>：接口无状态，每轮都要把历史 messages 作为下一次输入。messages 会重复计算并计费。滚动摘要是一次独立调用。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener nofollow">阿里云百炼：模型价格</a>：阶梯单价取决于单次请求的输入总量，该请求的全部 token 按所在档结算。批量半价和上下文缓存不能同时生效。</li>
+              <li><a href="https://ark.volcengine.com/region:cn-beijing/docs/chat-api" target="_blank" rel="noopener nofollow">火山方舟：对话 API</a>：prompt_tokens 是这一次输入给模型处理的内容。历史放进消息，就进这一列。</li>
+            </ul><p class="ref-note">资料核验于2026年10月30日。四列对账顺序为本站分析，并非厂商效果承诺。档线、单价、缓存比例和支持的模型以百炼、方舟控制台及最新文档为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-context-cache-billing.html">调用DeepSeek、通义千问API，重复的system prompt真能靠上下文缓存省钱吗</a></li>
+          <li><a href="/articles/domestic-ai-explicit-cache-storage-hour.html">对话停了，显式缓存为什么还在按小时扣？</a></li>
+          <li><a href="/articles/domestic-ai-batch-half-price-thinking.html">批量写着半价，为什么成功行还是不便宜？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=eab370f864"></script>
+</body>
+</html>

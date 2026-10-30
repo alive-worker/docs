@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <rect width="800" height="400" fill="#101612"/>
+  <text x="40" y="56" fill="#e0913f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="700">阶梯计费</text>
+  <text x="40" y="100" fill="#ecf1ea" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="28" font-weight="700">过了线，整单都按高档</text>
+  <rect x="40" y="140" width="118" height="72" rx="14" fill="#1c241c" stroke="#e0913f" stroke-width="2"/>
+  <text x="99" y="172" text-anchor="middle" fill="#ecf1ea" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22" font-weight="700">这一句</text>
+  <text x="99" y="196" text-anchor="middle" fill="#93a99b" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">新打的</text>
+  <line x1="188" y1="176" x2="230" y2="176" stroke="#93a99b" stroke-width="2"/>
+  <rect x="236" y="132" width="524" height="96" rx="16" fill="#1c241c"/>
+  <line x1="498" y1="144" x2="498" y2="216" stroke="#e0913f" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="430" y="158" text-anchor="middle" fill="#93a99b" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="12">档线</text>
+  <rect x="256" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <rect x="332" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <rect x="408" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <rect x="520" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <rect x="596" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <rect x="672" y="168" width="64" height="44" rx="8" fill="#e0913f"/>
+  <text x="40" y="272" fill="#b9cdbd" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16">线两边同一档，不是只给超出的一截加价</text>
+  <text x="40" y="348" fill="#93a99b" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16">历史还在 messages 里。短句改不了这一档。</text>
+</svg>
