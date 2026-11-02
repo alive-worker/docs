@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>函数没被点到，为什么整份定义还按输入扣？</title>
+  <meta name="description" content="函数定义写进系统消息，按输入token计，没被调用也计。工具搜索只推迟参数结构，名字和说明一开始就在。回传字符串放进下一次input，长短由你决定。对账看这一轮的输入token，别用那句很短的函数调用去估。计数接口把工具和正文一起计。新工具加在窗口末尾，是为了保住缓存，不是把定义删掉。没调用也不退。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/unused-tool-schema-still-bills.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="函数没被点到，为什么整份定义还按输入扣？">
+  <meta property="og:description" content="函数定义写进系统消息，按输入token计，没被调用也计。工具搜索只推迟参数结构，名字和说明一开始就在。回传字符串放进下一次input，长短由你决定。对账看这一轮的输入token，别用那句很短的函数调用去估。计数接口把工具和正文一起计。新工具加在窗口末尾，是为了保住缓存，不是把定义删掉。没调用也不退。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <meta property="article:published_time" content="2026-11-02T09:59:00+08:00">
+  <meta property="article:modified_time" content="2026-11-02T09:59:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="工具定义">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="函数没被点到，为什么整份定义还按输入扣？">
+  <meta name="twitter:description" content="函数定义写进系统消息，按输入token计，没被调用也计。工具搜索只推迟参数结构，名字和说明一开始就在。回传字符串放进下一次input，长短由你决定。对账看这一轮的输入token，别用那句很短的函数调用去估。计数接口把工具和正文一起计。新工具加在窗口末尾，是为了保住缓存，不是把定义删掉。没调用也不退。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="没被点到的函数定义仍排在输入里">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=26eeebe1b4">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html",
+      "name": "函数没被点到，为什么整份定义还按输入扣？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-02T09:59:00+08:00",
+      "dateModified": "2026-11-02T09:59:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "函数没被点到，为什么整份定义还按输入扣？", "item": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "函数没被点到，为什么整份定义还按输入扣？",
+      "description": "函数定义写进系统消息，按输入token计，没被调用也计。工具搜索只推迟参数结构，名字和说明一开始就在。回传字符串放进下一次input，长短由你决定。对账看这一轮的输入token，别用那句很短的函数调用去估。计数接口把工具和正文一起计。新工具加在窗口末尾，是为了保住缓存，不是把定义删掉。没调用也不退。",
+      "image": "https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-02T09:59:00+08:00",
+      "dateModified": "2026-11-02T09:59:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "工具定义",
+      "keywords": ["AI服务", "OpenAI", "function calling", "工具定义", "输入token", "tool search"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/unused-tool-schema-still-bills.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>函数没被点到，为什么整份定义还按输入扣？</h1>
+          <p class="article-summary">OpenAI 的函数调用把可调用的函数定义注入系统消息。文档写明，这些定义既占上下文，也按输入 token 计费。模型这一轮一个函数都没点，或者只吐出一句很短的 <code>function_call</code>，目录已经在输入里。工具搜索能推迟参数结构，名字和说明从请求一开始就在。你放进 <code>function_call_output</code> 的字符串，是下一次请求的 input，长短由你决定。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-02T09:59:00+08:00">2026-11-02 09:59:00</time> 北京时间（UTC+08:00）</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-tool-schema-bills-unused.svg" width="800" height="400" alt="没被点到的函数定义仍排在输入里" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>把这一次请求的 <code>tools</code> 和 <code>usage.input_tokens</code> 对着看。目录很长、模型却没有 <code>function_call</code>，输入仍然可以很大。那是定义在计，不是接口把「没调用」记错了。</li>
+                <li><span class="article-verify-check">✓</span>若用了 <code>defer_loading</code>，分开看名字、说明和参数结构。工具搜索页写的是：单个被推迟的函数，一开始仍看得到名字和说明，推迟的主要是参数结构。</li>
+                <li><span class="article-verify-check">✓</span>找到下一次请求里的 <code>function_call_output</code>。字符串、图片或文件有多长，就按多长进这一次的 input。不要用上一笔很短的函数参数去估。</li>
+                <li><span class="article-verify-check">✓</span>输出列分开看可见的函数调用、可能存在的格式 token，以及 <code>reasoning_tokens</code>。计数页写明，有的模型在推理明细为 0 时，报告的输出仍可以多于可见正文。</li>
+                <li><span class="article-verify-check">✓</span>要用计数接口，把将要发送的 tools 和 input 一起送进去。文档写明本地分词器很难数清工具和结构，按字数除一个常数会漏。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 定义先写进系统消息</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener">函数调用</a>在 Token Usage 一节把机制写在「模型会不会真的去调」之前：函数定义在底层被注入系统消息，用的是模型训练过的那套语法。因此可调用的函数定义既计入上下文上限，也按输入 token 计费。文档接着给的办法是少挂一些、把描述写短，或者用工具搜索，让不常用的工具只在需要时加载。它没有写「这一轮没点到，就把定义的 token 退回」。</p>
+              <p>所以账单上的输入，可以对上整份你挂上去的目录，而对不上聊天框里那句很短的函数名。模型可以回一个 <code>function_call</code>，也可以一个都不回。定义已经在这次请求的 tools 里，输入列就已经包含它们。把「它没调用任何工具」读成「这次不该为工具付钱」，是把有没有发生调用，和定义占不占输入，当成了同一件事。</p>
+              <p><a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener">计数 token</a>把同一件事说成可事先核对的数字。计数接口接受和 Responses 相同的输入格式，文本、消息、图片、文件、工具或对话都可以送进去，返回的是模型将收到的数量。工具定义那一节写明：函数结构、MCP 服务器等会给上下文增加 token，要和输入一起计。本地分词器能数纯文本，数不清工具和结构。按字符除以一个常数，会把目录当成几乎不占地方。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 推迟的是参数，不是名字</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/tools-tool-search" target="_blank" rel="noopener">工具搜索</a>的第一段说，模型可以按需要把工具搜出来、装进上下文，从而避免一开始加载全部定义，并可能降低总体 token 用量和成本。同一页把边界写在后面。请求开始时，模型仍然看得到可搜索对象的名字和说明。命名空间或 MCP 服务器，一开始只有名字和说明，里面各个函数的细节要等工具搜索把它们加载出来才出现。单个被标记推迟的函数，名字和说明仍然从这一轮一开始就在，实际推迟的主要是参数结构。</p>
+              <p>新工具被发现之后，注入到上下文窗口的末尾。文档说这样设计是为了在成本和延迟上保住模型的缓存。末尾注入解释的是缓存前缀还在不在，不是把已经在上下文里的名字和说明从输入里删掉。命名空间上的 <code>defer_loading</code> 作用于命名空间里面的函数，不作用于命名空间对象本身。没推迟的工具仍然立刻可调用。</p>
+              <p>文档还写明，Responses API 里只有 <code>gpt-5.4</code> 及之后的模型支持 <code>tool_search</code>。更早的模型没有这条推迟路径，目录仍要整份挂在这次请求上。支持到哪一档，以工具搜索页的当前说明为准，不要把某一款型号写成永久名单。推迟省下来的，是还没加载的参数结构和还没展开的函数细节。它不把「这个工具在目录里」变成免费。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 回传是下一次的 input</h2>
+              <p>函数调用把流程写成五步。先带上工具请求模型，再收到工具调用，再在应用侧执行，然后发起第二次请求把工具输出送回去，最后才拿到文本，或者更多的工具调用。文档用天气例子把第二次要送回的东西列全：工具定义、原始提示、模型的工具调用，以及工具调用的输出。输出可以是一段 JSON，也可以是图片或文件内容。</p>
+              <p>格式化结果那一节写明，放进 <code>function_call_output</code> 的结果通常是字符串，格式由你决定，JSON、错误码或纯文本都可以。图片和文件可以改成对象数组。函数没有返回值时，文档让你回一句表示成功或失败的字符串，例如 success，而不是什么都不放。附到 input 之后，再把它们送回模型。</p>
+              <p>那句很短的 <code>function_call</code> 是模型这一笔的输出条目，里面是名字和参数。你贴回去的结果是下一次请求 input 的一部分。结果是一页检索、一张表，还是一句 success，长度差在你放进去的内容上，不在模型有没有「只说了一个函数名」。计数接口要的是你将要发送的那份载荷。工具和这段回传要一起计，才是模型将收到的数量。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 短调用、格式、缓存不要并成一列</h2>
+              <p>接上 <code>previous_response_id</code> 之后，链上已有输入仍按输入计，那是<a href="/articles/overseas-ai-chained-input-still-bills.html">另一篇</a>。那一列对的是对话状态里已经存在的输入，不是函数目录占了多少。两件事可以出现在同一次调用里：链在计已有输入，tools 在计这次挂上的定义。不要用「已经接上了」去解释目录为什么还在输入里。</p>
+              <p>提示缓存是改价，不是删除。工具搜索把新工具放在窗口末尾，写的是为了保住缓存。命中只改匹配前缀的单价。写入可以比普通输入更贵，那是<a href="/articles/overseas-ai-prompt-cache-write-premium.html">缓存写入那篇</a>。定义还在上下文里，缓存没有把它免掉。推理 token 记在输出上，屏幕上的短答案可以比输出用量短，对法在<a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">推理那篇</a>。</p>
+              <p>计数页还单独写了一类格式 token。部分模型，文档点名包括 GPT-5 系列，会生成用来分隔响应通道、工具调用和其他消息结构的 token。它们不出现在消息正文或 logprobs 里，也不一定在 usage 里单独列项。因此即使报告的 <code>reasoning_tokens</code> 是 0，输出或完成 token 仍可以多于可见正文。那是输出列的结构开销，不是把函数定义从输入列挪走，也不等于推理还在计。文件搜索那种按天走的存储，是另一口时钟，和「这一轮的定义与回传」不是同一个开关。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这份目录</h2>
+              <p>对账按这一次请求的四列走。第一列是 <code>tools</code> 里实际可调用的定义，包括没有被点到的那些，它们按输入计。第二列是推迟之后还留在开头的名字和说明。参数结构是加载之后才进来的，不要把 <code>defer_loading</code> 读成整份工具免费。第三列是 <code>function_call_output</code> 里你放进去的字符串、图片或文件，它属于下一次的 input。第四列在输出侧：可见的函数调用，加上可能多出来的格式 token，和推理明细分开看。四列都落在 usage 上，不能收成「它只是想调一个函数，所以应该便宜」。</p>
+              <p>给 OpenAI 账户充值，发生在这些列扣款之前。链上把稳定币换成能充进账户的资产，不会把函数定义从系统消息里拿掉，不会让推迟加载变成退款，也不会把你贴回去的结果缩短。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。目录还挂在这次请求上，输入列就还会按定义和你送回去的那段回传计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">定义先写进系统消息</a></li>
+              <li><a href="#sec-2">推迟的是参数</a></li>
+              <li><a href="#sec-3">回传是下一次的 input</a></li>
+              <li><a href="#sec-4">短调用和缓存分开</a></li>
+              <li><a href="#sec-5">充值缩不短目录</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener nofollow">OpenAI：函数调用</a> — 函数定义注入系统消息，按输入 token 计，并占上下文。第二次请求要把工具输出放回 input。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-tool-search" target="_blank" rel="noopener nofollow">OpenAI：工具搜索</a> — 推迟加载可以少送尚未展开的定义。请求一开始仍看得到名字和说明，单个函数主要推迟的是参数结构。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener nofollow">OpenAI：计数 token</a> — 工具要和输入一起计。部分模型的工具调用格式 token 不出现在可见正文里，推理明细为 0 时输出仍可能更多。</li>
+            </ul><p class="ref-note">资料核验于2026年11月2日。四列对账顺序为本站分析，并非厂商效果承诺。哪些模型支持工具搜索、缓存如何改价，以 OpenAI 文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></li>
+          <li><a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a></li>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ae06c09e4f"></script>
+</body>
+</html>

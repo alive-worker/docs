@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Tool Never Ran. Its Schema Still Billed.</title>
+  <meta name="description" content="Function schemas bill as input even if unused. Tool search defers the schema, not the name. The string you append is the next input. Read input tokens.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/unused-tool-schema-still-bills.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/unused-tool-schema-still-bills.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="The Tool Never Ran. Its Schema Still Billed.">
+  <meta property="og:description" content="Function schemas bill as input even if unused. Tool search defers the schema, not the name. The string you append is the next input. Read input tokens.">
+  <meta property="og:url" content="https://ponr.org/en/articles/unused-tool-schema-still-bills.html">
+  <meta property="article:published_time" content="2026-11-02T09:59:00+08:00">
+  <meta property="article:modified_time" content="2026-11-02T09:59:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Tool schema">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Tool Never Ran. Its Schema Still Billed.">
+  <meta name="twitter:description" content="Function schemas bill as input even if unused. Tool search defers the schema, not the name. The string you append is the next input. Read input tokens.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Unused function schemas still sit in the input.">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=26eeebe1b4">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#webpage",
+      "url": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html",
+      "name": "The Tool Never Ran. Its Schema Still Billed.",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-02T09:59:00+08:00",
+      "dateModified": "2026-11-02T09:59:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "The Tool Never Ran. Its Schema Still Billed.", "item": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "The Tool Never Ran. Its Schema Still Billed.",
+      "description": "Function schemas bill as input even if unused. Tool search defers the schema, not the name. The string you append is the next input. Read input tokens.",
+      "image": "https://ponr.org/img/cover-overseas-ai-tool-schema-bills-unused-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-02T09:59:00+08:00",
+      "dateModified": "2026-11-02T09:59:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Tool schema",
+      "keywords": ["AI access", "OpenAI", "function calling", "tool schema", "input tokens", "tool search"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/unused-tool-schema-still-bills.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-tool-schema-bills-unused.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>The Tool Never Ran. Its Schema Still Billed.</h1>
+          <p class="article-summary">OpenAI injects callable function definitions into the system message. Those definitions count against the context limit and are billed as input tokens, whether or not the model invokes one. Tool search defers the parameter schema. The name and description are still visible at the start of the request. The string you place in <code>function_call_output</code> is part of the next request's input. Its length is yours.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-02T09:59:00+08:00">2026-11-02 09:59:00</time> Beijing time (UTC+08:00)</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-tool-schema-bills-unused-en.svg" width="800" height="400" alt="Unused function schemas still sit in the input." fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Verification Checklist</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>Put this request's <code>tools</code> next to <code>usage.input_tokens</code>. A long catalog with no <code>function_call</code> can still produce a large input total. The definitions are on the meter.</li>
+                <li><span class="article-verify-check">✓</span>If you set <code>defer_loading</code>, separate the name and description from the parameter schema. Tool search says a deferred function still shows its name and description up front. What is deferred is mostly the schema.</li>
+                <li><span class="article-verify-check">✓</span>Find <code>function_call_output</code> on the next request. A string, image, or file is as long as you made it, and it is input on that request. Do not estimate it from the short function call.</li>
+                <li><span class="article-verify-check">✓</span>On output, read the visible function call apart from formatting tokens and from <code>reasoning_tokens</code>. The counting guide says some models can report more output than the visible text even when reasoning tokens are 0.</li>
+                <li><span class="article-verify-check">✓</span>If you count before sending, pass the tools with the input. The counting endpoint uses the same shape as Responses. A local tokenizer misses tools and structural tokens.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The definition enters the system message.</h2>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener">function-calling guide</a> puts the billing rule ahead of whether a tool actually runs. Under the hood, functions are injected into the system message in the syntax the model was trained on. Callable function definitions therefore count against the context limit and are billed as input tokens. The ways it offers to spend less are to load fewer functions, shorten descriptions, or use tool search so deferred tools load only when needed. It does not say an unused definition is refunded.</p>
+              <p>The input total can therefore match the catalog you attached, and miss the short function name in the chat. The model may return a <code>function_call</code>, or none. Once the definitions are on this request's tools, they are already in the input. Reading "it called nothing" as "this turn should not pay for tools" treats a call that did not happen as the same fact as a definition that was sent.</p>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener">token-counting guide</a> makes that number checkable before you send. The input token count endpoint accepts the same input format as Responses: text, messages, images, files, tools, or conversations. It returns the exact count the model will receive. Tool definitions, including function schemas and MCP servers, add tokens to the context, so count them with the input. A local tokenizer can count plain text and still miss tools and structural tokens. Dividing characters by a constant treats the catalog as almost free.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. What is deferred is the schema, not the name.</h2>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/tools-tool-search" target="_blank" rel="noopener">tool-search guide</a> says the model can load tools into context as they are needed, so you avoid loading every definition up front and may reduce token usage and cost. The same page draws the boundary. At the start of a request the model still sees the name and description of whatever is searchable. For a namespace or an MCP server, only that name and description show until tool search loads the functions inside. For an individual deferred function, the name and description are still visible from the start, so tool search mostly defers the parameter schema.</p>
+              <p>Newly discovered tools are injected at the end of the context window. The guide says that placement is there to preserve the model's cache, on both cost and latency. Appending at the end explains whether the cached prefix survives. It does not delete a name and description that were already in context. <code>defer_loading</code> on a namespace applies to the functions inside it, not to the namespace object. Tools that are not deferred stay callable immediately.</p>
+              <p>The same page says only <code>gpt-5.4</code> and later models on the Responses API support <code>tool_search</code>. Earlier models have no deferred path, so the catalog still has to be attached in full. Which models qualify follows the current tool-search page, not a permanent roster. What you save is the parameter schema that has not loaded yet, and the function detail that a namespace has not expanded. You do not make "this tool is in the catalog" free.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. The result you send back is the next input.</h2>
+              <p>Function calling is two requests. The first carries the tools and receives a tool call. Your application executes it. The second request sends the tool output back, and only then do you get text, or further tool calls. The weather walkthrough lists what that second request contains: the tool definition, the original prompt, the model's tool call, and the tool-call output. The output can be JSON, or image and file contents.</p>
+              <p>The formatting section says the result in <code>function_call_output</code> should typically be a string, in a format you choose: JSON, an error code, or plain text. Images and files can be an array of objects instead. If the function returns nothing, the guide tells you to send a string that says whether it succeeded, such as success, rather than sending nothing. After you append the results to <code>input</code>, you send them back.</p>
+              <p>The short <code>function_call</code> is an output item on the first response: a name and arguments. The result you paste back is part of the next request's input. A page of search results, a table, or the word success differ in length because of what you placed there, not because the model only spoke a function name. The counting endpoint wants the payload you are about to send. Tools and that returned string, counted together, are the number the model will receive.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. A short call, formatting, and cache are other columns.</h2>
+              <p>After <code>previous_response_id</code>, prior input on the chain still bills as input. That is the <a href="/en/articles/short-follow-up-still-bills-input.html">chained-input article</a>. That column is input already held in conversation state, not the size of the function catalog. Both can sit on one call: the chain bills prior input, and tools bill the definitions attached this turn. "The chain is attached" does not explain why the catalog is still in the input.</p>
+              <p>Prompt caching reprices. It does not delete. Tool search appends newly found tools at the end of the window so the cache can survive. A hit changes the unit price of a matching prefix. A write can cost more than ordinary input, which is the <a href="/en/articles/cache-write-costs-more-than-input.html">cache-write article</a>. The definition is still in context. The cache did not waive it. Reasoning tokens are output. A short visible answer can sit next to a larger output total, reconciled in the <a href="/en/articles/invisible-reasoning-still-bills.html">reasoning article</a>.</p>
+              <p>The counting guide also names formatting tokens as their own case. Some models, and the page includes GPT-5 models, generate tokens used to format or delimit response channels, tool calls, and other message structure. Those tokens do not appear in message content or logprobs, and they are not necessarily itemized in usage. Reported output can therefore be higher than the visible text even when <code>reasoning_tokens</code> is 0. That is structural overhead on the output column. It does not move the function definitions off the input column, and it is not reasoning still billing. File-search storage that accrues by the day is another clock. It is not the switch for this turn's definitions and the result you send back.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not shorten the catalog.</h2>
+              <p>Reconcile four columns on this request. First, the callable definitions in <code>tools</code>, including the ones the model never invoked. They bill as input. Second, the names and descriptions that remain at the start after deferral. The parameter schema arrives only once it is loaded. Do not read <code>defer_loading</code> as a free tool. Third, the string, image, or file you placed in <code>function_call_output</code>. It belongs to the next input. Fourth, on output: the visible function call, plus any formatting tokens above the visible text, read apart from the reasoning detail. All four land in usage. They do not collapse into "it only wanted to call one function, so this should be cheap."</p>
+              <p>Topping up an OpenAI balance happens before those columns post. Swapping stablecoins into assets you can load does not pull the function definitions out of the system message, does not turn deferred loading into a refund, and does not shorten the result you paste back. When that swap is the step you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> does it without an account and without custody. A completed swap only means the asset moved. If the catalog is still on this request, input still includes the definitions and the result you send back.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Definitions enter the system message</a></li>
+              <li><a href="#sec-2">The schema is what is deferred</a></li>
+              <li><a href="#sec-3">The result is the next input</a></li>
+              <li><a href="#sec-4">A short call is another column</a></li>
+              <li><a href="#sec-5">A top-up does not shorten it</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources and further reading"><h2>Sources and Further Reading</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/function-calling" target="_blank" rel="noopener nofollow">OpenAI: function calling</a> — Function definitions are injected into the system message, count against context, and are billed as input tokens. The next request sends the tool output back in input.</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-tool-search" target="_blank" rel="noopener nofollow">OpenAI: tool search</a> — Deferred loading can skip definitions that have not been expanded. Names and descriptions are visible from the start. A single deferred function mostly defers its parameter schema.</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/token-counting" target="_blank" rel="noopener nofollow">OpenAI: counting tokens</a> — Count tools with the input. Some models' tool-call formatting tokens do not appear in the visible text, so output can exceed that text even when reasoning tokens are 0.</li>
+            </ul><p class="ref-note">Sources checked on 2 November 2026. The four-column reading order is this site's analysis, not a vendor promise. Which models support tool search, and how cache pricing works, follow OpenAI's docs and the console.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/short-follow-up-still-bills-input.html">You Sent Continue. The Chain Still Bills.</a></li>
+          <li><a href="/en/articles/cache-write-costs-more-than-input.html">The Cache Hit Is Cheap. The Write Is Not.</a></li>
+          <li><a href="/en/articles/invisible-reasoning-still-bills.html">The Answer Is Short. Reasoning Still Bills.</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ae06c09e4f"></script>
+</body>
+</html>

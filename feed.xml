@@ -7,6 +7,15 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[函数没被点到，为什么整份定义还按输入扣？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-tool-schema-bills-unused.html</guid>
+    <pubDate>Mon, 02 Nov 2026 09:59:00 +0800</pubDate>
+    <category>工具定义</category>
+    <description><![CDATA[定义写进系统消息就按输入计。没点到也计。回传是下一次的 input。]]></description>
+  </item>
+
+  <item>
     <title><![CDATA[历史跟着走，为什么这一轮整单按高档计？]]></title>
     <link>https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-multiturn-history-tier-jump.html</guid>
@@ -73,7 +82,7 @@
     <category>提示缓存</category>
     <description><![CDATA[开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。]]></description>
   </item>
-  <lastBuildDate>Fri, 30 Oct 2026 17:47:00 +0800</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 09:59:00 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>

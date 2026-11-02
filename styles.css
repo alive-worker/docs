@@ -802,8 +802,8 @@ body.is-searching .hero-duo { display: none; }
 
 /* --- article --- */
 .article-shell { padding-top: 8px; }
-.article-head { max-width: 46rem; padding: 18px 0 8px; }
-.article-head h1 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.22; letter-spacing: -.01em; text-align: left; text-wrap: balance; }
+.article-head { padding: 18px 0 8px; }
+.article-head h1 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.22; letter-spacing: -.01em; text-align: left; }
 .article-summary { margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
 .article-meta { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); }
 .article-meta time { color: var(--muted); }
@@ -816,12 +816,11 @@ body.is-searching .hero-duo { display: none; }
 .toc a:hover { text-decoration: underline; }
 
 /* --- article layout: sticky right-rail TOC (replaces the left "recent articles" reservation) --- */
-/* Keep the page at the site's full wide shell — the body column fills whatever room that
-   leaves next to the fixed 240px TOC rail (no fixed cap), so text runs edge-to-edge up to
-   the TOC divider instead of stopping short and leaving a blank strip in front of it. */
+/* Title, summary, and body use the same width as the cover. The body fills the column
+   beside the 240px TOC, so text meets the rail instead of stopping early and leaving a gap. */
 .layout--article .article-shell { max-width: var(--wrap-wide); }
 .article-columns { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 48px; align-items: start; }
-.article-columns .article-body { max-width: 46rem; margin-top: 0; }
+.article-columns .article-body { margin-top: 0; }
 .article-columns .article-sidebar {
   position: sticky; top: calc(var(--sticky-offset) + 16px);
   max-height: calc(100vh - var(--sticky-offset) - 40px);
@@ -959,11 +958,13 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
   margin: 0 0 10px; font-weight: 700; font-size: 15px;
   letter-spacing: 0; text-transform: none; color: var(--ink);
 }
-.article-verify-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.article-verify-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.55; color: var(--muted-2); }
+.article-verify-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.article-verify-list li { font-size: 13px; line-height: 1.6; color: var(--muted-2); }
 .article-verify-check {
-  flex: none; margin-top: 7px; width: 7px; height: 7px; border-radius: 1px;
-  font-size: 0; line-height: 0; color: transparent; background: var(--accent-2);
+  display: inline-block; width: 6px; height: 6px; margin: 0 8px 1px 0;
+  vertical-align: middle; border-radius: 1px;
+  font-size: 0; line-height: 0; color: transparent; overflow: hidden;
+  background: var(--accent-2);
 }
 .site-foot-col h2 { margin: 0 0 12px; font-size: 13px; font-weight: 700; color: var(--ink); }
 .site-foot-col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }

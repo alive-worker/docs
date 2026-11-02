@@ -223,6 +223,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-tool-schema-bills-unused.html': '2026-11-02 09:59:00',
+    '/en/articles/unused-tool-schema-still-bills.html': '2026-11-02 09:59:00',
     '/articles/domestic-ai-multiturn-history-tier-jump.html': '2026-10-30 17:47:00',
     '/en/articles/resent-history-jumps-the-bracket.html': '2026-10-30 17:47:00',
     '/articles/overseas-ai-chained-input-still-bills.html': '2026-10-28 15:36:00',
