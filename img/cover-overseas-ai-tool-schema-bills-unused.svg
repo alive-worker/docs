@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="没被点到的函数定义仍排在输入里">
   <rect width="800" height="400" fill="#101612"/>
-  <text x="40" y="56" fill="#e0913f" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700">工具定义</text>
-  <text x="40" y="102" fill="#ecf1ea" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="28" font-weight="700">没点到的定义也在输入里</text>
-  <rect x="40" y="140" width="156" height="150" rx="16" fill="#1c241c" stroke="#e0913f" stroke-width="2"/>
-  <text x="118" y="214" text-anchor="middle" fill="#ecf1ea" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="22" font-weight="700">这次调用</text>
-  <text x="118" y="244" text-anchor="middle" fill="#93a99b" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13">点到也一样计</text>
-  <rect x="220" y="140" width="540" height="150" rx="16" fill="#163825"/>
-  <rect x="248" y="168" width="70" height="94" rx="10" fill="#e0913f"/>
-  <rect x="342" y="162" width="82" height="106" rx="12" fill="none" stroke="#f4f7f2" stroke-width="3"/>
-  <rect x="348" y="172" width="70" height="86" rx="10" fill="#e0913f"/>
-  <rect x="448" y="168" width="70" height="94" rx="10" fill="#e0913f"/>
-  <rect x="548" y="168" width="70" height="94" rx="10" fill="#e0913f"/>
-  <rect x="648" y="168" width="70" height="94" rx="10" fill="#e0913f"/>
-  <text x="40" y="348" fill="#93a99b" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16">定义先进入系统消息。回传是下一次的 input。</text>
+  <text x="40" y="52" fill="#f4f0ea" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700">没点到，定义仍写在输入里</text>
+  <text x="760" y="44" text-anchor="end" fill="#9bb4a4" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" font-weight="700">AI服务指南</text>
+  <rect x="40" y="84" width="720" height="228" rx="14" fill="#17241c" stroke="#3d5c49" stroke-width="2"/>
+  <text x="64" y="118" fill="#e0913f" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" font-weight="700">system</text>
+  <text x="64" y="158" fill="#d7ead0" font-family="Consolas, Segoe UI, monospace" font-size="18">lookup(city)</text>
+  <text x="64" y="192" fill="#d7ead0" font-family="Consolas, Segoe UI, monospace" font-size="18">weather(date)</text>
+  <text x="64" y="226" fill="#d7ead0" font-family="Consolas, Segoe UI, monospace" font-size="18">search(query)</text>
+  <text x="64" y="260" fill="#d7ead0" font-family="Consolas, Segoe UI, monospace" font-size="18">write(note)</text>
+  <text x="520" y="260" text-anchor="end" fill="#f2d18a" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700">调用 0</text>
+  <text x="40" y="352" fill="#b9cdbd" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16">四条定义都在。回传是下一次的 input。</text>
 </svg>

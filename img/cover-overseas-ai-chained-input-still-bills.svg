@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="短句接上长链，先前输入这一轮仍计">
   <rect width="800" height="400" fill="#101612"/>
-  <text x="40" y="58" fill="#e0913f" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="700">多轮输入</text>
-  <text x="40" y="98" fill="#ecf1ea" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="28" font-weight="700">接上了，输入账单没缩短</text>
-  <rect x="40" y="150" width="132" height="100" rx="18" fill="#1c241c" stroke="#e0913f" stroke-width="2"/>
-  <text x="106" y="198" text-anchor="middle" fill="#ecf1ea" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="32" font-weight="700">继续</text>
-  <text x="106" y="228" text-anchor="middle" fill="#93a99b" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="13">这一句</text>
-  <rect x="198" y="150" width="562" height="100" rx="18" fill="#163825"/>
-  <rect x="214" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="280" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="346" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="412" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="478" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="544" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="610" y="168" width="54" height="64" rx="10" fill="#2f9e64"/>
-  <rect x="676" y="168" width="54" height="64" rx="10" fill="#e0913f"/>
-  <text x="214" y="286" fill="#b9cdbd" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16">先前的 input，这一轮仍计</text>
-  <text x="40" y="348" fill="#93a99b" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16">store 只留存对象，不免掉这一轮的输入。</text>
+  <text x="40" y="52" fill="#f4f0ea" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="26" font-weight="700">接上了，输入账单没缩短</text>
+  <text x="760" y="44" text-anchor="end" fill="#7dcea0" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="14" font-weight="700">AI服务指南</text>
+  <text x="56" y="130" fill="#8fd6b6" font-family="Consolas, Microsoft YaHei, monospace" font-size="20">先前这一长段还在 messages 里</text>
+  <text x="56" y="172" fill="#8fd6b6" font-family="Consolas, Microsoft YaHei, monospace" font-size="20">上一轮的输入，这一轮仍计</text>
+  <text x="56" y="214" fill="#8fd6b6" font-family="Consolas, Microsoft YaHei, monospace" font-size="20">store 只留存，不免掉这一轮</text>
+  <text x="56" y="268" fill="#f2d18a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="32" font-weight="700">继续</text>
+  <text x="160" y="268" fill="#c4b59a" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="18">只是新打的这一句</text>
+  <text x="40" y="348" fill="#b7c6b8" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="16">新打的几个字不是账单。先前的 input 这一轮仍计。</text>
 </svg>

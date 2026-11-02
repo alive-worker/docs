@@ -1,20 +1,11 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cache hits are discounted; a cache write costs 1.25x or 2x">
-  <rect width="800" height="400" fill="#14201d"/>
-  <text x="48" y="52" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#eef2fb">Why the first cached call costs more</text>
-  <g transform="translate(48,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#2a2214" stroke="#e2b15a" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#f2d18a">Write</text>
-    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">5 minutes · 1.25x</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#d9c39a">1 hour · 2x</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#f2d18a">Above input</text>
-  </g>
-  <g transform="translate(422,100)">
-    <rect x="0" y="0" width="330" height="200" rx="14" fill="#173a2c" stroke="#7be8b8" stroke-width="2.5"/>
-    <text x="165" y="42" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="18" font-weight="700" fill="#8fd6b6">Hit</text>
-    <text x="165" y="84" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">Most models · 0.1x</text>
-    <text x="165" y="118" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">Reuse inside the TTL</text>
-    <text x="165" y="164" text-anchor="middle" font-family="-apple-system,'Segoe UI',sans-serif" font-size="22" font-weight="700" fill="#7be8b8">This is the cut</text>
-  </g>
-  <text x="48" y="348" font-family="-apple-system,'Segoe UI',sans-serif" font-size="14" fill="#b6d6c8">A breakpoint on changing text bills a write every call</text>
-  <text x="752" y="34" text-anchor="end" font-family="-apple-system,'Segoe UI',sans-serif" font-size="16" font-weight="700" fill="#b6d6c8" opacity="0.85">AI Access Guide</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="A cache write costs more than input. A later hit is the discount.">
+  <rect width="800" height="400" fill="#10140f"/>
+  <text x="40" y="52" fill="#f4f0ea" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700">The first call is the write</text>
+  <text x="760" y="44" text-anchor="end" fill="#b7c9a4" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" font-weight="700">AI Access Guide</text>
+  <polyline points="80,110 240,110 240,250 720,250" fill="none" stroke="#e2b15a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="240" cy="110" r="8" fill="#f2d18a"/>
+  <text x="80" y="96" fill="#f2d18a" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700">Write 1.25x or 2x</text>
+  <text x="420" y="236" fill="#8fd6b6" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="18" font-weight="700">Hit, about 0.1x</text>
+  <text x="40" y="352" fill="#c5d4b8" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="16">A breakpoint on changing text bills a write every call.</text>
 </svg>
