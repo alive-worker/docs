@@ -86,7 +86,9 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scrollbar-width: thin; scrollbar-color: var(--line-strong) var(--paper); }
+::selection { background: var(--accent-soft); color: var(--ink); }
+input, textarea { caret-color: var(--accent); }
 body {
   margin: 0;
   /* Short pages (404, thin archive views) used to leave the footer sitting right after the
@@ -148,7 +150,14 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: 10px; padding: 12px 0; text-decoration: none; color: var(--ink); }
 .brand-logo { flex: none; width: 34px; height: 34px; border-radius: 9px; display: block; }
 .brand-text { display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.brand-name { font-size: 19px; font-weight: 760; letter-spacing: .01em; }
+.brand-name {
+  font-size: 19px; font-weight: 760; letter-spacing: .01em;
+  padding-bottom: 3px;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+}
 .site-nav { display: flex; flex-wrap: wrap; gap: 2px; align-items: center; }
 .site-nav a {
   display: inline-flex; align-items: center;
@@ -298,7 +307,7 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* --- cover images --- */
 .article-cover {
   display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover;
-  border-radius: 14px; border: 1px solid var(--line); background: var(--soft);
+  border-radius: 10px; border: 1px solid var(--line); background: var(--soft);
   margin: 4px 0 26px;
 }
 
@@ -559,43 +568,45 @@ h1 {
 
 /* --- ibve.org-style homepage: centered hero, single featured article, vertical list --- */
 .hero-centered {
-  max-width: 640px;
+  max-width: 720px;
   margin: 28px auto 28px;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.hero-centered h1 { margin: 0 0 16px; font-size: clamp(32px, 4.8vw, 54px); line-height: 1.15; letter-spacing: -.015em; text-wrap: balance; font-weight: 560; }
-.hero-centered .lede { max-width: 640px; margin: 0 auto 30px; color: var(--muted-2); font-size: 18px; line-height: 1.75; }
-.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero-centered h1 { order: 1; }
+.hero-centered .lede { order: 2; }
+.hero-centered .hero-actions { order: 3; }
+.hero-centered .hero-meta { order: 4; }
+.hero-centered .hero-hud { order: 5; }
+.hero-centered .search-bar--inline { order: 6; width: 100%; }
+.hero-centered h1 { margin: 0 0 14px; max-width: none; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.18; letter-spacing: -.015em; text-wrap: balance; font-weight: 600; }
+.hero-centered .lede { max-width: none; margin: 0 0 22px; color: var(--muted-2); font-size: 17px; line-height: 1.75; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; align-items: center; }
 /* A single credibility line instead of a dashboard-style stat-card cluster — the
    card-with-big-number-and-label pattern is a templated default regardless of subject;
    this reads as a plain, honest sentence instead. */
 .hero-meta {
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-  gap: 9px; margin: 28px auto 0;
+  gap: 9px; margin: 16px 0 0;
   font-size: 14px; color: var(--muted);
 }
-.hero-meta-num { font-family: 'Fraunces Display', inherit; font-size: 18px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hero-meta-num { font-size: inherit; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .hero-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--line-strong); }
 .hero-meta-live { display: inline-flex; align-items: center; gap: 6px; }
-.hero-meta-pulse {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  animation: hero-meta-pulse 2.6s ease-in-out infinite;
-}
-@keyframes hero-meta-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.7); opacity: .35; }
-}
+.hero-meta-pulse { width: 7px; height: 7px; border-radius: 1px; background: var(--accent-2); }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 11px 24px; border-radius: 999px;
+  padding: 10px 16px; border-radius: 6px;
   font-size: 14.5px; font-weight: 700; text-decoration: none;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: background-color .15s ease, color .15s ease;
 }
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
-.btn-secondary { background: var(--panel); color: var(--ink); border: 1px solid var(--line-strong); }
-.btn-secondary:hover { background: var(--soft); }
+.btn-primary { background: #187246; color: #f7fff9; }
+.btn-primary:hover { background: #125c38; color: #f7fff9; }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+.btn-secondary:hover { border-color: var(--ink); background: transparent; }
 
 .featured-article { max-width: 860px; margin: 0 auto 48px; }
 /* While a homepage search is active, collapse the hero/featured sections so the
@@ -642,7 +653,7 @@ body.is-searching .card-grid .post-card--overflow { display: flex; }
    bottoms or gappy list items. */
 .hero-duo { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; max-width: var(--wrap-wide); margin: 0 auto 48px; align-items: stretch; }
 body.is-searching .hero-duo { display: none; }
-.carousel { position: relative; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel-gradient); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+.carousel { position: relative; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); display: flex; flex-direction: column; }
 .carousel-track { position: relative; width: 100%; aspect-ratio: 800 / 400; }
 .carousel-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .25s ease; }
 .carousel-slide.is-active { opacity: 1; visibility: visible; }
@@ -677,10 +688,11 @@ body.is-searching .hero-duo { display: none; }
 .carousel-more { font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
 .carousel-dots { display: flex; gap: 7px; justify-content: center; padding: 6px 0; }
 .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--line-strong); cursor: pointer; padding: 0; }
-.carousel-dot.is-active { background: linear-gradient(90deg, var(--accent-light), var(--accent)); width: 20px; border-radius: 4px; }
+.carousel-dot.is-active { background: var(--accent); width: 18px; border-radius: 4px; }
 
-.hotpicks { border: 1px solid var(--line); border-radius: 16px; background: var(--panel-gradient); box-shadow: var(--shadow-sm); padding: 20px 22px; display: flex; flex-direction: column; }
-.hotpicks-title { margin: 0 0 14px; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 8px; }
+.hotpicks { border: 1px solid var(--line); border-radius: 10px; background: var(--panel); padding: 20px 22px; display: flex; flex-direction: column; }
+.hotpicks-title { margin: 0 0 14px; font-size: 15px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.hotpicks-title::before { content: ""; width: 8px; height: 8px; background: var(--accent-2); flex: none; }
 /* justify-content: space-between spreads leftover height evenly between items instead
    of dumping it all as one dead gap after the last item — keeps the panel's bottom
    edge flush with the (taller) carousel without an ugly empty slab. */
@@ -689,8 +701,10 @@ body.is-searching .hero-duo { display: none; }
 .hotpicks-item:hover { background: var(--accent-soft); transform: translateX(2px); }
 .hotpicks-item + .hotpicks-item { border-top: 1px solid var(--line); margin-top: 6px; }
 .hotpicks-num {
-  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: #fff;
-  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+  flex: 0 0 auto; width: 1.4em; padding-top: 1px;
+  display: block; font-family: 'Fraunces Display', inherit;
+  font-size: 18px; font-weight: 650; line-height: 1.2;
+  font-variant-numeric: tabular-nums; color: var(--accent-2);
 }
 .hotpicks-body { min-width: 0; flex: 1 1 auto; }
 .hotpicks-body a { display: block; color: inherit; text-decoration: none; }
@@ -788,8 +802,8 @@ body.is-searching .hero-duo { display: none; }
 
 /* --- article --- */
 .article-shell { padding-top: 8px; }
-.article-head { padding: 10px 0 20px; }
-.article-head h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; letter-spacing: -.01em; text-align: center; text-wrap: balance; }
+.article-head { max-width: 46rem; padding: 18px 0 8px; }
+.article-head h1 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.22; letter-spacing: -.01em; text-align: left; text-wrap: balance; }
 .article-summary { margin: 18px 0 0; color: var(--muted-2); font-size: 16.5px; }
 .article-meta { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); }
 .article-meta time { color: var(--muted); }
@@ -807,7 +821,7 @@ body.is-searching .hero-duo { display: none; }
    the TOC divider instead of stopping short and leaving a blank strip in front of it. */
 .layout--article .article-shell { max-width: var(--wrap-wide); }
 .article-columns { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 48px; align-items: start; }
-.article-columns .article-body { max-width: none; margin-top: 0; }
+.article-columns .article-body { max-width: 46rem; margin-top: 0; }
 .article-columns .article-sidebar {
   position: sticky; top: calc(var(--sticky-offset) + 16px);
   max-height: calc(100vh - var(--sticky-offset) - 40px);
@@ -842,9 +856,9 @@ body.is-searching .hero-duo { display: none; }
 html:lang(zh-CN) .article-body p { text-indent: 2em; }
 .article-body ul { margin: 0 0 16px; padding-left: 22px; }
 .article-body li { margin: 7px 0; }
-.article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(31, 158, 144, .45); }
+.article-body a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); }
 .article-body a:hover { color: var(--accent-2); text-decoration-color: currentColor; }
-[data-theme="light"] .article-body a { text-decoration-color: rgba(109, 40, 217, .4); }
+.article-body td, .article-body th { font-variant-numeric: tabular-nums; }
 
 .article-body .table-wrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--line); border-radius: 10px; }
 .article-body table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
@@ -915,37 +929,21 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
    replace the real methodology.html page). Mobile/tablet (<1400px): compact inline
    pill above the H1. Desktop (>=1400px): floats as a card to the right of the hero. */
 .hero-hud {
-  display: inline-flex; align-items: center; gap: 6px; margin: 0 auto 16px; padding: 6px 12px;
-  border: 1px solid var(--line-strong); border-radius: 999px;
-  background: var(--panel);
-  text-align: left; font-size: 12px; line-height: 1.5; color: var(--muted-2);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 18px;
+  margin: 16px auto 0; padding: 0; max-width: none;
+  border: 0; border-radius: 0; background: none; box-shadow: none;
+  text-align: center; font-size: 13px; line-height: 1.5; color: var(--muted);
 }
-.hero-hud-count { font-weight: 700; color: var(--accent); }
-.hero-hud-count::before { content: "\00b7 "; color: var(--muted); }
-[data-theme="dark"] .hero-hud { box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent); }
+.hero-hud-count { display: none; }
 .hero-hud-head {
-  display: flex; align-items: center; gap: 6px;
-  font-weight: 700; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--ink);
 }
-.hero-hud-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: hero-hud-pulse 1.8s ease-in-out infinite; }
-.hero-hud-row { display: none; align-items: center; gap: 8px; padding: 4px 0; opacity: .6; }
-.hero-hud-row--active { opacity: 1; }
+.hero-hud-dot { display: none; }
+.hero-hud-row { display: flex; align-items: center; gap: 8px; padding: 0; opacity: 1; }
 .hero-hud-check {
-  flex: none; width: 15px; height: 15px; border-radius: 50%; font-size: 10px; line-height: 15px; text-align: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
-}
-@keyframes hero-hud-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
-@media (min-width: 1400px) {
-  .hero-hud {
-    display: block; margin: 0; position: absolute; top: 4px; right: -256px; width: 224px;
-    border-radius: 12px; padding: 12px 14px;
-    background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(6px);
-    box-shadow: var(--shadow-sm);
-  }
-  [data-theme="dark"] .hero-hud { box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent), var(--shadow-sm); }
-  .hero-hud-head { margin-bottom: 8px; }
-  .hero-hud-count { display: none; }
-  .hero-hud-row { display: flex; }
+  flex: none; width: 7px; height: 7px; border-radius: 1px;
+  font-size: 0; line-height: 0; color: transparent; background: var(--accent-2);
 }
 
 /* Article verification checklist — per-article, content-specific (not the fixed
@@ -953,23 +951,19 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
    so homepage and article pages read as one product. Standing requirement for new
    articles from 2026-08-23 — see CLAUDE.md §4. */
 .article-verify-panel {
-  margin: 0 0 28px; padding: 16px 18px;
-  border: 1px solid var(--line-strong); border-radius: 12px; background: var(--soft);
+  margin: 0 0 28px; padding: 14px 0 0;
+  border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: none;
   box-sizing: border-box;
 }
-[data-theme="dark"] .article-verify-panel {
-  background: var(--panel);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
-}
 .article-verify-title {
-  margin: 0 0 10px; font-weight: 700; font-size: 12px;
-  letter-spacing: .06em; text-transform: uppercase; color: var(--accent);
+  margin: 0 0 10px; font-weight: 700; font-size: 15px;
+  letter-spacing: 0; text-transform: none; color: var(--ink);
 }
 .article-verify-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.article-verify-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; color: var(--muted-2); }
+.article-verify-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.55; color: var(--muted-2); }
 .article-verify-check {
-  flex: none; margin-top: 1px; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; line-height: 18px; text-align: center;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+  flex: none; margin-top: 7px; width: 7px; height: 7px; border-radius: 1px;
+  font-size: 0; line-height: 0; color: transparent; background: var(--accent-2);
 }
 .site-foot-col h2 { margin: 0 0 12px; font-size: 13px; font-weight: 700; color: var(--ink); }
 .site-foot-col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px; }
@@ -1039,7 +1033,7 @@ html:lang(zh-CN) .article-body p { text-indent: 2em; }
   .site-foot-desc { max-width: none; }
   .hero { padding: 34px 0 4px; }
   .lede { font-size: 16.5px; }
-  .hero-centered { margin: 36px auto 18px; padding: 0 16px; }
+  .hero-centered { margin: 12px auto 18px; padding: 0; }
   .hero-centered .lede { font-size: 16px; }
   .search-bar--inline { margin-top: 32px; }
   .featured-article, .post-list { padding: 0 16px; }
