@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="A long image is cut into pages. Extract does not spend the parse gift.">
+  <rect width="800" height="400" fill="#10161c"/>
+  <text x="40" y="52" fill="#f4f0ea" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Parse by the page. Extract apart.</text>
+  <text x="760" y="44" text-anchor="end" fill="#9bb4d4" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">AI Access Guide</text>
+  <rect x="48" y="92" width="250" height="220" rx="8" fill="#1a2836" stroke="#7aa0c4" stroke-width="2"/>
+  <line x1="48" y1="202" x2="298" y2="202" stroke="#e2b15a" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="72" y="160" fill="#d5e2f2" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">Upper page</text>
+  <text x="72" y="258" fill="#d5e2f2" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700">Lower page</text>
+  <text x="360" y="130" fill="#e2b15a" font-family="Segoe UI, sans-serif" font-size="28" font-weight="700">Extract</text>
+  <text x="360" y="168" fill="#f2d18a" font-family="Segoe UI, sans-serif" font-size="18">Parse gift stays</text>
+  <text x="360" y="220" fill="#c4b59a" font-family="Segoe UI, sans-serif" font-size="18">Name</text>
+  <text x="360" y="256" fill="#c4b59a" font-family="Segoe UI, sans-serif" font-size="18">Amount</text>
+  <text x="360" y="292" fill="#c4b59a" font-family="Segoe UI, sans-serif" font-size="18">Date</text>
+  <text x="40" y="360" fill="#b7c6d4" font-family="Segoe UI, sans-serif" font-size="16">A long image is cut. Text becomes pages at 2,000 characters.</text>
+</svg>

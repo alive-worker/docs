@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/parse-and-extract-bill-apart.html</loc>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html</loc>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/en/articles/unused-tool-schema-still-bills.html</loc>
     <lastmod>2026-11-02T09:59:00+08:00</lastmod>
   </url>
@@ -212,11 +220,11 @@
   </url>
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-11-02T09:59:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-11-02T09:59:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</loc>
@@ -892,11 +900,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-11-02T09:59:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-11-02T09:59:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -1128,7 +1136,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-09-21T10:18:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -1144,7 +1152,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-09-21T10:18:00+08:00</lastmod>
+    <lastmod>2026-11-03T14:50:00+08:00</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/tools/price-hike-calculator.html</loc>

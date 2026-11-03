@@ -701,10 +701,9 @@ body.is-searching .hero-duo { display: none; }
 .hotpicks-item:hover { background: var(--accent-soft); transform: translateX(2px); }
 .hotpicks-item + .hotpicks-item { border-top: 1px solid var(--line); margin-top: 6px; }
 .hotpicks-num {
-  flex: 0 0 auto; width: 1.4em; padding-top: 1px;
-  display: block; font-family: 'Fraunces Display', inherit;
-  font-size: 18px; font-weight: 650; line-height: 1.2;
-  font-variant-numeric: tabular-nums; color: var(--accent-2);
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
 }
 .hotpicks-body { min-width: 0; flex: 1 1 auto; }
 .hotpicks-body a { display: block; color: inherit; text-decoration: none; }

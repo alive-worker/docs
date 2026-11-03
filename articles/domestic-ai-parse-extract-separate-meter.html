@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>解析按页扣完了，抽取为什么还是另一本账？</title>
+  <meta name="description" content="百炼 ParseX 把解析和抽取分成两本账。图文按实际页数计，文本按字数折页，音视频按秒。赠送额度只在开通时发一次，用尽自动按量。新文档直接抽取只扣抽取额度，单价已含解析。别的工具处理过不算可复用。工作流文档节点目前不计费，后面的模型节点仍按 token 计。对账先看任务记录的页和秒，别只看模型 token。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/parse-and-extract-bill-apart.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="解析按页扣完了，抽取为什么还是另一本账？">
+  <meta property="og:description" content="百炼 ParseX 把解析和抽取分成两本账。图文按实际页数计，文本按字数折页，音视频按秒。赠送额度只在开通时发一次，用尽自动按量。新文档直接抽取只扣抽取额度，单价已含解析。别的工具处理过不算可复用。工作流文档节点目前不计费，后面的模型节点仍按 token 计。对账先看任务记录的页和秒，别只看模型 token。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html">
+  <meta property="article:published_time" content="2026-11-03T14:50:00+08:00">
+  <meta property="article:modified_time" content="2026-11-03T14:50:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="文档解析">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="解析按页扣完了，抽取为什么还是另一本账？">
+  <meta name="twitter:description" content="百炼 ParseX 把解析和抽取分成两本账。图文按实际页数计，文本按字数折页，音视频按秒。赠送额度只在开通时发一次，用尽自动按量。新文档直接抽取只扣抽取额度，单价已含解析。别的工具处理过不算可复用。工作流文档节点目前不计费，后面的模型节点仍按 token 计。对账先看任务记录的页和秒，别只看模型 token。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-parse-extract-separate-meter.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="超长图被切开按页计，抽取不占解析额度">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-parse-extract-separate-meter.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=7486952378">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-parse-extract-separate-meter.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html",
+      "name": "解析按页扣完了，抽取为什么还是另一本账？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-03T14:50:00+08:00",
+      "dateModified": "2026-11-03T14:50:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "解析按页扣完了，抽取为什么还是另一本账？", "item": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "解析按页扣完了，抽取为什么还是另一本账？",
+      "description": "百炼 ParseX 把解析和抽取分成两本账。图文按实际页数计，文本按字数折页，音视频按秒。赠送额度只在开通时发一次，用尽自动按量。新文档直接抽取只扣抽取额度，单价已含解析。别的工具处理过不算可复用。工作流文档节点目前不计费，后面的模型节点仍按 token 计。对账先看任务记录的页和秒，别只看模型 token。",
+      "image": "https://ponr.org/img/cover-domestic-ai-parse-extract-separate-meter.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-03T14:50:00+08:00",
+      "dateModified": "2026-11-03T14:50:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "文档解析",
+      "keywords": ["AI服务", "阿里云百炼", "ParseX", "文档解析", "字段抽取", "按页计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/parse-and-extract-bill-apart.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>解析按页扣完了，抽取为什么还是另一本账？</h1>
+          <p class="article-summary">阿里云百炼 ParseX 把 Parse 和 Extract 分成两本用量。图文按实际处理的页数计，文本容器按字数折成页，音视频按秒。赠送额度只在首次开通时发一次。新文档直接抽取只扣抽取额度，单价里已经包含解析，不要再加一笔。别的工具里转过格式，不算可复用的解析结果。工作流里的文档解析节点目前不计费，接到它后面的大模型节点仍按 token 计。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-03T14:50:00+08:00">2026-11-03 14:50:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-03</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-parse-extract-separate-meter.svg" width="800" height="400" alt="超长图被切开按页计，抽取不占解析额度" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开这一次的任务记录，看它走的是解析还是抽取，以及处理了多少页或多少秒。资源管理器里的页数对不上，先查是不是超长图被切开，或文本按 2000 字折成了页。</li>
+                <li><span class="article-verify-check">✓</span>如果是新文档直接抽取，只看抽取额度减了多少。解析赠送额度不该因此减少。单价已经包含解析，不要再加一笔解析费。</li>
+                <li><span class="article-verify-check">✓</span>要复用结果，确认它是 ParseX 自己的图文 ParseResult，而且仍在常见问题页写的 7 天保留期内。音频、视频，或在别的工具里转过的文件，不算这一档。</li>
+                <li><span class="article-verify-check">✓</span>工作流里的文档解析节点按该页所说目前不计费。顺着连线看后面的大模型节点，摘要用掉的输入和输出仍按那个模型的 token 计。</li>
+                <li><span class="article-verify-check">✓</span>字段是 <code>missing</code> 或 <code>conflict</code> 时，先看任务状态是不是 <code>success</code>。完整评估过 Schema 仍可以成功。空字段不等于这次没计费。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 解析和抽取不是同一列页数</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/parse/pricing" target="_blank" rel="noopener">计量与计费</a>开头就把两本账分开：Parse 和 Extract 分项记录用量。图文按页，音频和视频解析按秒。PDF、PPT 和图片按实际处理页数计，图片按页计，超长图片会切割。Word、表格、Markdown、纯文本、HTML、电子书按文本量除以 2000 折成页。音视频按实际处理时长，以秒计。一份很长的 txt 可以变成很多页，一张竖长截图也可以被切成多页。账单上的页数对不上你在文件夹里看到的页数，常常是这个口径，不是任务把页数记错了。</p>
+              <p>首次开通 ParseX 的账号获赠图文解析 3000 页、字段抽取 3000 页、视频解析 100 小时、音频解析 100 小时。规则写明只在首次开通时赠送一次，不按日或按月重新发放。额度用尽后自动按量收费。新文档直接抽取只抵扣抽取赠送额度，不占用解析赠送额度。页面举的例子是：直接抽取一份 10 页的新文档，抽取额度够用时扣 10 页抽取额度，解析额度不减少。解析额度还在，不能读成抽取也不该付钱。两本赠送账没有加成一本。</p>
+              <p>新文档直接抽取的单价已经包含解析，不需要再加一次解析费用。使用可复用解析结果再抽取，是另一档。页面写明，「已解析」指本次抽取实际复用了 ParseX 的解析结果。文件在其他工具中处理过，不属于这一价格场景。在本地先转成 Markdown 再送进来，不能拿去套「已经解析过，所以只付抽取」的那一档。具体单价以计量页为准，这里不把某一天的数字写成长期价格。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 抽取只认图文结果</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/parse/supported-files-and-limits" target="_blank" rel="noopener">支持的文件与限制</a>把能力边界写在表上。Parse 支持文档、图片、扫描件、表格、文本，也支持音频和视频。Extract 只支持图文，只能复用有效的图文 ParseResult。复用是为了避免对同一文件再解析一次。音频或视频的解析结果不能用于抽取。<a href="https://help.aliyun.com/zh/model-studio/parse/faq" target="_blank" rel="noopener">常见问题</a>用同一句话收束：Extract 当前仅支持图文文件，也只能复用图文 ParseResult。把一段会议录音解析完，再拿那个结果去抽字段，对不上这条边界。</p>
+              <p>同一页 FAQ 写，当前可复用的图文 ParseResult 保留 7 天。结果下载地址可能更早过期，以接口返回的过期时间为准。下载链接打不开，不等于那份结果还在 7 天窗口里；链接还能下，也不要把保留期改成你记得的另一个天数。对不上时看任务记录和错误码，不要用控制台界面上的别的标识去猜哪一笔还能复用。</p>
+              <p>体验页当前限制为单文件不超过 200 MB，FAQ 写明这不等于 API 上限。限制页的表是：文档、文本、网页、电子书，API 1 GB、控制台上传 200 MB；图片两边都是 20 MB；音频 API 2 GB、控制台 200 MB；视频 API 10 GB、控制台 200 MB。体验页传不上去，不代表接口也拒。接口传进去了，也不要用体验页的 200 MB 去估这一笔会折成多少页。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 工作流那一格目前不计，模型仍计</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/workflow/document-extraction-node" target="_blank" rel="noopener">文档解析节点</a>第一段写，该节点暂不计费。它按文件类型输出结构化变量。选「其他」时给出 layout 数组和 markdown 内容，选 Excel 时给出单元格。页面自己举的用法是：先解析文档，再由大模型节点生成摘要。节点这一格目前不进 ParseX 的按页账。大模型节点吃到的是解析出来的正文，按那个模型的输入和输出 token 计。把「工作流里解析是免费的」读成「整条摘要链路免费」，会漏掉后一格。</p>
+              <p>这一格和 ParseX 也不是同一个产品表面。节点页写的限制是单文件不超过 150 MB、页数不超过 1.5 万页，只支持单文件，不支持列表。用网页 URL 而不是文件直链会解析失败。页面说网页 URL 不是有效的文档文件。失败了，这一格仍按该页所说暂不计费。你如果改走 ParseX 的接口重试，那一笔就回到按页或按秒的账上。两条路径的「解析」字样一样，计费开关不一样。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 知识库时钟和空字段不要并进去</h2>
+              <p>知识库从创建成功起按规格小时走，对话窗口关掉也不停，那是<a href="/articles/domestic-ai-knowledge-base-idle-billing.html">另一篇</a>。向量化、排序和问答模型另计 token。ParseX 的页和秒不包含那口时钟，知识库的小时费也不包含 ParseX 的解析页。对话停了，两口表可以各自还在。联网搜索按次另计，是<a href="/articles/domestic-ai-web-search-separate-meter.html">搜索那篇</a>。免费额度用尽后转按量，是<a href="/articles/domestic-ai-free-quota-payg-switch.html">模型免费额度那篇</a>。ParseX 的赠送是开通时一次，不按日刷新，和模型推理的免费 token 不是同一个余额。</p>
+              <p>FAQ 写明 Parse 和 Extract 都是异步任务。提交响应返回 <code>biz_id</code>，结果响应是 <code>processing</code>、<code>success</code> 或 <code>failed</code>。只有状态为 success 才能获取最终结果。Extract 返回 <code>missing</code> 或 <code>conflict</code> 不代表任务失败。只要系统完整评估了整个 Schema，状态仍可以是 success。<code>missing</code> 是没找到字段，<code>conflict</code> 是原文有冲突候选。对账时不要把「字段空了」当成「这次没计费」，也不要把 success 当成「每个字段都抽到了」。</p>
+              <p>文件、配置、任务和结果按 Workspace 隔离。切了工作空间看不到原来的任务，不代表那笔用量消失。用量页看的是一段时间内各类处理量，任务记录看的是某一次用了什么能力、处理了多少。两处对的是不同问题，不能用其中一处的空白去否定另一处的数字。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这些页</h2>
+              <p>对账按这一次处理的四列走。第一列是 Parse 的页或秒，包括超长图切开的页，以及文本按 2000 字折出来的页。第二列是 Extract：新文档直接抽取只动抽取额度，单价已含解析，不要再加一笔；复用只认 ParseX 自己的图文结果，而且有保留期。第三列是工作流文档节点，目前不计，但后面的模型 token 仍计。第四列是知识库规格小时和检索模型，跟页数不是同一个开关。四列都落在各自的用量上，不能收成「文件已经传上去了，所以应该只付一次」。</p>
+              <p>给阿里云账户充值，发生在这些列扣款之前。链上把稳定币换成能充进账户的资产，不会把一张长图合成一页，不会让抽取额度去抵解析，也不会让工作流后面的模型调用变成免费。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。页数和秒数仍按这次实际处理的量计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">解析和抽取分账</a></li>
+              <li><a href="#sec-2">抽取只认图文</a></li>
+              <li><a href="#sec-3">工作流节点另计</a></li>
+              <li><a href="#sec-4">知识库不要并进去</a></li>
+              <li><a href="#sec-5">充值缩不短页数</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/parse/pricing" target="_blank" rel="noopener nofollow">阿里云百炼：ParseX 计量与计费</a> — 解析和抽取分项计量。图文按页，文本折页，音视频按秒。赠送只发一次。新文档直接抽取不占解析额度，单价已含解析。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/parse/faq" target="_blank" rel="noopener nofollow">阿里云百炼：ParseX 常见问题</a> — 抽取只认图文结果。可复用的图文结果保留 7 天。异步任务只有 success 才有最终结果，missing 不代表失败。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/workflow/document-extraction-node" target="_blank" rel="noopener nofollow">阿里云百炼：工作流文档解析节点</a> — 该节点目前不计费。后面的大模型节点仍按解析出的正文计 token。网页 URL 不是有效的文档文件。</li>
+            </ul><p class="ref-note">资料核验于2026年11月3日。四列对账顺序为本站分析，并非厂商效果承诺。单价、赠送额度和保留期以百炼文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+          <li><a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a></li>
+          <li><a href="/articles/domestic-ai-free-quota-payg-switch.html">实名过后，百炼免费额度用完为什么还会扣费？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=c463b1bc8d"></script>
+</body>
+</html>
