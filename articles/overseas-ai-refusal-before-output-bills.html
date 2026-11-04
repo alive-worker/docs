@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>有的拒答一个字还没出，这笔调用已经入账</title>
+  <meta name="description" content="Claude出字前拒答：bio、frontier_llm、reasoning_extraction仍按该模型计费，其余类别和空类别不计。usage都会出现，且占速率限制。流中途拒答按已流出的输入与输出计。回退信用只抵下次缓存写入，抹不掉触发它的拒答。OpenAI流一断，最后的usage块可能收不到。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/refusal-before-output-still-bills.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="有的拒答一个字还没出，这笔调用已经入账">
+  <meta property="og:description" content="Claude出字前拒答：bio、frontier_llm、reasoning_extraction仍按该模型计费，其余类别和空类别不计。usage都会出现，且占速率限制。流中途拒答按已流出的输入与输出计。回退信用只抵下次缓存写入，抹不掉触发它的拒答。OpenAI流一断，最后的usage块可能收不到。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html">
+  <meta property="article:published_time" content="2026-11-04T10:30:50+08:00">
+  <meta property="article:modified_time" content="2026-11-04T10:30:50+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="拒答计费">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="有的拒答一个字还没出，这笔调用已经入账">
+  <meta name="twitter:description" content="Claude出字前拒答：bio、frontier_llm、reasoning_extraction仍按该模型计费，其余类别和空类别不计。usage都会出现，且占速率限制。流中途拒答按已流出的输入与输出计。回退信用只抵下次缓存写入，抹不掉触发它的拒答。OpenAI流一断，最后的usage块可能收不到。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-refusal-before-output-bills.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一句被撕开的回答，空白那半盖着仍计费的类别章">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-refusal-before-output-bills.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=7486952378">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-refusal-before-output-bills.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html",
+      "name": "有的拒答一个字还没出，这笔调用已经入账",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-04T10:30:50+08:00",
+      "dateModified": "2026-11-04T10:30:50+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "有的拒答一个字还没出，这笔调用已经入账", "item": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "有的拒答一个字还没出，这笔调用已经入账",
+      "description": "Claude出字前拒答：bio、frontier_llm、reasoning_extraction仍按该模型计费，其余类别和空类别不计。usage都会出现，且占速率限制。流中途拒答按已流出的输入与输出计。回退信用只抵下次缓存写入，抹不掉触发它的拒答。OpenAI流一断，最后的usage块可能收不到。",
+      "image": "https://ponr.org/img/cover-overseas-ai-refusal-before-output-bills.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-04T10:30:50+08:00",
+      "dateModified": "2026-11-04T10:30:50+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "拒答计费",
+      "keywords": ["AI服务", "Claude", "拒答", "stop_reason", "fallback credit", "流式中断"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/refusal-before-output-still-bills.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>有的拒答一个字还没出，这笔调用已经入账</h1>
+          <p class="article-summary">Claude 的拒答是 HTTP 200，不是报错。出字之前，bio、frontier_llm、reasoning_extraction 仍按跑过的那个模型计费；cyber、general_harms 和空类别不计。两种情况 usage 都有数字，也都占速率限制。流到一半再拒，按已经流出的输入和输出计。回退信用只抵下一次的提示缓存写入，抵不掉触发它的那次拒答。OpenAI 的流若中断，最后一块 usage 可能根本没回来，那不是退款凭证。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-04T10:30:50+08:00">2026-11-04 10:30:50</time> 北京时间（UTC+08:00） · 计费规则最后核验于 2026-11-04</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-refusal-before-output-bills.svg" width="800" height="400" alt="一句被撕开的回答，空白那半盖着仍计费的类别章" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>打开这一次的响应。若 <code>content</code> 是空的且 <code>stop_reason</code> 为 <code>refusal</code>，读 <code>stop_details.category</code>。对照拒答文档里「出字前是否计费」那一列：bio、frontier_llm、reasoning_extraction 记入账，cyber、general_harms 和空类别不记入账。两种都去看速率限制有没有少掉一次额度。</li>
+                <li><span class="article-verify-check">✓</span>如果正文已经流出一段，随后才出现 <code>refusal</code>，按已流出的输入和输出对账，并把这段半截答案丢掉。不要把它当成一次完成的交付。</li>
+                <li><span class="article-verify-check">✓</span>自己重试时，先看有没有 <code>fallback_credit_token</code>。Message Batches 的拒答和 Claude Haiku 5.5 的拒答不发这个令牌。没有令牌，下一次会按回退模型把提示缓存整段重写。</li>
+                <li><span class="article-verify-check">✓</span>OpenAI 若开了 <code>stream_options.include_usage</code>，流在 <code>[DONE]</code> 之前断掉，就不要把缺失的 usage 块记成 0。去用量页对这一段时间。 <code>finish_reason</code> 为 <code>content_filter</code> 表示过滤器省略了内容，它不是 HTTP 错误。</li>
+                <li><span class="article-verify-check">✓</span>网络中断后的续写是一次新请求。工具调用块和思考块不能只接半截。不要把这笔和训练任务的取消账单并成同一列。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 出字之前，三类仍入账</h2>
+              <p><a href="https://docs.anthropic.com/en/docs/build-with-claude/refusals-and-fallback" target="_blank" rel="noopener">拒答与回退</a>把出字前的账单写成一张表，而且写明这套规则各平台都适用。分类器在任何输出之前拒绝时，<code>stop_details.category</code> 为 <code>bio</code>、<code>frontier_llm</code> 或 <code>reasoning_extraction</code> 的，按跑过的那个模型正常计费。页面说明，这是截至 2026 年 9 月误报量被测得较低的几类，用来打断大规模绕过防护的尝试。<code>cyber</code>、<code>general_harms</code>，以及不对应具名类别的空值，出字前不计费。<code>content</code> 在这两种情况下都是空的，<code>usage</code> 里却都会出现 token 数。不计费的那一列，数字只是摆在响应里，不能拿去当发票。计费的那一列，同样的字段才是这次的用量。请求无论哪一列，都仍占用速率限制。</p>
+              <p>空类别不是「还没分类、过会儿会补」。文档写，类别和说明同时为空，是正常且持久的值，不是占位。对账时把空值并进「其余类别不计费」，不要等一个稍后才出现的类别名。计费类别会随误报测量调整，以表上「出字前是否计费」那一列为准，不要把今天的三行抄成永久价目。</p>
+              <p><code>reasoning_extraction</code> 通常来自要求模型把思考写进正文的提示：先填一段草稿再回答、JSON 里的 reasoning 字段、逐字要推理过程。措辞可以藏在系统提示、技能或工具描述里。这一类没有推荐的回退模型，文档要求改提示，而不是原样重试。想看推理过程，应把思考的 <code>display</code> 设为摘要去读思考块。这和<a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">看不见的推理 token 仍按输出价计</a>不是同一笔：那边是模型内部推理按输出计价，这边是分类器因为你要求把推理写进答案而拒答，并且在一个字都没出时就可能入账。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 流到一半再拒，按已流出的量计</h2>
+              <p>同一页写，拒答可以发生在任何输出之前，也可以发生在流的中途、已经有部分输出之后。两种都要把部分输出当成不完整并丢弃。中途拒答按正常价格计已消耗的输入 token，以及已经流出去的输出。用户屏幕上看到半句然后变成拒答，账单不是「没交付所以为零」，而是「交付被截断，截断前的量照付」。</p>
+              <p>流式拒答仍是成功的 HTTP 200，<code>stop_reason</code> 为 <code>refusal</code>，<code>stop_details</code> 落在 <code>message_delta</code> 上。只监控 4xx 和 5xx 的告警不会响。Message Batches 里，被拒的请求以 <code>result.type</code> 为 <code>succeeded</code> 返回，同样带 <code>stop_reason: refusal</code>。把它当成批处理错误行去找退款，会找错文件。批处理结果也不铸造回退信用，<code>stop_details</code> 里不会有 <code>fallback_credit_token</code>。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 回退信用抵不掉这次拒答</h2>
+              <p>用了回退时，触发回退的那次拒答，只要是流中途，或落在出字前仍计费的类别里，就要和回退请求分开入账。信用补偿的是回退请求的提示缓存未命中，让你不必为同一段对话付两次缓存写入。它不把第一次拒答改成免费。Claude Haiku 5.5 的拒答不带信用，回退之后要按回退模型付整段缓存写入。服务端回退在 Claude API 和 Anthropic 托管的 Google Cloud 上处于 beta，Message Batches 不支持 <code>fallbacks</code> 参数，带上它的批次项会作为错误结果回来。Haiku 5.5 也没有服务端回退：<code>fallbacks</code> 设为 default 时，被拒的请求保持被拒；自己列一份回退模型则会得到 400。</p>
+              <p>工具还没跑完时，规则再拆一刀。流式拒答若打在一个尚未关闭的工具调用块上（客户端工具、服务端工具或 MCP），这次拒答直接返回，不自动重试。若请求带了 <code>fallback-credit-2026-07-01</code>，信用令牌仍然在，但只能靠续写那份部分响应来兑现。非流式请求不受这一条影响，接口会清掉部分工作再重试，然后才响应。自己拼重试时，令牌过期、或只能靠续写才能兑现的情况，丢掉令牌再跑会把已经完成的服务端工具再计一次。先把这笔成本露给调用方，不要静默重试。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 断流丢掉的 usage 不是退款</h2>
+              <p>OpenAI 的 <a href="https://developers.openai.com/api/reference/resources/chat" target="_blank" rel="noopener">Chat Completions 参考</a>对 <code>stream_options.include_usage</code> 有一句容易被读反的注记：流被中断时，你可能收不到最后那块带整次请求 token 用量的 usage。其余块上的 usage 是空的。客户端把「没收到最终块」记成 0，会和用量页对不上。缺块是传输中断，不是官方写下的免费。对账以用量页这一段时间为准，不要以本地没加总成功为准。</p>
+              <p>同一份参考把 <code>finish_reason</code> 的 <code>content_filter</code> 定义成：内容因内容过滤器的标记而被省略。这是选项上的结束原因，请求可以已经完成选择，它不是 HTTP 错误码。拿 Claude 的 <code>refusal</code> 去套这个字段，或拿这个字段去套「出字前三类才计费」，都会并错账。训练任务的取消是<a href="/articles/domestic-ai-training-cancel-still-bills.html">另一篇</a>：主动取消按已消耗 token 计训练费，其他中断不计训练费。聊天流断掉，不走那张训练表。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 续写是新请求，充值改不了类别</h2>
+              <p><a href="https://docs.anthropic.com/en/api/messages-streaming" target="_blank" rel="noopener">流式消息</a>的错误恢复写的是一次新请求，不是把旧计量器拨回去。Claude 4.5 及更早，把已经收到的部分放进一条新的助手消息再续。Claude 4.6 及以后，改成一条用户消息，说明上次在哪里中断、从那里继续。文档写明，工具调用块和扩展思考块不能部分恢复，只能从最近的文本块接着流。续写因此会把已经付过的半截再送回去当输入。这和<a href="/articles/overseas-ai-chained-input-still-bills.html">接上上一轮仍按整段输入计</a>是同一类结构：新打的几个字不是账单的全部。</p>
+              <p>给控制台充值，发生在这些列扣款之前。链上把稳定币换成能充进账户的资产，不会把 <code>bio</code> 改成不计费的类别，不会让空的 <code>content</code> 变成「这次没占速率限制」，也不会把已经流出的输出抹掉。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。<code>stop_details.category</code> 和已经流出的 token，仍按这次请求各自的规则计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">出字前三类仍入账</a></li>
+              <li><a href="#sec-2">流中途按已流出的量计</a></li>
+              <li><a href="#sec-3">信用抵不掉这次拒答</a></li>
+              <li><a href="#sec-4">缺的 usage 不是退款</a></li>
+              <li><a href="#sec-5">续写是新请求</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/refusals-and-fallback" target="_blank" rel="noopener nofollow">Anthropic：拒答与回退</a> — 出字前哪些类别计费、中途拒答按已流出的量计、回退信用只抵下一次缓存写入，以及批处理拒答不发信用令牌。</li>
+              <li><a href="https://developers.openai.com/api/reference/resources/chat" target="_blank" rel="noopener nofollow">OpenAI：Chat Completions 参考</a> — 流被中断时可能收不到最后的 usage 块。content_filter 是选项上的结束原因，表示内容被过滤器省略。</li>
+              <li><a href="https://docs.anthropic.com/en/api/messages-streaming" target="_blank" rel="noopener nofollow">Anthropic：流式消息</a> — 网络中断后的恢复是一次新请求。4.6 起把半截放进用户消息。工具块和思考块不能部分恢复。</li>
+            </ul><p class="ref-note">资料核验于2026年11月4日。出字前计费的类别以拒答文档表格为准，该列会随误报测量调整。五行对账顺序为本站分析，并非厂商的效果承诺。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+          <li><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></li>
+          <li><a href="/articles/domestic-ai-training-cancel-still-bills.html">你取消了训练，为什么已消耗的token还在扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=54af6ed7d2"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="一句被撕开的回答，空白那半盖着仍计费的类别章">
+  <rect width="800" height="400" fill="#101612"/>
+  <text x="36" y="48" fill="#f4f0ea" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700">出字之前，有的拒答已经入账</text>
+  <text x="764" y="42" text-anchor="end" fill="#9bb4a4" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" font-weight="700">AI服务指南</text>
+  <path d="M48 88 h300 q28 0 28 28 v150 q0 36 -40 36 h-250 q-28 0 -28 -28 v-150 q0 -36 28 -36z" fill="#1c3a2c"/>
+  <path d="M430 88 h250 q36 0 36 36 v150 q0 28 -28 28 h-250 q-40 0 -40 -36 v-150 q0 -28 28 -28z" fill="none" stroke="#3d5c49" stroke-width="3" stroke-dasharray="8 7"/>
+  <path d="M392 78 l18 36 l-22 28 l24 40 l-16 34 l20 42 l-26 48" fill="none" stroke="#e2b15a" stroke-width="4" stroke-linejoin="round"/>
+  <text x="86" y="178" fill="#f4f0ea" font-family="Georgia, serif" font-size="64" font-weight="700">&#8220;</text>
+  <text x="148" y="176" fill="#d7ead0" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="28">Hello..</text>
+  <text x="520" y="176" fill="#6e8578" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="28">......</text>
+  <circle cx="392" cy="268" r="46" fill="#3a2c16" stroke="#e2b15a" stroke-width="3"/>
+  <text x="392" y="264" text-anchor="middle" fill="#f2d18a" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15" font-weight="700">仍计费</text>
+  <text x="392" y="284" text-anchor="middle" fill="#e6d3b0" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12">三类</text>
+  <text x="36" y="348" fill="#f2d18a" font-family="Consolas, Segoe UI, monospace" font-size="16">bio &#183; frontier_llm &#183; reasoning_extraction</text>
+  <text x="36" y="376" fill="#9bb4a4" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="15">空类别不计。usage 还在。信用抵不掉这一次。</text>
+</svg>

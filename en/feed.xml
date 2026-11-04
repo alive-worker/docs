@@ -7,6 +7,14 @@
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
   <item>
+    <title><![CDATA[Some Refusals Bill Before a Single Token]]></title>
+    <link>https://ponr.org/en/articles/refusal-before-output-still-bills.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/refusal-before-output-still-bills.html</guid>
+    <pubDate>Wed, 04 Nov 2026 10:30:50 +0800</pubDate>
+    <category>Refusal bill</category>
+    <description><![CDATA[Three categories bill before output. Others do not. Mid-stream bills tokens already sent. Credit does not void the refusal.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Parse billed by the page. Extract is another ledger.]]></title>
     <link>https://ponr.org/en/articles/parse-and-extract-bill-apart.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/parse-and-extract-bill-apart.html</guid>
@@ -91,7 +99,7 @@
     <category>Prompt cache</category>
     <description><![CDATA[Cache hits are a fraction of input price. Writes cost more. Claude bills 1.25x for five minutes and 2x for one hour. GPT-5.6 writes are 1.25x too.]]></description>
   </item>
-  <lastBuildDate>Tue, 03 Nov 2026 14:50:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 10:30:50 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[The API Is Idle. The Deployment Still Bills.]]></title>
     <link>https://ponr.org/en/articles/dedicated-capacity-bills-while-idle.html</link>

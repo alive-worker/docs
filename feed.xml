@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[有的拒答一个字还没出，这笔调用已经入账]]></title>
+    <link>https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html</guid>
+    <pubDate>Wed, 04 Nov 2026 10:30:50 +0800</pubDate>
+    <category>拒答计费</category>
+    <description><![CDATA[出字前要看类别。三类仍计费。流中途按已流出的量计。信用抵不掉拒答本身。]]></description>
+  </item>
+  <item>
     <title><![CDATA[解析按页扣完了，抽取为什么还是另一本账？]]></title>
     <link>https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-parse-extract-separate-meter.html</guid>
@@ -91,7 +99,7 @@
     <category>提示缓存</category>
     <description><![CDATA[开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。]]></description>
   </item>
-  <lastBuildDate>Tue, 03 Nov 2026 14:50:00 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 10:30:50 +0800</lastBuildDate>
                   <item>
     <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>
