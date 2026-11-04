@@ -37,7 +37,7 @@
   <meta name="twitter:image" content="https://ponr.org/og/og-home.png">
   <link rel="preload" as="image" href="/img/cover-overseas-ai-refusal-before-output-bills.svg" fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
-  <link rel="stylesheet" href="/styles.min.css?v=0b2d3c98d9">
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -1005,30 +1005,30 @@
           <div class="carousel-body">
             <div class="carousel-slide-info" data-index="0">
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--crimson">拒答计费</span> <span class="featured-label">— 置顶阅读 · 最新</span></span>
-              <h2 class="carousel-title"><a href="/articles/overseas-ai-refusal-before-output-bills.html">有的拒答一个字还没出，这笔调用已经入账</a></h2><p class="carousel-desc">出字前要看类别。三类仍计费。流中途按已流出的量计。信用抵不掉拒答本身。</p>
+              <h2 class="carousel-title"><a href="/articles/overseas-ai-refusal-before-output-bills.html">有的拒答一个字还没出，这笔调用已经入账</a></h2><p class="carousel-desc">出字前先看类别：有三类仍计费，其余出字前不计。流到一半停掉，按已经流出的量计。信用只补回退的缓存，抵不掉这笔拒答。</p>
               <span class="carousel-meta"><time datetime="2026-11-04T10:30:50+08:00">2026-11-04 10:30:50</time><a class="carousel-more" href="/articles/overseas-ai-refusal-before-output-bills.html">阅读全文 →</a></span>
             </div>
                         <div class="carousel-slide-info" hidden data-index="1">
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--olive">文档解析</span></span>
-              <h2 class="carousel-title"><a href="/articles/domestic-ai-parse-extract-separate-meter.html">解析按页扣完了，抽取为什么还是另一本账？</a></h2><p class="carousel-desc">解析和抽取分账。赠送只发一次。直接抽取不占解析额度。</p>
+              <h2 class="carousel-title"><a href="/articles/domestic-ai-parse-extract-separate-meter.html">解析按页扣完了，抽取为什么还是另一本账？</a></h2><p class="carousel-desc">解析和抽取分两本账，赠送只在首次开通发一次。新文档直接抽取只扣抽取额度，不占解析额度。这一档单价已经含解析。</p>
               <span class="carousel-meta"><time datetime="2026-11-03T14:50:00+08:00">2026-11-03 14:50:00</time><a class="carousel-more" href="/articles/domestic-ai-parse-extract-separate-meter.html">阅读全文 →</a></span>
             </div>
 
 <div class="carousel-slide-info" hidden data-index="2">
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--turquoise">工具定义</span></span>
-              <h2 class="carousel-title"><a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数没被点到，为什么整份定义还按输入扣？</a></h2><p class="carousel-desc">定义写进系统消息就按输入计。没点到也计。回传是下一次的 input。</p>
+              <h2 class="carousel-title"><a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数没被点到，为什么整份定义还按输入扣？</a></h2><p class="carousel-desc">函数定义写进系统消息就按输入计，这一轮没点到也不退。账单对得上整份目录，对不上聊天框里那个短名字。回传的字符串是下一次输入。</p>
               <span class="carousel-meta"><time datetime="2026-11-02T09:59:00+08:00">2026-11-02 09:59:00</time><a class="carousel-more" href="/articles/overseas-ai-tool-schema-bills-unused.html">阅读全文 →</a></span>
             </div>
 
             <div class="carousel-slide-info" hidden data-index="3">
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--gold">阶梯计费</span></span>
-              <h2 class="carousel-title"><a href="/articles/domestic-ai-multiturn-history-tier-jump.html">历史跟着走，为什么这一轮整单按高档计？</a></h2><p class="carousel-desc">历史跟着这一轮走。过了分档线，整单按高档计，不是只加超出的一截。</p>
+              <h2 class="carousel-title"><a href="/articles/domestic-ai-multiturn-history-tier-jump.html">历史跟着走，为什么这一轮整单按高档计？</a></h2><p class="carousel-desc">接口不存历史，这一轮要把前文自己贴回去，贴回去就重新按输入计。过了分档线，整单按高档计，不是只给超出的那截加价。</p>
               <span class="carousel-meta"><time datetime="2026-10-30T17:47:00+08:00">2026-10-30 17:47:00</time><a class="carousel-more" href="/articles/domestic-ai-multiturn-history-tier-jump.html">阅读全文 →</a></span>
             </div>
 
             <div class="carousel-slide-info" hidden data-index="4">
               <span class="carousel-tag-row"><span class="archive-tag archive-tag--steel">多轮输入</span></span>
-              <h2 class="carousel-title"><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></h2><p class="carousel-desc">链上已有输入这一轮仍计。store 只决定留存。新打的几个字不是账单。</p>
+              <h2 class="carousel-title"><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></h2><p class="carousel-desc">即使用了上一笔的编号，链上已有的输入这一轮仍计。store 只决定留不留存。新打的那几个字不是这张账单。</p>
               <span class="carousel-meta"><time datetime="2026-10-28T15:36:00+08:00">2026-10-28 15:36:00</time><a class="carousel-more" href="/articles/overseas-ai-chained-input-still-bills.html">阅读全文 →</a></span>
             </div>
 
@@ -1044,7 +1044,7 @@
         </div>
         <aside class="hotpicks" aria-label="热门精选">
           <p class="hotpicks-title">热门精选</p>
-          <ol class="hotpicks-list"><li class="hotpicks-item"><span class="hotpicks-num">1</span><div class="hotpicks-body"><a href="/articles/domestic-ai-training-cancel-still-bills.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">你取消了训练，为什么已消耗的token还在扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">取消按已消耗token计。其他中断不计训练费。部署要到运行中才另计。</span><span class="hotpicks-item-date">2026-10-26 16:34:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">2</span><div class="hotpicks-body"><a href="/articles/overseas-ai-file-search-idle-storage.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">文件没人搜，向量库为什么还在按天扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">零查询也按天计存储。调用费另计，检索到的文本再按输入计。</span><span class="hotpicks-item-date">2026-10-23 16:05:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">3</span><div class="hotpicks-body"><a href="/articles/domestic-ai-batch-half-price-thinking.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">批量写着半价，为什么成功行还是不便宜？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">成功行按实时价一半计。默认思考仍按输出计，结果文件还不带回思考。</span><span class="hotpicks-item-date">2026-10-23 11:38:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">4</span><div class="hotpicks-body"><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">答案很短，推理token为什么还按输出价扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">推理token按输出价计，屏幕上看不到也扣。上限把推理和可见输出算在一起，用完可以没有正文。</span><span class="hotpicks-item-date">2026-10-22 15:20:00</span></span></span></a></div></li></ol>
+          <ol class="hotpicks-list"><li class="hotpicks-item"><span class="hotpicks-num">1</span><div class="hotpicks-body"><a href="/articles/domestic-ai-training-cancel-still-bills.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">你取消了训练，为什么已消耗的token还在扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">控制台点取消之后，已经消耗的 token 仍会计费，停掉的只是后半段。平台自己中断，或数据量不足导致失败，训练费不收。部署要变成运行中，才另外计费。</span><span class="hotpicks-item-date">2026-10-26 16:34:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">2</span><div class="hotpicks-body"><a href="/articles/overseas-ai-file-search-idle-storage.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">文件没人搜，向量库为什么还在按天扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">当天没有人搜索，只要全部向量库合计超过免费的 1GB，存储仍按天计。拆成多个小库不会把这份免费额度变成多份。调用费另计，检索到的文本再按输入计。</span><span class="hotpicks-item-date">2026-10-23 16:05:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">3</span><div class="hotpicks-body"><a href="/articles/domestic-ai-batch-half-price-thinking.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">批量写着半价，为什么成功行还是不便宜？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">半价只落在成功的行上，输入和输出按实时价的一半计。文件失败和没轮到的行不收费。qwen3 几系默认开思考，结果文件还不带回思考。</span><span class="hotpicks-item-date">2026-10-23 11:38:00</span></span></span></a></div></li><li class="hotpicks-item"><span class="hotpicks-num">4</span><div class="hotpicks-body"><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html"><span class="hotpicks-item-text"><span class="hotpicks-item-title">答案很短，推理token为什么还按输出价扣？</span><span class="hotpicks-item-meta"><span class="hotpicks-item-desc">推理 token 按输出价计，屏幕上看不到也扣。明细是总量里的一部分，不要和总量再加一次。上限把推理和可见输出算在一起，用完可以没有正文。</span><span class="hotpicks-item-date">2026-10-22 15:20:00</span></span></span></a></div></li></ol>
         </aside>
       </section>
       <section class="post-list" aria-label="最新文章">
