@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-speech-character-two-rulers.html': '2026-11-05 10:55:00',
+    '/en/articles/speech-hanzi-counts-twice.html': '2026-11-05 10:55:00',
     '/articles/overseas-ai-refusal-before-output-bills.html': '2026-11-04 10:30:50',
     '/en/articles/refusal-before-output-still-bills.html': '2026-11-04 10:30:50',
     '/articles/domestic-ai-parse-extract-separate-meter.html': '2026-11-03 14:50:00',

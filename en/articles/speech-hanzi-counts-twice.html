@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does one speech API count a hanzi twice?</title>
+  <meta name="description" content="Bailian CosyVoice reports usage.characters, not tokens and not seconds of audio. The documented sample sentence returns 15. The two rulers do not add.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/speech-hanzi-counts-twice.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/speech-hanzi-counts-twice.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why does one speech API count a hanzi twice?">
+  <meta property="og:description" content="Bailian CosyVoice reports usage.characters, not tokens and not seconds of audio. The documented sample sentence returns 15. The two rulers do not add.">
+  <meta property="og:url" content="https://ponr.org/en/articles/speech-hanzi-counts-twice.html">
+  <meta property="article:published_time" content="2026-11-05T10:55:00+08:00">
+  <meta property="article:modified_time" content="2026-11-05T10:55:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Speech">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why does one speech API count a hanzi twice?">
+  <meta name="twitter:description" content="Bailian CosyVoice reports usage.characters, not tokens and not seconds of audio. The documented sample sentence returns 15. The two rulers do not add.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A scale with one hanzi on the left and two units on the right, sealed 15">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#webpage",
+      "url": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html",
+      "name": "Why does one speech API count a hanzi twice?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-05T10:55:00+08:00",
+      "dateModified": "2026-11-05T10:55:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why does one speech API count a hanzi twice?", "item": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why does one speech API count a hanzi twice?",
+      "description": "Bailian CosyVoice reports usage.characters, not tokens and not seconds of audio. The documented sample sentence returns 15. The two rulers do not add.",
+      "image": "https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-05T10:55:00+08:00",
+      "dateModified": "2026-11-05T10:55:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Speech",
+      "keywords": ["AI access", "Alibaba Cloud Model Studio", "CosyVoice", "speech synthesis", "billed characters", "Intelligent Speech Interaction"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/speech-hanzi-counts-twice.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-speech-character-two-rulers.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why does one speech API count a hanzi twice?</h1>
+          <p class="article-summary">Bailian CosyVoice bills usage.characters, per ten thousand characters on the model page, not tokens and not seconds of audio. The documented sample sentence returns 15. Intelligent Speech Interaction counts one hanzi as two characters, then bundles each 100 into one speech-synthesis call. The two rulers do not add. SSML tags are excluded on the ISI side. A text model's free tokens do not pay this column.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-05T10:55:00+08:00">2026-11-05 10:55:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-05</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-speech-character-two-rulers-en.svg" width="800" height="400" alt="A scale with one hanzi on the left and two units on the right, sealed 15" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check this call</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>Read <code>usage.characters</code> on this response. It is not the chat model's tokens and not the length of the mp3. A sentence-end count is cumulative. Do not add it on top of the final usage.</li>
+                <li><span class="article-verify-check">✓</span>See whether the request hit Bailian's SpeechSynthesizer or an Intelligent Speech Interaction appkey. ISI counts one hanzi as two characters, then each 100 as one call.</li>
+                <li><span class="article-verify-check">✓</span>With SSML on, ISI does not count the tags. Bailian does not state that same sentence. Reconcile to the characters it returns, not to the byte length of the markup.</li>
+                <li><span class="article-verify-check">✓</span><code>hot_fix</code> replacement text is what gets spoken. Markdown filtering exists only for cosyvoice-v3-flash cloned voices. It changes what is read aloud. The bill still follows characters.</li>
+                <li><span class="article-verify-check">✓</span>Free quota covers realtime inference in China (Beijing) only. A text model's token balance does not pay speech. Singapore has no new-user free quota.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The field is characters, not tokens or seconds</h2>
+              <p>On the <a href="https://help.aliyun.com/zh/model-studio/cosyvoice-tts-http-api" target="_blank" rel="noopener">Bailian CosyVoice HTTP API</a>, <code>usage.characters</code> is the number of billable characters in the request. In a stream, <code>sentence-end</code> returns the sentence text and the cumulative billed character count. The documented sentence, the one about a large garden behind the house, comes back as 15 in the non-streaming result, in the streaming intermediate result, and in the final result. That 15 is the value the page prints. It is not a glyph count you are free to overwrite. Across several sentences the figure on sentence-end is cumulative. The final <code>usage.characters</code> is already the request total. Adding each cumulative figure on top of it counts the same characters again.</p>
+              <p>The model page prices speech synthesis per ten thousand characters, with a separate row per model and per region. China (Beijing) and Singapore are not the same row. Unit prices stay on that page and in the console. This article does not freeze one day's number into a standing rate. Speech rate, pitch, sample rate and volume are request parameters. They do not appear in usage. Matching the mp3's duration against this column matches a different ledger. The audio URL lasts 24 hours. A download that fails after that is not a second synthesis. A second API call is.</p>
+              <p>On the Intelligent Speech Interaction price table, Alibaba Cloud Model Studio speech models sit under speech recognition and bill by audio duration. That row is not CosyVoice synthesis. Recognition by the second and synthesis by the character can land on the same cloud account. They do not collapse into one line because both are about voice.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. The other API counts a hanzi as two</h2>
+              <p>The <a href="https://help.aliyun.com/zh/isi/product-overview/pricing" target="_blank" rel="noopener">ISI billing items</a> turn speech-synthesis calls into UTF-8 character counts. Up to 100 characters, including 100, is one call. Every further 100 adds a call. One request accepts at most 300 characters. One hanzi counts as two characters. A Latin letter and a full-width or half-width punctuation mark count as one. SSML tags are not counted. The page's own examples: 102 characters are two calls, 201 characters are three. On the same table, long-text synthesis is billed by synthesized character count, a different row from the per-call service.</p>
+              <p>The <a href="https://help.aliyun.com/zh/isi/user-guide/siso-text-to-speech-synthesis-for-cosyvoice-interface-description" target="_blank" rel="noopener">CosyVoice streaming interface</a> reports <code>payload.measureLength</code> on <code>SynthesisCompleted</code>. The rule is the same: one hanzi is two characters, and one letter, punctuation mark, or space inside a sentence is one. A single synthesis in a session stays within 10,000 characters, and the session total stays within 200,000. This path is commercial only. There is no trial. The completion event reports a character measure, not a call count that has already been bundled. Whether the invoice shows calls or character totals depends on which billing row the service uses. Do not treat measureLength as a call count that has already been divided by 100.</p>
+              <p>The same Chinese passage can therefore be characters 15 on the Bailian sample and, on the ISI side, a hanzi doubled before it is bundled into calls of 100. The Bailian API page does not define a hanzi as two characters in that sentence. Reconcile Bailian to the 15 it returns. Do not multiply the text you sent by ISI's two and then edit the Bailian bill. The numbers do not add, and one of them does not estimate the other. First check whether the request hit Bailian's SpeechSynthesizer or an ISI project appkey.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Tags, replacements and filters change the text that is spoken</h2>
+              <p>Bailian SSML requires <code>enable_ssml</code> set to true, with the body rewritten as markup. ISI states that the tags themselves are not characters. Only the text to be spoken counts. Bailian does not write that as the same rule. The characters it returns are the number it stands behind. A long tag string is not a reason to bill the tag bytes. A short tag string is not a reason to subtract the markup yourself.</p>
+              <p>Bailian's <code>hot_fix.replace</code> swaps a word for another string before synthesis. The page says the replacement is what actually gets synthesized. The word you typed and the word that is spoken can differ. A pronunciation hint changes the reading. It does not send the pinyin letters off to be read as text. Reconcile to the returned characters. Do not edit that field with the length from before the replacement, and do not assume the swap always lengthens or shortens the bill.</p>
+              <p>Markdown filtering is available only for cloned voices on cosyvoice-v3-flash. When it is on, markup is stripped before synthesis so hash marks and asterisks are not read aloud. What changes is the reading. The bill still follows characters. Do not assume an asterisk is free, or that it is always billed as typed. v2 does not support this hot fix. Cloned voices on the other models do not get this Markdown switch. A missing switch does not mean the symbols disappear the way you hoped.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. Free quota does not pay this from the token pool</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/new-free-quota" target="_blank" rel="noopener">Bailian's new-user free quota</a> exists only in China (Beijing), and only after real-name verification. It lasts 90 days from the later of account opening, model release, or an approved application. Not using it does not pause the clock. What remains at expiry is void. It is not reissued, extended, or reset. A second account under the same verified entity does not receive another grant. The quota covers realtime model inference only. Batch, tuning, deployment, custom models, PAI-DSW and OSS are outside it. Models do not share. A dated snapshot and the latest alias are two models, and exhausting one does not switch you to the other. The main account and its RAM users share one balance.</p>
+              <p>The page describes that balance as tokens, with input and output drawing on the same pool. Speech synthesis on the model page is per ten thousand characters, not that token pool. Whatever a text model still has left does not pay this column. Singapore has no new-user free quota. The order of payment is free quota, then resource packs, then savings plans, then pay as you go. A Token Plan or Coding Plan key does not spend the free quota. It bills immediately. The console figure refreshes on the order of a minute, and only after you reload it. With stop-when-exhausted on, calls stop when the quota is gone. With it off, a call already in flight is not cut, and the overflow is pay as you go. Those switches are the same ones in <a href="/en/articles/free-quota-ends-payg-starts.html">the free-quota article</a>. They are not a formula for speech characters.</p>
+              <p>Built-in web search bills per call, which is <a href="/en/articles/web-search-bills-beside-tokens.html">the search article</a>. A knowledge base bills by the hour from the moment it is created, which is <a href="/en/articles/rag-knowledge-base-still-bills.html">the knowledge-base article</a>. All three can show up next to this request's characters. Search calls, knowledge-base hours and speech characters do not collapse into one token line because a model was involved.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not shorten the character count</h2>
+              <p>Reconcile by the interface this call actually used. On Bailian, read the returned characters, do not add a cumulative stream figure a second time, and do not look for speech rate or sample rate in that object. A URL that dies after 24 hours is not a new charge. On the ISI side, read measureLength with the hanzi-as-two ruler, then see whether the invoice row is calls bundled at 100 characters or the long-text row billed by synthesized characters. SSML tags are excluded on the ISI side. Replacement and Markdown filtering change the text that enters the engine. They do not change the rule that the returned figure is the one to reconcile. Free quota covers Beijing realtime inference only. A text model's tokens stay on that model.</p>
+              <p>Topping up the Alibaba Cloud account happens before these columns are charged. Swapping a stablecoin on-chain for an asset you can pay the account with does not turn a hanzi from two characters into one, and it does not let a text model's tokens pay the speech column. When that swap is the step you need, a no-signup, non-custodial exchange on <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> moves the asset. A completed swap only means the asset changed hands. The characters still follow what this call returned.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Characters, not seconds</a></li>
+              <li><a href="#sec-2">A hanzi counts as two</a></li>
+              <li><a href="#sec-3">Tags change the text</a></li>
+              <li><a href="#sec-4">Tokens do not pay this</a></li>
+              <li><a href="#sec-5">A top-up changes nothing</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/cosyvoice-tts-http-api" target="_blank" rel="noopener nofollow">Model Studio: CosyVoice HTTP API</a> — usage.characters is the billable count for the request. Sentence-end returns the cumulative count. The sample sentence returns 15. The audio URL lasts 24 hours. Replacement text is what gets synthesized.</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/cosyvoice-v3-flash" target="_blank" rel="noopener nofollow">Model Studio: cosyvoice-v3-flash</a> — Speech synthesis is priced per ten thousand characters, with a row per model and region. The unit price stays on that page.</li>
+              <li><a href="https://help.aliyun.com/zh/isi/product-overview/pricing" target="_blank" rel="noopener nofollow">Intelligent Speech Interaction: billing items</a> — One hanzi is two characters. SSML tags are excluded. One hundred characters is one call, and each further hundred adds a call. Long text is a separate row.</li>
+              <li><a href="https://help.aliyun.com/zh/isi/user-guide/siso-text-to-speech-synthesis-for-cosyvoice-interface-description" target="_blank" rel="noopener nofollow">Intelligent Speech Interaction: CosyVoice streaming</a> — measureLength counts a hanzi as two. One synthesis stays within 10,000 characters, and a session within 200,000. This path is commercial only.</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/new-free-quota" target="_blank" rel="noopener nofollow">Model Studio: new-user free quota</a> — Beijing only, real-name required, 90 days that do not pause. Realtime inference only. Models do not share. A plan-specific API key skips the free quota.</li>
+            </ul><p class="ref-note">Sources checked on 5 November 2026. Treating the two character counts as different rulers is this site's reconciliation order, not a vendor promise. Unit prices, free quota and character rules follow each document and the console.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/free-quota-ends-payg-starts.html">Why Bailian Keeps Charging After Free Tokens Run Out</a></li>
+          <li><a href="/en/articles/web-search-bills-beside-tokens.html">The Model Bill Matches. Search Still Charges.</a></li>
+          <li><a href="/en/articles/rag-knowledge-base-still-bills.html">Chat Stopped, Knowledge Base Still Bills</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=191941c7b0"></script>
+</body>
+</html>

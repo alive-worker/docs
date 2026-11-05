@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[语音按字符计，为什么汉字在另一套接口里要算两次？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html</guid>
+    <pubDate>Thu, 05 Nov 2026 10:55:00 +0800</pubDate>
+    <category>语音合成</category>
+    <description><![CDATA[百炼按 characters 计，示例返回 15。交互侧一个汉字计两个，再按一百个折成一次调用。]]></description>
+  </item>
+  <item>
     <title><![CDATA[有的拒答一个字还没出，这笔调用已经入账]]></title>
     <link>https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-refusal-before-output-bills.html</guid>

@@ -7,6 +7,14 @@
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
   <item>
+    <title><![CDATA[Why does one speech API count a hanzi twice?]]></title>
+    <link>https://ponr.org/en/articles/speech-hanzi-counts-twice.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/speech-hanzi-counts-twice.html</guid>
+    <pubDate>Thu, 05 Nov 2026 10:55:00 +0800</pubDate>
+    <category>Speech</category>
+    <description><![CDATA[Bailian bills characters. The sample returns 15. The other API counts one hanzi as two, then each 100 as a call.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Some Refusals Bill Before a Single Token]]></title>
     <link>https://ponr.org/en/articles/refusal-before-output-still-bills.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/refusal-before-output-still-bills.html</guid>

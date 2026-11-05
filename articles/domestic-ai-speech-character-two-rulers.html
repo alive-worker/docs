@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>语音按字符计，为什么汉字在另一套接口里要算两次？</title>
+  <meta name="description" content="百炼 CosyVoice 返回的用量是 characters，不是 token，也不是音频秒数。官方示例那句中文是 15。智能语音交互把一个汉字计为两个有效字符，字母和标点计一个，再按每一百个字符折成一次调用。两套数字不能相加。交互侧的 SSML 标签不计。文本模型的免费 token 抵不了语音这一列。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/speech-hanzi-counts-twice.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="语音按字符计，为什么汉字在另一套接口里要算两次？">
+  <meta property="og:description" content="百炼 CosyVoice 返回的用量是 characters，不是 token，也不是音频秒数。官方示例那句中文是 15。智能语音交互把一个汉字计为两个有效字符，字母和标点计一个，再按每一百个字符折成一次调用。两套数字不能相加。交互侧的 SSML 标签不计。文本模型的免费 token 抵不了语音这一列。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html">
+  <meta property="article:published_time" content="2026-11-05T10:55:00+08:00">
+  <meta property="article:modified_time" content="2026-11-05T10:55:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="语音合成">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="语音按字符计，为什么汉字在另一套接口里要算两次？">
+  <meta name="twitter:description" content="百炼 CosyVoice 返回的用量是 characters，不是 token，也不是音频秒数。官方示例那句中文是 15。智能语音交互把一个汉字计为两个有效字符，字母和标点计一个，再按每一百个字符折成一次调用。两套数字不能相加。交互侧的 SSML 标签不计。文本模型的免费 token 抵不了语音这一列。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一杆秤，汉字在另一端叠成两格，圆章写着 15">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html",
+      "name": "语音按字符计，为什么汉字在另一套接口里要算两次？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-05T10:55:00+08:00",
+      "dateModified": "2026-11-05T10:55:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "语音按字符计，为什么汉字在另一套接口里要算两次？", "item": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "语音按字符计，为什么汉字在另一套接口里要算两次？",
+      "description": "百炼 CosyVoice 返回的用量是 characters，不是 token，也不是音频秒数。官方示例那句中文是 15。智能语音交互把一个汉字计为两个有效字符，字母和标点计一个，再按每一百个字符折成一次调用。两套数字不能相加。交互侧的 SSML 标签不计。文本模型的免费 token 抵不了语音这一列。",
+      "image": "https://ponr.org/img/cover-domestic-ai-speech-character-two-rulers.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-05T10:55:00+08:00",
+      "dateModified": "2026-11-05T10:55:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "语音合成",
+      "keywords": ["AI服务", "阿里云百炼", "CosyVoice", "语音合成", "计费字符", "智能语音交互"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/speech-hanzi-counts-twice.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>语音按字符计，为什么汉字在另一套接口里要算两次？</h1>
+          <p class="article-summary">百炼 CosyVoice 的用量字段是 characters，模型页按每万字符计，不按 token，也不按音频秒数。接口示例里那句中文返回 15。智能语音交互把一个汉字计为两个有效字符，字母、标点和句中空格计一个，语音合成再按每一百个字符折成一次调用。两套字符不能相加。交互侧的 SSML 标签不计。文本模型的免费 token 抵不了语音这一列。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-05T10:55:00+08:00">2026-11-05 10:55:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-05</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-speech-character-two-rulers.svg" width="800" height="400" alt="一杆秤，汉字在另一端叠成两格，圆章写着 15" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先看这次返回的 <code>usage.characters</code>。它不是聊天模型的 token，也不是 mp3 的秒数。流式里句子结束带回的是累计字符，不要和最终用量再加一次。</li>
+                <li><span class="article-verify-check">✓</span>确认请求打到百炼的 SpeechSynthesizer，还是智能语音交互的 appkey。交互侧一个汉字计两个有效字符，语音合成再按一百个字符折成一次调用。</li>
+                <li><span class="article-verify-check">✓</span>开了 SSML 时，交互侧的标签本身不计。百炼没有写成同一句话，对账仍用它返回的 characters，不要用标签的字节长度去改。</li>
+                <li><span class="article-verify-check">✓</span><code>hot_fix</code> 的替换文本才是实际合成内容。Markdown 过滤只在 cosyvoice-v3-flash 的复刻音色上提供，滤掉的是朗读，账单仍看 characters。</li>
+                <li><span class="article-verify-check">✓</span>免费额度只抵华北2（北京）的实时推理。文本模型的 token 余额抵不了语音这一列。新加坡没有这份免费额度。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 返回的是字符，不是 token，也不是秒</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/cosyvoice-tts-http-api" target="_blank" rel="noopener">百炼非实时语音合成 HTTP 接口</a>的返回里，<code>usage.characters</code> 写的是本次请求中计费的有效字符数。流式时，<code>sentence-end</code> 带回句子文本和累计的计费字符数。文档给的那句「我家的后面有一个很大的花园。」在非流式结果、流式中间结果和最终结果里，characters 都是 15。这是接口写明的返回值，不是你肉眼再数一遍以后可以改掉的字数。多句的时候，句子结束事件上的数是累计。最终的 <code>usage.characters</code> 已经是这一次请求的总量，不要把每一句的累计再加到总量上。</p>
+              <p>模型页把这一项标成语音合成，单位是每万字符。不同模型各有一行，华北2（北京）和新加坡也不是同一行。具体单价以模型页和控制台为准，这里不把某一天的数字写成长期价格。语速、音调、采样率、音量写在请求参数里，不出现在 usage 里。把生成出来的 mp3 时长拿去对这列，对的是另一本账。音频 URL 有效期 24 小时。链接过期以后下载失败，不等于又合成了一次。再调一次接口，才会再记一笔 characters。</p>
+              <p>同一张智能语音交互的计费项表里，「阿里云百炼语音模型服务」写在语音识别下面，按语音时长计。那一列不是 CosyVoice 合成的字符。识别按秒，合成按字符，两笔可以出在同一个云账号上，不能收成「语音相关，所以应该只付时长」。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 另一套接口把汉字计成两个</h2>
+              <p><a href="https://help.aliyun.com/zh/isi/product-overview/pricing" target="_blank" rel="noopener">智能语音交互的计费项</a>把语音合成的调用次数按每次请求传入的 UTF-8 字符数折算。一百个字符以内，含一百个，记为一次。每再超出一百个字符，增加一次。单次请求最多传入三百个字符。一个汉字算两个有效字符，英文字母、全角和半角标点算一个，SSML 标签不计入。页面自己的例子是：102 个字符记为两次，201 个字符记为三次。同一张表上，长文本语音合成的计费单元写成合成字数，和按次数的那一行不是同一列。</p>
+              <p><a href="https://help.aliyun.com/zh/isi/user-guide/siso-text-to-speech-synthesis-for-cosyvoice-interface-description" target="_blank" rel="noopener">CosyVoice 流式接口</a>在 <code>SynthesisCompleted</code> 里用 <code>payload.measureLength</code> 报这次的字符计量，口径同样是一个汉字计为两个字符，一个英文字母、标点或句子中间的空格计为一个字符。同一会话里，单次合成不超过一万字符，累计不超过二十万字符。这一路只提供商用版，不支持试用。完成事件报的是字符计量，不是直接的调用次数。你在账单上看到的是次数还是字数，先对计费项里的那一行，不要把 measureLength 当成已经折好的次数。</p>
+              <p>所以同一段中文，百炼示例给的是 characters 15，交互侧会先把汉字乘二，再按一百个去折调用次数。百炼的接口页没有把「一个汉字等于几个字符」写成和交互侧同一句话，对账用它返回的 15，不要用交互侧的两倍去乘你提交的文本，再拿去改百炼的账单。两套数字不能相加，也不能用其中一套估算另一套。先确认请求打到的是百炼的 SpeechSynthesizer，还是智能语音交互的项目 appkey。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 标签、替换和过滤改的是送进去的文本</h2>
+              <p>百炼要使用 SSML，必须把 <code>enable_ssml</code> 设为 true，正文换成标记。交互侧写明标签本身不计字符，只计要合成的文本。百炼没有把这句写成同一条规则。返回的 characters 才是它认的数。标签很长，不代表这一笔就按标签的字节计。标签很短，也不代表可以自己把标记从字数里扣掉。</p>
+              <p>百炼的 <code>hot_fix.replace</code> 在合成前把指定词换成目标文本，文档写替换后的文本才是实际合成内容。你提交的原词和读出来的词可以不是同一串。拼音标注改的是读音，不是把拼音字母再送去朗读。对账仍以返回的 characters 为准，不要用替换前的字数去改它，也不要假定替换一定让字符变多或变少。</p>
+              <p>Markdown 过滤只在 cosyvoice-v3-flash 的复刻音色上提供。打开以后，合成前会滤掉标记符号，避免把井号和星号读出来。滤掉的是朗读。账单仍看 characters，不要假设星号一定免费，或一定按原文照单全收。v2 不支持这段热修复。别的模型的复刻音色没有这个 Markdown 开关。开关不在，不代表那些符号会按你希望的方式消失。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 免费额度对不上旁边的 token</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/new-free-quota" target="_blank" rel="noopener">百炼新人免费额度</a>只给华北2（北京），开通前要完成实名，否则不发。有效期 90 天，从开通、模型发布或申请通过里较晚的那天起算，不用也不会暂停。到期剩余作废，不补发、不延期、不重置。同一实名主体再注册一个账号，领不到第二份。额度只抵模型实时推理。批量调用、调优、部署、自定义模型、PAI-DSW 和 OSS 不在里面。不同模型的额度不互通，带日期的快照和最新版是两个模型，用尽一个不会自动切到另一个。主账号和 RAM 子账号共用一份。</p>
+              <p>页面说的额度通常是 token，输入和输出共用。语音合成在模型页上是每万字符，不是那一池 token。文本模型还剩多少，抵不了这一列。新加坡没有这份免费额度。抵扣顺序是免费额度、资源包、节省计划，然后才是按量。Token Plan 或 Coding Plan 的专属 API Key 不消耗免费额度，会直接按量。控制台剩余量是分钟级，要手动刷新。开了用完即停，额度尽了就停。没开，进行中的调用不会被掐断，超出的部分按量后付。这些规则和<a href="/articles/domestic-ai-free-quota-payg-switch.html">模型免费额度那篇</a>是同一本账的开关，不是语音字符的计算公式。</p>
+              <p>联网搜索按次另计，是<a href="/articles/domestic-ai-web-search-separate-meter.html">搜索那篇</a>。知识库从创建起按规格小时走，是<a href="/articles/domestic-ai-knowledge-base-idle-billing.html">知识库那篇</a>。三列都可以和这次的 characters 同时出现。搜索次数、知识库小时、语音字符，不能收成「已经在调一个模型，所以只付 token」。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这些字符</h2>
+              <p>对账按这一次实际走的接口分列。百炼看返回的 characters，流式不要把累计数再加一次，语速和采样率不在这列里，24 小时后的链接失效也不是新的一笔。交互侧先用汉字计二的那把尺子读 measureLength，再看账单上是按一百个字符折成的调用次数，还是长文本那一行的合成字数。SSML 标签在交互侧不计。替换和 Markdown 过滤改的是送进引擎的文本，不改「以返回值为准」这一条。免费额度只抵北京的实时推理，文本模型的 token 余额单独留在它自己的模型上。</p>
+              <p>给阿里云账户充值，发生在这些列扣款之前。链上把稳定币换成能充进账户的资产，不会把汉字从两个有效字符改成一个，也不会让文本模型的 token 去付语音这一列。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。字符仍按这次接口返回的量计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">用量是字符不是秒</a></li>
+              <li><a href="#sec-2">汉字在另一套里计两次</a></li>
+              <li><a href="#sec-3">标签和替换改文本</a></li>
+              <li><a href="#sec-4">免费额度对不上 token</a></li>
+              <li><a href="#sec-5">充值缩不短字符</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/cosyvoice-tts-http-api" target="_blank" rel="noopener nofollow">阿里云百炼：CosyVoice HTTP 接口</a> — usage.characters 是本次计费的有效字符数。句子结束带回累计字符。示例那句返回 15。音频 URL 有效期 24 小时。替换后的文本才是实际合成内容。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/cosyvoice-v3-flash" target="_blank" rel="noopener nofollow">阿里云百炼：cosyvoice-v3-flash</a> — 语音合成按每万字符计，模型与地域各有一行。具体单价以该页和控制台为准。</li>
+              <li><a href="https://help.aliyun.com/zh/isi/product-overview/pricing" target="_blank" rel="noopener nofollow">智能语音交互：计费项</a> — 一个汉字计为两个有效字符，SSML 标签不计。一百个字符以内一次调用，每再超出一百个加一次。长文本按合成字数，是另一行。</li>
+              <li><a href="https://help.aliyun.com/zh/isi/user-guide/siso-text-to-speech-synthesis-for-cosyvoice-interface-description" target="_blank" rel="noopener nofollow">智能语音交互：CosyVoice 流式接口</a> — measureLength 按汉字计二。单次不超过一万字符，会话累计不超过二十万。这一路只有商用版。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/new-free-quota" target="_blank" rel="noopener nofollow">阿里云百炼：新人免费额度</a> — 只给华北2（北京），要实名，90 天不暂停。只抵实时推理。不同模型不互通。专属 API Key 不走免费额度。</li>
+            </ul><p class="ref-note">资料核验于2026年11月5日。两套字符不能相加，这一条是本站对账顺序，并非厂商效果承诺。单价、免费额度和字符口径以各文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-free-quota-payg-switch.html">实名过后，百炼免费额度用完为什么还会扣费？</a></li>
+          <li><a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a></li>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=191941c7b0"></script>
+</body>
+</html>
