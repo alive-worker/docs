@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[同一份语音文档，为什么有的按秒、有的按 token？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-voice-session-two-meters.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-voice-session-two-meters.html</guid>
+    <pubDate>Fri, 06 Nov 2026 09:35:00 +0800</pubDate>
+    <category>语音会话</category>
+    <description><![CDATA[Live 按会话秒数计，静音也算。Realtime 按 token 计，音频和文本是明细。转写另计。]]></description>
+  </item>
+  <item>
     <title><![CDATA[语音按字符计，为什么汉字在另一套接口里要算两次？]]></title>
     <link>https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-speech-character-two-rulers.html</guid>

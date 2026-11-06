@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why is one voice API billed in seconds, the other in tokens?</title>
+  <meta name="description" content="GPT-Live bills seconds, silence included. The 15-second setup is already in that duration. Realtime bills tokens per Response. Audio and text sit in the total.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why is one voice API billed in seconds, the other in tokens?">
+  <meta property="og:description" content="GPT-Live bills seconds, silence included. The 15-second setup is already in that duration. Realtime bills tokens per Response. Audio and text sit in the total.">
+  <meta property="og:url" content="https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html">
+  <meta property="article:published_time" content="2026-11-06T09:35:00+08:00">
+  <meta property="article:modified_time" content="2026-11-06T09:35:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Voice session">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why is one voice API billed in seconds, the other in tokens?">
+  <meta name="twitter:description" content="GPT-Live bills seconds, silence included. The 15-second setup is already in that duration. Realtime bills tokens per Response. Audio and text sit in the total.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-voice-session-two-meters-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="An open session arc that still contains the silence, with a token slip outside it">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-voice-session-two-meters-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-voice-session-two-meters-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#webpage",
+      "url": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html",
+      "name": "Why is one voice API billed in seconds, the other in tokens?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-06T09:35:00+08:00",
+      "dateModified": "2026-11-06T09:35:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why is one voice API billed in seconds, the other in tokens?", "item": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why is one voice API billed in seconds, the other in tokens?",
+      "description": "GPT-Live bills seconds, silence included. The 15-second setup is already in that duration. Realtime bills tokens per Response. Audio and text sit in the total.",
+      "image": "https://ponr.org/img/cover-overseas-ai-voice-session-two-meters-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-06T09:35:00+08:00",
+      "dateModified": "2026-11-06T09:35:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Voice session",
+      "keywords": ["AI access", "OpenAI", "GPT-Live", "Realtime API", "voice billing", "audio tokens"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-voice-session-two-meters.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why is one voice API billed in seconds, the other in tokens?</h1>
+          <p class="article-summary">OpenAI puts two voice meters on one cost page. GPT-Live bills the seconds a session stays open: the user speaking, the assistant speaking, both silent, and the backend still working. Creating a WebRTC session bills 15 seconds, and a running session already includes them. The Realtime API bills input and output tokens when a Response is created. Text, audio and image are details inside those totals. Input transcription uses another rate card. A later turn sends the previous turn's output back in as input.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-06T09:35:00+08:00">2026-11-06 09:35:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-06</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-voice-session-two-meters-en.svg" width="800" height="400" alt="An open session arc that still contains the silence, with a token slip outside it" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check this call</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>See whether this session is GPT-Live or the Realtime API. Live reconciles to the final <code>usage.seconds</code>. Realtime reconciles to the tokens on each <code>response.done</code>.</li>
+                <li><span class="article-verify-check">✓</span>Live <code>session.usage.updated</code> is a cumulative snapshot. The next one replaces the last. Do not add the pushes together. After close, record <code>session.closed</code> once.</li>
+                <li><span class="article-verify-check">✓</span>Creating a WebRTC session bills 15 seconds. Once the session is running, those seconds are already in the duration. Do not add them again. Count the create charge for reconnects and for sessions opened before anyone speaks.</li>
+                <li><span class="article-verify-check">✓</span>Audio, text and image on a Realtime Response are details inside the input or output total. Cached tokens are a subset of input. Do not add a transcription event on top of that Response.</li>
+                <li><span class="article-verify-check">✓</span>A later turn's input includes the previous turn's output. Changing instructions or tools mid-session breaks the cache back to the edit. Truncation drops the oldest items and the cache near the start.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. One page, two voice meters</h2>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/voice-latency-cost" target="_blank" rel="noopener">cost page</a> describes GPT-Live first and the Realtime API second. They do not share a ruler. Live splits the voice session from the backend that reasons and runs tools: voice is seconds, the backend is the models and tools you actually call. A conversational Realtime session bills input and output tokens on each Response, across text, audio and image. Streaming translation and streaming transcription do not use that Response lifecycle. They bill by audio duration. Unit prices stay on the model pages. This article does not freeze one day's number into a standing rate.</p>
+              <p>The word realtime is easy to merge with the wrong product. In <a href="/en/articles/batch-api-half-price-vs-realtime.html">the batch article</a>, realtime means the synchronous API next to the half-price batch window, not this voice session. Domestic speech synthesis bills characters, which is <a href="/en/articles/speech-hanzi-counts-twice.html">another ruler</a>. Reconcile by whether the call was a Live session, a Realtime Response, or a separate transcription or translation stream.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Silence still spends seconds while the session is open</h2>
+              <p>GPT-Live voice is billed per second at the current model rate. The page says duration is not rounded up to the next minute. Active time includes the user speaking, the assistant speaking, both sides silent, and the backend still working. For an estimate, count from start through closure, and use the duration the API reports rather than only the audio you played locally. Muting the microphone does not close the session. When the conversation is finished, close it and keep the final usage.</p>
+              <p>A <code>POST /v1/live/sessions</code> request bills 15 seconds while a WebRTC session initializes. Once the session is running, that amount is credited against the duration charges. The page's example is a 90-second session that already includes the 15 seconds. It is not billed as 105. Creating a session before the user is ready, or reconnecting over and over, has to include that create charge. The credit applies after the session starts running. Adding create and run as two full charges counts the same initialization twice.</p>
+              <p><code>session.usage.updated</code> reports cumulative <code>seconds</code>. Each update replaces the previous snapshot. Do not sum them. After <code>session.close</code>, keep reading events until <code>session.closed</code> and record that final figure once. Backend calls are a separate column from voice seconds. For delegated Responses, read nested <code>response.completed</code> events and count each response id once, keeping input, output and cached details for that model's rate card. Requests your application makes on its own belong in the backend column too. The page says to include speculative lookups that were never used. An unused result does not erase the call.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. The Realtime details are already inside the total</h2>
+              <p>Realtime cost accrues when a Response is created, and it is charged on input and output tokens. Input transcription is the exception, below. The page says there is currently no separate charge for network bandwidth or for the connection itself. That sentence is explicitly current. A Response can be created by hand, or automatically when voice activity detection is on. VAD filters out empty input audio, so empty audio does not count as input tokens unless the client adds it to the conversation manually.</p>
+              <p>Each turn sends the whole conversation. The output is added to the server Conversation and becomes input on the next turn, so later turns cost more. Audio in a user message is estimated at 1 token per 100 ms. Audio in an assistant message is 1 token per 50 ms. Counts also include special tokens beyond the content, so they drift a little from a count of the words alone. The page's example is a user message with 10 text tokens of content that may be recorded as 12.</p>
+              <p>The page walks two turns. Turn one is 100 instruction tokens plus 20 audio tokens from the user, 120 input in all. The Response then produces an assistant message of 20 audio tokens and 10 text tokens. Turn two adds another user audio message, which the page sets at 25 audio tokens. The conversation now holds the original instructions, the first user message, the first assistant output, and the new user audio. The page gives this turn 110 text tokens and 64 audio tokens of input, plus another assistant output. Messages from the first turn are likely to be cached on the second, which lowers input cost. Caching is best-effort. It is not guaranteed.</p>
+              <p>The numbers for one Response are on <code>response.done</code>. The sample usage is <code>total_tokens</code> 253, <code>input_tokens</code> 132, <code>output_tokens</code> 121. Input details are text 119, audio 13, image 0, of which 64 are cached, and all 64 of those cached tokens are text. Output details are text 30 and audio 91. 132 plus 121 is 253. 119 plus 13 is 132. 30 plus 91 is 121. The cached 64 is already inside the 132. Audio is not a column added outside the total. Adding a detail on top of the total bills the same turn twice.</p>
+              <p>If input transcription is enabled, the Realtime API bills it separately. It uses a different model and a different rate card from the speech-to-speech model. Committed-turn transcription uses <code>gpt-transcribe</code>, and it starts after audio is written to the input buffer and the buffer is committed. Read usage on <code>conversation.item.input_audio_transcription.completed</code>. The fields follow the model: <code>gpt-transcribe</code> is duration, and the sample is <code>type</code> duration with <code>seconds</code> 3. A transcription model billed by tokens returns token counts instead. Transcription runs beside Response creation, so either event may arrive first. Order does not make them one bill. Streaming translation and streaming transcription sessions themselves are also outside the Response lifecycle. Estimate them with the duration rate, not with per-turn tokens.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. The cache is not promised, and truncation cuts the front</h2>
+              <p>Realtime prompt caching is automatic, and across many turns it can cut input cost sharply. It applies when this Response's input tokens match a previous Response. That match is best-effort, not a promise. The way to raise the hit rate is to keep the session history still. Removing or editing a stretch of the conversation breaks the cache back to the change, because the prefix no longer matches as far. Instructions and tool definitions sit at the start. Changing them mid-session lowers the hit rate on every later turn.</p>
+              <p>When the conversation passes the model's input limit, it is truncated. The oldest messages are dropped and are not sent as input for that Response. The page says a 32k context model with a 4,096 output cap can hold 28,224 tokens of context before truncation. A client can set a smaller window. <code>token_limits.post_instructions</code> caps input other than the instructions. At 1,000, items past that limit are not sent. The default <code>retention_ratio</code> is 1.0, which drops only what is over the limit. At 0.8, a truncation keeps 80 percent of the maximum and drops an extra 20 percent, so the next truncation comes later. Truncating on every turn keeps breaking the cache near the start, and the hit rate stays low. Truncation can also be disabled. Disabled, a conversation that is too long to create a Response returns an error, which fits a client that manages length itself.</p>
+              <p>The client can also delete items. <code>conversation.item.delete</code> removes an old message, and <code>conversation.item.create</code> can put a summary in its place. The summary is new input. It is not a free compression. A mini model is cheaper on the rate card. The page puts the tradeoff on instruction following and function calling. Run the prompt on the larger model first, then try the mini. Both choices change what later turns replay. Neither one is the switch that stops a Live session from billing silence.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not shorten the seconds or the tokens</h2>
+              <p>Reconcile by the interface this session actually used. On Live, record the final seconds, silence and backend wait included, do not sum usage snapshots, and do not add the 15-second setup on top of a running duration. Backend models and tools are another column. On Realtime, record each Response: audio, text and image are details, cached tokens are a subset of input, and a later turn includes the previous output. If transcription or translation is its own duration bill, leave it off that Response. Whether the cache hit depends on whether the prefix was edited or truncated.</p>
+              <p>Topping up the account happens before these columns are charged. Swapping a stablecoin on-chain for an asset that can pay the account does not close an open session at zero seconds, and it does not lift the audio detail out of the total. When that swap is the step you need, a no-signup, non-custodial exchange on <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> moves the asset. A completed swap only means the asset changed hands. The seconds and the tokens still follow what this call returned.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Two meters on one page</a></li>
+              <li><a href="#sec-2">Silence still bills</a></li>
+              <li><a href="#sec-3">Details sit inside the total</a></li>
+              <li><a href="#sec-4">Cache and truncation</a></li>
+              <li><a href="#sec-5">A top-up changes nothing</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/voice-latency-cost" target="_blank" rel="noopener nofollow">OpenAI: voice cost and latency</a> — Live bills seconds, including silence. WebRTC setup bills 15 seconds that a running session already includes. Do not sum usage snapshots. Realtime bills tokens per Response. Transcription is separate.</li>
+              <li><a href="https://developers.openai.com/api/docs/models/gpt-realtime" target="_blank" rel="noopener nofollow">OpenAI: gpt-realtime</a> — Text and audio are separate price rows. The unit price stays on the model page.</li>
+              <li><a href="https://developers.openai.com/api/reference/resources/realtime/server-events" target="_blank" rel="noopener nofollow">OpenAI: Realtime server events</a> — Input transcription is a separate ASR pass. Usage is tokens or duration, on the transcription model's rate card.</li>
+            </ul><p class="ref-note">Sources checked on 6 November 2026. Treating the two voice meters as separate columns is this site's reconciliation order, not a vendor promise. Unit prices, cache hits and truncation windows follow the OpenAI docs and console.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/short-follow-up-still-bills-input.html">You Sent Continue. The Chain Still Bills.</a></li>
+          <li><a href="/en/articles/invisible-reasoning-still-bills.html">The Answer Is Short. Reasoning Still Bills.</a></li>
+          <li><a href="/en/articles/batch-api-half-price-vs-realtime.html">Same Model, Half Price If You Can Wait 24 Hours</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=3be33f12cf"></script>
+</body>
+</html>

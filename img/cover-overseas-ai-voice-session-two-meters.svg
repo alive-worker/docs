@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-label="一条没有合上的会话弧，静音仍在弧里，token 小条挂在外面">
+  <rect width="800" height="400" fill="#101612"/>
+  <text x="40" y="54" fill="#f4f0ea" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="28" font-weight="700">会话还开着</text>
+  <text x="760" y="46" text-anchor="end" fill="#9bb4a4" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700">AI服务指南</text>
+  <path d="M70 250 C 150 120, 250 110, 360 176" fill="none" stroke="#1f6b45" stroke-width="18" stroke-linecap="round"/>
+  <path d="M360 176 C 430 220, 470 150, 560 188" fill="none" stroke="#e2b15a" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 14"/>
+  <circle cx="86" cy="236" r="28" fill="#3a2c16" stroke="#e2b15a" stroke-width="3"/>
+  <text x="86" y="244" text-anchor="middle" fill="#f2d18a" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">15</text>
+  <text x="455" y="148" text-anchor="middle" fill="#f2d18a" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16">静音</text>
+  <rect x="640" y="168" width="78" height="132" rx="8" fill="#1c3a2c" stroke="#7dcea0" stroke-width="2"/>
+  <text x="679" y="214" text-anchor="middle" fill="#d7ead0" font-family="Segoe UI, sans-serif" font-size="13">text</text>
+  <text x="679" y="248" text-anchor="middle" fill="#f2d18a" font-family="Segoe UI, sans-serif" font-size="13">audio</text>
+  <text x="679" y="278" text-anchor="middle" fill="#9bb4a4" font-family="Segoe UI, sans-serif" font-size="12">in total</text>
+  <text x="40" y="360" fill="#9bb4a4" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16">创建的 15 秒已经在这条弧里。token 不在这条弧上。</text>
+</svg>

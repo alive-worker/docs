@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同一份语音文档，为什么有的按秒、有的按 token？</title>
+  <meta name="description" content="OpenAI 的语音费用页把 GPT-Live 按打开的会话秒数计，静音和后台工作都算。创建 WebRTC 先记 15 秒，跑起来后从时长里抵，不要再加。Realtime 按每次 Response 的 token 计，音频和文本是明细，缓存是输入的子集。转写另计。后一轮会把上一轮的输出重新当作输入。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="同一份语音文档，为什么有的按秒、有的按 token？">
+  <meta property="og:description" content="OpenAI 的语音费用页把 GPT-Live 按打开的会话秒数计，静音和后台工作都算。创建 WebRTC 先记 15 秒，跑起来后从时长里抵，不要再加。Realtime 按每次 Response 的 token 计，音频和文本是明细，缓存是输入的子集。转写另计。后一轮会把上一轮的输出重新当作输入。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-voice-session-two-meters.html">
+  <meta property="article:published_time" content="2026-11-06T09:35:00+08:00">
+  <meta property="article:modified_time" content="2026-11-06T09:35:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="语音会话">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="同一份语音文档，为什么有的按秒、有的按 token？">
+  <meta name="twitter:description" content="OpenAI 的语音费用页把 GPT-Live 按打开的会话秒数计，静音和后台工作都算。创建 WebRTC 先记 15 秒，跑起来后从时长里抵，不要再加。Realtime 按每次 Response 的 token 计，音频和文本是明细，缓存是输入的子集。转写另计。后一轮会把上一轮的输出重新当作输入。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-voice-session-two-meters.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一条没有合上的会话弧，静音仍在弧里，token 小条挂在外面">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-voice-session-two-meters.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-voice-session-two-meters.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html",
+      "name": "同一份语音文档，为什么有的按秒、有的按 token？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-06T09:35:00+08:00",
+      "dateModified": "2026-11-06T09:35:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "同一份语音文档，为什么有的按秒、有的按 token？", "item": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "同一份语音文档，为什么有的按秒、有的按 token？",
+      "description": "OpenAI 的语音费用页把 GPT-Live 按打开的会话秒数计，静音和后台工作都算。创建 WebRTC 先记 15 秒，跑起来后从时长里抵，不要再加。Realtime 按每次 Response 的 token 计，音频和文本是明细，缓存是输入的子集。转写另计。后一轮会把上一轮的输出重新当作输入。",
+      "image": "https://ponr.org/img/cover-overseas-ai-voice-session-two-meters.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-06T09:35:00+08:00",
+      "dateModified": "2026-11-06T09:35:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "语音会话",
+      "keywords": ["AI服务", "OpenAI", "GPT-Live", "Realtime API", "语音计费", "音频 token"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-voice-session-two-meters.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/voice-billed-in-seconds-or-tokens.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>同一份语音文档，为什么有的按秒、有的按 token？</h1>
+          <p class="article-summary">OpenAI 把两种语音账写在同一份费用说明里。GPT-Live 按会话打开的秒数计，用户在说、助手在说、双方都静音、后台还在干活，都算活跃时间。创建 WebRTC 先记 15 秒，会话跑起来之后这 15 秒已经含在运行时长里。Realtime 接口则在每次生成 Response 时按输入和输出 token 计，文本、音频、图像各是明细。输入转写走另一张价卡。后一轮会把上一轮的输出重新送回去当输入。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-06T09:35:00+08:00">2026-11-06 09:35:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-06</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-voice-session-two-meters.svg" width="800" height="400" alt="一条没有合上的会话弧，静音仍在弧里，token 小条挂在外面" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先分清这通会话是 GPT-Live 还是 Realtime。Live 看最终的 <code>usage.seconds</code>。Realtime 看每一次 <code>response.done</code> 的 token。</li>
+                <li><span class="article-verify-check">✓</span>Live 的 <code>session.usage.updated</code> 是累计快照，后一条替换前一条，不要把每次推送加总。会话关掉之后只记一次 <code>session.closed</code> 里的秒数。</li>
+                <li><span class="article-verify-check">✓</span>创建 WebRTC 先记 15 秒。会话跑起来后，这 15 秒已经在运行时长里，不要再加。人还没开口就创建、或反复重连，按文档把这笔创建费算进去。</li>
+                <li><span class="article-verify-check">✓</span>Realtime 的音频、文本、图像是输入或输出总量里的明细。缓存 token 是输入的子集。转写事件的用量不要再加到这次 Response 上。</li>
+                <li><span class="article-verify-check">✓</span>后一轮的输入含有上一轮的输出。中途改指令或工具定义，缓存从改动处失效。截断会丢掉最老的内容，也会打掉靠前的缓存。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 同一页上有两套语音账</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/voice-latency-cost" target="_blank" rel="noopener">费用说明</a>先写 GPT-Live，再写 Realtime API。两段用的不是同一把尺子。Live 把语音会话和负责推理、跑工具的后端拆开：语音按秒，后端按你实际调用的模型和工具。Realtime 的对话会话按每次 Response 的输入和输出 token 计，文本、音频、图像都在里面。流式翻译和流式转写又不走 Response，按音频时长计。单价以各模型页为准，这里不把某一天的数字写成长期价格。</p>
+              <p>名字很容易并错。<a href="/articles/overseas-ai-batch-vs-realtime-api.html">批量半价那篇</a>里的「实时」指同步接口相对 Batch 的那一档，不是这条语音会话。国内语音合成按字符计，是<a href="/articles/domestic-ai-speech-character-two-rulers.html">另一把尺子</a>。对账先看请求打到的是 Live 会话、Realtime 的 Response，还是一条独立的转写或翻译流。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 会话开着，静音也在走秒</h2>
+              <p>GPT-Live 的语音按当前模型的每秒费率计，文档写明不向上取整到下一分钟。活跃时间包括用户在说、助手在说、双方都静音，以及后台还在工作。估算时从会话开始算到关闭，用接口报的时长，不要只用你本地播放出来的那段音频。麦克风静音不会关闭会话。对话结束要主动关掉，并收下最终用量。</p>
+              <p>创建 WebRTC 的 <code>POST /v1/live/sessions</code> 会先记 15 秒，用来覆盖初始化。会话真正跑起来之后，这 15 秒从运行时长里抵掉。文档的例子是：一通 90 秒的会话已经包含这 15 秒，不是 105 秒。人还没准备好就创建，或者中途反复重连，每次创建都要按这条规则算。抵消发生在「会话已经开始跑」之后。把创建和运行加成两笔，会把同一段初始化算两次。</p>
+              <p>用量事件 <code>session.usage.updated</code> 里的 <code>seconds</code> 是累计值。每一条替换前一条，不要把快照加总。发出 <code>session.close</code> 之后继续收事件，直到 <code>session.closed</code>，最终秒数只记一次。后端调用和语音秒分开记。委托出去的 Responses，从嵌套的 <code>response.completed</code> 里按 response id 各记一次，输入、输出和缓存明细留着对那个模型的价卡。你自己另外打的请求也要收进后端账。还没派上用场的投机查询，文档要求算进后端成本，不因为结果没用上就消失。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Realtime 的明细已经在总量里</h2>
+              <p>Realtime 的费用发生在创建 Response 的时候，按输入和输出 token 计。输入转写除外，下面单独说。文档写，目前不为网络带宽或连接本身另收费。这句话带有「目前」。Response 可以手动创建，也可以在打开语音活动检测时自动创建。活动检测会滤掉空的输入音频，所以空音频不算输入 token，除非客户端把它手动加成对话内容。</p>
+              <p>每一轮都把整段对话送给模型。这一轮的输出会变成服务端 Conversation 里的条目，下一轮再当输入。所以会话越往后，单轮越贵。用户消息里的音频按每 100 毫秒 1 个 token 估算，助手消息里的音频按每 50 毫秒 1 个 token。计数还包含内容之外的特殊 token，所以和你按正文估算的数会有小偏差。文档举的例子是，正文 10 个文本 token 的用户消息，记下来可能是 12。</p>
+              <p>文档用两轮把这个结构写开。第一轮：100 个指令 token，加上用户说出来的 20 个音频 token，输入合计 120。生成 Response 之后，助手输出 20 个音频 token 和 10 个文本 token。第二轮又来一段用户音频，文档把它写成 25 个音频 token。此时对话里有最初的指令、第一段用户消息、第一轮的助手输出，再加上这段新的用户音频。文档给出的第二轮输入是 110 个文本 token 和 64 个音频 token，外加又一次助手输出。第一轮的消息在第二轮有机会被缓存，从而降低输入成本，但缓存是尽力而为，不保证命中。</p>
+              <p>一次 Response 的数在 <code>response.done</code> 里。文档给的一份用量是：<code>total_tokens</code> 253，<code>input_tokens</code> 132，<code>output_tokens</code> 121。输入明细是文本 119、音频 13、图像 0，其中缓存 64，而且这 64 全部落在文本上。输出明细是文本 30、音频 91。132 加 121 等于 253。119 加 13 等于 132。30 加 91 等于 121。缓存的 64 已经在 132 里面。音频不是加在总量外面的另一列。把明细和总量再加一次，就把同一轮算了两遍。</p>
+              <p>输入转写如果打开，由 Realtime API 另计。它用的模型和语音对语音那张价卡不是同一张。已提交轮次的转写用 <code>gpt-transcribe</code>，在音频写入输入缓冲并提交之后才开始。用量看 <code>conversation.item.input_audio_transcription.completed</code>。字段随模型变：<code>gpt-transcribe</code> 按音频时长，文档示例是 <code>type</code> 为 duration、<code>seconds</code> 为 3。按 token 计的转写模型则返回 token 数。转写和 Response 异步进行，事件谁先到都不改变「这是另一笔」这件事。流式翻译和流式转写会话本身也不走 Response 生命周期，按时长费率估，不要拿每轮 token 去套。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 缓存不保证，截断会从前面打掉</h2>
+              <p>Realtime 的提示缓存自动发生，多轮时能明显压低输入成本。条件是这一轮的输入 token 和上一轮对得上。这是尽力而为，不是承诺。想提高命中，就让会话历史保持稳定。删掉或改掉对话中的一段，缓存会一直失效到改动的位置，因为前缀不再那么像。指令和工具定义在对话开头，会话中途改它们，后面每一轮的命中都会变差。</p>
+              <p>对话 token 超过模型输入上限时会发生截断，从最老的消息开始丢掉，不再送进这次 Response。文档写，32k 上下文、最大输出 4096 的模型，截断发生前上下文只能放 28224 个 token。客户端可以把窗口设得比模型上限更小。<code>token_limits.post_instructions</code> 限制的是指令以外的输入。设成 1000，超出的条目就不会送进这次 Response。默认的 <code>retention_ratio</code> 是 1.0，只丢掉刚好超限的部分。设成 0.8，一次截断会保留上限的 80%，多丢掉 20%，好让下一次截断来得晚一点。每一轮都截断，靠前的缓存会一直被打掉，命中会很低。截断也可以关掉。关掉之后，对话长到无法创建 Response 就直接报错，适合你打算自己管对话长度的时候。</p>
+              <p>客户端也可以自己删条目。<code>conversation.item.delete</code> 能拿掉旧消息，再拿一条摘要用 <code>conversation.item.create</code> 补回去。摘要本身是新的输入，不是免费的压缩。mini 模型在价卡上更便宜，文档说代价主要在遵循指令和函数调用。先用大模型把提示跑顺，再考虑换成 mini。这两件事都改变后面每一轮要重放的内容，和静音仍在走秒的 Live 会话不是同一口开关。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不短这些秒和 token</h2>
+              <p>对账按这通会话实际走的接口分列。Live 记最终秒数，静音和后台工作都在里面，用量快照不要累加，初始化的 15 秒不要和运行时长再加一次，后端模型和工具另计。Realtime 记每一次 Response：音频、文本、图像是明细，缓存是输入的子集，后一轮含有上一轮的输出。转写或翻译若是独立的时长账，不要并进这次 Response。缓存是否命中，看前缀有没有被改动或截断打掉。</p>
+              <p>给账户充值，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把一通还开着的会话收成零秒，也不会把音频明细从总量里拿掉。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。秒数和 token 仍按这次接口返回的量计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">同一页上两套账</a></li>
+              <li><a href="#sec-2">静音也在走秒</a></li>
+              <li><a href="#sec-3">明细已经在总量里</a></li>
+              <li><a href="#sec-4">缓存和截断</a></li>
+              <li><a href="#sec-5">充值缩不短用量</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/voice-latency-cost" target="_blank" rel="noopener nofollow">OpenAI：语音费用与延迟</a> — Live 按秒，静音也算。WebRTC 创建先记 15 秒，跑起来后从时长里抵。用量快照不要累加。Realtime 按 Response 的 token 计，转写另计。</li>
+              <li><a href="https://developers.openai.com/api/docs/models/gpt-realtime" target="_blank" rel="noopener nofollow">OpenAI：gpt-realtime</a> — 文本和音频分列标价。具体单价以模型页为准，不在本文写成长期价格。</li>
+              <li><a href="https://developers.openai.com/api/reference/resources/realtime/server-events" target="_blank" rel="noopener nofollow">OpenAI：Realtime 服务端事件</a> — 输入转写是另一条 ASR 流程。用量可以是 token，也可以是时长，按转写模型的价卡计。</li>
+            </ul><p class="ref-note">资料核验于2026年11月6日。两套语音账不能相加，这一条是本站对账顺序，并非厂商效果承诺。单价、缓存命中和截断窗口以 OpenAI 文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></li>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+          <li><a href="/articles/overseas-ai-batch-vs-realtime-api.html">同样的模型，为什么实时接口比批量接口贵一倍？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=3be33f12cf"></script>
+</body>
+</html>

@@ -7,6 +7,14 @@
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
   <item>
+    <title><![CDATA[Why is one voice API billed in seconds, the other in tokens?]]></title>
+    <link>https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/voice-billed-in-seconds-or-tokens.html</guid>
+    <pubDate>Fri, 06 Nov 2026 09:35:00 +0800</pubDate>
+    <category>Voice session</category>
+    <description><![CDATA[Live bills open seconds, silence included. Realtime bills tokens per Response. Audio and text are details. Transcription is separate.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Why does one speech API count a hanzi twice?]]></title>
     <link>https://ponr.org/en/articles/speech-hanzi-counts-twice.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/speech-hanzi-counts-twice.html</guid>
