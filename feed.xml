@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[代码只跑了一小会儿，为什么容器至少按五分钟计？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-container-five-minute-floor.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-container-five-minute-floor.html</guid>
+    <pubDate>Mon, 09 Nov 2026 15:15:00 +0800</pubDate>
+    <category>代码容器</category>
+    <description><![CDATA[价目行按 20 分钟一档，脚注按分钟计，最少 5 分钟。两句是同一笔。闲置 20 分钟才过期。]]></description>
+  </item>
+  <item>
     <title><![CDATA[同一轮对话，为什么换个模型就按八次计？]]></title>
     <link>https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html</guid>

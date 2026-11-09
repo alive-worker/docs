@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>代码只跑了一小会儿，为什么容器至少按五分钟计？</title>
+  <meta name="description" content="代码解释器与托管 Shell 共用容器这一行。价目按每 20 分钟一档写，脚注写符合条件的会话按分钟计，不足 5 分钟按 5 分钟。内存档跟容器走完。闲置 20 分钟过期，查询会把过期钟拨回。自动模式会复用上下文里仍活动的容器，上下文被截断后再开一只，又会碰上下限。模型 token 另计。单价以价目页为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-container-five-minute-floor.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-container-five-minute-floor.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/container-bills-five-minutes.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-container-five-minute-floor.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="代码只跑了一小会儿，为什么容器至少按五分钟计？">
+  <meta property="og:description" content="代码解释器与托管 Shell 共用容器这一行。价目按每 20 分钟一档写，脚注写符合条件的会话按分钟计，不足 5 分钟按 5 分钟。内存档跟容器走完。闲置 20 分钟过期，查询会把过期钟拨回。自动模式会复用上下文里仍活动的容器，上下文被截断后再开一只，又会碰上下限。模型 token 另计。单价以价目页为准。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-container-five-minute-floor.html">
+  <meta property="article:published_time" content="2026-11-09T15:15:00+08:00">
+  <meta property="article:modified_time" content="2026-11-09T15:15:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="代码容器">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="代码只跑了一小会儿，为什么容器至少按五分钟计？">
+  <meta name="twitter:description" content="代码解释器与托管 Shell 共用容器这一行。价目按每 20 分钟一档写，脚注写符合条件的会话按分钟计，不足 5 分钟按 5 分钟。内存档跟容器走完。闲置 20 分钟过期，查询会把过期钟拨回。自动模式会复用上下文里仍活动的容器，上下文被截断后再开一只，又会碰上下限。模型 token 另计。单价以价目页为准。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-container-five-minute-floor.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一只沙箱窗口里只有一行脚本，旁边的计时环已经涂满五分钟，外圈虚线停在二十">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-container-five-minute-floor.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-container-five-minute-floor.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html",
+      "name": "代码只跑了一小会儿，为什么容器至少按五分钟计？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-09T15:15:00+08:00",
+      "dateModified": "2026-11-09T15:15:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "代码只跑了一小会儿，为什么容器至少按五分钟计？", "item": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "代码只跑了一小会儿，为什么容器至少按五分钟计？",
+      "description": "代码解释器与托管 Shell 共用容器这一行。价目按每 20 分钟一档写，脚注写符合条件的会话按分钟计，不足 5 分钟按 5 分钟。内存档跟容器走完。闲置 20 分钟过期，查询会把过期钟拨回。自动模式会复用上下文里仍活动的容器，上下文被截断后再开一只，又会碰上下限。模型 token 另计。单价以价目页为准。",
+      "image": "https://ponr.org/img/cover-overseas-ai-container-five-minute-floor.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-09T15:15:00+08:00",
+      "dateModified": "2026-11-09T15:15:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "代码容器",
+      "keywords": ["AI服务", "OpenAI", "Code Interpreter", "容器计费", "五分钟起计"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-container-five-minute-floor.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/container-bills-five-minutes.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>代码只跑了一小会儿，为什么容器至少按五分钟计？</h1>
+          <p class="article-summary">OpenAI 的代码解释器和托管 Shell 走同一行容器价。价目表按每 20 分钟、每只容器写一档，脚注又写：符合条件的会话按分钟计，一次会话最少 5 分钟。内存分 1、4、16、64 四档，选定之后跟这只容器走完。闲置满 20 分钟，容器过期，里面的文件和 Python 对象一起丢掉。模型自己的 token 仍按所选模型另计。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-09T15:15:00+08:00">2026-11-09 15:15:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-09</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-container-five-minute-floor.svg" width="800" height="400" alt="一只沙箱窗口里只有一行脚本，旁边的计时环已经涂满五分钟，外圈虚线停在二十" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先确认这一列是容器会话，商品覆盖代码解释器和托管 Shell。模型 token 仍按所选模型另计。</li>
+                <li><span class="article-verify-check">✓</span>价目行按每 20 分钟一档写。脚注写符合条件的会话按分钟计，并有 5 分钟下限。两句不要加成两笔。</li>
+                <li><span class="article-verify-check">✓</span>内存档在容器存活期间改不了。省略时是 1 GB。更高档按内置工具费率计，单价以价目页为准。</li>
+                <li><span class="article-verify-check">✓</span>闲置 20 分钟过期，过期后不能救活。查询、增删文件会刷新 last_active_at。文件要在过期前下载。</li>
+                <li><span class="article-verify-check">✓</span>自动模式会复用上下文里仍存活的容器。上下文里没有上一次调用时，新会话可以再次碰上 5 分钟下限。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 同一页上有两句计费单位</h2>
+              <p><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI 价目页</a>把容器单独列成一行，覆盖范围写的是托管 Shell 和代码解释器。四档内存并排：1 GB、4 GB、16 GB、64 GB，单位是每 20 分钟、每只容器。同一页的说明紧接着写：符合条件的容器会话按分钟计，一次会话最少 5 分钟。页上用的 GB 是二进制，1 GB 等于 2 的 30 次方字节。内置工具用掉的 token，仍按所选模型的 token 单价计。Responses、Chat Completions、Realtime、Batch、Assistants 这几套接口本身不再另收一层接口费，token 按模型的输入和输出价计。容器是加在 token 旁边的那一列。</p>
+              <p>对账时最容易把这两句加成两笔。一行说「每 20 分钟一档」，脚注说「按分钟，最少 5 分钟」。脚本只跑了几十秒，按脚注已经落到 5 分钟这档下限。把 20 分钟再加一次，等于把价目行和脚注当成两次收费。反过来，把几十秒记成零，又把下限漏掉。页上的「符合条件」没有在同一段里展开成清单。账单上的会话时长，才是判断这一只容器落在哪一句上的依据。单价留在价目页，这里只记单位：档、分钟、下限。</p>
+              <p>这列和另外两本海外账分开。<a href="/articles/overseas-ai-file-search-idle-storage.html">向量库按天计存储</a>，免费额度按全部库合计，调用费另计。<a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数定义按输入计</a>，函数没被点到，定义文本仍在输入里。容器计的是这只沙箱活了多久、内存开在哪一档。三列可以出现在同一次请求里：定义占输入，检索结果再占输入，容器按会话走。只拿输出字数去除以单价，三列都会对不上。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 内存档跟容器走完，自动模式也会复用</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/tools-code-interpreter" target="_blank" rel="noopener">代码解释器说明</a>把容器写成一只完全隔离的虚拟机，模型在里面跑 Python。可选 <code>1g</code>、<code>4g</code>、<code>16g</code>、<code>64g</code>。不写 <code>memory_limit</code> 时保持默认的 1 GB。选定的档位覆盖这只容器的整个存活期，自动创建和通过容器接口显式创建都一样。更高档按代码解释器的内置工具费率计。想换档，就要新开一只容器，旧的那只仍按它出生时的档走完。</p>
+              <p>自动模式在创建 Response 时传入 <code>container.type = auto</code>。它会新建一只容器，或者复用模型上下文里上一次 <code>code_interpreter_call</code> 用过、并且仍处于活动状态的那只。输出里的 <code>code_interpreter_call</code> 带有这次生成或复用的 <code>container_id</code>。显式模式先打 <code>v1/containers</code>，把返回的 id 填进工具配置。自动创建的容器同样能在 <code>/v1/containers</code> 上查到。模型把这个工具认成 python tool。提示里直接写 python tool，比只写代码解释器更明确。</p>
+              <p>所以「又发了一次 HTTP」推不出「又开了一只容器」。上下文里还留着上一次的调用，容器也没过期，自动模式续的是同一只。续上的会话继续走原来的内存档，也继续走原来那只钟。上下文被截掉、上一次调用不在里面，自动模式就会再开一只。新的一只可以再次碰上 5 分钟下限。把每一轮对话都当成新会话去估，短任务会被估高。把一整天都当成一只容器去估，截断上下文之后的新下限又会被估漏。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 过期是 20 分钟，查询会把这只钟拨回去</h2>
+              <p>容器闲置满 20 分钟就过期。过期之后，再把它放进 <code>v1/responses</code> 会失败。元数据快照还在，容器里的数据从系统里清掉，找不回来。过期状态不能拨回活动。做法是新建一只，把文件重新传上去。旧容器内存里的 Python 对象一并丢失。说明建议把容器当成临时的，相关数据放在自己的系统里，需要的文件要在它还活动时下载。</p>
+              <p>任何容器操作都会刷新 <code>last_active_at</code>。文档点名的操作包括：查询这只容器，往里面加文件，从里面删文件。这只钟管的是「再闲 20 分钟就过期」，它和价目页上的会话计费写在两处。一次查询可以让容器躲过过期，账单上是否把两次查询之间的空档按分钟计，页上没有另写一条。健康检查如果只是为了让容器别死，它同时把过期推迟了。把每一次 GET 都记成一笔新的 5 分钟下限，页上没有这句话。把轮询期间整段都当成免费，页上也没有这句话。对账看这只容器的会话时长，再对照 5 分钟下限，而不是用请求次数乘下限。</p>
+              <p>模型生成的文件出现在下一条消息的 <code>annotations</code> 里，类型是 <code>container_file_citation</code>，带 <code>container_id</code>、<code>file_id</code> 和文件名。下载走容器文件内容接口。放进模型输入的文件会自动上传到容器，不必为了同一只容器再传一次。容器过期之后，引用还在消息里，字节已经不在。先下载，再让它闲置，这两步的顺序写在过期规则里。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 重试加的是 token，新下限看是不是新容器</h2>
+              <p>说明里的用法包括：模型写出跑失败的代码，可以继续改、继续跑，直到成功。这些重试如果还在同一只活动容器里，内存档不变，Python 里已经建好的对象还在。多出来的是模型来回改写的 token，内置工具的 token 按所选模型计。容器费跟着这只会话走。语法错误的次数，本身不是容器的计费单位。</p>
+              <p>一旦这只容器过期，或者新的请求上下文里没有上一次的 <code>code_interpreter_call</code>，自动模式会再开一只。新的一只重新适用内存档，也重新面对会话下限。显式传入旧 id 时，过期的那只直接失败，救不活，只能新建并重新上传。<code>tool_choice</code> 设成 required，是要求这次调用必须用到该工具。它改变的是工具会不会被点到，不改变会话按分钟计、最少 5 分钟这一句。</p>
+              <p>文件体积和内存档也不是同一把尺。档位名字里的 GB 是内存，并且是 2^30 字节。一份按十进制算出来的上传大小，对不上档位名字，是预期。向量库那一列按解析后的分块和嵌入体积按天计，和这只沙箱的内存档无关。把上传前的文件兆字节，当成容器该开 4 GB 还是 16 GB 的理由，两套单位都用错了。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值缩不掉这 5 分钟</h2>
+              <p>对账按五列走。第一列是商品：容器会话、模型 token、向量库存储，各自保留。第二列是这只容器的标识，看这次是复用还是新建。第三列是会话时长和 5 分钟下限，价目行的 20 分钟一档与脚注放在一起读，不加成两笔。第四列是内存档，出生时定下，活着的时候不改。第五列是过期钟：<code>last_active_at</code> 是否被查询或增删文件拨过，文件是否在过期前下载。</p>
+              <p>给账户准备额度，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把几十秒的脚本收成零，也不会把 4 GB 那只容器改回 1 GB。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。容器的下限、内存档和模型 token 仍按这次实际开着的那只容器计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">同一页两句单位</a></li>
+              <li><a href="#sec-2">内存档跟容器走</a></li>
+              <li><a href="#sec-3">过期钟会被拨回</a></li>
+              <li><a href="#sec-4">重试与新下限</a></li>
+              <li><a href="#sec-5">充值缩不掉下限</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI：价目</a> — 容器行覆盖托管 Shell 与代码解释器，按内存档、每 20 分钟、每只容器列出。符合条件的会话按分钟计，最少 5 分钟。token 另按模型计。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-code-interpreter" target="_blank" rel="noopener nofollow">OpenAI：代码解释器</a> — 内存档在容器存活期间不变。闲置 20 分钟过期且不能救活。查询或增删文件会刷新 last_active_at。自动模式可复用仍活动的容器。</li>
+            </ul><p class="ref-note">资料核验于2026年11月9日。把价目行和脚注合成一笔、用会话时长对照 5 分钟下限，是本站对账顺序，并非厂商效果承诺。单价、档位和过期规则以 OpenAI 文档及账单为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-file-search-idle-storage.html">文件没人搜，向量库为什么还在按天扣？</a></li>
+          <li><a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数没被点到，为什么整份定义还按输入扣？</a></li>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=ca04eb62ba"></script>
+</body>
+</html>
