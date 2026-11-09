@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同一轮对话，为什么换个模型就按八次计？</title>
+  <meta name="description" content="百炼多模态交互开发套件按实际用到的组件按轮计。识别、意图、对话、合成四项，没用到的不计。换到文档列出的高价模型，同一轮可以按 2 倍、8 倍直到 32 倍计。知识库问答已含检索片段的 token，库的规格和向量另计。电台每播出一句，合成再记一次。同一轮不是天然只扣一次。单价以计费页为准，不在这里写成长期价格。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/one-round-bills-as-eight.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="同一轮对话，为什么换个模型就按八次计？">
+  <meta property="og:description" content="百炼多模态交互开发套件按实际用到的组件按轮计。识别、意图、对话、合成四项，没用到的不计。换到文档列出的高价模型，同一轮可以按 2 倍、8 倍直到 32 倍计。知识库问答已含检索片段的 token，库的规格和向量另计。电台每播出一句，合成再记一次。同一轮不是天然只扣一次。单价以计费页为准，不在这里写成长期价格。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html">
+  <meta property="article:published_time" content="2026-11-09T09:55:00+08:00">
+  <meta property="article:modified_time" content="2026-11-09T09:55:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="交互轮次">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="同一轮对话，为什么换个模型就按八次计？">
+  <meta name="twitter:description" content="百炼多模态交互开发套件按实际用到的组件按轮计。识别、意图、对话、合成四项，没用到的不计。换到文档列出的高价模型，同一轮可以按 2 倍、8 倍直到 32 倍计。知识库问答已含检索片段的 token，库的规格和向量另计。电台每播出一句，合成再记一次。同一轮不是天然只扣一次。单价以计费页为准，不在这里写成长期价格。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-multimodal-round-multiplier.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一个写着 1 的圆，被乘号章盖成八次，三根没接上的线停在圆外">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-multimodal-round-multiplier.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-multimodal-round-multiplier.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html",
+      "name": "同一轮对话，为什么换个模型就按八次计？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-09T09:55:00+08:00",
+      "dateModified": "2026-11-09T09:55:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "同一轮对话，为什么换个模型就按八次计？", "item": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "同一轮对话，为什么换个模型就按八次计？",
+      "description": "百炼多模态交互开发套件按实际用到的组件按轮计。识别、意图、对话、合成四项，没用到的不计。换到文档列出的高价模型，同一轮可以按 2 倍、8 倍直到 32 倍计。知识库问答已含检索片段的 token，库的规格和向量另计。电台每播出一句，合成再记一次。同一轮不是天然只扣一次。单价以计费页为准，不在这里写成长期价格。",
+      "image": "https://ponr.org/img/cover-domestic-ai-multimodal-round-multiplier.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-09T09:55:00+08:00",
+      "dateModified": "2026-11-09T09:55:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "交互轮次",
+      "keywords": ["AI服务", "阿里云百炼", "多模态交互", "按轮计费", "知识库", "语音合成"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-multimodal-round-multiplier.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/one-round-bills-as-eight.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>同一轮对话，为什么换个模型就按八次计？</h1>
+          <p class="article-summary">阿里云百炼的多模态交互开发套件不按模型 token 计，也不按合成字符计。后付费按实际交互轮次计，一链路上有语音识别、意图识别、大模型对话、语音合成四项，没用到的那项不计。换到文档列出的高价模型，同一轮的计费次数可以是基准的 2 倍、8 倍，直到 32 倍。知识库问答这一列已经把检索片段折进对话，库本身的规格和向量另计。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-09T09:55:00+08:00">2026-11-09 09:55:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-09</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-multimodal-round-multiplier.svg" width="800" height="400" alt="一个写着 1 的圆，被乘号章盖成八次，三根没接上的线停在圆外" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先确认账单商品是多模态交互开发套件，不是模型实时推理，也不是 CosyVoice 的字符。</li>
+                <li><span class="article-verify-check">✓</span>一轮里识别、意图、对话、合成四项分开看。没调用的组件不计，不要按四项全开去估。</li>
+                <li><span class="article-verify-check">✓</span>对照计费页的推送次数。选了表里的高价模型，同一轮按 2 倍到 32 倍计，不是仍按 1 次。</li>
+                <li><span class="article-verify-check">✓</span>知识库问答的轮次价已经含检索片段带来的 token。规格、向量化和检索由知识库服务另计，两笔不要并成一列。</li>
+                <li><span class="article-verify-check">✓</span>电台和儿童故事按播出的句子再加合成。设备许可从激活日算一年，购买后不退。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 这一轮不是模型 token 那一列</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/product-billing" target="_blank" rel="noopener">多模态交互开发套件的计费页</a>把后付费写成按实际交互轮次计。同一条链路上有四项：语音识别、意图识别、大模型对话、语音合成。每轮按实际使用的组件分别计，没用到的组件不计。识别有两种规格，合成也有两种规格，意图识别负责把用户意图分给下游。对话这一项里，闲聊、知识库问答和各类 Agent 每轮选其一，按调用到的能力计。</p>
+              <p>这和另外两套国内语音账不是同一口表。<a href="/articles/domestic-ai-speech-character-two-rulers.html">合成按字符、识别按秒</a>写的是模型服务和智能语音交互计费项。套件这里的识别和合成按轮次计一次，不是把音频秒数或有效字符再乘一遍。模型推理的输入输出 token、批量半价、显式缓存，也不在这张轮次表里。调用百炼平台上的 Agent 或插件时，费用由百炼直接结算，套件不再加一笔。所以一轮对话结束，账单上可以同时有套件的轮次，和百炼模型侧的另一列。只对其中一列，会把另一列当成重复扣款。</p>
+              <p>轻量语音闲聊可以不带意图识别。文档写明，不包含意图识别时，不支持开启插件、指令、联网搜索和 Agent。想少付一项，就同时失去这些能力。把意图识别留在配置里，纯文本对话也会带上这一项。对账先数这一轮真正接上了哪几项，再谈次数。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 换模型，次数先变，不是句子变长</h2>
+              <p>后付费下，部分高级模型一次交互的计费次数可以大于 1。文档的说法是：选更贵的模型，等于计费次数更高。推送次数写在计费页的对照表里，基准规格的具体单价以该页为准，这里只记倍数，不把某一天的金额写成长期价格。</p>
+              <p>识别这一列，Fun-ASR、<code>qwen3-asr-flash</code>、<code>Qwen-Audio-3.0-ASR-Flash-Streaming</code> 是 3 倍。合成这一列，<code>cosyvoice-v3.5-plus</code>、<code>cosyvoice-v3.5-flash</code>、<code>cosyvoice-v3-plus</code>、<code>qwen3-tts</code> 系列和 <code>qwen-audio-3.0-tts</code> 也是 3 倍。对话这一列分得更开：<code>qwen3.7-plus</code>、<code>qwen3.6-plus</code>、<code>qwen-max</code>、<code>Qwen3-Coder-Plus</code>、<code>qwen-mt-plus</code> 是 2 倍。deepseek 里除 v4 pro 以外的系列，加上 <code>glm-5</code> / <code>5.1</code>、kimi、MiniMax、<code>qwen3.5-omni-flash</code>，是 4 倍。<code>qwen3.6-max</code> 是 6 倍。<code>qwen3.8-Max</code>、<code>qwen3.7-Max</code>、<code>qwen3.5-omni-plus-textout</code>、<code>deepseek-v4-pro</code>、<code>qvq-72b-preview</code> 是 8 倍。<code>qwen-deep-research</code> 是 32 倍。知识库问答跟随所选大模型，倍率与那个模型相同。</p>
+              <p>所以「这一轮只说了一句话」不能推出「只扣一次」。8 倍那一档，日志里仍是一轮交互，计费次数已经是基准的八次。32 倍那一档更不能拿闲聊的基准次数去估。换模型如果只比较回答质量，不看这张推送次数表，月底对不上的就是次数，不是字数。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 有的能力不按轮，按句子或按进入</h2>
+              <p>新闻电台和儿童故事是持续播报。启动 Agent 计一次，之后每播报一句话，语音合成再计一次。句子越多，合成次数越多，不能用「打开过一次」包住整段播报。语音翻译相反：每进入这个 Agent 计一次，费用与翻译长度无关。翻得很短和翻得很长，在这一列上是同一档进入费。双路同声传译在开启之后按句计，不是按进入一次封顶。</p>
+              <p>主动导览除了每一轮交互，每次主动做的图片分析也计一次。拍照问答的均衡版在直连模式下有效，图片不能超过 640×480，更大的分辨率要走高级版。长期记忆文档写的是限时免费，不要把它记成永久赠送。录音纪要不在这张轮次表里，按通义听悟结算。海外加速若打开，是单独的一轮一项。这些例外的共同点是：触发条件写在能力上，不写在「用户说了一句」上。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 知识库的轮次价盖不住库本身</h2>
+              <p>知识库问答在套件里按轮计，文档把它说明成大模型推理费：检索到的片段会拼进提示，增加模型要处理的 token，这份增量已经折进这一轮的价格。同一页把第二笔单独列出。知识库的运行、向量化和检索由知识库服务收取，不在套件这一轮里面。<a href="https://help.aliyun.com/zh/model-studio/billing-for-knowledge-base" target="_blank" rel="noopener">知识库计费说明</a>里的规格小时，从创建成功起走，对话关掉也不停，那是<a href="/articles/domestic-ai-knowledge-base-idle-billing.html">另一篇</a>。套件付的是「模型多读了这些片段」，知识库付的是「库还在跑、还在检索」。两笔相加才是挂了库的一轮。只看到套件账单，会以为库免费。只看到知识库账单，又会以为对话轮次没扣。</p>
+              <p>设备订阅是另一条预付费。文档写它适用于 RTOS、Linux、Android、iOS 的 SDK，按每年每台买交互资源包，100 台起购。买下的是一个资源池，不同功能消耗不同，实际能用多少次取决于功能怎么搭配。购买页的用量计算器只供参考。同一应用或工作空间可以多次叠加，额度合并。绑定到工作空间后，下面多个应用共享这一池。每个许可要在一年内激活，使用时长从激活当天算。文档的例子是：2026 年 7 月 1 日买下，10 月 1 日才激活，使用期限到 2027 年 10 月 1 日。购买后不支持退款。许可还没激活的那几个月，不在使用时长里，也不能靠退订把钱拿回来。</p>
+              <p>节省计划抵扣的是这套件全部按量项目，承诺之后相对按量有折扣，文档写的区间大约是少一成到一半。一次性预付。最低承诺档有效期三个月，从 100 元这一档起是一年。到期没用完的费用不返还。它抵的是套件的后付费，不是知识库服务那一列，也把设备订阅的「买了不退」换成另一种「没用完不退」。新用户还有一次试用额度，文档写的是 10 元、只用于后付费、领取后三个月。它不是按月刷新的模型免费 token，也抵不了设备许可和知识库规格。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值乘不掉这张次数表</h2>
+              <p>对账按五列走。第一列是商品：套件轮次、百炼模型、知识库规格，不要收成「语音相关」。第二列是这一轮接上了哪几项，没接上的按零。第三列是推送次数，先看模型落在 2 倍、3 倍、4 倍、6 倍、8 倍还是 32 倍。第四列是例外：电台按句加合成，翻译按进入，同传按句，导览的主动分析另计一次。第五列是许可和节省计划的时钟：激活日、一年期限、到期未用是否不退。</p>
+              <p>给账户充值，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把 8 倍的一轮收成 1 次，也不会把没删除的知识库规格停掉。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。轮次、倍数和库的小时仍按这次实际接上的组件计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">不是 token 那一列</a></li>
+              <li><a href="#sec-2">换模型先变次数</a></li>
+              <li><a href="#sec-3">按句子或按进入</a></li>
+              <li><a href="#sec-4">库本身另计</a></li>
+              <li><a href="#sec-5">充值乘不掉次数</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/product-billing" target="_blank" rel="noopener nofollow">阿里云百炼：多模态交互计费</a> — 按实际使用的组件按轮计，未使用不计。高价模型按推送次数放大。电台按句加合成。设备许可从激活日算，购买后不退。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/billing-for-knowledge-base" target="_blank" rel="noopener nofollow">阿里云百炼：知识库计费说明</a> — 规格费从创建起按小时计，模型调用另计。套件里的问答轮次不含这一列。</li>
+            </ul><p class="ref-note">资料核验于2026年11月9日。把轮次、倍数和知识库规格分成三列，是本站对账顺序，并非厂商效果承诺。单价、推送次数和许可规则以阿里云文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-speech-character-two-rulers.html">语音按字符计，为什么汉字在另一套接口里要算两次？</a></li>
+          <li><a href="/articles/domestic-ai-knowledge-base-idle-billing.html">对话早就停了，知识库为什么还在按小时扣费？</a></li>
+          <li><a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=7fb262de0c"></script>
+</body>
+</html>
