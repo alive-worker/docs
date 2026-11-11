@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[参考视频有三十秒，为什么输入侧只按五秒这口池计？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-wan-reference-five-second-pool.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-wan-reference-five-second-pool.html</guid>
+    <pubDate>Wed, 11 Nov 2026 15:19:00 +0800</pubDate>
+    <category>视频秒数</category>
+    <description><![CDATA[文生只计成功输出的秒。参考生的输入侧先被五秒的池截断，再和输出相加。]]></description>
+  </item>
+  <item>
     <title><![CDATA[代码只跑了一小会儿，为什么容器至少按五分钟计？]]></title>
     <link>https://ponr.org/articles/overseas-ai-container-five-minute-floor.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-container-five-minute-floor.html</guid>
