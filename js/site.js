@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-web-search-fixed-eight-thousand.html': '2026-11-12 10:42:00',
+    '/en/articles/mini-search-bills-eight-thousand.html': '2026-11-12 10:42:00',
     '/articles/domestic-ai-wan-reference-five-second-pool.html': '2026-11-11 15:19:00',
     '/en/articles/reference-video-five-second-pool.html': '2026-11-11 15:19:00',
     '/articles/overseas-ai-container-five-minute-floor.html': '2026-11-09 15:15:00',

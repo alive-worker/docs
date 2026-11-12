@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>检索结果很短，为什么小模型仍按八千个输入 token 计？</title>
+  <meta name="description" content="网页搜索按搜索动作另计调用，检索内容再按模型输入价计。gpt-4o-mini 和 gpt-4.1-mini 在非预览工具上，每次固定计 8000 个输入 token，结果再短也不缩。search_context_size 调到 low 不改这块。非推理模型的预览行不计搜索内容 token。单价以价目页为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/mini-search-bills-eight-thousand.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="检索结果很短，为什么小模型仍按八千个输入 token 计？">
+  <meta property="og:description" content="网页搜索按搜索动作另计调用，检索内容再按模型输入价计。gpt-4o-mini 和 gpt-4.1-mini 在非预览工具上，每次固定计 8000 个输入 token，结果再短也不缩。search_context_size 调到 low 不改这块。非推理模型的预览行不计搜索内容 token。单价以价目页为准。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <meta property="article:published_time" content="2026-11-12T10:42:00+08:00">
+  <meta property="article:modified_time" content="2026-11-12T10:42:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="搜索内容">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="检索结果很短，为什么小模型仍按八千个输入 token 计？">
+  <meta name="twitter:description" content="网页搜索按搜索动作另计调用，检索内容再按模型输入价计。gpt-4o-mini 和 gpt-4.1-mini 在非预览工具上，每次固定计 8000 个输入 token，结果再短也不缩。search_context_size 调到 low 不改这块。非推理模型的预览行不计搜索内容 token。单价以价目页为准。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一块写着 8000 的固定方砖，上面只有一条短结果，旁边的 low 旋钮没有连上">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html",
+      "name": "检索结果很短，为什么小模型仍按八千个输入 token 计？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-12T10:42:00+08:00",
+      "dateModified": "2026-11-12T10:42:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "检索结果很短，为什么小模型仍按八千个输入 token 计？", "item": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "检索结果很短，为什么小模型仍按八千个输入 token 计？",
+      "description": "网页搜索按搜索动作另计调用，检索内容再按模型输入价计。gpt-4o-mini 和 gpt-4.1-mini 在非预览工具上，每次固定计 8000 个输入 token，结果再短也不缩。search_context_size 调到 low 不改这块。非推理模型的预览行不计搜索内容 token。单价以价目页为准。",
+      "image": "https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-12T10:42:00+08:00",
+      "dateModified": "2026-11-12T10:42:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "搜索内容",
+      "keywords": ["AI服务", "OpenAI", "网页搜索", "搜索内容 token", "按次计费"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/mini-search-bills-eight-thousand.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>检索结果很短，为什么小模型仍按八千个输入 token 计？</h1>
+          <p class="article-summary">OpenAI 的现行网页搜索是两笔账：搜索动作按调用另计一次，从索引取回、再送进模型的内容按该模型的输入价计。gpt-4o-mini 和 gpt-4.1-mini 在非预览工具上，这笔内容不是按取回了多少字来量，而是每次调用固定 8000 个输入 token。屏幕上的回答可以只有一句。把 search_context_size 调到 low，文档写明它不设定确切的 token 数，脚注里的这块也不因此变小。非推理模型上的预览工具走另一行，搜索内容 token 不计。单价留在价目页。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-12T10:42:00+08:00">2026-11-12 10:42:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-12</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-web-search-fixed-eight-thousand.svg" width="800" height="400" alt="一块写着 8000 的固定方砖，上面只有一条短结果，旁边的 low 旋钮没有连上" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先数 <code>action.type</code> 为 search 的次数。指南把工具调用费写在搜索动作上。引用条数和来源条数都不是这次调用的次数。</li>
+                <li><span class="article-verify-check">✓</span>gpt-4o-mini 和 gpt-4.1-mini 配非预览的 <code>web_search</code>，搜索内容按每次调用固定 8000 个输入 token 计。结果再短也不缩成实际字数。</li>
+                <li><span class="article-verify-check">✓</span><code>search_context_size</code> 的 low、medium、high 不设定确切 token 数。调到 low 不改上面那块 8000。</li>
+                <li><span class="article-verify-check">✓</span>非推理模型的 <code>web_search_preview</code> 不另计搜索内容 token，调用行也和现行工具不同。推理模型的预览行仍计搜索内容 token。</li>
+                <li><span class="article-verify-check">✓</span>Responses 里 <code>tool_choice</code> 为 auto 时，搜索可以不发生。Chat Completions 的搜索模型会先搜再答。单价以价目页为准。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 调用是一笔，检索内容是另一笔</h2>
+              <p><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">价目页</a>把现行网页搜索写成一行，括号里写明包含图像搜索：一次调用的费用，再加上搜索内容 token，搜索内容按所选模型的价格计。同一张表把预览工具拆成两行。推理模型的预览行同样是调用费加上按模型价计的搜索内容 token。其他模型的预览行是另一档调用费，并且写明搜索内容 token 免费。具体单价以这一页当时的数字为准，本文不把某一天的美元标成长期牌价。</p>
+              <p>页下的说明把搜索内容 token 定义成：从搜索索引取回、连同你的提示一起送进模型、用来生成回答的那些 token。它们是输入侧的内容，不是第三种商品名。内置工具用掉的 token 按所选模型的 token 价计。所以一次成功的搜索，至少要对上两列：搜索动作带来的调用，以及送进模型的检索内容。你自己的提示词、模型写出的回答，仍按这次请求自己的输入和输出计。8000 不是整次请求的全部，它也替代不了调用那一列。</p>
+              <p>固定块只写给两个模型。<a href="https://developers.openai.com/api/docs/guides/tools-web-search" target="_blank" rel="noopener">网页搜索指南</a>所指向的价目脚注写的是：gpt-4o-mini 和 gpt-4.1-mini 使用非预览的网页搜索工具时，搜索内容 token 按每次调用固定 8000 个输入 token 计。脚注用的是 input tokens，没有把这块写成缓存输入。缓存折扣是价目上另一列，这句脚注没有把它套到这块固定输入上。别的模型没有这句。它们的搜索内容仍按该模型的输入价计，数量随取回的内容走，不能把 8000 抄过去。图像搜索在现行这一行的名称里已经包含，不要再按旧表加一笔图像搜索调用。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 回答很短，low 也缩不了这块</h2>
+              <p>屏幕上那句回答是 <code>message</code> 里的正文。固定块计的是送进模型的检索内容，不是正文有多短。一次调用只带回几个词，在这两个小模型上，搜索内容这一列仍是 8000 个输入 token。把「结果看起来很小」当成「检索内容很少」，对的是别的模型上按实量计的那一列，对不上这句脚注。</p>
+              <p>指南对 <code>search_context_size</code> 的定义是：它控制在生成回答之前，有多少网页搜索结果的上下文提供给模型。low 适合只要几个细节的查询，medium 是均衡的默认，high 用于答案可能需要更多细节的时候。紧接着的一句是：这个设置不设定确切的 token 数，也不保证来源或引用的条数。所以把旋钮拧到 low，改变的是提供给模型的上下文档位，不是把脚注里的 8000 改成一个更小的整数。在 gpt-4o-mini 和 gpt-4.1-mini 的非预览工具上，计费块是按次固定的。low 不能拿来当省 token 的开关。</p>
+              <p>引用也不是次数。输出里的 <code>url_citation</code> 标注给出被引用的 URL、标题和位置。指南写明，来源的数量常常多于引用的数量。一次 <code>action.type</code> 为 search 的动作，可以带出多条引用。对这两个小模型，那仍是一次调用、一块 8000。反过来，一次响应里如果出现两个搜索动作，指南把工具调用费写在搜索动作上，脚注写的是 per call。两个搜索动作是两次调用，也是两块 8000，不是「一次对话所以只计一块」。数的时候数搜索动作，不数引用，也不数来源。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 没搜成，就不要按搜成了去加</h2>
+              <p>Responses 里，<code>tool_choice</code> 为 auto 时，搜索是可选的。指南写明，必须搜的时候用 required，或指定网页搜索这项工具。没有发出搜索动作，那句「搜索动作产生工具调用费」就没有落点。不要因为请求里挂了工具，就按一次网页搜索去估。用户自定义函数的 schema 即使没被调用也会占输入，见<a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数没被点到，为什么整份定义还按输入扣？</a>。托管的网页搜索不是那份 schema。</p>
+              <p>Chat Completions 的搜索模型是另一条路径。迁移表写明：这些模型会在回答之前先搜索；Responses 里的搜索才是一项工具。走 Chat Completions 搜索模型，没有「这次模型决定不搜」这一种省法。指南还列出 <code>gpt-5-search-api</code> 的上下文窗口是 200k，并且这条路径不支持 Responses 上的域名过滤、完整来源列表、实时访问开关和返回 token 预算。8000 的脚注没有写到这个模型上。对它要按它自己的搜索内容用量和调用行去对，不要把小模型的固定块搬过来。</p>
+              <p>推理模型上还有 <code>open_page</code> 和 <code>find_in_page</code>。指南把「产生工具调用费」这句只写在 search 后面，没有把同一句抄到打开页面和页内查找上。它也没有写这两种动作免费，更没有写它们各自再加一块 8000。8000 的脚注对象是那两个小模型的非预览网页搜索，而打开页面、页内查找写的是推理模型才支持。对账时按输出里的 <code>action.type</code> 分开，不要把搜索动作的句子套到另外两种动作上。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 预算、窗口和已经关掉的模型</h2>
+              <p><code>return_token_budget</code> 只作用于 Responses 上、GPT-5 及之后推理模型的托管网页搜索。default 和省略这个参数是同一行为。unlimited 去掉默认的返回 token 预算，指南写明它会增加延迟和费用。同一段也写明：它不改变搜索的上下文窗口，并且不适用于非推理的网页搜索、旧的 Search API、容器里的网页搜索、Chat Completions 的搜索模型，以及 <code>web_search_preview</code>。gpt-4o-mini 和 gpt-4.1-mini 的那块 8000 因此换不掉。把预算设成 unlimited，不会让小模型改按实量计，也不会让非推理模型突然套上这套预算。</p>
+              <p>Responses 的网页搜索上下文窗口上限是 128k，即使底层模型的窗口更大。这是窗口，不是一笔已经计好的 128k token，也不是折扣。超出窗口的内容不在这次搜索的上下文里。不要把 128k 加进 8000 再估一笔。</p>
+              <p><code>external_web_access</code> 设为 false 时，工具只用缓存或索引结果，不抓实时页面。不设的时候默认是 true，也就是实时访问。指南没有为离线模式另开一行更低的价格。预览工具会忽略这个参数，并按 true 来行为。想用关掉外网来少计那块 8000，文档里没有这个对应关系。</p>
+              <p>迁移表写明，<code>gpt-4o-search-preview</code> 和 <code>gpt-4o-mini-search-preview</code> 已弃用，并在 2026-07-23 关闭。今天已经过了这个日期。新的调用再按这两个模型名去对账，对的是迁移表里已经关掉的路径。它建议迁到 Responses 的 <code>web_search</code>，若必须留在 Chat Completions，则用 <code>gpt-5-search-api</code>。同一张表写 <code>o4-mini</code> 已在 2026-10-23 关闭。仍在用 gpt-5 的集成，网页搜索要求推理力度高于 minimal。这些是路径是否还在，不是把固定块扩大到所有模型。</p>
+              <p>文件搜索的存储和调用是另一种工具。当天没人搜，向量库超过免费额度仍按天计，见<a href="/articles/overseas-ai-file-search-idle-storage.html">文件没人搜，向量库为什么还在按天扣？</a>。网页搜索的一次调用不是向量库的一天。代码容器按会话分钟计、有五分钟下限，见<a href="/articles/overseas-ai-container-five-minute-floor.html">代码只跑了一小会儿，为什么容器至少按五分钟计？</a>。模型既搜了网页又跑了代码，两行分开加，不要因为搜过网页就再加一个容器下限。国内另一家的搜索是模型费之外再扣一笔，口径不同，见<a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a>，不要把 8000 写进那本账。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值改不了这块固定输入</h2>
+              <p>对账按六列走。第一列是工具：现行 <code>web_search</code>，还是 <code>web_search_preview</code>。第二列是模型：是不是 gpt-4o-mini 或 gpt-4.1-mini，并且用的是不是非预览工具。第三列是搜索动作的次数，只数 <code>action.type</code> 为 search 的，不数引用。第四列是搜索内容：这两个小模型按次固定 8000 个输入 token，其他模型按实量、按该模型输入价，非推理模型的预览行这一列为零。第五列是这次请求自己的提示和输出，它们在固定块之外。第六列是路径：Responses 在 auto 下可以不搜，Chat Completions 的搜索模型会先搜再答。</p>
+              <p>给账户准备额度，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把一句很短的回答收成按字计费，也不会把 low 变成一块更小的输入。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。调用次数、那块 8000，以及预览行是否免掉搜索内容 token，仍按这次实际发出的搜索动作计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">调用与检索内容</a></li>
+              <li><a href="#sec-2">短回答与 low</a></li>
+              <li><a href="#sec-3">没搜成的时候</a></li>
+              <li><a href="#sec-4">预算与已关模型</a></li>
+              <li><a href="#sec-5">充值改不了块</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API：定价</a> — 现行网页搜索含图像，按调用另计，搜索内容 token 按模型价计。非推理模型的预览行不另计搜索内容 token。gpt-4o-mini 与 gpt-4.1-mini 在非预览工具上，按每次调用固定 8000 个输入 token 计。</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-web-search" target="_blank" rel="noopener nofollow">OpenAI API：网页搜索</a> — 搜索动作产生工具调用费。search_context_size 不设定确切 token 数。auto 下搜索可选。Chat Completions 的搜索模型会先搜再答。预览搜索模型于 2026-07-23 关闭。</li>
+            </ul><p class="ref-note">资料核验于2026年11月12日。按搜索动作计数、并把 8000 限制在两个小模型的非预览工具上，是本站对账顺序，并非厂商效果承诺。单价与档位以 OpenAI 价目页及指南为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-web-search-separate-meter.html">模型账单对上了，搜索费为什么还在扣？</a></li>
+          <li><a href="/articles/overseas-ai-container-five-minute-floor.html">代码只跑了一小会儿，为什么容器至少按五分钟计？</a></li>
+          <li><a href="/articles/overseas-ai-file-search-idle-storage.html">文件没人搜，向量库为什么还在按天扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=c8e00b6bb4"></script>
+</body>
+</html>

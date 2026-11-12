@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does a short search still bill 8,000 input tokens?</title>
+  <meta name="description" content="gpt-4o-mini and gpt-4.1-mini bill a fixed 8,000 input tokens per non-preview web search call. A short answer and search_context_size do not shrink it.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/mini-search-bills-eight-thousand.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/mini-search-bills-eight-thousand.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why does a short search still bill 8,000 input tokens?">
+  <meta property="og:description" content="gpt-4o-mini and gpt-4.1-mini bill a fixed 8,000 input tokens per non-preview web search call. A short answer and search_context_size do not shrink it.">
+  <meta property="og:url" content="https://ponr.org/en/articles/mini-search-bills-eight-thousand.html">
+  <meta property="article:published_time" content="2026-11-12T10:42:00+08:00">
+  <meta property="article:modified_time" content="2026-11-12T10:42:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Search content">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why does a short search still bill 8,000 input tokens?">
+  <meta name="twitter:description" content="gpt-4o-mini and gpt-4.1-mini bill a fixed 8,000 input tokens per non-preview web search call. A short answer and search_context_size do not shrink it.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A fixed block marked 8000, a short result slip above it, and a low knob that is not connected">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#webpage",
+      "url": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html",
+      "name": "Why does a short search still bill 8,000 input tokens?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-12T10:42:00+08:00",
+      "dateModified": "2026-11-12T10:42:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why does a short search still bill 8,000 input tokens?", "item": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why does a short search still bill 8,000 input tokens?",
+      "description": "gpt-4o-mini and gpt-4.1-mini bill a fixed 8,000 input tokens per non-preview web search call. A short answer and search_context_size do not shrink it.",
+      "image": "https://ponr.org/img/cover-overseas-ai-web-search-fixed-eight-thousand-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-12T10:42:00+08:00",
+      "dateModified": "2026-11-12T10:42:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Search content",
+      "keywords": ["AI access", "OpenAI", "web search", "search content tokens", "per-call billing"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/mini-search-bills-eight-thousand.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-web-search-fixed-eight-thousand.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why does a short search still bill 8,000 input tokens?</h1>
+          <p class="article-summary">OpenAI's current web search is two charges. A search action is its own tool call. The tokens retrieved from the index and fed in with the prompt bill at the chosen model's rates. On gpt-4o-mini and gpt-4.1-mini, with the non-preview tool, that content is not measured by how short the page looked. Each call bills a fixed block of 8,000 input tokens. The answer on screen can be one sentence. Setting search_context_size to low does not set an exact token count, and it does not shrink the block. Preview search on non-reasoning models is a different row, and that row does not bill search content tokens. Unit prices stay on the pricing page.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-12T10:42:00+08:00">2026-11-12 10:42:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-12</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-web-search-fixed-eight-thousand-en.svg" width="800" height="400" alt="A fixed block marked 8000, a short result slip above it, and a low knob that is not connected" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check before you reconcile</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>Count actions whose type is search. The guide attaches the tool-call cost to search actions. Citations and sources are not the call count.</li>
+                <li><span class="article-verify-check">✓</span>gpt-4o-mini and gpt-4.1-mini with non-preview web_search bill search content as a fixed 8,000 input tokens per call. A short result does not shrink that to the words you saw.</li>
+                <li><span class="article-verify-check">✓</span>search_context_size values low, medium, and high do not set an exact token count. Low does not change the 8,000 block.</li>
+                <li><span class="article-verify-check">✓</span>web_search_preview on non-reasoning models does not bill search content tokens, and its call row is not the current tool's row. Preview on reasoning models still bills search content tokens.</li>
+                <li><span class="article-verify-check">✓</span>In the Responses API, tool_choice auto can skip search. Chat Completions search models search before they answer. Unit prices stay on the pricing page.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The call is one charge. The retrieved text is another</h2>
+              <p>The <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">pricing page</a> puts current web search on one row, and the row name includes image search: a per-call charge, plus search content tokens billed at the chosen model's rates. The same table splits the preview tool. Preview on reasoning models is again a call charge plus search content tokens at model rates. Preview on other models is a different call row, and that row says search content tokens are free. The dollar figures on that page are the prices to reconcile against. This article does not freeze one day's numbers into a standing rate.</p>
+              <p>The note under the table defines search content tokens as tokens retrieved from the search index and fed to the model alongside the prompt, so the model can generate an answer. They are input. They are not a third product name. Tokens used for built-in tools are billed at the chosen model's per-token rates. A search that ran therefore has at least two columns: the call that belongs to the search action, and the retrieved content that was fed in. The prompt you wrote and the answer the model wrote still bill as this request's own input and output. The 8,000 is not the whole request, and it does not replace the call.</p>
+              <p>The fixed block is written for two models only. The pricing footnote the <a href="https://developers.openai.com/api/docs/guides/tools-web-search" target="_blank" rel="noopener">web search guide</a> points at says: for gpt-4o-mini and gpt-4.1-mini with the non-preview web search tool, search content tokens are billed as a fixed block of 8,000 input tokens per call. The footnote says input tokens. It does not call the block cached input. Cached input is a separate column on the price table, and this sentence does not apply that discount to the block. Other models do not get the sentence. Their search content still bills at their own input rates, by the amount retrieved. Do not copy 8,000 onto them. Image search is already inside the current row's name. Do not add a second image-search call from an older reading of the table.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. A short answer does not shrink the block, and neither does low</h2>
+              <p>The sentence on screen is the text inside the message. The fixed block bills the retrieved content that was fed to the model, not how short that sentence was. A call that comes back with a few words still bills 8,000 input tokens of search content on these two models. "The result looked small" matches the variable column on other models. It does not match this footnote.</p>
+              <p>The guide defines search_context_size as how much context from web search results is made available to the model before it generates a response. Low is for a lookup that needs only a few details, medium is the balanced default, and high is for an answer that may need more detail. The next sentence says the setting does not set an exact token count, and does not guarantee a number of sources or citations. Turning the knob to low changes which tier of context is offered. It does not rewrite 8,000 into a smaller integer. On gpt-4o-mini and gpt-4.1-mini with the non-preview tool, the billed block is fixed per call. Low is not a token-saving switch for that block.</p>
+              <p>Citations are not calls. A url_citation annotation carries the URL, the title, and the location of a cited source. The guide says the number of sources is often greater than the number of citations. One action whose type is search can carry many citations. On these two models that is still one call and one block of 8,000. The other way around: if one response emits two search actions, the guide attaches the tool-call cost to search actions, and the footnote says per call. Two search actions are two calls, and two blocks of 8,000. They are not "one conversation, so one block." Count search actions. Do not count citations, and do not count sources.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. If search did not run, do not add it as if it had</h2>
+              <p>In the Responses API, tool_choice auto makes search optional. The guide says to use required, or a specific web search tool choice, when search must run. If no search action was emitted, the sentence that search actions incur a tool-call cost has nothing to attach to. Do not estimate a web-search call just because the tool was listed on the request. A function schema you defined can still bill as input when the function never runs. That column is <a href="/en/articles/unused-tool-schema-still-bills.html">The Tool Never Ran. Its Schema Still Billed.</a> Hosted web search is not that schema.</p>
+              <p>Chat Completions search models are a different path. The migration table says those models always search before responding, while Responses search is a tool. On the Chat Completions search path there is no saving that comes from the model deciding not to search. The guide also lists gpt-5-search-api with a 200k context window, and that path does not support the Responses controls: domain filters, the full source list, the live-access switch, or the returned-token budget. The 8,000 footnote does not name this model. Reconcile it from its own search-content usage and its own call row. Do not carry the mini-model block across.</p>
+              <p>Reasoning models can also emit open_page and find_in_page. The guide attaches the tool-call cost sentence only to search. It does not copy that sentence onto opening a page or searching inside a page. It also does not say those two actions are free, and it does not say each one adds another block of 8,000. The 8,000 footnote is about the two mini models on the non-preview web search tool. Opening a page and finding in a page are described as supported on reasoning models. Split them by action.type in the output. Do not lay the search sentence on the other two actions.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. The budget, the window, and the models that have shut down</h2>
+              <p>return_token_budget applies only to hosted Responses web search on GPT-5 and later reasoning models. default is the same behavior as omitting the parameter. unlimited removes the default returned-token budget, and the guide says it can increase latency and cost. The same section says it does not change the search context window, and it does not apply to non-reasoning web search, legacy Search API paths, container web search, Chat Completions search models, or web_search_preview. The 8,000 block on gpt-4o-mini and gpt-4.1-mini is therefore not something this parameter replaces. Setting the budget to unlimited does not make the mini models bill by actual size, and it does not put the budget on a non-reasoning model.</p>
+              <p>The Responses web search context window is limited to 128k, even when the underlying model has a larger window. That is a window. It is not 128k tokens already billed, and it is not a discount. Content past the window is not in this search's context. Do not add 128k on top of 8,000 and call that an estimate.</p>
+              <p>Setting external_web_access to false keeps the tool on cached or indexed results and skips a live fetch. The default, when you omit it, is true, which is live access. The guide does not publish a cheaper row for the offline mode. Preview tools ignore the parameter and behave as if it were true. Turning live access off is not a documented way to shrink the 8,000 block.</p>
+              <p>The migration table says gpt-4o-search-preview and gpt-4o-mini-search-preview are deprecated and shut down on 2026-07-23. That date has passed. Reconciling a new call against those model names is reconciling a path the table lists as closed. The recommended path is Responses web_search, or gpt-5-search-api if the integration has to stay on Chat Completions. The same table says o4-mini shut down on 2026-10-23. Integrations still on gpt-5 need reasoning effort above minimal before web search runs. Those sentences are about which path is still open. They do not extend the fixed block to every model.</p>
+              <p>File-search storage and file-search calls are a different tool. A store can bill by the day when nobody searched, once it is past the free allowance. That is <a href="/en/articles/idle-vector-store-still-bills.html">Nobody Searched. The Store Still Bills.</a> A web search call is not a vector-store day. A code container bills by session minutes, with a five-minute floor, in <a href="/en/articles/container-bills-five-minutes.html">Why does a short code run bill five container minutes?</a> If the model searched the web and also ran code, add the rows separately. Do not add a container floor because a web search happened. A domestic vendor's search charge, beside the model bill, is <a href="/en/articles/web-search-bills-beside-tokens.html">The Model Bill Matches. Search Still Charges.</a> Do not write 8,000 into that ledger.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not resize the block</h2>
+              <p>Reconcile in six columns. First, the tool: current web_search, or web_search_preview. Second, the model: whether it is gpt-4o-mini or gpt-4.1-mini, and whether the tool is the non-preview one. Third, the number of search actions, counting only action.type search, not citations. Fourth, search content: a fixed 8,000 input tokens per call on those two models, variable input on other models, and zero on the non-reasoning preview row. Fifth, this request's own prompt and output, which sit outside the block. Sixth, the path: Responses with auto can skip search, and Chat Completions search models search before they answer.</p>
+              <p>Funding the account happens before those columns settle. Swapping stablecoins on-chain into assets that can be paid in does not turn a one-line answer into billing by the word, and it does not turn low into a smaller input block. When that swap is the step you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> does it without an account, and it is non-custodial. A completed swap only means the asset changed hands. The call count, the 8,000 block, and whether the preview row waives search content tokens still follow the search actions that were actually emitted.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">The call and the content</a></li>
+              <li><a href="#sec-2">Short answers and low</a></li>
+              <li><a href="#sec-3">When search did not run</a></li>
+              <li><a href="#sec-4">Budget and closed models</a></li>
+              <li><a href="#sec-5">A top-up keeps the block</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API: Pricing</a> — Current web search includes images: a per-call charge, plus search content tokens at model rates. Preview on non-reasoning models does not bill search content tokens. gpt-4o-mini and gpt-4.1-mini on the non-preview tool bill a fixed 8,000 input tokens per call.</li>
+              <li><a href="https://developers.openai.com/api/docs/guides/tools-web-search" target="_blank" rel="noopener nofollow">OpenAI API: Web search</a> — Search actions incur a tool-call cost. search_context_size does not set an exact token count. Search is optional when tool_choice is auto. Chat Completions search models search before responding. The preview search models shut down on 2026-07-23.</li>
+            </ul><p class="ref-note">Sources checked on 12 November 2026. Counting search actions, and keeping 8,000 on the two mini models' non-preview tool, is this site's reconciliation order, not a vendor promise. Unit prices and tiers follow the OpenAI pricing page and guide.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/web-search-bills-beside-tokens.html">The Model Bill Matches. Search Still Charges.</a></li>
+          <li><a href="/en/articles/container-bills-five-minutes.html">Why does a short code run bill five container minutes?</a></li>
+          <li><a href="/en/articles/idle-vector-store-still-bills.html">Nobody Searched. The Store Still Bills.</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=c8e00b6bb4"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#143226"/>
+  <rect x="72" y="56" width="188" height="54" rx="12" fill="#2f6b4f"/>
+  <text x="166" y="91" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="26" fill="#f4f1e8">short</text>
+  <path d="M286 68h34" stroke="#d7c4a3" stroke-width="3" fill="none"/>
+  <path d="M286 84h76" stroke="#d7c4a3" stroke-width="3" fill="none"/>
+  <path d="M286 100h20" stroke="#d7c4a3" stroke-width="3" fill="none"/>
+  <rect x="72" y="146" width="468" height="190" rx="24" fill="#e0a04a"/>
+  <text x="306" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="92" font-weight="700" fill="#1c140c">8000</text>
+  <path d="M620 236H578" stroke="#e0a04a" stroke-width="2" stroke-dasharray="4 6" fill="none"/>
+  <circle cx="684" cy="236" r="46" fill="none" stroke="#e0a04a" stroke-width="3" stroke-dasharray="5 7"/>
+  <text x="684" y="244" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#f4f1e8">low</text>
+</svg>
