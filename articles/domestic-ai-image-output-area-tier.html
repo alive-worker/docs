@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>参考图很小，为什么输入档却跟着输出的像素面积走？</title>
+  <meta name="description" content="千问图像按输入张数和成功输出的张数计，用量对象不是 token。3.0 的输入档跟着输出像素面积走：不超过 225 万像素记 1K，超过记 2K。参考图再小也不改这一档。要了 4 张只成功 3 张，只计 3 张。没写输入价的模型不计输入。北京的免费额度由输入和输出共用，其他地域没有。单价以价格页为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/image-tier-follows-output-area.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="参考图很小，为什么输入档却跟着输出的像素面积走？">
+  <meta property="og:description" content="千问图像按输入张数和成功输出的张数计，用量对象不是 token。3.0 的输入档跟着输出像素面积走：不超过 225 万像素记 1K，超过记 2K。参考图再小也不改这一档。要了 4 张只成功 3 张，只计 3 张。没写输入价的模型不计输入。北京的免费额度由输入和输出共用，其他地域没有。单价以价格页为准。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <meta property="article:published_time" content="2026-11-12T13:54:00+08:00">
+  <meta property="article:modified_time" content="2026-11-12T13:54:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="图像张数">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="参考图很小，为什么输入档却跟着输出的像素面积走？">
+  <meta name="twitter:description" content="千问图像按输入张数和成功输出的张数计，用量对象不是 token。3.0 的输入档跟着输出像素面积走：不超过 225 万像素记 1K，超过记 2K。参考图再小也不改这一档。要了 4 张只成功 3 张，只计 3 张。没写输入价的模型不计输入。北京的免费额度由输入和输出共用，其他地域没有。单价以价格页为准。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-image-output-area-tier.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一张很小的参考图停在旁边，计量线画在大输出框越过 225 万像素的位置">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-image-output-area-tier.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-image-output-area-tier.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html",
+      "name": "参考图很小，为什么输入档却跟着输出的像素面积走？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-12T13:54:00+08:00",
+      "dateModified": "2026-11-12T13:54:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "参考图很小，为什么输入档却跟着输出的像素面积走？", "item": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "参考图很小，为什么输入档却跟着输出的像素面积走？",
+      "description": "千问图像按输入张数和成功输出的张数计，用量对象不是 token。3.0 的输入档跟着输出像素面积走：不超过 225 万像素记 1K，超过记 2K。参考图再小也不改这一档。要了 4 张只成功 3 张，只计 3 张。没写输入价的模型不计输入。北京的免费额度由输入和输出共用，其他地域没有。单价以价格页为准。",
+      "image": "https://ponr.org/img/cover-domestic-ai-image-output-area-tier.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-12T13:54:00+08:00",
+      "dateModified": "2026-11-12T13:54:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "图像张数",
+      "keywords": ["AI服务", "阿里云百炼", "千问图像", "按张计费", "输出分辨率"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-image-output-area-tier.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/image-tier-follows-output-area.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>参考图很小，为什么输入档却跟着输出的像素面积走？</h1>
+          <p class="article-summary">阿里云百炼的千问图像不按提示词的 token 计。价格页的公式是输入图像张数乘输入单价，加上成功生成的输出张数乘输出单价。没写输入单价的模型，输入不计。qwen-image-3.0 的用量把输入档和输出档都按输出图像的像素面积划分：不超过 2,250,000 像素记 1K，超过记 2K。参考图自己是一张小图，也不改这个分界。请求 4 张、只返回 3 个地址，计的是 3 张。单价、地域和活动留在价格页和控制台。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-12T13:54:00+08:00">2026-11-12 13:54:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-12</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-image-output-area-tier.svg" width="800" height="400" alt="一张很小的参考图停在旁边，计量线画在大输出框越过 225 万像素的位置" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>先看用量是不是图片计量。3.0 返回 <code>input_image_count</code> 和 <code>output_image_count</code>，接口写明这不是 token。</li>
+                <li><span class="article-verify-check">✓</span>输入档和输出档都按输出像素面积分。面积不超过 2,250,000 是 1K，超过是 2K。参考图自己的宽高不决定这一档。</li>
+                <li><span class="article-verify-check">✓</span>价格页没写输入单价的模型，输入不计。3.0 有输入行。2.0 系列的表只写输出单价。</li>
+                <li><span class="article-verify-check">✓</span>计成功返回的张数，不计请求的 <code>n</code>。示例是要 4 张、成功 3 张，计 3 张。组图模式下省略 <code>n</code>，上限默认 12，实际张数不超过这个上限。</li>
+                <li><span class="article-verify-check">✓</span>请求失败不产生费用，也不消耗免费额度。北京地域 3.0 的免费额度是输入和输出共用，其他地域没有。单价以价格页为准。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 计的是张数，用量对象不是 token</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener">模型价格页</a>把图像生成写成：按输入图像和成功生成的图像张数计费。没有写明输入图像价格的模型，输入不计费，只计输出。公式在同一处：费用等于输入图像单价乘输入张数，加上输出图像单价乘输出张数。请求失败不产生任何费用，也不消耗免费额度。价格页写明展示的是调用原价，活动在控制台。本文不把某一天的元价写成长期牌价。</p>
+              <p><a href="https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference" target="_blank" rel="noopener">图像生成与编辑的接口说明</a>把 3.0 的 <code>usage</code> 定义成图片输入和输出的计量，并直接写明：这里不是 token 用量。文生图时 <code>input_image_count</code> 为 0。图生图按实际传入的图片数返回。理解一张图要折成多少 token，见<a href="/articles/domestic-ai-vision-token-billing.html">调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token</a>，不能拿来估这一次出图。提示词再长，截断改变的是送进去的字，不把这次调用改成按 token 计费。</p>
+              <p>所以「加一张参考图」在不同系列上不是同一句话。3.0 的价格表有输入行，接口也返回输入张数。2.0 系列的价格表标题写的是按张计费，表里列出的是输出单价，没有输入单价。按价格页那句规则，没写输入价格的模型，输入不计。2.1 可以传 1 到 10 张参考图，3.0 是 1 到 3 张。张数上限是接口限制。计不计输入，先看价格表有没有那一行，再看 <code>input_image_count</code> 是不是 0。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 225 万像素量的是输出，不是那张小参考图</h2>
+              <p>3.0 的 <code>input_image_type</code> 和 <code>output_image_type</code> 用的是同一把尺子，尺子量的是输出分辨率的像素面积。面积小于或等于 2,250,000，输入记 <code>qima_input_1k</code>，输出记 <code>qima_output_1k</code>。面积大于 2,250,000，两边都记 2K。参考图自己是 512 像素宽，只要输出跨过这条线，输入档的名字也是 2K。它不按你上传的那张文件有多小来分。</p>
+              <p>这条线很好对照。1024×1024 是 1,048,576，停在 1K 这边。1500×1500 正好 2,250,000，仍是小于或等于，还在 1K。2048×2048 是 4,194,304，已经在 2K。接口推荐的 2K 方图就是 2048×2048。不传 <code>size</code> 时，3.0 和 2.1 由模型按提示词推荐分辨率。2.0 系列的默认值直接是 2048×2048。万相图像 <code>wan2.7-image</code> 和 <code>wan2.7-image-pro</code> 的默认是 2K。省略分辨率，不是一次停在小图上的试看。</p>
+              <p>档位名字和单价行不是同一件事。3.0-pro 的价格表把输出分成 1K 和 2K 两档，两档单价不同。3.0 的表也写出 1K 和 2K，但两档输出单价相同，输入也没有因为 2K 再开一个不同的单价。看到 <code>qima_output_2k</code>，先看模型是 3.0 还是 3.0-pro，再决定这是不是换了一档钱。单价以价格页当时的数字为准。<code>wan2.7-image-pro</code> 的 4K 只在没有图片输入、又不是组图的文生图里可用，其余场景文档写的是只支持 2K。把编辑或组图请求写成 4K，对不上这个支持范围，不要按一次成功的 4K 去估。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 要了 4 张，只成功 3 张，就计 3 张</h2>
+              <p>价格页的示例是：请求生成 4 张，实际只成功返回 3 个图像地址，另 1 张失败，系统只对成功生成的图像计费，计费数量是 3 张。示例里的单价是用来演示乘法的假设，不是长期牌价。对账时对的是成功张数，不是参数 <code>n</code> 上写的那个整数。<a href="https://help.aliyun.com/zh/model-studio/text-to-image" target="_blank" rel="noopener">文生图的使用说明</a>把这句话写成：<code>n</code> 直接影响费用，费用等于单价乘成功生成的图片张数。</p>
+              <p>不传 <code>n</code>，默认是 1，不是 0。千问 3.0 和 2.1 可选 1 到 6 张。万相这两款在关闭组图时是 1 到 4 张。<code>n</code> 必须是整数，写成字符串会返回 400。空的图像数组或 <code>null</code> 也是 400。内容审核拦住的请求同样失败。这些失败落在「请求失败不产生费用」里，不要按 <code>n</code> 的上限去估一张已经生成的图。</p>
+              <p>组图是另一档默认值。只有 <code>wan2.7-image</code> 和 <code>wan2.7-image-pro</code> 支持 <code>enable_sequential</code>，默认是 false。设成 true 之后，<code>n</code> 表示最多生成多少张，范围 1 到 12，默认 12。实际张数由模型决定，并且不超过 <code>n</code>。费用仍按成功生成的张数乘单价，不是按 12 这个上限先扣满。你没改 <code>n</code> 就打开组图，上限已经是 12。模型若成功交回 8 张，计的是 8，不是 1，也不是先按 12 预扣。思考模式默认开启，文档写的是增加耗时。组图打开时，思考模式和颜色主题不可用。水印默认关闭，打开只是在右下角加上「AI生成」，不另开一张计费表。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 失败是零，24 小时是下载钟</h2>
+              <p>整次请求失败，价格页写的是不产生费用，也不消耗免费额度。模型、Endpoint 和 API Key 必须属于同一地域，跨地域调用会失败。异步接口必须带上开启异步的请求头，缺了会报错。任务还在排队或处理中，还没有成功张数。状态变成失败或取消，也不是成功生成。查询任务不会因为你多查一次就再生成一批图。用量出现在调用成功的结果里。</p>
+              <p>免费额度不要抄成所有模型同一句。价格页写明，千问图像 3.0 这一组只在华北 2（北京）有免费额度，其他地域没有。北京表上 3.0 和 3.0-pro 写的是输入和输出共 10 张，有效期是开通百炼、模型发布、申请通过三者里较晚的那天起 90 天。这是一口共用的额度，不是输入 10 张再加输出 10 张。2.1-pro 和 2.1-turbo 的表写 10 张，没有写成输入输出共用。2.0 那几行写的是无。把 3.0 的共用 10 张套到 2.0 上，会对出一张价格页没有的额度。</p>
+              <p>图像 URL 的有效期是 24 小时，异步 <code>task_id</code> 的查询有效期也是 24 小时。这是下载和查询的钟。张数在生成成功时已经按用量计过。过了 24 小时再下载失败，不是把那几张退回，也不是按下载次数再计一次。提示词智能改写默认开启，改的是正向提示词的措辞。反向提示词超长会被截断。两处改变的都是字，不是成功张数，也不是那条 225 万像素的分界。视频按秒计，见<a href="/articles/domestic-ai-wan-reference-five-second-pool.html">参考视频有三十秒，为什么输入侧只按五秒这口池计？</a>。这里的输出是张，不是秒。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值改不了这条像素分界</h2>
+              <p>对账按六列走。第一列是模型：3.0 有输入行和像素分档，2.0 系列的表只写输出单价。第二列是输入张数：文生图是 0，图生图按实际传入的张数，空数组会直接失败。第三列是输出像素面积：不超过 2,250,000 记 1K，超过记 2K，输入档跟着这一刀走。第四列是成功张数，看返回了几个地址，不看 <code>n</code> 的请求值；组图还要看上限是不是默认的 12。第五列是失败和额度：整次失败按零，北京 3.0 的免费额度是输入输出共用。第六列是地域，其他地域没有这一口免费额度。</p>
+              <p>给账户准备额度，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把一张小参考图的尺寸写成输入档，也不会把只成功的 3 张改回请求的 4 张。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。输入张数、输出像素面积和成功张数，仍按这次实际成功的调用计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">张数不是 token</a></li>
+              <li><a href="#sec-2">225 万像素</a></li>
+              <li><a href="#sec-3">成功张数</a></li>
+              <li><a href="#sec-4">失败与链接</a></li>
+              <li><a href="#sec-5">充值改不了分界</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener nofollow">阿里云百炼：模型价格</a> — 按输入图像和成功生成的图像张数计费。未写输入价格的模型，输入不计。请求失败不产生费用，也不消耗免费额度。北京地域 3.0 的免费额度是输入输出共 10 张。</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference" target="_blank" rel="noopener nofollow">阿里云百炼：千问图像生成与编辑</a> — 用量是图片计量，不是 token。输入档和输出档按输出像素面积划分，分界是 2,250,000。图像链接和任务查询的有效期都是 24 小时。</li>
+            </ul><p class="ref-note">资料核验于2026年11月12日。按输出像素面积给输入分档、并只计成功张数，是本站对账顺序，并非厂商效果承诺。单价、免费额度和分辨率档以阿里云文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-wan-reference-five-second-pool.html">参考视频有三十秒，为什么输入侧只按五秒这口池计？</a></li>
+          <li><a href="/articles/domestic-ai-vision-token-billing.html">调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token</a></li>
+          <li><a href="/articles/domestic-ai-speech-character-two-rulers.html">语音按字符计，为什么汉字在另一套接口里要算两次？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f7e795b96a"></script>
+</body>
+</html>

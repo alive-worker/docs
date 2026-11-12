@@ -7,6 +7,14 @@
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
   <item>
+    <title><![CDATA[Why does a small reference image take the output's pixel tier?]]></title>
+    <link>https://ponr.org/en/articles/image-tier-follows-output-area.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/image-tier-follows-output-area.html</guid>
+    <pubDate>Thu, 12 Nov 2026 13:54:00 +0800</pubDate>
+    <category>Image count</category>
+    <description><![CDATA[The input tier follows output pixel area. Only successful images bill.]]></description>
+  </item>
+  <item>
     <title><![CDATA[Why does a short search still bill 8,000 input tokens?]]></title>
     <link>https://ponr.org/en/articles/mini-search-bills-eight-thousand.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/mini-search-bills-eight-thousand.html</guid>

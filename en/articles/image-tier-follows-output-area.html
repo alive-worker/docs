@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does a small reference image take the output's pixel tier?</title>
+  <meta name="description" content="Qwen image bills pictures, not tokens. On 3.0 the tier follows output area: 2.25 million pixels or below is 1K. A small reference does not set it.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/image-tier-follows-output-area.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/image-tier-follows-output-area.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-image-output-area-tier.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why does a small reference image take the output's pixel tier?">
+  <meta property="og:description" content="Qwen image bills pictures, not tokens. On 3.0 the tier follows output area: 2.25 million pixels or below is 1K. A small reference does not set it.">
+  <meta property="og:url" content="https://ponr.org/en/articles/image-tier-follows-output-area.html">
+  <meta property="article:published_time" content="2026-11-12T13:54:00+08:00">
+  <meta property="article:modified_time" content="2026-11-12T13:54:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Image count">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why does a small reference image take the output's pixel tier?">
+  <meta name="twitter:description" content="Qwen image bills pictures, not tokens. On 3.0 the tier follows output area: 2.25 million pixels or below is 1K. A small reference does not set it.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-image-output-area-tier-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A small reference sits aside. The measuring line crosses the large output frame at 2.25 million pixels.">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-image-output-area-tier-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-image-output-area-tier-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#webpage",
+      "url": "https://ponr.org/en/articles/image-tier-follows-output-area.html",
+      "name": "Why does a small reference image take the output's pixel tier?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-12T13:54:00+08:00",
+      "dateModified": "2026-11-12T13:54:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why does a small reference image take the output's pixel tier?", "item": "https://ponr.org/en/articles/image-tier-follows-output-area.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why does a small reference image take the output's pixel tier?",
+      "description": "Qwen image bills pictures, not tokens. On 3.0 the tier follows output area: 2.25 million pixels or below is 1K. A small reference does not set it.",
+      "image": "https://ponr.org/img/cover-domestic-ai-image-output-area-tier-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-12T13:54:00+08:00",
+      "dateModified": "2026-11-12T13:54:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Image count",
+      "keywords": ["AI access", "Alibaba Cloud Model Studio", "Qwen image", "per-image billing", "output resolution"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/image-tier-follows-output-area.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-image-output-area-tier.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why does a small reference image take the output's pixel tier?</h1>
+          <p class="article-summary">Alibaba Cloud Model Studio does not bill Qwen image generation by the prompt's tokens. The price page multiplies input images by the input unit price, then adds successful output images times the output unit price. A model with no published input price does not bill input. On qwen-image-3.0, both the input tier and the output tier follow the output image's pixel area: 2,250,000 pixels or below is 1K, and anything above is 2K. A small reference file does not move that line. Ask for 4 images and receive 3 URLs, and the bill is 3. Unit prices, regions, and promotions stay on the price page and in the console.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-12T13:54:00+08:00">2026-11-12 13:54:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-12</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-image-output-area-tier-en.svg" width="800" height="400" alt="A small reference sits aside. The measuring line crosses the large output frame at 2.25 million pixels." fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check before you reconcile</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>Check that usage is image metering. On 3.0 the fields are input_image_count and output_image_count. The API says this is not token usage.</li>
+                <li><span class="article-verify-check">✓</span>Both tiers follow output pixel area. Area at or below 2,250,000 is 1K. Above that is 2K. The reference file's own width and height do not set the tier.</li>
+                <li><span class="article-verify-check">✓</span>A model with no published input price does not bill input. 3.0 has an input row. The 2.0 series tables list an output price only.</li>
+                <li><span class="article-verify-check">✓</span>Bill the images that came back, not the n you requested. The worked example asks for 4, succeeds at 3, and bills 3. In group mode, omitting n sets a ceiling of 12. The actual count stays at or below that ceiling.</li>
+                <li><span class="article-verify-check">✓</span>A failed request bills nothing and does not spend free quota. On 3.0 in Beijing, input and output share one allowance. Other regions have none. Unit prices stay on the price page.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The meter is images. The usage object is not tokens</h2>
+              <p>The <a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener">model pricing page</a> states image generation as input images plus images that were generated successfully. A model that does not publish an input-image price does not bill input. It bills output only. The formula on that page is: fee equals input unit price times input image count, plus output unit price times output image count. A failed request produces no fee and does not spend free quota. The page says it shows list prices. Promotions live in the console. This article does not freeze one day's yuan figures into a standing rate.</p>
+              <p>The <a href="https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference" target="_blank" rel="noopener">image generation and editing API</a> defines 3.0 usage as image input and output metering, and it says so directly: this is not token usage. Text-to-image sets input_image_count to 0. Image-to-image returns the number of images you actually sent. Converting one picture into tokens for a vision model belongs to <a href="/en/articles/domestic-ai-vision-token-billing.html">How Many Tokens Does One Image Cost in Vision APIs?</a> A long prompt can be truncated. Truncation changes the words. It does not turn this call into token billing.</p>
+              <p>Adding a reference image is therefore not the same sentence on every series. 3.0 publishes an input row, and the API returns an input count. The 2.0 series section says billing is per image, and the tables list an output unit price with no input unit price. Under the pricing rule, a model without a published input price does not bill input. The 2.1 series accepts 1 to 10 reference images. The 3.0 series accepts 1 to 3. Those are request limits. Whether input is billed starts with the price table, then with whether input_image_count is 0.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. The 2.25 million pixel line measures the output, not the small reference</h2>
+              <p>On 3.0, input_image_type and output_image_type share one ruler, and the ruler measures the output resolution's pixel area. Area at or below 2,250,000 marks the input as qima_input_1k and the output as qima_output_1k. Area above 2,250,000 marks both as 2K. A reference that is 512 pixels wide still takes the 2K input name once the output crosses the line. The tier does not follow how small the uploaded file was.</p>
+              <p>The line is easy to place. 1024 by 1024 is 1,048,576, on the 1K side. 1500 by 1500 is exactly 2,250,000, still at or below, still 1K. 2048 by 2048 is 4,194,304, already 2K. The recommended 2K square is 2048 by 2048. When size is omitted, 3.0 and 2.1 let the model recommend a resolution from the prompt. The 2.0 series default is 2048 by 2048 outright. Wan image, wan2.7-image and wan2.7-image-pro, defaults to 2K. Omitting the resolution is not a preview that stays on a small frame.</p>
+              <p>The tier name and the price row are not the same fact. The 3.0-pro table splits output into a 1K row and a 2K row, and those unit prices differ. The 3.0 table also lists 1K and 2K, but the two output unit prices are the same, and 2K does not open a different input unit price. Seeing qima_output_2k means you check whether the model is 3.0 or 3.0-pro before you treat it as a higher price row. The numbers stay on the price page as published that day. On wan2.7-image-pro, 4K is available only for text-to-image with no input image and with group mode off. Every other scene is documented as 2K only. Writing 4K on an edit or a group request does not match that support. Do not estimate it as a successful 4K image.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Ask for 4, succeed at 3, and the bill is 3</h2>
+              <p>The pricing example requests 4 images, gets 3 URLs back, and fails the fourth. The system bills only the images that were generated. The billed count is 3. The unit price in that example is there to show the multiplication. It is not a standing rate. Reconciliation uses the successful count, not the integer written in n. The <a href="https://help.aliyun.com/zh/model-studio/text-to-image" target="_blank" rel="noopener">text-to-image guide</a> puts the same rule in one sentence: n affects the fee, and the fee is the unit price times the number of images generated successfully.</p>
+              <p>Omit n and the default is 1, not 0. Qwen 3.0 and 2.1 accept 1 to 6. The two Wan image models accept 1 to 4 when group mode is off. n has to be an integer. A string returns 400. An empty image array, or null, is also 400. A prompt stopped by content inspection fails the same way. Those failures sit inside the sentence that a failed request produces no fee. Do not estimate them as if n's ceiling had already produced an image.</p>
+              <p>Group mode is a different default. Only wan2.7-image and wan2.7-image-pro support enable_sequential, and it defaults to false. Set it to true and n becomes the maximum number of images, from 1 to 12, default 12. The model decides the actual count, and that count does not exceed n. The fee is still successful images times the unit price. It is not a precharge of the ceiling. Turn group mode on without changing n, and the ceiling is already 12. If the model returns 8 successful images, the count is 8. It is not 1, and it is not 12 charged in advance. Thinking mode defaults to on, and the guide says it adds latency. With group mode on, thinking mode and the color palette are unavailable. The watermark defaults to off. Turning it on adds the label AI生成 in the corner. It does not open another price row.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. Failure is zero. Twenty-four hours is the download clock</h2>
+              <p>A failed request, on the pricing page, produces no fee and does not spend free quota. The model, the endpoint, and the API key have to belong to the same region. A cross-region call fails. The async API requires the header that enables async. Leaving it out returns an error. A task that is still queued or still running has no successful images yet. Failed or canceled is not a successful generation. Looking the task up again does not generate another batch. Usage is returned with a successful call.</p>
+              <p>Do not copy one free-quota sentence onto every model. The price page says this Qwen image 3.0 group has free quota only in China (Beijing), and other regions have none. The Beijing table writes a shared 10 images, input and output together, for 3.0 and 3.0-pro. The window is 90 days from the later of opening Model Studio, the model release, and approval. That is one shared allowance. It is not 10 input images plus another 10 output images. The 2.1-pro and 2.1-turbo rows say 10 images, and they do not say the allowance is shared. The 2.0 rows say none. Putting the shared 10 onto 2.0 invents an allowance the price page does not list.</p>
+              <p>The image URL is valid for 24 hours, and so is an async task_id lookup. That is the download clock and the query clock. The images were already counted, from usage, when generation succeeded. Failing to download after 24 hours does not return those images, and it does not bill the download again. Prompt rewriting defaults to on. It changes the wording of the positive prompt. A negative prompt past the limit is truncated. Both change words. Neither changes the successful count, and neither moves the 2.25 million pixel line. Video billed by the second is <a href="/en/articles/reference-video-five-second-pool.html">Why does a 30-second reference bill from a five-second pool?</a> Output here is images, not seconds.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not move the pixel line</h2>
+              <p>Reconcile in six columns. First, the model: 3.0 has an input row and the pixel split, and the 2.0 series tables list an output price only. Second, the input count: text-to-image is 0, image-to-image is the number you sent, and an empty array fails. Third, output pixel area: at or below 2,250,000 is 1K, above is 2K, and the input tier follows that cut. Fourth, the successful count, from the URLs that came back, not from the n you requested. In group mode, also check whether the ceiling is the default 12. Fifth, failure and allowance: a failed request is zero, and Beijing 3.0 shares one allowance across input and output. Sixth, the region. Other regions do not have that allowance.</p>
+              <p>Funding the account happens before those columns settle. Swapping stablecoins on-chain into assets that can be paid in does not write a small reference file's size into the input tier, and it does not turn 3 successful images back into the 4 you requested. When that swap is the step you need, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> does it without an account, and it is non-custodial. A completed swap only means the asset changed hands. The input count, the output pixel area, and the successful count still follow the call that actually succeeded.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Images, not tokens</a></li>
+              <li><a href="#sec-2">The 2.25 million line</a></li>
+              <li><a href="#sec-3">Successful count</a></li>
+              <li><a href="#sec-4">Failure and the link</a></li>
+              <li><a href="#sec-5">A top-up keeps the line</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener nofollow">Alibaba Cloud Model Studio: Model pricing</a> — Image generation bills input images and successfully generated images. A model with no input price does not bill input. A failed request produces no fee and does not spend free quota. In Beijing, 3.0's free allowance is 10 images shared by input and output.</li>
+              <li><a href="https://help.aliyun.com/zh/model-studio/qwen-image-generation-and-editing-api-reference" target="_blank" rel="noopener nofollow">Alibaba Cloud Model Studio: Qwen image generation and editing</a> — Usage is image metering, not tokens. The input tier and the output tier follow output pixel area, split at 2,250,000. The image link and the task lookup both last 24 hours.</li>
+            </ul><p class="ref-note">Sources checked on 12 November 2026. Rating the input tier by output pixel area, and billing only successful images, is this site's reconciliation order, not a vendor promise. Unit prices, free allowances, and resolution tiers follow the Alibaba Cloud docs and console.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/reference-video-five-second-pool.html">Why does a 30-second reference bill from a five-second pool?</a></li>
+          <li><a href="/en/articles/domestic-ai-vision-token-billing.html">How Many Tokens Does One Image Cost in Vision APIs?</a></li>
+          <li><a href="/en/articles/speech-hanzi-counts-twice.html">Why does one speech API count a hanzi twice?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f7e795b96a"></script>
+</body>
+</html>

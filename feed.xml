@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[参考图很小，为什么输入档却跟着输出的像素面积走？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-image-output-area-tier.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-image-output-area-tier.html</guid>
+    <pubDate>Thu, 12 Nov 2026 13:54:00 +0800</pubDate>
+    <category>图像张数</category>
+    <description><![CDATA[输入档按输出像素面积分。成功几张就计几张。]]></description>
+  </item>
+  <item>
     <title><![CDATA[检索结果很短，为什么小模型仍按八千个输入 token 计？]]></title>
     <link>https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-web-search-fixed-eight-thousand.html</guid>
