@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>只要了两张预览，为什么每张还要另加一百个图像输出 token？</title>
+  <meta name="description" content="预览不是成图附赠。指南写明每张 partial image 另加 100 个图像输出 token。设成 0 只收成图。生成更快时回来的张数可以更少。GPT Image 2 与 2.5 的缓存折扣只在 Responses 图像工具上，不在 Images API 和编辑。用量对象不含这笔缓存。单价以价目页为准。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/each-preview-adds-one-hundred.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="只要了两张预览，为什么每张还要另加一百个图像输出 token？">
+  <meta property="og:description" content="预览不是成图附赠。指南写明每张 partial image 另加 100 个图像输出 token。设成 0 只收成图。生成更快时回来的张数可以更少。GPT Image 2 与 2.5 的缓存折扣只在 Responses 图像工具上，不在 Images API 和编辑。用量对象不含这笔缓存。单价以价目页为准。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <meta property="article:published_time" content="2026-11-13T10:48:00+08:00">
+  <meta property="article:modified_time" content="2026-11-13T10:48:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="图像预览">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="只要了两张预览，为什么每张还要另加一百个图像输出 token？">
+  <meta name="twitter:description" content="预览不是成图附赠。指南写明每张 partial image 另加 100 个图像输出 token。设成 0 只收成图。生成更快时回来的张数可以更少。GPT Image 2 与 2.5 的缓存折扣只在 Responses 图像工具上，不在 Images API 和编辑。用量对象不含这笔缓存。单价以价目页为准。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="两张半透明预览从大成图旁滑出，每张预览写着 100，成图上没有这张小票">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html",
+      "name": "只要了两张预览，为什么每张还要另加一百个图像输出 token？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-13T10:48:00+08:00",
+      "dateModified": "2026-11-13T10:48:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "只要了两张预览，为什么每张还要另加一百个图像输出 token？", "item": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "只要了两张预览，为什么每张还要另加一百个图像输出 token？",
+      "description": "预览不是成图附赠。指南写明每张 partial image 另加 100 个图像输出 token。设成 0 只收成图。生成更快时回来的张数可以更少。GPT Image 2 与 2.5 的缓存折扣只在 Responses 图像工具上，不在 Images API 和编辑。用量对象不含这笔缓存。单价以价目页为准。",
+      "image": "https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-13T10:48:00+08:00",
+      "dateModified": "2026-11-13T10:48:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "图像预览",
+      "keywords": ["AI服务", "OpenAI", "图像生成", "partial images", "图像输出 token"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/each-preview-adds-one-hundred.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>只要了两张预览，为什么每张还要另加一百个图像输出 token？</h1>
+          <p class="article-summary">OpenAI 的图像生成不按「出了一张图」结算。成图走图像输出 token，文本输入和参考图输入各是一行。流式预览加在成图外面：图像指南写明，每张 partial image 另加 100 个图像输出 token。partial_images 设成 0，只收成图。设成 2，并不保证两张都会回来；生成更快时，回来的张数可以更少。GPT Image 2 和 2.5 的输入缓存折扣只适用于 Responses 里的图像工具，不适用于直接的 Images API，包括编辑。响应里的 usage 又不包含这些缓存 token，对不上不等于没走缓存价。单价留在价目页。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-13T10:48:00+08:00">2026-11-13 10:48:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-13</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-image-preview-hundred-tokens.svg" width="800" height="400" alt="两张半透明预览从大成图旁滑出，每张预览写着 100，成图上没有这张小票" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>成图按图像输出 token 计，不按「一张」计。同一档 quality，不同模型的 token 数可以不同。<code>auto</code> 要等图出来才能估。</li>
+                <li><span class="article-verify-check">✓</span>每张 <code>partial_images</code> 预览另加 100 个图像输出 token。设成 0 只有成图。生成更快时，回来的张数可以少于参数。</li>
+                <li><span class="article-verify-check">✓</span>编辑要加上图像输入 token。蒙版和标注不另开折扣行。SVG 是参考图加作者模型两笔。GIF 不支持预览。</li>
+                <li><span class="article-verify-check">✓</span>GPT Image 2 和 2.5 的缓存折扣只写给 Responses 的图像工具，不写给 Images API 和编辑。usage 里没有这些缓存 token。</li>
+                <li><span class="article-verify-check">✓</span>gpt-image-2 之前那张方图 token 表，不适用于 Sunburst 和 Flare。单价以价目页为准。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 成图按输出 token 计，不按一张图计</h2>
+              <p><a href="https://developers.openai.com/api/docs/guides/image-generation" target="_blank" rel="noopener">图像生成指南</a>把现行模型分成两条路。GPT Image 2.6 的 Sunburst 做精细画面，Flare 做快速迭代；2.5 也是这两款名字，指南里的现成示例仍多用 2.5。两条路都能调尺寸、质量、格式和压缩。成本一节没有写「每张一个固定价」。2.6 写的是图像输出按可计费 token 计，并让你到定价页看文本和图像各自的单价。2.5 把文本输入、图像输入、图像输出，以及对应的缓存输入，分成不同的行。具体单价以<a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">价目页</a>当时的数字为准，本文不把某一天的美元标成长期牌价。</p>
+              <p>同一档输出单价，不表示同一张图一样贵。指南写明，模型可以对同一个 quality 用出不同的 token 数，而每个图像输出 token 的价格可以相同。计算器要你显式选模型和 quality、size。<code>auto</code> 取决于生成出来的那张图，不能用「我选了 auto」事先算出一个整数。2.5 和 2.6 的 quality 有 low、medium、high、xhigh、max，默认都是 auto。更早的 gpt-image-2 只到 high。省略 quality，不是自动落到最便宜的一档。</p>
+              <p>方图 token 表只属于更早的模型。指南把「Earlier GPT Image models」整节限定为：下面的细节适用于更早的模型，不适用于 Sunburst 和 Flare。gpt-image-2 之前的模型，输出 token 随尺寸和质量变：1024×1024 的 low、medium、high 分别是 272、1056、4160；1024×1536 是 408、1584、6240；1536×1024 是 400、1568、6208。这张表不能抄到 2.5 和 2.6 上。同一节还提醒，gpt-image-2 在比较这些尺寸时，更大的非方形分辨率有时比更小的、或方形的分辨率产出更少的输出 token。那是 gpt-image-2 的对照，不是 2.6 的定律。Sunburst 和 Flare 要看当次 usage，或用显式参数去问计算器。</p>
+              <p>压缩和复杂度也不是 token 开关。jpeg 和 webp 可以用 <code>output_compression</code>，范围 0 到 100。指南说 jpeg 比 png 更快，没有说压缩会减少输出 token。Sunburst 和 Flare 的 <code>complexity</code> 是 low、medium、high，省略时两款都用 high。指南写明调整复杂度没有单独的费用，它管的是模型在绘制前计划多少，质量仍由 quality 决定。复杂度可以改延迟，也可以改画面上的东西。它不开新的一行价，也不把输出 token 清掉。标注引导的编辑走和其他编辑一样的 token 价，没有附加费。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 每张预览另加一百，参数不是已经扣满的张数</h2>
+              <p>Responses API 和 Image API 都可以流式生成。参数 <code>partial_images</code> 的范围是 0 到 3。设成 0，你只收到成图。设成大于 0 的值，如果整张图生成得更快，你可能收不到你要的全部预览。成本一节的句子是：每一张 partial image 另加 100 个图像输出 token。这 100 是图像输出 token，加在成图自己的输出 token 外面，不替代成图。</p>
+              <p>所以参数是你希望收到的预览上限，不是一笔已经按上限扣满的 token。设成 3，生成很快只回来 1 张，按指南的句子去对的是那 1 张预览的 100，不是把两个没回来的空位也加成 300。反过来，两张都回来了，就是 200，再加成图自己的输出 token。屏幕上把预览丢掉、只保存最后一张，并不把已经产生的预览从这句里拿掉。对账数的是实际产生的 partial image，不是你最后留下的文件数。</p>
+              <p>这条加项有格式边界。SVG 不支持流式和 partial images，GIF 也不支持。走这两种输出时，没有「每张预览 100」这条路，不要因为请求里曾经写过这个参数，就在矢量图或动图上再加 100。GIF 的 <code>frame_count</code> 是 2 到 16，默认 9；<code>frame_duration_ms</code> 是每帧 20 到 2000 毫秒，默认 200，并按 10 毫秒取整。时长是播放钟。指南没有为每一毫秒另写 token。帧数、帧尺寸和动画个数必须落在模型的尺寸限制和总像素预算里，超了就要减少帧数、尺寸或 <code>n</code>。那是能不能生成，不是把每一帧换成 100 个预览 token。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 编辑、SVG 和 GIF 不是成图那一列能盖住的</h2>
+              <p>更早模型的成本一节把一次请求写成三列相加：输入文本 token，编辑时的输入图像 token，以及图像输出 token。2.5 的价目本身就有文本输入、图像输入、图像输出这几行，编辑或带参考图时，图像输入不是 0。2.6 的成本一节点名的是图像输出，并让你到定价页看文本和图像的单价。文本提示仍在定价页上，没有被输出 token 吞掉。蒙版不会把未涂改的区域从输入里减掉。指南写明，使用蒙版时会向模型额外发送说明；多张输入图时，蒙版用在第一张上。额外说明是多出来的引导，不是折扣。</p>
+              <p><code>input_fidelity</code> 这句只属于 gpt-image-2，不属于 Sunburst 和 Flare。指南写明，gpt-image-2 不要传这个参数，接口不允许改，因为模型对每张输入图都按高保真处理。也因此，带参考图的编辑可以用掉更多图像输入 token。不要把「高保真所以输入更贵」抄到 2.6 上，2.6 的这一节没有这句。标注层也有硬限制：第一张输入图和标注层各自最多 16,777,216 像素，标注文件还有 50 MB 上限。标注和蒙版不能一起用。没有附加费，是说不加第三种费用名，输入和输出该计的 token 仍按编辑的价计。</p>
+              <p>SVG 是两笔，不是一张矢量图的打包价。生成接口把 <code>output_format</code> 设成 svg，并且 <code>n</code> 必须是 1。接口会先做一张参考图，再用它产出 SVG。quality 控制的是这张参考图。你付图像模型产出参考图的价，再付作者模型写出 SVG 所用 token 的价，总数取决于两个模型各自用了多少 token。编辑接口不支持 SVG 输出，SVG 也不能当作编辑的栅格输入。预览、流式和 <code>output_compression</code> 在 SVG 上都不支持。</p>
+              <p>走 Responses 时还有主模型。2.5 的成本一节写明，Responses 请求在图像费用之外，还包含主模型的 token 用量。图像工具是 gpt-5 及更新的模型应能使用的工具，主模型写了字、选了工具，那些 token 不在图像输出那一列里。2.6 的成本一节没有把这句再写一遍。对 2.6 的 Responses 调用，先看当次 usage 里有没有主模型那一列，不要用 2.5 的句子直接定罪，也不要假设主模型免费。计算器估的是一张图的输出。响应里如果有多张结果，用 usage 看整次请求，不要把「一张」的估算当成整单。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 缓存折扣对不上 usage，也不适用于编辑接口</h2>
+              <p>指南对缓存的限定写得很窄：GPT Image 2 和 GPT Image 2.5 的缓存输入价，只适用于 Responses 里的图像生成工具。它不适用于直接的 Images API 请求，包括 <code>/v1/images/edits</code>。同一段没有点名 2.6。这条例外就停在它点名的两个代际上，不要把它抄到 2.6，也不要把它读成「所有图像模型在 Images API 上都能缓存」。</p>
+              <p>更难对的是用量字段。指南写明，缓存的图像生成输入会反映在账单上，但这些缓存 token 的数量不包含在 Responses API 的输出里。响应的 usage 不能用来核对这些缓存命中。usage 里看不到缓存图像 token，既不能证明折扣没发生，也不能证明折扣已经发生。先分路径：是 Responses 的图像工具，还是 Images API。路径不对，2 和 2.5 根本没有这条折扣。路径对了，再去账单而不是 usage 里找。</p>
+              <p>这和文本提示缓存不是同一本账。文本前缀的写入可以比普通输入更贵，命中才打折，见<a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a>。图像指南这里说的是图像生成输入的缓存价只挂在 Responses 的图像工具上，没有把文本缓存的 1.25 倍或 2 倍写进图像 token。不要用那篇文章的乘数去乘这 100 个预览 token，也不要因为图像 usage 里没有缓存字段，就回头改文本缓存的对账。</p>
+              <p>国内另一家的出图按张计，输入档跟着输出像素面积走，见<a href="/articles/domestic-ai-image-output-area-tier.html">参考图很小，为什么输入档却跟着输出的像素面积走？</a>。那边的 1K 和 2K 是张数上的档，不是这里的 100 个图像输出 token。gpt-image-1 已在 2026-10-23 关闭，指南把旧的按张价格留作历史对照。今天再按那个模型名去对「一张多少钱」，对的是已经关掉的路径。固定块的另一种样子是网页搜索：两个小模型每次搜索内容固定 8000 个输入 token，见<a href="/articles/overseas-ai-web-search-fixed-eight-thousand.html">检索结果很短，为什么小模型仍按八千个输入 token 计？</a>。那 8000 不是图像预览的 100，搜索动作也不是 partial image。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值改不了这一百，也改不了缓存只挂在 Responses 上</h2>
+              <p>对账按六列走。第一列是路径：Images API，还是 Responses 的图像工具。2 和 2.5 的缓存折扣只在后一条上；2.5 的 Responses 还要另看主模型 token，2.6 以当次 usage 为准。第二列是模型和显式的 quality、size。<code>auto</code> 不能事先折成 token。Sunburst 和 Flare 不要用 gpt-image-2 之前的方图表。第三列是成图自己的图像输出 token，看 usage 或计算器，不看「出了一张」。第四列是预览：每张实际产生的 partial image 加 100 个图像输出 token，设成 0 则没有这列；GIF 和 SVG 没有这列。第五列是输入：文本 token，加上编辑或参考图的图像输入 token。蒙版和标注不开折扣行。SVG 还要加上作者模型的 token。第六列是 usage 看不到的东西：Responses 图像工具上的缓存图像 token 不在 usage 里。</p>
+              <p>给账户准备额度，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把预览收成免费的进度条，也不会把 Images API 的编辑请求改写成 Responses 的缓存价。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。成图的输出 token、每张预览的 100，以及缓存折扣有没有这条路径，仍按这次实际的接口和实际回来的预览计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">成图按输出 token</a></li>
+              <li><a href="#sec-2">每张预览一百</a></li>
+              <li><a href="#sec-3">编辑、SVG 和 GIF</a></li>
+              <li><a href="#sec-4">缓存对不上用量</a></li>
+              <li><a href="#sec-5">充值改不了这一百</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/image-generation" target="_blank" rel="noopener nofollow">OpenAI API：图像生成</a> — 每张 partial image 另加 100 个图像输出 token。设成 0 只收成图。生成更快时，预览可以少来。GPT Image 2 和 2.5 的缓存输入价只适用于 Responses 的图像工具，usage 不能核对这笔缓存。SVG 按参考图加作者模型计。复杂度没有单独的费用。</li>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API：定价</a> — 图像模型的文本输入、图像输入和图像输出分行计价。本文不引用某一天的美元牌价。</li>
+            </ul><p class="ref-note">资料核验于2026年11月13日。按实际产生的预览计 100、并把缓存折扣限制在指南点名的 Responses 图像工具上，是本站对账顺序，并非厂商效果承诺。单价与档位以 OpenAI 价目页及指南为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-image-output-area-tier.html">参考图很小，为什么输入档却跟着输出的像素面积走？</a></li>
+          <li><a href="/articles/overseas-ai-prompt-cache-write-premium.html">开了提示缓存，为什么第一笔比不开还贵？</a></li>
+          <li><a href="/articles/overseas-ai-web-search-fixed-eight-thousand.html">检索结果很短，为什么小模型仍按八千个输入 token 计？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=0b93297997"></script>
+</body>
+</html>

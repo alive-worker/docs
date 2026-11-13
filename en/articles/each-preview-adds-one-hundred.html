@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does each preview add 100 image output tokens?</title>
+  <meta name="description" content="Each partial image adds 100 image output tokens besides the finished image. A faster run may return fewer than you requested. Prices stay on the pricing page.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/each-preview-adds-one-hundred.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/each-preview-adds-one-hundred.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why does each preview add 100 image output tokens?">
+  <meta property="og:description" content="Each partial image adds 100 image output tokens besides the finished image. A faster run may return fewer than you requested. Prices stay on the pricing page.">
+  <meta property="og:url" content="https://ponr.org/en/articles/each-preview-adds-one-hundred.html">
+  <meta property="article:published_time" content="2026-11-13T10:48:00+08:00">
+  <meta property="article:modified_time" content="2026-11-13T10:48:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Image preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why does each preview add 100 image output tokens?">
+  <meta name="twitter:description" content="Each partial image adds 100 image output tokens besides the finished image. A faster run may return fewer than you requested. Prices stay on the pricing page.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Two translucent previews slide off a large finished plate. Each preview reads 100. The plate has no ticket.">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#webpage",
+      "url": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html",
+      "name": "Why does each preview add 100 image output tokens?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-13T10:48:00+08:00",
+      "dateModified": "2026-11-13T10:48:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why does each preview add 100 image output tokens?", "item": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why does each preview add 100 image output tokens?",
+      "description": "Each partial image adds 100 image output tokens besides the finished image. A faster run may return fewer than you requested. Prices stay on the pricing page.",
+      "image": "https://ponr.org/img/cover-overseas-ai-image-preview-hundred-tokens-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-13T10:48:00+08:00",
+      "dateModified": "2026-11-13T10:48:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Image preview",
+      "keywords": ["AI access", "OpenAI", "image generation", "partial images", "image output tokens"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/each-preview-adds-one-hundred.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/overseas-ai-image-preview-hundred-tokens.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why does each preview add 100 image output tokens?</h1>
+          <p class="article-summary">OpenAI does not settle image generation as "one picture." The finished image is image output tokens. Text input and reference-image input are their own rows. A streamed preview sits outside the finished image: the image guide says each partial image adds 100 image output tokens. Set partial_images to 0 and you receive only the final image. Set it to 2 and both previews are not guaranteed. If generation finishes faster, fewer come back. For GPT Image 2 and 2.5, cached input pricing applies only to the image tool in the Responses API, not to the Images API, including edits. The response usage object does not include those cached token counts, so a missing field does not prove the discount was skipped. Unit prices stay on the pricing page.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-13T10:48:00+08:00">2026-11-13 10:48:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-13</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-image-preview-hundred-tokens-en.svg" width="800" height="400" alt="Two translucent previews slide off a large finished plate. Each preview reads 100. The plate has no ticket." fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check before you reconcile</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>The finished image is image output tokens, not a per-picture price. The same quality can use a different token count on another model. <code>auto</code> cannot be estimated until the image exists.</li>
+                <li><span class="article-verify-check">✓</span>Each partial image adds 100 image output tokens. Zero returns only the final image. A faster run can return fewer previews than you requested.</li>
+                <li><span class="article-verify-check">✓</span>Edits add image input tokens. A mask or markup does not open a discount row. SVG bills a reference image plus the authoring model. GIF does not support previews.</li>
+                <li><span class="article-verify-check">✓</span>Cached input rates for GPT Image 2 and 2.5 apply only to the Responses image tool, not to the Images API or edits. Usage does not list those cached tokens.</li>
+                <li><span class="article-verify-check">✓</span>The square-image token table from before gpt-image-2 does not apply to Sunburst or Flare. Unit prices stay on the pricing page.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. The finished image is output tokens, not one picture</h2>
+              <p>The <a href="https://developers.openai.com/api/docs/guides/image-generation" target="_blank" rel="noopener">image generation guide</a> splits the current models into two jobs. GPT Image 2.6 Sunburst is for detailed work and Flare is for fast iteration. GPT Image 2.5 uses the same two names, and the worked examples in the guide still mostly use 2.5. Both paths can set size, quality, format, and compression. The cost section does not publish a flat price per picture. For 2.6 it says image output is billed in tokens, and it sends you to the pricing page for text and image rates. For 2.5 it lists separate rows for text input, image input, image output, and the cached variants of those inputs. The dollar figures on the <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">pricing page</a> move. This article does not freeze one day's rates.</p>
+              <p>The same price per output token does not mean the same cost per image. The guide says models can use different token counts for the same quality setting while sharing the price of an image output token. The calculator wants an explicit model, quality, and size. <code>auto</code> depends on the image that was generated, so the setting name is not a token count you can write down in advance. On 2.5 and 2.6 the quality values are low, medium, high, xhigh, and max, and both default to auto. gpt-image-2 stops at high. Omitting quality is not a request for the cheapest row.</p>
+              <p>The square token table belongs to earlier models. The guide titles that section "Earlier GPT Image models" and says the details below apply to earlier models, not to Sunburst or Flare. For models prior to gpt-image-2, output tokens follow size and quality: a 1024 by 1024 image is 272, 1056, and 4160 at low, medium, and high. Portrait 1024 by 1536 is 408, 1584, and 6240. Landscape 1536 by 1024 is 400, 1568, and 6208. Do not copy that table onto 2.5 or 2.6. In the same historical comparison, the guide notes that for gpt-image-2 a larger non-square resolution can sometimes produce fewer output tokens than a smaller or square resolution at the same quality. That note is about gpt-image-2. It is not a law for 2.6. Read usage for Sunburst and Flare, or ask the calculator with explicit values.</p>
+              <p>Compression and complexity are not token switches. JPEG and WebP take <code>output_compression</code> from 0 to 100. The guide says JPEG is faster than PNG. It does not say compression reduces output tokens. On Sunburst and Flare, <code>complexity</code> is low, medium, or high, and omitting it selects high on both. Adjusting complexity has no separate fee. It controls how much the model plans before it draws. Quality still controls rendering. Complexity can change latency and what appears in the picture. It does not open another price row, and it does not clear the output tokens. Markup-guided edits use the same token rates as other edits, with no extra fee.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Each preview adds one hundred. The parameter is not a filled bill</h2>
+              <p>The Responses API and the Image API can both stream. <code>partial_images</code> accepts 0 to 3. Set it to 0 and you receive only the final image. For any larger value, you may not receive every preview you asked for if the full image is generated more quickly. The cost sentence is specific: each partial image incurs an additional 100 image output tokens. Those 100 are image output tokens. They sit on top of the finished image's own output tokens. They do not replace it.</p>
+              <p>The parameter is the ceiling of previews you hope to receive, not a token charge that is already filled to that ceiling. Ask for 3 and get 1 back because generation was fast, and the sentence attaches 100 to that one partial image. It does not attach 100 to the two empty slots. If both previews come back, that is 200, plus the finished image. Throwing the previews away and keeping only the final file does not remove partial images that were already produced. Count the partial images that were produced, not the files you decided to save.</p>
+              <p>The adder has a format boundary. SVG does not support streaming or partial images, and neither does GIF. On those outputs there is no "100 per preview" path. A parameter left over from another request does not add 100 to a vector file or an animation. GIF <code>frame_count</code> runs from 2 to 16 and defaults to 9. <code>frame_duration_ms</code> is 20 to 2000 milliseconds per frame, defaults to 200, and is rounded to 10 milliseconds. Duration is a playback clock. The guide does not publish a token rate per millisecond. Frame count, frame size, and the number of animations have to fit the model's size limits and the total pixel budget. If they do not, reduce the frame count, the dimensions, or <code>n</code>. That is whether the request can run. It is not a rule that each frame becomes 100 preview tokens.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. Edits, SVG, and GIF are not covered by the finished-image column</h2>
+              <p>The cost section for earlier models writes one request as three columns added together: input text tokens, input image tokens when you edit, and image output tokens. GPT Image 2.5 already publishes rows for text input, image input, and image output, so an edit or a reference image does not leave image input at zero. The 2.6 cost section names image output and points at the pricing page for text and image rates. The prompt is still on that page. Output tokens do not swallow it. A mask does not subtract the untouched region from the input. The guide says that using a mask sends additional instructions to the model, and that with several input images the mask applies to the first one. Extra instructions are more guidance, not a discount.</p>
+              <p><code>input_fidelity</code> belongs to gpt-image-2, not to Sunburst or Flare. The guide says to omit the parameter on gpt-image-2 because the API does not allow changing it. The model processes every image input at high fidelity, and edit requests that include reference images can use more input tokens. Do not copy "high fidelity, so input costs more" onto 2.6. That section does not say it. Markup has a hard limit too: the first input image and the annotation layer can each contain at most 16,777,216 pixels, and the annotation file also has a 50 MB limit. Do not combine markup with a mask. "No extra fee" means no third price name. The tokens an edit actually uses are still billed at the edit's rates.</p>
+              <p>SVG is two charges, not a bundled price for one vector file. Set <code>output_format</code> to svg on the generations endpoint, and set <code>n</code> to 1. The API creates a reference image and uses it to produce the SVG. Quality controls that reference image. You pay the image model's rate for the reference image and the authoring model's rate for the tokens it uses to produce the SVG. The total depends on how many tokens each model uses. The edit endpoint does not support SVG output, and an SVG is not a supported raster input for edits. Streaming, partial images, and <code>output_compression</code> are all unsupported for SVG.</p>
+              <p>The Responses path also has a mainline model. The 2.5 cost section says Responses requests include the mainline model's token usage in addition to image generation costs. gpt-5 and newer models should be able to use the image tool. Tokens the mainline model spends writing or choosing a tool are not inside the image-output column. The 2.6 cost section does not repeat that sentence. On a 2.6 Responses call, read that response's usage for a mainline column. Do not convict 2.6 with the 2.5 sentence, and do not assume the mainline model is free. The calculator estimates one image. If the response contains more than one result, read usage for the whole request. The one-image estimate is not the whole bill.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. The cache discount is not in usage, and it does not cover edits</h2>
+              <p>The guide draws the cache exception narrowly. For GPT Image 2 and GPT Image 2.5, cached input pricing applies only to the image generation tool in the Responses API. It does not apply to direct Images API requests, including <code>/v1/images/edits</code>. The same paragraph does not name 2.6. Leave the exception on the two generations it names. Do not copy it onto 2.6, and do not read it as "every image model can cache on the Images API."</p>
+              <p>The usage field is the harder part. The guide says cached image generation inputs are reflected in billing, but their cached token counts are not included in the Responses API output. The response's usage cannot verify these cache hits. A missing cached-image count does not prove the discount was skipped, and it does not prove the discount was applied. Split the path first. Responses image tool, or Images API. On the wrong path, GPT Image 2 and 2.5 do not have this discount. On the right path, look at the bill, not at usage.</p>
+              <p>This is not the text prompt-cache ledger. A text prefix can cost more to write than ordinary input, and the discount is on the hit. See <a href="/en/articles/cache-write-costs-more-than-input.html">The Cache Hit Is Cheap. The Write Is Not.</a> The image guide is talking about cached input pricing for image generation, and it hangs that rate on the Responses image tool. It does not copy the text-cache write multipliers onto image tokens. Do not multiply these 100 preview tokens by that article's write premium, and do not reopen the text-cache reconciliation because image usage has no cache field.</p>
+              <p>Another vendor bills pictures, and the input tier follows output pixel area. See <a href="/en/articles/image-tier-follows-output-area.html">Why does a small reference image take the output's pixel tier?</a> That 1K and 2K split is a picture tier, not these 100 image output tokens. gpt-image-1 shut down on 23 October 2026. The guide keeps the old per-image prices as a historical comparison. Reconciling "how much is one picture" against that model name today is reconciling a path that has closed. A different fixed block shows up on web search: two small models bill a fixed 8,000 input tokens of search content per call. See <a href="/en/articles/mini-search-bills-eight-thousand.html">Why does a short search still bill 8,000 input tokens?</a> That 8,000 is not the preview adder, and a search action is not a partial image.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not remove the hundred, or move the cache onto the Images API</h2>
+              <p>Reconcile in six columns. First, the path: Images API, or the Responses image tool. The cache discount for GPT Image 2 and 2.5 exists only on the second path. A 2.5 Responses call also has mainline model tokens to look for. For 2.6, read that call's usage. Second, the model and the explicit quality and size. <code>auto</code> is not a token count. Do not use the pre-gpt-image-2 square table for Sunburst or Flare. Third, the finished image's own image output tokens, from usage or the calculator, not from "one picture came back." Fourth, previews: 100 image output tokens for each partial image that was produced, and none of that column when the parameter is 0. GIF and SVG do not have the column. Fifth, input: text tokens, plus image input tokens for an edit or a reference. A mask or markup does not open a discount row. SVG also adds the authoring model's tokens. Sixth, what usage cannot show: cached image tokens on the Responses image tool are not in usage.</p>
+              <p>Funding the account happens before those columns settle. Swapping stablecoins on-chain into assets that can be paid in does not turn previews into a free progress bar, and it does not rewrite an Images API edit into the Responses cache rate. When you need that swap, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> does it without an account and without custody. A completed swap only means the asset changed hands. The finished image's output tokens, the 100 on each preview, and whether this path even has the cache discount, still follow the API you actually called and the previews that actually came back.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Output tokens, not one picture</a></li>
+              <li><a href="#sec-2">One hundred per preview</a></li>
+              <li><a href="#sec-3">Edits, SVG, and GIF</a></li>
+              <li><a href="#sec-4">Usage cannot see the cache</a></li>
+              <li><a href="#sec-5">A top-up keeps the hundred</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://developers.openai.com/api/docs/guides/image-generation" target="_blank" rel="noopener nofollow">OpenAI API: Image generation</a> — Each partial image adds 100 image output tokens. Zero returns only the final image. A faster run can return fewer previews. Cached input pricing for GPT Image 2 and 2.5 applies only to the Responses image tool, and usage cannot verify those hits. SVG bills a reference image plus the authoring model. Complexity has no separate fee.</li>
+              <li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener nofollow">OpenAI API: Pricing</a> — Text input, image input, and image output are separate rows. This article does not quote a standing dollar rate.</li>
+            </ul><p class="ref-note">Sources checked on 13 November 2026. Billing 100 per partial image that was produced, and keeping the cache discount on the Responses image tool the guide names, is this site's reconciliation order, not a vendor promise. Unit prices and tiers follow OpenAI's pricing page and guide.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/image-tier-follows-output-area.html">Why does a small reference image take the output's pixel tier?</a></li>
+          <li><a href="/en/articles/cache-write-costs-more-than-input.html">The Cache Hit Is Cheap. The Write Is Not.</a></li>
+          <li><a href="/en/articles/mini-search-bills-eight-thousand.html">Why does a short search still bill 8,000 input tokens?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=0b93297997"></script>
+</body>
+</html>
