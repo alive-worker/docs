@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why does a two-minute video bill by sampled frames?</title>
+  <meta name="description" content="Video understanding bills sampled frames, not the clip length in seconds. The default is one frame every half second, and the floor is 4. Usage is the bill.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/en/articles/video-bills-by-sampled-frames.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/video-bills-by-sampled-frames.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI Access Guide">
+  <meta property="og:title" content="Why does a two-minute video bill by sampled frames?">
+  <meta property="og:description" content="Video understanding bills sampled frames, not the clip length in seconds. The default is one frame every half second, and the floor is 4. Usage is the bill.">
+  <meta property="og:url" content="https://ponr.org/en/articles/video-bills-by-sampled-frames.html">
+  <meta property="article:published_time" content="2026-11-16T10:46:00+08:00">
+  <meta property="article:modified_time" content="2026-11-16T10:46:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Video frames">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why does a two-minute video bill by sampled frames?">
+  <meta name="twitter:description" content="Video understanding bills sampled frames, not the clip length in seconds. The default is one frame every half second, and the floor is 4. Usage is the bill.">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI Access Guide RSS" href="/en/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds-en.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="A two-minute timeline is mostly a dashed line. Only four sampled frames are solid.">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds-en.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/en/#org",
+      "name": "AI Access Guide",
+      "url": "https://ponr.org/en/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["AI subscription access", "cross-border payments", "virtual credit cards", "stablecoin payments"],
+      "sameAs": ["https://ponr.org/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/en/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/en/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 years of full-stack engineering, focused on AI automation workflows",
+      "worksFor": { "@id": "https://ponr.org/en/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/en/#website",
+      "url": "https://ponr.org/en/",
+      "name": "AI Access Guide",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/en/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds-en.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#webpage",
+      "url": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html",
+      "name": "Why does a two-minute video bill by sampled frames?",
+      "isPartOf": { "@id": "https://ponr.org/en/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#breadcrumb" },
+      "inLanguage": "en",
+      "datePublished": "2026-11-16T10:46:00+08:00",
+      "dateModified": "2026-11-16T10:46:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ponr.org/en/" },
+        { "@type": "ListItem", "position": 2, "name": "All articles", "item": "https://ponr.org/en/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Why does a two-minute video bill by sampled frames?", "item": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Why does a two-minute video bill by sampled frames?",
+      "description": "Video understanding bills sampled frames, not the clip length in seconds. The default is one frame every half second, and the floor is 4. Usage is the bill.",
+      "image": "https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds-en.png",
+      "author": { "@id": "https://ponr.org/en/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/en/#org" },
+      "datePublished": "2026-11-16T10:46:00+08:00",
+      "dateModified": "2026-11-16T10:46:00+08:00",
+      "inLanguage": "en",
+      "articleSection": "Video frames",
+      "keywords": ["AI access", "Qwen", "video understanding", "frame sampling", "vision tokens"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/en/articles/video-bills-by-sampled-frames.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/en/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/en/" aria-label="AI Access Guide home">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI Access Guide</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/articles.html">All Articles</a>
+        <a href="/en/methodology.html">Methodology</a>
+        <a href="/en/tools/price-hike-calculator.html">Calculator</a>
+        <a href="/en/about.html">About</a>
+        <a class="lang-switch" href="/articles/domestic-ai-video-frame-not-seconds.html" hreflang="zh-CN" lang="zh-CN" aria-label="中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Why does a two-minute video bill by sampled frames?</h1>
+          <p class="article-summary">Alibaba Cloud Model Studio does not settle vision understanding by the length of the clip. The model samples frames, then converts those frames into tokens. fps is one frame every 1/fps seconds, from 0.1 to 10, and the default is 2.0, which is one frame every half second. When the file has enough frames, the sample floor is 4. Setting fps to 0.1 does not go below that. The published estimate takes the frame count, divides by 2, rounds up, multiplies by the resized height and width, and adds 2. Those 2 are the vision markers for the whole clip, not 2 per frame. More frames also shrink the pixel budget of each frame, so twice the frames is not twice the tokens. This API says it does not understand the soundtrack, so there is no audio-token column. The code is an estimate. The API usage is the bill. Unit prices stay on the console.</p>
+          <p class="article-meta"><span><a href="/en/about.html#author">ipfsWeb</a></span> · AI Access Guide · Published <time datetime="2026-11-16T10:46:00+08:00">2026-11-16 10:46:00</time> Beijing time (UTC+08:00) · Prices and quotas last checked 2026-11-16</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-video-frame-not-seconds-en.svg" width="800" height="400" alt="A two-minute timeline is mostly a dashed line. Only four sampled frames are solid." fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">Check before you reconcile</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>A video file is sampled first. The tokens are the frames. Omit <code>fps</code> and the guide's default is 2.0, one frame every half second.</li>
+                <li><span class="article-verify-check">✓</span>When the file has enough frames, the floor is 4. An fps of 0.1 does not go lower. The fifth frame adds another pair after the divide-by-2 roundup.</li>
+                <li><span class="article-verify-check">✓</span>More frames shrink the per-frame pixel cap. The Qwen3-VL-Plus constants in the sample are not the constants for every other model. Do not swap 32 and 28.</li>
+                <li><span class="article-verify-check">✓</span>An image list bills the frames you pass, and the minimum is 4. This API does not understand the soundtrack. Reasoning that is actually emitted counts as output tokens.</li>
+                <li><span class="article-verify-check">✓</span>The page's code is an estimate. Usage is the bill. The free quota names Beijing and Singapore only: 1 million tokens, 90 days. Prices stay on the console.</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. Two minutes decides whether the file is accepted. Frames decide the tokens</h2>
+              <p>The <a href="https://help.aliyun.com/zh/model-studio/vision" target="_blank" rel="noopener">image and video understanding</a> page bills the total of input and output tokens. Prices are on the Model Studio console. Input tokens are text tokens plus the tokens converted from images or video. Output tokens are the text the model generates. This article does not freeze one day's yuan rates.</p>
+              <p>The estimator states the order for a video file: sample frames, then total the tokens of those frames. "Two minutes" is not 120 billing units. Duration shows up under the limits, and it decides whether the file is accepted. The qwen3.8, qwen3.7, qwen3.6, and qwen3.5 series run from 2 seconds to 2 hours. qwen3-vl-plus runs from 2 seconds to 1 hour. Other open Qwen3-VL models run from 2 seconds to 20 minutes. Open Qwen2.5-VL and QVQ run from 2 seconds to 10 minutes. Other models run from 2 seconds to 40 seconds. A file shorter than its floor never enters this API. It is not accepted and then billed as two seconds of tokens. A file longer than its ceiling is rejected by the same limit. It is not trimmed to the ceiling and then priced by the second.</p>
+              <p>The sampling rate is <code>fps</code>. The guide says one frame is taken every 1/fps seconds, the range is 0.1 to 10, and the default is 2.0. The default is one frame every half second. Fast motion wants a higher fps. A static or long video wants a lower one. Those sentences are about detail and efficiency. On the bill, what changes is the number of frames. When fps is omitted, the estimator also uses 2.0. Two minutes at 2.0 is on the order of 240 frames, before the cap and the pixel budget. Do not write 120 seconds down as the token count.</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. Four frames is the floor. The fifth frame opens another pair</h2>
+              <p>The estimator sets the minimum sample at 4, then rounds that minimum up to a multiple of 2. Four is already even, so the floor stays 4. The frame count starts as duration times fps, then it is clamped between the minimum, the maximum, and the file's own frame count. When the file has enough frames, an fps of 0.1, the bottom of the range, still does not sample fewer than 4. The seconds that were not sampled are not a zero-price duration. They never became frames. If the file itself has fewer than 4 frames, the sample cannot exceed that total. The API does not invent the missing frames.</p>
+              <p>The token is not a price per frame. The video estimate is: divide the frame count by 2, round up, multiply by the resized height over 32 and the resized width over 32, then add 2. Four frames are 2 pairs. Five frames round up to 3 pairs. The extra frame opens another pair. It does not add half of a pair. The final 2 are <code>vision_bos</code> and <code>vision_eos</code> once for the clip, not 2 on every frame. A still image is resized height times width, divided by the pixels per token, plus the same 2. See <a href="/en/articles/domestic-ai-vision-token-billing.html">How Many Tokens Does One Image Cost in Vision APIs?</a> Video pairs the frames before it spends the pixels. Do not estimate the clip as one image's tokens times the number of seconds.</p>
+              <p><code>max_frames</code> is the sample cap. When the fps count would pass it, the system samples uniformly inside the cap. The guide says this parameter is available only in the DashScope SDK. The OpenAI-compatible examples pass <code>video_url</code> and fps. They do not list max_frames on that path. On the compatible API, do not assume a max_frames field you added has already capped the frames. The sample code uses 2000 as its maximum and tells you to change it for the model. Image-list limits are a different table: qwen3.8, qwen3.7, qwen3.6, and qwen3.5 allow up to 8000 images, qwen3-vl-plus up to 2000, other open Qwen3-VL, Qwen2.5-VL, and QVQ up to 512, and other models up to 80. The minimum is 4 in each row. Do not copy the sample's 2000 onto every video file.</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. More frames make each frame's pixel budget smaller</h2>
+              <p>The per-frame pixel cap is not a fixed width and height. The estimator takes the smaller of the model's per-frame pixel cap and the total pixel budget divided by the frame count and multiplied by 2, and it will not go below about 1.05 times the pixel floor. As the frame count rises, the budget left for each frame shrinks, and the picture is scaled tighter. Twice the frames is not twice the tokens. A larger source file does not buy a better reading either. The guide says a larger video will not be understood better, because the model resizes through max_pixels and min_pixels. Sending a 4K file unchanged is not a purchase of more usable pixels.</p>
+              <p>The constants depend on the model. The sample sets Qwen3-VL-Plus's per-frame cap at 640 times 32 times 32, and the total pixels at 131072 times 32 times 32. The same comment sets other models at 768 times 32 times 32, and 65536 times 32 times 32. The image section splits pixels per token again: qwen3.8, qwen3.7, qwen3.6, qwen3.5, and Qwen3-VL use 32 by 32. QVQ and other Qwen2.5-VL models use 28 by 28. The printed video formula divides by 32. If the model is in the 28 group, do not paste that divisor onto it. The fps and the pixel caps in the estimate have to match the parameters of the request. The page says the code is only an estimate. Usage in the API response is the amount that was used.</p>
+              <p>One request can carry up to 64 videos. Each video is sampled on its own. The number 64 is not 64 copies of a free frame floor. The floor belongs to each video that is sampled. A file that is too large is a different problem from the token formula. Public URLs, Base64, and local paths have different size caps, and the page says those limits depend on the model. Buying a higher plan or moving to another model version does not raise them. Compress the file, or pass a public URL. Model Studio cannot read an internal OSS address. The call returns InvalidParameter, and the message says the multimodal content failed to download. The file never went in. That is not a token estimate of a two-minute clip.</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. An image list, the soundtrack, and thinking are not the clip length</h2>
+              <p>A video can also arrive as an image list you already sampled. The list needs at least 4 images. The estimator written for that list takes the count you pass and the size of one frame. Its parameters do not include fps. The guide separately says that fps on an image list tells the model the interval between frames, so it can read order and duration, and that this applies to Qwen3.6, Qwen3-VL, and Qwen2.5-VL. It does not describe that fps as a second sampling pass. Four images are four images, paired and resized. They are not a two-minute clip sampled again. The original duration is not an input of that function.</p>
+              <p>The soundtrack is not billed here, because it is not understood. The limits say the API does not understand audio inside a video file. There is no audio-token column to add beside the frames. A different translation API splits video_tokens and audio_tokens. That split is not this page's formula. Do not copy the translation sampler over. Generating a picture or a video is another ledger too. A reference video's input side is cut by a five-second pool. See <a href="/en/articles/reference-video-five-second-pool.html">Why does a 30-second reference bill from a five-second pool?</a> Those seconds are a generation unit. Here, a second only decides which frames are taken.</p>
+              <p>Thinking is output, not a frame. The billing section says that in thinking mode the reasoning is counted as output tokens, and that if thinking mode emits no reasoning, the call is priced as non-thinking. That sentence does not add the chain of thought to the frame count, and it does not promise a block of reasoning text on every thinking call. How a reasoning model's chain is billed is a separate page. See <a href="/en/articles/domestic-ai-reasoning-token-billing.html">Is DeepSeek-R1 reasoning_content Chain-of-Thought Billed?</a> Neither page is a way to change fps.</p>
+              <p>The batch discount does not change the sample either. The production section says large, non-realtime jobs can use the OpenAI-compatible Batch file input, on some models only, processed asynchronously, at a 50 percent cost discount. The discount sits on that path's fee. It does not turn 4 frames into 2, and it does not divide by 2 a second time. The free quota names Beijing and Singapore: 1 million tokens for vision models, for 90 days from opening Model Studio or from model approval. The page does not publish that million for other regions, and it does not publish one million per video. After a timeout, the header <code>x-dashscope-partialresponse: true</code> means already generated text was returned. The billing section does not give that partial reply a zero row. Text that was generated is still output. Sending it back as a prefix is a new request, and that text enters the input again.</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. A top-up does not change the sample, or the floor of four</h2>
+              <p>Reconcile in six columns. First, whether the file is accepted: duration, size, and format against that model's limits. An internal address fails the download. Second, the sample: fps defaults to 2.0 and runs from 0.1 to 10. When the file is long enough, the floor is 4 frames. max_frames is written for the DashScope SDK, and past the cap the sample is uniform inside the cap. Third, the shape of the tokens: divide the frame count by 2, round up, multiply by the resized width and height for that model, and add 2. Use 32 or 28 for the series you called. Do not copy the Qwen3-VL-Plus pixel constants onto another model. Fourth, frames push back on pixels: more frames mean a smaller budget per frame, and a larger source is not more tokens. Fifth, the other objects: an image list bills the count you passed, this API has no soundtrack column, reasoning counts as output only if it was emitted, and the 50 percent batch discount stays on the path that states it. Sixth, usage: the code on the page is an estimate. The usage in the response is this call's number. Check the free quota only if the region is Beijing or Singapore.</p>
+              <p>Funding the account happens before those columns settle. Swapping stablecoins on-chain into assets that can be paid in does not turn two minutes into 120 tokens, and it does not make an fps of 0.1 sample fewer than 4 frames. When you need that swap, <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> does it without an account and without custody. A completed swap only means the asset changed hands. How many frames were sampled, how many pairs that made, and how far each frame was scaled, still follow the frames this call actually took and the usage the API returned.</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>
+              <li><a href="#sec-1">Frames, not seconds</a></li>
+              <li><a href="#sec-2">Four frames, then a fifth</a></li>
+              <li><a href="#sec-3">More frames, smaller frames</a></li>
+              <li><a href="#sec-4">Lists, audio, thinking</a></li>
+              <li><a href="#sec-5">A top-up keeps the sample</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="Sources"><h2>Sources</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/vision" target="_blank" rel="noopener nofollow">Alibaba Cloud Model Studio: Image and video understanding</a> — A video is sampled, then the frames are converted to tokens. fps defaults to 2.0, from 0.1 to 10. The sample floor in the estimator is 4. The formula divides the frame count by 2, rounds up, and adds 2 vision markers. The API does not understand a video's audio. The estimate is checked against the API response. Beijing and Singapore list a 1 million token allowance for 90 days.</li>
+            </ul><p class="ref-note">Sources checked on 16 November 2026. Reconciling by sampled frames rather than by the clip's seconds is this site's order, not a vendor promise. Unit prices, the free allowance, and the pixel constants follow Alibaba Cloud's documentation and console.</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="Related articles"><h2>Related articles</h2><ul>
+          <li><a href="/en/articles/domestic-ai-vision-token-billing.html">How Many Tokens Does One Image Cost in Vision APIs?</a></li>
+          <li><a href="/en/articles/reference-video-five-second-pool.html">Why does a 30-second reference bill from a five-second pool?</a></li>
+          <li><a href="/en/articles/domestic-ai-reasoning-token-billing.html">Is DeepSeek-R1 reasoning_content Chain-of-Thought Billed?</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/en/">Back to home</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI Access Guide</span>
+          <p class="site-foot-desc">Practical long-form notes on AI subscriptions, payment rails, virtual cards and account security.</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>Topics</h2>
+        <ul>
+          <li><a href="/en/articles.html?topic=basics">Getting Started &amp; Basics</a></li>
+          <li><a href="/en/articles.html?topic=virtual-card">Virtual Card Series</a></li>
+          <li><a href="/en/articles.html?topic=stablecoin">Stablecoin Payments</a></li>
+          <li><a href="/en/articles.html?topic=special">Special Scenarios &amp; Account Management</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/en/articles.html">All articles</a></li>
+          <li><a href="/en/methodology.html">Methodology</a></li>
+          <li><a href="/en/about.html">About</a></li>
+          <li><a href="/en/articles/virtual-card-solution-guide.html">Virtual card guide</a></li>
+          <li><a href="/en/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>Friends</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">deskbyai</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI proxy pay</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">Swap</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">Outbound nav</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI notes</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI services</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI news</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI Access Guide · For reference only</p>
+      <p>Informational only. Prices, regional availability and policies follow each AI platform and payment provider.</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f93cd4bf33"></script>
+</body>
+</html>

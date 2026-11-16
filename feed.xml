@@ -7,6 +7,14 @@
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
   <item>
+    <title><![CDATA[视频有两分钟，为什么输入不按秒、按抽出来的帧计？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html</guid>
+    <pubDate>Mon, 16 Nov 2026 10:46:00 +0800</pubDate>
+    <category>视频抽帧</category>
+    <description><![CDATA[视觉理解先抽帧。默认每 0.5 秒一帧，下限是 4。]]></description>
+  </item>
+  <item>
     <title><![CDATA[只要了两张预览，为什么每张还要另加一百个图像输出 token？]]></title>
     <link>https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-image-preview-hundred-tokens.html</guid>

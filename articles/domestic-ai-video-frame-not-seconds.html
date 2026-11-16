@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>视频有两分钟，为什么输入不按秒、按抽出来的帧计？</title>
+  <meta name="description" content="两分钟的视频不按秒计。视觉理解先按 fps 抽帧，默认每 0.5 秒一帧，帧数下限是 4。文件够长时，把 fps 调到 0.1 也不会更少。token 按抽到的帧算：帧数除以 2 向上取整，乘缩放后的宽高，再加 2。音轨不理解，也就没有音频 token 这一列。估算只供参考，实际以接口用量为准。单价在控制台。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/video-bills-by-sampled-frames.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="视频有两分钟，为什么输入不按秒、按抽出来的帧计？">
+  <meta property="og:description" content="两分钟的视频不按秒计。视觉理解先按 fps 抽帧，默认每 0.5 秒一帧，帧数下限是 4。文件够长时，把 fps 调到 0.1 也不会更少。token 按抽到的帧算：帧数除以 2 向上取整，乘缩放后的宽高，再加 2。音轨不理解，也就没有音频 token 这一列。估算只供参考，实际以接口用量为准。单价在控制台。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html">
+  <meta property="article:published_time" content="2026-11-16T10:46:00+08:00">
+  <meta property="article:modified_time" content="2026-11-16T10:46:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="视频抽帧">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="视频有两分钟，为什么输入不按秒、按抽出来的帧计？">
+  <meta name="twitter:description" content="两分钟的视频不按秒计。视觉理解先按 fps 抽帧，默认每 0.5 秒一帧，帧数下限是 4。文件够长时，把 fps 调到 0.1 也不会更少。token 按抽到的帧算：帧数除以 2 向上取整，乘缩放后的宽高，再加 2。音轨不理解，也就没有音频 token 这一列。估算只供参考，实际以接口用量为准。单价在控制台。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="一条两分钟的时间线大部分是虚线，只有四格抽出来的帧是实心的">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html",
+      "name": "视频有两分钟，为什么输入不按秒、按抽出来的帧计？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-16T10:46:00+08:00",
+      "dateModified": "2026-11-16T10:46:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "视频有两分钟，为什么输入不按秒、按抽出来的帧计？", "item": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "视频有两分钟，为什么输入不按秒、按抽出来的帧计？",
+      "description": "两分钟的视频不按秒计。视觉理解先按 fps 抽帧，默认每 0.5 秒一帧，帧数下限是 4。文件够长时，把 fps 调到 0.1 也不会更少。token 按抽到的帧算：帧数除以 2 向上取整，乘缩放后的宽高，再加 2。音轨不理解，也就没有音频 token 这一列。估算只供参考，实际以接口用量为准。单价在控制台。",
+      "image": "https://ponr.org/img/cover-domestic-ai-video-frame-not-seconds.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-16T10:46:00+08:00",
+      "dateModified": "2026-11-16T10:46:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "视频抽帧",
+      "keywords": ["AI服务", "通义千问", "视频理解", "抽帧", "视觉 token"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-video-frame-not-seconds.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/video-bills-by-sampled-frames.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>视频有两分钟，为什么输入不按秒、按抽出来的帧计？</h1>
+          <p class="article-summary">阿里云百炼的视觉理解不按片长的秒数结算。模型先从视频里抽帧，再按这些帧换算 token。fps 决定每隔 1/fps 秒抽一帧，范围是 0.1 到 10，默认 2.0，也就是每 0.5 秒一帧。文件里的帧够多时，抽帧数有下限 4，把 fps 调到 0.1 也不会比 4 更少。指南给出的估算是：帧数除以 2 向上取整，乘缩放后的高和宽，再加 2。这 2 是整段视频各加一次的视觉标记，不是每一帧都加。帧数一多，单帧允许的像素还会缩小，所以帧数翻倍不等于 token 翻倍。这套接口写明不理解视频里的音轨，没有音频 token 这一列。估算只供参考，实际以接口返回的用量为准。单价留在控制台。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-16T10:46:00+08:00">2026-11-16 10:46:00</time> 北京时间（UTC+08:00） · 价格与额度最后核验于 2026-11-16</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-video-frame-not-seconds.svg" width="800" height="400" alt="一条两分钟的时间线大部分是虚线，只有四格抽出来的帧是实心的" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>视频文件先抽帧，再算这些帧的 token。不传 <code>fps</code> 时，指南的默认值是 2.0，每 0.5 秒一帧。</li>
+                <li><span class="article-verify-check">✓</span>文件里的帧够多时，抽帧下限是 4。fps 调到 0.1 也不会更少。第五帧会让「帧数除以 2 向上取整」再加 1。</li>
+                <li><span class="article-verify-check">✓</span>帧数变多，单帧的像素上限会缩小。Qwen3-VL-Plus 和别的模型，估算代码里的像素常数不一样。32 和 28 不要抄错。</li>
+                <li><span class="article-verify-check">✓</span>图像列表按你传入的张数计，最少 4 张。这套接口不理解音轨。思考过程若真的输出了，算进输出 token。</li>
+                <li><span class="article-verify-check">✓</span>页上的代码是估算。实际以接口用量为准。免费额度只写了北京和新加坡，100 万 token、90 天。单价在控制台。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 两分钟是能不能收，抽帧才是算多少</h2>
+              <p><a href="https://help.aliyun.com/zh/model-studio/vision" target="_blank" rel="noopener">图像与视频理解</a>把计费写成：总费用按输入和输出的总 token 数计算，价格看百炼控制台。输入 token 由文本 token，加上图像或视频换算后的 token 组成。输出 token 是模型生成的文本。本文不把某一天的元价写成长期牌价。</p>
+              <p>视频文件的处理顺序写在估算一节：先抽帧，再计算所有视频帧的总 token。片长上的「两分钟」不是 120 个计费单位。时长出现在使用限制里，管的是文件收不收。qwen3.8、qwen3.7、qwen3.6、qwen3.5 是 2 秒到 2 小时。qwen3-vl-plus 是 2 秒到 1 小时。其他 Qwen3-VL 开源系列是 2 秒到 20 分钟。Qwen2.5-VL 开源系列和 QVQ 是 2 秒到 10 分钟。其他模型是 2 秒到 40 秒。短于这个下限的文件进不了这套接口，不是进了以后按 2 秒的 token 来计。长于上限的文件同样是限制，不是自动截成上限秒数再按秒计价。</p>
+              <p>抽帧频率是 <code>fps</code>。指南写明：每隔 1/fps 秒抽取一帧，取值范围 0.1 到 10，默认 2.0。默认就是每 0.5 秒一帧。高速运动适合更高的 fps，静态或长视频适合更低的 fps。这两句讲的是细节和处理效率。落到账上，变的是抽出来的帧数。不传 fps 时，估算代码用的默认值也是 2.0。两分钟、默认 2.0，大约是 240 帧这个量级，然后再受上限和像素预算约束。不要把 120 秒直接写成 token。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 四帧是下限，第五帧会再开一对</h2>
+              <p>估算代码把最少抽取帧数写成 4，并且按 2 向上取整到偶数。4 本身就是偶数，下限还是 4。抽帧数先按「时长乘 fps」估算，再夹在下限、上限和视频原始总帧数之间。文件里的帧够多时，把 fps 调到范围底部的 0.1，抽出来的仍不会少于 4。那些没被抽到的秒，不是一条零元的时长，它们根本没有变成帧。文件自己不足 4 帧时，抽帧数不能超过原始总帧数，接口不会凭空补帧。</p>
+              <p>token 不是「一帧一个价」。视频估算写成：帧数除以 2，向上取整，再乘缩放后的高除以 32、宽除以 32，最后加 2。4 帧是 2 对。5 帧向上取整后是 3 对。多出来的那一帧会再开一对，不是只加一对里的一半。末尾的 2 是整段各加一次的 <code>vision_bos</code> 和 <code>vision_eos</code>，不是每一帧都加 2。静止图像的公式是缩放后的高乘宽，除以每个 token 对应的像素，再加这同样的 2，见<a href="/articles/domestic-ai-vision-token-billing.html">调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token</a>。视频先把帧配成对，再走像素。不要用「一张图的 token 乘秒数」去估这段视频。</p>
+              <p><code>max_frames</code> 是抽帧上限。按 fps 算出的帧数超过它时，系统在这个上限内均匀抽帧。指南把这个参数写成只在 DashScope SDK 里可用。OpenAI 兼容路径的示例传的是 <code>video_url</code> 和 fps，没有把 max_frames 写成同一条路径上的参数。用兼容接口时，不要假设你写进请求的 max_frames 已经把帧数压住。估算代码里的最大帧数示例是 2000，注释要求按模型去改。图像列表的张数上限是另一张表：qwen3.8、qwen3.7、qwen3.6、qwen3.5 最多 8000 张，qwen3-vl-plus 最多 2000 张，其他 Qwen3-VL 开源、Qwen2.5-VL 和 QVQ 最多 512 张，其他模型最多 80 张。最少都是 4 张。不要把示例里的 2000 抄成所有模型的视频文件上限。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 帧一多，每一帧允许的像素就缩小</h2>
+              <p>单帧像素上限不是一个固定的长宽。估算代码把它写成：在「模型的单帧像素上限」和「总像素预算除以帧数再乘 2」之间取较小的那个，并且不能低于像素下限的大约 1.05 倍。帧数增加时，分到每一帧的总像素预算变小，画面会被缩得更紧。所以帧数翻倍，token 不一定翻倍。反过来，源视频分辨率更大，指南写明不会有更好的理解效果，模型会按 max_pixels 和 min_pixels 调整尺寸。把 4K 文件原样送进去，不是在买更多的有效像素。</p>
+              <p>这些常数还看模型。示例把 Qwen3-VL-Plus 的单帧像素上限写成 640 乘 32 乘 32，总像素写成 131072 乘 32 乘 32。同一段注释里，其他模型是 768 乘 32 乘 32，以及 65536 乘 32 乘 32。图像一节又把每个 token 对应的像素分成两档：qwen3.8、qwen3.7、qwen3.6、qwen3.5 和 Qwen3-VL 是 32 乘 32。QVQ 和其他 Qwen2.5-VL 是 28 乘 28。视频示例代码按 32 来除。模型若属于 28 那一档，不要把除数 32 的公式直接贴上去。估算所用的 fps、像素上限，必须和这次请求里真正传的参数一致。页上写明，代码只供估算，实际用量以接口响应为准。</p>
+              <p>一次请求最多 64 个视频。每个视频各自抽帧。不要把 64 理解成 64 份免费的抽帧下限，下限是每个被抽的视频自己的帧数规则。文件太大进不了接口，和 token 公式是两件事。公网 URL、Base64、本地路径的体积上限不同，页上写明这些限制取决于所选模型，不能靠购买高级套餐或升级模型版本抬高。体积不合规时先压缩或改成公网地址。百炼读不到 OSS 内网地址，会返回 InvalidParameter，消息是下载多模态内容失败。那是文件没进去，不是按两分钟估出来的一笔 token。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 图像列表、音轨和思考，都不是片长</h2>
+              <p>视频也可以用已经抽好的图像列表传入。列表最少 4 张。给这种列表写的估算函数，吃的是你传入的张数和其中一帧的尺寸，函数参数里没有 fps。指南另说，fps 在图像列表上告诉模型帧与帧的时间间隔，用来理解顺序和持续多久，支持的是 Qwen3.6、Qwen3-VL、Qwen2.5-VL。它没有把这个 fps 写成「再抽一次帧」。你交了 4 张图，就按这 4 张走像素和配对，不是按原片的两分钟重抽。原片有多长，不在这个函数里。</p>
+              <p>音轨在这套接口上不计，因为不理解。使用限制写明：不支持对视频文件的音频进行理解。没有一条音频 token 可以加到抽帧 token 旁边。另一套音视频翻译会把 video_tokens 和 audio_tokens 拆开，那不是这一页的公式，不要把翻译接口的采样脚本抄过来。出图、出视频按秒或按张，也是另一本账。参考视频的输入侧按五秒这口池截断，见<a href="/articles/domestic-ai-wan-reference-five-second-pool.html">参考视频有三十秒，为什么输入侧只按五秒这口池计？</a>。那边的秒是生成计费单位。这里的秒只决定抽哪几帧。</p>
+              <p>思考是输出，不是抽帧。计费节写明：思考模式下，思考过程计入输出 token。若思考模式下没有输出思考过程，按非思考模式的价格计费。这句不把思维链加成抽帧数，也不保证每次思考模式都有一截推理文本。推理模型的思维链怎么入账，见<a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a>。两页都不要拿来改 fps。</p>
+              <p>批量折扣也不改抽帧。生产环境一节说，大规模、非实时的任务可以用 OpenAI 兼容的 Batch 文件输入，仅支持部分模型，异步处理，并提供 50% 的成本折扣。折扣落在这条路径的费用上，不把 4 帧改成 2 帧，也不把「除以 2」再除一次。免费额度只写了北京和新加坡：从开通百炼或模型申请通过之日起 90 天，视觉理解模型提供 100 万 token。页上没有把这 100 万写成其他地域也有，也没有写成每个视频一份。超时后，响应头 <code>x-dashscope-partialresponse: true</code> 表示已经把生成出来的内容返回了。计费节没有为这种半截回复写一行零费用。已经生成的文本仍是输出 token。拿它做前缀续写，是下一次请求，这段文字会再进输入。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 充值改不了抽帧，也改不了四帧这条下限</h2>
+              <p>对账按六列走。第一列是文件收不收：时长、体积、格式落在该模型的限制里，内网地址会直接下载失败。第二列是抽帧：fps 默认 2.0，范围 0.1 到 10；文件够长时下限 4 帧；max_frames 只按指南写给 DashScope SDK，超过上限就在上限内均匀抽。第三列是 token 形状：帧数除以 2 向上取整，乘该模型对应的缩放宽高，再加 2。32 和 28 看系列，Qwen3-VL-Plus 的像素常数不要抄到其他模型。第四列是帧数对像素的反作用：帧越多，单帧预算越小，源分辨率更大不等于 token 更多。第五列是别的对象：图像列表按传入张数，音轨在这套接口里没有，思考若输出了算输出 token，Batch 的 50% 只在它写明的那条路径上。第六列是用量：页上的代码是估算，接口返回的用量才是这次的数。免费额度先看地域是不是北京或新加坡。</p>
+              <p>给账户准备额度，发生在这些列扣款之前。链上把稳定币换成能付进账户的资产，不会把两分钟收成 120 个 token，也不会把 fps 0.1 收成比 4 帧更少。需要这一步时，可以用无需注册、非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 完成链上兑换。兑换成功只说明资产换了手。抽了多少帧、配成多少对、单帧被缩到多小，仍按这次实际抽到的帧和接口返回的用量计。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">抽帧才是账</a></li>
+              <li><a href="#sec-2">四帧与第五帧</a></li>
+              <li><a href="#sec-3">帧多则帧小</a></li>
+              <li><a href="#sec-4">列表、音轨、思考</a></li>
+              <li><a href="#sec-5">充值改不了抽帧</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/vision" target="_blank" rel="noopener nofollow">阿里云百炼：图像与视频理解</a> — 视频先抽帧再计算 token。fps 默认 2.0，范围 0.1 到 10。抽帧下限示例为 4。公式把帧数除以 2 向上取整，再加 2 个视觉标记。不支持理解视频音轨。估算以接口响应为准。北京和新加坡有 100 万 token、90 天的免费额度。</li>
+            </ul><p class="ref-note">资料核验于2026年11月16日。按抽到的帧而不是片长秒数对账，是本站对账顺序，并非厂商效果承诺。单价、免费额度和像素常数以阿里云文档及控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/domestic-ai-vision-token-billing.html">调用DeepSeek、通义千问图片理解API，一张图到底折算成多少token</a></li>
+          <li><a href="/articles/domestic-ai-wan-reference-five-second-pool.html">参考视频有三十秒，为什么输入侧只按五秒这口池计？</a></li>
+          <li><a href="/articles/domestic-ai-reasoning-token-billing.html">调用DeepSeek-R1这类推理模型，思维链reasoning_content的输出token算不算钱</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=f93cd4bf33"></script>
+</body>
+</html>

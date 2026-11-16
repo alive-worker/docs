@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#143226"/>
+  <text x="72" y="86" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="26">2 min</text>
+  <line x1="72" y1="236" x2="728" y2="236" stroke="#d7c4a3" stroke-width="2.5" stroke-dasharray="3 13"/>
+  <g transform="translate(150,236) rotate(-7)"><rect x="-30" y="-108" width="60" height="92" rx="5" fill="#e0a04a"/></g>
+  <g transform="translate(228,236) rotate(4)"><rect x="-34" y="-162" width="68" height="142" rx="5" fill="#e0a04a"/></g>
+  <g transform="translate(308,236) rotate(-3)"><rect x="-26" y="-78" width="52" height="64" rx="5" fill="#2f6b4f" stroke="#e0a04a" stroke-width="4"/></g>
+  <g transform="translate(384,236) rotate(6)"><rect x="-30" y="-132" width="62" height="114" rx="5" fill="#e0a04a"/></g>
+  <text x="176" y="292" fill="#f4f1e8" font-family="Microsoft YaHei, sans-serif" font-size="30">4 frames</text>
+  <text x="548" y="214" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="20">not sampled</text>
+</svg>
