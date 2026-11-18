@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？</title>
+  <meta name="description" content="Agent工作流跑完一次，后台Token消耗为何暴涨十倍？单次提问看似简短，但多轮工具定义重放、环境快照回传、隐藏思维链推理以及子代理分叉会让输入上下文呈阶梯式累积膨胀。本文深入拆解智能体调用中容易被忽略的隐藏开销机制与上下文放大路径，并系统给出控制调用步骤预算、剪枝历史回显与对账核验全流程实操指南。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-agent-token-amplification.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-agent-token-amplification.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/agent-workflows-multiply-tokens.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-agent-token-amplification.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？">
+  <meta property="og:description" content="Agent工作流跑完一次，后台Token消耗为何暴涨十倍？单次提问看似简短，但多轮工具定义重放、环境快照回传、隐藏思维链推理以及子代理分叉会让输入上下文呈阶梯式累积膨胀。本文深入拆解智能体调用中容易被忽略的隐藏开销机制与上下文放大路径，并系统给出控制调用步骤预算、剪枝历史回显与对账核验全流程实操指南。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-agent-token-amplification.html">
+  <meta property="article:published_time" content="2026-11-18T09:28:00+08:00">
+  <meta property="article:modified_time" content="2026-11-18T09:28:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="Agent调用">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？">
+  <meta name="twitter:description" content="Agent工作流跑完一次，后台Token消耗为何暴涨十倍？单次提问看似简短，但多轮工具定义重放、环境快照回传、隐藏思维链推理以及子代理分叉会让输入上下文呈阶梯式累积膨胀。本文深入拆解智能体调用中容易被忽略的隐藏开销机制与上下文放大路径，并系统给出控制调用步骤预算、剪枝历史回显与对账核验全流程实操指南。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-agent-token-amplification.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Agent 循环调用的 Token 膨胀路径">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-overseas-ai-agent-token-amplification.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#primaryimage",
+      "url": "https://ponr.org/img/cover-overseas-ai-agent-token-amplification.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#webpage",
+      "url": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html",
+      "name": "Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-18T09:28:00+08:00",
+      "dateModified": "2026-11-18T09:28:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？", "item": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？",
+      "description": "Agent工作流跑完一次，后台Token消耗为何暴涨十倍？单次提问看似简短，但多轮工具定义重放、环境快照回传、隐藏思维链推理以及子代理分叉会让输入上下文呈阶梯式累积膨胀。本文深入拆解智能体调用中容易被忽略的隐藏开销机制与上下文放大路径，并系统给出控制调用步骤预算、剪枝历史回显与对账核验全流程实操指南。",
+      "image": "https://ponr.org/img/cover-overseas-ai-agent-token-amplification.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-18T09:28:00+08:00",
+      "dateModified": "2026-11-18T09:28:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "Agent调用",
+      "keywords": ["AI服务", "AI Agent", "智能体工作流", "Token膨胀", "Function Calling", "成本核算"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/overseas-ai-agent-token-amplification.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/agent-workflows-multiply-tokens.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？</h1>
+          <p class="article-summary">在自主智能体（AI Agent）普及之后，许多开发者和企业发现，原本看似只有一两句话的简单任务，后台 API 账单的 Token 消耗量却暴涨了五倍甚至数十倍。常规的单轮对话只计费一次输入和输出，但自主 Agent 的本质是一个自主运转的 ReAct 循环：每执行一步动作，系统不仅要重新注入庞大的工具定义 JSON Schema，还要将累积的历史上下文、环境状态快照、终端返回的原始回显全文回传。如果中途衍生了子代理或触发了深度推理模型的高倍输出，Token 消耗量将呈二次方阶梯式放大。了解背后的放大机制并建立上下文剪枝与步骤预算，是对账控费的关键防线。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-18T09:28:00+08:00">2026-11-18 09:28:00</time> 北京时间（UTC+08:00） · 价格与机制最后核验于 2026-11-18</p>
+        </header>
+        <img class="article-cover" src="/img/cover-overseas-ai-agent-token-amplification.svg" width="800" height="400" alt="Agent 循环调用的 Token 膨胀路径" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>检查 Agent 运行时每一轮发送的 <code>tools</code> 列表大小。无论本轮是否触发该函数，传入的全部 JSON Schema 均按输入 Token 全额计费。</li>
+                <li><span class="article-verify-check">✓</span>核验终端命令与文件读取返回的 <code>tool</code> 角色消息。未做截断的日志或长代码会常驻于后续所有调用轮次中，形成累积扣费。</li>
+                <li><span class="article-verify-check">✓</span>排查智能体执行循环中的 <code>max_steps</code> 最大步数与跳出条件。避免模型在解析错误或无法完成的任务中死循环消耗配额。</li>
+                <li><span class="article-verify-check">✓</span>确认子代理（Subagent）派生时的上下文传递模式。全量复制父级对话历史会成倍叠加独立会话的输入消耗。</li>
+                <li><span class="article-verify-check">✓</span>核实底层大模型是否启用了推理模式。思维链内容按更高的输出 Token 单价计费，且往往不在最终面向用户的回复框中显示。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 单轮提问是表象，多轮 ReAct 循环才是底层账单</h2>
+              <p>在使用普通的 Web 网页版 AI 聊天界面时，计费逻辑非常直观：用户发送一段话，模型回复一段话，Token 用量基本等于这次问答的字数。然而，当接入以自主规划为核心的 AI Agent（例如 Claude Code、AutoGen、LangGraph 或各类自动化运维工作流）时，表面的简单提问在底层被拆解成了一个动态的思考与行动循环（Reason + Act，简称 ReAct 架构）。</p>
+              <p>在 ReAct 工作流中，智能体不会在第一轮直接给出最终答案。它首先思考下一步该做什么，然后发出一个工具调用请求（Tool Call）；系统的执行宿主运行该工具并获取结果（Observation）；随后，宿主将工具结果拼接进上下文，再次请求大模型进行分析。这一过程可能会重复 5 次、10 次甚至数十次，直到模型判定任务达成。</p>
+              <p>决定最终账单的关键在于：大模型 API 本身是无状态的（Stateless）。每一次发起 HTTP 请求时，客户端必须把从第一步开始的所有提示词、系统指令、模型思考、工具调用参数以及工具返回结果完整拼接后重新发送。这意味着在第 1 步时输入可能只有 1,000 个 Token，但到了第 5 步输入就变成了累积的 15,000 个 Token，到了第 10 步可能突破 40,000 个 Token。总输入 Token 呈现出类似等差数列求和的二次方级累积膨胀（<em>O(n²)</em>），这正是账单急剧上升的首要来源。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 工具定义与环境快照：每一轮都在为「未被调用的函数」买单</h2>
+              <p>为了让智能体具备操作环境的能力，开发者通常会给它挂载数十个工具：文件读写、目录搜索、代码运行、数据库查询、网络检索等。每一个工具在底层都由一段详尽的 JSON Schema 格式参数进行定义，包括工具名称、功能描述、每个参数的数据类型及取值约束。</p>
+              <p>主流大语言模型 API（无论是 OpenAI 的 <code>tools</code> 还是 Anthropic 的 <code>tools</code> 声明）的计费规则十分明确：<strong>只要你在请求体中声明了某个工具，这套工具的完整 Schema 描述就会被转化为输入 Token 进行计费，与你在这一轮对话中实际有没有调用该工具没有任何关系。</strong></p>
+              <p>一个典型的工程级 Agent 挂载 15 到 20 个工具时，这些 Schema 的静态文本体积通常在 4,000 到 8,000 个 Token 之间。如果一个任务执行了 8 个推理与执行步骤，那么仅仅是这一批工具定义文本，就会在 8 次 API 交互中被完整重放 8 次。这意味着还没算任何代码和聊天内容，仅工具定义本身就已经静默消耗了 32,000 到 64,000 个输入 Token。一旦没有做动态工具按需加载，未被触及的工具就是每轮调用的固定底噪开销。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 观测结果回声与长上下文污染：终端输出如何成倍吃掉预算</h2>
+              <p>在 Agent 自主执行过程中，最危险的上下文膨胀往往来自于工具执行的原始回显（Raw Observation）。当智能体调用终端执行 <code>git diff</code>、<code>npm test</code> 或读取一份几百行的配置文件时，工具的输出通常会被原样包装为 <code>role: tool</code> 的消息回传给模型。</p>
+              <p>如果某次测试输出包含一个很长的堆栈跟踪信息（例如 3,000 字的日志），这段文字一旦被塞进对话历史，就会成为永久的上下文压舱石。在第 3 轮它作为输入送入模型；在第 4 轮它继续作为输入送入模型；直到第 10 轮任务结束前，这 3,000 字在每一轮都会产生一次输入计费。这就是所谓的「观测结果回声效应」。</p>
+              <p>很多开发者在编写 Agent 宿主程序时忘记对命令输出做智能截断或语义提炼，导致几百个无关紧要的文件路径或重复报错信息在整条调用链上被反复计费。更严重的是，随着上下文窗口被大量长垃圾填充，模型的注意力机制会受到干扰，进而导致更高的出错率与重试率，进一步推高循环步数与总体花费。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 子代理分叉与隐形推理：并发执行背后的双重放大器</h2>
+              <p>现代高级智能体系统越来越倾向于采用多智能体协作（Swarm 或 Multi-Agent）架构。主智能体负责规划任务，随后将子任务拆分派发给专门的子代理（Subagent）去独立执行。然而，从计量计费的角度来看，每一个子代理的启动都意味着开启了一条全新的独立 API 上下文树。</p>
+              <p>如果子代理采用「继承父级完整历史」的方式初始化，那么主智能体已经累积的上万 Token 上下文会被全量拷贝给子代理作为开端。子代理随后在自己的独立沙箱中再次展开多轮 ReAct 循环，其产生的上下文再次成倍累积。当任务并发执行 3 个子代理时，瞬间的网络与 Token 吞吐量将直接翻 3 倍以上。</p>
+              <p>与此同时，新一代推理大模型（如带有思考链的推理架构）引入了内部隐藏思维链机制。这些模型在输出最终可见答案前，会在后台生成数千甚至上万个内部推导步骤。在官方计费体系中，<strong>思维链推理 Token 全部按照更高昂的输出 Token 单价结算</strong>，即便前端界面只展示了一行简短的执行成功状态，后台账单上的输出用量也可能已经记录了数千 Token。子代理分叉与思维链叠加，往往就是一次任务消耗几十万 Token 的隐形根源。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 预算护栏与结算准备：如何给智能体装上成本刹车</h2>
+              <p>要让自主智能体真正具备生产可用性，建立严密的成本护栏和清晰的账目核验体系必不可少。在架构设计上，应当遵循五项关键约束：第一，为每一个任务设置严格的 <code>max_steps</code> 最大迭代次数上限，杜绝模型在陷入死循环时无节制扣费；第二，对工具执行结果实施严格的单次截断策略，仅保留首尾关键输出或在中间层用轻量模型提炼摘要；第三，根据任务场景实施动态工具过滤，不将全站所有 MCP 工具一股脑全塞进系统提示词；第四，充分利用大模型服务商的提示词缓存（Prompt Caching / KV-Cache）功能，固定不变的工具定义与前置系统说明放在最前部以享受缓存命中折扣；第五，对子代理采取按需传参的隔离分支，杜绝整段历史无脑拷贝。</p>
+              <p>在底层的支付与资金管理环节，智能体工作流往往需要独立预充值的开发者账户。许多团队在为海外大模型平台设置计费账户或采购多模型 API 额度时，会配置专用虚拟信用卡或使用链上稳定币进行快速额度补齐，以此避免主公司账户被意外透支。在此类资金流转场景下，借助无需繁琐注册、不托管资产的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 进行链上跨链资产灵活兑换，可以安全高效地调配各账户所需的储备资金，将智能体研发环境的支出隔绝在预设的专用额度池内，确保每一笔模型调用的成本都在可控预期之中。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">ReAct循环是底层账单</a></li>
+              <li><a href="#sec-2">未调用工具的固定开销</a></li>
+              <li><a href="#sec-3">观测回声与上下文污染</a></li>
+              <li><a href="#sec-4">子代理分叉与推理放大</a></li>
+              <li><a href="#sec-5">成本护栏与对账准备</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://platform.openai.com/docs/guides/function-calling" target="_blank" rel="noopener nofollow">OpenAI 开发者文档：Function Calling 机制与计费说明</a> — 详述请求中声明的所有工具 Schema 均作为输入 Token 计入每次 API 调用的上下文，模型无状态特性决定了每一轮交互均需全量回传对话历史。</li>
+              <li><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" rel="noopener nofollow">Anthropic Claude 文档：Tool Use 架构指南</a> — 阐明 ReAct 循环中的工具定义重放消耗、工具结果（tool_result）回传规范以及长会话中启用 Prompt Caching 降低输入重复开销的技术规范。</li>
+            </ul><p class="ref-note">资料核验于2026年11月18日。本文对 Agent 多轮调用与上下文倍率放大的机制梳理源于实际工程压测与官方计费标准，具体单价与缓存折扣比例以各平台最新官方控制台为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/overseas-ai-tool-schema-bills-unused.html">函数没被点到，为什么整份定义还按输入扣？</a></li>
+          <li><a href="/articles/overseas-ai-reasoning-tokens-invisible-bill.html">答案很短，推理token为什么还按输出价扣？</a></li>
+          <li><a href="/articles/overseas-ai-chained-input-still-bills.html">接上了上一轮，为什么「继续」还在按整段输入扣？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=a4bd6285ff"></script>
+</body>
+</html>

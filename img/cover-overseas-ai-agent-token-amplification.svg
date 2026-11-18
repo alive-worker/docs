@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#152720"/>
+  
+  <!-- Left origin: single prompt -->
+  <rect x="60" y="160" width="110" height="80" rx="8" fill="#1e3d30" stroke="#3d6c56" stroke-width="2"/>
+  <text x="115" y="196" fill="#88b99f" font-family="Microsoft YaHei, sans-serif" font-size="14" text-anchor="middle">单次提问</text>
+  <text x="115" y="222" fill="#f4f1e8" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">1x Token</text>
+
+  <!-- Cascading Fan / Escalation Paths -->
+  <path d="M 170 200 C 230 200, 240 100, 310 100" fill="none" stroke="#e0a04a" stroke-width="2.5" stroke-dasharray="4 4"/>
+  <path d="M 170 200 C 230 200, 240 160, 310 160" fill="none" stroke="#3d6c56" stroke-width="2"/>
+  <path d="M 170 200 C 230 200, 240 240, 310 240" fill="none" stroke="#3d6c56" stroke-width="2"/>
+  <path d="M 170 200 C 230 200, 240 300, 310 300" fill="none" stroke="#e0a04a" stroke-width="2.5" stroke-dasharray="4 4"/>
+
+  <!-- Step Accumulator Stack -->
+  <g transform="translate(310, 70)">
+    <rect width="170" height="50" rx="6" fill="#1c362b" stroke="#e0a04a" stroke-width="1.5"/>
+    <text x="14" y="26" fill="#e0a04a" font-family="Microsoft YaHei, sans-serif" font-size="12">Tool Schema 重放</text>
+    <text x="14" y="42" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="11">+4,000 ~ 8,000 / 轮</text>
+  </g>
+
+  <g transform="translate(310, 135)">
+    <rect width="170" height="50" rx="6" fill="#1c362b" stroke="#3d6c56" stroke-width="1.5"/>
+    <text x="14" y="26" fill="#88b99f" font-family="Microsoft YaHei, sans-serif" font-size="12">多轮历史累积</text>
+    <text x="14" y="42" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="11">O(n²) 阶梯膨胀</text>
+  </g>
+
+  <g transform="translate(310, 200)">
+    <rect width="170" height="50" rx="6" fill="#1c362b" stroke="#3d6c56" stroke-width="1.5"/>
+    <text x="14" y="26" fill="#88b99f" font-family="Microsoft YaHei, sans-serif" font-size="12">终端回显沉淀</text>
+    <text x="14" y="42" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="11">未经截断的 Raw stdout</text>
+  </g>
+
+  <g transform="translate(310, 265)">
+    <rect width="170" height="50" rx="6" fill="#1c362b" stroke="#e0a04a" stroke-width="1.5"/>
+    <text x="14" y="26" fill="#e0a04a" font-family="Microsoft YaHei, sans-serif" font-size="12">子代理独立分叉</text>
+    <text x="14" y="42" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="11">新上下文分支复制</text>
+  </g>
+
+  <!-- Convergence to Multiplier -->
+  <path d="M 480 95 C 520 95, 530 180, 560 190" fill="none" stroke="#e0a04a" stroke-width="2"/>
+  <path d="M 480 160 C 510 160, 530 190, 560 195" fill="none" stroke="#3d6c56" stroke-width="2"/>
+  <path d="M 480 225 C 510 225, 530 205, 560 205" fill="none" stroke="#3d6c56" stroke-width="2"/>
+  <path d="M 480 290 C 520 290, 530 215, 560 210" fill="none" stroke="#e0a04a" stroke-width="2"/>
+
+  <!-- Big 10x Highlight -->
+  <g transform="translate(580, 120)">
+    <rect width="160" height="155" rx="12" fill="#193327" stroke="#e0a04a" stroke-width="2.5"/>
+    <text x="80" y="42" fill="#d7c4a3" font-family="Microsoft YaHei, sans-serif" font-size="14" text-anchor="middle">实际总开销</text>
+    <text x="80" y="105" fill="#e0a04a" font-family="Microsoft YaHei, sans-serif" font-size="52" font-weight="900" text-anchor="middle">10x</text>
+    <text x="80" y="136" fill="#f4f1e8" font-family="Microsoft YaHei, sans-serif" font-size="13" text-anchor="middle">隐形倍率放大</text>
+  </g>
+
+  <!-- Top Title Banner -->
+  <text x="60" y="55" fill="#f4f1e8" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold">Agent 循环调用的 Token 膨胀路径</text>
+</svg>

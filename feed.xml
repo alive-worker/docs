@@ -171,7 +171,15 @@
     <category>提示缓存</category>
     <description><![CDATA[开了提示缓存，命中大约按普通输入的0.1倍计，写入却是1.25倍或2倍。Claude的5分钟从请求开始算。GPT-5.6起写入也加价，更早的模型没有这笔。断点放在会变的内容上，等于每次都付写入。]]></description>
   </item>
-  <lastBuildDate>Wed, 04 Nov 2026 10:30:50 +0800</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 09:28:00 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Agent工作流跑完一次，为什么后台Token消耗会暴涨十倍？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-agent-token-amplification.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-agent-token-amplification.html</guid>
+    <pubDate>Wed, 18 Nov 2026 09:28:00 +0800</pubDate>
+    <category>Agent调用</category>
+    <description><![CDATA[单次提问看似简短，但多轮工具定义重放、环境快照回传、隐藏思维链推理以及子代理分叉会让输入上下文呈阶梯式累积膨胀。步骤预算与输出剪枝是对账控费关键。]]></description>
+  </item>
                   <item>
     <title><![CDATA[接口停了，专属部署为什么还在按小时扣？]]></title>
     <link>https://ponr.org/articles/domestic-ai-dedicated-deploy-idle-billing.html</link>
