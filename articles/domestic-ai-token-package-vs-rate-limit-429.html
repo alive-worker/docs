@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>买了模型Token资源包，为什么并发调用依然疯狂被429限流？</title>
+  <meta name="description" content="买了千万级大模型Token资源包，高并发业务上线时为何依然频繁遭遇429限流报错？很多开发者误将预付费资源包当成独占算力，其实资源包本质只是计费抵扣凭证，与平台的QPS、RPM和TPM并发调度完全解耦。本文深入拆解共享池限流机制、专属吞吐预留与平滑退避实操，系统给出在生产环境中彻底摆脱限流陷阱的应对方案。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/token-packages-still-hit-rate-limits.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="买了模型Token资源包，为什么并发调用依然疯狂被429限流？">
+  <meta property="og:description" content="买了千万级大模型Token资源包，高并发业务上线时为何依然频繁遭遇429限流报错？很多开发者误将预付费资源包当成独占算力，其实资源包本质只是计费抵扣凭证，与平台的QPS、RPM和TPM并发调度完全解耦。本文深入拆解共享池限流机制、专属吞吐预留与平滑退避实操，系统给出在生产环境中彻底摆脱限流陷阱的应对方案。">
+  <meta property="og:url" content="https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html">
+  <meta property="article:published_time" content="2026-11-19T10:15:00+08:00">
+  <meta property="article:modified_time" content="2026-11-19T10:15:00+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="资源包限流">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="买了模型Token资源包，为什么并发调用依然疯狂被429限流？">
+  <meta name="twitter:description" content="买了千万级大模型Token资源包，高并发业务上线时为何依然频繁遭遇429限流报错？很多开发者误将预付费资源包当成独占算力，其实资源包本质只是计费抵扣凭证，与平台的QPS、RPM和TPM并发调度完全解耦。本文深入拆解共享池限流机制、专属吞吐预留与平滑退避实操，系统给出在生产环境中彻底摆脱限流陷阱的应对方案。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#163825">
+  <meta property="og:image" content="https://ponr.org/img/cover-domestic-ai-token-package-vs-rate-limit-429.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Token 预付费 vs 算力并发限制">
+  <meta name="twitter:image" content="https://ponr.org/img/cover-domestic-ai-token-package-vs-rate-limit-429.png">
+  <link rel="dns-prefetch" href="https://allswap.io">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var.woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.min.css?v=ab27493b71">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ponr.org/#org",
+      "name": "AI服务指南",
+      "url": "https://ponr.org/",
+      "email": "mailto:llf.worker@gmail.com",
+      "logo": { "@type": "ImageObject", "url": "https://ponr.org/logo.png?v=9f62a23392", "width": 512, "height": 512 },
+      "contactPoint": { "@type": "ContactPoint", "email": "llf.worker@gmail.com", "contactType": "editorial" },
+      "knowsAbout": ["海外 AI 服务订阅", "跨境支付", "虚拟信用卡", "加密货币稳定币支付"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ponr.org/about.html#author",
+      "name": "ipfsWeb",
+      "url": "https://ponr.org/about.html#author",
+      "sameAs": ["https://github.com/alive-worker"],
+      "description": "15 年全栈开发经验，专注于 AI 自动化工作流研究",
+      "worksFor": { "@id": "https://ponr.org/#org" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ponr.org/#website",
+      "url": "https://ponr.org/",
+      "name": "AI服务指南",
+      "inLanguage": "zh-CN",
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://ponr.org/articles.html?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#primaryimage",
+      "url": "https://ponr.org/img/cover-domestic-ai-token-package-vs-rate-limit-429.png",
+      "width": 800,
+      "height": 400
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#webpage",
+      "url": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html",
+      "name": "买了模型Token资源包，为什么并发调用依然疯狂被429限流？",
+      "isPartOf": { "@id": "https://ponr.org/#website" },
+      "primaryImageOfPage": { "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#primaryimage" },
+      "breadcrumb": { "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#breadcrumb" },
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-19T10:15:00+08:00",
+      "dateModified": "2026-11-19T10:15:00+08:00"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://ponr.org/" },
+        { "@type": "ListItem", "position": 2, "name": "全部文章", "item": "https://ponr.org/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "买了模型Token资源包，为什么并发调用依然疯狂被429限流？", "item": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "买了模型Token资源包，为什么并发调用依然疯狂被429限流？",
+      "description": "买了千万级大模型Token资源包，高并发业务上线时为何依然频繁遭遇429限流报错？很多开发者误将预付费资源包当成独占算力，其实资源包本质只是计费抵扣凭证，与平台的QPS、RPM和TPM并发调度完全解耦。本文深入拆解共享池限流机制、专属吞吐预留与平滑退避实操，系统给出在生产环境中彻底摆脱限流陷阱的应对方案。",
+      "image": "https://ponr.org/img/cover-domestic-ai-token-package-vs-rate-limit-429.png",
+      "author": { "@id": "https://ponr.org/about.html#author" },
+      "publisher": { "@id": "https://ponr.org/#org" },
+      "datePublished": "2026-11-19T10:15:00+08:00",
+      "dateModified": "2026-11-19T10:15:00+08:00",
+      "inLanguage": "zh-CN",
+      "articleSection": "资源包限流",
+      "keywords": ["大模型API", "429限流", "Token资源包", "QPS限制", "TPM配额", "专属预留吞吐"],
+      "mainEntityOfPage": { "@id": "https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html#webpage" },
+      "isPartOf": { "@id": "https://ponr.org/#website" }
+    }
+  ]
+}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="AI服务指南首页">
+        <img class="brand-logo" src="/favicon.svg?v=9f62a23392" width="34" height="34" alt="" aria-hidden="true">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/">首页</a>
+        <a href="/articles.html">全部文章</a>
+        <a href="/methodology.html">方法论</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/about.html">关于</a>
+        <a class="lang-switch" href="/en/articles/token-packages-still-hit-rate-limits.html" hreflang="en" lang="en" aria-label="English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></a>
+        <button type="button" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5a8.5 8.5 0 1 1-9.5-13 7 7 0 0 0 9.5 13Z"></path></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div class="layout layout--article">
+    <main class="main" id="main" tabindex="-1">
+      <article class="article-shell">
+        <header class="article-head">
+          <h1>买了模型Token资源包，为什么并发调用依然疯狂被429限流？</h1>
+          <p class="article-summary">在接入国内各大模型平台（如阿里云百炼、火山方舟、百度千帆）时，很多工程团队在预估业务用量后，通常会先采购数千万元预付费的 Token 资源包，认为只要卡内有余额就不会停服。然而，一旦业务上线或启动多线程并发压测，服务端却频繁抛出 HTTP 429 RateLimitExceeded 错误，导致业务接口大面积超时甚至熔断。产生这种落差的核心根源在于：大模型平台的「账务计费」与「集群调度」是完全解耦的两套体系。资源包只负责资金折扣抵扣，丝毫不改变账号在公共算力池中的并发排队优先级和 QPS/TPM 阈值限制。本文将逐层拆解并发闸门的工作原理，并给出生产环境下的限流治理与架构解法。</p>
+          <p class="article-meta"><span><a href="/about.html#author">ipfsWeb</a></span> · AI服务指南编辑部 · 发布于 <time datetime="2026-11-19T10:15:00+08:00">2026-11-19 10:15:00</time> 北京时间（UTC+08:00） · 价格与配额机制最后核验于 2026-11-19</p>
+        </header>
+        <img class="article-cover" src="/img/cover-domestic-ai-token-package-vs-rate-limit-429.svg" width="800" height="400" alt="Token 预付费 vs 算力并发限制" fetchpriority="high">
+        <div class="article-columns">
+          <div class="article-body">
+            <div class="article-verify-panel">
+              <p class="article-verify-title">核验清单</p>
+              <ul class="article-verify-list">
+                <li><span class="article-verify-check">✓</span>排查控制台「配额管理」页面中的默认 QPS 与 TPM 上限。明确预付费资源包并不包含任何并发上限提升权益。</li>
+                <li><span class="article-verify-check">✓</span>核验 429 报错的响应头信息。重点提取 <code>retry-after</code> 与 <code>x-ratelimit-reset</code> 字段，区分是触发了请求频次限制还是 Token 流速限制。</li>
+                <li><span class="article-verify-check">✓</span>确认是否采购了专属吞吐（Provisioned Throughput）规格。资源包抵扣项与专属算力单元的按时计费项互不通用。</li>
+                <li><span class="article-verify-check">✓</span>检查客户端 SDK 是否配置了指数退避（Exponential Backoff）和随机抖动重试。禁止并发线程在被拒后瞬间发起无序重放。</li>
+                <li><span class="article-verify-check">✓</span>排查非实时批量任务是否启用了 Batch 异步接口。批量渠道具备独立调度队列，不会挤占在线业务的实时 QPS 额度。</li>
+              </ul>
+            </div>
+            <section id="sec-1">
+              <h2>1. 预付费资源包是「抵扣凭证」，不是「算力专线」</h2>
+              <p>很多技术负责人习惯了传统云计算中购买云服务器（ECS）或专享带宽的思维定式，误以为买了 5,000 万 Token 的大模型资源包，就等于在云厂商机房里包下了固定算力的硬件通道。然而，在大语言模型平台的底层架构中，计费计量（Billing Engine）与推理集群网关（Inference Gateway）属于两条彼此独立的系统总线。</p>
+              <p>预付费 Token 资源包的法律与商业本质，仅仅是一张<strong>带有有效期和使用范围限制的折扣充值卡</strong>。当你的单次请求成功被推理集群处理完成后，计费引擎在扣除账户余额时，优先从对应型号的资源包里扣除相应的输入与输出 Token 数量。如果扣除成功，这笔请求的账单现金支出为零。</p>
+              <p>但是，这一扣款动作发生在请求结束后的结算阶段，而 429 报错发生在大模型推理集群最前端的 API 网关入口层。在你的请求抵达模型 GPU 显存之前，入口网关只根据该账号所属的速率限制规则（Rate Limits）进行拦截判定。网关只核对当前时刻账号的并发计数器是否超限，根本不会关心你的账户钱包里是否还躺着几千万未使用的资源包额度。</p>
+            </section>
+            <section id="sec-2">
+              <h2>2. 三大隐形闸门：QPS、RPM 与 TPM 的共享池竞争</h2>
+              <p>国内各大模型平台的公共推理接口，本质上是一个全网企业与个人用户共同竞争的共享算力池（Shared Multi-Tenant Pool）。为了防止某个恶意脚本或突发压测程序耗尽整座集群的显存带宽，平台设置了三道相互独立、同时生效的并发闸门：</p>
+              <p>第一道闸门是 <strong>QPS（Queries Per Second）或 RPM（Requests Per Minute）</strong>，它限制单位时间内的请求物理次数。哪怕你每次提问只有一个字，一旦在 1 秒内发起了超过默认阈值（例如 10 QPS）的 HTTP 请求，超出部分就会立刻触发 429 拦截。</p>
+              <p>第二道闸门是 <strong>TPM（Tokens Per Minute）</strong>，它度量每分钟消耗的 Token 吞吐流速。对于长文本理解、长文档解析或 RAG 检索注入场景，单次请求的上下文可能高达 32K 或 64K Tokens。此时即使你的 QPS 只有 2（远低于频次上限），但两个请求瞬间向网关灌入了 128,000 Tokens，直接击穿账号的每分钟 Token 流速配额，同样会触发 429 报错。</p>
+              <p>第三道闸门是 <strong>并发在途请求数（Concurrent In-Flight Requests）</strong>。大模型生成长文本需要数十秒，连接持续占用 GPU 会话槽位。当 15 个并发连接都在等待文本流式输出时，第 16 个请求便无法入队。在公有共享池中，平台默认分配的这三项指标是根据企业实名等级和近 30 天消费阶梯动态赋予的，充值预付费资源包不会自动撬动任何一项阈值。</p>
+            </section>
+            <section id="sec-3">
+              <h2>3. 专属吞吐预留 vs 资源包抵扣：为什么两笔钱不能互通</h2>
+              <p>为了获得高并发免受 429 干扰的确定性算力，主流平台都推出了「专属吞吐预留（Provisioned Throughput）」或「独享实例部署」服务。但这套方案的计费模型与资源包有着根本冲突，二者的账单科目完全隔离。</p>
+              <p>专属吞吐预留的逻辑，是在物理机房中划拨专用的 GPU 计算单元供指定租户独占。这种独占算力不论你当前有没有发起对话请求，后端的硬件成本与电力消耗都是每分每秒在持续发生。因此，<strong>专属预留规格是按照每小时或每月为周期收取固定的算力预留服务费</strong>，其计费单位是「预留算力单元/小时」，而不是具体的 Token 用量。</p>
+              <p>关键的踩坑点在于：企业此前采购的通用 Token 预付费资源包，其抵扣范围严格限制在公共共享池的「按量付费输入/输出 Token」账单项中。官方账单系统明确规定，资源包不能用于抵扣专属实例的按时预留费用，参见<a href="/articles/domestic-ai-dedicated-deploy-idle-billing.html">接口停了，专属部署为什么还在按小时扣？</a>。很多团队在误购了上万元资源包后，发现为了解决并发 429 依然需要每个月额外支付高昂的固定预留费，造成了严重的资金闲置与预算重叠。</p>
+            </section>
+            <section id="sec-4">
+              <h2>4. 生产环境避坑：令牌桶平滑限流与批处理异步解耦</h2>
+              <p>在不采购昂贵专属预留规格的前提下，要在公共共享池中稳定承载高并发业务，工程层必须在客户端构筑两道弹性防护网：</p>
+              <p>其一，是<strong>客户端自适应速率整形（Rate Limiter）</strong>。业务网关与后端微服务调用模型接口时，不能直接裸调，而必须接入令牌桶（Token Bucket）或漏桶算法组件。客户端需主动维护本地的 QPS 与 TPM 计数，并在收到服务端 429 响应时，严格读取响应头中的 <code>Retry-After</code> 指令，采用带有全抖动（Full Jitter）的指数退避重试，杜绝所有工作线程在同一时刻同步重试引发的「惊群效应」。</p>
+              <p>其二，是<strong>实时流量与离线批量任务强行拆解</strong>。许多业务系统之所以被 429 打垮，是因为把报表批量分析、知识库批量切片、历史数据提炼等非实时离线任务，与用户端前台的实时问答混在同一个 API 渠道中并发调用。针对非实时场景，应当强制分流至各厂商的 Batch Inference（批量推理）接口。Batch 任务运行在闲置错峰的专用队列中，不仅不占用在线实时 QPS 额度，还享有 50% 的价格折扣，是化解并发拥堵的最优架构解法。</p>
+            </section>
+            <section id="sec-5">
+              <h2>5. 多通道对账与资金储备：给高可用调用架设弹性护栏</h2>
+              <p>对于要求 99.9% 以上 SLA 的核心在线系统，单依赖某一家云厂商的单个模型渠道是极度脆弱的。一旦主平台发生大面积故障或突发配额挤占，业务唯有依靠多云路由网关（Multi-Provider Model Gateway）快速将流量动态熔断切换至异构备选模型。</p>
+              <p>在构建多厂商容灾调度链路时，运维与财务最大的挑战往往是各通道账户的资金储备与结算差异。如果某个应急备选账号因长期闲置导致余额欠费，在流量突发切过去的瞬间同样会因欠费直接停机。许多敏捷团队在为多区域平台或出海模型服务建立弹性储备时，选择使用无需繁琐托管绑卡、去中心化非托管的 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">AllSwap</a> 进行链上稳定币的高效灵活换汇与储备充值。通过隔离的专用资金池，既可以防止主账户被意料之外的激增调用意外穿透，又能保障备用模型通道在主线遭遇 429 熔断时瞬间平稳接管业务。</p>
+            </section>
+          </div>
+          <div class="article-sidebar">
+            <nav class="toc" aria-label="本文目录"><h2>本文目录</h2><ol>
+              <li><a href="#sec-1">资源包是抵扣不是专线</a></li>
+              <li><a href="#sec-2">三大隐形限流闸门</a></li>
+              <li><a href="#sec-3">专属吞吐与资源包隔离</a></li>
+              <li><a href="#sec-4">客户端退避与批量解耦</a></li>
+              <li><a href="#sec-5">多通道对账与弹性储备</a></li>
+            </ol></nav>
+            <aside class="references" aria-label="资料来源与延伸阅读"><h2>资料来源与延伸阅读</h2><ul>
+              <li><a href="https://help.aliyun.com/zh/model-studio/user-guide/rate-limits" target="_blank" rel="noopener nofollow">阿里云百炼官方文档：调用限流与配额管理</a> — 明确公共模型调用的默认 QPS、RPM 与 TPM 梯队，说明预付费资源包只抵扣用量费用，并不改变共享集群并发限额。</li>
+              <li><a href="https://www.volcengine.com/docs/82379/1099496" target="_blank" rel="noopener nofollow">火山引擎火山方舟：大模型速率限制与独占部署规格说明</a> — 详述公共按量调用与独占接入点的区别，指出通过专属算力单元预留方可突破公共池 TPM 限制并保障稳定性。</li>
+            </ul><p class="ref-note">资料核验于2026年11月19日。大模型平台限流规则与资源包抵扣范围随官方升级调整，实际默认并发数值以各平台控制台实时展示为准。</p></aside>
+          </div>
+        </div>
+        <aside class="related" aria-label="相关文章"><h2>相关文章</h2><ul>
+          <li><a href="/articles/ai-api-rate-limit-tier-billing.html">按官方单价心算的AI API账单，为什么总是差着一截</a></li>
+          <li><a href="/articles/domestic-ai-dedicated-deploy-idle-billing.html">接口停了，专属部署为什么还在按小时扣？</a></li>
+          <li><a href="/articles/overseas-ai-service-tier-flex-vs-fast.html">你指定了 Fast，为什么按标准价出账？</a></li>
+        </ul></aside>
+        <div class="back-row"><a href="/">返回摘要首页</a></div>
+      </article>
+    </main>
+  </div>
+  <footer class="site-foot site-foot--rich">
+    <div class="site-foot-grid">
+      <div class="site-foot-brand">
+        <img src="/favicon.svg?v=9f62a23392" width="32" height="32" alt="" aria-hidden="true">
+        <div>
+          <span class="site-foot-brand-name">AI服务指南</span>
+          <p class="site-foot-desc">关于 AI 服务的实用长文，记录订阅开通、支付通道、虚拟卡与账号安全等实操经验，希望对同样在使用 AI 服务的你有帮助。</p>
+        </div>
+      </div>
+      <div class="site-foot-col site-foot-col--topics">
+        <h2>热门主题</h2>
+        <ul>
+          <li><a href="/articles.html?topic=basics">入门与基础</a></li>
+          <li><a href="/articles.html?topic=virtual-card">虚拟卡专题</a></li>
+          <li><a href="/articles.html?topic=stablecoin">稳定币支付专题</a></li>
+          <li><a href="/articles.html?topic=special">特殊场景与账户管理</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>站点</h2>
+        <ul>
+          <li><a href="/articles.html">全部文章</a></li>
+          <li><a href="/methodology.html">方法论</a></li>
+          <li><a href="/about.html">关于本站</a></li>
+          <li><a href="/articles/overseas-ai-virtual-card-solution.html">虚拟卡支付指南</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </div>
+      <div class="site-foot-col">
+        <h2>友链</h2>
+        <ul>
+          <li><a href="https://deskbyai.com/" target="_blank" rel="noopener nofollow sponsored">AI做系统</a></li>
+          <li><a href="https://aiplussub.com/" target="_blank" rel="noopener nofollow sponsored">AI 代付</a></li>
+          <li><a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow sponsored">兑换</a></li>
+          <li><a href="https://rdvcc.com/" target="_blank" rel="noopener nofollow sponsored">RDVCC</a></li>
+          <li><a href="https://chdh.me/" target="_blank" rel="noopener nofollow sponsored">出海导航</a></li>
+          <li><a href="https://ibve.org/" target="_blank" rel="noopener nofollow sponsored">AI 笔记</a></li>
+          <li><a href="https://forlines.org/" target="_blank" rel="noopener nofollow sponsored">AI 服务</a></li>
+          <li><a href="https://ie9.cc/" target="_blank" rel="noopener nofollow sponsored">AI 资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-foot-bottom">
+      <p>© 2026 AI服务指南 · 仅供参考</p>
+      <p>信息仅供参考。价格、地区可用性与政策以各 AI 平台和支付服务商最新说明为准。</p>
+    </div>
+  </footer>
+  <a class="back-to-top" href="#top" aria-label="回到顶部">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <script src="/js/site.min.js?v=29c66a07eb"></script>
+</body>
+</html>

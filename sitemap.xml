@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/token-packages-still-hit-rate-limits.html</loc>
+    <lastmod>2026-11-19T10:15:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html</loc>
+    <lastmod>2026-11-19T10:15:00+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/en/articles/agent-workflows-multiply-tokens.html</loc>
     <lastmod>2026-11-18T09:28:00+08:00</lastmod>
   </url>
@@ -308,7 +316,7 @@
   </url>
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
@@ -988,7 +996,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
@@ -1224,7 +1232,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -1240,7 +1248,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/tools/price-hike-calculator.html</loc>

@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-token-package-vs-rate-limit-429.html': '2026-11-19 10:15:00',
+    '/en/articles/token-packages-still-hit-rate-limits.html': '2026-11-19 10:15:00',
     '/articles/overseas-ai-agent-token-amplification.html': '2026-11-18 09:28:00',
     '/en/articles/agent-workflows-multiply-tokens.html': '2026-11-18 09:28:00',
     '/articles/domestic-ai-video-frame-not-seconds.html': '2026-11-16 10:46:00',
