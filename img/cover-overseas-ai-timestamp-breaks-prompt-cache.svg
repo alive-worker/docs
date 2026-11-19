@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b131a"/>
+      <stop offset="100%" stop-color="#14212e"/>
+    </linearGradient>
+    <linearGradient id="warnGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="cacheGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg)"/>
+  
+  <!-- Subtle grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="80" x2="800" y2="800" />
+    <line x1="0" y1="160" x2="800" y2="160" />
+    <line x1="0" y1="240" x2="800" y2="240" />
+    <line x1="0" y1="320" x2="800" y2="320" />
+    <line x1="160" y1="0" x2="160" y2="400" />
+    <line x1="320" y1="0" x2="320" y2="400" />
+    <line x1="480" y1="0" x2="480" y2="400" />
+    <line x1="640" y1="0" x2="640" y2="400" />
+  </g>
+
+  <!-- Header Category Badge -->
+  <rect x="50" y="42" width="160" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="65" cy="56" r="4" fill="#38bdf8"/>
+  <text x="78" y="61" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="600" letter-spacing="1">KV-CACHE 前缀失效</text>
+
+  <!-- Main Title text in SVG -->
+  <text x="50" y="105" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="22" font-weight="700">前缀哈希断裂：动态时间戳引发的缓存灾难</text>
+  <text x="50" y="132" fill="#64748b" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="13">Strict Prefix Match Breakdown via Dynamic Head Variable</text>
+
+  <!-- Pipeline visual container -->
+  <rect x="50" y="155" width="700" height="185" rx="12" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Block 1: The Culprit (Dynamic Timestamp) -->
+  <g transform="translate(75, 180)">
+    <rect width="170" height="100" rx="8" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+    <rect x="12" y="12" width="60" height="20" rx="4" fill="#ef4444"/>
+    <text x="42" y="26" fill="#ffffff" font-family="-apple-system,sans-serif" font-size="10" font-weight="700" text-anchor="middle">OFFSET 0</text>
+    <text x="12" y="52" fill="#fca5a5" font-family="monospace" font-size="13" font-weight="700">2026-11-19T14:52</text>
+    <text x="12" y="74" fill="#f87171" font-family="-apple-system,sans-serif" font-size="12">动态系统时间戳</text>
+    <text x="12" y="92" fill="#ef4444" font-family="-apple-system,sans-serif" font-size="10" font-weight="600">⚠ 每秒变更 哈希失效</text>
+  </g>
+
+  <!-- Crack / Sever Icon -->
+  <g transform="translate(265, 215)">
+    <path d="M 0 0 L 15 -25 L 8 -5 L 22 25 L 7 5 Z" fill="#ef4444"/>
+    <circle cx="11" cy="40" r="14" fill="#7f1d1d" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="11" y="45" fill="#fecaca" font-family="-apple-system,sans-serif" font-size="14" font-weight="900" text-anchor="middle">✕</text>
+  </g>
+
+  <!-- Block 2: Downstream 50K System Prompt (Broken) -->
+  <g transform="translate(315, 180)">
+    <rect width="210" height="100" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <rect x="14" y="12" width="70" height="20" rx="4" fill="#334155"/>
+    <text x="49" y="26" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" text-anchor="middle">STATIC RULES</text>
+    <text x="14" y="52" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="13" font-weight="700">50,000 Tokens 静态规则</text>
+    <text x="14" y="74" fill="#64748b" font-family="-apple-system,sans-serif" font-size="12">角色设定 / 知识库 / Tools</text>
+    <text x="14" y="92" fill="#f43f5e" font-family="-apple-system,sans-serif" font-size="10" font-weight="700">❌ 无法匹配已有 KV 缓存</text>
+  </g>
+
+  <!-- Block 3: Billing Impact Panel -->
+  <g transform="translate(545, 180)">
+    <rect width="180" height="100" rx="8" fill="#18181b" stroke="#3f3f46" stroke-width="1.5"/>
+    <text x="16" y="32" fill="#e4e4e7" font-family="-apple-system,sans-serif" font-size="12" font-weight="600">计费结算结果</text>
+    <text x="16" y="58" fill="#ef4444" font-family="-apple-system,sans-serif" font-size="20" font-weight="800">0% 命中率</text>
+    <text x="16" y="78" fill="#a1a1aa" font-family="-apple-system,sans-serif" font-size="11">全量按普通输入计费</text>
+    <text x="16" y="94" fill="#f59e0b" font-family="-apple-system,sans-serif" font-size="10" font-weight="600">丧失 90% 缓存折扣优惠</text>
+  </g>
+
+  <!-- Bottom Metric Bar -->
+  <g transform="translate(50, 355)">
+    <text x="25" y="16" fill="#64748b" font-family="monospace" font-size="11">RULE: KV-Cache prefix match halts at first differing token. Keep dynamic inputs strictly at prompt tail.</text>
+  </g>
+</svg>

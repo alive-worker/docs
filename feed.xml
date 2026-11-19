@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-  <lastBuildDate>Thu, 19 Nov 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 14:52:45 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[提示词里加了当前时间，为什么百万Token缓存优惠全部泡汤？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-timestamp-breaks-prompt-cache.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-timestamp-breaks-prompt-cache.html</guid>
+    <pubDate>Thu, 19 Nov 2026 14:52:45 +0800</pubDate>
+    <category>提示词缓存</category>
+    <description><![CDATA[开启大模型提示词缓存（Prompt Caching）本可享受高达90%的输入费用减免，但不少工程团队在系统提示词开头加入了当前时间或动态用户ID，导致基于前缀哈希的KV缓存连续全量击穿。本文深入拆解主流平台的缓存切片与对齐规则，解析动静分离改造架构，助你在生产环境中锁定极高缓存命中率并彻底避开对账陷阱。]]></description>
+  </item>
   <item>
     <title><![CDATA[买了模型Token资源包，为什么并发调用依然疯狂被429限流？]]></title>
     <link>https://ponr.org/articles/domestic-ai-token-package-vs-rate-limit-429.html</link>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/timestamp-breaks-prompt-cache.html</loc>
+    <lastmod>2026-11-19T14:52:45+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-timestamp-breaks-prompt-cache.html</loc>
+    <lastmod>2026-11-19T14:52:45+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/en/articles/token-packages-still-hit-rate-limits.html</loc>
     <lastmod>2026-11-19T10:15:00+08:00</lastmod>
   </url>

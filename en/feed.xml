@@ -6,7 +6,15 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 19 Nov 2026 10:15:00 +0800</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 14:52:45 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why Does a Timestamp Break All Prompt Cache Discounts?]]></title>
+    <link>https://ponr.org/en/articles/timestamp-breaks-prompt-cache.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/timestamp-breaks-prompt-cache.html</guid>
+    <pubDate>Thu, 19 Nov 2026 14:52:45 +0800</pubDate>
+    <category>Prompt cache</category>
+    <description><![CDATA[Adding a timestamp breaks prompt caching because LLM KV caches require exact prefix matching. Dynamic variables at the prompt head trigger 100% cache misses.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why Do Prepaid Token Packs Still Hit 429 Rate Limits?]]></title>
     <link>https://ponr.org/en/articles/token-packages-still-hit-rate-limits.html</link>

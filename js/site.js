@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-timestamp-breaks-prompt-cache.html': '2026-11-19 14:52:45',
+    '/en/articles/timestamp-breaks-prompt-cache.html': '2026-11-19 14:52:45',
     '/articles/domestic-ai-token-package-vs-rate-limit-429.html': '2026-11-19 10:15:00',
     '/en/articles/token-packages-still-hit-rate-limits.html': '2026-11-19 10:15:00',
     '/articles/overseas-ai-agent-token-amplification.html': '2026-11-18 09:28:00',
