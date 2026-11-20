@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？</title>
+  <meta name="description" content="在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="ipfsWeb">
+  <link rel="canonical" href="https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html">
+  <link rel="alternate" hreflang="en" href="https://ponr.org/en/articles/streaming-abort-still-bills-tokens.html">
+  <link rel="alternate" hreflang="x-default" href="https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="AI服务指南">
+  <meta property="og:title" content="大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？">
+  <meta property="og:description" content="在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。">
+  <meta property="og:url" content="https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html">
+  <meta property="article:published_time" content="2026-11-20T09:39:03+08:00">
+  <meta property="article:modified_time" content="2026-11-20T09:39:03+08:00">
+  <meta property="article:author" content="ipfsWeb">
+  <meta property="article:section" content="API计费">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？">
+  <meta name="twitter:description" content="在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。">
+  <link rel="icon" href="/favicon.ico?v=9f62a23392" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=9f62a23392">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=9f62a23392">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=9f62a23392">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" title="AI服务指南 RSS" href="/feed.xml">
+  <meta name="theme-color" content="#090d16">
+  <meta property="og:image" content="https://ponr.org/img/cover-overseas-ai-streaming-abort-token-billing.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <link rel="stylesheet" href="/styles.min.css?v=492627997c">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html#article",
+        "isPartOf": {
+          "@type": "WebPage",
+          "@id": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html",
+          "url": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html",
+          "name": "大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？",
+          "description": "在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。",
+          "breadcrumb": {
+            "@id": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html#breadcrumb"
+          },
+          "inLanguage": "zh-CN"
+        },
+        "headline": "大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？",
+        "description": "在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。",
+        "mainEntityOfPage": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html",
+        "datePublished": "2026-11-20T09:39:03+08:00",
+        "dateModified": "2026-11-20T09:39:03+08:00",
+        "author": {
+          "@type": "Person",
+          "name": "ipfsWeb"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AI服务指南",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ponr.org/logo.png"
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://ponr.org/img/cover-overseas-ai-streaming-abort-token-billing.png",
+          "width": 800,
+          "height": 400
+        },
+        "articleSection": "API计费",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://ponr.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "全部文章",
+            "item": "https://ponr.org/articles.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？",
+            "item": "https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand">
+        <img src="/logo.png" alt="AI服务指南 Logo" class="brand-logo" width="34" height="34">
+        <span class="brand-text">
+          <span class="brand-name">AI服务指南</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/articles.html" class="active">全部文章</a>
+        <a href="/tools/price-hike-calculator.html">涨价计算器</a>
+        <a href="/methodology.html">评测方法论</a>
+        <a href="/about.html">关于本站</a>
+        <a href="/en/articles/streaming-abort-still-bills-tokens.html" class="lang-switch" aria-label="Switch to English" title="Switch to English">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+        <button type="button" class="theme-toggle" aria-label="切换浅色模式" title="切换浅色模式">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout layout--article">
+    <div class="main">
+      <article class="article-shell">
+        <header class="article-head">
+          <div class="post-card-tags">
+            <span class="archive-tag archive-tag--cyan">API计费</span>
+          </div>
+          <h1>大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？</h1>
+          <div class="article-meta">
+            <time datetime="2026-11-20T09:39:03+08:00">2026-11-20 09:39:03</time> · 预计阅读时间 6 分钟
+          </div>
+          <p class="article-summary">在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。</p>
+        </header>
+
+        <img class="article-cover" src="/img/cover-overseas-ai-streaming-abort-token-billing.svg" alt="大模型流式输出单向断开与后端幽灵计费机制剖析" width="800" height="400">
+
+        <div class="article-verify-panel">
+          <div class="article-verify-title">核验清单（直接实操核对动作）</div>
+          <ul class="article-verify-list">
+            <li><span class="article-verify-check">✓</span><strong>检查中间层断连事件监听</strong>：排查 Node.js 服务端是否监听 <code>req.on('close')</code>，或 Python FastAPI 是否在异步迭代中校验 <code>await request.is_disconnected()</code>。</li>
+            <li><span class="article-verify-check">✓</span><strong>核对上游 SDK AbortSignal 绑定</strong>：确认调用 OpenAI 或 Anthropic SDK 时，已将 <code>new AbortController().signal</code> 传入请求选项并在连接断开时触发 <code>controller.abort()</code>。</li>
+            <li><span class="article-verify-check">✓</span><strong>模拟 1 秒中断比对 Token 账单</strong>：在本地发起 4,000 Token 长文生成并在 1 秒内强制取消，进入供应商账单后台比对实际扣减的 <code>completion_tokens</code> 是否仍被计入数千字。</li>
+            <li><span class="article-verify-check">✓</span><strong>检查反向代理缓冲配置</strong>：若经过 Nginx 转发，核查是否配置了 <code>proxy_ignore_client_abort off</code>，避免 Nginx 自动代为保持上游会话。</li>
+          </ul>
+        </div>
+
+        <div class="article-columns">
+          <div class="article-body">
+            <section id="section-1">
+              <h2>一、流式输出的工程假象：前端刹车，上游仍在狂奔</h2>
+              <p>为了让 AI 应用具备流畅的“打字机”实时交互体验，近乎所有现代 AI 产品都会采用 Server-Sent Events（SSE）或 WebSocket 开启流式输出（Streaming Output）。许多开发者在构建系统时潜意识里存在一个逻辑断层：<strong>认为客户端只要断开了 HTTP 连接（例如用户关闭了聊天标签页、点击了 UI 界面上的“停止生成”按钮，或前端触发了 <code>fetch.abort()</code>），整个推理链路就自然而然地终止了</strong>。</p>
+              <p>然而在分布式计算拓扑中，客户端（浏览器/移动端 App）与上游大模型供应商（OpenAI、Anthropic、DeepSeek 等）之间通常隔着自建的业务网关、BFF 层（Backend for Frontend）或反向代理。当客户端主动断开与 BFF 层的 TCP Socket 时，这一物理事件<strong>绝不会自动、自发地通知到数千里之外的模型提供商机房</strong>。如果你的后端代码没有显式监听下行连接断开事件并主动向上游供应商发送连接切断信号，上游推理服务器对“用户早已离线”的事实一无所知，GPU 显存中的自回归计算将持续吐字，直至触达 <code>max_tokens</code> 上限或输出结束符号（EOS）。</p>
+            </section>
+
+            <section id="section-2">
+              <h2>二、幽灵计费的四层传递链路深度剖析</h2>
+              <p>大模型服务商的计费准则是：<strong>只要显卡分配了计算槽位并生成了 Token，无论这些 Token 最终是否被送达人类屏幕，算力成本均已实际发生，必须全额扣费</strong>。幽灵计费通常沿着以下四层链路形成闭环漏洞：</p>
+              <ul>
+                <li><strong>第 1 层：前端单向切断连接</strong>。用户发起了一个要求生成 4,000 字报告的提问，发现模型理解偏差，在第 1 秒（前端刚打印出 20 个字）便点击了“停止生成”。前端 JavaScript 调用 <code>controller.abort()</code>，前端控制台显示请求已 Cancelled。</li>
+                <li><strong>第 2 层：网关代理的缓冲池盲区</strong>。Nginx 或 Node.js 服务端在默认配置下具有输出缓冲机制（Output Buffering）。下游客户端虽然断开，但服务端的异步生成器（Async Iterator）依然在内存队列中持续接收数据包，静默丢弃响应体，但并没有向模型提供商发送 TCP RST。</li>
+                <li><strong>第 3 层：孤儿进程与常驻异步任务</strong>。现代语言的异步框架（如 Python <code>async for chunk in response</code> 或 Node.js 异步流）通常是一个后台 Promise 或 Task。如果缺乏底层的生命周期感知，该协程会一直运行到流自然结束，白白霸占后端工作线程。</li>
+                <li><strong>第 4 层：供应商账单结算全额扣除</strong>。五分钟后登录供应商后台查看 Usage 对账单，会发现该请求的 <code>completion_tokens</code> 依然赫然记录着 <code>4,096</code>，计费金额分文不少。用户以为自己只用了 20 个 Token，实际上企业账户却被扣减了全额费用，资金浪费率高达 <strong>99.5%</strong>。</li>
+              </ul>
+            </section>
+
+            <section id="section-3">
+              <h2>三、推理模型（Reasoning Models）下的灾难级放大效应</h2>
+              <p>在 DeepSeek-R1、OpenAI o1 / o3-mini 等具备深度思考链（Reasoning Tokens / Thinking Tokens）的模型问世后，流式中断缺失带来的资金黑洞呈指数级恶化。</p>
+              <p>传统对话模型在第 1 秒就开始吐出可见的普通文本；而推理大模型在开始向客户端推送正式文字之前，GPU 已经在后台完成了长达数秒乃至数十秒的高密度链式推理（Chain-of-Thought）。这部分推理 Token 计费单价通常远高于普通输入 Token，且哪怕客户端因等待过长（超时放弃）而关闭页面，后端如果没有及时将中断信号传导给供应商，供应商仍会将长达数万 Token 的思考过程完整跑完。原本几分钱的测试请求，可能瞬间演变成几美元的“幽灵扣费”，当面对并发自动化爬虫或恶意用户频繁点击刷新时，账户额度将在极短时间内被彻底击穿。</p>
+            </section>
+
+            <section id="section-4">
+              <h2>四、生产级全链路级联中断（Cascade Abort）代码范式</h2>
+              <p>彻底解决流式输出幽灵计费的关键，在于建立<strong>自底向上的全链路级联中断机制（Cascade Abort Propagation）</strong>。无论客户端因何种原因脱离会话，业务网关必须以毫秒级的响应主动切断与上游供应商的通信管道。</p>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>架构层次</th>
+                      <th>未配置中断（存在幽灵计费）</th>
+                      <th>正确配置级联中断（零额外损失）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>前端客户端</strong></td>
+                      <td>直接销毁 DOM，连接悬空</td>
+                      <td>主动触发 <code>AbortController.abort()</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Nginx 反代</strong></td>
+                      <td><code>proxy_ignore_client_abort on</code>（默认）</td>
+                      <td>显式配置 <code>proxy_ignore_client_abort off</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong>BFF / 后端</strong></td>
+                      <td>异步循环无感知，持续循环 <code>await chunk</code></td>
+                      <td>监听 <code>req.on('close')</code> 或 <code>is_disconnected()</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong>上游 SDK 调用</strong></td>
+                      <td>未传递 <code>signal</code> 选项</td>
+                      <td>显式绑定 <code>signal: clientAbortController.signal</code></td>
+                    </tr>
+                    <tr>
+                      <td><strong>供应商结算</strong></td>
+                      <td>按 <code>max_tokens</code> 全额计费</td>
+                      <td>在断开时刻立即截断，仅收取实际产出 Token</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>1. Node.js / Express / Next.js 最佳实现模式</h3>
+              <p>在 Node.js 环境中，必须通过 <code>req.on('close')</code> 监听底层 TCP Socket 的关闭事件，并将控制器信号透传给 OpenAI 官方客户端：</p>
+              <pre><code>// Node.js 级联中断核心逻辑示例
+const controller = new AbortController();
+
+// 监听客户端连接断开
+req.on('close', () => {
+  if (!res.writableEnded) {
+    // 关键：主动切断上游供应商网络请求，迫使服务商停算
+    controller.abort();
+  }
+});
+
+const stream = await openai.chat.completions.create({
+  model: 'gpt-4o',
+  messages: [{ role: 'user', content: prompt }],
+  stream: true,
+}, { signal: controller.signal }); // 显式注入 signal</code></pre>
+
+              <h3>2. Python FastAPI / Starlette 最佳实现模式</h3>
+              <p>在 Python FastAPI 异步生态中，FastAPI 的 <code>StreamingResponse</code> 必须在每一次 <code>yield</code> 之前检查连接是否存活：</p>
+              <pre><code># Python FastAPI 级联中断逻辑
+from fastapi import Request
+from httpx import HTTPStatusError
+
+async def generate_chunks(request: Request):
+    client = AsyncOpenAI()
+    try:
+        response = await client.chat.completions.create(
+            model="deepseek-reasoner",
+            messages=[{"role": "user", "content": prompt}],
+            stream=True
+        )
+        async for chunk in response:
+            # 每一轮吐字前检查客户端是否已断开连接
+            if await request.is_disconnected():
+                await response.close() # 显式释放并中断上游连接
+                break
+            yield f"data: {chunk.choices[0].delta.content}\n\n"
+    except Exception as e:
+        pass</code></pre>
+            </section>
+
+            <section id="section-5">
+              <h2>五、算力预算风控与资金结算防线</h2>
+              <p>除了代码维度的级联中断外，工程团队在管理跨国、多模型的 API 资源池时，还需要建立纵深资金防御策略：</p>
+              <p>一方面，务必在供应商控制台针对每一个 API Key 设定严格的 <code>Usage Limits</code>（月度支出限额与单日软警告线），防止偶发的死循环脚本在一夜之间烧干额度；另一方面，对于面向海外用户或对接多个境外专有模型的工程团队，频繁的预充值与多平台资金分散往往伴随着高额的法币换汇磨损、虚拟信用卡拒付冻结等结算隐患。</p>
+              <p>在管理云端多模型预算储备与按需结算时，许多出海团队已逐步转向利用链上非托管基础设施进行资金配置。例如，通过 <a href="https://allswap.io/zh-hans" target="_blank" rel="noopener nofollow">AllSwap</a> 这种专业的非托管跨链支付与即时资产兑换协议，开发团队可以在 Arbitrum、Base、Optimism、Solana 及以太坊等主流公链之间，实现多链稳定币（USDT、USDC）与核心原生代币的极速低滑点即时互换。与传统的中心化充值通道不同，AllSwap 纯粹依托链上智能合约撮合执行，全程不托管用户私钥与资产，完全无需经历冗长的集中式出入金审核流程。开发者可以根据不同模型厂商的计费节点与支付通道，按需、即时地调度各链资产并注入算力卡槽，从而在避免资金长期滞留单点平台的同时，有效隔绝突发计费失控对主资金池的穿透性风险。</p>
+            </section>
+
+            <section id="section-6">
+              <h2>六、常见排查疑问（FAQ）</h2>
+              <div class="faq-item">
+                <h3>Q1：我已经配置了 AbortSignal，为什么后台仍然扣除了少量 Token？</h3>
+                <p>A：网络中断信号在物理光纤上传输存在延迟（网络 RTT），上游数据中心收到 TCP RST 并调度 GPU 线程停止上下文时通常需要数十毫秒的缓冲时间。因此，中断时刻前后约 10~50 个正在生成缓冲管道中的 Token 仍会被计费属于正常物理延迟，但相比跑完数千字的全量扣费，已经挽回了 98% 以上的无效支出。</p>
+              </div>
+              <div class="faq-item">
+                <h3>Q2：设置较小的 max_tokens 可以替代中断控制吗？</h3>
+                <p>A：不能。<code>max_tokens</code> 只是硬性截断上限，如果用户提问需要长篇输出，设置过小会导致正常业务文本不完整；设置过大则在发生用户中断时无法起到实时刹车的作用。二者是互补机制，不能互相替代。</p>
+              </div>
+            </section>
+
+            <div class="related">
+              <h2>相关文章</h2>
+              <ul>
+                <li><a href="/articles/overseas-ai-timestamp-breaks-prompt-cache.html">提示词里加了当前时间，为什么百万Token缓存优惠全部泡汤？</a></li>
+                <li><a href="/articles/domestic-ai-token-package-vs-rate-limit-429.html">买了模型Token资源包，为什么并发调用依然疯狂被429限流？</a></li>
+                <li><a href="/articles/ai-api-rate-limit-tier-billing.html">API 速率限制与层级计费：如何避免突发限流与费用惩罚</a></li>
+                <li><a href="/articles/overseas-ai-batch-vs-realtime-api.html">Batch 批处理 vs 实时 API：非时效性任务如何节省 50% 成本</a></li>
+              </ul>
+            </div>
+
+            <div class="back-row">
+              <a href="/articles.html">← 返回全部文章列表</a>
+            </div>
+          </div>
+
+          <aside class="article-sidebar">
+            <nav class="toc" aria-label="文章目录">
+              <h2>目录</h2>
+              <ol>
+                <li><a href="#section-1">一、流式输出的工程假象</a></li>
+                <li><a href="#section-2">二、幽灵计费的四层传递链路</a></li>
+                <li><a href="#section-3">三、推理模型的灾难级放大效应</a></li>
+                <li><a href="#section-4">四、全链路级联中断代码范式</a></li>
+                <li><a href="#section-5">五、算力预算风控与资金防线</a></li>
+                <li><a href="#section-6">六、常见排查疑问（FAQ）</a></li>
+              </ol>
+            </nav>
+
+            <aside class="references" aria-label="资料来源与延伸阅读">
+              <h2>资料来源与延伸阅读</h2>
+              <ul>
+                <li><a href="https://platform.openai.com/docs/api-reference/streaming" target="_blank" rel="noopener nofollow">OpenAI Streaming API Reference</a>：关于流式输出响应生命周期与中断未达时按实际生成量计费的官方说明。</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener nofollow">MDN AbortController Specification</a>：现代 Web 平台关于异步网络请求取消与信号传递的标准规范。</li>
+                <li><a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_ignore_client_abort" target="_blank" rel="noopener nofollow">Nginx Core Module Docs</a>：反向代理模块下 proxy_ignore_client_abort 指令的工作原理及对上游连接保持的影响。</li>
+              </ul>
+              <p class="ref-note">声明：API 结算规则与平台策略可能随各厂商版本迭代调整，请以各大服务商最新官方技术规范为准。</p>
+            </aside>
+          </aside>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <footer class="site-foot">
+    <div class="site-foot-bottom">
+      <p>&copy; 2026 AI服务指南 (ponr.org). 保留所有权利。</p>
+      <p>本站提供中立、客观的海外与本土 AI 服务订阅、API 计费分析与工程化实测指南。</p>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="返回顶部" title="返回顶部">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="/js/site.min.js?v=53ada060a7" defer></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#121a29"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  <circle cx="120" cy="80" r="140" fill="#10b981" opacity="0.06"/>
+  <circle cx="700" cy="320" r="160" fill="#f59e0b" opacity="0.05"/>
+
+  <!-- Top Badge & Header -->
+  <rect x="40" y="32" width="130" height="26" rx="13" fill="rgba(6, 182, 212, 0.16)"/>
+  <text x="105" y="49" fill="#67e8f9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="700" text-anchor="middle">STREAMING API</text>
+  <text x="185" y="50" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="13">流式中断与幽灵计费机制剖析</text>
+
+  <!-- Title inside SVG -->
+  <text x="40" y="86" fill="#f1f5f9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="20" font-weight="800">客户端断开连接 ≠ 上游模型停止扣费</text>
+
+  <!-- Diagram Architecture: 3 nodes -->
+  <!-- Node 1: Client Browser -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="125" width="200" height="215" rx="14" fill="#131b26" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
+    <rect x="40" y="125" width="200" height="38" rx="14" fill="#1a2434"/>
+    <text x="56" y="149" fill="#f1f5f9" font-family="-apple-system,sans-serif" font-size="13" font-weight="700">1. 客户端 Web / App</text>
+    
+    <!-- Disconnect box -->
+    <rect x="55" y="180" width="170" height="64" rx="8" fill="rgba(239, 68, 68, 0.12)" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1"/>
+    <text x="140" y="204" fill="#f87171" font-family="-apple-system,sans-serif" font-size="13" font-weight="700" text-anchor="middle">✖ 点击「停止生成」</text>
+    <text x="140" y="226" fill="#fca5a5" font-family="-apple-system,sans-serif" font-size="11" text-anchor="middle">EventSource / fetch 关闭</text>
+
+    <text x="56" y="270" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="11">实际收到：24 字</text>
+    <text x="56" y="292" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="11">耗时：0.8 秒</text>
+    <text x="56" y="318" fill="#34d399" font-family="-apple-system,sans-serif" font-size="11" font-weight="600">用户感知：已立刻刹车</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 (Broken/Cut) -->
+  <path d="M 240 220 L 295 220" stroke="#f87171" stroke-width="2.5" stroke-dasharray="4 4"/>
+  <circle cx="268" cy="220" r="12" fill="#2d1215" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="268" y="225" fill="#f87171" font-family="-apple-system,sans-serif" font-size="12" font-weight="900" text-anchor="middle">✕</text>
+
+  <!-- Node 2: Backend Gateway / BFF -->
+  <g filter="url(#cardShadow)">
+    <rect x="295" y="125" width="210" height="215" rx="14" fill="#131b26" stroke="rgba(255,255,255,0.1)" stroke-width="1.2"/>
+    <rect x="295" y="125" width="210" height="38" rx="14" fill="#1a2434"/>
+    <text x="311" y="149" fill="#f1f5f9" font-family="-apple-system,sans-serif" font-size="13" font-weight="700">2. 业务网关 / BFF 代理</text>
+    
+    <rect x="310" y="178" width="180" height="68" rx="8" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1"/>
+    <text x="400" y="200" fill="#fbbf24" font-family="-apple-system,sans-serif" font-size="12" font-weight="700" text-anchor="middle">⚠️ 未传递 AbortSignal</text>
+    <text x="400" y="220" fill="#fde68a" font-family="-apple-system,sans-serif" font-size="10.5" text-anchor="middle">HTTP连接已断但线程常驻</text>
+    <text x="400" y="236" fill="#fde68a" font-family="-apple-system,sans-serif" font-size="10.5" text-anchor="middle">上游套接字未触发关闭</text>
+
+    <text x="311" y="272" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="11">下行 Socket：CLOSED</text>
+    <text x="311" y="294" fill="#f59e0b" font-family="-apple-system,sans-serif" font-size="11">上行 Socket：KEEP-ALIVE</text>
+    <text x="311" y="320" fill="#f87171" font-family="-apple-system,sans-serif" font-size="11" font-weight="600">隐患：形成孤儿消费流</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 (Flowing Full Speed) -->
+  <path d="M 505 220 L 560 220" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="562,220 554,215 554,225" fill="#f59e0b"/>
+
+  <!-- Node 3: LLM Upstream Cloud -->
+  <g filter="url(#cardShadow)">
+    <rect x="560" y="125" width="200" height="215" rx="14" fill="#131b26" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1.2"/>
+    <rect x="560" y="125" width="200" height="38" rx="14" fill="#241b12"/>
+    <text x="576" y="149" fill="#fbbf24" font-family="-apple-system,sans-serif" font-size="13" font-weight="700">3. 模型供应商 GPU</text>
+    
+    <rect x="575" y="178" width="170" height="70" rx="8" fill="rgba(239, 68, 68, 0.16)" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
+    <text x="660" y="200" fill="#fca5a5" font-family="-apple-system,sans-serif" font-size="12" font-weight="700" text-anchor="middle">GPU 持续解码至上限</text>
+    <text x="660" y="222" fill="#f87171" font-family="-apple-system,sans-serif" font-size="13" font-weight="800" text-anchor="middle">4,096 Tokens 全额结算</text>
+    <text x="660" y="238" fill="#fca5a5" font-family="-apple-system,sans-serif" font-size="10.5" text-anchor="middle">账单记录全部生成量</text>
+
+    <text x="576" y="274" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="11">前端消费：24 Tokens</text>
+    <text x="576" y="296" fill="#f87171" font-family="-apple-system,sans-serif" font-size="11" font-weight="700">后台扣费：4,096 Tokens</text>
+    <text x="576" y="320" fill="#f87171" font-family="-apple-system,sans-serif" font-size="11" font-weight="700">浪费比率：高达 99.4%</text>
+  </g>
+
+  <!-- Bottom Warning Banner -->
+  <rect x="40" y="354" width="720" height="24" rx="6" fill="rgba(245, 158, 11, 0.08)"/>
+  <text x="400" y="370" fill="#fde68a" font-family="-apple-system,sans-serif" font-size="11.5" text-anchor="middle">核心机制：HTTP/SSE 是单工流动协议，若不主动触发底层 AbortSignal，上游供应商无从得知下游意图并照常全额扣费</text>
+</svg>
