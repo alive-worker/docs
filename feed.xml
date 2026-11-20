@@ -6,8 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Nov 2026 09:39:03 +0800</lastBuildDate>
+      <lastBuildDate>Fri, 20 Nov 2026 14:02:17 +0800</lastBuildDate>
   <item>
+    <title><![CDATA[大模型API配置自动重试，为什么偶发超时会导致单次提问产生3倍扣费？]]></title>
+    <link>https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</guid>
+    <pubDate>Fri, 20 Nov 2026 14:02:17 +0800</pubDate>
+    <description><![CDATA[在大模型应用接入网关中，开发者常为防范网络抖动配置客户端超时与自动重试机制。实测发现，大模型推理属于耗时极长的异步长计算，前端超时中断并不等同于上游停止解码。盲目重试将触发并发重试风暴，导致单次提问产生3到5倍重复Token扣费与恶性限流。本文深入剖析超时解耦与幂等校验机制，提供生产级防重扣费治理方案。]]></description>
+  </item>
+
     <title><![CDATA[大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？]]></title>
     <link>https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html</guid>

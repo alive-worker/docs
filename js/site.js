@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/domestic-ai-api-retry-timeout-multi-billing.html': '2026-11-20 14:02:17',
+    '/en/articles/api-retry-timeout-multi-billing.html': '2026-11-20 14:02:17',
     '/articles/overseas-ai-streaming-abort-token-billing.html': '2026-11-20 09:39:03',
     '/en/articles/streaming-abort-still-bills-tokens.html': '2026-11-20 09:39:03',
     '/articles/overseas-ai-timestamp-breaks-prompt-cache.html': '2026-11-19 14:52:45',
