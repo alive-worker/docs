@@ -6,8 +6,15 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-      <lastBuildDate>Fri, 20 Nov 2026 14:02:17 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 22 Nov 2026 14:06:38 +0800</lastBuildDate>
   <item>
+    <title><![CDATA[RAG知识库问答调大Top-K，为什么缺乏重排会导致90%输入Token沦为账单噪声？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-rag-topk-rerank-token-waste.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-rag-topk-rerank-token-waste.html</guid>
+    <pubDate>Sun, 22 Nov 2026 14:06:38 +0800</pubDate>
+    <description><![CDATA[在搭建企业级RAG知识库问答时，开发者常通过调大Top-K召回切片来保障命中率。实测表明，未经重排（Rerank）的粗排切片包含大量冗余噪声，不仅导致模型陷入中间迷失产生严重幻觉，更使单次提示词输入Token暴涨数倍，造成高达90%的算力浪费。本文深度拆解二阶段重排精剪机制与RAG工程全套降本实操方案。]]></description>
+  </item>
+
     <title><![CDATA[大模型API配置自动重试，为什么偶发超时会导致单次提问产生3倍扣费？]]></title>
     <link>https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</guid>

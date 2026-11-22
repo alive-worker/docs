@@ -215,6 +215,8 @@
 
   // Publish dates keyed by article URL — single source for the sidebar time labels.
   var DATES = {
+    '/articles/overseas-ai-rag-topk-rerank-token-waste.html': '2026-11-22 14:06:38',
+    '/en/articles/rag-topk-rerank-token-waste.html': '2026-11-22 14:06:38',
     '/articles/domestic-ai-api-retry-timeout-multi-billing.html': '2026-11-20 14:02:17',
     '/en/articles/api-retry-timeout-multi-billing.html': '2026-11-20 14:02:17',
     '/articles/overseas-ai-streaming-abort-token-billing.html': '2026-11-20 09:39:03',
