@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ponr.org/en/articles/mcp-server-tool-bloat-token-tax.html</loc>
+    <lastmod>2026-11-27T23:03:51+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ponr.org/articles/overseas-ai-mcp-server-tool-context-bloat.html</loc>
+    <lastmod>2026-11-27T23:03:51+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://ponr.org/en/articles/structured-outputs-schema-token-tax.html</loc>
     <lastmod>2026-11-25T09:58:41+08:00</lastmod>
   </url>
@@ -356,11 +364,11 @@
   </url>
   <url>
     <loc>https://ponr.org/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles.html</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/articles/overseas-ai-annual-plan-refund-proration.html</loc>
@@ -1036,11 +1044,11 @@
   </url>
   <url>
     <loc>https://ponr.org/en/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles.html</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/articles/ai-application-scenarios-deep-dive.html</loc>
@@ -1272,7 +1280,7 @@
   </url>
   <url>
     <loc>https://ponr.org/topics/billing-account/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/en/topics/basics/</loc>
@@ -1288,7 +1296,7 @@
   </url>
   <url>
     <loc>https://ponr.org/en/topics/billing-account/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
     <loc>https://ponr.org/tools/price-hike-calculator.html</loc>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#090d1a"/>
+      <stop offset="100%" stop-color="#11192e"/>
+    </linearGradient>
+    <linearGradient id="bloatBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="slimBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <circle cx="400" cy="110" r="190" fill="#6366f1" opacity="0.06"/>
+  <circle cx="680" cy="330" r="150" fill="#10b981" opacity="0.05"/>
+
+  <!-- Header -->
+  <rect x="40" y="24" width="128" height="24" rx="12" fill="rgba(99, 102, 241, 0.18)" stroke="rgba(129, 140, 248, 0.4)"/>
+  <text x="104" y="40" fill="#a5b4fc" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="700" text-anchor="middle">MCP CONTEXT TAX</text>
+  <text x="182" y="41" fill="#94a3b8" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="12.5">多 MCP 服务全量预加载与上下文膨胀解剖</text>
+
+  <text x="40" y="76" fill="#f8fafc" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20" font-weight="800">还没问第一句话，5 个 MCP 服务已占满 58,000+ 输入 Token</text>
+
+  <!-- Top Row: 5 MCP Server Pills -->
+  <g font-family="-apple-system,sans-serif" text-anchor="middle">
+    <rect x="40" y="102" width="132" height="44" rx="10" fill="#161f36" stroke="rgba(129,140,248,0.4)"/>
+    <text x="106" y="121" fill="#e2e8f0" font-size="12" font-weight="700">GitHub MCP</text>
+    <text x="106" y="137" fill="#a5b4fc" font-size="10.5">26 工具 · ~14k</text>
+
+    <rect x="187" y="102" width="132" height="44" rx="10" fill="#161f36" stroke="rgba(245,158,11,0.4)"/>
+    <text x="253" y="121" fill="#e2e8f0" font-size="12" font-weight="700">Playwright MCP</text>
+    <text x="253" y="137" fill="#fbbf24" font-size="10.5">21 工具 · ~13k</text>
+
+    <rect x="334" y="102" width="132" height="44" rx="10" fill="#161f36" stroke="rgba(239,68,68,0.4)"/>
+    <text x="400" y="121" fill="#e2e8f0" font-size="12" font-weight="700">Postgres MCP</text>
+    <text x="400" y="137" fill="#fca5a5" font-size="10.5">14 工具 · ~10k</text>
+
+    <rect x="481" y="102" width="132" height="44" rx="10" fill="#161f36" stroke="rgba(245,158,11,0.4)"/>
+    <text x="547" y="121" fill="#e2e8f0" font-size="12" font-weight="700">Slack / Jira</text>
+    <text x="547" y="137" fill="#fbbf24" font-size="10.5">19 工具 · ~12k</text>
+
+    <rect x="628" y="102" width="132" height="44" rx="10" fill="#161f36" stroke="rgba(129,140,248,0.4)"/>
+    <text x="694" y="121" fill="#e2e8f0" font-size="12" font-weight="700">Notion / Files</text>
+    <text x="694" y="137" fill="#a5b4fc" font-size="10.5">16 工具 · ~9k</text>
+  </g>
+
+  <!-- Converging Funnel Curves into Context Window -->
+  <path d="M 106 146 C 106 184, 340 168, 370 202" fill="none" stroke="rgba(129,140,248,0.45)" stroke-width="2"/>
+  <path d="M 253 146 C 253 180, 360 172, 385 202" fill="none" stroke="rgba(245,158,11,0.5)" stroke-width="2"/>
+  <path d="M 400 146 L 400 202" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="2.2"/>
+  <path d="M 547 146 C 547 180, 440 172, 415 202" fill="none" stroke="rgba(245,158,11,0.5)" stroke-width="2"/>
+  <path d="M 694 146 C 694 184, 460 168, 430 202" fill="none" stroke="rgba(129,140,248,0.45)" stroke-width="2"/>
+
+  <!-- Comparison Gauge 1: Eager Loading (Default) -->
+  <text x="40" y="218" fill="#fca5a5" font-family="-apple-system,sans-serif" font-size="12.5" font-weight="700">默认全量预加载（每轮对话重复计费）</text>
+  <text x="760" y="218" fill="#f87171" font-family="-apple-system,sans-serif" font-size="12.5" font-weight="800" text-anchor="end">~58,400 Tokens / 轮</text>
+  <rect x="40" y="228" width="720" height="34" rx="8" fill="#131c2e" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="44" y="232" width="668" height="26" rx="5" fill="url(#bloatBar)"/>
+  <text x="378" y="249" fill="#ffffff" font-family="-apple-system,sans-serif" font-size="12" font-weight="800" text-anchor="middle">96 个 tools/list JSON Schema 定义 + 嵌套参数描述（用户提问仅占 0.1%）</text>
+
+  <!-- Comparison Gauge 2: Deferred Loading / Tool Search -->
+  <text x="40" y="294" fill="#6ee7b7" font-family="-apple-system,sans-serif" font-size="12.5" font-weight="700">开启延迟加载（Tool Search 按需展开）</text>
+  <text x="760" y="294" fill="#34d399" font-family="-apple-system,sans-serif" font-size="12.5" font-weight="800" text-anchor="end">~800 ~ 6,500 Tokens（降本 ~85%）</text>
+  <rect x="40" y="304" width="720" height="34" rx="8" fill="#131c2e" stroke="rgba(52,211,153,0.28)"/>
+  <rect x="44" y="308" width="96" height="26" rx="5" fill="url(#slimBar)"/>
+  <text x="92" y="325" fill="#ffffff" font-family="-apple-system,sans-serif" font-size="11" font-weight="800" text-anchor="middle">按需检索</text>
+  <text x="156" y="325" fill="#94a3b8" font-family="-apple-system,sans-serif" font-size="11.5">其余 90+ 工具标记 defer_loading: true，不占用初始上下文与输入账单</text>
+
+  <!-- Footer -->
+  <text x="40" y="376" fill="#64748b" font-family="-apple-system,sans-serif" font-size="11">ponr.org · 治理 MCP 税的三板斧：延迟加载（Tool Search）+ 返回值服务端截断 + 限制 Sampling 反向调用</text>
+</svg>

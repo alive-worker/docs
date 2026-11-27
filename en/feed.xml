@@ -6,7 +6,14 @@
   <atom:link href="https://ponr.org/en/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Practical, first-hand guides on subscribing to ChatGPT, Claude, Gemini and more from abroad — payment channels, virtual cards, stablecoins, account security, and team fund management.</description>
   <language>en-us</language>
-        <lastBuildDate>Wed, 25 Nov 2026 09:58:41 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 27 Nov 2026 23:03:51 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[Why Connecting MCP Servers Burns 50k Tokens Before You Ask]]></title>
+    <link>https://ponr.org/en/articles/mcp-server-tool-bloat-token-tax.html</link>
+    <guid isPermaLink="true">https://ponr.org/en/articles/mcp-server-tool-bloat-token-tax.html</guid>
+    <pubDate>Fri, 27 Nov 2026 23:03:51 +0800</pubDate>
+    <description><![CDATA[Connecting multiple MCP servers injects 50k+ tokens of tool schemas before your first prompt. Learn how deferred loading, truncation, and sampling cut bills.]]></description>
+  </item>
   <item>
     <title><![CDATA[Why JSON Schema Outputs Slow Calls and Inflate Token Bills]]></title>
     <link>https://ponr.org/en/articles/structured-outputs-schema-token-tax.html</link>

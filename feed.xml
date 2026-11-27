@@ -6,7 +6,14 @@
   <atom:link href="https://ponr.org/feed.xml" rel="self" type="application/rss+xml"/>
   <description>围绕海外 AI 服务订阅开通、支付通道、虚拟卡、稳定币支付、账号安全与团队资金管理的原创实用长文，中文更新。</description>
   <language>zh-cn</language>
-        <lastBuildDate>Wed, 25 Nov 2026 09:58:41 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 27 Nov 2026 23:03:51 +0800</lastBuildDate>
+  <item>
+    <title><![CDATA[接入多个 MCP 服务后，为什么一句“你好”就能烧掉 5 万 Token？]]></title>
+    <link>https://ponr.org/articles/overseas-ai-mcp-server-tool-context-bloat.html</link>
+    <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-mcp-server-tool-context-bloat.html</guid>
+    <pubDate>Fri, 27 Nov 2026 23:03:51 +0800</pubDate>
+    <description><![CDATA[给AI客户端接入GitHub、数据库、浏览器等多个MCP服务后，为何还没开始干活账单就暴涨、模型也变笨？本文拆解全量工具定义预加载带来的5万级隐性输入税、多轮原样回传的平方级膨胀与Sampling反向扣费风险，详解延迟加载（Tool Search）、服务端结果截断与多云算力预算隔离的实战控费降本方案。]]></description>
+  </item>
   <item>
     <title><![CDATA[开启结构化输出（JSON Schema），为什么冷启动变慢且隐性Token翻倍？]]></title>
     <link>https://ponr.org/articles/overseas-ai-structured-outputs-schema-tax.html</link>
