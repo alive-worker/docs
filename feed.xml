@@ -29,6 +29,7 @@
     <description><![CDATA[在搭建企业级RAG知识库问答时，开发者常通过调大Top-K召回切片来保障命中率。实测表明，未经重排（Rerank）的粗排切片包含大量冗余噪声，不仅导致模型陷入中间迷失产生严重幻觉，更使单次提示词输入Token暴涨数倍，造成高达90%的算力浪费。本文深度拆解二阶段重排精剪机制与RAG工程全套降本实操方案。]]></description>
   </item>
 
+  <item>
     <title><![CDATA[大模型API配置自动重试，为什么偶发超时会导致单次提问产生3倍扣费？]]></title>
     <link>https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/domestic-ai-api-retry-timeout-multi-billing.html</guid>
@@ -36,6 +37,7 @@
     <description><![CDATA[在大模型应用接入网关中，开发者常为防范网络抖动配置客户端超时与自动重试机制。实测发现，大模型推理属于耗时极长的异步长计算，前端超时中断并不等同于上游停止解码。盲目重试将触发并发重试风暴，导致单次提问产生3到5倍重复Token扣费与恶性限流。本文深入剖析超时解耦与幂等校验机制，提供生产级防重扣费治理方案。]]></description>
   </item>
 
+  <item>
     <title><![CDATA[大模型API开启流式输出，为什么客户端中断连接后仍在全额计费？]]></title>
     <link>https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-streaming-abort-token-billing.html</guid>
@@ -43,6 +45,7 @@
     <description><![CDATA[在调用大模型API开启流式传输（SSE）时，许多开发者误以为客户端点击停止或关闭页面即可截断开销。实测发现，若服务端网关未向模型供应商发送TCP中断并触发AbortSignal，上游GPU仍会按预设额度持续解码，导致Token账单翻倍。本文深入拆解连接解耦机制与异步队列陷阱，提供全链路中断与熔断防护方案。]]></description>
   </item>
 
+  <item>
     <title><![CDATA[提示词里加了当前时间，为什么百万Token缓存优惠全部泡汤？]]></title>
     <link>https://ponr.org/articles/overseas-ai-timestamp-breaks-prompt-cache.html</link>
     <guid isPermaLink="true">https://ponr.org/articles/overseas-ai-timestamp-breaks-prompt-cache.html</guid>

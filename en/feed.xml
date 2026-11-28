@@ -29,6 +29,7 @@
     <description><![CDATA[Enlarging RAG Top-K retrieval injects noisy context chunks, triggering hallucinations and wasting tokens. Learn how reranking slashes LLM prompt expenses.]]></description>
   </item>
 
+  <item>
     <title><![CDATA[Why AI API Auto-Retries Trigger 3x Token Billing on Timeouts]]></title>
     <link>https://ponr.org/en/articles/api-retry-timeout-multi-billing.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/api-retry-timeout-multi-billing.html</guid>
@@ -36,6 +37,7 @@
     <description><![CDATA[Aggressive HTTP retries on LLM timeouts trigger retry storms, causing single queries to bill 3x to 5x duplicate tokens. Learn how to implement idempotency.]]></description>
   </item>
 
+  <item>
     <title><![CDATA[Why Streaming LLM APIs Still Bill Tokens After Disconnect]]></title>
     <link>https://ponr.org/en/articles/streaming-abort-still-bills-tokens.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/streaming-abort-still-bills-tokens.html</guid>
@@ -43,6 +45,7 @@
     <description><![CDATA[When using streaming LLM APIs, client disconnects do not halt upstream GPU inference without active abort signals. Learn how to prevent ghost token charges.]]></description>
   </item>
 
+  <item>
     <title><![CDATA[Why Does a Timestamp Break All Prompt Cache Discounts?]]></title>
     <link>https://ponr.org/en/articles/timestamp-breaks-prompt-cache.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/timestamp-breaks-prompt-cache.html</guid>
@@ -83,7 +86,7 @@
     <description><![CDATA[Each partial image adds 100 image output tokens.]]></description>
   </item>
   <item>
-    <title><![CDATA[Why does a small reference image take the output's pixel tier?]]></title>
+    <title><![CDATA[Why does a small reference take the output's pixel tier?]]></title>
     <link>https://ponr.org/en/articles/image-tier-follows-output-area.html</link>
     <guid isPermaLink="true">https://ponr.org/en/articles/image-tier-follows-output-area.html</guid>
     <pubDate>Thu, 12 Nov 2026 13:54:00 +0800</pubDate>
