@@ -455,6 +455,9 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
   background-attachment: initial;
   background-size: auto;
   background-repeat: repeat;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
   will-change: auto;
   margin-top: 28px;
 }
